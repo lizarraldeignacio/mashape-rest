@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2548="urn:function:f2548" xmlns:f2549="urn:function:f2549">
+    <grammars>
+        <include href="Function2549.xsd"/>
+        <include href="Function2548.xsd"/>
+    </grammars>
+    <doc>this api will search any game on ign gamespot and metacritic and will give you the reviews of the critic and the users It can also give you information about the game such as publisher developer genre summary release date and more</doc>
+    <resources base="https://ahmedakhan-game-review-information-v1.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="v1/">
+                <resource uri="search/">
+                    <method displayName="/api/v1/search" id="2549" name="GET">
+                        <doc>This is for searching a game. Search for a game name and it will return the list of possible games that have similar names</doc>
+                        <request>
+                            <param name="console" required="true" style="query" type="xsd:string">
+                                <doc>this is the console you want to search the game for</doc>
+                            </param>
+                            <param name="gameName" required="true" style="query" type="xsd:string">
+                                <doc>this is the name that you want to search</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2549:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="information/">
+                    <method displayName="/api/v1/information" id="2548" name="GET">
+                        <doc>This if for getting information about a specific game</doc>
+                        <request>
+                            <param name="console" required="true" style="query" type="xsd:string">
+                                <doc>the platform or console the game is played on for example xbox playstation wii u</doc>
+                            </param>
+                            <param name="gameName" required="true" style="query" type="xsd:string">
+                                <doc>this is the name of the game that you want information of</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2548:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

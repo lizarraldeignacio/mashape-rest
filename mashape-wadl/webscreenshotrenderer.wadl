@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4632="urn:function:f4632">
+    <grammars>
+        <include href="Function4632.xsd"/>
+    </grammars>
+    <doc>this service renders screenshot of web page to various image formats You can specify additional parameters to customize rendering process It runs on cloud based high availability fault tolerant server farm</doc>
+    <resources base="https://petadata-web-screenshot-renderer.p.mashape.com/">
+        <resource uri="Renderer/">
+            <resource uri="RenderUriAsUri/">
+                <method displayName="RenderUriAsUri" id="4632" name="GET">
+                    <doc>Renders screenshot of webpage and returns uri of image</doc>
+                    <request>
+                        <param name="browserheight" required="true" style="query" type="xsd:integer">
+                            <doc>preferred browser height in pixels If you pass service will render whole webpage Default</doc>
+                        </param>
+                        <param name="browserwidth" required="true" style="query" type="xsd:integer">
+                            <doc>preferred browser width in pixels Can be used to render responsive screenshots Default</doc>
+                        </param>
+                        <param name="imageformat" required="true" style="query" type="xsd:string">
+                            <doc>the image format Can be bmp jpg emf exif gif wmf png or tif Default png</doc>
+                        </param>
+                        <param name="imageheight" required="true" style="query" type="xsd:integer">
+                            <doc>preferred image height in pixels Can be used to create thumbnail image Default null</doc>
+                        </param>
+                        <param name="imagewidth" required="true" style="query" type="xsd:integer">
+                            <doc>preferred image width in pixels Can be used to create thumbnail image Default null</doc>
+                        </param>
+                        <param name="renderdelay" required="true" style="query" type="xsd:integer">
+                            <doc>the time in seconds to delay before rendering web page Default</doc>
+                        </param>
+                        <param name="websiteuri" required="true" style="query" type="xsd:string">
+                            <doc>url of a web page to render</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4632:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="RenderUriAsBinary/">
+                <method displayName="RenderUriAsBinary" id="4631" name="GET">
+                    <doc>Renders screenshot of webpage and returns byte array of image</doc>
+                    <request>
+                        <param name="browserheight" required="true" style="query" type="xsd:integer">
+                            <doc>preferred browser height in pixels If you pass service will render whole webpage Default</doc>
+                        </param>
+                        <param name="browserwidth" required="true" style="query" type="xsd:integer">
+                            <doc>preferred browser width in pixels Can be used to render responsive screenshots Default</doc>
+                        </param>
+                        <param name="imageformat" required="true" style="query" type="xsd:string">
+                            <doc>the image format Can be bmp jpg emf exif gif wmf png or tif Default png</doc>
+                        </param>
+                        <param name="imageheight" required="true" style="query" type="xsd:integer">
+                            <doc>preferred image height in pixels Can be used to create thumbnail image Default null</doc>
+                        </param>
+                        <param name="imagewidth" required="true" style="query" type="xsd:integer">
+                            <doc>preferred image width in pixels Can be used to create thumbnail image Default null</doc>
+                        </param>
+                        <param name="renderdelay" required="true" style="query" type="xsd:integer">
+                            <doc>the time in seconds to delay before rendering web page Default</doc>
+                        </param>
+                        <param name="websiteuri" required="true" style="query" type="xsd:string">
+                            <doc>url of a web page to render</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="RenderHtmlAsBinary/">
+                <method displayName="RenderHtmlAsBinary" id="4630" name="GET">
+                    <doc>Renders screenshot of html code and returns byte array of image</doc>
+                    <request>
+                        <param name="browserheight" required="true" style="query" type="xsd:integer">
+                            <doc>preferred browser height in pixels If you pass service will render whole webpage Default</doc>
+                        </param>
+                        <param name="browserwidth" required="true" style="query" type="xsd:integer">
+                            <doc>preferred browser width in pixels Can be used to render responsive screenshots Default</doc>
+                        </param>
+                        <param name="htmlcontent" required="true" style="query" type="xsd:string">
+                            <doc>html code to render</doc>
+                        </param>
+                        <param name="imageformat" required="true" style="query" type="xsd:string">
+                            <doc>the image format Can be bmp jpg emf exif gif wmf png or tif Default png</doc>
+                        </param>
+                        <param name="imageheight" required="true" style="query" type="xsd:integer">
+                            <doc>preferred image height in pixels Can be used to create thumbnail image Default null</doc>
+                        </param>
+                        <param name="imagewidth" required="true" style="query" type="xsd:integer">
+                            <doc>preferred image width in pixels Can be used to create thumbnail image Default null</doc>
+                        </param>
+                        <param name="renderdelay" required="true" style="query" type="xsd:integer">
+                            <doc>the time in seconds to delay before rendering web page Default</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>provides consistent well structured whois data in XML JSON</doc>
+    <resources base="https://whoisapi.p.mashape.com/">
+        <resource uri="whoisserver/">
+            <resource uri="WhoisService/">
+                <method displayName="whois lookup" id="669" name="GET">
+                    <request>
+                        <param name="domainname" required="true" style="query" type="xsd:string">
+                            <doc>input domain name to lookup</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

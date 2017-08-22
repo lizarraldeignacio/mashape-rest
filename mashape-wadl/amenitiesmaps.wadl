@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2114="urn:function:f2114">
+    <grammars>
+        <include href="Function2114.xsd"/>
+    </grammars>
+    <doc>ameniMaps brings you a collection of Android Maps for various cities and other interesting places in the world With the App you will be able to use the free offline map of the place and quickly locate essential amenities like public toilets bank machines subway entrances benches water fountains and many others with ease data from OpenStreetMap org</doc>
+    <resources base="https://community-amenities-maps.p.mashape.com/">
+        <resource uri="amenimapi.php/">
+            <method displayName="Get amenity locations" id="2114" name="GET">
+                <request>
+                    <param name="amenity" required="true" style="query" type="xsd:string">
+                        <doc>toilet atm bank postoffice bakery bar bench bicyclerental cafe convenience drinkingwater fastfood fuel parking pharmacy playground pub subwayentrance supermarket</doc>
+                    </param>
+                    <param name="mode" required="true" style="query" type="xsd:string"/>
+                    <param name="mylat" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="mylon" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2114:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

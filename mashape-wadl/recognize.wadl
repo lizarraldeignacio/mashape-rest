@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>vufind Recognize is a real time image recognition API for classification and monetization of photos and videos Recognize uses object recognition to uncover meaning and metadata of photos and videos for contextual image commerce and advertising Object types can be landmarks scenes apparel decor food products etc We re continuously adding objects and will prioritize adding objects in genres where customer demand is high</doc>
+    <resources base="https://vufind-vufind-recognize.p.mashape.com/">
+        <resource uri="vugraph/">
+            <resource uri="v175/">
+                <resource uri="recognize.php/">
+                    <method displayName="Recognize objects" id="1000" name="GET">
+                        <doc>Recognize 8 different genres in photos (fashion, landmark, scene etc)</doc>
+                        <request>
+                            <param name="appKey" required="true" style="query" type="xsd:string">
+                                <doc>vufind s API key</doc>
+                            </param>
+                            <param name="genre" required="true" style="query" type="xsd:string">
+                                <doc>fashion is default Other objects you can detect food scenes decor landmarks man made moms nature</doc>
+                            </param>
+                            <param name="token" required="true" style="query" type="xsd:string">
+                                <doc>vufind s persistent token</doc>
+                            </param>
+                            <param name="url" required="true" style="query" type="xsd:string">
+                                <doc>the URL of the photo preferably terminating in jpg or png We do not accept GIF images</doc>
+                            </param>
+                            <param name="userId" required="true" style="query" type="xsd:string">
+                                <doc>your app s id of user associated with this image for interest graph purposes</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>technology can make government more responsive accountable and useful whether through an email reminder about a community meeting or an app that connects you to your council rep But first data about your government needs to be organized into a fo</doc>
+    <resources base="https://community-open-civic-data.p.mashape.com/">
+        <resource uri="votes/">
+            <method displayName="Vote Search" id="6407" name="GET">
+                <request>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="updatedAt" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="people/">
+            <method displayName="Person Search" id="6406" name="GET">
+                <request>
+                    <param name="birthDate" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="createdAt" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="deathDate" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="everMemberOf" required="true" style="query" type="xsd:string">
+                        <doc>like member of but checks all memberships not only current ones</doc>
+                    </param>
+                    <param name="gender" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="memberOf" required="true" style="query" type="xsd:string">
+                        <doc>parameter should be an Open Civic Data organization id will filter returned people to those that are a current member of the given organization</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="updatedAt" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="organizations/">
+            <method displayName="Organization Search" id="6405" name="GET">
+                <request>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="perPage" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="jurisdictions/">
+            <method displayName="Jurisdictions Search" id="6404" name="GET">
+                <request>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="divisions/">
+            <method displayName="Divisions Search" id="6403" name="GET">
+                <request>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="bills/">
+            <method displayName="Bill Search" id="6402" name="GET">
+                <request>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>the callback parameter is used for making JSONP requests</doc>
+                    </param>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc>the fields parameter can be used to specify which fields you want to be returned in the response</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3905="urn:function:f3905" xmlns:f3907="urn:function:f3907" xmlns:f3908="urn:function:f3908" xmlns:f3909="urn:function:f3909" xmlns:f3910="urn:function:f3910" xmlns:f3911="urn:function:f3911" xmlns:f3912="urn:function:f3912" xmlns:f3913="urn:function:f3913">
+    <grammars>
+        <include href="Function3911.xsd"/>
+        <include href="Function3909.xsd"/>
+        <include href="Function3913.xsd"/>
+        <include href="Function3908.xsd"/>
+        <include href="Function3912.xsd"/>
+        <include href="Function3907.xsd"/>
+        <include href="Function3905.xsd"/>
+        <include href="Function3910.xsd"/>
+    </grammars>
+    <doc>quickBlox is a cloud hosted Communications backend service We help developers and publishers add advanced communication features to their apps while reducing development time cost All our modules are available through SDKs for all major platforms Android iOS WP Blackberry and Web Communication Video Calling Voice Chat Instant Messaging Push Notifications Presence Data Location Users Content Custom Objects Ratings</doc>
+    <resources base="https://community-quickblox.p.mashape.com/">
+        <resource uri="geodata.json/">
+            <method displayName="POST geodata.json" id="3911" name="POST">
+                <doc>Create geodata which represent points on the earth</doc>
+                <request/>
+                <response>
+                    <representation element="f3911:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="users.json/">
+            <method displayName="GET users.json" id="3909" name="GET">
+                <doc>Call this API to get a list of current users of you app. By default it returns upto 10 users, but you can change this by adding pagination parameters.</doc>
+                <request>
+                    <param name="filter" required="true" style="query" type="xsd:string">
+                        <doc>you can filter the list of users by supplying a filter string For example the following filter limits the results to users who s login is either dgem or webdev string login in dgem webdev For more information on filtering see the filtering documentation</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>used to paginate the results when more than one page of users retrieved</doc>
+                    </param>
+                    <param name="perPage" required="true" style="query" type="xsd:string">
+                        <doc>the maximum number of users to return per page if not specified then the default is</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3909:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="POST users.json" id="3913" name="POST">
+                <doc>Call this API to register a user for the app. You must provide either a user login or email address along with their password, passing both email address and login is permitted but not required</doc>
+                <request/>
+                <response>
+                    <representation element="f3913:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="places.json/">
+            <method displayName="GET places.json" id="3908" name="GET">
+                <doc>Retrieving a list of the created places by application</doc>
+                <request/>
+                <response>
+                    <representation element="f3908:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="POST places.json" id="3912" name="POST">
+                <doc>Create place</doc>
+                <request/>
+                <response>
+                    <representation element="f3912:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="geodata/">
+            <resource uri="find.json/">
+                <method displayName="GET geodata/find.json" id="3907" name="GET">
+                    <doc>Retrieve all (by default) geodata for current application. The ID of the application is taken from the token which is specified in the request</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3907:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="blobs/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <resource uri="complete.json/">
+                    <method displayName="PUT blobs/{id}/complete.json" id="3914" name="PUT">
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="{uid}.xml/">
+                <param name="uid" style="template" type="xsd:string"/>
+                <method displayName="GET blobs/{uid}.xml" id="3906" name="GET">
+                    <doc>Download File (Get File as a redirect to the S3 object) by uid. 'uid' is a parameter which should be taken from the response of the request for the creating a file. To have a possibility to download a file you should set a status complete to your file firstly.</doc>
+                    <request>
+                        <param name="uid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="blobs.json/">
+            <method displayName="GET blobs.json" id="3905" name="GET">
+                <doc>Get list of files for the current user. The ID of the user is taken from the token specified in the request</doc>
+                <request/>
+                <response>
+                    <representation element="f3905:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="POST blobs.json" id="3910" name="POST">
+                <doc>Create a file  Create an entity which is a file in a system</doc>
+                <request/>
+                <response>
+                    <representation element="f3910:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

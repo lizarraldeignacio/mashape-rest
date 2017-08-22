@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6684="urn:function:f6684" xmlns:f6685="urn:function:f6685" xmlns:f6686="urn:function:f6686" xmlns:f6687="urn:function:f6687" xmlns:f6688="urn:function:f6688" xmlns:f6689="urn:function:f6689">
+    <grammars>
+        <include href="Function6689.xsd"/>
+        <include href="Function6688.xsd"/>
+        <include href="Function6687.xsd"/>
+        <include href="Function6686.xsd"/>
+        <include href="Function6685.xsd"/>
+        <include href="Function6684.xsd"/>
+    </grammars>
+    <doc>the Canadian Bitcoin Index API is the definitive source for Canadian Bitcoin price information The primary index endpoint returns a value for the price of a Bitcoin denominated in Canadian dollars calculated as an average from actual trade data from all Canadian owned exchanges</doc>
+    <resources base="https://cbix-v1.p.mashape.com/">
+        <resource uri="volatility/">
+            <method displayName="/volatility" id="6690" name="GET">
+                <doc>The Volatility API returns daily historical index volatility data</doc>
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>days to limit the historical data returned to</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="summary/">
+            <method displayName="/summary" id="6689" name="GET">
+                <doc>The Summary API returns the latest index and market summary including market capitalization, total coins in circulation and 52-week high and lows</doc>
+                <request/>
+                <response>
+                    <representation element="f6689:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="orderbook/">
+            <method displayName="/orderbook" id="6688" name="GET">
+                <doc>The Order Book API returns a full order book for all supported exchanges</doc>
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>number of orders to limit the results to</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6688:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="news/">
+            <method displayName="/news" id="6687" name="GET">
+                <doc>The News API returns the latest news feed curated by CBIX</doc>
+                <request/>
+                <response>
+                    <representation element="f6687:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="index/">
+            <method displayName="/index" id="6686" name="GET">
+                <doc>The Index API provides the latest index values, volume data and change information</doc>
+                <request/>
+                <response>
+                    <representation element="f6686:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="history/">
+            <method displayName="/history" id="6685" name="GET">
+                <doc>The History API returns daily index values and change information from 2011-09-01</doc>
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>days to limit the historical data returned to</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6685:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="convert/">
+            <method displayName="/convert" id="6684" name="GET">
+                <doc>The Convert API processes a simple currency conversion between BTC and CAD based on the current index price</doc>
+                <request>
+                    <param name="amount" required="true" style="query" type="xsd:integer">
+                        <doc>the amount to be converted</doc>
+                    </param>
+                    <param name="from" required="true" style="query" type="xsd:string">
+                        <doc>the currency to be converted from</doc>
+                    </param>
+                    <param name="to" required="true" style="query" type="xsd:string">
+                        <doc>the currency to be converted to</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6684:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

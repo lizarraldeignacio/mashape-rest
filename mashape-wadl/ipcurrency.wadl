@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4117="urn:function:f4117">
+    <grammars>
+        <include href="Function4117.xsd"/>
+    </grammars>
+    <doc>iP Currency Exchange Rate Web Service provides the user with an easy way to get a localized latest Currency Exchange Rate based on the visitor s IP address Sign up for free license key at http www fraudlabs com freelicense aspx PackageID which allows up to queries a month</doc>
+    <resources base="https://fraudlabs-ip2currency-v1.p.mashape.com/">
+        <resource uri="ip2currencywebservice.asmx/">
+            <method displayName="IP2Currency API" id="4117" name="GET">
+                <doc>Currency by IP Geolocation API</doc>
+                <request>
+                    <param name="fromamount" required="true" style="query" type="xsd:string">
+                        <doc>currency amount for conversion</doc>
+                    </param>
+                    <param name="fromcurrencycode" required="true" style="query" type="xsd:string">
+                        <doc>base currency code</doc>
+                    </param>
+                    <param name="license" required="true" style="query" type="xsd:string">
+                        <doc>aPI license key</doc>
+                    </param>
+                    <param name="tocurrencycode" required="true" style="query" type="xsd:string">
+                        <doc>target currency code</doc>
+                    </param>
+                    <param name="visitorip" required="true" style="query" type="xsd:string">
+                        <doc>iP address of visitor</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4117:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

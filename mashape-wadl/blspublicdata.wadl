@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2924="urn:function:f2924" xmlns:f2925="urn:function:f2925">
+    <grammars>
+        <include href="Function2924.xsd"/>
+        <include href="Function2925.xsd"/>
+    </grammars>
+    <doc>in an effort to create transparency and encourage technological innovation the Bureau of Labor Statistics BLS is releasing its Application Programming Interface API to the public The BLS Public Data API gives the public access to raw economic data from all BLS programs It is the Bureau s hope that talented developers and programmers will use the BLS Public Data API to create original inventive applications with published BLS data</doc>
+    <resources base="https://community-bls-public-data.p.mashape.com/">
+        <resource uri="timeseries/">
+            <resource uri="data/">
+                <method displayName="1. Single Series" id="2924" name="GET">
+                    <doc>Use this signature to retrieve data for a single time series for the past three years. Be sure to include the specific series ID at the end of the URL.</doc>
+                    <request>
+                        <param name="seriesId" required="true" style="query" type="xsd:string">
+                            <doc>he series ID s can include underscore dash and hash but must not include lower case letters or special characters All requests specifying years must include a four digit start year and an end year in numeric format YYYY e g not See http www bls gov developers api signature htm</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2924:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="2. Multiple Series" id="2925" name="POST">
+                    <doc>Use this signature to retrieve data for more than one timeseries for the past three years. You can include up to 25 series IDs, each separated with a comma, in the body of your request.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2925:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

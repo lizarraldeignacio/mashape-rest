@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6591="urn:function:f6591">
+    <grammars>
+        <include href="Function6591.xsd"/>
+    </grammars>
+    <doc>the BrowserObject Browser Detection Web Service allows instant detection of online visitor s Web Browser information Sign up for free license key at http www fraudlabs com freelicense aspx PackageID which allows up to queries a month</doc>
+    <resources base="https://fraudlabs-browserobject-v1.p.mashape.com/">
+        <resource uri="browserobjectwebservice.asmx/">
+            <method displayName="BrowserObject API" id="6591" name="GET">
+                <doc>Browser Detection API</doc>
+                <request>
+                    <param name="license" required="true" style="query" type="xsd:string">
+                        <doc>aPI license key</doc>
+                    </param>
+                    <param name="useragentstring" required="true" style="query" type="xsd:string">
+                        <doc>the browser user agent string</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6591:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>the web site title scraper by passing an URL and the system will crawl the site title</doc>
+    <resources base="https://site-scrapper.p.mashape.com/">
+        <resource uri="fetchsitetitle/">
+            <method displayName="fetchsitetitle" id="536" name="GET">
+                <doc>Fetch site title by passing site URL</doc>
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>site URL</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

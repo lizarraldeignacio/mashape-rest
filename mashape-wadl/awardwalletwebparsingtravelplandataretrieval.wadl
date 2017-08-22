@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>this API allows you to retrieve travel plan details from user profiles by scanning their loyalty accounts Travel plans are returned in an OpenTravel standard data format For more details please contact us via http awardwallet com contact php</doc>
+    <resources base="https://awardwallet-awardwallet-travel-plan-data-retrieval.p.mashape.com/">
+        <resource uri="LIstProviders/">
+            <method displayName="ListProviders" id="7019" name="POST">
+                <doc>Information about supported loyalty programs</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="GetItineraries/">
+            <method displayName="GetItineraries" id="7018" name="POST">
+                <doc>Get itineraries for account</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

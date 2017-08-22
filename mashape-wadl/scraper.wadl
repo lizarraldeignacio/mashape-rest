@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3963="urn:function:f3963" xmlns:f3967="urn:function:f3967">
+    <grammars>
+        <include href="Function3967.xsd"/>
+        <include href="Function3963.xsd"/>
+    </grammars>
+    <doc>the Scraper io API extracts multiple types of information from the web This API is very well suited for rich media apps or websites since it allows easily extracting both images text and general article information It also can be used to render any web page as an image</doc>
+    <resources base="https://scraper-io.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="text/">
+                <method displayName="/v1/text" id="3967" name="GET">
+                    <doc>Returns the article text as a plain text response.</doc>
+                    <request>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>the URL to fetch the article from</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3967:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="render/">
+                <method displayName="/v1/render" id="3966" name="GET">
+                    <doc>Renders the given URL in a WebKit-based browser and returns the result as an image.</doc>
+                    <request>
+                        <param name="h" required="true" style="query" type="xsd:integer">
+                            <doc>the height to resize the image to</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>the URL of the page to render</doc>
+                        </param>
+                        <param name="vh" required="true" style="query" type="xsd:integer">
+                            <doc>the viewport height used for rendering the page If absent or zero the viewport will be resized to match the height of the page</doc>
+                        </param>
+                        <param name="vw" required="true" style="query" type="xsd:integer">
+                            <doc>the viewport width used for rendering the page If absent or zero the viewport will be resized to match the width of the page</doc>
+                        </param>
+                        <param name="w" required="true" style="query" type="xsd:integer">
+                            <doc>the width to resize the image to</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="query/">
+                <method displayName="/v1/query" id="3965" name="GET">
+                    <doc>Returns the most appropriate image for the given query. The response body is the image itself. The {w} and {h} parameters can be used to resize the output image to the desired size. If only one of them is non-zero, the image is resized to the given dimension maintaining its aspect ratio. If the new dimensions change the aspect ratio, the image is cropped taking the center portion.</doc>
+                    <request>
+                        <param name="h" required="true" style="query" type="xsd:integer">
+                            <doc>the height to resize the image to</doc>
+                        </param>
+                        <param name="q" required="true" style="query" type="xsd:string">
+                            <doc>the query used to find the most representative image</doc>
+                        </param>
+                        <param name="w" required="true" style="query" type="xsd:integer">
+                            <doc>the width to resize the image to</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="image/">
+                <method displayName="/v1/image" id="3964" name="GET">
+                    <doc>Extracts the most representative image from the given URL. The response body is the image itself. The {w} and {h} parameters can be used to resize the output image to the desired size. If only one of them is non-zero, the image is resized to the given dimension maintaining its aspect ratio. If the new dimensions change the aspect ratio, the image is cropped taking the center portion.</doc>
+                    <request>
+                        <param name="h" required="true" style="query" type="xsd:integer">
+                            <doc>the height to resize the image to</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>the URL to extract the image from</doc>
+                        </param>
+                        <param name="w" required="true" style="query" type="xsd:integer">
+                            <doc>the width to resize the image to</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="article/">
+                <method displayName="/v1/article" id="3963" name="GET">
+                    <doc>Returns information about an article, like it's title, author as well as it's HTML and text representations.</doc>
+                    <request>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>the URL to fetch the article from</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3963:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

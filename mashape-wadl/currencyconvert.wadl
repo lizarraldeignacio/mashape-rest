@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6656="urn:function:f6656" xmlns:f6657="urn:function:f6657" xmlns:f6658="urn:function:f6658">
+    <grammars>
+        <include href="Function6658.xsd"/>
+        <include href="Function6657.xsd"/>
+        <include href="Function6656.xsd"/>
+    </grammars>
+    <doc>fast realtime exchange rates and conversion API</doc>
+    <resources base="https://djinn-currency-convert-v1.p.mashape.com/">
+        <resource uri="usd/">
+            <method displayName="/usd" id="6658" name="GET">
+                <doc>Current rates of currencies against USD</doc>
+                <request/>
+                <response>
+                    <representation element="f6658:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="eur/">
+            <method displayName="/eur" id="6657" name="GET">
+                <doc>Current rates of currencies against EUR</doc>
+                <request/>
+                <response>
+                    <representation element="f6657:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="">
+            <method displayName="/" id="6656" name="GET">
+                <doc>Currency conversion from source currency to destination</doc>
+                <request>
+                    <param name="amount" required="true" style="query" type="xsd:integer">
+                        <doc>amount which will be converted to new amount in destionation currency</doc>
+                    </param>
+                    <param name="from" required="true" style="query" type="xsd:string">
+                        <doc>source currency from which amount will be converted</doc>
+                    </param>
+                    <param name="to" required="true" style="query" type="xsd:string">
+                        <doc>the amount will be converted to destination currency using current price</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6656:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

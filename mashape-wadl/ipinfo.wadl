@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f400="urn:function:f400">
+    <grammars>
+        <include href="Function400.xsd"/>
+    </grammars>
+    <doc>get location information about an IP address Depending on the specific IP address you can determine the country region city longitude and latitude of the address Our high quality database for geolocation data is being constantly updated as the internet address allocation changes the database is usually updated at least once per month This API can also be used to do reverse DNS PTR lookups</doc>
+    <resources base="https://community-neutrino-ip-info.p.mashape.com/">
+        <resource uri="ip-info/">
+            <method displayName="IP Info" id="400" name="POST">
+                <request/>
+                <response>
+                    <representation element="f400:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

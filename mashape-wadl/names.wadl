@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6143="urn:function:f6143" xmlns:f6144="urn:function:f6144">
+    <grammars>
+        <include href="Function6144.xsd"/>
+        <include href="Function6143.xsd"/>
+    </grammars>
+    <doc>detect the gender of a person by name and find similar names</doc>
+    <resources base="https://blar-names-v1.p.mashape.com/">
+        <resource uri="similar/">
+            <method displayName="/similar" id="6144" name="GET">
+                <doc>Get similar name</doc>
+                <request>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>name</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6144:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="gender/">
+            <method displayName="/gender" id="6143" name="GET">
+                <doc>Get gender of name</doc>
+                <request>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>name</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6143:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

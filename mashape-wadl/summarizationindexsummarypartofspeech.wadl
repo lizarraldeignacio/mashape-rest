@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2417="urn:function:f2417">
+    <grammars>
+        <include href="Function2417.xsd"/>
+    </grammars>
+    <doc>summarize the content of a web page Returns a summary the parts of speech for each sentence the extracted HTML and the content make up of the page Natural Language Processing NLP gives the system the ability to find the content on the page but Natural Language Understanding NLU enables that content to be classified and ranked EnElYou uses a proprietary NLP engine that is faster than any competitor and maintains high accuracy rates The synonym and concept engine allows content to be summarized ranking more than keywords Concepts and Topics influence ranking Unlike other API s Character counts are very precise The engine will do its best to get the best summary possible with in the character counts The Reauthor feature rewrites some portions of summaries to make them more concise</doc>
+    <resources base="https://enelyou-enelyou-summarization--index--summary--topic--part-of-s.p.mashape.com/">
+        <resource uri="sumpagejson/">
+            <method displayName="EnElYou Summarization -Index -Summary -Part of Speech" id="2417" name="POST">
+                <doc>Summarizes content from HTML by extracting the content from the page and then scoring each sentence.</doc>
+                <request/>
+                <response>
+                    <representation element="f2417:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

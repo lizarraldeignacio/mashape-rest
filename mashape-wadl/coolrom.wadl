@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>coolrom REST API using coolrom webscrapper</doc>
+    <resources base="https://coolrom.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="platforms/">
+                <method displayName="Get platforms" id="4548" name="GET">
+                    <doc>Get platforms</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="filters/">
+                <resource uri="{platform}/">
+                    <param name="platform" style="template" type="xsd:string"/>
+                    <method displayName="Get filters by platform" id="4547" name="GET">
+                        <request>
+                            <param name="platform" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="search/">
+                <resource uri="{query}/">
+                    <param name="query" style="template" type="xsd:string"/>
+                    <method displayName="/v1/search/{query}/{platform}" id="4546" name="GET">
+                        <request>
+                            <param name="platform" required="true" style="query" type="xsd:string"/>
+                            <param name="query" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Search by query" id="4549" name="GET">
+                        <doc>spaced by +</doc>
+                        <request>
+                            <param name="query" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="roms/">
+                <resource uri="{platform}/">
+                    <param name="platform" style="template" type="xsd:string"/>
+                    <resource uri="{filter}/">
+                        <param name="filter" style="template" type="xsd:string"/>
+                        <method displayName="/v1/roms/{platform}/{filter}" id="4545" name="GET">
+                            <request>
+                                <param name="filter" required="true" style="query" type="xsd:string"/>
+                                <param name="platform" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="rom/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <resource uri="{platform}/">
+                        <param name="platform" style="template" type="xsd:string"/>
+                        <method displayName="/v1/rom/{id}/{platform}" id="4544" name="GET">
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:integer"/>
+                                <param name="platform" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="link/">
+                    <resource uri="{id}/">
+                        <param name="id" style="template" type="xsd:string"/>
+                        <method displayName="/v1/rom/link/{id}/" id="4543" name="GET">
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:integer"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

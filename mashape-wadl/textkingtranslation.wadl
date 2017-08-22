@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2341="urn:function:f2341" xmlns:f2342="urn:function:f2342" xmlns:f2343="urn:function:f2343" xmlns:f2344="urn:function:f2344" xmlns:f2347="urn:function:f2347" xmlns:f2348="urn:function:f2348" xmlns:f2349="urn:function:f2349" xmlns:f2350="urn:function:f2350" xmlns:f2351="urn:function:f2351" xmlns:f2352="urn:function:f2352" xmlns:f2353="urn:function:f2353" xmlns:f2354="urn:function:f2354" xmlns:f2355="urn:function:f2355" xmlns:f2356="urn:function:f2356" xmlns:f2357="urn:function:f2357" xmlns:f2358="urn:function:f2358" xmlns:f2359="urn:function:f2359" xmlns:f2360="urn:function:f2360">
+    <grammars>
+        <include href="Function2357.xsd"/>
+        <include href="Function2356.xsd"/>
+        <include href="Function2355.xsd"/>
+        <include href="Function2352.xsd"/>
+        <include href="Function2349.xsd"/>
+        <include href="Function2350.xsd"/>
+        <include href="Function2348.xsd"/>
+        <include href="Function2342.xsd"/>
+        <include href="Function2354.xsd"/>
+        <include href="Function2341.xsd"/>
+        <include href="Function2343.xsd"/>
+        <include href="Function2344.xsd"/>
+        <include href="Function2347.xsd"/>
+        <include href="Function2351.xsd"/>
+        <include href="Function2353.xsd"/>
+        <include href="Function2358.xsd"/>
+        <include href="Function2359.xsd"/>
+        <include href="Function2360.xsd"/>
+    </grammars>
+    <doc>the TEXTKING Translation API is a RESTful web service to access and manage translation projects on https www textking com You can use the translation API to integrate high quality human translation into your own software and streamline your translation workflow</doc>
+    <resources base="https://textkingv1.p.mashape.com/">
+        <resource uri="topics/">
+            <method displayName="List topics" id="2357" name="GET">
+                <doc>Returns a collection of all available topics.</doc>
+                <request>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>return search results starting at a given page Used for paging through more than one page of results</doc>
+                    </param>
+                    <param name="perPage" required="true" style="query" type="xsd:integer">
+                        <doc>an integer value defining how many entries should be returned Only values between and both inclusive are allowed If not given this defaults to</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2357:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="languages/">
+            <resource uri="target/">
+                <method displayName="List target languages" id="2356" name="GET">
+                    <request>
+                        <param name="page" required="true" style="query" type="xsd:integer">
+                            <doc>return search results starting at a given page Used for paging through more than one page of results</doc>
+                        </param>
+                        <param name="perPage" required="true" style="query" type="xsd:integer">
+                            <doc>an integer value defining how many entries should be returned Only values between and both inclusive are allowed If not given this defaults to</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2356:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="source/">
+                <method displayName="List source languages" id="2355" name="GET">
+                    <doc>Returns a collection of all source languages supported by TEXTKING.</doc>
+                    <request>
+                        <param name="page" required="true" style="query" type="xsd:integer">
+                            <doc>return search results starting at a given page Used for paging through more than one page of results</doc>
+                        </param>
+                        <param name="perPage" required="true" style="query" type="xsd:integer">
+                            <doc>an integer value defining how many entries should be returned Only values between and both inclusive are allowed If not given this defaults to</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2355:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="topic/">
+            <resource uri="{topicId}/">
+                <param name="topicId" style="template" type="xsd:string"/>
+                <method displayName="Get topic" id="2352" name="GET">
+                    <doc>Returns a single topic area with the given ID.</doc>
+                    <request>
+                        <param name="topicid" required="true" style="query" type="xsd:string">
+                            <doc>the topic UUID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2352:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="price-info/">
+            <method displayName="Get price info for document" id="2349" name="POST">
+                <doc>Return price information for a document.</doc>
+                <request/>
+                <response>
+                    <representation element="f2349:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get price info for word count" id="2350" name="GET">
+                <doc>Returns price information for a specific number of words for all available quality levels.</doc>
+                <request>
+                    <param name="sourceLanguage" required="true" style="query" type="xsd:string">
+                        <doc>iSO language code of the source language</doc>
+                    </param>
+                    <param name="targetLanguage" required="true" style="query" type="xsd:string">
+                        <doc>iSO language code of the target language</doc>
+                    </param>
+                    <param name="topic" required="true" style="query" type="xsd:string">
+                        <doc>a topic UUID</doc>
+                    </param>
+                    <param name="words" required="true" style="query" type="xsd:integer">
+                        <doc>an integer value defining the number of words to translate</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2350:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="language/">
+            <resource uri="{code}/">
+                <param name="code" style="template" type="xsd:string"/>
+                <method displayName="Get language" id="2348" name="GET">
+                    <doc>Returns a single language with the given ISO 639 language code.</doc>
+                    <request>
+                        <param name="code" required="true" style="query" type="xsd:string">
+                            <doc>the ISO language code</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2348:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="projects/">
+            <method displayName="Create project" id="2342" name="POST">
+                <doc>Creates a new project and returns the result.</doc>
+                <request/>
+                <response>
+                    <representation element="f2342:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List projects" id="2354" name="GET">
+                <doc>Returns a collection of projects of the authorized customer.</doc>
+                <request>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>return search results starting at a given page Used for paging through more than one page of results</doc>
+                    </param>
+                    <param name="perPage" required="true" style="query" type="xsd:integer">
+                        <doc>an integer value defining how many entries should be returned Only values between and both inclusive are allowed If not given this defaults to</doc>
+                    </param>
+                    <param name="state" required="true" style="query" type="xsd:string">
+                        <doc>filter projects by status prepared running finished canceled</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2354:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="project/">
+            <resource uri="{projectId}/">
+                <param name="projectId" style="template" type="xsd:string"/>
+                <method displayName="Create job" id="2341" name="POST">
+                    <doc>Creates a new job for a project and returns the result.</doc>
+                    <request>
+                        <param name="projectid" required="true" style="query" type="xsd:string">
+                            <doc>the project UUID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2341:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Delete job" id="2343" name="DELETE">
+                    <doc>Deletes an existing job with the given ID.</doc>
+                    <request>
+                        <param name="jobid" required="true" style="query" type="xsd:string">
+                            <doc>the job UUID</doc>
+                        </param>
+                        <param name="projectid" required="true" style="query" type="xsd:string">
+                            <doc>the project UUID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2343:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Delete project" id="2344" name="DELETE">
+                    <doc>Deletes an existing project with the given ID. Only projects in the state prepared can be deleted.</doc>
+                    <request>
+                        <param name="projectid" required="true" style="query" type="xsd:string">
+                            <doc>the project UUID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2344:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Download source document" id="2345" name="GET">
+                    <doc>Downloads the source document for a job.</doc>
+                    <request>
+                        <param name="jobid" required="true" style="query" type="xsd:string">
+                            <doc>the job UUID</doc>
+                        </param>
+                        <param name="projectid" required="true" style="query" type="xsd:string">
+                            <doc>the project UUID</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Download translated document" id="2346" name="GET">
+                    <doc>Downloads the translated document for a job.</doc>
+                    <request>
+                        <param name="jobid" required="true" style="query" type="xsd:string">
+                            <doc>the job UUID</doc>
+                        </param>
+                        <param name="projectid" required="true" style="query" type="xsd:string">
+                            <doc>the project UUID</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Get job" id="2347" name="GET">
+                    <doc>Returns a single job with the given ID.</doc>
+                    <request>
+                        <param name="jobid" required="true" style="query" type="xsd:string">
+                            <doc>the job UUID</doc>
+                        </param>
+                        <param name="projectid" required="true" style="query" type="xsd:string">
+                            <doc>the project UUID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2347:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get project" id="2351" name="GET">
+                    <doc>Returns a single project with the given ID.</doc>
+                    <request>
+                        <param name="projectid" required="true" style="query" type="xsd:string">
+                            <doc>the project UUID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2351:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="List a project's jobs" id="2353" name="GET">
+                    <doc>Returns a collection of jobs for a project.</doc>
+                    <request>
+                        <param name="page" required="true" style="query" type="xsd:integer">
+                            <doc>return search results starting at a given page Used for paging through more than one page of results</doc>
+                        </param>
+                        <param name="perPage" required="true" style="query" type="xsd:integer">
+                            <doc>an integer value defining how many entries should be returned Only values between and both inclusive are allowed If not given this defaults to</doc>
+                        </param>
+                        <param name="projectid" required="true" style="query" type="xsd:string">
+                            <doc>the project UUID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2353:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Update job" id="2358" name="PUT">
+                    <doc>Updates an existing job with the given ID.</doc>
+                    <request>
+                        <param name="jobid" required="true" style="query" type="xsd:string">
+                            <doc>the job UUID</doc>
+                        </param>
+                        <param name="projectid" required="true" style="query" type="xsd:string">
+                            <doc>the project UUID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2358:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Update project" id="2359" name="PUT">
+                    <doc>Updates an existing project with the given ID or changes its state.</doc>
+                    <request>
+                        <param name="projectid" required="true" style="query" type="xsd:string">
+                            <doc>the project UUID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2359:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Upload source document" id="2360" name="GET">
+                    <doc>Uploads the source document for a job.</doc>
+                    <request>
+                        <param name="documentname" required="true" style="query" type="xsd:string">
+                            <doc>a valid file name for the uploaded file</doc>
+                        </param>
+                        <param name="jobid" required="true" style="query" type="xsd:string">
+                            <doc>the job UUID</doc>
+                        </param>
+                        <param name="projectid" required="true" style="query" type="xsd:string">
+                            <doc>the project UUID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2360:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

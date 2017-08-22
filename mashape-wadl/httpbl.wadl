@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2939="urn:function:f2939">
+    <grammars>
+        <include href="Function2939.xsd"/>
+    </grammars>
+    <doc>rEST API to check an IP address status via Project Honey Pot http BL service</doc>
+    <resources base="https://httpbl.p.mashape.com/">
+        <resource uri="ip/">
+            <resource uri="{ip}/">
+                <param name="ip" style="template" type="xsd:string"/>
+                <method displayName="IP" id="2939" name="GET">
+                    <doc>Lookup IP in Project Honeypot</doc>
+                    <request>
+                        <param name="ip" required="true" style="query" type="xsd:string">
+                            <doc>iP address</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2939:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

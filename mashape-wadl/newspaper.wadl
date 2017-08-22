@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4855="urn:function:f4855" xmlns:f4856="urn:function:f4856">
+    <grammars>
+        <include href="Function4856.xsd"/>
+        <include href="Function4855.xsd"/>
+    </grammars>
+    <doc>newspaper is an API for Instapaper style article extracting and based off the python library newspaper https github com codelucas newspaper</doc>
+    <resources base="https://verticodelabs.p.mashape.com/">
+        <resource uri="newspaper/">
+            <method displayName="Newspaper" id="4856" name="GET">
+                <doc>Build newspaper/blog source</doc>
+                <request>
+                    <param name="newspaperUrl" required="true" style="query" type="xsd:string">
+                        <doc>uRL of newspaper source</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4856:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="article/">
+            <method displayName="Article" id="4855" name="GET">
+                <doc>Build news/blog article source</doc>
+                <request>
+                    <param name="articleUrl" required="true" style="query" type="xsd:string">
+                        <doc>uRL of article source</doc>
+                    </param>
+                    <param name="keepArticleHtml" required="true" style="query" type="xsd:string">
+                        <doc>keep the article html</doc>
+                    </param>
+                    <param name="maxAuthors" required="true" style="query" type="xsd:string">
+                        <doc>maximum number of authors</doc>
+                    </param>
+                    <param name="maxKeywords" required="true" style="query" type="xsd:string">
+                        <doc>maximum number of keywords</doc>
+                    </param>
+                    <param name="maxSummary" required="true" style="query" type="xsd:string">
+                        <doc>maximum number of characters in a summary</doc>
+                    </param>
+                    <param name="maxText" required="true" style="query" type="xsd:string">
+                        <doc>maximum number of character tokens in an article</doc>
+                    </param>
+                    <param name="maxTitle" required="true" style="query" type="xsd:string">
+                        <doc>maximum number of characters in an article title</doc>
+                    </param>
+                    <param name="minSentCount" required="true" style="query" type="xsd:string">
+                        <doc>minimum number of sentence tokens in an article</doc>
+                    </param>
+                    <param name="minWordCount" required="true" style="query" type="xsd:string">
+                        <doc>minumum number of word tokens in text in an article</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4855:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

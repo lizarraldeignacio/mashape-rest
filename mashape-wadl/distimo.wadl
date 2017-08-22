@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>today Distimo provides the free app analytics platform for developers alongside the most accurate market data for any app globally all integrated into one intuitive highly customizable and easy to use platform Distimo firmly believes in empowering every player in the mobile marketplace with the most accurate data Our platform lets developers track downloads revenue and conversions for various campaigns in their own app across multiple app stores at no cost</doc>
+    <resources base="https://community-distimo.p.mashape.com/">
+        <resource uri="downloads/">
+            <method displayName="Downloads" id="3620" name="GET">
+                <doc>Retrieve download and/or update information of your applications.  https://analytics.distimo.com/support/api/v3/downloads</doc>
+                <request>
+                    <param name="apikey" required="true" style="query" type="xsd:string">
+                        <doc>the public key of your application</doc>
+                    </param>
+                    <param name="breakdown" required="true" style="query" type="xsd:string">
+                        <doc>the breakdown allows you to specify by which dimensions the results should be broken down and as such not aggregated If for example you d want to know the total number of downloads for an app per day you would break down the results by date with interval set to day If you wanted to retrieve the total downloads per App Store instead you d break the results down by App Store and so on It s also possible to combine breakdowns so you could for example break down the results to see downloads per day per application or downloads per country per App Store Possible values which can be combined in any order are application appstore country date device region When no breakdown is given all results are aggregated by every dimension and thus you will only recieve a single total value Examples api v downloads breakdown date api v downloads breakdown date country api v downloads breakdown country appstore</doc>
+                    </param>
+                    <param name="from" required="true" style="query" type="xsd:string">
+                        <doc>results starting at this date will be retrieved Dates should be in the format yyyy mm dd Other valid values are lastmonth thismonth last months last months last months lastweek last days yesterday thisyear all Examples api v downloads from lastyear api v downloads from</doc>
+                    </param>
+                    <param name="hash" required="true" style="query" type="xsd:string">
+                        <doc>a sha hmac hash of the request parameters and the current time using the private key as the hash key</doc>
+                    </param>
+                    <param name="t" required="true" style="query" type="xsd:string">
+                        <doc>the current UTC time as a UNIX timestamp</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

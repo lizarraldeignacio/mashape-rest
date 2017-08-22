@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6959="urn:function:f6959" xmlns:f6960="urn:function:f6960" xmlns:f6961="urn:function:f6961" xmlns:f6962="urn:function:f6962" xmlns:f6963="urn:function:f6963" xmlns:f6964="urn:function:f6964" xmlns:f6965="urn:function:f6965">
+    <grammars>
+        <include href="Function6965.xsd"/>
+        <include href="Function6964.xsd"/>
+        <include href="Function6963.xsd"/>
+        <include href="Function6962.xsd"/>
+        <include href="Function6961.xsd"/>
+        <include href="Function6960.xsd"/>
+        <include href="Function6959.xsd"/>
+    </grammars>
+    <doc>the Demographic Inquiry API provides developers with access to current year estimates and five year projections for demographic variables Categories include population summaries income characteristics consumer expenditures educational attainment and demographic profiles We also provide multiple ways GIS and Non GIS Based methods to extract data of interest Operations include inquiry by point buffer proximity and travel time Data coverage includes the Contiguous US Alaska and Hawaii</doc>
+    <resources base="https://mapfruition-demoinquiry.p.mashape.com/">
+        <resource uri="SummaryByPoint/">
+            <resource uri="v1/">
+                <resource uri="{lat},{lng}/">
+                    <param name="lat" style="template" type="xsd:string"/>
+                    <resource uri="{detail}/">
+                        <param name="detail" style="template" type="xsd:string"/>
+                        <method displayName="Summary By Point" id="6965" name="GET">
+                            <doc>Query default set of summary variables by point. Results will be prefixed with "t" for trend (annual rate of change), "e" for estimate, or "p" for projection.</doc>
+                            <request>
+                                <param name="detail" required="true" style="query" type="xsd:boolean">
+                                    <doc>provide detailed summary Options true or false</doc>
+                                </param>
+                                <param name="lat" required="true" style="query" type="xsd:integer">
+                                    <doc>latitude</doc>
+                                </param>
+                                <param name="lng" required="true" style="query" type="xsd:integer">
+                                    <doc>longitude</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f6965:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="InquireByTravelTime/">
+            <resource uri="v1/">
+                <resource uri="{lat},{lng}/">
+                    <param name="lat" style="template" type="xsd:string"/>
+                    <resource uri="{mode}/">
+                        <param name="mode" style="template" type="xsd:string"/>
+                        <resource uri="{timemin}/">
+                            <param name="timemin" style="template" type="xsd:string"/>
+                            <resource uri="{variables}/">
+                                <param name="variables" style="template" type="xsd:string"/>
+                                <method displayName="Inquire By Travel Time" id="6964" name="GET">
+                                    <doc>Query by travel time from point location.  Output values will be rolled up for area covered.  Results will be prefixed with "e" for estimate or "p" for projection.</doc>
+                                    <request>
+                                        <param name="lat" required="true" style="query" type="xsd:integer">
+                                            <doc>latitude</doc>
+                                        </param>
+                                        <param name="lng" required="true" style="query" type="xsd:integer">
+                                            <doc>longitude</doc>
+                                        </param>
+                                        <param name="mode" required="true" style="query" type="xsd:string">
+                                            <doc>travel mode options drive bike walk</doc>
+                                        </param>
+                                        <param name="timemin" required="true" style="query" type="xsd:integer">
+                                            <doc>time in minutes Max is</doc>
+                                        </param>
+                                        <param name="variables" required="true" style="query" type="xsd:string">
+                                            <doc>comma separated list of variables Refer to DescribeVariables operation for full list A max of variables can be queried at a time</doc>
+                                        </param>
+                                    </request>
+                                    <response>
+                                        <representation element="f6964:root" mediaType="application/json"/>
+                                    </response>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="InquireByProximity/">
+            <resource uri="v1/">
+                <resource uri="{lat},{lng}/">
+                    <param name="lat" style="template" type="xsd:string"/>
+                    <resource uri="{distance}/">
+                        <param name="distance" style="template" type="xsd:string"/>
+                        <resource uri="{distanceunit}/">
+                            <param name="distanceunit" style="template" type="xsd:string"/>
+                            <resource uri="{variables}/">
+                                <param name="variables" style="template" type="xsd:string"/>
+                                <method displayName="Inquire By Proximity" id="6963" name="GET">
+                                    <doc>Query by proximity (or buffer distance) from point.  Output values will be rolled up for area covered.  Results will be prefixed with "e" for estimate or "p" for projection.</doc>
+                                    <request>
+                                        <param name="distance" required="true" style="query" type="xsd:integer">
+                                            <doc>distance Max of miles</doc>
+                                        </param>
+                                        <param name="distanceunit" required="true" style="query" type="xsd:string">
+                                            <doc>distance Unit Options meter or mile</doc>
+                                        </param>
+                                        <param name="lat" required="true" style="query" type="xsd:integer">
+                                            <doc>latitude</doc>
+                                        </param>
+                                        <param name="lng" required="true" style="query" type="xsd:integer">
+                                            <doc>longitude</doc>
+                                        </param>
+                                        <param name="variables" required="true" style="query" type="xsd:string">
+                                            <doc>comma separated list of variables Refer to DescribeVariables operation for full list A max of variables can be queried at a time</doc>
+                                        </param>
+                                    </request>
+                                    <response>
+                                        <representation element="f6963:root" mediaType="application/json"/>
+                                    </response>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="InquireByPolygon/">
+            <resource uri="{variables}/">
+                <param name="variables" style="template" type="xsd:string"/>
+                <method displayName="Inquire By Polygon" id="6962" name="POST">
+                    <doc>Query with a custom GeoJSON Polygon geometry object.  CRS must be a GCS, using the WGS84 datum. Max area must not exceed 29,194 Sq. Miles.  Output values will be rolled up for area covered. Results will be prefixed with "e" for estimate or "p" for projection.</doc>
+                    <request>
+                        <param name="variables" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of variables Refer to DescribeVariables operation for full list A max of variables can be queried at a time</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6962:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="InquireByPoint/">
+            <resource uri="v1/">
+                <resource uri="{lat},{lng}/">
+                    <param name="lat" style="template" type="xsd:string"/>
+                    <resource uri="{variables}/">
+                        <param name="variables" style="template" type="xsd:string"/>
+                        <method displayName="Inquire By Point" id="6961" name="GET">
+                            <doc>Query by point location. Results will be prefixed with "e" for estimate or "p" for projection.</doc>
+                            <request>
+                                <param name="lat" required="true" style="query" type="xsd:integer">
+                                    <doc>latitude</doc>
+                                </param>
+                                <param name="lng" required="true" style="query" type="xsd:integer">
+                                    <doc>longitude</doc>
+                                </param>
+                                <param name="variables" required="true" style="query" type="xsd:string">
+                                    <doc>comma separated list of variables Refer to DescribeVariables operation for full list A max of variables can be queried at a time</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f6961:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="InquireByAddress/">
+            <resource uri="v1/">
+                <resource uri="{address}/">
+                    <param name="address" style="template" type="xsd:string"/>
+                    <resource uri="{variables}/">
+                        <param name="variables" style="template" type="xsd:string"/>
+                        <method displayName="Inquire By Address" id="6960" name="GET">
+                            <doc>Query by street address. Results will be prefixed with "e" for estimate or "p" for projection.</doc>
+                            <request>
+                                <param name="address" required="true" style="query" type="xsd:string">
+                                    <doc>input address</doc>
+                                </param>
+                                <param name="variables" required="true" style="query" type="xsd:string">
+                                    <doc>comma separated list of variables Refer to DescribeVariables operation for full list A max of variables can be queried at a time</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f6960:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="DescribeVariables/">
+            <method displayName="Describe Variables" id="6959" name="GET">
+                <doc>Provides descriptions for all 700+ demographic variables available to be queried.</doc>
+                <request/>
+                <response>
+                    <representation element="f6959:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

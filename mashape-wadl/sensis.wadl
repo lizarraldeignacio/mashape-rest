@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>sAPI provides a valuable service for developers seeking a business search API solution for Yellow Pages and White Pages business listings and advertising content</doc>
+    <resources base="https://sapi-sensis.p.mashape.com/">
+        <resource uri="search/">
+            <method displayName="Search" id="4505" name="GET">
+                <request>
+                    <param name="boundingbox" required="true" style="query" type="xsd:string">
+                        <doc>filter listings returned to those within a bounding box</doc>
+                    </param>
+                    <param name="categoryid" required="true" style="query" type="xsd:string">
+                        <doc>filter listings returned by category id</doc>
+                    </param>
+                    <param name="content" required="true" style="query" type="xsd:string">
+                        <doc>filter listings returned to only those with certain types of content</doc>
+                    </param>
+                    <param name="includepois" required="true" style="query" type="xsd:string">
+                        <doc>a value of true will mean the response will include any relevant points of interest Eg railway stations car parks ATMs</doc>
+                    </param>
+                    <param name="key" required="true" style="query" type="xsd:string">
+                        <doc>use your Test API Key Required field</doc>
+                    </param>
+                    <param name="location" required="true" style="query" type="xsd:string">
+                        <doc>location to search in Required unless query is given</doc>
+                    </param>
+                    <param name="locationtiers" required="true" style="query" type="xsd:string">
+                        <doc>filter listings returned to those within a number of location tiers of the location</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>page number to return</doc>
+                    </param>
+                    <param name="postcode" required="true" style="query" type="xsd:string">
+                        <doc>filter listings returned by postcode</doc>
+                    </param>
+                    <param name="productkeyword" required="true" style="query" type="xsd:string">
+                        <doc>filter listings returned to only those containing certain product keywords</doc>
+                    </param>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>what to search for Required unless location is given</doc>
+                    </param>
+                    <param name="radius" required="true" style="query" type="xsd:string">
+                        <doc>filter listings returned to those within the radius distance of the location</doc>
+                    </param>
+                    <param name="rows" required="true" style="query" type="xsd:string">
+                        <doc>number of listings to return per page</doc>
+                    </param>
+                    <param name="sensitivecategories" required="true" style="query" type="xsd:string">
+                        <doc>filtering potentially unsafe content</doc>
+                    </param>
+                    <param name="sortby" required="true" style="query" type="xsd:string">
+                        <doc>listing sort order</doc>
+                    </param>
+                    <param name="state" required="true" style="query" type="xsd:string">
+                        <doc>filter listings returned to those within the given state Repeat the parameter to include multiple states in the filter</doc>
+                    </param>
+                    <param name="suburb" required="true" style="query" type="xsd:string">
+                        <doc>filter listings returned to those within the given suburb Repeat the parameter to include multiple suburbs in the filter</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="businesses/">
+            <resource uri="{aboutId}/">
+                <param name="aboutId" style="template" type="xsd:string"/>
+                <resource uri="reviews/">
+                    <method displayName="Reviews" id="4504" name="GET">
+                        <request>
+                            <param name="aboutid" required="true" style="query" type="xsd:string">
+                                <doc>aboutId is one of the Sensis ID attributes returned from getByListingId endpoint</doc>
+                            </param>
+                            <param name="key" required="true" style="query" type="xsd:string">
+                                <doc>aPI key required</doc>
+                            </param>
+                            <param name="limit" required="true" style="query" type="xsd:string">
+                                <doc>limit is used for pagination The number of reviews after their offset to return Limit is the same as page size Default</doc>
+                            </param>
+                            <param name="namespace" required="true" style="query" type="xsd:string">
+                                <doc>namespace is used as a filter Only reviews for this given namespace will be returned e g http www yelp com au</doc>
+                            </param>
+                            <param name="offset" required="true" style="query" type="xsd:integer">
+                                <doc>offset is used for pagination The zero based number of the review to start from The reviews that start from this offset will be returned Default</doc>
+                            </param>
+                            <param name="sortorder" required="true" style="query" type="xsd:string">
+                                <doc>aSC sort the reviews ascending or smallest to largest DESC sort the reviews descending or largest to smallest DESC</doc>
+                            </param>
+                            <param name="sorttype" required="true" style="query" type="xsd:string">
+                                <doc>dATE the date reviews are submitted RATING the number of ratings for each of the review Default DATE</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="report/">
+            <resource uri="{eventName}/">
+                <param name="eventName" style="template" type="xsd:string"/>
+                <method displayName="Report" id="4503" name="GET">
+                    <request>
+                        <param name="content" required="true" style="query" type="xsd:string">
+                            <doc>specific content to which the event applies required</doc>
+                        </param>
+                        <param name="eventname" required="true" style="query" type="xsd:string"/>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>reportingId of listing associated with event required</doc>
+                        </param>
+                        <param name="key" required="true" style="query" type="xsd:string">
+                            <doc>aPI key required</doc>
+                        </param>
+                        <param name="useragent" required="true" style="query" type="xsd:string">
+                            <doc>user agent of user accessing your application</doc>
+                        </param>
+                        <param name="userip" required="true" style="query" type="xsd:string">
+                            <doc>iP address of user accessing your application required</doc>
+                        </param>
+                        <param name="usersessionid" required="true" style="query" type="xsd:string">
+                            <doc>session id of user accessing your application</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="oneSearch/">
+            <method displayName="One Search" id="4502" name="GET">
+                <request>
+                    <param name="boundingbox" required="true" style="query" type="xsd:string">
+                        <doc>bounding box to serve as a hint to disambiguate the what within the query E g richmond exists in several states so if the bounding box is in Victoria then it is interpreted as Richmond Vic However if the query does not contain a where part the centre of the boundingBox is used as the search location</doc>
+                    </param>
+                    <param name="location" required="true" style="query" type="xsd:string">
+                        <doc>your CURRENT location as latitude longitude e g It serves only as a hint to disambiguate the what within the query if the boundingBox is not provided E g richmond exists in several states So if your current location is in Victoria then it is interpreted as Richmond Vic Note that unlike the boundingBox this is never used to derive the search location</doc>
+                    </param>
+                    <param name="mappable" required="true" style="query" type="xsd:boolean">
+                        <doc>a value of true means that only listings with geocode granularity of PROPERTY or INTERSECTION will be returned This means that these listings can be reliably used by mapping or geographical applications</doc>
+                    </param>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>combinations of what or where either of which are optional and can optionally be separated by a join word required</doc>
+                    </param>
+                    <param name="sortby" required="true" style="query" type="xsd:string">
+                        <doc>does not support DISTANCE or DISTANCE ALL PAGES You will get a misleading error message if you try</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="metadata/">
+            <resource uri="{dataType}/">
+                <param name="dataType" style="template" type="xsd:string"/>
+                <method displayName="Metadata" id="4501" name="GET">
+                    <request>
+                        <param name="datatype" required="true" style="query" type="xsd:string">
+                            <doc>the type of metadata required</doc>
+                        </param>
+                        <param name="key" required="true" style="query" type="xsd:string">
+                            <doc>aPI key required</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="getByListingId/">
+            <method displayName="Get by Listing ID" id="4500" name="GET">
+                <request>
+                    <param name="categoryid" required="true" style="query" type="xsd:string">
+                        <doc>filter included points of interest Eg railway stations car parks ATMs returned by category id</doc>
+                    </param>
+                    <param name="includepois" required="true" style="query" type="xsd:boolean">
+                        <doc>true or false</doc>
+                    </param>
+                    <param name="includereviews" required="true" style="query" type="xsd:boolean">
+                        <doc>true or false</doc>
+                    </param>
+                    <param name="key" required="true" style="query" type="xsd:string">
+                        <doc>aPI key required</doc>
+                    </param>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>unique ID of the listing to return required</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

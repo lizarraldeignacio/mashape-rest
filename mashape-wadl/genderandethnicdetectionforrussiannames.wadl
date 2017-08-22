@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1494="urn:function:f1494">
+    <grammars>
+        <include href="Function1494.xsd"/>
+    </grammars>
+    <doc>parses fullname and extracts surname firstname and middle name Detects gender of the person and ethics if possible For Russian names only</doc>
+    <resources base="https://rusnamesgender.p.mashape.com/">
+        <resource uri="names/">
+            <resource uri="parse/">
+                <method displayName="Detect person gender by fullname (Russian)" id="1494" name="GET">
+                    <doc>Parses fullname in Russian written at any style and detects gender of the person</doc>
+                    <request>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>text name of the person to parse</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1494:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

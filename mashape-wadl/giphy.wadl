@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1781="urn:function:f1781" xmlns:f1782="urn:function:f1782" xmlns:f1783="urn:function:f1783" xmlns:f1784="urn:function:f1784" xmlns:f1785="urn:function:f1785" xmlns:f1786="urn:function:f1786" xmlns:f1787="urn:function:f1787" xmlns:f1788="urn:function:f1788" xmlns:f1789="urn:function:f1789" xmlns:f1790="urn:function:f1790">
+    <grammars>
+        <include href="Function1788.xsd"/>
+        <include href="Function1787.xsd"/>
+        <include href="Function1786.xsd"/>
+        <include href="Function1785.xsd"/>
+        <include href="Function1781.xsd"/>
+        <include href="Function1782.xsd"/>
+        <include href="Function1783.xsd"/>
+        <include href="Function1784.xsd"/>
+        <include href="Function1789.xsd"/>
+        <include href="Function1790.xsd"/>
+    </grammars>
+    <doc>giphy is an animated GIF search engine The Giphy API implements a REST like interface Connections can be made with any HTTP enabled programming language The Giphy API also implements CORS allowing you to connect to Giphy from JavaScript Web browsers on your own domain</doc>
+    <resources base="https://giphy.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="stickers/">
+                <resource uri="trending/">
+                    <method displayName="STICKER Trending" id="1788" name="GET">
+                        <doc>Get the latest stickers trending on Giphy with this endpoint.</doc>
+                        <request>
+                            <param name="fmt" required="true" style="query" type="xsd:string">
+                                <doc>return results in html or json format</doc>
+                            </param>
+                            <param name="limit" required="true" style="query" type="xsd:string">
+                                <doc>number of results to return maximum Default</doc>
+                            </param>
+                            <param name="offset" required="true" style="query" type="xsd:string">
+                                <doc>results offset defaults to</doc>
+                            </param>
+                            <param name="rating" required="true" style="query" type="xsd:string">
+                                <doc>limit results to those rated y g pg pg or r</doc>
+                            </param>
+                            <param name="s" required="true" style="query" type="xsd:string">
+                                <doc>term or phrase to translate into a GIF</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1788:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="translate/">
+                    <method displayName="STICKER Translate" id="1787" name="GET">
+                        <doc>Using the same alogirithm as the GIF translate endpoint, the sticker translate endpoint turns words into stickers.</doc>
+                        <request>
+                            <param name="s" required="true" style="query" type="xsd:string">
+                                <doc>term or phrase to translate into a gif</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1787:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="search/">
+                    <method displayName="Sticker Search" id="1786" name="GET">
+                        <doc>Replicates the functionality and requirements of the classic Giphy search, but returns animated stickers rather than gifs.</doc>
+                        <request>
+                            <param name="limit" required="true" style="query" type="xsd:string">
+                                <doc>number of results to return maximum Default</doc>
+                            </param>
+                            <param name="offset" required="true" style="query" type="xsd:string">
+                                <doc>results offset defaults to</doc>
+                            </param>
+                            <param name="q" required="true" style="query" type="xsd:string">
+                                <doc>search query term or phrase</doc>
+                            </param>
+                            <param name="rating" required="true" style="query" type="xsd:string">
+                                <doc>limit results to those rated y g pg pg or r</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1786:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="random/">
+                    <method displayName="STICKER Roulette" id="1785" name="GET">
+                        <doc>Returns a spotaneously selected sticker from Giphy's sticker collection. Optionally limit scope of result to a specific tag. Like the GIF random endpoint, Punctuation will be stripped and ignored. Use a hyphen for phrases. Example oops, birthday or thank-you. Search terms should be URL encoded.</doc>
+                        <request>
+                            <param name="tag" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1785:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="gifs/">
+                <method displayName="Get GIF by ID" id="1781" name="GET">
+                    <doc>Returns meta data about a GIF, by GIF id. In the below example, the GIF ID is "feqkVgjJpYtjy"</doc>
+                    <request>
+                        <param name="gifId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f1781:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get GIFs by ID" id="1782" name="GET">
+                    <doc>A multiget version of the get GIF by ID endpoint. In this case the IDs are feqkVgjJpYtjy and 7rzbxdu0ZEXLy</doc>
+                    <request>
+                        <param name="ids" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1782:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Random" id="1783" name="GET">
+                    <doc>Returns a random GIF, limited by tag. Excluding the tag parameter will return a random GIF from the Giphy catalog.</doc>
+                    <request>
+                        <param name="rating" required="true" style="query" type="xsd:string">
+                            <doc>limit results to those rated y g pg pg or r</doc>
+                        </param>
+                        <param name="tag" required="true" style="query" type="xsd:string">
+                            <doc>the GIF tag to limit randomness by</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1783:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Search" id="1784" name="GET">
+                    <doc>Search all Giphy GIFs for a word or phrase. Punctuation will be stripped and ignored. Use a plus or url encode for phrases.</doc>
+                    <request>
+                        <param name="limit" required="true" style="query" type="xsd:string">
+                            <doc>number of results to return maximum Default</doc>
+                        </param>
+                        <param name="offset" required="true" style="query" type="xsd:string">
+                            <doc>results offset defaults to</doc>
+                        </param>
+                        <param name="q" required="true" style="query" type="xsd:string">
+                            <doc>search query term or phrase</doc>
+                        </param>
+                        <param name="rating" required="true" style="query" type="xsd:string">
+                            <doc>limit results to those rated y g pg pg or r</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1784:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Translate" id="1789" name="GET">
+                    <doc>This is prototype endpoint for using Giphy as a translation engine for a GIF dialect. The translate API draws on search, but uses the Giphy "special sauce" to handle translating from one vocabulary to another. In this case, words and phrases to GIFs. Use a plus or url encode for phrases.</doc>
+                    <request>
+                        <param name="rating" required="true" style="query" type="xsd:string">
+                            <doc>limit results to those rated y g pg pg or r</doc>
+                        </param>
+                        <param name="s" required="true" style="query" type="xsd:string">
+                            <doc>term or phrase to translate into a GIF</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1789:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Trending GIFs" id="1790" name="GET">
+                    <doc>Fetch GIFs currently trending online. The data returned mirrors that used to create The Hot 100 list of GIFs on Giphy. Returns 25 results by default.</doc>
+                    <request>
+                        <param name="limit" required="true" style="query" type="xsd:string">
+                            <doc>limits the number of results returned By default returns results</doc>
+                        </param>
+                        <param name="rating" required="true" style="query" type="xsd:string">
+                            <doc>limit results to those rated y g pg pg or r</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1790:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

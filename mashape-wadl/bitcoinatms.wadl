@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2522="urn:function:f2522" xmlns:f2523="urn:function:f2523" xmlns:f2524="urn:function:f2524" xmlns:f2525="urn:function:f2525" xmlns:f2526="urn:function:f2526" xmlns:f2527="urn:function:f2527" xmlns:f2528="urn:function:f2528" xmlns:f2529="urn:function:f2529">
+    <grammars>
+        <include href="Function2525.xsd"/>
+        <include href="Function2529.xsd"/>
+        <include href="Function2522.xsd"/>
+        <include href="Function2523.xsd"/>
+        <include href="Function2524.xsd"/>
+        <include href="Function2526.xsd"/>
+        <include href="Function2527.xsd"/>
+        <include href="Function2528.xsd"/>
+    </grammars>
+    <doc>bitcoin ATM map with locations and details of installed Bitcoin and other cryptocurrency ATMs worldwide</doc>
+    <resources base="https://coinatmradar-bitcoin-atms-v1.p.mashape.com/">
+        <resource uri="bitcoin_atm_number/">
+            <method displayName="JSON Number of Bitcoin ATMs" id="2525" name="GET">
+                <doc>This API returns the number of installed Bitcoin ATMs worlwide</doc>
+                <request/>
+                <response>
+                    <representation element="f2525:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="XML Number of Bitcoin ATMs" id="2529" name="GET">
+                <doc>This API returns the number of installed Bitcoin ATMs worlwide</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>return XML response</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2529:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="locations/">
+            <method displayName="JSON Bitcoin ATM details (date_from - date_to)" id="2522" name="GET">
+                <doc>With parameters date_from and date_to (in the format YYYY-MM-DD) only Bitcoin ATMs installed during this period are returned.</doc>
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string"/>
+                    <param name="dateTo" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2522:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="JSON Bitcoin ATM details (date_from)" id="2523" name="GET">
+                <doc>With date_from parameter (in the format YYYY-MM-DD) only Bitcoin ATMs installed since this date till present time are returned.</doc>
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2523:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="JSON Bitcoin ATM details (last 30d)" id="2524" name="GET">
+                <doc>Get Bitcoin ATM details installed during last 30 days</doc>
+                <request/>
+                <response>
+                    <representation element="f2524:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="XML Bitcoin ATM details (date_from - date_to)" id="2526" name="GET">
+                <doc>With parameters date_from and date_to (in the format YYYY-MM-DD) only Bitcoin ATMs installed during this period are returned.</doc>
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string"/>
+                    <param name="dateTo" required="true" style="query" type="xsd:string"/>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>return XML response</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2526:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="XML Bitcoin ATM details (date_from)" id="2527" name="GET">
+                <doc>With date_from parameter (in the format YYYY-MM-DD) only Bitcoin ATMs installed since this date till present time are returned.</doc>
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string"/>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>return XML response</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2527:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="XML Bitcoin ATM details (last 30d)" id="2528" name="GET">
+                <doc>Get Bitcoin ATM details installed during last 30 days</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>return XML response</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2528:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

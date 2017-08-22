@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4160="urn:function:f4160" xmlns:f4161="urn:function:f4161" xmlns:f4162="urn:function:f4162">
+    <grammars>
+        <include href="Function4162.xsd"/>
+        <include href="Function4161.xsd"/>
+        <include href="Function4160.xsd"/>
+    </grammars>
+    <doc>information about drugs available through an API Accessible everywhere</doc>
+    <resources base="https://iterar-mapi-us.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="autocomplete/">
+                <method displayName="Drug autocompletion" id="4162" name="GET">
+                    <doc>Query our database to provide autocompletion for drug names.</doc>
+                    <request>
+                        <param name="query" required="true" style="query" type="xsd:string">
+                            <doc>drug name initials</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4162:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="{name}/">
+                <param name="name" style="template" type="xsd:string"/>
+                <resource uri="doses.json/">
+                    <method displayName="Dosages" id="4161" name="GET">
+                        <doc>Get all the dosages associated with a drug.</doc>
+                        <request>
+                            <param name="name" required="true" style="query" type="xsd:string">
+                                <doc>drug name</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4161:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="substances.json/">
+                    <method displayName="Active ingredients" id="4160" name="GET">
+                        <doc>Get all the active ingredients associated with a drug.</doc>
+                        <request>
+                            <param name="name" required="true" style="query" type="xsd:string">
+                                <doc>drug name</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4160:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

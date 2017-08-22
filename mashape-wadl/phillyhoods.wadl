@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6383="urn:function:f6383" xmlns:f6384="urn:function:f6384">
+    <grammars>
+        <include href="Function6384.xsd"/>
+        <include href="Function6383.xsd"/>
+    </grammars>
+    <doc>a simple API to get data about neighborhoods in Philadelphia as GeoJSON</doc>
+    <resources base="https://ddw17-philly-hoods.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="neighborhoods/">
+                <resource uri="{hood}/">
+                    <param name="hood" style="template" type="xsd:string"/>
+                    <method displayName="neighborhoods" id="6384" name="GET">
+                        <doc>Returns neighborhood matches to a passed neighborhood name</doc>
+                        <request>
+                            <param name="hood" required="true" style="query" type="xsd:string">
+                                <doc>a neighborhood string to match on</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6384:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="locations/">
+                <resource uri="{coords}/">
+                    <param name="coords" style="template" type="xsd:string"/>
+                    <method displayName="locations" id="6383" name="GET">
+                        <doc>Returns the neighborhood that a passed pair of coordinates is located within</doc>
+                        <request>
+                            <param name="coords" required="true" style="query" type="xsd:string">
+                                <doc>pair of coordinates lat lon</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6383:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4888="urn:function:f4888">
+    <grammars>
+        <include href="Function4888.xsd"/>
+    </grammars>
+    <doc>loLInformer custom API This API returns current champions skin sales</doc>
+    <resources base="https://ijos-league-of-legends---lolinformer.p.mashape.com/">
+        <resource uri="sales/">
+            <resource uri="skins/">
+                <method displayName="Skin Sales" id="4888" name="GET">
+                    <doc>Get different type of current sales</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4888:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>embed the Currency Cloud API to deliver comprehensive international payment and remittance services to your clients</doc>
+    <resources base="https://community-the-currency-cloud.p.mashape.com/">
+        <resource uri="{token}payment/">
+            <param name="token" style="template" type="xsd:string"/>
+            <resource uri="{payment_id}/">
+                <param name="payment_id" style="template" type="xsd:string"/>
+                <method displayName="Update Payment" id="2470" name="POST">
+                    <doc>Update the details of the specified payment</doc>
+                    <request>
+                        <param name="paymentId" required="true" style="query" type="xsd:string"/>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="authentication/">
+            <resource uri="token/">
+                <resource uri="new/">
+                    <method displayName="Authentication Token" id="2444" name="POST">
+                        <doc>A token must be obtained to open the session and must be used for all further API calls. The token is obtained using the 'new token' call.</doc>
+                        <request/>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="{token}/">
+            <param name="token" style="template" type="xsd:string"/>
+            <resource uri="settlements/">
+                <method displayName="Settlement Search" id="2467" name="GET">
+                    <doc>Returns an array containing the details of settlements matching the search criteria.</doc>
+                    <request>
+                        <param name="count" required="true" style="query" type="xsd:integer">
+                            <doc/>
+                        </param>
+                        <param name="endReleaseDate" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="index" required="true" style="query" type="xsd:integer">
+                            <doc/>
+                        </param>
+                        <param name="startReleaseDate" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="status" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                        <param name="tradeId" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="trades/">
+                <method displayName="Search Trades" id="2465" name="GET">
+                    <doc>Search for trades belonging to the account you are logged in as, use the optional parameters specified</doc>
+                    <request>
+                        <param name="buyCcy" required="true" style="query" type="xsd:string">
+                            <doc>char ISO currency code</doc>
+                        </param>
+                        <param name="count" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of entries to return</doc>
+                        </param>
+                        <param name="market" required="true" style="query" type="xsd:string">
+                            <doc>two ISO Codes</doc>
+                        </param>
+                        <param name="product" required="true" style="query" type="xsd:string">
+                            <doc>one of tod tom spot forward</doc>
+                        </param>
+                        <param name="sellCcy" required="true" style="query" type="xsd:string">
+                            <doc>char ISO currency code</doc>
+                        </param>
+                        <param name="settlementEndDate" required="true" style="query" type="xsd:string">
+                            <doc>yYYY mm dd</doc>
+                        </param>
+                        <param name="settlementStartDate" required="true" style="query" type="xsd:string">
+                            <doc>yYYY mm dd</doc>
+                        </param>
+                        <param name="status" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                        <param name="tradingEndDate" required="true" style="query" type="xsd:string">
+                            <doc>yYYY mm dd</doc>
+                        </param>
+                        <param name="tradingStartDate" required="true" style="query" type="xsd:string">
+                            <doc>yYYY mm dd</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="payments/">
+                <method displayName="Payments Index" id="2461" name="GET">
+                    <doc>Return an array containing hashes of details of the payments matching the search criteria for the logged in contact</doc>
+                    <request>
+                        <param name="amount" required="true" style="query" type="xsd:string">
+                            <doc>number to dp</doc>
+                        </param>
+                        <param name="count" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of entries to return</doc>
+                        </param>
+                        <param name="currency" required="true" style="query" type="xsd:string">
+                            <doc>char ISO currency code</doc>
+                        </param>
+                        <param name="endDate" required="true" style="query" type="xsd:string">
+                            <doc>string YYYY mm dd</doc>
+                        </param>
+                        <param name="index" required="true" style="query" type="xsd:integer">
+                            <doc>index of the first entry to return</doc>
+                        </param>
+                        <param name="paymentReference" required="true" style="query" type="xsd:string">
+                            <doc>string TYYYYMMDD XXXXXX</doc>
+                        </param>
+                        <param name="paymentType" required="true" style="query" type="xsd:string">
+                            <doc>one of standard default local</doc>
+                        </param>
+                        <param name="startDate" required="true" style="query" type="xsd:string">
+                            <doc>string YYYY mm dd</doc>
+                        </param>
+                        <param name="status" required="true" style="query" type="xsd:string">
+                            <doc>one of new ready to send awaiting authorisation authorised released submitted suspended completed failed</doc>
+                        </param>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                        <param name="tradeId" required="true" style="query" type="xsd:string">
+                            <doc>string YYYYMMDD XXXXXX</doc>
+                        </param>
+                        <param name="yourAccountRef" required="true" style="query" type="xsd:string">
+                            <doc>your unique ID of the Account</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="prices/">
+                <resource uri="market/">
+                    <resource uri="{ccy_pair}/">
+                        <param name="ccy_pair" style="template" type="xsd:string"/>
+                        <method displayName="Exchange Rate for Currency Pair" id="2457" name="GET">
+                            <doc>Returns a hash containing mid-market price and the market bid/offer price data for the given currency pair.</doc>
+                            <request>
+                                <param name="acceptStale" required="true" style="query" type="xsd:boolean">
+                                    <doc>boolean if true return a price even if it is out of date</doc>
+                                </param>
+                                <param name="ccyPair" required="true" style="query" type="xsd:string">
+                                    <doc>eURGBP</doc>
+                                </param>
+                                <param name="token" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="client_quote/">
+                    <method displayName="Exchange Rate" id="2456" name="POST">
+                        <doc>Returns a hash containing a full quote for the requested currency based on the spread table of the currently logged in contact.</doc>
+                        <request>
+                            <param name="token" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="trade/">
+                <resource uri="execute/">
+                    <method displayName="Foreign Currency Payment" id="2458" name="POST">
+                        <doc>Executes the requested trade in the market based on the spread table for the logged in Contact. If successful, returns the ID of the newly created trade.</doc>
+                        <request>
+                            <param name="token" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="{trade_id}/">
+                    <param name="trade_id" style="template" type="xsd:string"/>
+                    <method displayName="Details of a Trade" id="2453" name="GET">
+                        <doc>Returns a hash containing the full details of a particular trade.</doc>
+                        <request>
+                            <param name="token" required="true" style="query" type="xsd:string"/>
+                            <param name="tradeId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Details of a Trade's Bank Account" id="2454" name="GET">
+                        <doc>Returns a hash containing the bank account details of where to send any required deposit for this trade.</doc>
+                        <request>
+                            <param name="token" required="true" style="query" type="xsd:string"/>
+                            <param name="tradeId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Details of a Trade's Settlement" id="2455" name="GET">
+                        <doc>Returns a hash containing the bank account details for settlement of this trade.</doc>
+                        <request>
+                            <param name="token" required="true" style="query" type="xsd:string"/>
+                            <param name="tradeId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Resend Trade Email" id="2464" name="POST">
+                        <doc>Request that the trade confirmation email is re-sent.</doc>
+                        <request>
+                            <param name="token" required="true" style="query" type="xsd:string"/>
+                            <param name="tradeId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="beneficiary/">
+                <resource uri="validate_details/">
+                    <method displayName="Validate Beneficiary Details" id="2471" name="GET">
+                        <doc>Validates the bank details you provide, which needs to be all the details required for the relevant country to be able to create a beneficiary and make a payment.</doc>
+                        <request>
+                            <param name="acctCcy" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="beneficiaryName" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="destinationCountryCode" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="nickname" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="token" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="new/">
+                    <method displayName="New Beneficiary" id="2459" name="POST">
+                        <doc>Creates a new bank account for the logged in contact. Runs against validation service. Bank account can be beneficiary, source or both beneficiary and source.</doc>
+                        <request>
+                            <param name="token" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="{beneficiary_id}/">
+                    <param name="beneficiary_id" style="template" type="xsd:string"/>
+                    <method displayName="Details of a Beneficiary" id="2450" name="GET">
+                        <request>
+                            <param name="beneficiaryId" required="true" style="query" type="xsd:string"/>
+                            <param name="token" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Update Beneficiary" id="2469" name="POST">
+                        <request>
+                            <param name="beneficiaryId" required="true" style="query" type="xsd:string"/>
+                            <param name="token" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="close_session/">
+                <method displayName="Close Session" id="2447" name="POST">
+                    <request>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="beneficiaries/">
+                <method displayName="Beneficiaries Required Fields" id="2445" name="GET">
+                    <doc>Returns a set of required fields which should be provided when a bank account is created.</doc>
+                    <request>
+                        <param name="ccy" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="destinationCountryCode" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="paymentType" required="true" style="query" type="xsd:string">
+                            <doc>one of standard default local</doc>
+                        </param>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Beneficiary Index" id="2446" name="GET">
+                    <doc>Returns hashes containing bank account details for the logged in contact. All hashes are indexed by currency.</doc>
+                    <request>
+                        <param name="ccy" required="true" style="query" type="xsd:string">
+                            <doc>char ISO code</doc>
+                        </param>
+                        <param name="filter" required="true" style="query" type="xsd:string">
+                            <doc>can contain values is beneficiary is source</doc>
+                        </param>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="payment/">
+                <resource uri="{payment_id}/">
+                    <param name="payment_id" style="template" type="xsd:string"/>
+                    <method displayName="Details of a Payment" id="2451" name="GET">
+                        <doc>Returns a hash containing the details of the requested payment or an error is you do not have permissions to view that payment ID</doc>
+                        <request>
+                            <param name="paymentId" required="true" style="query" type="xsd:string"/>
+                            <param name="token" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="add/">
+                    <method displayName="Add Payment to Trade" id="2442" name="POST">
+                        <doc>Add a new payment instruction for a trade or an error if you do not have permission to view that trade.</doc>
+                        <request>
+                            <param name="token" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="settlement/">
+                <resource uri="create/">
+                    <method displayName="Create Settlement" id="2448" name="POST">
+                        <doc>Create a new settlement run with a status of 'open', ready to have trades added to it.</doc>
+                        <request>
+                            <param name="token" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="{settlement_id}/">
+                    <param name="settlement_id" style="template" type="xsd:string"/>
+                    <method displayName="Add a Deposit to a Settlement" id="2441" name="POST">
+                        <doc>Add a transaction for a deposit to the specified settlement run.</doc>
+                        <request>
+                            <param name="settlementId" required="true" style="query" type="xsd:string"/>
+                            <param name="token" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Add Trade to Settlement" id="2443" name="POST">
+                        <doc>Add a trade to the specified settlement run.</doc>
+                        <request>
+                            <param name="settlementId" required="true" style="query" type="xsd:string"/>
+                            <param name="token" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Delete a Settlement" id="2449" name="POST">
+                        <doc>Delete the specified settlement run. Note this is only possible before the settlement run is released</doc>
+                        <request>
+                            <param name="settlementId" required="true" style="query" type="xsd:string"/>
+                            <param name="token" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Details of a Settlement" id="2452" name="GET">
+                        <doc>Obtain the full details of a settlement run showing all trade information, amounts, currencies, beneficiary details</doc>
+                        <request>
+                            <param name="settlementId" required="true" style="query" type="xsd:string"/>
+                            <param name="token" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Open Settlement" id="2460" name="POST">
+                        <doc>Change status of the settlement from release to open.</doc>
+                        <request>
+                            <param name="settlementId" required="true" style="query" type="xsd:string"/>
+                            <param name="token" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Release Settlement" id="2462" name="GET">
+                        <doc>Update the status of the specified settlement run to 'released' and notify TCC Ops to expect the arrival of the funds for this settlement run.</doc>
+                        <request>
+                            <param name="settlementId" required="true" style="query" type="xsd:string"/>
+                            <param name="token" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Remove a Trade from a Settlement" id="2463" name="POST">
+                        <doc>Removes a trade from the specified settlement run.</doc>
+                        <request>
+                            <param name="settlementId" required="true" style="query" type="xsd:string"/>
+                            <param name="token" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Settlement Index" id="2466" name="POST">
+                        <doc>Returns an array containing the trade IDs for all the trades in this settlement run.</doc>
+                        <request>
+                            <param name="settlementId" required="true" style="query" type="xsd:string"/>
+                            <param name="token" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Summary of a Settlement" id="2468" name="GET">
+                        <doc>Obtain the summary of the given settlement run showing amounts, currencies, status, beneficiary details</doc>
+                        <request>
+                            <param name="settlementId" required="true" style="query" type="xsd:string"/>
+                            <param name="token" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

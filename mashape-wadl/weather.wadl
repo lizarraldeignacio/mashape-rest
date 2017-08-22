@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f71="urn:function:f71" xmlns:f73="urn:function:f73">
+    <grammars>
+        <include href="Function73.xsd"/>
+        <include href="Function71.xsd"/>
+    </grammars>
+    <doc>display Weather forecast data by latitude and longitude Get raw weather data OR simple label description of weather forecast of some places</doc>
+    <resources base="https://simple-weather.p.mashape.com/">
+        <resource uri="weatherdata/">
+            <method displayName="weatherdata" id="73" name="GET">
+                <doc>Get weather forecast by Latitude and Longtitude</doc>
+                <request>
+                    <param name="lat" required="true" style="query" type="xsd:integer">
+                        <doc>latitude</doc>
+                    </param>
+                    <param name="lng" required="true" style="query" type="xsd:integer">
+                        <doc>longtitude</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f73:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="weather/">
+            <method displayName="weather" id="72" name="GET">
+                <doc>weather forecast in short label</doc>
+                <request>
+                    <param name="lat" required="true" style="query" type="xsd:string">
+                        <doc>latitude</doc>
+                    </param>
+                    <param name="lng" required="true" style="query" type="xsd:string">
+                        <doc>longtitude</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="aqi/">
+            <method displayName="aqi" id="71" name="GET">
+                <doc>Air Quality Index</doc>
+                <request>
+                    <param name="lat" required="true" style="query" type="xsd:integer">
+                        <doc>latitude</doc>
+                    </param>
+                    <param name="lng" required="true" style="query" type="xsd:integer">
+                        <doc>longitude</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f71:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

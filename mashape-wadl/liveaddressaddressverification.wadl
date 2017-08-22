@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3730="urn:function:f3730" xmlns:f3731="urn:function:f3731">
+    <grammars>
+        <include href="Function3730.xsd"/>
+        <include href="Function3731.xsd"/>
+    </grammars>
+    <doc>verify standardize and validate US street addresses</doc>
+    <resources base="https://liveaddress.p.mashape.com/">
+        <resource uri="street-address/">
+            <method displayName="Multiple street address" id="3730" name="POST">
+                <request/>
+                <response>
+                    <representation element="f3730:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Single street address" id="3731" name="GET">
+                <doc>Easily verify a single street address</doc>
+                <request>
+                    <param name="addressee" required="true" style="query" type="xsd:string">
+                        <doc>the recipient or firm company name</doc>
+                    </param>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>the name of the function in which to wrap the JSON response Typically only used for cross domain JSONP requests with Javascript</doc>
+                    </param>
+                    <param name="candidates" required="true" style="query" type="xsd:integer">
+                        <doc>the maximum number of valid addresses returned when the input address is ambiguous Max default</doc>
+                    </param>
+                    <param name="city" required="true" style="query" type="xsd:string">
+                        <doc>the city name</doc>
+                    </param>
+                    <param name="inputId" required="true" style="query" type="xsd:string">
+                        <doc>any unique identifier that you use to reference the input address The output will be identical to the input</doc>
+                    </param>
+                    <param name="lastline" required="true" style="query" type="xsd:string">
+                        <doc>the city state and ZIP code combined if not using city state zipcode fields</doc>
+                    </param>
+                    <param name="secondary" required="true" style="query" type="xsd:string">
+                        <doc>if used usually contains apartment or suite number</doc>
+                    </param>
+                    <param name="state" required="true" style="query" type="xsd:string">
+                        <doc>the state name</doc>
+                    </param>
+                    <param name="street" required="true" style="query" type="xsd:string">
+                        <doc>the street line of the address or an entire address as a single string</doc>
+                    </param>
+                    <param name="street" required="true" style="query" type="xsd:string">
+                        <doc>extra address information</doc>
+                    </param>
+                    <param name="urbanization" required="true" style="query" type="xsd:string">
+                        <doc>only used with Puerto Rican addresses</doc>
+                    </param>
+                    <param name="zipcode" required="true" style="query" type="xsd:string">
+                        <doc>the ZIP code</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3731:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2121="urn:function:f2121" xmlns:f2122="urn:function:f2122" xmlns:f2123="urn:function:f2123" xmlns:f2124="urn:function:f2124" xmlns:f2125="urn:function:f2125" xmlns:f2126="urn:function:f2126" xmlns:f2127="urn:function:f2127" xmlns:f2128="urn:function:f2128" xmlns:f2129="urn:function:f2129" xmlns:f2130="urn:function:f2130" xmlns:f2131="urn:function:f2131" xmlns:f2132="urn:function:f2132" xmlns:f2133="urn:function:f2133" xmlns:f2134="urn:function:f2134" xmlns:f2135="urn:function:f2135" xmlns:f2136="urn:function:f2136" xmlns:f2137="urn:function:f2137" xmlns:f2138="urn:function:f2138" xmlns:f2139="urn:function:f2139" xmlns:f2140="urn:function:f2140" xmlns:f2141="urn:function:f2141" xmlns:f2142="urn:function:f2142" xmlns:f2143="urn:function:f2143" xmlns:f2144="urn:function:f2144" xmlns:f2145="urn:function:f2145" xmlns:f2146="urn:function:f2146" xmlns:f2147="urn:function:f2147" xmlns:f2148="urn:function:f2148" xmlns:f2149="urn:function:f2149" xmlns:f2150="urn:function:f2150" xmlns:f2151="urn:function:f2151">
+    <grammars>
+        <include href="Function2151.xsd"/>
+        <include href="Function2150.xsd"/>
+        <include href="Function2149.xsd"/>
+        <include href="Function2148.xsd"/>
+        <include href="Function2147.xsd"/>
+        <include href="Function2146.xsd"/>
+        <include href="Function2145.xsd"/>
+        <include href="Function2144.xsd"/>
+        <include href="Function2143.xsd"/>
+        <include href="Function2142.xsd"/>
+        <include href="Function2141.xsd"/>
+        <include href="Function2140.xsd"/>
+        <include href="Function2139.xsd"/>
+        <include href="Function2138.xsd"/>
+        <include href="Function2137.xsd"/>
+        <include href="Function2136.xsd"/>
+        <include href="Function2135.xsd"/>
+        <include href="Function2134.xsd"/>
+        <include href="Function2133.xsd"/>
+        <include href="Function2132.xsd"/>
+        <include href="Function2131.xsd"/>
+        <include href="Function2130.xsd"/>
+        <include href="Function2129.xsd"/>
+        <include href="Function2128.xsd"/>
+        <include href="Function2127.xsd"/>
+        <include href="Function2126.xsd"/>
+        <include href="Function2125.xsd"/>
+        <include href="Function2124.xsd"/>
+        <include href="Function2123.xsd"/>
+        <include href="Function2122.xsd"/>
+        <include href="Function2121.xsd"/>
+    </grammars>
+    <doc>aPI Cart is a unified shopping cart data interface that makes integration with multiple shopping cart APIs simple and effective Service supports integration with eCommerce platforms including Magento PrestaShop OpenCart VirtueMart Shopify BigCommerce WooCommerce and can be used to cooperate with numerous business software in various fields including Mobile Commerce Social Commerce E mail Marketing Inventory Management Order Management Comparison Shopping Engines Analytics System Accounting System and other</doc>
+    <resources base="https://magneticone-api2cart.p.mashape.com/">
+        <resource uri="product.update.json/">
+            <method displayName="product.update" id="2151" name="POST">
+                <doc>Update price for specific product</doc>
+                <request/>
+                <response>
+                    <representation element="f2151:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="product.list.json/">
+            <method displayName="product.list" id="2150" name="GET">
+                <doc>Get list of products from your store. Test method performance with 4 products.</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                    <param name="categoryId" required="true" style="query" type="xsd:string">
+                        <doc>category product list</doc>
+                    </param>
+                    <param name="count" required="true" style="query" type="xsd:string">
+                        <doc>number of product in list returned by request Maximum value Default value</doc>
+                    </param>
+                    <param name="params" required="true" style="query" type="xsd:string">
+                        <doc>list of comma separated fields which need to be retrieved example name model description id or force all list all details</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>list product started from</doc>
+                    </param>
+                    <param name="storeKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart Store Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2150:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="product.info.json/">
+            <method displayName="product.info" id="2149" name="GET">
+                <doc>Get product info about product ID *** or specify other product ID.</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>product ID</doc>
+                    </param>
+                    <param name="params" required="true" style="query" type="xsd:string">
+                        <doc>list of comma separated fields which need to be retrieved example name model description id or force all list all details</doc>
+                    </param>
+                    <param name="storeKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart Store Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2149:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="product.find.json/">
+            <method displayName="product.find" id="2148" name="GET">
+                <doc>Search product in store catalog. "Apple" is specified here be default.</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                    <param name="findParams" required="true" style="query" type="xsd:string">
+                        <doc>find Product parameters Default parameter whole words</doc>
+                    </param>
+                    <param name="findValue" required="true" style="query" type="xsd:string">
+                        <doc>search parameter value</doc>
+                    </param>
+                    <param name="findWhere" required="true" style="query" type="xsd:string">
+                        <doc>search product by parameter for example name model description</doc>
+                    </param>
+                    <param name="storeKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart Store Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2148:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="product.fields.json/">
+            <method displayName="product.fields" id="2147" name="GET">
+                <doc>Retrieve all available fields for product item in store.</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                    <param name="storeKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart Store Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2147:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="product.count.json/">
+            <method displayName="product.count" id="2146" name="GET">
+                <doc>Count products in store.</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                    <param name="categoryId" required="true" style="query" type="xsd:string">
+                        <doc>get products count from specified category only Default value count all products from all categories</doc>
+                    </param>
+                    <param name="storeKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart Store Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2146:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="order.update.json/">
+            <method displayName="order.update" id="2145" name="POST">
+                <doc>Update existing order.</doc>
+                <request/>
+                <response>
+                    <representation element="f2145:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="order.status.list.json/">
+            <method displayName="order.status.list" id="2144" name="GET">
+                <doc>Retrieve list of statuses</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                    <param name="storeKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart Store Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2144:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="order.list.json/">
+            <method displayName="order.list" id="2143" name="GET">
+                <doc>Get list of orders from store. Test method performance with 4 orders.</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                    <param name="count" required="true" style="query" type="xsd:string">
+                        <doc>number of orders in the list returned by request Maximum value Default value</doc>
+                    </param>
+                    <param name="customerEmail" required="true" style="query" type="xsd:string">
+                        <doc>customer Email</doc>
+                    </param>
+                    <param name="customerId" required="true" style="query" type="xsd:string">
+                        <doc>customer Id</doc>
+                    </param>
+                    <param name="params" required="true" style="query" type="xsd:string">
+                        <doc>list of comma separated fields which need to be retrieved for example customers e mail first name last name or force all list all details</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>list order that can be retrieved starting from specific item</doc>
+                    </param>
+                    <param name="storeKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart Store Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2143:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="order.info.json/">
+            <method displayName="order.info" id="2142" name="GET">
+                <doc>Info about order</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                    <param name="orderId" required="true" style="query" type="xsd:string">
+                        <doc>order Id</doc>
+                    </param>
+                    <param name="storeKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart Store Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2142:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="order.find.json/">
+            <method displayName="order.find" id="2141" name="GET">
+                <doc>Find order</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                    <param name="count" required="true" style="query" type="xsd:string">
+                        <doc>number of orders in the list returned by request Maximum value Default value</doc>
+                    </param>
+                    <param name="customerEmail" required="true" style="query" type="xsd:string">
+                        <doc>customer Email</doc>
+                    </param>
+                    <param name="customerId" required="true" style="query" type="xsd:string">
+                        <doc>customer Id</doc>
+                    </param>
+                    <param name="params" required="true" style="query" type="xsd:string">
+                        <doc>list of comma separated fields which need to be retrieved for example customers e mail first name last name or force all list all details</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>list order that can be retrieved starting from specific item</doc>
+                    </param>
+                    <param name="storeKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart Store Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2141:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="order.count.json/">
+            <method displayName="order.count" id="2140" name="GET">
+                <doc>Count orders in store</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                    <param name="customerEmail" required="true" style="query" type="xsd:string">
+                        <doc>customer Email</doc>
+                    </param>
+                    <param name="customerId" required="true" style="query" type="xsd:string">
+                        <doc>customer Id</doc>
+                    </param>
+                    <param name="storeKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart Store Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2140:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="order.add.json/">
+            <method displayName="order.add" id="2139" name="POST">
+                <doc>Add new order to the cart.</doc>
+                <request/>
+                <response>
+                    <representation element="f2139:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="customer.update.json/">
+            <method displayName="customer.update" id="2138" name="POST">
+                <doc>Update information of customer in store.</doc>
+                <request/>
+                <response>
+                    <representation element="f2138:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="customer.list.json/">
+            <method displayName="customer.list" id="2137" name="GET">
+                <doc>Get list of customers from store.</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                    <param name="count" required="true" style="query" type="xsd:string">
+                        <doc>number of customers in the list returned by request Maximum value Default value</doc>
+                    </param>
+                    <param name="params" required="true" style="query" type="xsd:string">
+                        <doc>list of comma separated fields which need to be retrieved for example customers e mail first name last name or force all list all details</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>list customer that can be retrieved starting from specific item</doc>
+                    </param>
+                    <param name="storeKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart Store Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2137:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="customer.info.json/">
+            <method displayName="customer.info" id="2136" name="GET">
+                <doc>Get details of customers from store.</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>customer ID</doc>
+                    </param>
+                    <param name="params" required="true" style="query" type="xsd:string">
+                        <doc>list of comma separated fields which need to be retrieved for example customers e mail first name last name or force all list all details</doc>
+                    </param>
+                    <param name="storeKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart Store Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2136:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="customer.find.json/">
+            <method displayName="customer.find" id="2135" name="GET">
+                <doc>Find customers in store.</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                    <param name="findParams" required="true" style="query" type="xsd:string">
+                        <doc>find parameters Default parameter whole words</doc>
+                    </param>
+                    <param name="findValue" required="true" style="query" type="xsd:string">
+                        <doc>search parameter value</doc>
+                    </param>
+                    <param name="findWhere" required="true" style="query" type="xsd:string">
+                        <doc>search customer by specific parameter for example e mail first name last name</doc>
+                    </param>
+                    <param name="storeKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart Store Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2135:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="customer.delete.json/">
+            <method displayName="customer.delete" id="2134" name="POST">
+                <doc>Delete customer from store.</doc>
+                <request/>
+                <response>
+                    <representation element="f2134:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="customer.count.json/">
+            <method displayName="customer.count" id="2133" name="GET">
+                <doc>Get count of customers from store.</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                    <param name="storeKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart Store Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2133:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="customer.add.json/">
+            <method displayName="customer.add" id="2132" name="POST">
+                <doc>Add customer into store.</doc>
+                <request/>
+                <response>
+                    <representation element="f2132:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="category.list.json/">
+            <method displayName="category.list" id="2131" name="GET">
+                <doc>Get list of categories from store. Test method performance with 4 categories.</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                    <param name="count" required="true" style="query" type="xsd:string">
+                        <doc>number of categories in the list returned by request Maximum value Default value</doc>
+                    </param>
+                    <param name="params" required="true" style="query" type="xsd:string">
+                        <doc>list of comma separated fields which need to be retrieved example name model id parent id or force all list all details</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>list of categories that can be retrieved starting from certain item</doc>
+                    </param>
+                    <param name="storeKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart Store Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2131:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="category.info.json/">
+            <method displayName="category.info" id="2130" name="GET">
+                <doc>Get category info about category ID*** or specify other category ID.</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>category Id</doc>
+                    </param>
+                    <param name="params" required="true" style="query" type="xsd:string">
+                        <doc>list of comma separated fields which need to be retrieved example name model id parent id or force all list all details</doc>
+                    </param>
+                    <param name="storeKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart Store Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2130:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="category.find.json/">
+            <method displayName="category.find" id="2129" name="GET">
+                <doc>Search category in store. "Laptop" is specified here be default.</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                    <param name="findParams" required="true" style="query" type="xsd:string">
+                        <doc>find parameters Default parameter whole words</doc>
+                    </param>
+                    <param name="findValue" required="true" style="query" type="xsd:string">
+                        <doc>search Parameter Value</doc>
+                    </param>
+                    <param name="findWhere" required="true" style="query" type="xsd:string">
+                        <doc>search category by parameter for example name model</doc>
+                    </param>
+                    <param name="storeKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart Store Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2129:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="category.count.json/">
+            <method displayName="category.count" id="2128" name="GET">
+                <doc>Count categories in store.</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                    <param name="storeKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart Store Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2128:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="cart.validate.json/">
+            <method displayName="cart.validate" id="2127" name="GET">
+                <doc>Check store availability, check bridge connection for the downloadable carts, identify database prefix, validate API accesses for API carts.</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                    <param name="storeKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart Store Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2127:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="cart.methods.json/">
+            <method displayName="cart.methods" id="2126" name="GET">
+                <doc>Get list of cart methods</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                    <param name="storeKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart Store Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2126:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="cart.list.json/">
+            <method displayName="cart.list" id="2125" name="GET">
+                <doc>Get list of supported carts</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2125:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="cart.disconnect.json/">
+            <method displayName="cart.disconnect" id="2124" name="GET">
+                <doc>Disconnect with the store and clear store session data.</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                    <param name="deleteBridge" required="true" style="query" type="xsd:string">
+                        <doc>delete connection bridge If true delete</doc>
+                    </param>
+                    <param name="storeKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart Store Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2124:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="cart.delete.json/">
+            <method displayName="cart.delete" id="2123" name="GET">
+                <doc>Remove store. Store deletion will be performed without confirmation. To add Demo store press Add Demo Store button</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                    <param name="storeKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart Store Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2123:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="cart.create.json/">
+            <method displayName="cart.create" id="2122" name="GET">
+                <doc>Add store to account</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                    <param name="cartId" required="true" style="query" type="xsd:string">
+                        <doc>cart ID The value is case sensitive Choose the cart with the method cart list</doc>
+                    </param>
+                    <param name="dbTablesPrefix" required="true" style="query" type="xsd:string">
+                        <doc>database tables prefix for downloadable carts</doc>
+                    </param>
+                    <param name="ftpHost" required="true" style="query" type="xsd:string">
+                        <doc>fTP connection host</doc>
+                    </param>
+                    <param name="ftpPassword" required="true" style="query" type="xsd:string">
+                        <doc>fTP Password</doc>
+                    </param>
+                    <param name="ftpPort" required="true" style="query" type="xsd:string">
+                        <doc>fTP Port</doc>
+                    </param>
+                    <param name="ftpStoreDir" required="true" style="query" type="xsd:string">
+                        <doc>store directory location on server For example public html store</doc>
+                    </param>
+                    <param name="ftpUser" required="true" style="query" type="xsd:string">
+                        <doc>fTP User</doc>
+                    </param>
+                    <param name="storeKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart Store Key Set this parameter if bridge is already uploaded to store</doc>
+                    </param>
+                    <param name="storeUrl" required="true" style="query" type="xsd:string">
+                        <doc>store URL</doc>
+                    </param>
+                    <param name="verify" required="true" style="query" type="xsd:string">
+                        <doc>cart validation Skip validation to add shopping cart if verify false</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2122:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="cart.bridge.json/">
+            <method displayName="cart.bridge" id="2121" name="GET">
+                <doc>Get bridge key and store key</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2121:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="bridge.download.json/">
+            <method displayName="bridge.download" id="2120" name="GET">
+                <doc>Download bridge for store</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart API Key</doc>
+                    </param>
+                    <param name="storeKey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Cart Store Key</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

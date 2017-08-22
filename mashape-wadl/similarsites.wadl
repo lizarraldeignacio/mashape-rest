@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2093="urn:function:f2093">
+    <grammars>
+        <include href="Function2093.xsd"/>
+    </grammars>
+    <doc>similarsitecheck is a free and open search engine to find similar and related websites Our specially developed similarity algorithm Similarsitecheck helps to find alternative webpages We provide an API for developers or whoever would like to use our data It s free to get started using the API There is a rate limit of queries per day If you expect to exceed that please get in touch with us Input a domain and receive an output of similar websites with title description domainpower website language and their similarity score</doc>
+    <resources base="https://similarsitecheck-similarsite.p.mashape.com/">
+        <resource uri="simsites/">
+            <method displayName="simsites" id="2093" name="GET">
+                <doc>Find similar sites for a given domain</doc>
+                <request>
+                    <param name="domain" required="true" style="query" type="xsd:string">
+                        <doc>the domain you want to have similar sites for</doc>
+                    </param>
+                    <param name="key" required="true" style="query" type="xsd:string">
+                        <doc>your API key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2093:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

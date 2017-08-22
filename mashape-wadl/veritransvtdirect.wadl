@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2935="urn:function:f2935" xmlns:f2936="urn:function:f2936" xmlns:f2937="urn:function:f2937" xmlns:f2938="urn:function:f2938">
+    <grammars>
+        <include href="Function2938.xsd"/>
+        <include href="Function2937.xsd"/>
+        <include href="Function2936.xsd"/>
+        <include href="Function2935.xsd"/>
+    </grammars>
+    <doc>vT Direct is a RESTful API that allows merchants to utilize the Veritrans payment system to process payments VT Direct allows customers to complete payment on the merchant s website without being redirected to Veritrans and yet still allow the merchant to minimize the security risk inherit with processing card payments Find out more information about Veritrans at https veritrans co id</doc>
+    <resources base="https://veritrans-vtdirect.p.mashape.com/">
+        <resource uri="void/">
+            <method displayName="4. Cancel transaction" id="2938" name="POST">
+                <request/>
+                <response>
+                    <representation element="f2938:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="status/">
+            <method displayName="3. Check transaction status" id="2937" name="POST">
+                <request/>
+                <response>
+                    <representation element="f2937:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="charges/">
+            <method displayName="2. Charge transaction" id="2936" name="POST">
+                <request/>
+                <response>
+                    <representation element="f2936:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="tokens/">
+            <method displayName="1. Get token" id="2935" name="GET">
+                <request>
+                    <param name="cardCvv" required="true" style="query" type="xsd:string">
+                        <doc>cVV Card Verification Value</doc>
+                    </param>
+                    <param name="cardExpMonth" required="true" style="query" type="xsd:string">
+                        <doc>credit Card expiry month</doc>
+                    </param>
+                    <param name="cardExpYear" required="true" style="query" type="xsd:string">
+                        <doc>credit Card expiry year</doc>
+                    </param>
+                    <param name="cardNumber" required="true" style="query" type="xsd:string">
+                        <doc>credit Card number</doc>
+                    </param>
+                    <param name="clientKey" required="true" style="query" type="xsd:string">
+                        <doc>merchant Client Key You can get the key from Merchant Administration Portal https payments veritrans co id map</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2935:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

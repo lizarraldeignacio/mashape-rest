@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2537="urn:function:f2537" xmlns:f2538="urn:function:f2538" xmlns:f2539="urn:function:f2539" xmlns:f2540="urn:function:f2540" xmlns:f2541="urn:function:f2541">
+    <grammars>
+        <include href="Function2541.xsd"/>
+        <include href="Function2540.xsd"/>
+        <include href="Function2539.xsd"/>
+        <include href="Function2538.xsd"/>
+        <include href="Function2537.xsd"/>
+    </grammars>
+    <doc>aPI provide information about LEGO sets including images Allows maintain LEGO set collection a provide information about LEGO building instructions</doc>
+    <resources base="https://cubiculussets.p.mashape.com/">
+        <resource uri="range-year/">
+            <resource uri="10l1g6blg76coa1o20deb7aa93q8a2ak6ad7m0k7viis14tjsnddbco24obnckb9/">
+                <method displayName="Range year" id="2541" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f2541:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="range-price/">
+            <resource uri="10l1g6blg76coa1o20deb7aa93q8a2ak6ad7m0k7viis14tjsnddbco24obnckb9/">
+                <method displayName="Range price" id="2540" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f2540:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="properties/">
+            <resource uri="10l1g6blg76coa1o20deb7aa93q8a2ak6ad7m0k7viis14tjsnddbco24obnckb9/">
+                <method displayName="Properties" id="2539" name="POST">
+                    <doc>Return list of properties and property values that belongs to some selection. Method allows show tree like structure for selecting categories.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2539:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="lego-sets/">
+            <resource uri="10l1g6blg76coa1o20deb7aa93q8a2ak6ad7m0k7viis14tjsnddbco24obnckb9/">
+                <method displayName="Lego sets" id="2538" name="POST">
+                    <doc>For given parameters return concrete part of selected lego sets</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2538:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="lego-set/">
+            <resource uri="10l1g6blg76coa1o20deb7aa93q8a2ak6ad7m0k7viis14tjsnddbco24obnckb9/">
+                <resource uri="{legosetno}/">
+                    <param name="legosetno" style="template" type="xsd:string"/>
+                    <method displayName="Lego Set" id="2537" name="GET">
+                        <doc>Get lego set by it's number, it's number that appears at each LEGO® box</doc>
+                        <request>
+                            <param name="legosetno" required="true" style="query" type="xsd:string">
+                                <doc>lEGO set number</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2537:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

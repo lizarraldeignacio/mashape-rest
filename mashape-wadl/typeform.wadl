@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3749="urn:function:f3749">
+    <grammars>
+        <include href="Function3749.xsd"/>
+    </grammars>
+    <doc>type form s Data API is to consult the responses submitted to a particular typeform You can also use your data API to automatically export your results to more than web services</doc>
+    <resources base="https://baskarm28-typeform-v1.p.mashape.com/">
+        <resource uri="form/">
+            <resource uri="{uid}/">
+                <param name="uid" style="template" type="xsd:string"/>
+                <method displayName="Response" id="3749" name="GET">
+                    <doc>This is for  getting the responses.</doc>
+                    <request>
+                        <param name="completed" required="true" style="query" type="xsd:boolean">
+                            <doc>whether you want to get completed uncompleted entries useful when using hidden fields to see which of your users did not finish the typeform or both if no completed argument is provided</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:integer">
+                            <doc>the number of responses you want to retrieve specially useful for pagination</doc>
+                        </param>
+                        <param name="offset" required="true" style="query" type="xsd:integer">
+                            <doc>the order number of the first row you want to retrieve specially useful for pagination</doc>
+                        </param>
+                        <param name="since" required="true" style="query" type="xsd:integer">
+                            <doc>date and time of the first response you want to list responses are returned in oldest to newer order</doc>
+                        </param>
+                        <param name="uid" required="true" style="query" type="xsd:string"/>
+                        <param name="until" required="true" style="query" type="xsd:integer">
+                            <doc>date and time of the last response you want to list responses are returned in oldest to newer order</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3749:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

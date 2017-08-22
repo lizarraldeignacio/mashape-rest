@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5178="urn:function:f5178" xmlns:f5179="urn:function:f5179" xmlns:f5180="urn:function:f5180">
+    <grammars>
+        <include href="Function5180.xsd"/>
+        <include href="Function5179.xsd"/>
+        <include href="Function5178.xsd"/>
+    </grammars>
+    <doc>your business grows faster when it s easy for your users to tell their friends about you CloudSponge is a tool that makes it easy to access your users address books from multiple sources like Gmail Google Contacts API Yahoo s AddressBook AOL Poco Outlook com and others</doc>
+    <resources base="https://cloudsponge.p.mashape.com/">
+        <resource uri="contacts.json/">
+            <resource uri="{import_id}/">
+                <param name="import_id" style="template" type="xsd:string"/>
+                <method displayName="Step 3: Download The Address Book" id="5180" name="GET">
+                    <doc>When the COMPLETE event is received with the COMPLETED status in Step 2, your application should retrieve the contacts immediately. After a few minutes, they will be deleted from CloudSponge.</doc>
+                    <request>
+                        <param name="echo" required="true" style="query" type="xsd:string">
+                            <doc>any customer defined string data to be returned in the response</doc>
+                        </param>
+                        <param name="importId" required="true" style="query" type="xsd:string">
+                            <doc>import id value returned from the call to begin import in Step</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5180:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="events.json/">
+            <resource uri="{import_id}/">
+                <param name="import_id" style="template" type="xsd:string"/>
+                <method displayName="Step 2: Wait For The Import To Finish" id="5179" name="GET">
+                    <doc>After the consent URL is displayed to the user (and accepted), a contact import is initiated, and your application must monitor the CloudSponge events URL. Use the import_id value that was returned from the call to begin_import to identify the import request to CloudSponge when fetching events.</doc>
+                    <request>
+                        <param name="echo" required="true" style="query" type="xsd:string">
+                            <doc>any customer defined string data to be returned in the response</doc>
+                        </param>
+                        <param name="importId" required="true" style="query" type="xsd:string">
+                            <doc>import id value returned from the call to begin import in Step</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5179:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="begin_import/">
+            <resource uri="user_consent.json/">
+                <method displayName="Step 1: Get The User's Permission" id="5178" name="POST">
+                    <doc>Your application initiates an address book import by calling the “Begin Import” URL, specifying the user authentication method, the address book source, plus any other additional information required. The API returns a result object containing a unique identifier for subsequent calls to the API, and the browser URL you'll need to display to your user in a new browser window.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f5178:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

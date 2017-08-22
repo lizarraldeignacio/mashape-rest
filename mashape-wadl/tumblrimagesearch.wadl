@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6149="urn:function:f6149">
+    <grammars>
+        <include href="Function6149.xsd"/>
+    </grammars>
+    <doc>this is an unofficial Tumblr Image Search API</doc>
+    <resources base="https://tumbimg.p.mashape.com/">
+        <resource uri="tumblr-image-search/">
+            <method displayName="/tumblr-image-search/" id="6149" name="GET">
+                <request>
+                    <param name="p" required="true" style="query" type="xsd:integer">
+                        <doc>total number of pages to be returned by the API with nearly records per page</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6149:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

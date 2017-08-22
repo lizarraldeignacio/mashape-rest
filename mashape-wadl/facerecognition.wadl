@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f45="urn:function:f45" xmlns:f46="urn:function:f46" xmlns:f47="urn:function:f47" xmlns:f48="urn:function:f48" xmlns:f49="urn:function:f49" xmlns:f50="urn:function:f50" xmlns:f51="urn:function:f51">
+    <grammars>
+        <include href="Function49.xsd"/>
+        <include href="Function51.xsd"/>
+        <include href="Function48.xsd"/>
+        <include href="Function47.xsd"/>
+        <include href="Function46.xsd"/>
+        <include href="Function45.xsd"/>
+        <include href="Function50.xsd"/>
+    </grammars>
+    <doc>stephen here from Lambda Labs For sample code and a graphical demo check out http api lambdal com docs Our API provides face recognition facial detection eye position nose position mouth position and gender classification If you have any questions ask Just send an email to s lambdal com Happy Hacking Stephen</doc>
+    <resources base="https://lambda-face-recognition.p.mashape.com/">
+        <resource uri="album_train/">
+            <method displayName="Train Album" id="49" name="POST">
+                <doc>Add an image and entryid to an album</doc>
+                <request/>
+                <response>
+                    <representation element="f49:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="View Entry" id="51" name="GET">
+                <doc>View an entry in an album, telling you how many training images it has</doc>
+                <request>
+                    <param name="album" required="true" style="query" type="xsd:string">
+                        <doc>the name of the album</doc>
+                    </param>
+                    <param name="albumkey" required="true" style="query" type="xsd:string">
+                        <doc>the album key for the album</doc>
+                    </param>
+                    <param name="entryid" required="true" style="query" type="xsd:string">
+                        <doc>an entry id for the person you with to view</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f51:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="recognize/">
+            <method displayName="Recognize" id="48" name="POST">
+                <doc>After creating, training, and rebuilding an album (see above), you'll be able to recognize people in that album.</doc>
+                <request/>
+                <response>
+                    <representation element="f48:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="album_rebuild/">
+            <method displayName="Rebuild Album" id="47" name="GET">
+                <doc>Manually rebuild an album after adding training examples</doc>
+                <request>
+                    <param name="album" required="true" style="query" type="xsd:string">
+                        <doc>the name of the album to rebuild</doc>
+                    </param>
+                    <param name="albumkey" required="true" style="query" type="xsd:string">
+                        <doc>the albumkey for the album to rebuild</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f47:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="detect/">
+            <method displayName="Detect" id="46" name="POST">
+                <doc>Detect faces in an image, as well as extract facial features (eyes, nose, mouth)</doc>
+                <request/>
+                <response>
+                    <representation element="f46:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="album/">
+            <method displayName="Create Album" id="45" name="POST">
+                <doc>Create a new photo album, be sure to save your albumkey!</doc>
+                <request/>
+                <response>
+                    <representation element="f45:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="View Album" id="50" name="GET">
+                <doc>View one of your albums, with a visual summary.</doc>
+                <request>
+                    <param name="album" required="true" style="query" type="xsd:string">
+                        <doc>the name of the album you want to view</doc>
+                    </param>
+                    <param name="albumkey" required="true" style="query" type="xsd:string">
+                        <doc>the album key of the album you want to view</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f50:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

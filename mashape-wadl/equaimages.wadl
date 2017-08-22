@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>get math formulas as images for publications in web or any other applications</doc>
+    <resources base="https://math.p.mashape.com/">
+        <resource uri="image/">
+            <method displayName="equaimage" id="6427" name="GET">
+                <doc>Get math equations as images</doc>
+                <request>
+                    <param name="binary" required="true" style="query" type="xsd:boolean">
+                        <doc>get the image as png binary By default base encoded json response is returned</doc>
+                    </param>
+                    <param name="fontsize" required="true" style="query" type="xsd:string">
+                        <doc>font size to use</doc>
+                    </param>
+                    <param name="formula" required="true" style="query" type="xsd:string">
+                        <doc>math equation formula</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

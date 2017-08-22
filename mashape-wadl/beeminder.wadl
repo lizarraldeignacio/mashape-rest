@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2164="urn:function:f2164" xmlns:f2165="urn:function:f2165">
+    <grammars>
+        <include href="Function2165.xsd"/>
+        <include href="Function2164.xsd"/>
+    </grammars>
+    <doc>it s reminders with a sting Or goal tracking with teeth Mind anything you can graph weight pushups to do tasks completed by replying with data when Beeminder prompts you Or connect with a service like Fitbit to report automatically We plot your progress on a Yellow Brick Road to your goal Keep all your data points on the road and Beeminder will always be free Go off the road and you literally pay the price</doc>
+    <resources base="https://dreeves-beeminder.p.mashape.com/">
+        <resource uri="charges/">
+            <method displayName="Create a charge" id="2157" name="POST">
+                <doc>Create a charge of a given amount and optionally add a note.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="users/">
+            <resource uri="{username}.json/">
+                <param name="username" style="template" type="xsd:string"/>
+                <method displayName="Get information about a user" id="2165" name="GET">
+                    <doc>Retrieves information and a list of goal names for the user with username u.</doc>
+                    <request>
+                        <param name="associations" required="true" style="query" type="xsd:boolean">
+                            <doc>convenience method to fetch all information about a user Please use sparingly and see also the diff since parameter Default false Send true if you want to receive all of the user s goal and datapoints as attributes of the user object</doc>
+                        </param>
+                        <param name="datapointsCount" required="true" style="query" type="xsd:integer">
+                            <doc>number of datapoints Default null which will return all goals and datapoints Send a number n to only recieve the n most recently added datapoints sorted by updated at Note that the most recently added datapoint could have been a datapoint whose timestamp is well in the past and therefore before other datapoints in that respect</doc>
+                        </param>
+                        <param name="diffSince" required="true" style="query" type="xsd:integer">
+                            <doc>unix timestamp in seconds Default null which will return all goals and datapoints Send a Unix timestamp to receive a filtered list of the user s goals and datapoints Only goals and datapoints that have been created or updated since the timestamp will be returned Sending diff since implies that you want the user s associations so you don t need to send both</doc>
+                        </param>
+                        <param name="goalsFilter" required="true" style="query" type="xsd:string">
+                            <doc>one of all frontburner backburner Default all which returns an unfiltered list of all goals Send frontburner if you want the list of goals the user has marked as frontburner goals those which appear above the fold in the web interface or backburner for just the below the fold goals</doc>
+                        </param>
+                        <param name="skinny" required="true" style="query" type="xsd:boolean">
+                            <doc>convenience method to only get a subset of goal attributes and the most recent datapoint for the goal Default false which will return all goal attributes and all datapoints created or updated since diff since skinny must be sent along with diff since If diff since is not present skinny is ignored Some goal attributes as well as fetching all datapoints can take some additional time to compute on the server side so you can send skinny if you only need the latest datapoint and the following subset of attributes slug title goalval rate goaldate graph url thumb url goal type losedate id ephem queued panic updated at burner yaw runits lane frozen won lost Instead of a datapoints attribute sending skinny will replace that attribute with a last datapoint attribute Its value is a Datapoint hash</doc>
+                        </param>
+                        <param name="username" required="true" style="query" type="xsd:string">
+                            <doc>since appending an access token to the request uniquely identifies a user you can alternatively make the request to users me json without the username</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2165:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="{username}/">
+                <param name="username" style="template" type="xsd:string"/>
+                <resource uri="goals/">
+                    <resource uri="{goal}.json/">
+                        <param name="goal" style="template" type="xsd:string"/>
+                        <method displayName="Get information about a goal" id="2164" name="GET">
+                            <doc>Gets goal details for user u’s goal g — beeminder.com/u/g.</doc>
+                            <request>
+                                <param name="datapoints" required="true" style="query" type="xsd:boolean">
+                                    <doc>whether to to send the goal s datapoints in the response Default false</doc>
+                                </param>
+                                <param name="goal" required="true" style="query" type="xsd:string">
+                                    <doc>goal of user</doc>
+                                </param>
+                                <param name="username" required="true" style="query" type="xsd:string">
+                                    <doc>since appending an access token to the request uniquely identifies a user you can alternatively make the request to users me json without the username</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2164:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="goals.json/">
+                    <method displayName="Create a goal for a user" id="2159" name="POST">
+                        <doc>Create a new goal for user u.</doc>
+                        <request>
+                            <param name="username" required="true" style="query" type="xsd:string">
+                                <doc>he Beeminder username of the user being charged</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Get all goals for a user" id="2162" name="GET">
+                        <doc>Get user u’s list of goals.</doc>
+                        <request>
+                            <param name="filter" required="true" style="query" type="xsd:string">
+                                <doc>one of all frontburner backburner Default all</doc>
+                            </param>
+                            <param name="username" required="true" style="query" type="xsd:string">
+                                <doc>the Beeminder username of the user being charged</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="{u}/">
+                <param name="u" style="template" type="xsd:string"/>
+                <resource uri=" goals/">
+                    <resource uri="{g}/">
+                        <param name="g" style="template" type="xsd:string"/>
+                        <resource uri="shortcircuit.json/">
+                            <method displayName="Short circuit a goal's pledge" id="2166" name="POST">
+                                <doc>Increase the goal’s pledge level and charge the user the amount of the current pledge.</doc>
+                                <request>
+                                    <param name="g" required="true" style="query" type="xsd:string">
+                                        <doc>goal g</doc>
+                                    </param>
+                                    <param name="u" required="true" style="query" type="xsd:string">
+                                        <doc>user u</doc>
+                                    </param>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="goals{g}/">
+                    <param name="g" style="template" type="xsd:string"/>
+                    <resource uri="datapoints/">
+                        <resource uri="create_all.json/">
+                            <method displayName="Create multiple datapoints" id="2160" name="POST">
+                                <doc>Create multiple new datapoints for beeminder.com/u/g.</doc>
+                                <request>
+                                    <param name="g" required="true" style="query" type="xsd:string">
+                                        <doc>goal g</doc>
+                                    </param>
+                                    <param name="u" required="true" style="query" type="xsd:string">
+                                        <doc>user u</doc>
+                                    </param>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="goals/">
+                    <resource uri="{g}.json/">
+                        <param name="g" style="template" type="xsd:string"/>
+                        <method displayName="Update a goal for a user" id="2169" name="PUT">
+                            <doc>Update user u’s goal g. This is similar to the call to create a new goal, but the goal type (goal_type) cannot be changed. To change any of {goaldate, goalval, rate} use the dial_road call below.</doc>
+                            <request>
+                                <param name="g" required="true" style="query" type="xsd:string">
+                                    <doc>goal g</doc>
+                                </param>
+                                <param name="u" required="true" style="query" type="xsd:string">
+                                    <doc>user u</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                    <resource uri="{g}/">
+                        <param name="g" style="template" type="xsd:string"/>
+                        <resource uri="dial_road.json/">
+                            <method displayName="Update a yellow brick road" id="2170" name="POST">
+                                <doc>Change the slope of the yellow brick road (starting after the one-week Akrasia Horizon) for beeminder.com/u/g.</doc>
+                                <request>
+                                    <param name="g" required="true" style="query" type="xsd:string">
+                                        <doc>goal g</doc>
+                                    </param>
+                                    <param name="u" required="true" style="query" type="xsd:string">
+                                        <doc>user u</doc>
+                                    </param>
+                                </request>
+                            </method>
+                        </resource>
+                        <resource uri="stepdown.json/">
+                            <method displayName="Step down a goal’s pledge" id="2167" name="POST">
+                                <doc>Decrease the goal’s pledge level subject to the akrasia horizon, i.e., not immediately. After a successful request the goal will have a countdown to when it will revert to the lower pledge level.</doc>
+                                <request>
+                                    <param name="g" required="true" style="query" type="xsd:string">
+                                        <doc>goal g</doc>
+                                    </param>
+                                    <param name="u" required="true" style="query" type="xsd:string">
+                                        <doc>user u</doc>
+                                    </param>
+                                </request>
+                            </method>
+                        </resource>
+                        <resource uri="datapoints/">
+                            <resource uri="id.json/">
+                                <method displayName="Update a datapoint" id="2168" name="PUT">
+                                    <doc>Update the datapoint with ID id for user u’s goal g (beeminder.com/u/g).</doc>
+                                    <request>
+                                        <param name="g" required="true" style="query" type="xsd:string">
+                                            <doc>user goal</doc>
+                                        </param>
+                                        <param name="u" required="true" style="query" type="xsd:string">
+                                            <doc>user name</doc>
+                                        </param>
+                                    </request>
+                                </method>
+                            </resource>
+                            <resource uri="{id}.json/">
+                                <param name="id" style="template" type="xsd:string"/>
+                                <method displayName="Delete a datapoint" id="2161" name="DELETE">
+                                    <doc>Delete the datapoint with ID id for user u’s goal g (beeminder.com/u/g).</doc>
+                                    <request>
+                                        <param name="g" required="true" style="query" type="xsd:string">
+                                            <doc>goal g</doc>
+                                        </param>
+                                        <param name="id" required="true" style="query" type="xsd:string">
+                                            <doc>id for user</doc>
+                                        </param>
+                                        <param name="u" required="true" style="query" type="xsd:string">
+                                            <doc>user u</doc>
+                                        </param>
+                                    </request>
+                                </method>
+                            </resource>
+                        </resource>
+                        <resource uri="datapoints.json/">
+                            <method displayName="Create a datapoint" id="2158" name="POST">
+                                <doc>Add a new datapoint to user u’s goal g — beeminder.com/u/g.</doc>
+                                <request>
+                                    <param name="g" required="true" style="query" type="xsd:string">
+                                        <doc>goal g</doc>
+                                    </param>
+                                    <param name="u" required="true" style="query" type="xsd:string">
+                                        <doc>user u</doc>
+                                    </param>
+                                </request>
+                            </method>
+                            <method displayName="Get all the datapoints" id="2163" name="GET">
+                                <doc>Get the list of datapoints for user u’s goal g — beeminder.com/u/g.</doc>
+                                <request>
+                                    <param name="g" required="true" style="query" type="xsd:string">
+                                        <doc>goal g</doc>
+                                    </param>
+                                    <param name="u" required="true" style="query" type="xsd:string">
+                                        <doc>user u</doc>
+                                    </param>
+                                </request>
+                            </method>
+                        </resource>
+                        <resource uri="cancel_stepdown.json/">
+                            <method displayName="Cancel a scheduled step down" id="2156" name="POST">
+                                <doc>Cancel a pending stepdown of a goal's project</doc>
+                                <request>
+                                    <param name="g" required="true" style="query" type="xsd:string">
+                                        <doc>goal g</doc>
+                                    </param>
+                                    <param name="u" required="true" style="query" type="xsd:string">
+                                        <doc>user u</doc>
+                                    </param>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

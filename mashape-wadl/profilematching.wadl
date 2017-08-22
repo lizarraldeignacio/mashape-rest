@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3495="urn:function:f3495">
+    <grammars>
+        <include href="Function3495.xsd"/>
+    </grammars>
+    <doc>online social networks profile matcher helps you identify an individual through different social networks Is there a correlation between usernames on different SNS connecting real individuals This API let you find this correlation based on behavioural patterns user displayed while selecting their usernames and information redundancies The correlation is found with a classifier trained over a large number of different social network services profiles More info about how this is done on the website</doc>
+    <resources base="https://mattiaongit-profile-matching-v1.p.mashape.com/">
+        <resource uri="match/">
+            <method displayName="/match" id="3495" name="POST">
+                <request/>
+                <response>
+                    <representation element="f3495:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

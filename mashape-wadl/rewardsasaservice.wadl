@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1987="urn:function:f1987" xmlns:f1988="urn:function:f1988" xmlns:f1989="urn:function:f1989" xmlns:f1990="urn:function:f1990" xmlns:f1991="urn:function:f1991" xmlns:f1992="urn:function:f1992" xmlns:f1993="urn:function:f1993">
+    <grammars>
+        <include href="Function1991.xsd"/>
+        <include href="Function1992.xsd"/>
+        <include href="Function1993.xsd"/>
+        <include href="Function1990.xsd"/>
+        <include href="Function1989.xsd"/>
+        <include href="Function1987.xsd"/>
+        <include href="Function1988.xsd"/>
+    </grammars>
+    <doc>create an account fund an account manage a catalog send rewards and get reporting all available on demand in real time and as a service With our RaaS API you can elegantly knit a sophisticated rewards program into your platform Best of all the service has zero fees</doc>
+    <resources base="https://tangocard-rewards-as-a-service.p.mashape.com/">
+        <resource uri="orders/">
+            <method displayName="5. Place an order for a reward" id="1991" name="POST">
+                <doc>Order a rewar</doc>
+                <request/>
+                <response>
+                    <representation element="f1991:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="6. Get order information" id="1992" name="GET">
+                <doc>Get more information about an order</doc>
+                <request>
+                    <param name="orderId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1992:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="7. Get order history" id="1993" name="GET">
+                <doc>Get more information about all the orders placed on this customer and account</doc>
+                <request>
+                    <param name="accountIdentifier" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="customer" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="endDate" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                    <param name="startDate" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1993:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="rewards/">
+            <method displayName="4. Get list of rewards" id="1990" name="GET">
+                <doc>Gets the list of rewards available for the platform</doc>
+                <request/>
+                <response>
+                    <representation element="f1990:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="funds/">
+            <method displayName="3. Fund account" id="1989" name="POST">
+                <doc>Funds the given account</doc>
+                <request/>
+                <response>
+                    <representation element="f1989:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="accounts/">
+            <method displayName="1. Create an account" id="1987" name="POST">
+                <request/>
+                <response>
+                    <representation element="f1987:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="2. Get Account Information" id="1988" name="GET">
+                <doc>Get the information for an account created under a Customer</doc>
+                <request>
+                    <param name="accountIdentifier" required="true" style="query" type="xsd:string"/>
+                    <param name="customer" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1988:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

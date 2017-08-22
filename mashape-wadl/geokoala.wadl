@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4653="urn:function:f4653" xmlns:f4655="urn:function:f4655" xmlns:f4656="urn:function:f4656" xmlns:f4657="urn:function:f4657" xmlns:f4658="urn:function:f4658" xmlns:f4660="urn:function:f4660" xmlns:f4661="urn:function:f4661">
+    <grammars>
+        <include href="Function4653.xsd"/>
+        <include href="Function4655.xsd"/>
+        <include href="Function4656.xsd"/>
+        <include href="Function4657.xsd"/>
+        <include href="Function4658.xsd"/>
+        <include href="Function4660.xsd"/>
+        <include href="Function4661.xsd"/>
+    </grammars>
+    <doc>publish to Augmented Reality browsers and major Geo Clients GoogleEarth Google Maps GPX clients Our HTTP Responses can be returned in KML GeoJson ARML Wikitude Mixare GPX track route by simply switching a query parameter on a GET Request We store in MongoDB for Speed Scale Its free its awesome try it out and spread the word</doc>
+    <resources base="https://twoencore-reaperfire-aka-geokoala-v1.p.mashape.com/">
+        <resource uri="rest/">
+            <resource uri="v1/">
+                <resource uri="public/">
+                    <resource uri="accounts/">
+                        <method displayName="Create Events" id="4653" name="POST">
+                            <doc>Post an Event using  "GeoJson FeatureCollection Type"</doc>
+                            <request>
+                                <param name="appkey" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f4653:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Delete an Event" id="4654" name="DELETE">
+                            <request>
+                                <param name="appkey" required="true" style="query" type="xsd:string"/>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="Deletes all Events" id="4655" name="DELETE">
+                            <request>
+                                <param name="appkey" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f4655:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Get Account" id="4656" name="GET">
+                            <doc>Get all accounts for the authenticated user</doc>
+                            <request/>
+                            <response>
+                                <representation element="f4656:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Get an Event" id="4657" name="GET">
+                            <doc>Get an event by id.</doc>
+                            <request>
+                                <param name="appkey" required="true" style="query" type="xsd:string"/>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc>geojson mixare wikitude kml arml karml formatted results</doc>
+                                </param>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f4657:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Get Events" id="4658" name="GET">
+                            <request>
+                                <param name="altitude" required="true" style="query" type="xsd:integer">
+                                    <doc/>
+                                </param>
+                                <param name="appkey" required="true" style="query" type="xsd:string"/>
+                                <param name="enddate" required="true" style="query" type="xsd:string">
+                                    <doc>mM dd yy HH mm ss</doc>
+                                </param>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc>geojson mixare wikitude kml arml karml formatted results</doc>
+                                </param>
+                                <param name="ignoreotherparams" required="true" style="query" type="xsd:string">
+                                    <doc>do not include additional specified query parameters in metadata search</doc>
+                                </param>
+                                <param name="latitude" required="true" style="query" type="xsd:integer">
+                                    <doc>this cannot be null or empty otherwise an exception will occur</doc>
+                                </param>
+                                <param name="longitude" required="true" style="query" type="xsd:integer">
+                                    <doc>this cannot be null or empty otherwise an exception will occur</doc>
+                                </param>
+                                <param name="maxnumberofpois" required="true" style="query" type="xsd:integer">
+                                    <doc>this parameter was added to handle Google Earth</doc>
+                                </param>
+                                <param name="pagenum" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="pagesize" required="true" style="query" type="xsd:integer">
+                                    <doc>defaults to increase for more results</doc>
+                                </param>
+                                <param name="radius" required="true" style="query" type="xsd:integer">
+                                    <doc>radius in meters</doc>
+                                </param>
+                                <param name="startdate" required="true" style="query" type="xsd:string">
+                                    <doc>mM dd yy HH mm ss</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f4658:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Get Track/Route events" id="4659" name="GET">
+                            <request>
+                                <param name="appkey" required="true" style="query" type="xsd:string"/>
+                                <param name="enddate" required="true" style="query" type="xsd:string">
+                                    <doc>mM dd yy HH mm ss</doc>
+                                </param>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc>geojson kml gpx</doc>
+                                </param>
+                                <param name="startdate" required="true" style="query" type="xsd:string">
+                                    <doc>mM dd yy HH mm ss</doc>
+                                </param>
+                                <param name="type" required="true" style="query" type="xsd:string">
+                                    <doc>track or route format</doc>
+                                </param>
+                                <param name="uuid" required="true" style="query" type="xsd:string">
+                                    <doc>the uuid of stored events you want to track</doc>
+                                </param>
+                            </request>
+                        </method>
+                        <method displayName="Get Your AppKey" id="4660" name="GET">
+                            <doc>Obtain an AppKey to use. Please remember the  password! if you forget your password you must delete Account, and get a new one.</doc>
+                            <request/>
+                            <response>
+                                <representation element="f4660:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Update Account" id="4661" name="PUT">
+                            <doc>This PUT accepts a single JSON representation of an Account.</doc>
+                            <request>
+                                <param name="appkey" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f4661:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6443="urn:function:f6443">
+    <grammars>
+        <include href="Function6443.xsd"/>
+    </grammars>
+    <doc>easily check if a certain e mail address is valid Is it a valid domain Is the e mail a temporary disposable e mail That s a common indicator of spamming trolling so now there s an API for you so you can easily block it</doc>
+    <resources base="https://mailcheck.p.mashape.com/">
+        <resource uri="">
+            <method displayName="mailcheck" id="6443" name="GET">
+                <doc>Check if e-mail domain is valid, or a disposable/temporary address.</doc>
+                <request>
+                    <param name="domain" required="true" style="query" type="xsd:string">
+                        <doc>e mail domain to check if valid or temporary disposable You can enter an e mail address and it will be converted to a domain but entering just the domain is recommended for user privacy reasons</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6443:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

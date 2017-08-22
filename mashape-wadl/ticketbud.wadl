@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3472="urn:function:f3472" xmlns:f3473="urn:function:f3473" xmlns:f3474="urn:function:f3474" xmlns:f3475="urn:function:f3475">
+    <grammars>
+        <include href="Function3474.xsd"/>
+        <include href="Function3475.xsd"/>
+        <include href="Function3473.xsd"/>
+        <include href="Function3472.xsd"/>
+    </grammars>
+    <doc>events happening globally on ticketbud Access to ticket sales event locations and event attendees</doc>
+    <resources base="https://ticketbud.p.mashape.com/">
+        <resource uri="events.json/">
+            <method displayName="Your Events" id="3476" name="GET">
+                <doc>A list of events owned or accessible by the current token holder</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="me.json/">
+            <method displayName="Me" id="3474" name="GET">
+                <doc>Information about the current token holder</doc>
+                <request/>
+                <response>
+                    <representation element="f3474:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="events/">
+            <resource uri="{event_id}/">
+                <param name="event_id" style="template" type="xsd:string"/>
+                <resource uri="tickets.json/">
+                    <method displayName="Tickets for an Event" id="3475" name="GET">
+                        <doc>All tickets for an event that you have access to</doc>
+                        <request>
+                            <param name="eventId" required="true" style="query" type="xsd:string">
+                                <doc>the unique identifier of the event</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f3475:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="tickets/">
+                    <resource uri="{id}.json/">
+                        <param name="id" style="template" type="xsd:string"/>
+                        <method displayName="A Single Ticket" id="3473" name="GET">
+                            <doc>Information about a single ticket.</doc>
+                            <request>
+                                <param name="eventId" required="true" style="query" type="xsd:string">
+                                    <doc>unique identifier of the event</doc>
+                                </param>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>unique identifier of the ticket</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f3473:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="{id}.json/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="A Single Event" id="3472" name="GET">
+                    <doc>Information about a single event you have access to</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the unique identifier of the event</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3472:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

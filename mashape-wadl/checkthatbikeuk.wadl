@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1759="urn:function:f1759" xmlns:f1760="urn:function:f1760" xmlns:f1761="urn:function:f1761">
+    <grammars>
+        <include href="Function1760.xsd"/>
+        <include href="Function1761.xsd"/>
+        <include href="Function1759.xsd"/>
+    </grammars>
+    <doc>this API is designed to create a one stop check when buying a bike users will then be pointed over to the original register</doc>
+    <resources base="https://stolenbikes88-check-that-bike.p.mashape.com/">
+        <resource uri="help.json/">
+            <method displayName="List" id="1760" name="GET">
+                <doc>Produces an array of valid strings for use with the 'check' parameter</doc>
+                <request>
+                    <param name="check" required="true" style="query" type="xsd:string">
+                        <doc>will produce a list of available valid parameters for checks</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1760:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List2" id="1761" name="GET">
+                <doc>Generates a list of the checks available (as well as information)</doc>
+                <request>
+                    <param name="check" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1761:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="get.json/">
+            <method displayName="Check" id="1759" name="GET">
+                <doc>Used to search the database for matching frame numbers</doc>
+                <request>
+                    <param name="check" required="true" style="query" type="xsd:string">
+                        <doc>which register s you wish to check available strings can be found using list method</doc>
+                    </param>
+                    <param name="frame" required="true" style="query" type="xsd:string">
+                        <doc>the frame number to check</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1759:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1377="urn:function:f1377">
+    <grammars>
+        <include href="Function1377.xsd"/>
+    </grammars>
+    <doc>this API helps with feed detection It not only parses head section of webpage for feeds written as link tags but also it processes whole page and detects any other feeds mentioned</doc>
+    <resources base="https://feeddetect.p.mashape.com/">
+        <resource uri="page/">
+            <resource uri="findrss/">
+                <method displayName="Detect webpage feeds" id="1377" name="GET">
+                    <doc>Finds any RSS and ATOM feeds on webpage provided</doc>
+                    <request>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>url to webpage</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1377:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

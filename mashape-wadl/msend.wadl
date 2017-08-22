@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>mSMS is used to send simple SMS text messages to Non DND numbers by posting the message content and recipient information using the following API</doc>
+    <resources base="https://webaroo-send-message-v1.p.mashape.com/">
+        <resource uri="sendMessage/">
+            <method displayName="Send Message" id="1204" name="GET">
+                <request>
+                    <param name="message" required="true" style="query" type="xsd:string">
+                        <doc>message Text</doc>
+                    </param>
+                    <param name="phone" required="true" style="query" type="xsd:integer">
+                        <doc>indian Phone Number</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

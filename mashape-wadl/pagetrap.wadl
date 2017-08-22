@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2744="urn:function:f2744" xmlns:f2745="urn:function:f2745">
+    <grammars>
+        <include href="Function2745.xsd"/>
+        <include href="Function2744.xsd"/>
+    </grammars>
+    <doc>the pageTrap com API lets you easily convert a given URL or POSTed HTML to an accurately rendered PDF or a JPG PNG file pageTrap com is an easy to use conversion service that powers this API The service renders HTML as a PDF or an Image This API is free but if you become a member at pageTrap com you will receive free credits that will unlock all features those features being the removal of the pageTrap logo from the results and the ability to use many other parameters like Orientation Size Margins ImageFormat jQuery selector etc</doc>
+    <resources base="https://pagetrap-pagetrap-v1.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="pdf/">
+                <method displayName="/api/pdf/" id="2745" name="POST">
+                    <doc>Convert html or a url to pdf</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2745:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="image/">
+                <method displayName="/api/image/" id="2744" name="POST">
+                    <doc>Convert url or html to jpeg or png</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2744:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

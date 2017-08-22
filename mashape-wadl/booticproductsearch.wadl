@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1039="urn:function:f1039">
+    <grammars>
+        <include href="Function1039.xsd"/>
+    </grammars>
+    <doc>bootic is the marketplace to find a wide range of products Bootic s Product Search API gives you direct access to all that our product search engine has to offer keywords products attributes price ranges and many more features to find the exact product from the best online storefront on the Internet</doc>
+    <resources base="https://thebootic-bootic-product-search.p.mashape.com/">
+        <resource uri="products/">
+            <method displayName="Product Search" id="1039" name="GET">
+                <doc>A request to this endpoint will search for products by keywords. A request returns a products object, which contains all products found and some associated data.</doc>
+                <request>
+                    <param name="category" required="true" style="query" type="xsd:integer">
+                        <doc>returns products in specified category By default all categories are considered</doc>
+                    </param>
+                    <param name="group" required="true" style="query" type="xsd:boolean">
+                        <doc>returns products in groups instead of returning all at once Accepted values are shop Group products by shop or cat Group products by category Only the first group limit products are returned for each group If you want to see more products for some group you issue another search request with group left unset and set either shop or category argument</doc>
+                    </param>
+                    <param name="groupLimit" required="true" style="query" type="xsd:integer">
+                        <doc>specifies the number of products to be returned in each group The value must not be larger than group limit By default products are returned</doc>
+                    </param>
+                    <param name="includeLongDesc" required="true" style="query" type="xsd:string">
+                        <doc>setting include long desc enables long product descriptions By default long descriptions are not returned</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit number of results either products or groups returned The default limit is for a normal search and for a group search</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>return results either products or groups starting at specified offset Default offset is</doc>
+                    </param>
+                    <param name="priceMax" required="true" style="query" type="xsd:integer">
+                        <doc>return only products that cost at most that amount</doc>
+                    </param>
+                    <param name="priceMin" required="true" style="query" type="xsd:integer">
+                        <doc>return only products that cost at least that amount</doc>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>a query string with keywords separated by space or sign This option is required A special value q can be used to return all of the products in shops</doc>
+                    </param>
+                    <param name="randomResults" required="true" style="query" type="xsd:integer">
+                        <doc>include a specified number of random products Multiple random results options are allowed Returns the largest value of products Example Request a search with random results random results is an escaped character The search normally would return products Since of is which is smaller than an additional random products are included</doc>
+                    </param>
+                    <param name="randomSeed" required="true" style="query" type="xsd:string">
+                        <doc>four char string to be used as random seed This seed is used when sorting by random or adding random products window shopping Queries with the same random seed will return the same results unless more products appear in the meantime</doc>
+                    </param>
+                    <param name="safe" required="true" style="query" type="xsd:integer">
+                        <doc>setting safe enables adult content By default only safe content will be returned</doc>
+                    </param>
+                    <param name="shop" required="true" style="query" type="xsd:integer">
+                        <doc>only returns products for specified shop By default all shops are considered</doc>
+                    </param>
+                    <param name="shopKarmaMin" required="true" style="query" type="xsd:integer">
+                        <doc>searches only in shops with at least this karma value</doc>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:string">
+                        <doc>sort products by specified criteria Multiple sort arguments are allowed the first one takes precedence Accepted values are match date views sales random random views price price asc rating id If you request sort rating sort price asc products with the highest user rating will be returned first If there are multiple products with the same rating price will determine the order they are returned</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1039:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

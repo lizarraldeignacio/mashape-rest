@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1033="urn:function:f1033" xmlns:f1034="urn:function:f1034" xmlns:f1035="urn:function:f1035">
+    <grammars>
+        <include href="Function1035.xsd"/>
+        <include href="Function1034.xsd"/>
+        <include href="Function1033.xsd"/>
+    </grammars>
+    <doc>decorate texts automatically and and trustlinks to them Moreover find some nice Domain information like Pagerank IPv IPv Domainage CountryCode Hosting and WOT</doc>
+    <resources base="https://trustlinker-de-trustlinkerde.p.mashape.com/">
+        <resource uri="trustlinks.json/">
+            <method displayName="trustlinks.json" id="1035" name="GET">
+                <doc>Get trustlinks for keyword</doc>
+                <request>
+                    <param name="keyword" required="true" style="query" type="xsd:string">
+                        <doc>keyword to search trustlinks for</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1035:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="text.json/">
+            <method displayName="text.json" id="1034" name="POST">
+                <request/>
+                <response>
+                    <representation element="f1034:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="domain.json/">
+            <method displayName="domain.json" id="1033" name="GET">
+                <doc>Get domain information</doc>
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>domainname you want to query</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1033:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

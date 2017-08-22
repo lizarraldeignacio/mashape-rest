@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1858="urn:function:f1858">
+    <grammars>
+        <include href="Function1858.xsd"/>
+    </grammars>
+    <doc>lookup product information using UPC Universal Product Code The total number of products currently mapped are around The categories for which data exists include Mobiles Cameras and Grocery items</doc>
+    <resources base="https://devru-universal-product-code-v1.p.mashape.com/">
+        <resource uri="">
+            <method displayName="GET information using UPC" id="1858" name="GET">
+                <request>
+                    <param name="upc" required="true" style="query" type="xsd:string">
+                        <doc>product UPC</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1858:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

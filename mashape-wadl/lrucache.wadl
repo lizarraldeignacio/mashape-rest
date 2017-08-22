@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5390="urn:function:f5390" xmlns:f5391="urn:function:f5391" xmlns:f5392="urn:function:f5392">
+    <grammars>
+        <include href="Function5391.xsd"/>
+        <include href="Function5390.xsd"/>
+        <include href="Function5392.xsd"/>
+    </grammars>
+    <doc>global shared namespace for saving arbitrary JSON data in a cache where least recently used items are dropped Your item may not be there when you ask for it again Entries are assigned a GUID and returned in the x created key response header for use in future lookups Restify wrapper around npm im lru cache</doc>
+    <resources base="https://tphummel-lru-cache.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="health/">
+                <method displayName="health" id="5391" name="GET">
+                    <doc>get service and cache status</doc>
+                    <request/>
+                    <response>
+                        <representation element="f5391:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="cache/">
+                <method displayName="create cache entry" id="5390" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f5390:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="read cache entry" id="5392" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>uuid provided in create response header</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5392:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5826="urn:function:f5826">
+    <grammars>
+        <include href="Function5826.xsd"/>
+    </grammars>
+    <doc>dudu com multilingual social network with a unique translation technology allowing Internet users that speak different languages to communicate freely without language barriers</doc>
+    <resources base="https://community-dudu.p.mashape.com/">
+        <resource uri="{application_id}/">
+            <param name="application_id" style="template" type="xsd:string"/>
+            <method displayName="Command" id="5826" name="GET">
+                <doc>Please check http://dudu.com/docs/api/command/list for the proper parameter and method combinations</doc>
+                <request>
+                    <param name="applicationId" required="true" style="query" type="xsd:string"/>
+                    <param name="json" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="mask" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5826:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

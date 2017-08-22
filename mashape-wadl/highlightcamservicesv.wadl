@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6748="urn:function:f6748" xmlns:f6750="urn:function:f6750">
+    <grammars>
+        <include href="Function6748.xsd"/>
+        <include href="Function6750.xsd"/>
+    </grammars>
+    <doc>highlightCam helps your users create professional style summaries of movies All they do is upload footage and pictures chose a theme and hit go HighlightCam edits adds fades and gives you a video you can publish and share</doc>
+    <resources base="https://highlightcamapi-highlightcam-services-v10.p.mashape.com/">
+        <resource uri="services/">
+            <resource uri="projects/">
+                <method displayName="Create Dependency" id="6747" name="POST">
+                    <doc>create a new dependency for a project</doc>
+                    <request>
+                        <param name="projectId" required="true" style="query" type="xsd:string">
+                            <doc>id of the project dependency is to be added to</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Create Project" id="6748" name="POST">
+                    <doc>create a new project</doc>
+                    <request/>
+                    <response>
+                        <representation element="f6748:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Make Movie" id="6749" name="POST">
+                    <doc>After uploading all the assets use this to instruct the server to build the movie</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="My Projects" id="6750" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f6750:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

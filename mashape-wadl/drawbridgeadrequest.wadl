@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>precisely target mobile audiences and increase ROI Drawbridge technology enables targeting across devices to drive CPI CPL CPA and customer lifetime value Drawbridge s technology bridges audiences across devices and enables two mobile targeting and optimization products</doc>
+    <resources base="https://community-drawbridge-ad-request.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Ad Request" id="6115" name="GET">
+                <doc>Please check http://doc.drawbrid.ge/#65,67,82- for additional optional parameters.  Server-to-server integration for mediation and ad exchanges.  With server-to-server integration, mediation and ad exchanges can let Drawbridge programmaticaly buy and serve ad impressions on their network. The APIs are based on standard HTTP protocol, making the integration simple and easy to maintain. In most cases, the integration takes as little as one or two days.</doc>
+                <request>
+                    <param name="aid" required="true" style="query" type="xsd:string">
+                        <doc>appstore ID Application id if request is from a native iPhone Android application</doc>
+                    </param>
+                    <param name="clip" required="true" style="query" type="xsd:string">
+                        <doc>client IP address In case of a mobile device this is the IP address closest to the device It could be a carrier IP address or Wi Fi IP address</doc>
+                    </param>
+                    <param name="did" required="true" style="query" type="xsd:string">
+                        <doc>sHA of Android id If this field is not available use imeisha in optional parameters section</doc>
+                    </param>
+                    <param name="ifa" required="true" style="query" type="xsd:string">
+                        <doc>identifier for Advertising iOS only this should be RAW</doc>
+                    </param>
+                    <param name="pu" required="true" style="query" type="xsd:string">
+                        <doc>page URL The main page parent URL hosting the iframe for the ad request This is only applicable if the ad request is from a mobile web browser</doc>
+                    </param>
+                    <param name="puuid" required="true" style="query" type="xsd:string">
+                        <doc>partner detected Unique User id if available this is a unique identifier for users visiting the web page detected by the partner via cookies or other mechanisms</doc>
+                    </param>
+                    <param name="ua" required="true" style="query" type="xsd:string">
+                        <doc>browser user agent if available for mobile devices or desktops laptops When user agent is not available for ex within mobile apps supply the dev parameters listed below</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

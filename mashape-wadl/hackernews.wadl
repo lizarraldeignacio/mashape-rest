@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1023="urn:function:f1023" xmlns:f1024="urn:function:f1024" xmlns:f1025="urn:function:f1025" xmlns:f1026="urn:function:f1026" xmlns:f1027="urn:function:f1027">
+    <grammars>
+        <include href="Function1027.xsd"/>
+        <include href="Function1026.xsd"/>
+        <include href="Function1025.xsd"/>
+        <include href="Function1024.xsd"/>
+        <include href="Function1023.xsd"/>
+    </grammars>
+    <doc>this is the first iteration of YCombinator s Hacker News API which provides read only access to Hacker News data near real time including stories comments user data top stories etc</doc>
+    <resources base="https://community-hacker-news-v1.p.mashape.com/">
+        <resource uri="user/">
+            <resource uri="{id}.json?print=pretty/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Users" id="1027" name="GET">
+                    <doc>Users are identified by case-sensitive ids</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the user s unique username Case sensitive</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1027:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="topstories.json?print=pretty/">
+            <method displayName="Top Stories" id="1026" name="GET">
+                <doc>Returns the current top 100 stories.</doc>
+                <request/>
+                <response>
+                    <representation element="f1026:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="maxitem.json?print=pretty/">
+            <method displayName="Max Item ID" id="1025" name="GET">
+                <doc>Returns the current largest item id</doc>
+                <request/>
+                <response>
+                    <representation element="f1025:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="item/">
+            <resource uri="{id}.json?print=pretty/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Items" id="1024" name="GET">
+                    <doc>Stories, comments, Ask HNs and polls are considered items identified by ids (unique integers)</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>the item s unique id Required</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1024:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="updates.json?print=pretty/">
+            <method displayName="Changed Items and Profiles" id="1023" name="GET">
+                <doc>Returns the item and profile changes.</doc>
+                <request/>
+                <response>
+                    <representation element="f1023:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

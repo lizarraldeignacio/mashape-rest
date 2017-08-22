@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2099="urn:function:f2099" xmlns:f2100="urn:function:f2100" xmlns:f2101="urn:function:f2101" xmlns:f2102="urn:function:f2102" xmlns:f2103="urn:function:f2103">
+    <grammars>
+        <include href="Function2103.xsd"/>
+        <include href="Function2102.xsd"/>
+        <include href="Function2101.xsd"/>
+        <include href="Function2100.xsd"/>
+        <include href="Function2099.xsd"/>
+    </grammars>
+    <doc>search discount sports events inventory that is always below box office price Guaranteed Our tickets are always authentic valid for entry</doc>
+    <resources base="https://scorebig-scorebig.p.mashape.com/">
+        <resource uri="performers/">
+            <method displayName="Performers" id="2103" name="GET">
+                <request/>
+                <response>
+                    <representation element="f2103:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="events/">
+            <method displayName="Events" id="2102" name="GET">
+                <request/>
+                <response>
+                    <representation element="f2102:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="Events/">
+            <method displayName="Event Search" id="2101" name="GET">
+                <request>
+                    <param name="category" required="true" style="query" type="xsd:string">
+                        <doc>free form metro category name</doc>
+                    </param>
+                    <param name="categoryId" required="true" style="query" type="xsd:string">
+                        <doc>iDs of the category to restrict the search to Multiple category ids should be separated by commas</doc>
+                    </param>
+                    <param name="city" required="true" style="query" type="xsd:string">
+                        <doc>free form city name</doc>
+                    </param>
+                    <param name="dealRating" required="true" style="query" type="xsd:string">
+                        <doc>restrict search to certain deal ratings</doc>
+                    </param>
+                    <param name="endDate" required="true" style="query" type="xsd:string">
+                        <doc>only include events up to this date and time</doc>
+                    </param>
+                    <param name="eventId" required="true" style="query" type="xsd:string">
+                        <doc>a single event id</doc>
+                    </param>
+                    <param name="maxResults" required="true" style="query" type="xsd:integer">
+                        <doc>maximum number of results to return Default is</doc>
+                    </param>
+                    <param name="metroRegionId" required="true" style="query" type="xsd:string">
+                        <doc>iDs of the metro regions to restrict the search to Multiple metro region IDs should be separated by commas</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>free form event name</doc>
+                    </param>
+                    <param name="performerId" required="true" style="query" type="xsd:string">
+                        <doc>iDs of the performers to restrict the search to home games only</doc>
+                    </param>
+                    <param name="performerName" required="true" style="query" type="xsd:string">
+                        <doc>free form performer name</doc>
+                    </param>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>free form text for a general search event city venue performer etc</doc>
+                    </param>
+                    <param name="secondaryPerformerId" required="true" style="query" type="xsd:string">
+                        <doc>iDs of the performers to restrict the search to away games only</doc>
+                    </param>
+                    <param name="startDate" required="true" style="query" type="xsd:string">
+                        <doc>only include events after this date and time</doc>
+                    </param>
+                    <param name="venue" required="true" style="query" type="xsd:string">
+                        <doc>free form venue name</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2101:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="cities/">
+            <method displayName="Cities" id="2100" name="GET">
+                <request/>
+                <response>
+                    <representation element="f2100:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="categories/">
+            <method displayName="Categories" id="2099" name="GET">
+                <doc>Get a list of valid categories.</doc>
+                <request/>
+                <response>
+                    <representation element="f2099:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

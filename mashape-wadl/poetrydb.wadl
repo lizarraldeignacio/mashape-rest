@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2430="urn:function:f2430" xmlns:f2431="urn:function:f2431" xmlns:f2432="urn:function:f2432" xmlns:f2434="urn:function:f2434" xmlns:f2435="urn:function:f2435" xmlns:f2437="urn:function:f2437" xmlns:f2438="urn:function:f2438">
+    <grammars>
+        <include href="Function2437.xsd"/>
+        <include href="Function2438.xsd"/>
+        <include href="Function2435.xsd"/>
+        <include href="Function2434.xsd"/>
+        <include href="Function2430.xsd"/>
+        <include href="Function2431.xsd"/>
+        <include href="Function2432.xsd"/>
+    </grammars>
+    <doc>poetryDB is the world s first API for Next Generation internet poets</doc>
+    <resources base="https://thundercomb-poetry-db-v1.p.mashape.com/">
+        <resource uri="title/">
+            <method displayName="/title" id="2436" name="GET">
+                <doc>List of all poem titles on Poetry DB</doc>
+                <request/>
+            </method>
+            <method displayName="/title/{title}" id="2437" name="GET">
+                <doc>All poems on Poetry DB with a specific title</doc>
+                <request>
+                    <param name="title" required="true" style="query" type="xsd:string">
+                        <doc>the title of the poem or part of the title of the poem</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2437:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="/title/{title}:abs" id="2438" name="GET">
+                <doc>All poems with a specific title</doc>
+                <request>
+                    <param name="title" required="true" style="query" type="xsd:string">
+                        <doc>the exact title of the poem</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2438:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="lines/">
+            <resource uri="{line}:abs/">
+                <param name="line" style="template" type="xsd:string"/>
+                <method displayName="/lines/{line}:abs" id="2435" name="GET">
+                    <doc>All poems that contain a specific line</doc>
+                    <request>
+                        <param name="line" required="true" style="query" type="xsd:string">
+                            <doc>the exact line in the poem</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2435:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="{line}/">
+                <param name="line" style="template" type="xsd:string"/>
+                <method displayName="/lines/{line}" id="2434" name="GET">
+                    <doc>All poems on Poetry DB containing a specific line</doc>
+                    <request>
+                        <param name="line" required="true" style="query" type="xsd:string">
+                            <doc>the line of a poem or part of the line of a poem</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2434:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="linecount/">
+            <resource uri="{linecount}/">
+                <param name="linecount" style="template" type="xsd:string"/>
+                <method displayName="/linecount/{linecount}" id="2433" name="GET">
+                    <doc>All poems on Poetry DB with a specific number of lines</doc>
+                    <request>
+                        <param name="linecount" required="true" style="query" type="xsd:integer">
+                            <doc>the number of lines in a poem</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="author,title/">
+            <resource uri="{author};{title}/">
+                <param name="author" style="template" type="xsd:string"/>
+                <method displayName="/author,title/{author};{title}" id="2430" name="GET">
+                    <doc>All poems with a specific title by a specific author</doc>
+                    <request>
+                        <param name="author" required="true" style="query" type="xsd:string">
+                            <doc>the poet or part of the poet s name</doc>
+                        </param>
+                        <param name="title" required="true" style="query" type="xsd:string">
+                            <doc>the title of the poem or part of the title of the poem</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2430:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="author/">
+            <method displayName="/author" id="2429" name="GET">
+                <doc>List of all poets on Poetry DB</doc>
+                <request/>
+            </method>
+            <method displayName="/author/{author}" id="2431" name="GET">
+                <doc>All poems on Poetry DB by a specific poet</doc>
+                <request>
+                    <param name="author" required="true" style="query" type="xsd:string">
+                        <doc>the poet or part of the poet s name</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2431:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="/author/{author}:abs" id="2432" name="GET">
+                <doc>All poems by a specific author</doc>
+                <request>
+                    <param name="author" required="true" style="query" type="xsd:string">
+                        <doc>the exact name of the poet</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2432:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

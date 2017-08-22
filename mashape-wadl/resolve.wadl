@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5908="urn:function:f5908" xmlns:f5909="urn:function:f5909" xmlns:f5910="urn:function:f5910">
+    <grammars>
+        <include href="Function5910.xsd"/>
+        <include href="Function5909.xsd"/>
+        <include href="Function5908.xsd"/>
+    </grammars>
+    <doc>perform quick domain name or IP address resolution Also lets you find your IP</doc>
+    <resources base="https://marcinpraski-resolve-v1.p.mashape.com/">
+        <resource uri="resolveip/">
+            <resource uri="{ip}/">
+                <param name="ip" style="template" type="xsd:string"/>
+                <method displayName="Resolve IP" id="5910" name="GET">
+                    <doc>Resolve given IP address to a domain name, if possible.</doc>
+                    <request>
+                        <param name="ip" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5910:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="resolvedomain/">
+            <resource uri="{domain}/">
+                <param name="domain" style="template" type="xsd:string"/>
+                <method displayName="Resolve domain" id="5909" name="GET">
+                    <doc>Resolve domain name to a list of IP addresses, if possible.</doc>
+                    <request>
+                        <param name="domain" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5909:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="myip/">
+            <method displayName="My IP" id="5908" name="GET">
+                <doc>Get your IP address.</doc>
+                <request/>
+                <response>
+                    <representation element="f5908:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

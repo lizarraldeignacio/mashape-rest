@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2012="urn:function:f2012" xmlns:f2013="urn:function:f2013" xmlns:f2014="urn:function:f2014" xmlns:f2015="urn:function:f2015" xmlns:f2016="urn:function:f2016" xmlns:f2017="urn:function:f2017" xmlns:f2018="urn:function:f2018" xmlns:f2019="urn:function:f2019">
+    <grammars>
+        <include href="Function2019.xsd"/>
+        <include href="Function2018.xsd"/>
+        <include href="Function2017.xsd"/>
+        <include href="Function2016.xsd"/>
+        <include href="Function2015.xsd"/>
+        <include href="Function2014.xsd"/>
+        <include href="Function2013.xsd"/>
+        <include href="Function2012.xsd"/>
+    </grammars>
+    <doc>the WebKnox Words API lets you have your way with words Get the singular plural present past past participle or synonyms of a word</doc>
+    <resources base="https://webknox-words.p.mashape.com/">
+        <resource uri="words/">
+            <resource uri="{word}/">
+                <param name="word" style="template" type="xsd:string"/>
+                <resource uri="thirdPersonSingular/">
+                    <method displayName="Transform to the Third Person Singular" id="2019" name="GET">
+                        <doc>Transform a verb to the third person singular.</doc>
+                        <request>
+                            <param name="word" required="true" style="query" type="xsd:string">
+                                <doc>the word to be transformed</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2019:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="singular/">
+                    <method displayName="Transform to Singular" id="2018" name="GET">
+                        <doc>Transform a noun in its singular form.</doc>
+                        <request>
+                            <param name="word" required="true" style="query" type="xsd:string">
+                                <doc>the word to be singularized</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2018:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="simplePresent/">
+                    <method displayName="Transform to Simple Present" id="2017" name="GET">
+                        <doc>Transform a verb into the simple present tense.</doc>
+                        <request>
+                            <param name="word" required="true" style="query" type="xsd:string">
+                                <doc>the word to be transformed into simple present</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2017:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="simplePast/">
+                    <method displayName="Transform to Simple Past" id="2016" name="GET">
+                        <doc>Transform a verb into the simple past tense.</doc>
+                        <request>
+                            <param name="word" required="true" style="query" type="xsd:string">
+                                <doc>the word to be transformed into simple past</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2016:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="plural/">
+                    <method displayName="Transform to Plural" id="2015" name="GET">
+                        <doc>Transform a noun in its plural form.</doc>
+                        <request>
+                            <param name="word" required="true" style="query" type="xsd:string">
+                                <doc>the word to be pluralized</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2015:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="pastParticiple/">
+                    <method displayName="Transform to Past Participle" id="2014" name="GET">
+                        <doc>Transform a verb into the past participle tense.</doc>
+                        <request>
+                            <param name="word" required="true" style="query" type="xsd:string">
+                                <doc>the word to be transformed into past participle</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2014:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="stem/">
+                    <method displayName="Stem a Word" id="2013" name="GET">
+                        <doc>Retrieve the stem of an English word.</doc>
+                        <request>
+                            <param name="word" required="true" style="query" type="xsd:string">
+                                <doc>the word to be stemmed</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2013:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="synonyms/">
+                    <method displayName="Get Synonyms" id="2012" name="GET">
+                        <doc>Get a list of synonyms for a word.</doc>
+                        <request>
+                            <param name="word" required="true" style="query" type="xsd:string">
+                                <doc>the word for which you want to retrieve synonyms</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2012:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

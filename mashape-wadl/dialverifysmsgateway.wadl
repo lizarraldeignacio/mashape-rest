@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f596="urn:function:f596">
+    <grammars>
+        <include href="Function596.xsd"/>
+    </grammars>
+    <doc>introducing ultra cheap Transactional SMS API for developers India Send speedy sms with fully customizable dynamic sender ids for FREE Claim your FREE SMS Credits at http goo gl fsEPSo</doc>
+    <resources base="https://dial2verify-sms.p.mashape.com/">
+        <resource uri="{api_key}/">
+            <param name="api_key" style="template" type="xsd:string"/>
+            <resource uri="{sender_id}/">
+                <param name="sender_id" style="template" type="xsd:string"/>
+                <resource uri="{recipient_number}/">
+                    <param name="recipient_number" style="template" type="xsd:string"/>
+                    <method displayName="Send SMS" id="596" name="POST">
+                        <doc>Dial2verify API Key</doc>
+                        <request>
+                            <param name="apiKey" required="true" style="query" type="xsd:string">
+                                <doc>dial verify API Key</doc>
+                            </param>
+                            <param name="recipientNumber" required="true" style="query" type="xsd:integer">
+                                <doc>phone number of the recipient</doc>
+                            </param>
+                            <param name="senderId" required="true" style="query" type="xsd:string">
+                                <doc>Character Sender ID</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f596:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

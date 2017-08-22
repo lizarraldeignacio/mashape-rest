@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5393="urn:function:f5393">
+    <grammars>
+        <include href="Function5393.xsd"/>
+    </grammars>
+    <doc>this data API provides details of all recharge options available with various telecom operators across all circles The data is aggregated from the websites of all telecom operators</doc>
+    <resources base="https://devru-telecom-recharge-options-india-v1.p.mashape.com/">
+        <resource uri="">
+            <method displayName="GET Recharge Options" id="5393" name="GET">
+                <doc>Get Recharge Options</doc>
+                <request>
+                    <param name="circle" required="true" style="query" type="xsd:string">
+                        <doc>circle Karnataka Uttar Pradesh E Maharashtra Chennai Andra Pradesh Bihar Kerala North East Orissa Kolkatta Madhya Pradesh Haryana JK Tamil Nadu Uttar Pradesh W West Bengal Panjab Gujrat Rajasthan</doc>
+                    </param>
+                    <param name="operator" required="true" style="query" type="xsd:string">
+                        <doc>example BSNL Tata DOCOMO Uninor Idea AIrcel Reliance CDMA Reliance GSM Airtel Vodafone</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>page Index</doc>
+                    </param>
+                    <param name="perPage" required="true" style="query" type="xsd:string">
+                        <doc>values per page</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5393:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

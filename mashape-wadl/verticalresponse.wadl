@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>verticalResponse helps users create and send great email campaigns We make contact and list management easy allowing users to create contacts group them into meaningful lists and use these lists to send targeted email campaigns VerticalResponse provides REST APIs to manage contacts lists messages and custom fields Developers can integrate VerticalResponse s email and social marketing functionality into their applications to provide their customers with new and interesting ways to create and manage marketing campaigns</doc>
+    <resources base="https://verticalresponse.p.mashape.com/">
+        <resource uri="lists/">
+            <method displayName="Lists: List" id="4778" name="GET">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="messages/">
+            <method displayName="Email: Create" id="4776" name="POST">
+                <request/>
+            </method>
+            <method displayName="Email: Launch" id="4777" name="POST">
+                <request/>
+            </method>
+            <method displayName="Messages: List" id="4779" name="GET">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="contact/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Contacts: Update" id="4775" name="PUT">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>iD of the contact to be updated</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="contacts/">
+            <method displayName="Contacts: Create" id="4773" name="POST">
+                <request/>
+            </method>
+            <method displayName="Contacts: List" id="4774" name="GET">
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f475="urn:function:f475">
+    <grammars>
+        <include href="Function475.xsd"/>
+    </grammars>
+    <doc>give a list of stock symbols this API returns stock data using Yahoo Finance</doc>
+    <resources base="https://enclout-yahoo-finance.p.mashape.com/">
+        <resource uri="show.json/">
+            <method displayName="yahoo_finance" id="475" name="GET">
+                <doc>Yahoo Finance API</doc>
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>comma delimited list of stock symbols</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f475:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

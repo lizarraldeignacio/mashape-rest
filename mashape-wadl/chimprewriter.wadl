@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>the Chimp Rewriter API allows developers to access Chimp Rewriter functionality from their own software It is based around HTTP POST making it easy to implement With the help of this guide you should be up and running in a few minutes Authentication is achieved through an API Key so there is no need to send sensitive password details over an unencrypted connection</doc>
+    <resources base="https://akturatech-chimp-rewriter.p.mashape.com/">
+        <resource uri="TestConnection/">
+            <method displayName="TestConnection" id="2933" name="POST">
+                <doc>Tests the connection to the API without user credentials.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="">
+            <method displayName="QueryStats" id="2932" name="POST">
+                <doc>Returns remaining query quota. Can also be used to test an account.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="{GlobalSpin}/">
+            <param name="GlobalSpin" style="template" type="xsd:string"/>
+            <method displayName="GlobalSpin" id="2931" name="POST">
+                <doc>Spins an article with various quality paramters and return it either with spintax or as a unique unspun document.</doc>
+                <request>
+                    <param name="globalspin" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+        <resource uri="{GenerateSpin}/">
+            <param name="GenerateSpin" style="template" type="xsd:string"/>
+            <method displayName="GenerateSpin" id="2930" name="POST">
+                <doc>Generates an unspun doc from one with spintax. Optionally reorders paragraphs and removes original word.</doc>
+                <request>
+                    <param name="generatespin" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+        <resource uri="{CalcWordDensity}/">
+            <param name="CalcWordDensity" style="template" type="xsd:string"/>
+            <method displayName="CalcWordDensity" id="2929" name="POST">
+                <doc>Calculates the word densities of words and phrases in the article.</doc>
+                <request>
+                    <param name="calcworddensity" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

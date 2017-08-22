@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2173="urn:function:f2173" xmlns:f2174="urn:function:f2174">
+    <grammars>
+        <include href="Function2174.xsd"/>
+        <include href="Function2173.xsd"/>
+    </grammars>
+    <doc>accurate solar system data for everyone Cerridwen provides geocentric planetary data suitable for a broad spectrum of astronomical and astrological applications with a focus on our solar system Among its data you will find for example the time of the next sunrise or that of the last full moon or simply the current tropical position of the sun</doc>
+    <resources base="https://community-cerridwen-solar-system-data.p.mashape.com/">
+        <resource uri="sun/">
+            <method displayName="Get data on sun" id="2174" name="GET">
+                <request>
+                    <param name="date" required="true" style="query" type="xsd:string">
+                        <doc>reference date in Julian day decimal format e g or an ISO time string supported by astropy time e g T</doc>
+                    </param>
+                    <param name="latitude" required="true" style="query" type="xsd:string">
+                        <doc>observer s latitude decimal optional</doc>
+                    </param>
+                    <param name="longitude" required="true" style="query" type="xsd:string">
+                        <doc>observer s longitude decimal optional</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2174:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="moon/">
+            <method displayName="Get data on moon" id="2173" name="GET">
+                <doc>Like the sun endpoint, but includes a lot more data in the response that only makes sense for the moon.</doc>
+                <request/>
+                <response>
+                    <representation element="f2173:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

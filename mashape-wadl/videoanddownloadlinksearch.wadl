@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4208="urn:function:f4208" xmlns:f4209="urn:function:f4209" xmlns:f4210="urn:function:f4210" xmlns:f4211="urn:function:f4211">
+    <grammars>
+        <include href="Function4211.xsd"/>
+        <include href="Function4210.xsd"/>
+        <include href="Function4209.xsd"/>
+        <include href="Function4208.xsd"/>
+    </grammars>
+    <doc>access allucs database of million video and download links and execute full text search to find cyberlocker and video links related to any topic Documentation http wiki alluc to API For sign up outside of mashape with lower latencies http api alluc com</doc>
+    <resources base="https://alluc-alluc-video-and-download-search-v1.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="thumbnail/">
+                <resource uri="{imageid}/">
+                    <param name="imageid" style="template" type="xsd:string"/>
+                    <method displayName="thumbnail" id="4211" name="GET">
+                        <doc>Fetch a thumbnail. {imageid} is returned in /api/search/.</doc>
+                        <request>
+                            <param name="imageid" required="true" style="query" type="xsd:string">
+                                <doc>fetch a thumbnail imageid is returned in api search</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4211:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="sourcedata/">
+                <resource uri="{md5-of-source-url}/">
+                    <param name="md5-of-source-url" style="template" type="xsd:string"/>
+                    <method displayName="sourceurl-metadata" id="4210" name="GET">
+                        <doc>Request more information about a source-url (URL where a hoster link was found)</doc>
+                        <request>
+                            <param name="mdOfSourceUrl" required="true" style="query" type="xsd:string">
+                                <doc>request more information about a source url URL where a hoster link was found</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4210:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="search/">
+                <resource uri="{searchtype}/">
+                    <param name="searchtype" style="template" type="xsd:string"/>
+                    <method displayName="search" id="4209" name="GET">
+                        <doc>Search for download links using the usual alluc search operators(https://www.alluc.com/about/).</doc>
+                        <request>
+                            <param name="count" required="true" style="query" type="xsd:integer">
+                                <doc>max amount of returned results Can be between</doc>
+                            </param>
+                            <param name="from" required="true" style="query" type="xsd:integer">
+                                <doc>where to start For example if you want result you will set count and from</doc>
+                            </param>
+                            <param name="getmeta" required="true" style="query" type="xsd:integer">
+                                <doc>if you want additional info on hosterlinks and source set this to Only use if you really need it as it might make for slower queries</doc>
+                            </param>
+                            <param name="query" required="true" style="query" type="xsd:string">
+                                <doc>the search string All alluc search operators can be used https www alluc com about Make sure to urlencode this</doc>
+                            </param>
+                            <param name="searchtype" required="true" style="query" type="xsd:string">
+                                <doc>download or stream</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4209:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="filedata/">
+                <resource uri="{filedataid}/">
+                    <param name="filedataid" style="template" type="xsd:string"/>
+                    <method displayName="hosterurl-filedata" id="4208" name="GET">
+                        <doc>request additional metadata about a filehost-url</doc>
+                        <request>
+                            <param name="filedataid" required="true" style="query" type="xsd:string">
+                                <doc>filedataid can be retrieved using api search</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4208:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

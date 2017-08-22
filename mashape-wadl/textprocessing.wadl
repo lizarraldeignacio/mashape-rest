@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f82="urn:function:f82" xmlns:f83="urn:function:f83" xmlns:f84="urn:function:f84" xmlns:f85="urn:function:f85">
+    <grammars>
+        <include href="Function85.xsd"/>
+        <include href="Function84.xsd"/>
+        <include href="Function83.xsd"/>
+        <include href="Function82.xsd"/>
+    </grammars>
+    <doc>sentiment analysis stemming and lemmatization part of speech tagging and chunking phrase extraction and named entity recognition</doc>
+    <resources base="https://japerk-text-processing.p.mashape.com/">
+        <resource uri="tag/">
+            <method displayName="tag" id="85" name="POST">
+                <doc>Part-of-speech tagging, phrase chunking, and named entity recognition of text. See http://text-processing.com/docs/tag.html for more details.</doc>
+                <request/>
+                <response>
+                    <representation element="f85:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="stem/">
+            <method displayName="stem" id="84" name="POST">
+                <doc>Stem or lemmatize each word in given text. See http://text-processing.com/docs/stem.html for more details.</doc>
+                <request/>
+                <response>
+                    <representation element="f84:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="sentiment/">
+            <method displayName="sentiment" id="83" name="POST">
+                <doc>Analyze sentiment of English text. See http://text-processing.com/docs/sentiment.html for more details.</doc>
+                <request/>
+                <response>
+                    <representation element="f83:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="phrases/">
+            <method displayName="phrases" id="82" name="POST">
+                <doc>Extract phrase chunks and named entities from text. See http://text-processing.com/docs/phrases.html for more details.</doc>
+                <request/>
+                <response>
+                    <representation element="f82:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

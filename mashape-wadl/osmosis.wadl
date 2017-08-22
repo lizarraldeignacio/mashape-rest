@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>you can access your data via our simple RESTful API We are still adding new resources to this API so be careful The main goal of this API is to connect with other applications so your data can be exchanged based on your preferences auth Each of your requests should include the query string key The value must be your API key found on your Settings page url The API URL is https www getosmosis com api resource method i e https www getosmosis com api Activities Push</doc>
+    <resources base="https://osmosis-osmosis.p.mashape.com/">
+        <resource uri="Activities/">
+            <resource uri="Push/">
+                <method displayName="Post Activity" id="2268" name="POST">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="Recent/">
+                <method displayName="Get a stream of all your recent activities (last 7 days)." id="2265" name="GET">
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="Agreements/">
+            <resource uri="SampleViewedAlerts/">
+                <method displayName="Return a sample list of Proposal Viewed" id="2271" name="GET">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="SampleVerdicts/">
+                <method displayName="Return a sample list of Agreement Verdicts" id="2270" name="GET">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="Sent/">
+                <method displayName="Get a list of sent proposals" id="2263" name="GET">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="Draft/">
+                <method displayName="Get a list of draft proposals" id="2262" name="GET">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="Declined/">
+                <method displayName="Get a list of declined proposals" id="2261" name="GET">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="Accepted/">
+                <method displayName="Get a list of accepted proposals" id="2259" name="GET">
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="Zapier/">
+            <resource uri="UnSubscribe/">
+                <method displayName="Remove a Zapier subscription." id="2269" name="GET">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="Subscribe/">
+                <method displayName="Create a new Zapier event subscription" id="2257" name="GET">
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="Questionnaires/">
+            <resource uri="Draft/">
+                <method displayName="Get the questionnaires tagged as Draft" id="2266" name="GET">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="Send/">
+                <method displayName="Create and send a new questionnaire for a client." id="2258" name="POST">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="Create/">
+                <method displayName="Create a new questionnaire for a client." id="2256" name="POST">
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="Clients/">
+            <resource uri="Update/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Update a client." id="2272" name="PUT">
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="Delete/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Permanently delete a clients and all of their related assets (questionaires, agreements, etc)." id="2267" name="GET">
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="Get/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Get a specific client" id="2264" name="GET">
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="Fetch/">
+                <method displayName="Get a list of all your Clients" id="2260" name="GET">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="Create/">
+                <method displayName="Create a New Client" id="2255" name="GET">
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

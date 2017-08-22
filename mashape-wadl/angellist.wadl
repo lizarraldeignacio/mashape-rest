@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f686="urn:function:f686" xmlns:f687="urn:function:f687" xmlns:f688="urn:function:f688" xmlns:f689="urn:function:f689" xmlns:f690="urn:function:f690" xmlns:f691="urn:function:f691" xmlns:f693="urn:function:f693" xmlns:f694="urn:function:f694" xmlns:f695="urn:function:f695" xmlns:f696="urn:function:f696" xmlns:f697="urn:function:f697" xmlns:f698="urn:function:f698" xmlns:f700="urn:function:f700" xmlns:f701="urn:function:f701" xmlns:f702="urn:function:f702" xmlns:f703="urn:function:f703" xmlns:f704="urn:function:f704" xmlns:f705="urn:function:f705" xmlns:f706="urn:function:f706" xmlns:f707="urn:function:f707" xmlns:f708="urn:function:f708" xmlns:f709="urn:function:f709" xmlns:f710="urn:function:f710" xmlns:f711="urn:function:f711" xmlns:f712="urn:function:f712" xmlns:f713="urn:function:f713" xmlns:f714="urn:function:f714" xmlns:f715="urn:function:f715" xmlns:f716="urn:function:f716" xmlns:f717="urn:function:f717" xmlns:f718="urn:function:f718" xmlns:f719="urn:function:f719" xmlns:f720="urn:function:f720">
+    <grammars>
+        <include href="Function720.xsd"/>
+        <include href="Function719.xsd"/>
+        <include href="Function713.xsd"/>
+        <include href="Function714.xsd"/>
+        <include href="Function715.xsd"/>
+        <include href="Function716.xsd"/>
+        <include href="Function717.xsd"/>
+        <include href="Function718.xsd"/>
+        <include href="Function712.xsd"/>
+        <include href="Function707.xsd"/>
+        <include href="Function708.xsd"/>
+        <include href="Function709.xsd"/>
+        <include href="Function710.xsd"/>
+        <include href="Function711.xsd"/>
+        <include href="Function706.xsd"/>
+        <include href="Function700.xsd"/>
+        <include href="Function701.xsd"/>
+        <include href="Function702.xsd"/>
+        <include href="Function703.xsd"/>
+        <include href="Function704.xsd"/>
+        <include href="Function705.xsd"/>
+        <include href="Function698.xsd"/>
+        <include href="Function696.xsd"/>
+        <include href="Function697.xsd"/>
+        <include href="Function694.xsd"/>
+        <include href="Function695.xsd"/>
+        <include href="Function693.xsd"/>
+        <include href="Function691.xsd"/>
+        <include href="Function689.xsd"/>
+        <include href="Function690.xsd"/>
+        <include href="Function688.xsd"/>
+        <include href="Function687.xsd"/>
+        <include href="Function686.xsd"/>
+    </grammars>
+    <doc>join a Startup Apply Privately No Middlemen See Salary Upfront AngelList is a platform for startups started by the dudes who do Venture Hacks</doc>
+    <resources base="https://community-angellist.p.mashape.com/">
+        <resource uri="users/">
+            <resource uri="search/">
+                <method displayName="GET /users/search" id="720" name="GET">
+                    <doc>Search for a user given a URL slug or md5 hash of an email address. Responds like GET /users/:id.</doc>
+                    <request>
+                        <param name="md" required="true" style="query" type="xsd:string">
+                            <doc>an md hash of the email address of the desired user Use of this endpoint requires authentication</doc>
+                        </param>
+                        <param name="slug" required="true" style="query" type="xsd:string">
+                            <doc>the URL slug of the desired user Examples joshuaxls naval</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f720:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="batch/">
+                <method displayName="GET /users/batch" id="719" name="GET">
+                    <doc>Returns up to 50 users at a time, given a comma-separated list of ids.</doc>
+                    <request>
+                        <param name="ids" required="true" style="query" type="xsd:string">
+                            <doc>a comma separated list of ids limited to a maximum of</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f719:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="GET /users/:id" id="713" name="GET">
+                    <doc>Get a user's information given an id.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                        <param name="includeDetails" required="true" style="query" type="xsd:string">
+                            <doc>include additional details about the user Currently the only accepted value is investor which adds the investor details field investor details is a hash containing the following fields startups per year average amount accreditation markets locations investments</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f713:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="GET /users/:id/followers" id="714" name="GET">
+                    <doc>Return the given user's followers, paginated and ordered by most recent follower first.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f714:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="GET /users/:id/followers/ids" id="715" name="GET">
+                    <doc>Return the ids of the given user's followers, paginated and ordered by most recent follower first.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f715:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="GET /users/:id/following" id="716" name="GET">
+                    <doc>Return objects that the given user is following, paginated and ordered by most recent follow first. See the type parameter to specify which class of objects to return.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                        <param name="type" required="true" style="query" type="xsd:string">
+                            <doc>must be either user or startup Specifies which class of entities to return Defaults to user</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f716:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="GET /users/:id/following/ids" id="717" name="GET">
+                    <doc>Return ids of objects that the given user is following, paginated and ordered by most recent follow first. See the type parameter to specify which class of objects to return. Responds like GET /users/:id/followers/ids.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                        <param name="type" required="true" style="query" type="xsd:string">
+                            <doc>must be either user or startup Specifies which class of entities to return Defaults to user</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f717:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="GET /users/:id/roles" id="718" name="GET">
+                    <doc>Returns the companies that a user has been tagged in. Results are paginated.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the ID of the desired user</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f718:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="tags/">
+            <resource uri="{tag_id}/">
+                <param name="tag_id" style="template" type="xsd:string"/>
+                <resource uri="jobs/">
+                    <method displayName="GET /tags/:tag_id/jobs" id="712" name="GET">
+                        <doc>For a given LocationTag tag_id, returns all jobs posted in that tag. Results are paginated.</doc>
+                        <request>
+                            <param name="tagId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f712:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="GET /tags/:id" id="707" name="GET">
+                    <doc>Get information on a tag, including statistics such as:  investor_followers, the number of investors following this tag. followers, the number of users following this tag, including investors. startups, the number of startups listed under this tag. users, LocationTag only, the number of users in this location. Direct statistics do not include a tag's ontology. All statistics do. In the example below, there are 3 investors who are following Louisville. There are 622 investors following Louisville or ancestors of Louisville—Kentucky, United States, North America, Earth.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the id of the desired tag Currently only works for tags of type MarketTag or LocationTag</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f707:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="GET /tags/:id/children" id="708" name="GET">
+                    <doc>Returns children of the given tag. Market and location tags form a Directed Acyclic Graph. Results are paginated and ordered by id descending.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the id of the desired tag Currently only works for tags of type MarketTag or LocationTag</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f708:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="GET /tags/:id/parents" id="709" name="GET">
+                    <doc>Returns parents of the given tag. For more details, see the documentation for GET /tags/:id/children.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the id of the desired tag Currently only works for tags of type MarketTag or LocationTag</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f709:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="GET /tags/:id/startups" id="710" name="GET">
+                    <doc>Returns companies that are tagged with the given tag or a child of the given tag. Results are paginated and ordered according to the order parameter.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                        <param name="order" required="true" style="query" type="xsd:string">
+                            <doc>may be one of popularity asc or desc Companies will be ordered by number of followers ascending id or descending id respectively Defaults to desc</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f710:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="GET /tags/:id/users" id="711" name="GET">
+                    <doc>Returns users that are tagged with the given tag, either a LocationTag or MarketTag. Results are paginated and ordered from highest quality to lowest quality.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                        <param name="includeChildren" required="true" style="query" type="xsd:string">
+                            <doc>set to if you d like the results to also include child tags For example if you pass in California but want to also see users tagged with San Francisco and Los Angeles Cannot be combined with include parents</doc>
+                        </param>
+                        <param name="includeParents" required="true" style="query" type="xsd:string">
+                            <doc>set to if you d like the results to also include parent tags For example if you pass in San Francisco but also want to see investors who follow Silicon Valley California and the US Cannot be combined with include children</doc>
+                        </param>
+                        <param name="investors" required="true" style="query" type="xsd:string">
+                            <doc>may be either by residence or by activity Narrows the results to only return investors by residence will only return investors who reside in the given tag by activity will only return investors who invest in the given tag</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f711:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="status_updates/">
+            <method displayName="GET /status_updates" id="706" name="GET">
+                <doc>Return status updates from the given user or startup. If neither is specified, the authenticated user is used. Status updates are paginated and ordered by most recent first.</doc>
+                <request>
+                    <param name="startupId" required="true" style="query" type="xsd:string">
+                        <doc>id of the desired startup</doc>
+                    </param>
+                    <param name="userId" required="true" style="query" type="xsd:string">
+                        <doc>id of the desired user</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f706:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="startups/">
+            <method displayName="GET /startups filter=raising" id="699" name="GET">
+                <doc>This endpoint returns only companies that are publicly fundraising. Access to companies that display their fundraising information only to investors is available on a whitelist-only basis— contact api@angel.co if you're an accredited investor and would like access.  Returns the firehose of fundraising companies on AngelList. Results are paginated and ordered by the date on which the round was listed. Please note the fundraising key returned in the response. It will either be the boolean value false, or it will contain a hash of fundraising information.  Also note that AngelList does not filter the quality of the companies returned. You may want to take notice of the quality value of each company, for starters.</doc>
+                <request>
+                    <param name="filter" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+            <method displayName="GET /startups/:id" id="700" name="GET">
+                <doc>Get a company's information given an id. quality is an integer between 0 and 10, calculated every 48 hours, and reflects the company's rank on AngelList. Higher numbers mean better quality. community_profile is true if the company's profile was automatically generated and has not been 'claimed' by anyone at the company.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f700:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="GET /startups/:id/comments" id="701" name="GET">
+                <doc>Returns the comments on the given company.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f701:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="GET /startups/:id/followers" id="702" name="GET">
+                <doc>Returns the given startup's followers, paginated and ordered by most recent follower first. Responds like GET /users/:id/followers.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f702:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="GET /startups/:id/followers/ids" id="703" name="GET">
+                <doc>Return ids of objects that the given user is following, paginated and ordered by most recent follow first. See the type parameter to specify which class of objects to return. Responds like GET /users/:id/followers/ids.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>must be either user or startup Specifies which class of entities to return Defaults to user</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f703:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="GET /startups/:id/roles" id="704" name="GET">
+                <doc>Returns a company's startup roles. If direction is outgoing, then it returns the companies which the given company is tagged in. If direction is incoming, or omitted, then it returns the users and companies which are tagged in the given company. Results are paginated.</doc>
+                <request>
+                    <param name="direction" required="true" style="query" type="xsd:string">
+                        <doc>either incoming or outgoing Defaults to incoming</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>the ID of the desired startup</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f704:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="GET /startups/:startup_id/jobs" id="705" name="GET">
+                <doc>For a given startup_id, returns all the jobs that have been posted.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f705:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="startup_roles/">
+            <method displayName="GET /startup_roles" id="698" name="GET">
+                <doc>Given a user_id, returns the companies that User is tagged in. Given a startup_id, returns either the users and companies tagged in the given Startup (if direction is incoming) or the companies which the given Startup is tagged in (if direction is outgoing). If neither parameter is given, the authenticated user is used. Possible roles include founder, employee, past_investor, current_investor, advisor, incubator and referrer. Roles are paginated and ordered by most recently declared first.</doc>
+                <request>
+                    <param name="direction" required="true" style="query" type="xsd:string">
+                        <doc>only applies if startup id is present Either incoming or outgoing Defaults to incoming</doc>
+                    </param>
+                    <param name="role" required="true" style="query" type="xsd:string">
+                        <doc>the specific role you d like to filter on e g founder past investor advisor</doc>
+                    </param>
+                    <param name="startupId" required="true" style="query" type="xsd:string">
+                        <doc>the startup whose roles you want to view</doc>
+                    </param>
+                    <param name="userId" required="true" style="query" type="xsd:string">
+                        <doc>the user whose roles you want to view</doc>
+                    </param>
+                    <param name="v" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f698:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="search/">
+            <method displayName="GET /search" id="696" name="GET">
+                <doc>Search by name for Startups, Users, MarketTags and LocationTags, optionally narrowing the results by type. Results are sorted by a mix of match and popularity.</doc>
+                <request>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>the URL encoded string you d like to search with</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>can be one of User Startup MarketTag or LocationTag Can only be used with the query parameter</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f696:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="GET /search/slugs" id="697" name="GET">
+                <doc>Search by AngelList URL for Startups, Users, MarketTags and LocationTags.</doc>
+                <request>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>the URL slug of an entity on AngelList For example for https angel co joshuaxls the slug is joshuaxls</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f697:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="reviews/">
+            <method displayName="GET /reviews" id="694" name="GET">
+                <doc>Return reviews for the given user. If no user given, the authenticated user is used. Reviews are paginated and ordered by most recent first. Also returns the total count of positive reviews.</doc>
+                <request>
+                    <param name="userId" required="true" style="query" type="xsd:string">
+                        <doc>id of the desired user If none given defaults to the authenticated user</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f694:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="GET /reviews/:id" id="695" name="GET">
+                <doc>Returns the given review.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f695:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="press/">
+            <method displayName="GET /press" id="692" name="GET">
+                <doc>Return press for the given startup. Press is paginated and ordered by most recent first, according to the post date.</doc>
+                <request>
+                    <param name="startupId" required="true" style="query" type="xsd:string">
+                        <doc>id of the desired startup</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="GET /press/:id" id="693" name="GET">
+                <doc>Returns the given press.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f693:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="likes/">
+            <method displayName="GET /likes" id="691" name="GET">
+                <doc>Returns the likes for the given object. Likes are paginated and ordered by creation date descending.</doc>
+                <request>
+                    <param name="likableId" required="true" style="query" type="xsd:string">
+                        <doc>the id of the object you want to see likes for</doc>
+                    </param>
+                    <param name="likableType" required="true" style="query" type="xsd:string">
+                        <doc>the class of the object you want to see likes for Can be Comment Press Review StartupRole or StatusUpdate</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f691:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="jobs/">
+            <method displayName="GET /jobs" id="689" name="GET">
+                <doc>Returns all jobs that have been posted. Results are paginated and ordered by publish date descending.</doc>
+                <request/>
+                <response>
+                    <representation element="f689:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="GET /jobs/:id" id="690" name="GET">
+                <doc>Shows the details for a specific job, including the startup that posted it.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f690:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="follows/">
+            <resource uri="relationship/">
+                <method displayName="GET /follows/relationship" id="688" name="GET">
+                    <doc>Returns whether the source and target profiles follow each other. The source key will contain the follow from the source to the target, if it exists. The target key will contain the follow from the target to the source, if it exists. Otherwise null is returned.</doc>
+                    <request>
+                        <param name="sourceId" required="true" style="query" type="xsd:string">
+                            <doc>the id of the source User Cannot be a Startup id since Startups cannot follow things</doc>
+                        </param>
+                        <param name="targetId" required="true" style="query" type="xsd:string">
+                            <doc>the id of the target either a User id or Startup id</doc>
+                        </param>
+                        <param name="targetType" required="true" style="query" type="xsd:string">
+                            <doc>one of either User or Startup</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f688:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="batch/">
+                <method displayName="GET /follows/batch" id="687" name="GET">
+                    <doc>Returns the follower and followed information based on comma-separated follow ids, such as those from the activity feed.</doc>
+                    <request>
+                        <param name="ids" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f687:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="feed/">
+            <method displayName="GET /feed" id="686" name="GET">
+                <doc>Returns site activity. If authenticated and the personalized parameter is passed in, only activity from the authenticated user's social graph is returned. No more than 25 items will be returned. Results are paginated and ordered by most recent story first, unless a since parameter is given.</doc>
+                <request>
+                    <param name="personalized" required="true" style="query" type="xsd:string">
+                        <doc>if set to and a user is authenticated only activity from the authenticated user s social graph is returned</doc>
+                    </param>
+                    <param name="since" required="true" style="query" type="xsd:string">
+                        <doc>if a Unix timestamp is passed in via this parameter only activity since that timestamp will be returned A maximum of items will be returned starting with the oldest item A cursor variable is also returned which is the timestamp of the last item You may call feed again with since set to this value to get the next page of activity</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f686:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

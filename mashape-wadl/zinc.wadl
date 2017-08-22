@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6957="urn:function:f6957" xmlns:f6958="urn:function:f6958">
+    <grammars>
+        <include href="Function6957.xsd"/>
+        <include href="Function6958.xsd"/>
+    </grammars>
+    <doc>order anything on Amazon with one POST request Amazon provides APIs for just about everything product information search results and ads but one thing is blatantly missing an API for placing an order We ve filled this void for them by developing the first and only public API for ordering on Amazon Fill in the information about your product shipping address billing address and payment information and our system will go through the checkout process on Amazon We work with loyalty programs rewards services sweepstakes and importers to allow them to fulfill orders without ever holding inventory We also work with small businesses and mobile applications to create unique new shopping and checkout experiences If you re interested in our custom plans email max zinc io for more information</doc>
+    <resources base="https://maxko87-zinc-v1.p.mashape.com/">
+        <resource uri="v0/">
+            <resource uri="order/">
+                <method displayName="Order" id="6957" name="POST">
+                    <doc>Place an order on Amazon.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f6957:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="View Order" id="6958" name="GET">
+                    <doc>View status of Amazon order.</doc>
+                    <request>
+                        <param name="requestId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f6958:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

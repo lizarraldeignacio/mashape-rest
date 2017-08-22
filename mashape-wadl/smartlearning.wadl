@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5832="urn:function:f5832">
+    <grammars>
+        <include href="Function5832.xsd"/>
+    </grammars>
+    <doc>categorize a list of intents or actions and extract entities from a short sentence or query such as in an intelligent personal assistant Data Ninja Services which focus on natural language understanding are developed by Docomo Innovations</doc>
+    <resources base="https://smartlearning.dataiq.io/">
+        <resource uri="smartlearning/">
+            <resource uri="classify/">
+                <method displayName="classify" id="5832" name="POST">
+                    <doc>Task Classification: enter a short text request, get back the type of action you requested and a set of entities extracted from your request.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f5832:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

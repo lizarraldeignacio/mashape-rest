@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4607="urn:function:f4607">
+    <grammars>
+        <include href="Function4607.xsd"/>
+    </grammars>
+    <doc>rillate API allows developers to verify their users past and present affiliations to over public private and professional higher education academic institutions in the US</doc>
+    <resources base="https://rillate-education.p.mashape.com/">
+        <resource uri="query/">
+            <method displayName="Verify Currently Enrolled" id="4603" name="GET">
+                <doc>Verify if someone is currently enrolled at a degree program, i.e. is a student</doc>
+                <request>
+                    <param name="currentlyEnrolled" required="true" style="query" type="xsd:string">
+                        <doc>marker parameter to signify the query is to check that the subject is currently enrolled</doc>
+                    </param>
+                    <param name="dob" required="true" style="query" type="xsd:string">
+                        <doc>date of birth we recommend yyyy MM dd format ex but most widely accepted formats would work</doc>
+                    </param>
+                    <param name="firstName" required="true" style="query" type="xsd:string">
+                        <doc>first name</doc>
+                    </param>
+                    <param name="lastName" required="true" style="query" type="xsd:string">
+                        <doc>last name</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Verify Degree" id="4604" name="GET">
+                <doc>Verify if someone has attained specific degree by using first and last name, combined with date of birth</doc>
+                <request>
+                    <param name="degree" required="true" style="query" type="xsd:string">
+                        <doc>degree e g Bachelors Masters Doctorate For complete list of degrees see http www rillate com developers keywords</doc>
+                    </param>
+                    <param name="dob" required="true" style="query" type="xsd:string">
+                        <doc>date of birth we recommend yyyy MM dd format ex but most widely accepted formats would work</doc>
+                    </param>
+                    <param name="firstName" required="true" style="query" type="xsd:string">
+                        <doc>first name as used by the person at the time of graduation</doc>
+                    </param>
+                    <param name="lastName" required="true" style="query" type="xsd:string">
+                        <doc>last name as used by the person at the time of graduation</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Verify Graduated" id="4605" name="GET">
+                <doc>Find out if someone has graduated with a degree (see documentation for full list of degrees)</doc>
+                <request>
+                    <param name="dob" required="true" style="query" type="xsd:string">
+                        <doc>date of birth we recommend yyyy MM dd format ex but most widely accepted formats would work</doc>
+                    </param>
+                    <param name="firstName" required="true" style="query" type="xsd:string">
+                        <doc>first name as person used when graduated</doc>
+                    </param>
+                    <param name="graduated" required="true" style="query" type="xsd:string">
+                        <doc>marker parameter to signify the request is to check if the subject has graduated</doc>
+                    </param>
+                    <param name="lastName" required="true" style="query" type="xsd:string">
+                        <doc>last name as person used when graduated</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Verify Membership" id="4606" name="GET">
+                <doc>Verify if an individual is an active member in a partnered organization.</doc>
+                <request>
+                    <param name="email" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="organization" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Verify School" id="4607" name="GET">
+                <doc>Verify if an individual is attending or has enrolled at a specific school by using first and last name and date of birth</doc>
+                <request>
+                    <param name="dob" required="true" style="query" type="xsd:string">
+                        <doc>date of birth we recommend yyyy MM dd format ex but most widely accepted formats would work</doc>
+                    </param>
+                    <param name="firstName" required="true" style="query" type="xsd:string">
+                        <doc>individual s first name while attending school</doc>
+                    </param>
+                    <param name="lastName" required="true" style="query" type="xsd:string">
+                        <doc>individual s last name while attending school</doc>
+                    </param>
+                    <param name="school" required="true" style="query" type="xsd:string">
+                        <doc>name of the school Contact support rillate com for an exhaustive list of all school keywords</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4607:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

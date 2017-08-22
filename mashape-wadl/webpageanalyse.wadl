@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1431="urn:function:f1431" xmlns:f1432="urn:function:f1432" xmlns:f1433="urn:function:f1433" xmlns:f1434="urn:function:f1434">
+    <grammars>
+        <include href="Function1434.xsd"/>
+        <include href="Function1433.xsd"/>
+        <include href="Function1432.xsd"/>
+        <include href="Function1431.xsd"/>
+    </grammars>
+    <doc>we offer several endpoints to analyze webpages Use our API to find similar sites for a domain detect if a domain contains adult content detect the category of a domain or find the Pagerank for a domain</doc>
+    <resources base="https://webpageanalyse-webpageanalyse.p.mashape.com/">
+        <resource uri="simsites/">
+            <method displayName="Similar Sites" id="1434" name="GET">
+                <doc>Find similar sites for a given domain</doc>
+                <request>
+                    <param name="domain" required="true" style="query" type="xsd:string">
+                        <doc>the domain to find similar sites for</doc>
+                    </param>
+                    <param name="key" required="true" style="query" type="xsd:string">
+                        <doc>your api key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1434:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="pagerank/">
+            <method displayName="Pagerank" id="1433" name="GET">
+                <doc>Find the Google Pagerank for any domain. Also provides historic values for the Pagerank.</doc>
+                <request>
+                    <param name="domain" required="true" style="query" type="xsd:string">
+                        <doc>the domain to get the page rank for</doc>
+                    </param>
+                    <param name="key" required="true" style="query" type="xsd:string">
+                        <doc>your api key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1433:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="category/">
+            <method displayName="Category Detection" id="1432" name="GET">
+                <doc>Categorize a webpage. It can find multiple categories for a webpage.</doc>
+                <request>
+                    <param name="domain" required="true" style="query" type="xsd:string">
+                        <doc>the domain to categorize</doc>
+                    </param>
+                    <param name="key" required="true" style="query" type="xsd:string">
+                        <doc>your api key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1432:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="adult/">
+            <method displayName="Adult Detection" id="1431" name="GET">
+                <doc>Detect if a domain has adult content or not</doc>
+                <request>
+                    <param name="domain" required="true" style="query" type="xsd:string">
+                        <doc>domain to detect if it has adult content or not</doc>
+                    </param>
+                    <param name="key" required="true" style="query" type="xsd:string">
+                        <doc>your api key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1431:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

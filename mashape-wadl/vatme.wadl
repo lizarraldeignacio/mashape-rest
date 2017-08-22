@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5172="urn:function:f5172" xmlns:f5173="urn:function:f5173" xmlns:f5175="urn:function:f5175" xmlns:f5176="urn:function:f5176">
+    <grammars>
+        <include href="Function5176.xsd"/>
+        <include href="Function5175.xsd"/>
+        <include href="Function5173.xsd"/>
+        <include href="Function5172.xsd"/>
+    </grammars>
+    <doc>vATSIM Middle East API Used to query the VATME HQ database for information about members or vACCs</doc>
+    <resources base="https://vatme-api.p.mashape.com/">
+        <resource uri="topatc.php/">
+            <method displayName="Top 5 ATC" id="5176" name="GET">
+                <doc>Get the top 5 ATC for a vACC with given date range</doc>
+                <request>
+                    <param name="dateEnd" required="true" style="query" type="xsd:string">
+                        <doc>date end format is YYYY MM DD</doc>
+                    </param>
+                    <param name="dateStart" required="true" style="query" type="xsd:string">
+                        <doc>date start format is YYYY MM DD</doc>
+                    </param>
+                    <param name="vacc" required="true" style="query" type="xsd:string">
+                        <doc>the vACC name ex bahrain egypt jordan saudi arabia uae lebanon iran etc</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5176:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getonline.php?type={type}/">
+            <param name="type" style="template" type="xsd:string"/>
+            <method displayName="Get VATSIM Online Data for VATME" id="5175" name="GET">
+                <doc>Type can be either "atc" or "pilot" (without quotes). Returns all the ATC that are online in VATME if "atc" is given. Returns all the pilots flying to/from an airport in VATME if "pilot" is given.</doc>
+                <request>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>returns all the ATC controllers online in VATME if atc is entered Returns all the pilots flying to from VATME if pilot is entered</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5175:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getmembers.php/">
+            <method displayName="Get Member Info" id="5174" name="GET">
+                <doc>Gets the member information based on the user's VATSIM ID or can be searched by the vACC</doc>
+                <request>
+                    <param name="cid" required="true" style="query" type="xsd:string">
+                        <doc>the user VATSIM ID</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>either enter resident or visitor</doc>
+                    </param>
+                    <param name="vacc" required="true" style="query" type="xsd:string">
+                        <doc>the vACC name Ex egypt uae saudi arabia jordan iran lebanon etc</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="getpositions.php?id={vatsimid}/">
+            <param name="vatsimid" style="template" type="xsd:string"/>
+            <method displayName="Get Member Approved ATC Positions" id="5173" name="GET">
+                <doc>This will return all the positions in a vACC that the member is allowed to control.</doc>
+                <request>
+                    <param name="vatsimid" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5173:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getevents.php?month={date}/">
+            <param name="date" style="template" type="xsd:string"/>
+            <method displayName="Get events in VATME for a certain month" id="5172" name="GET">
+                <doc>Returns all the events in VATME for the year and month passed in. Date must be passed in the format of YYYY-MM such as 2014-09 meaning September 2014.</doc>
+                <request>
+                    <param name="date" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5172:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getairport.php/">
+            <method displayName="Get Airport Info" id="5171" name="GET">
+                <doc>Get airport information with frequencies used at the airport. Uses data from ourairports.com/data</doc>
+                <request>
+                    <param name="icao" required="true" style="query" type="xsd:string">
+                        <doc>description</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="gethours.php/">
+            <method displayName="ATC Connection" id="5170" name="GET">
+                <doc>Get ATC connection history by CID or vACC. If no date is given, then the last 3 months of ATC connections will be given.</doc>
+                <request>
+                    <param name="cid" required="true" style="query" type="xsd:string">
+                        <doc>vATSIM ID of the user</doc>
+                    </param>
+                    <param name="dateEnd" required="true" style="query" type="xsd:string">
+                        <doc>if looking for a range of dates then this will be the end date YYYY MM DD</doc>
+                    </param>
+                    <param name="dateStart" required="true" style="query" type="xsd:string">
+                        <doc>if looking for a range of dates then this will be the start date YYYY MM DD</doc>
+                    </param>
+                    <param name="fir" required="true" style="query" type="xsd:string">
+                        <doc>the FIR code of the vACC to get a list of all connections in that vACC Can be combined with the dates to get connections in that vACC between a range of dates</doc>
+                    </param>
+                    <param name="position" required="true" style="query" type="xsd:string">
+                        <doc>use with FIR parameter to receive all connections in the FIR with the position Ex All connections in OJAC with CTR</doc>
+                    </param>
+                    <param name="total" required="true" style="query" type="xsd:integer">
+                        <doc>used when using CID parameter Will return the hours and minutes for the user</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

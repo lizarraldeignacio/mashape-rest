@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1055="urn:function:f1055" xmlns:f1056="urn:function:f1056">
+    <grammars>
+        <include href="Function1056.xsd"/>
+        <include href="Function1055.xsd"/>
+    </grammars>
+    <doc>simple API to detect Nudity images</doc>
+    <resources base="https://garrylachman-detect-nudity-v1.p.mashape.com/">
+        <resource uri="nude/">
+            <resource uri="upload/">
+                <method displayName="Nude Upload" id="1056" name="POST">
+                    <doc>upload photo (png or jpeg)</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1056:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="url/">
+                <method displayName="Nude" id="1055" name="GET">
+                    <request>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>image URL</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1055:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

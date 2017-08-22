@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4062="urn:function:f4062" xmlns:f4063="urn:function:f4063" xmlns:f4064="urn:function:f4064" xmlns:f4065="urn:function:f4065" xmlns:f4066="urn:function:f4066" xmlns:f4067="urn:function:f4067" xmlns:f4069="urn:function:f4069" xmlns:f4070="urn:function:f4070" xmlns:f4071="urn:function:f4071" xmlns:f4072="urn:function:f4072" xmlns:f4073="urn:function:f4073" xmlns:f4074="urn:function:f4074">
+    <grammars>
+        <include href="Function4064.xsd"/>
+        <include href="Function4065.xsd"/>
+        <include href="Function4063.xsd"/>
+        <include href="Function4067.xsd"/>
+        <include href="Function4072.xsd"/>
+        <include href="Function4073.xsd"/>
+        <include href="Function4074.xsd"/>
+        <include href="Function4062.xsd"/>
+        <include href="Function4066.xsd"/>
+        <include href="Function4069.xsd"/>
+        <include href="Function4070.xsd"/>
+        <include href="Function4071.xsd"/>
+    </grammars>
+    <doc>aPI AI provides a way to create mapping between language structures that are common in natural languesgea and data structures that are easy for software to parse and take action Once these mappings have been created you can make a query with either natural languages text or a voice sound file and API AI will return structured data with an action to take the parameters to act upon</doc>
+    <resources base="https://baskarm28-api-ai-v1.p.mashape.com/">
+        <resource uri="query/">
+            <method displayName="Natural language" id="4064" name="POST">
+                <doc>Takes natural language text and information as JSON in the POST body and returns information as JSON.</doc>
+                <request/>
+                <response>
+                    <representation element="f4064:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Natural language text" id="4065" name="GET">
+                <doc>Takes natural language text and information as query parameters and returns information as JSON.</doc>
+                <request>
+                    <param name="contexts" required="true" style="query" type="xsd:string">
+                        <doc>list of contexts for the query</doc>
+                    </param>
+                    <param name="lang" required="true" style="query" type="xsd:string">
+                        <doc>language tag from HTTP specification section</doc>
+                    </param>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>the natural language text to be processed</doc>
+                    </param>
+                    <param name="timezone" required="true" style="query" type="xsd:string">
+                        <doc>time zone from IANA Time Zone Database</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4065:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Sound file" id="4068" name="POST">
+                <doc>Takes natural language text as a sound file and returns information as JSON.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="intents/">
+            <method displayName="All intents retrieve" id="4063" name="GET">
+                <doc>Retrieves a list of all intents for the agent.</doc>
+                <request/>
+                <response>
+                    <representation element="f4063:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="New intent" id="4067" name="POST">
+                <doc>Creates a new intent.</doc>
+                <request/>
+                <response>
+                    <representation element="f4067:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Specified intent delete" id="4072" name="DELETE">
+                <doc>Deletes the specified intent.</doc>
+                <request>
+                    <param name="iid" required="true" style="query" type="xsd:string">
+                        <doc>the ID of the intent to delete</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4072:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Specified intent retrieve" id="4073" name="GET">
+                <doc>Retrieves the specified intent.</doc>
+                <request>
+                    <param name="iid" required="true" style="query" type="xsd:string">
+                        <doc>the ID of the intent to delete</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4073:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Specified intent update" id="4074" name="PUT">
+                <doc>Updates the specified intent.</doc>
+                <request>
+                    <param name="iid" required="true" style="query" type="xsd:string">
+                        <doc>the ID of the intent to delete</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4074:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="entities/">
+            <method displayName="All entities retrieve" id="4062" name="GET">
+                <doc>Retrieves a list of all entities for the agent.</doc>
+                <request/>
+                <response>
+                    <representation element="f4062:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="New entity" id="4066" name="POST">
+                <doc>Creates a new entity.</doc>
+                <request/>
+                <response>
+                    <representation element="f4066:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Specified entity delete" id="4069" name="DELETE">
+                <doc>Deletes the specified entity.</doc>
+                <request>
+                    <param name="eid" required="true" style="query" type="xsd:string">
+                        <doc>the ID of the entity to delete</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4069:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Specified entity retrieve" id="4070" name="GET">
+                <doc>Retrieves the specified entity.</doc>
+                <request>
+                    <param name="eid" required="true" style="query" type="xsd:string">
+                        <doc>the ID of the entity to retrieve</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4070:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Specified entity update" id="4071" name="PUT">
+                <doc>Updates the specified entity.</doc>
+                <request>
+                    <param name="eid" required="true" style="query" type="xsd:string">
+                        <doc>the ID of the entity to delete</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4071:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1289="urn:function:f1289">
+    <grammars>
+        <include href="Function1289.xsd"/>
+    </grammars>
+    <doc>the NDS API allows developers to check for nudity in images in real time If you have a very high usage feel free to message me for a private plan</doc>
+    <resources base="https://nds.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Detect" id="1289" name="GET">
+                <doc>Detects  nudity in an image.</doc>
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>uRL Of the image to check for nudity Must be below KB in size</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1289:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

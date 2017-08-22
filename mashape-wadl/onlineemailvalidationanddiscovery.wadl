@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4662="urn:function:f4662" xmlns:f4663="urn:function:f4663" xmlns:f4664="urn:function:f4664">
+    <grammars>
+        <include href="Function4664.xsd"/>
+        <include href="Function4663.xsd"/>
+        <include href="Function4662.xsd"/>
+    </grammars>
+    <doc>this API will do online validation and discovery of email addresses You can either test if an existing address is correct or give a first and last name to test common patterns</doc>
+    <resources base="https://crm-toolbox.p.mashape.com/">
+        <resource uri="validate/">
+            <resource uri="{email}/">
+                <param name="email" style="template" type="xsd:string"/>
+                <method displayName="Online validate email" id="4664" name="GET">
+                    <doc>Online validation of email address.</doc>
+                    <request>
+                        <param name="email" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4664:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="guess/">
+            <resource uri="{first}/">
+                <param name="first" style="template" type="xsd:string"/>
+                <resource uri="{last}/">
+                    <param name="last" style="template" type="xsd:string"/>
+                    <resource uri="{domain}/">
+                        <param name="domain" style="template" type="xsd:string"/>
+                        <method displayName="Guess email from name and domain" id="4663" name="GET">
+                            <doc>Enter a first name, last name and domain. We will check common email patterns and test if they are correct.</doc>
+                            <request>
+                                <param name="domain" required="true" style="query" type="xsd:string"/>
+                                <param name="first" required="true" style="query" type="xsd:string"/>
+                                <param name="last" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f4663:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="discover/">
+            <resource uri="{domain}/">
+                <param name="domain" style="template" type="xsd:string"/>
+                <method displayName="Discover emails by domain" id="4662" name="GET">
+                    <doc>Find emails belonging to a domain. Useful to guess the address pattern used in a company.</doc>
+                    <request>
+                        <param name="domain" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4662:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

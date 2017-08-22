@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>validates a first name against our large database of names</doc>
+    <resources base="https://first-name-validator.p.mashape.com/">
+        <resource uri="name/">
+            <method displayName="Validate a first name" id="4487" name="GET">
+                <request>
+                    <param name="country" required="true" style="query" type="xsd:string">
+                        <doc>country Code See https gender api com en api docs for a list of valid country codes</doc>
+                    </param>
+                    <param name="firstName" required="true" style="query" type="xsd:string">
+                        <doc>first name</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

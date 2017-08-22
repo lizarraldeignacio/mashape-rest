@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f363="urn:function:f363">
+    <grammars>
+        <include href="Function363.xsd"/>
+    </grammars>
+    <doc>ping an IP or URL</doc>
+    <resources base="https://igor-zachetly-ping-uin.p.mashape.com/">
+        <resource uri="pinguin.php/">
+            <method displayName="Ping" id="363" name="GET">
+                <doc>Ping the specified address</doc>
+                <request>
+                    <param name="address" required="true" style="query" type="xsd:string">
+                        <doc>address to be pinged it can be an IP or a domain</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f363:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

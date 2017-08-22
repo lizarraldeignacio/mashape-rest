@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>an api that inserts a cat gif onto your page So this needs to be at least characters so here are some extra characters Hello im currently sitting at a hackathon trying to get this to be fifty characters and its still not working no matter how much i add</doc>
+    <resources base="https://lilbbytrimble-random-cat-gif.p.mashape.com/">
+        <resource uri="body{ &#9;background-image: url(&quot;http:/">
+            <resource uri="">
+                <resource uri="thecatapi.com/">
+                    <resource uri="api/">
+                        <resource uri="images/">
+                            <resource uri="get/">
+                                <method displayName="Random Cat gifs" id="1240" name="POST">
+                                    <doc>code here:     body{ 	background-image: url("http://thecatapi.com/api/images/get?format=src&amp;type=gif");   }</doc>
+                                    <request/>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

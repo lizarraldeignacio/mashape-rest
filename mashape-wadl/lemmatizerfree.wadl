@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1571="urn:function:f1571" xmlns:f1572="urn:function:f1572">
+    <grammars>
+        <include href="Function1571.xsd"/>
+        <include href="Function1572.xsd"/>
+    </grammars>
+    <doc>Dogs to dog abilities to ability Get the root form of a word</doc>
+    <resources base="https://twinword-lemmatizer1.p.mashape.com/">
+        <resource uri="extract/">
+            <method displayName="Extract (get)" id="1571" name="GET">
+                <doc>Return the root of a word or roots of a string of words.</doc>
+                <request>
+                    <param name="excludeNonContentWords" required="true" style="query" type="xsd:boolean">
+                        <doc>optional boolean to exclude non content words ie the is take</doc>
+                    </param>
+                    <param name="flag" required="true" style="query" type="xsd:string">
+                        <doc>pass an optional flag to change output If VALID TOKENS ONLY is passed an array list is returned with only valid lemmas in the order found in the string passed in the text parameter If VALID TOKENS ONLY ORDER BY OCCURRENCE is passed an array list is returned with only valid lemmas in the order of occurrence with the most occurring lemma first If VALID TOKENS ONLY ORDER BY OCCURRENCE SHOW COUNT default is passed an array list is returned with only valid lemmas in the order of occurrence with the most occurring lemma first but with the lemma in the key and the count in the value If ALL TOKENS is passed an array list is returned with all the words in the string passed in the text parameter with words that could be lemmatized as lemmas and words that could not be lemmatized left as is If ALL TOKENS INVALID LOWERCASED is passed an array list is returned with all the words in the string passed in the text parameter with words that could be lemmatized as lemmas and words that could not be lemmatized left as is but lowercased If ALL TOKENS INVALID EMPTY STRING is passed an array list is returned with all the words in the string passed in the text parameter with words that could be lemmatized as lemmas and words that could not be lemmatized as empty string items in the array If ALL TOKENS INVALID NEGATIVE ONE is passed an array list is returned with all the words in the string passed in the text parameter with words that could be lemmatized as lemmas and words that could not be lemmatized as If ALL TOKENS ORDER BY OCCURRENCE is passed an array list is returned with all the words in the string passed in the text parameter with words that could be lemmatized as lemmas and words that could not be lemmatized left as is all in the order of occurrence with the most occurring first If ALL TOKENS ORDER BY OCCURRENCE SHOW COUNT is passed an array list is returned with all the words in the string passed in the text parameter with words that could be lemmatized as lemmas and words that could not be lemmatized left as is all in the order of occurrence with the most occurring first but with the words and lemmas in the key and the count in the value</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>enter some text to extract roots maximum words or characters</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1571:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Extract (post)" id="1572" name="POST">
+                <doc>Return the root of a word or roots of a string of words.</doc>
+                <request/>
+                <response>
+                    <representation element="f1572:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

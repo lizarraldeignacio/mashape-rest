@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>changes the capitalization of input text based on language style rules supports over languages including English French German Spanish Italian Russian Swedish Indonesian and more</doc>
+    <resources base="https://sprawkcapitalizer.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="applyCaps/">
+                <method displayName="Capitalizer" id="4399" name="GET">
+                    <doc>Changes the capitalization of incoming text based on language rules of that text and responds with a simple string</doc>
+                    <request>
+                        <param name="lang" required="true" style="query" type="xsd:string">
+                            <doc>the ISO code if know or autoDetect to detect language before applying the change</doc>
+                        </param>
+                        <param name="mode" required="true" style="query" type="xsd:string">
+                            <doc>the target capitalization mode default title sentence lower upper nospace</doc>
+                        </param>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>the text to be capitalized</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

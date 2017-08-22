@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7510="urn:function:f7510">
+    <grammars>
+        <include href="Function7510.xsd"/>
+    </grammars>
+    <doc>quote volumes to ecommerce stores</doc>
+    <resources base="https://leassis-quote-and-shipping-v1.p.mashape.com/">
+        <resource uri="quote/">
+            <method displayName="Quote" id="7510" name="POST">
+                <request/>
+                <response>
+                    <representation element="f7510:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

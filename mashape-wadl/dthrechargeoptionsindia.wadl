@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6786="urn:function:f6786">
+    <grammars>
+        <include href="Function6786.xsd"/>
+    </grammars>
+    <doc>this data API provides details of all DTH recharge options available with various operators across all circles in India</doc>
+    <resources base="https://devru-dth-recharge-options-india-v1.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Request Data" id="6786" name="GET">
+                <request>
+                    <param name="circle" required="true" style="query" type="xsd:string">
+                        <doc>circle ALL South North Rest of India</doc>
+                    </param>
+                    <param name="operator" required="true" style="query" type="xsd:string">
+                        <doc>operators DishTv Airtel SunTv Videocon TataSky</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>page Index</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6786:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

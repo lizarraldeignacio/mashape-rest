@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>the GameRank API can be used to access update delete and insert information about players games and plays in a game Reputation System The reputation system ranks players by quality and ranks games by difficulty</doc>
+    <resources base="https://mariadal-gamerank.p.mashape.com/">
+        <resource uri="problems/">
+            <resource uri="{id}.json/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Update Problem Info" id="2240" name="PUT">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>problem id</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="players/">
+            <resource uri="{id}.json/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Update Player Info" id="2239" name="PUT">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the player id</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="get_problem_info/">
+            <method displayName="Get Problem Info" id="2238" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>the problem id</doc>
+                    </param>
+                    <param name="realmId" required="true" style="query" type="xsd:integer">
+                        <doc>the realm id of the reputation system within which the problem info was computed</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="get_player_info/">
+            <method displayName="Get Player Info" id="2237" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>the player id</doc>
+                    </param>
+                    <param name="realmId" required="true" style="query" type="xsd:integer">
+                        <doc>the realm id of the reputation system within which the player info was computed</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="get_latest_solution_date/">
+            <method displayName="Get Latest Solution Date" id="2236" name="GET">
+                <request>
+                    <param name="realmId" required="true" style="query" type="xsd:integer">
+                        <doc>the realm id of the reputation system within which latest solution was created</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="plays/">
+            <resource uri="{id}.json/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Delete Play" id="2235" name="DELETE">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>play id</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="plays.json/">
+            <method displayName="Add Play" id="2234" name="POST">
+                <doc>cURL example: curl -i -H "Accept: application/json" -d "player_id=1&amp;problem_id=2&amp;solution_score=3&amp;solution_duration=4&amp;start_date=2012-10-10&amp;end_date=2012-10-11&amp;platform=windows"  http://www.crowdranker.org/gamerank/default/api/plays.json</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

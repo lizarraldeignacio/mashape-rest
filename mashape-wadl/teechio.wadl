@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3829="urn:function:f3829" xmlns:f3830="urn:function:f3830" xmlns:f3832="urn:function:f3832" xmlns:f3833="urn:function:f3833" xmlns:f3835="urn:function:f3835" xmlns:f3836="urn:function:f3836" xmlns:f3838="urn:function:f3838" xmlns:f3840="urn:function:f3840" xmlns:f3841="urn:function:f3841" xmlns:f3842="urn:function:f3842" xmlns:f3843="urn:function:f3843" xmlns:f3845="urn:function:f3845" xmlns:f3847="urn:function:f3847" xmlns:f3848="urn:function:f3848" xmlns:f3849="urn:function:f3849" xmlns:f3850="urn:function:f3850" xmlns:f3851="urn:function:f3851" xmlns:f3852="urn:function:f3852" xmlns:f3853="urn:function:f3853" xmlns:f3854="urn:function:f3854" xmlns:f3856="urn:function:f3856" xmlns:f3857="urn:function:f3857" xmlns:f3858="urn:function:f3858" xmlns:f3859="urn:function:f3859" xmlns:f3860="urn:function:f3860" xmlns:f3861="urn:function:f3861" xmlns:f3862="urn:function:f3862" xmlns:f3864="urn:function:f3864" xmlns:f3865="urn:function:f3865" xmlns:f3868="urn:function:f3868" xmlns:f3870="urn:function:f3870">
+    <grammars>
+        <include href="Function3842.xsd"/>
+        <include href="Function3849.xsd"/>
+        <include href="Function3870.xsd"/>
+        <include href="Function3838.xsd"/>
+        <include href="Function3852.xsd"/>
+        <include href="Function3853.xsd"/>
+        <include href="Function3861.xsd"/>
+        <include href="Function3862.xsd"/>
+        <include href="Function3865.xsd"/>
+        <include href="Function3843.xsd"/>
+        <include href="Function3851.xsd"/>
+        <include href="Function3854.xsd"/>
+        <include href="Function3860.xsd"/>
+        <include href="Function3833.xsd"/>
+        <include href="Function3841.xsd"/>
+        <include href="Function3850.xsd"/>
+        <include href="Function3859.xsd"/>
+        <include href="Function3868.xsd"/>
+        <include href="Function3832.xsd"/>
+        <include href="Function3840.xsd"/>
+        <include href="Function3845.xsd"/>
+        <include href="Function3856.xsd"/>
+        <include href="Function3830.xsd"/>
+        <include href="Function3836.xsd"/>
+        <include href="Function3848.xsd"/>
+        <include href="Function3858.xsd"/>
+        <include href="Function3864.xsd"/>
+        <include href="Function3829.xsd"/>
+        <include href="Function3835.xsd"/>
+        <include href="Function3847.xsd"/>
+        <include href="Function3857.xsd"/>
+    </grammars>
+    <doc>backend as a service for educational apps developers Build faster and hassle free</doc>
+    <resources base="https://teechio.p.mashape.com/">
+        <resource uri="enrollments/">
+            <resource uri="{user_id}/">
+                <param name="user_id" style="template" type="xsd:string"/>
+                <method displayName="Enrolling a user on a module" id="3842" name="PUT">
+                    <doc>Enrolls a user on a module.</doc>
+                    <request>
+                        <param name="moduleId" required="true" style="query" type="xsd:string"/>
+                        <param name="userId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3842:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="List all modules enrolled by a user" id="3849" name="GET">
+                    <doc>Returns a list of modules in which the specified user is enrolled.</doc>
+                    <request>
+                        <param name="userId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3849:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Withdrawing a user enrollment" id="3870" name="DELETE">
+                    <doc>Withdraws a user’s enrollment.</doc>
+                    <request>
+                        <param name="moduleId" required="true" style="query" type="xsd:string"/>
+                        <param name="userId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3870:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="users/">
+            <method displayName="Deleting a user" id="3838" name="DELETE">
+                <doc>Permanently deletes a user. It cannot be undone.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3838:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List all users" id="3852" name="GET">
+                <doc>Returns a list of users.</doc>
+                <request/>
+                <response>
+                    <representation element="f3852:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Logging in a user" id="3853" name="POST">
+                <doc>Logs in a user and return the list of logins</doc>
+                <request/>
+                <response>
+                    <representation element="f3853:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Retrieving an existing user" id="3861" name="GET">
+                <doc>Retrieves the details of an existing user.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3861:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Signing up a user" id="3862" name="POST">
+                <doc>Creates a new user object. User objects are schemaless but some required attributes must be provided.</doc>
+                <request/>
+                <response>
+                    <representation element="f3862:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Updating a user" id="3865" name="PUT">
+                <doc>Updates the specified user by setting values of the keys passed. Any keys not specified will remain unchanged.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3865:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="submissions/">
+            <method displayName="Deleting a submission" id="3837" name="DELETE">
+                <doc>Permanently deletes a submission. It cannot be undone.</doc>
+                <request>
+                    <param name="submissionId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Grading a submission" id="3843" name="PUT">
+                <doc>Updates the specified submission by setting a score. If the assignment attached to the submission has an assessment rule, the system returns also the performance level based on the assigned score.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3843:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List all submissions" id="3851" name="GET">
+                <doc>Returns a list of submissions.</doc>
+                <request/>
+                <response>
+                    <representation element="f3851:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Registering a submission" id="3854" name="POST">
+                <doc>Creates a new submission.</doc>
+                <request/>
+                <response>
+                    <representation element="f3854:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Retrieving an existing submission" id="3860" name="GET">
+                <doc>Retrieves the details of an existing submission.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3860:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="files/">
+            <method displayName="Deleting a file" id="3834" name="DELETE">
+                <doc>Permanently deletes a file. It cannot be undone.</doc>
+                <request>
+                    <param name="name" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="List all files" id="3846" name="GET">
+                <doc>Returns a list of files.</doc>
+                <request/>
+            </method>
+            <method displayName="Uploading a file" id="3869" name="POST">
+                <doc>Uploads a file to teech.io cloud storage. The request content-type must be application/octet-stream, the system will automatically recognize the type of resource and convert into the appropriate content-type.</doc>
+                <request>
+                    <param name="name" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+        <resource uri="classes/">
+            <method displayName="Creating an object" id="3833" name="POST">
+                <doc>Creates a new object. Objects are schemaless but some required attributes must be provided.</doc>
+                <request/>
+                <response>
+                    <representation element="f3833:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Deleting an object" id="3841" name="DELETE">
+                <doc>Permanently deletes an object. It cannot be undone.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3841:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List all objects" id="3850" name="GET">
+                <doc>Returns a list of objects.</doc>
+                <request/>
+                <response>
+                    <representation element="f3850:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Retrieving an existing object" id="3859" name="GET">
+                <doc>Retrieves the details of an existing object.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3859:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Updating an object" id="3868" name="PUT">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3868:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="assignments/">
+            <method displayName="Creating an assignment" id="3832" name="POST">
+                <doc>Creates a new assignment. Assignments objects are schemaless but some required attributes must be provided.</doc>
+                <request/>
+                <response>
+                    <representation element="f3832:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Deleting an assignment" id="3840" name="DELETE">
+                <doc>Permanently deletes an an assignment. It cannot be undone.</doc>
+                <request>
+                    <param name="assignmentId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3840:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List all assignments" id="3845" name="GET">
+                <doc>Returns a list of assignments.</doc>
+                <request/>
+                <response>
+                    <representation element="f3845:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Retrieving an existing assignment" id="3856" name="GET">
+                <doc>Retrieves the details of an existing assignment.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3856:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Updating an assignment" id="3867" name="PUT">
+                <doc>Updates the specified assignment by setting values of the keys passed. Any keys not specified will remain unchanged.</doc>
+                <request>
+                    <param name="assignmentsId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+        <resource uri="assessments/">
+            <method displayName="Creating an assessment" id="3831" name="POST">
+                <doc>Creates a new assessment. Assessments objects are schemaless but some required attributes must be provided.</doc>
+                <request/>
+            </method>
+            <method displayName="Deleting an assessment" id="3839" name="DELETE">
+                <doc>Permanently deletes an assessment. It cannot be undone.</doc>
+                <request>
+                    <param name="assessmentId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="List all assessments" id="3844" name="GET">
+                <doc>Returns a list of assessments.</doc>
+                <request/>
+            </method>
+            <method displayName="Retrieving an existing assessment" id="3855" name="GET">
+                <doc>Retrieves the details of an existing assessment.</doc>
+                <request>
+                    <param name="assessmentId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Updating an assessment" id="3866" name="PUT">
+                <doc>Updates the specified assessment by setting values of the keys passed. Any keys not specified will remain unchanged.</doc>
+                <request>
+                    <param name="assessmentId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+        <resource uri="modules/">
+            <method displayName="Creating a module" id="3830" name="POST">
+                <doc>Creates a new module. Modules are schemaless but some required attributes must be provided.</doc>
+                <request/>
+                <response>
+                    <representation element="f3830:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Deleting a module" id="3836" name="DELETE">
+                <doc>Permanently deletes a module. It cannot be undone.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3836:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List all modules" id="3848" name="GET">
+                <doc>Returns a list of modules.</doc>
+                <request/>
+                <response>
+                    <representation element="f3848:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Retrieving an existing module" id="3858" name="GET">
+                <doc>Retrieves the details of an existing module.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3858:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Updating a module" id="3864" name="PUT">
+                <doc>Updates the specified module by setting values of the keys passed. Any keys not specified will remain unchanged.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3864:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="materials/">
+            <method displayName="Creating a material" id="3829" name="POST">
+                <doc>Creates a new material. Materials are schemaless but some required attributes must be provided.</doc>
+                <request/>
+                <response>
+                    <representation element="f3829:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Deleting a material" id="3835" name="DELETE">
+                <doc>Permanently deletes a material. It cannot be undone.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3835:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List all materials" id="3847" name="GET">
+                <doc>Returns a list of materials.</doc>
+                <request/>
+                <response>
+                    <representation element="f3847:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Retrieving an existing material" id="3857" name="GET">
+                <doc>Retrieves the details of an existing material.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3857:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Updating a material" id="3863" name="PUT">
+                <doc>Updates the specified material by setting values of the keys passed. Any keys not specified will remain unchanged.</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

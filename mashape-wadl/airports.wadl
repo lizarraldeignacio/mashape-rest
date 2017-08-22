@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1287="urn:function:f1287">
+    <grammars>
+        <include href="Function1287.xsd"/>
+    </grammars>
+    <doc>provides a listing of international airports in JSON format</doc>
+    <resources base="https://montanaflynn-Airports-v1.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Airports" id="1287" name="GET">
+                <request/>
+                <response>
+                    <representation element="f1287:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

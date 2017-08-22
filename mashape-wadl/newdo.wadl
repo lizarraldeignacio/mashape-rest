@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6321="urn:function:f6321" xmlns:f6322="urn:function:f6322" xmlns:f6323="urn:function:f6323" xmlns:f6324="urn:function:f6324" xmlns:f6325="urn:function:f6325" xmlns:f6326="urn:function:f6326" xmlns:f6327="urn:function:f6327">
+    <grammars>
+        <include href="Function6326.xsd"/>
+        <include href="Function6321.xsd"/>
+        <include href="Function6322.xsd"/>
+        <include href="Function6323.xsd"/>
+        <include href="Function6324.xsd"/>
+        <include href="Function6325.xsd"/>
+        <include href="Function6327.xsd"/>
+    </grammars>
+    <doc>the API driving the Newdo app at http newdo herokuapp com a simple app for sharable todo lists</doc>
+    <resources base="https://alfl-newdo-v1.p.mashape.com/">
+        <resource uri="list/">
+            <resource uri="{listid}/">
+                <param name="listid" style="template" type="xsd:string"/>
+                <resource uri="search/">
+                    <resource uri="{searchstring}/">
+                        <param name="searchstring" style="template" type="xsd:string"/>
+                        <method displayName="Search" id="6326" name="GET">
+                            <doc>Search for an item in a list.</doc>
+                            <request>
+                                <param name="listid" required="true" style="query" type="xsd:string"/>
+                                <param name="searchstring" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f6326:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="items/">
+                    <method displayName="Create New Item" id="6321" name="POST">
+                        <doc>Create a new item in the given list.</doc>
+                        <request>
+                            <param name="listid" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f6321:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Delete Item" id="6322" name="DELETE">
+                        <doc>Delete an item from a list.</doc>
+                        <request>
+                            <param name="itemid" required="true" style="query" type="xsd:string"/>
+                            <param name="listid" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f6322:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Get All Items" id="6323" name="GET">
+                        <doc>Get all items in a given list.</doc>
+                        <request>
+                            <param name="listid" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f6323:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Get Item" id="6324" name="GET">
+                        <doc>Get a specified item from a specified list.</doc>
+                        <request>
+                            <param name="itemid" required="true" style="query" type="xsd:string"/>
+                            <param name="listid" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f6324:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Mark Done" id="6325" name="PATCH">
+                        <doc>Marks the specified todo done.</doc>
+                        <request>
+                            <param name="itemid" required="true" style="query" type="xsd:string"/>
+                            <param name="listid" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f6325:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Update Item" id="6327" name="POST">
+                        <doc>Update the specified item.</doc>
+                        <request>
+                            <param name="itemid" required="true" style="query" type="xsd:string"/>
+                            <param name="listid" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f6327:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

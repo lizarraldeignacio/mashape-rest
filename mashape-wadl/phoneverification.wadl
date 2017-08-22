@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4028="urn:function:f4028" xmlns:f4029="urn:function:f4029" xmlns:f4030="urn:function:f4030" xmlns:f4032="urn:function:f4032">
+    <grammars>
+        <include href="Function4032.xsd"/>
+        <include href="Function4028.xsd"/>
+        <include href="Function4029.xsd"/>
+        <include href="Function4030.xsd"/>
+    </grammars>
+    <doc>phone verification is a great way to ensure that your users are genuine It is an increasingly common practice yet every one has to re invent the wheel to get it working Having used it for of our apps we decided to make it available to general public as a service This service uses text messaging to send verification code So it s more suited to mobile phones We haven t needed more than that However if you d like to run verifications via calling do let us know and we can add that feature</doc>
+    <resources base="https://list-phone-verification-v1.p.mashape.com/">
+        <resource uri="verify/">
+            <method displayName="Verify Phone" id="4032" name="POST">
+                <request/>
+                <response>
+                    <representation element="f4032:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="phones/">
+            <method displayName="Export all" id="4028" name="GET">
+                <request/>
+                <response>
+                    <representation element="f4028:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Lookup User" id="4029" name="GET">
+                <request>
+                    <param name="uid" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4029:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="New Phone" id="4030" name="POST">
+                <doc>New phone number to verify.</doc>
+                <request/>
+                <response>
+                    <representation element="f4030:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Overwrite Phone Record" id="4031" name="PUT">
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

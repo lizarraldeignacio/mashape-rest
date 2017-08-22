@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5864="urn:function:f5864" xmlns:f5865="urn:function:f5865" xmlns:f5866="urn:function:f5866" xmlns:f5867="urn:function:f5867" xmlns:f5868="urn:function:f5868" xmlns:f5869="urn:function:f5869" xmlns:f5870="urn:function:f5870" xmlns:f5871="urn:function:f5871" xmlns:f5872="urn:function:f5872" xmlns:f5873="urn:function:f5873" xmlns:f5874="urn:function:f5874" xmlns:f5875="urn:function:f5875">
+    <grammars>
+        <include href="Function5870.xsd"/>
+        <include href="Function5871.xsd"/>
+        <include href="Function5872.xsd"/>
+        <include href="Function5866.xsd"/>
+        <include href="Function5868.xsd"/>
+        <include href="Function5869.xsd"/>
+        <include href="Function5875.xsd"/>
+        <include href="Function5865.xsd"/>
+        <include href="Function5867.xsd"/>
+        <include href="Function5873.xsd"/>
+        <include href="Function5874.xsd"/>
+        <include href="Function5864.xsd"/>
+    </grammars>
+    <doc>cOMPLETE FORMS AND SURVEY ON MOBILE EVEN OFFLINE AND PLUG DATA COLLECTED TO YOUR SYSTEM WITH OUR API Create and publish your forms and surveys on Datafield mobile application for iPhone iPad and Android and start collecting on site data in real time Datafield s mobile form builder is trusted by small medium and large corporation worldwide</doc>
+    <resources base="https://community-datafield.p.mashape.com/">
+        <resource uri="apis/">
+            <resource uri="v1/">
+                <resource uri="surveys/">
+                    <method displayName="Get Detail of Survey" id="5870" name="GET">
+                        <doc>Get the details of a survey where you know the SurveyID</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f5870:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Get List of Surveys" id="5871" name="GET">
+                        <doc>Get the list of Surveys for your account</doc>
+                        <request/>
+                        <response>
+                            <representation element="f5871:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Get Results of a Campaign" id="5872" name="GET">
+                        <doc>Get results of a campaign</doc>
+                        <request>
+                            <param name="after" required="true" style="query" type="xsd:string">
+                                <doc>timestamp</doc>
+                            </param>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f5872:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="users/">
+                    <method displayName="Create a user" id="5866" name="POST">
+                        <doc>Create a user</doc>
+                        <request/>
+                        <response>
+                            <representation element="f5866:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Delete a user" id="5868" name="DELETE">
+                        <doc>Delete a user</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f5868:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Details of a user" id="5869" name="GET">
+                        <doc>Get details of a user</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f5869:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="List users" id="5875" name="GET">
+                        <doc>List users from an account</doc>
+                        <request/>
+                        <response>
+                            <representation element="f5875:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="teams/">
+                    <method displayName="Create a team" id="5865" name="POST">
+                        <doc>Create a team</doc>
+                        <request/>
+                        <response>
+                            <representation element="f5865:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Delete a team" id="5867" name="DELETE">
+                        <doc>Delete a team</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f5867:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Get team details" id="5873" name="GET">
+                        <doc>Get team details</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f5873:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="List items in an account" id="5874" name="GET">
+                        <doc>List items in an account</doc>
+                        <request/>
+                        <response>
+                            <representation element="f5874:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="tokens/">
+                    <method displayName="*Get Token" id="5864" name="POST">
+                        <doc>A token is mandatory to call an API successfully. The provided user must be an account admin.</doc>
+                        <request/>
+                        <response>
+                            <representation element="f5864:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

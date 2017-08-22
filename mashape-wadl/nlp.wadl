@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6654="urn:function:f6654">
+    <grammars>
+        <include href="Function6654.xsd"/>
+    </grammars>
+    <doc>some NLP API s</doc>
+    <resources base="https://datamache-nlp-v1.p.mashape.com/">
+        <resource uri="gender/">
+            <method displayName="name-gender-disambiguation" id="6654" name="GET">
+                <doc>Determine gender from African (Kenyan) names</doc>
+                <request>
+                    <param name="locale" required="true" style="query" type="xsd:string">
+                        <doc>country This determines the corpus used for categorization At the moment only data for Kenya is ready and thus the only allowed value is ke</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>name s to disambiguate Multiple names can be entered as a comma seperated string</doc>
+                    </param>
+                    <param name="strict" required="true" style="query" type="xsd:boolean">
+                        <doc>determines if disambiguation is strict or the system is given leeway to make the best possible guess The default is TRUE For example the system returns for the name emalineachieng when STRICT TRUE However when switched off the system correctly assigns female to emalineachieng</doc>
+                    </param>
+                    <param name="trace" required="true" style="query" type="xsd:boolean">
+                        <doc>determines if disambiguation steps will be shown in results</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6654:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

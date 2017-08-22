@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5994="urn:function:f5994" xmlns:f5995="urn:function:f5995" xmlns:f5996="urn:function:f5996" xmlns:f5997="urn:function:f5997">
+    <grammars>
+        <include href="Function5997.xsd"/>
+        <include href="Function5996.xsd"/>
+        <include href="Function5995.xsd"/>
+        <include href="Function5994.xsd"/>
+    </grammars>
+    <doc>create real time polls with live comments</doc>
+    <resources base="https://polstir.p.mashape.com/">
+        <resource uri="polls/">
+            <resource uri="update/">
+                <method displayName="/polls/update" id="5998" name="POST">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="show/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="/polls/show/{id}" id="5997" name="GET">
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f5997:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="delete/">
+                <method displayName="/polls/delete" id="5996" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f5996:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="create/">
+                <method displayName="/polls/create" id="5995" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f5995:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="login/">
+            <method displayName="/login" id="5994" name="POST">
+                <request/>
+                <response>
+                    <representation element="f5994:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

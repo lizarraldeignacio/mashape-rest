@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>datafinder helps businesses of all sizes to better understand and connect with their customers engage new prospects and increase revenue We have billions of consumer LifeData attributes including contact data demographic data financial data social data activity interest data email addresses and mobile phone numbers Datafinder s Predictive Scores help provide more insight into your customers additionally our modeling solutions create intelligent prospect lists that ensure you are always maximizing your marketing investment</doc>
+    <resources base="https://ideas2it-lymbix.p.mashape.com/">
+        <resource uri="qdf.php/">
+            <method displayName="Demographic" id="5239" name="GET">
+                <doc>Demographic</doc>
+                <request>
+                    <param name="dCity" required="true" style="query" type="xsd:string">
+                        <doc>a city in the USA</doc>
+                    </param>
+                    <param name="dEmail" required="true" style="query" type="xsd:string">
+                        <doc>valid email address</doc>
+                    </param>
+                    <param name="dFirst" required="true" style="query" type="xsd:string">
+                        <doc>first Name</doc>
+                    </param>
+                    <param name="dFulladdr" required="true" style="query" type="xsd:string">
+                        <doc>entire house number street suite</doc>
+                    </param>
+                    <param name="dLast" required="true" style="query" type="xsd:string">
+                        <doc>last Name</doc>
+                    </param>
+                    <param name="dLat" required="true" style="query" type="xsd:string">
+                        <doc>latitude of the location</doc>
+                    </param>
+                    <param name="dLong" required="true" style="query" type="xsd:string">
+                        <doc>longitude of the location</doc>
+                    </param>
+                    <param name="dPhone" required="true" style="query" type="xsd:string">
+                        <doc>phone Number</doc>
+                    </param>
+                    <param name="dState" required="true" style="query" type="xsd:string">
+                        <doc>a city in the USA</doc>
+                    </param>
+                    <param name="dZip" required="true" style="query" type="xsd:string">
+                        <doc>a digit zip code in the USA</doc>
+                    </param>
+                    <param name="output" required="true" style="query" type="xsd:string">
+                        <doc>output format</doc>
+                    </param>
+                    <param name="service" required="true" style="query" type="xsd:string">
+                        <doc>service</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Email Append" id="5240" name="GET">
+                <doc>Email Append</doc>
+                <request>
+                    <param name="dCity" required="true" style="query" type="xsd:string">
+                        <doc>a city in the USA</doc>
+                    </param>
+                    <param name="dEmail" required="true" style="query" type="xsd:string">
+                        <doc>email Address</doc>
+                    </param>
+                    <param name="dFirst" required="true" style="query" type="xsd:string">
+                        <doc>first Name</doc>
+                    </param>
+                    <param name="dFulladdr" required="true" style="query" type="xsd:string">
+                        <doc>entire house number street suite</doc>
+                    </param>
+                    <param name="dLast" required="true" style="query" type="xsd:string">
+                        <doc>last Name</doc>
+                    </param>
+                    <param name="dLat" required="true" style="query" type="xsd:string">
+                        <doc>latitude of the location</doc>
+                    </param>
+                    <param name="dLong" required="true" style="query" type="xsd:string">
+                        <doc>longitude of the location</doc>
+                    </param>
+                    <param name="dPhone" required="true" style="query" type="xsd:string">
+                        <doc>phone Number</doc>
+                    </param>
+                    <param name="dState" required="true" style="query" type="xsd:string">
+                        <doc>state Name</doc>
+                    </param>
+                    <param name="dZip" required="true" style="query" type="xsd:string">
+                        <doc>a digit zip code in the USA</doc>
+                    </param>
+                    <param name="output" required="true" style="query" type="xsd:string">
+                        <doc>jSON XML</doc>
+                    </param>
+                    <param name="service" required="true" style="query" type="xsd:string">
+                        <doc>email Service</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Phone Append" id="5241" name="GET">
+                <doc>Phone Append</doc>
+                <request>
+                    <param name="dCity" required="true" style="query" type="xsd:string">
+                        <doc>a city in the USA</doc>
+                    </param>
+                    <param name="dEmail" required="true" style="query" type="xsd:string">
+                        <doc>valid Email Address</doc>
+                    </param>
+                    <param name="dFirst" required="true" style="query" type="xsd:string">
+                        <doc>first Name</doc>
+                    </param>
+                    <param name="dFulladdr" required="true" style="query" type="xsd:string">
+                        <doc>entire house number street suite</doc>
+                    </param>
+                    <param name="dLast" required="true" style="query" type="xsd:string">
+                        <doc>last Name</doc>
+                    </param>
+                    <param name="dLat" required="true" style="query" type="xsd:string">
+                        <doc>latitude of the location</doc>
+                    </param>
+                    <param name="dLong" required="true" style="query" type="xsd:string">
+                        <doc>longitude of the location</doc>
+                    </param>
+                    <param name="dPhone" required="true" style="query" type="xsd:string">
+                        <doc>phone Number</doc>
+                    </param>
+                    <param name="dState" required="true" style="query" type="xsd:string">
+                        <doc>a city in the USA</doc>
+                    </param>
+                    <param name="dZip" required="true" style="query" type="xsd:string">
+                        <doc>a digit zip code in the USA</doc>
+                    </param>
+                    <param name="output" required="true" style="query" type="xsd:string">
+                        <doc>output</doc>
+                    </param>
+                    <param name="service" required="true" style="query" type="xsd:string">
+                        <doc>phone Append API</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Zip Demographic Append" id="5242" name="GET">
+                <doc>Zip Demographic Append</doc>
+                <request>
+                    <param name="dZip" required="true" style="query" type="xsd:string">
+                        <doc>zip Code</doc>
+                    </param>
+                    <param name="output" required="true" style="query" type="xsd:string">
+                        <doc>output</doc>
+                    </param>
+                    <param name="service" required="true" style="query" type="xsd:string">
+                        <doc>zip Service</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Zip+4 Demographic Append" id="5243" name="GET">
+                <doc>Zip+4 Demographic Append</doc>
+                <request>
+                    <param name="dZip" required="true" style="query" type="xsd:string">
+                        <doc>a digit zip code in the USA</doc>
+                    </param>
+                    <param name="dZip" required="true" style="query" type="xsd:string">
+                        <doc>a digit zip in the USA</doc>
+                    </param>
+                    <param name="output" required="true" style="query" type="xsd:string">
+                        <doc>output</doc>
+                    </param>
+                    <param name="service" required="true" style="query" type="xsd:string">
+                        <doc>zip Demographic Service</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

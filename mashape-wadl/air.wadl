@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7034="urn:function:f7034">
+    <grammars>
+        <include href="Function7034.xsd"/>
+    </grammars>
+    <doc>an entity annotation based on Wikipedia available in languages en de fr es it</doc>
+    <resources base="https://airapi.p.mashape.com/">
+        <resource uri="annotate/">
+            <method displayName="Text annotation" id="7034" name="POST">
+                <doc>The annotate method is used to extract keywords within a posted text and optionally to link them to Linked Open Data resources by means of disambiguation. Linked keywords can be enriched with images, synonyms, DBpedia/Airpedia classes, categories, etc. Available in 5 languages: en, de, fr, es, it</doc>
+                <request/>
+                <response>
+                    <representation element="f7034:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

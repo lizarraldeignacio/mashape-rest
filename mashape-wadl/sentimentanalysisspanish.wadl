@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3142="urn:function:f3142" xmlns:f3143="urn:function:f3143">
+    <grammars>
+        <include href="Function3142.xsd"/>
+        <include href="Function3143.xsd"/>
+    </grammars>
+    <doc>sentiment analysis for Spanish language of any given tweet</doc>
+    <resources base="https://molinodeideas-sentiment-analysis-spanish.p.mashape.com/">
+        <resource uri="valoracion/">
+            <resource uri="tweet/">
+                <resource uri="10/">
+                    <method displayName="Tweet analysis /GET" id="3142" name="GET">
+                        <doc>Provides sentiment analysis for any given tweet in Spanish</doc>
+                        <request>
+                            <param name="tweet" required="true" style="query" type="xsd:string">
+                                <doc>tweet in Spanish to be analyzed The tweet should not contain any special characters in order to be correctly processed</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f3142:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Tweet analysis /POST" id="3143" name="POST">
+                        <doc>Provides sentiment analysis for any given tweet in Spanish</doc>
+                        <request/>
+                        <response>
+                            <representation element="f3143:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

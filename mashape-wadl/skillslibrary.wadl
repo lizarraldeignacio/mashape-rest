@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3745="urn:function:f3745" xmlns:f3746="urn:function:f3746" xmlns:f3747="urn:function:f3747" xmlns:f3748="urn:function:f3748">
+    <grammars>
+        <include href="Function3747.xsd"/>
+        <include href="Function3748.xsd"/>
+        <include href="Function3745.xsd"/>
+        <include href="Function3746.xsd"/>
+    </grammars>
+    <doc>the skills library of over K skills and growing on daily basis is the most comprehensive and in depth skills repository No not just another database of skills but a cataloged and well organized skills library covering different functions such as Information Technology Engineering Medicine and more The skills library is extremely useful for developers of applications in the HR recruitment job site and any other application that has got to do with skills</doc>
+    <resources base="https://iys.p.mashape.com/">
+        <resource uri="search/">
+            <method displayName="Search Skill via GET" id="3747" name="GET">
+                <request>
+                    <param name="child" required="true" style="query" type="xsd:integer">
+                        <doc>enter the parameter value which can be a child skill parent of skllls concept concept child parent which is a skill The value can also be combinations of the above eg child child</doc>
+                    </param>
+                    <param name="pid" required="true" style="query" type="xsd:integer">
+                        <doc>enter the pid value to restrict the search within a specific parent of skills or functional areas</doc>
+                    </param>
+                    <param name="term" required="true" style="query" type="xsd:string">
+                        <doc>enter the search term above eg php Java C Tally</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3747:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Search Skill via POST" id="3748" name="POST">
+                <request>
+                    <param name="child" required="true" style="query" type="xsd:integer">
+                        <doc>enter the parameter value which can be a child skill parent of skllls concept concept child parent which is a skill The value can also be combinations of the above eg child child</doc>
+                    </param>
+                    <param name="pid" required="true" style="query" type="xsd:integer">
+                        <doc>enter the pid value to restrict the search within a specific parent of skills or functional areas</doc>
+                    </param>
+                    <param name="term" required="true" style="query" type="xsd:string">
+                        <doc>enter the search term above eg php Java C Tally</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3748:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="">
+            <method displayName="Fetch Skills via GET" id="3745" name="GET">
+                <doc>Skills Profile Engine provides a library of skills across functions and industries.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>the id above will show the related skill with this id in the skills library and the skills that are the children of this skill id entered You can change the skill id i e to another id example to see the skills children of different skills</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>this can be functionals behavioural</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3745:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Fetch Skills via POST" id="3746" name="POST">
+                <doc>Skills Profile Engine provides skills library of skills across functions and industries</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>the id above will show the related skill with this id in the skills library and the skills that are the children of this skill id entered You can change the skill id i e to another id example to see the skills children of different skills</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>this can be functionals behavioural</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3746:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

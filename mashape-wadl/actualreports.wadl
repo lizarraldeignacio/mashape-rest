@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5821="urn:function:f5821" xmlns:f5822="urn:function:f5822" xmlns:f5823="urn:function:f5823">
+    <grammars>
+        <include href="Function5823.xsd"/>
+        <include href="Function5821.xsd"/>
+        <include href="Function5822.xsd"/>
+    </grammars>
+    <doc>need to create PDF and HTML documents in your software Tired of endless output customization request from your users Looking for an easy and fast solution to your problems With Actual Reports platform your users can easily create and manage different document templates with an easy to use browser based document editor And you can use simple RESTful API calls to merge the templates with data from your own software to generate PDF and HTML documents Or just use Actual Reports platform as an internal tool to manage and generate different outputs needed within your software This way you don t have to waste your time or your developers time on hard coding the output layouts</doc>
+    <resources base="https://community-actual-reports.p.mashape.com/">
+        <resource uri="editor/">
+            <method displayName="Show editor" id="5823" name="GET">
+                <doc>Redirecting your users to this url allows them to create and edit their templates. You can also display it inside the iframe. We reccomend you to always send the data parameter to give your user context, and preview ability when creating the template</doc>
+                <request>
+                    <param name="data" required="true" style="query" type="xsd:string">
+                        <doc>a list of items given as string or url in supported dataformat</doc>
+                    </param>
+                    <param name="dataformat" required="true" style="query" type="xsd:string">
+                        <doc>json csv Semicolon separated csv Semicolon separated csv Comma separated xls Microsoft Excel and older xlsx Microsoft Excel</doc>
+                    </param>
+                    <param name="iframe" required="true" style="query" type="xsd:string">
+                        <doc>Use regular editor design Use minified editor design Switch between minified and regular editor design</doc>
+                    </param>
+                    <param name="template" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5823:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="template/">
+            <method displayName="Get list of templates" id="5821" name="GET">
+                <doc>Returns list of templates availbale for the user. NB! This response is cached for 2 minutes.</doc>
+                <request>
+                    <param name="access" required="true" style="query" type="xsd:string">
+                        <doc>public Return public templates organization Return organization templates private Return private templates Filter templates by access rights</doc>
+                    </param>
+                    <param name="breakcache" required="true" style="query" type="xsd:string">
+                        <doc>Returns response from cahce Force to refresh the response Use this parameter to clear cache</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5821:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Merge data with template" id="5822" name="POST">
+                <doc>Merges data with the template and returns output in specified format. You can aquire #{id} using the /template request.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5822:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

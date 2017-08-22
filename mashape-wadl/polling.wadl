@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2311="urn:function:f2311" xmlns:f2312="urn:function:f2312" xmlns:f2313="urn:function:f2313">
+    <grammars>
+        <include href="Function2313.xsd"/>
+        <include href="Function2312.xsd"/>
+        <include href="Function2311.xsd"/>
+    </grammars>
+    <doc>the taps Polling API makes it possible for external systems to poll the Data Commons server to obtain a list of new and updated postings as they come in</doc>
+    <resources base="https://3taps-polling.p.mashape.com/">
+        <resource uri="poll/">
+            <method displayName="Poll" id="2313" name="GET">
+                <doc>The poll API call retrieves a set of new postings from the database.</doc>
+                <request>
+                    <param name="anchor" required="true" style="query" type="xsd:string">
+                        <doc>the anchor value to use for this polling request Note that this parameter is optional if no anchor is supplied the API call will return an empty list of postings along with a new anchor value that can be used to retrieve new postings that have come in since the last time this API call was made This has the effect of polling from now on</doc>
+                    </param>
+                    <param name="category" required="true" style="query" type="xsd:string">
+                        <doc>the desired taps category code If this is supplied only postings with the given category will be included in the polling results</doc>
+                    </param>
+                    <param name="categoryGroup" required="true" style="query" type="xsd:string">
+                        <doc>the desired taps category group code If this is supplied only postings with the given category group will be included in the polling results</doc>
+                    </param>
+                    <param name="city" required="true" style="query" type="xsd:string">
+                        <doc>the desired taps city code If this is supplied only postings in the given city will be included in the polling results</doc>
+                    </param>
+                    <param name="country" required="true" style="query" type="xsd:string">
+                        <doc>the desired taps country code If this is supplied only postings in the given country will be included in the polling results</doc>
+                    </param>
+                    <param name="county" required="true" style="query" type="xsd:string">
+                        <doc>the desired taps county code If this is supplied only postings in the given county will be included in the polling results</doc>
+                    </param>
+                    <param name="locality" required="true" style="query" type="xsd:string">
+                        <doc>the desired taps locality code If this is supplied only postings in the given locality will be included in the polling results</doc>
+                    </param>
+                    <param name="metro" required="true" style="query" type="xsd:string">
+                        <doc>the desired taps metro area code If this is supplied only postings in the given metro area will be included in the polling results</doc>
+                    </param>
+                    <param name="region" required="true" style="query" type="xsd:string">
+                        <doc>the desired taps region code If this is supplied only postings in the given region will be included in the polling results</doc>
+                    </param>
+                    <param name="retvals" required="true" style="query" type="xsd:string">
+                        <doc>a string listing the fields which should be returned back to the caller The various fields should be separated by commas At present the following fields can be included in this parameter id account id source category category group location external id external url heading body html timestamp expires language price currency images annotations status immortal If no retvals parameter is provided the following default will be used id source category location external id external url heading timestamp</doc>
+                    </param>
+                    <param name="source" required="true" style="query" type="xsd:string">
+                        <doc>the desired taps data source code If this is supplied only postings from the given data source will be included in the polling results</doc>
+                    </param>
+                    <param name="state" required="true" style="query" type="xsd:string">
+                        <doc>the desired taps state code If this is supplied only postings in the given state will be included in the polling results</doc>
+                    </param>
+                    <param name="status" required="true" style="query" type="xsd:string">
+                        <doc>only include postings with the given status value The following status values are currently supported offered wanted lost stolen found deleted</doc>
+                    </param>
+                    <param name="zipcode" required="true" style="query" type="xsd:string">
+                        <doc>the desired taps ZIP code If this is supplied only postings in the given ZIP code will be included in the polling results</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2313:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="deletes/">
+            <method displayName="Deletes" id="2312" name="GET">
+                <doc>The deletes API call retrieves a set of deleted postings from the database.</doc>
+                <request>
+                    <param name="deletedTimestamp" required="true" style="query" type="xsd:string">
+                        <doc>a date time value as an integer number of seconds since the st of January unix time in UTC If this is supplied the API call will return the set of postings which were deleted since the given date time value if this parameter is not supplied the oldest deleted postings will be returned</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2312:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="anchor/">
+            <method displayName="Anchor" id="2311" name="GET">
+                <doc>The anchor API call is intended to let users of the Data Commons poll for older postings. This is mainly useful for testing, or for situations where you want to download a dump of all the postings that have come in since a given point in time.</doc>
+                <request>
+                    <param name="timestamp" required="true" style="query" type="xsd:string">
+                        <doc>the desired date and time as an integer number of seconds since the st of January unix time in UTC</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2311:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

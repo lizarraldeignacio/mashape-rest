@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5122="urn:function:f5122" xmlns:f5123="urn:function:f5123" xmlns:f5124="urn:function:f5124" xmlns:f5125="urn:function:f5125">
+    <grammars>
+        <include href="Function5122.xsd"/>
+        <include href="Function5125.xsd"/>
+        <include href="Function5123.xsd"/>
+        <include href="Function5124.xsd"/>
+    </grammars>
+    <doc>quicktate uses live professional transcribers to convert audio notes to do lists medical reports conference calls legal files voicemail messages and more to text We accept both short and long files</doc>
+    <resources base="https://quicktate-quicktate.p.mashape.com/">
+        <resource uri="transcription/">
+            <method displayName="Get transcription by id" id="5122" name="GET">
+                <doc>Returns a completed transcription for id.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>integer</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5122:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get transcriptions" id="5125" name="GET">
+                <doc>Returns the top 5 most recent completed transcriptions.</doc>
+                <request/>
+                <response>
+                    <representation element="f5125:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="transcriptionrequest/">
+            <method displayName="Cancel transcription request" id="5120" name="DELETE">
+                <doc>This cancels a transcription request. If the transcription request is already being processed or has completed processing, you cannot cancel.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>the unique identifier of the transcription request</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Create transcription request" id="5121" name="POST">
+                <request/>
+            </method>
+            <method displayName="Get transcription request by id" id="5123" name="GET">
+                <doc>Returns a submitted or processing transcription request for id.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>the unique identifier of the transcription request</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5123:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get transcription requests" id="5124" name="GET">
+                <doc>Returns the top 5 most recent submitted or processing transcription requests.</doc>
+                <request/>
+                <response>
+                    <representation element="f5124:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update transcription request" id="5126" name="PUT">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>the unique identifier of the transcription request</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

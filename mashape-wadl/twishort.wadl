@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>twishort API can be used by Twitter applications to post the long text to Twishort and receive a tweet sized message with a link to the complete post</doc>
+    <resources base="https://twishort-twishort.p.mashape.com/">
+        <resource uri="1.1/">
+            <resource uri="post.json/">
+                <method displayName="post" id="4354" name="POST">
+                    <doc>Post the long text to Twishort, and receive a tweet-sized message with a link to the complete post.</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

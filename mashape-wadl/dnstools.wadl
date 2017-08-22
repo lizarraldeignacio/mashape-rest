@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f331="urn:function:f331" xmlns:f332="urn:function:f332" xmlns:f333="urn:function:f333">
+    <grammars>
+        <include href="Function331.xsd"/>
+        <include href="Function332.xsd"/>
+        <include href="Function333.xsd"/>
+    </grammars>
+    <doc>resolve DNS addresses into IP addresses and vice versa New method check if a port is open on a given host</doc>
+    <resources base="https://jack-dns-tools.p.mashape.com/">
+        <resource uri="dnstools.php/">
+            <method displayName="CHKPRT" id="331" name="GET">
+                <doc>Check if a port is open on a remote host.</doc>
+                <request>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="host" required="true" style="query" type="xsd:string">
+                        <doc>the DNS or IP address of the host you want to check</doc>
+                    </param>
+                    <param name="port" required="true" style="query" type="xsd:string">
+                        <doc>the port you want to check if open</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f331:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="DNS2IP" id="332" name="GET">
+                <doc>It returns the IP address of a given DNS address.</doc>
+                <request>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="dns" required="true" style="query" type="xsd:string">
+                        <doc>the DNS address you want to resolve</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f332:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="IP2DNS" id="333" name="GET">
+                <doc>It returns the hostname of a given IP address.</doc>
+                <request>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>the IP address you want to resolve</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f333:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1908="urn:function:f1908" xmlns:f1909="urn:function:f1909" xmlns:f1910="urn:function:f1910" xmlns:f1911="urn:function:f1911" xmlns:f1912="urn:function:f1912" xmlns:f1913="urn:function:f1913" xmlns:f1914="urn:function:f1914" xmlns:f1915="urn:function:f1915" xmlns:f1916="urn:function:f1916" xmlns:f1917="urn:function:f1917" xmlns:f1918="urn:function:f1918" xmlns:f1919="urn:function:f1919" xmlns:f1922="urn:function:f1922" xmlns:f1926="urn:function:f1926" xmlns:f1927="urn:function:f1927" xmlns:f1929="urn:function:f1929" xmlns:f1932="urn:function:f1932" xmlns:f1933="urn:function:f1933" xmlns:f1936="urn:function:f1936" xmlns:f1939="urn:function:f1939">
+    <grammars>
+        <include href="Function1939.xsd"/>
+        <include href="Function1936.xsd"/>
+        <include href="Function1933.xsd"/>
+        <include href="Function1932.xsd"/>
+        <include href="Function1929.xsd"/>
+        <include href="Function1927.xsd"/>
+        <include href="Function1926.xsd"/>
+        <include href="Function1922.xsd"/>
+        <include href="Function1919.xsd"/>
+        <include href="Function1918.xsd"/>
+        <include href="Function1917.xsd"/>
+        <include href="Function1916.xsd"/>
+        <include href="Function1915.xsd"/>
+        <include href="Function1914.xsd"/>
+        <include href="Function1913.xsd"/>
+        <include href="Function1912.xsd"/>
+        <include href="Function1911.xsd"/>
+        <include href="Function1910.xsd"/>
+        <include href="Function1909.xsd"/>
+        <include href="Function1908.xsd"/>
+    </grammars>
+    <doc>this is the telldus API to manage your tellstick live device to manage your devices and turn on and off lights from the web</doc>
+    <resources base="https://telldus.p.mashape.com/">
+        <resource uri="sensors/">
+            <resource uri="list/">
+                <method displayName="/sensors/list" id="1939" name="GET">
+                    <doc>Returns a list of all sensors associated with the current user</doc>
+                    <request>
+                        <param name="includeignored" required="true" style="query" type="xsd:string">
+                            <doc>set to to include ignored sensors</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1939:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="sensor/">
+            <resource uri="setName/">
+                <method displayName="/sensor/setName" id="1938" name="GET">
+                    <doc>Renames a sensor</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the id of the sensor</doc>
+                        </param>
+                        <param name="name" required="true" style="query" type="xsd:string">
+                            <doc>the new name</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="setIgnore/">
+                <method displayName="/sensor/setIgnore" id="1937" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>mark a sensor as ignored Ignored sensors will not show up in sensors list if not explicit set to do so</doc>
+                        </param>
+                        <param name="ignore" required="true" style="query" type="xsd:string">
+                            <doc>to igonre the sensor to inlude it again</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="info/">
+                <method displayName="/sensor/info" id="1936" name="GET">
+                    <doc>Returns information about a specific sensor</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the id of the sensor</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1936:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="scheduler/">
+            <resource uri="setJob/">
+                <method displayName="/scheduler/setJob" id="1935" name="GET">
+                    <doc>Creates or updates a job. Set id to 0 if you want to create a new job. If you are creating a new job the deviceId must also be set. The deviceId can only be set upon creating a new job. When updating an existing job the deviceId parameter must be omitted.  Note! Only editable devices can be scheduled.</doc>
+                    <request>
+                        <param name="active" required="true" style="query" type="xsd:string">
+                            <doc>is the job active or paused</doc>
+                        </param>
+                        <param name="deviceid" required="true" style="query" type="xsd:string">
+                            <doc>the device id to schedule Only valid when creating a new job</doc>
+                        </param>
+                        <param name="hour" required="true" style="query" type="xsd:integer">
+                            <doc>a value between</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the job id when updating an existing job</doc>
+                        </param>
+                        <param name="method" required="true" style="query" type="xsd:string">
+                            <doc>what to do when the schdule runs This should be any of the method constants</doc>
+                        </param>
+                        <param name="methodvalue" required="true" style="query" type="xsd:string">
+                            <doc>only required for methods that requires this</doc>
+                        </param>
+                        <param name="minute" required="true" style="query" type="xsd:integer">
+                            <doc>a value between</doc>
+                        </param>
+                        <param name="offset" required="true" style="query" type="xsd:string">
+                            <doc>this is only used when type is either sunrise or sunset</doc>
+                        </param>
+                        <param name="randominterval" required="true" style="query" type="xsd:string">
+                            <doc>number of minutes after the specified time to randomize</doc>
+                        </param>
+                        <param name="reps" required="true" style="query" type="xsd:string">
+                            <doc>number of times to resend the job to the client for better reliability</doc>
+                        </param>
+                        <param name="retries" required="true" style="query" type="xsd:string">
+                            <doc>if the client is offline this specifies the number of times to retry executing the job before consider the job as failed</doc>
+                        </param>
+                        <param name="retryinterval" required="true" style="query" type="xsd:string">
+                            <doc>the number if minutes between retries Example If retries is and retryInterval is the scheduler will try executing the job every five minutes for fifteen minutes</doc>
+                        </param>
+                        <param name="type" required="true" style="query" type="xsd:string">
+                            <doc>this can be time sunrise or sunset</doc>
+                        </param>
+                        <param name="weekdays" required="true" style="query" type="xsd:string">
+                            <doc>a comma separated list of weekdays is monday Example</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="removeJob/">
+                <method displayName="/scheduler/removeJob" id="1934" name="GET">
+                    <doc>Removes a job</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the job id to remove</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="jobList/">
+                <method displayName="/scheduler/jobList" id="1933" name="GET">
+                    <doc>Lists all jobs. The list is sorted by nextRunTime. If nextRunTime is 0 it means the job will not be run at all.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1933:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="jobInfo/">
+                <method displayName="/scheduler/jobInfo" id="1932" name="GET">
+                    <doc>Retrieves info about a specific job</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the job id</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1932:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="group/">
+            <resource uri="remove/">
+                <method displayName="/group/remove" id="1931" name="GET">
+                    <doc>Removes a group.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the id of the group</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="add/">
+                <method displayName="/group/add" id="1930" name="GET">
+                    <doc>Adds a new group with devices and connects it to a client. The client must be editable for this to work. Please note that groups are devices as well. This means that all device/* commands will work for groups too.</doc>
+                    <request>
+                        <param name="clientid" required="true" style="query" type="xsd:string">
+                            <doc>the id of the client</doc>
+                        </param>
+                        <param name="devices" required="true" style="query" type="xsd:string">
+                            <doc>a comma separated string with the device ids this group should control</doc>
+                        </param>
+                        <param name="name" required="true" style="query" type="xsd:string">
+                            <doc>the name of the group</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="devices/">
+            <resource uri="list/">
+                <method displayName="/devices/list" id="1929" name="GET">
+                    <doc>Returns a list of all devices associated with the current user</doc>
+                    <request>
+                        <param name="extras" required="true" style="query" type="xsd:string">
+                            <doc>a comma delimited list of extra information to fetch for each returned device Currently supported fields are coordinate timezone and tzoffset</doc>
+                        </param>
+                        <param name="supportedmethods" required="true" style="query" type="xsd:integer">
+                            <doc>the methods supported by the calling application</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1929:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="device/">
+            <resource uri="up/">
+                <method displayName="/device/up" id="1928" name="GET">
+                    <doc>Send an "up" command to device.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the device id to send the command to</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="turnOn/">
+                <method displayName="/device/turnOn" id="1927" name="GET">
+                    <doc>Turns a device on.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the device id to turn on</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1927:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="turnOff/">
+                <method displayName="/device/turnOff" id="1926" name="GET">
+                    <doc>Turns a device off.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the device id to turn off</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1926:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="stop/">
+                <method displayName="/device/stop" id="1925" name="GET">
+                    <doc>Send a "stop" command to device.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the device id to stop</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="setProtocol/">
+                <method displayName="/device/setProtocol" id="1924" name="GET">
+                    <doc>Set device protocol</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the id of the device</doc>
+                        </param>
+                        <param name="protocol" required="true" style="query" type="xsd:string">
+                            <doc>the new protocol name</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="setParameter/">
+                <method displayName="/device/setParameter" id="1923" name="GET">
+                    <doc>Set a device parameter</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the id of the device</doc>
+                        </param>
+                        <param name="parameter" required="true" style="query" type="xsd:string">
+                            <doc>parameter name</doc>
+                        </param>
+                        <param name="value" required="true" style="query" type="xsd:string">
+                            <doc>parameter value</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="setName/">
+                <method displayName="/device/setName" id="1922" name="GET">
+                    <doc>Renames a device</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the id of the device</doc>
+                        </param>
+                        <param name="name" required="true" style="query" type="xsd:string">
+                            <doc>the new name</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1922:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="setModel/">
+                <method displayName="/device/setModel" id="1921" name="GET">
+                    <doc>Set device model</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the id of the device</doc>
+                        </param>
+                        <param name="model" required="true" style="query" type="xsd:string">
+                            <doc>the new model</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="remove/">
+                <method displayName="/device/remove" id="1920" name="GET">
+                    <doc>Removes a device. It is only possible to remove editable devices.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the id of the device</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="learn/">
+                <method displayName="/device/learn" id="1919" name="GET">
+                    <doc>Sends a special learn command to some devices that need a special learn-command to be used from TellStick</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the device id to learn</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1919:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="info/">
+                <method displayName="/device/info" id="1918" name="GET">
+                    <doc>Returns information about a specific device</doc>
+                    <request>
+                        <param name="extras" required="true" style="query" type="xsd:string">
+                            <doc>a comma delimited list of extra information to fetch for each returned device Currently supported fields are coordinate timezone and tzoffset</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the id of the device</doc>
+                        </param>
+                        <param name="supportedmethods" required="true" style="query" type="xsd:string">
+                            <doc>the methods supported by the calling application</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1918:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="down/">
+                <method displayName="/device/down" id="1917" name="GET">
+                    <doc>Sends a "down" command to devices supporting this.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the device id to send the command to</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1917:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="dim/">
+                <method displayName="/device/dim" id="1916" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the device id to dim</doc>
+                        </param>
+                        <param name="level" required="true" style="query" type="xsd:integer">
+                            <doc>the level the device should dim to This value should be</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1916:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="command/">
+                <method displayName="/device/command" id="1915" name="GET">
+                    <doc>Sends a command to a device</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the id of the device to turn off</doc>
+                        </param>
+                        <param name="method" required="true" style="query" type="xsd:string">
+                            <doc>this should be any of the method constants</doc>
+                        </param>
+                        <param name="value" required="true" style="query" type="xsd:string">
+                            <doc>for command where a value is needed this is the value</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1915:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="bell/">
+                <method displayName="/device/bell" id="1914" name="GET">
+                    <doc>Sends bell command to devices supporting this.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the device id to chime</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1914:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="add/">
+                <method displayName="/device/add" id="1913" name="GET">
+                    <doc>Adds a new device and connects it to a client. The client must be editable for this to work</doc>
+                    <request>
+                        <param name="clientid" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="model" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="name" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="protocol" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1913:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="clients/">
+            <resource uri="list/">
+                <method displayName="/clients/list" id="1912" name="GET">
+                    <doc>Returns a list of all clients associated with the current user</doc>
+                    <request>
+                        <param name="extras" required="true" style="query" type="xsd:string">
+                            <doc>a comma delimited list of extra information to fetch for each returned client Currently supported fields are coordinate timezone and tzoffset</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1912:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="client/">
+            <resource uri="setName/">
+                <method displayName="/client/setName" id="1911" name="GET">
+                    <doc>Renames a client</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the id of the client</doc>
+                        </param>
+                        <param name="name" required="true" style="query" type="xsd:string">
+                            <doc>the new name</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1911:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="remove/">
+                <method displayName="/client/remove" id="1910" name="GET">
+                    <doc>Removes a client from the user. The client needs to be activated again in order to be used</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>this is an unique id for the client</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1910:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="register/">
+                <method displayName="/client/register" id="1909" name="GET">
+                    <doc>Register an unregistered client to the calling user</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>this is an unique id for the client</doc>
+                        </param>
+                        <param name="uuid" required="true" style="query" type="xsd:string">
+                            <doc>the specific clients uuid</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1909:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="info/">
+                <method displayName="/client/info" id="1908" name="GET">
+                    <doc>Returns informaiton about a specific client</doc>
+                    <request>
+                        <param name="code" required="true" style="query" type="xsd:string">
+                            <doc>reserved for future use</doc>
+                        </param>
+                        <param name="extras" required="true" style="query" type="xsd:string">
+                            <doc>a comma delimited list of extra information to fetch for each returned client Currently supported fields are coordinate timezone and tzoffset</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the id of the client</doc>
+                        </param>
+                        <param name="uuid" required="true" style="query" type="xsd:string">
+                            <doc>an optional uuid for a client By specifying the uuid info about a non registered client can be fetched</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1908:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

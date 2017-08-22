@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2620="urn:function:f2620" xmlns:f2621="urn:function:f2621" xmlns:f2622="urn:function:f2622" xmlns:f2623="urn:function:f2623" xmlns:f2624="urn:function:f2624" xmlns:f2625="urn:function:f2625" xmlns:f2626="urn:function:f2626" xmlns:f2627="urn:function:f2627">
+    <grammars>
+        <include href="Function2627.xsd"/>
+        <include href="Function2626.xsd"/>
+        <include href="Function2625.xsd"/>
+        <include href="Function2624.xsd"/>
+        <include href="Function2623.xsd"/>
+        <include href="Function2622.xsd"/>
+        <include href="Function2621.xsd"/>
+        <include href="Function2620.xsd"/>
+    </grammars>
+    <doc>get information about upcoming movies and events show timings venue details and artist bios This is unofficial API of BookMyShow com</doc>
+    <resources base="https://devru-book-my-show-v1.p.mashape.com/">
+        <resource uri="showInfo.php/">
+            <method displayName="8. GET Show Info" id="2627" name="GET">
+                <doc>Get Show Info like price</doc>
+                <request>
+                    <param name="sessionid" required="true" style="query" type="xsd:string">
+                        <doc>sessionId</doc>
+                    </param>
+                    <param name="token" required="true" style="query" type="xsd:string">
+                        <doc>enter your Token</doc>
+                    </param>
+                    <param name="venuecode" required="true" style="query" type="xsd:string">
+                        <doc>venueCode</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2627:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="timeByVenue.php/">
+            <method displayName="7. GET Time By Venue" id="2626" name="GET">
+                <doc>GET time by Venue</doc>
+                <request>
+                    <param name="eventcode" required="true" style="query" type="xsd:string">
+                        <doc>enter Eventcode here</doc>
+                    </param>
+                    <param name="showdatecode" required="true" style="query" type="xsd:string">
+                        <doc>enter Show Date code Refer EndPoint or</doc>
+                    </param>
+                    <param name="token" required="true" style="query" type="xsd:string">
+                        <doc>enter your token here</doc>
+                    </param>
+                    <param name="venuecode" required="true" style="query" type="xsd:string">
+                        <doc>enter Venue Code here Refer EndPoint</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2626:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="timeList.php/">
+            <method displayName="6. GET Time List" id="2625" name="GET">
+                <doc>GET time of Show</doc>
+                <request>
+                    <param name="eventcode" required="true" style="query" type="xsd:string">
+                        <doc>enter Event Code Refer EndPoint</doc>
+                    </param>
+                    <param name="regioncode" required="true" style="query" type="xsd:string">
+                        <doc>enter Region Code Refer EndPoint</doc>
+                    </param>
+                    <param name="showdatecode" required="true" style="query" type="xsd:string">
+                        <doc>enter showDateCode Refer EndPoint or</doc>
+                    </param>
+                    <param name="token" required="true" style="query" type="xsd:string">
+                        <doc>enter your token here</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2625:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="dateList.php/">
+            <method displayName="5. GET Date List" id="2624" name="GET">
+                <doc>Get all dates of show</doc>
+                <request>
+                    <param name="eventcode" required="true" style="query" type="xsd:string">
+                        <doc>enter Event Code here Refer EndPoint</doc>
+                    </param>
+                    <param name="regioncode" required="true" style="query" type="xsd:string">
+                        <doc>enter Region code here Refer EndPoint</doc>
+                    </param>
+                    <param name="token" required="true" style="query" type="xsd:string">
+                        <doc>enter your Token here</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2624:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="eventInfoList.php/">
+            <method displayName="4. GET Event Details" id="2623" name="GET">
+                <request>
+                    <param name="eventcode" required="true" style="query" type="xsd:string">
+                        <doc>event Code</doc>
+                    </param>
+                    <param name="token" required="true" style="query" type="xsd:string">
+                        <doc>enter Your Token Here</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2623:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="eventListOut.php/">
+            <method displayName="3. GET Event List" id="2622" name="GET">
+                <doc>Get all events in given region</doc>
+                <request>
+                    <param name="regioncode" required="true" style="query" type="xsd:string">
+                        <doc>insert Region Code here Refer EndPoint</doc>
+                    </param>
+                    <param name="token" required="true" style="query" type="xsd:string">
+                        <doc>insert your token here</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>movies MT Event CT ARTS PL SPORTS SP</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2622:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="regionList.php/">
+            <method displayName="2. GET Region List" id="2621" name="GET">
+                <request>
+                    <param name="token" required="true" style="query" type="xsd:string">
+                        <doc>insert your token here</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>eVENT TYPE Movies MT Event CT ARTS PL SPORTS SP</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2621:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getToken.php/">
+            <method displayName="1. GET token" id="2620" name="GET">
+                <doc>GET Token; Token is required for all requests</doc>
+                <request/>
+                <response>
+                    <representation element="f2620:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

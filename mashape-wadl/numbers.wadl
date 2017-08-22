@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>an API for interesting facts about numbers Provides trivia math date and year facts about numbers For example is the number of platonic solids is the number of little squares forming the left side trail of Microsoft s Windows logo February th is the day in that the government of Italy asks for help to keep the Leaning Tower of Pisa from toppling over</doc>
+    <resources base="https://numbersapi.p.mashape.com/">
+        <resource uri="{year}/">
+            <param name="year" style="template" type="xsd:string"/>
+            <resource uri="year/">
+                <method displayName="Get year fact" id="44" name="GET">
+                    <doc>Get a fact about a year</doc>
+                    <request>
+                        <param name="fragment" required="true" style="query" type="xsd:string">
+                            <doc>add fragment true to return the fact as a sentence fragment that can be easily included as part of a larger sentence This means that the first word is lowercase and ending punctuation is omitted For trivia and math a noun phrase is returned that can be used in a sentence like We now have more users than fact as fragment</doc>
+                        </param>
+                        <param name="json" required="true" style="query" type="xsd:string">
+                            <doc>specify true to return result as JSON instead of plaintext</doc>
+                        </param>
+                        <param name="year" required="true" style="query" type="xsd:string">
+                            <doc>the year of interest</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="random/">
+            <resource uri="{type}/">
+                <param name="type" style="template" type="xsd:string"/>
+                <method displayName="Get random fact" id="42" name="GET">
+                    <doc>Get result by random number</doc>
+                    <request>
+                        <param name="fragment" required="true" style="query" type="xsd:string">
+                            <doc>add fragment true to return the fact as a sentence fragment that can be easily included as part of a larger sentence This means that the first word is lowercase and ending punctuation is omitted For trivia and math a noun phrase is returned that can be used in a sentence like We now have more users than fact as fragment</doc>
+                        </param>
+                        <param name="json" required="true" style="query" type="xsd:string">
+                            <doc>specify true to return result as JSON instead of plaintext</doc>
+                        </param>
+                        <param name="max" required="true" style="query" type="xsd:string">
+                            <doc>maximium number inclusive</doc>
+                        </param>
+                        <param name="min" required="true" style="query" type="xsd:string">
+                            <doc>minimum number inclusive</doc>
+                        </param>
+                        <param name="type" required="true" style="query" type="xsd:string">
+                            <doc>one of trivia math date or year</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="{number}/">
+            <param name="number" style="template" type="xsd:string"/>
+            <resource uri="trivia/">
+                <method displayName="Get trivia fact" id="43" name="GET">
+                    <doc>Get a trivia fact about a number</doc>
+                    <request>
+                        <param name="fragment" required="true" style="query" type="xsd:string">
+                            <doc>add fragment true to return the fact as a sentence fragment that can be easily included as part of a larger sentence This means that the first word is lowercase and ending punctuation is omitted For trivia and math a noun phrase is returned that can be used in a sentence like We now have more users than fact as fragment</doc>
+                        </param>
+                        <param name="json" required="true" style="query" type="xsd:string">
+                            <doc>specify true to return result as JSON instead of plaintext</doc>
+                        </param>
+                        <param name="notfound" required="true" style="query" type="xsd:string">
+                            <doc>specifies what to return if the number is not found Value can be default to return a canned message floor to round down to the largest number that does have an associated fact and return that fact or ceil which is like floor but rounds up to the smallest number that has an associated fact</doc>
+                        </param>
+                        <param name="number" required="true" style="query" type="xsd:string">
+                            <doc>the integer of interest</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="math/">
+                <method displayName="Get math fact" id="41" name="GET">
+                    <doc>Get a mathematical property about a number</doc>
+                    <request>
+                        <param name="fragment" required="true" style="query" type="xsd:string">
+                            <doc>add fragment true to return the fact as a sentence fragment that can be easily included as part of a larger sentence This means that the first word is lowercase and ending punctuation is omitted For trivia and math a noun phrase is returned that can be used in a sentence like We now have more users than fact as fragment</doc>
+                        </param>
+                        <param name="json" required="true" style="query" type="xsd:string">
+                            <doc>specify true to return result as JSON instead of plaintext</doc>
+                        </param>
+                        <param name="number" required="true" style="query" type="xsd:string">
+                            <doc>the integer of interest</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="{month}/">
+            <param name="month" style="template" type="xsd:string"/>
+            <resource uri="{day}/">
+                <param name="day" style="template" type="xsd:string"/>
+                <resource uri="date/">
+                    <method displayName="Get date fact" id="40" name="GET">
+                        <doc>Get a fact about a day of year</doc>
+                        <request>
+                            <param name="day" required="true" style="query" type="xsd:string">
+                                <doc>the day of the month</doc>
+                            </param>
+                            <param name="fragment" required="true" style="query" type="xsd:string">
+                                <doc>add fragment true to return the fact as a sentence fragment that can be easily included as part of a larger sentence This means that the first word is lowercase and ending punctuation is omitted For trivia and math a noun phrase is returned that can be used in a sentence like We now have more users than fact as fragment</doc>
+                            </param>
+                            <param name="json" required="true" style="query" type="xsd:string">
+                                <doc>specify true to return result as JSON instead of plaintext</doc>
+                            </param>
+                            <param name="month" required="true" style="query" type="xsd:string">
+                                <doc>the indexed month eg for June</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

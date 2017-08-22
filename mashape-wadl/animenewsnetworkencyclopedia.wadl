@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>get data from the Anime News Network Encyclopedia in XML format</doc>
+    <resources base="https://animenewsnetwork.p.mashape.com/">
+        <resource uri="reports.xml/">
+            <method displayName="Reports" id="1012" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>iD of the report to display list of available reports is at http www animenewsnetwork com encyclopedia reports php</doc>
+                    </param>
+                    <param name="nlist" required="true" style="query" type="xsd:integer">
+                        <doc>limit number of results in the report</doc>
+                    </param>
+                    <param name="nskip" required="true" style="query" type="xsd:integer">
+                        <doc>skip the the first N items in the report</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="api.xml/">
+            <method displayName="Anime/Manga Details" id="1011" name="GET">
+                <request>
+                    <param name="anime" required="true" style="query" type="xsd:integer">
+                        <doc>iD of the anime</doc>
+                    </param>
+                    <param name="manga" required="true" style="query" type="xsd:integer">
+                        <doc>iD of the manga</doc>
+                    </param>
+                    <param name="title" required="true" style="query" type="xsd:integer">
+                        <doc>iD of the anime manga</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

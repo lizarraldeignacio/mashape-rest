@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>an extensive collection of official public transit data from around the world including GTFS GTFS RealTime and more</doc>
+    <resources base="https://community-transitfeeds.p.mashape.com/">
+        <resource uri="getLatestFeedVersion/">
+            <method displayName="getLatestFeedVersion" id="4877" name="GET">
+                <request>
+                    <param name="feed" required="true" style="query" type="xsd:string">
+                        <doc>the ID of the feed to download</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="getFeedVersions/">
+            <method displayName="getFeedVersions" id="4876" name="GET">
+                <doc>Retrieve a list of feed versions. This list can be filtered by a number of input parameters</doc>
+                <request>
+                    <param name="feed" required="true" style="query" type="xsd:string">
+                        <doc>restrict results to to the given feed ID</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>the page of results to return</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

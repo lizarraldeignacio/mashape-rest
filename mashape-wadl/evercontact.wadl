@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4159="urn:function:f4159">
+    <grammars>
+        <include href="Function4159.xsd"/>
+    </grammars>
+    <doc>evercontact will allow you to extract contact information from an email and turn them into vCards With it you can Update an enterprise s CRM Create Update client lists with complete contact information Sync an Address Book with the most up</doc>
+    <resources base="https://brad-patterson-evercontact.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Evercontact API" id="4159" name="POST">
+                <request/>
+                <response>
+                    <representation element="f4159:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f368="urn:function:f368" xmlns:f369="urn:function:f369">
+    <grammars>
+        <include href="Function369.xsd"/>
+        <include href="Function368.xsd"/>
+    </grammars>
+    <doc>this API provides a set of useful features for JSON data Send me a private message to ask for more features Enjoy</doc>
+    <resources base="https://thefosk-json-tools.p.mashape.com/">
+        <resource uri="validate/">
+            <method displayName="validateJSON" id="369" name="GET">
+                <doc>Validates JSON data</doc>
+                <request>
+                    <param name="json" required="true" style="query" type="xsd:string">
+                        <doc>the JSON data to validate</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f369:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="prettify/">
+            <method displayName="prettyPrint" id="368" name="GET">
+                <doc>Pretty prints a JSON data with indentation</doc>
+                <request>
+                    <param name="json" required="true" style="query" type="xsd:string">
+                        <doc>the unformatted JSON data</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f368:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

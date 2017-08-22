@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4164="urn:function:f4164" xmlns:f4165="urn:function:f4165">
+    <grammars>
+        <include href="Function4164.xsd"/>
+        <include href="Function4165.xsd"/>
+    </grammars>
+    <doc>provide information about LEGO building instructions for selected LEGO sets Each LEGO set building step in on separate picture Available sets could be listed</doc>
+    <resources base="https://cubiculusbi.p.mashape.com/">
+        <resource uri="building-instruction/">
+            <method displayName="Building Instruction" id="4164" name="GET">
+                <doc>get concrete building instruction by id</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>identification number of building instructions</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4164:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Building Instructions List" id="4165" name="GET">
+                <doc>get list of building instructions, field stepGroups in response is always empty. To get all details about building instruction method "Building instruction" should be used</doc>
+                <request/>
+                <response>
+                    <representation element="f4165:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

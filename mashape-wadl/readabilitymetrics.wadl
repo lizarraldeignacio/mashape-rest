@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1102="urn:function:f1102">
+    <grammars>
+        <include href="Function1102.xsd"/>
+    </grammars>
+    <doc>this API can be used to compute a set of readability metrics for a given text We currently support the following metrics Automated Readability Index Coleman Liau Index Flesch Kincaid Grade Level Flesch Reading Ease Gunning Fog Index SMOG score and SMOG Index The service is deployed at Google App Engine and available at http ipeirotis appspot com readability The code and documentation are available on Github at https github com ipeirotis ReadabilityMetrics</doc>
+    <resources base="https://ipeirotis-readability-metrics.p.mashape.com/">
+        <resource uri="getReadabilityMetrics/">
+            <method displayName="Get readability metrics" id="1102" name="POST">
+                <doc>See https://github.com/ipeirotis/ReadabilityMetrics/wiki/REST-API:-Managing-Texts</doc>
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1102:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

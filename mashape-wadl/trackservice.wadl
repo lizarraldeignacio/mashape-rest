@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4328="urn:function:f4328" xmlns:f4329="urn:function:f4329" xmlns:f4330="urn:function:f4330" xmlns:f4331="urn:function:f4331" xmlns:f4332="urn:function:f4332" xmlns:f4333="urn:function:f4333" xmlns:f4334="urn:function:f4334" xmlns:f4335="urn:function:f4335" xmlns:f4336="urn:function:f4336" xmlns:f4337="urn:function:f4337" xmlns:f4338="urn:function:f4338" xmlns:f4339="urn:function:f4339" xmlns:f4340="urn:function:f4340" xmlns:f4341="urn:function:f4341">
+    <grammars>
+        <include href="Function4340.xsd"/>
+        <include href="Function4341.xsd"/>
+        <include href="Function4338.xsd"/>
+        <include href="Function4339.xsd"/>
+        <include href="Function4336.xsd"/>
+        <include href="Function4337.xsd"/>
+        <include href="Function4334.xsd"/>
+        <include href="Function4335.xsd"/>
+        <include href="Function4332.xsd"/>
+        <include href="Function4333.xsd"/>
+        <include href="Function4330.xsd"/>
+        <include href="Function4331.xsd"/>
+        <include href="Function4328.xsd"/>
+        <include href="Function4329.xsd"/>
+    </grammars>
+    <doc>route optimization dispatching of multiple vehicles and multiple stops Use TrackRoad API to optimize s of stops in seconds distance calculation turn by turn directions and geocoding Real time asset tracking two way texting are provided using either web interface free iPhone app or Android app Routing features include intelligent dispatching multiple region routing time window load capacity balancing auto address geocoding highlighted route maps and much more</doc>
+    <resources base="https://rdrunnerxx-trackservice.p.mashape.com/">
+        <resource uri="login/">
+            <method displayName="Login JSON" id="4340" name="POST">
+                <doc>To access TrackService API you must use a key. To get a key you must login or get a TrackService key in your account.</doc>
+                <request/>
+                <response>
+                    <representation element="f4340:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Login XML" id="4341" name="POST">
+                <doc>To access TrackService API you must use a key. To get a key you must login or get a TrackService key in your account.</doc>
+                <request/>
+                <response>
+                    <representation element="f4341:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="geocode/">
+            <method displayName="Geocode JSON" id="4338" name="POST">
+                <doc>Use the following method to get latitude and longitude coordinates for a location by specifying values such as a postal code, and street address.</doc>
+                <request/>
+                <response>
+                    <representation element="f4338:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Geocode XML" id="4339" name="POST">
+                <doc>Use the following method to get latitude and longitude coordinates for a location by specifying values such as a postal code, and street address.</doc>
+                <request/>
+                <response>
+                    <representation element="f4339:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="dispatch/">
+            <method displayName="Dispatch JSON" id="4336" name="POST">
+                <doc>Dispatch method can optimize 100's of stops using one or several vehicles. You can use address or latitude/longitude to define a location of a Vehicle and a Stop.</doc>
+                <request/>
+                <response>
+                    <representation element="f4336:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Dispatch XML" id="4337" name="POST">
+                <doc>Dispatch method can optimize 100's of stops using one or several vehicles. You can use address or latitude/longitude to define a location of a Vehicle and a Stop.</doc>
+                <request/>
+                <response>
+                    <representation element="f4337:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="credit/">
+            <method displayName="Credit Remaining JSON" id="4334" name="POST">
+                <doc>To get credit remaining you must send an empty post request to the following URL template.</doc>
+                <request/>
+                <response>
+                    <representation element="f4334:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Credit Remaining XML" id="4335" name="POST">
+                <doc>To get credit remaining you must send an empty post request to the following URL template.</doc>
+                <request/>
+                <response>
+                    <representation element="f4335:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="routes/">
+            <method displayName="Calculate Routes JSON" id="4332" name="POST">
+                <doc>Use the following URL template to get multiple routes by specifying a series of locations. A location is a specified geographical location defined by longitude and latitude that is used for navigational purposes. Every route includes information such as route instructions, travel duration, travel distance or transit information. You can also request a set of route points.</doc>
+                <request/>
+                <response>
+                    <representation element="f4332:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Calculate Routes XML" id="4333" name="POST">
+                <doc>Use the following URL template to get multiple routes by specifying a series of locations. A location is a specified geographical location defined by longitude and latitude that is used for navigational purposes. Every route includes information such as route instructions, travel duration, travel distance or transit information. You can also request a set of route points.</doc>
+                <request/>
+                <response>
+                    <representation element="f4333:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="route/">
+            <method displayName="Calculate Route JSON" id="4330" name="POST">
+                <doc>Use the following URL template to get a route by specifying a series of locations. A location is a specified geographical location defined by longitude and latitude that is used for navigational purposes. The route includes information such as route instructions, travel duration, travel distance or transit information. You can also request a set of route points.</doc>
+                <request/>
+                <response>
+                    <representation element="f4330:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Calculate Route XML" id="4331" name="POST">
+                <doc>Use the following URL template to get a route by specifying a series of locations. A location is a specified geographical location defined by longitude and latitude that is used for navigational purposes. The route includes information such as route instructions, travel duration, travel distance or transit information. You can also request a set of route points.</doc>
+                <request/>
+                <response>
+                    <representation element="f4331:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="distance/">
+            <method displayName="Calculate Distance JSON" id="4328" name="POST">
+                <doc>Use the following method to calculate distance and time.</doc>
+                <request/>
+                <response>
+                    <representation element="f4328:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Calculate Distance XML" id="4329" name="POST">
+                <doc>Use the following method to calculate distance and time.</doc>
+                <request/>
+                <response>
+                    <representation element="f4329:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

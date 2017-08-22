@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>flightLookup Route Service Want to know the regular service between two airports over a date range Returns information for a specific route over a range of dates Flight Number Origin Destination Times Start Date End Date</doc>
+    <resources base="https://flightlookup-routeservice-uri.p.mashape.com/">
+        <resource uri="RouteService/">
+            <method displayName="RouteService" id="5726" name="GET">
+                <doc>This method returns route summary information for a specified route over a specified time range.</doc>
+                <request>
+                    <param name="airline" required="true" style="query" type="xsd:string">
+                        <doc>required letter IATA airline code</doc>
+                    </param>
+                    <param name="enddate" required="true" style="query" type="xsd:string">
+                        <doc>required End of date range for Route information mm dd yyyy</doc>
+                    </param>
+                    <param name="from" required="true" style="query" type="xsd:string">
+                        <doc>required letter IATA code for the departure airport</doc>
+                    </param>
+                    <param name="interline" required="true" style="query" type="xsd:string">
+                        <doc>required Show all possible connections even beyond Codeshares Y or N Default Y</doc>
+                    </param>
+                    <param name="startdate" required="true" style="query" type="xsd:string">
+                        <doc>required Start of date range for Route information mm dd yyyy</doc>
+                    </param>
+                    <param name="to" required="true" style="query" type="xsd:string">
+                        <doc>required letter IATA code for the destination airport</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

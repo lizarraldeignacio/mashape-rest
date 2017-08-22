@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6909="urn:function:f6909" xmlns:f6910="urn:function:f6910" xmlns:f6911="urn:function:f6911" xmlns:f6912="urn:function:f6912" xmlns:f6914="urn:function:f6914" xmlns:f6915="urn:function:f6915">
+    <grammars>
+        <include href="Function6909.xsd"/>
+        <include href="Function6910.xsd"/>
+        <include href="Function6911.xsd"/>
+        <include href="Function6912.xsd"/>
+        <include href="Function6914.xsd"/>
+        <include href="Function6915.xsd"/>
+    </grammars>
+    <doc>mIME Mail Parser API</doc>
+    <resources base="https://activecom-smtpio-v1.p.mashape.com/">
+        <resource uri="messages/">
+            <method displayName="/messages" id="6909" name="POST">
+                <doc>Create a new message resource</doc>
+                <request/>
+                <response>
+                    <representation element="f6909:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="/messages/{id}" id="6910" name="GET">
+                <doc>Retrieve message body. If it is a multipart message and if html type is available, html version will be returned.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                    <param name="replaceInlineUrlPath" required="true" style="query" type="xsd:boolean">
+                        <doc>replace cid content id of inline attachments with the correct url to get them through this api Default true</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6910:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="/messages/{id}/headers" id="6911" name="GET">
+                <doc>Retrieve message headers</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f6911:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="/messages/{id}/parts" id="6912" name="GET">
+                <doc>Retrieve message parts information</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f6912:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="/messages/{id}/parts/{partid}" id="6913" name="GET">
+                <doc>Retrieve individual message part</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                    <param name="partid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="/messages/{id}/structure" id="6914" name="GET">
+                <doc>Succesfully retrieved resource</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f6914:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="/messages/{id}/subject" id="6915" name="GET">
+                <doc>Retrieve message subject</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                    <param name="raw" required="true" style="query" type="xsd:boolean">
+                        <doc>return without formatting Default false</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6915:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

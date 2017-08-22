@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>flightLookup Terminal Info Answer the most frequently asked question by frequent travelers what terminal do I go to Returns Terminal Information Flight Number Arrival Terminal Depart Terminal Operating Carrier</doc>
+    <resources base="https://flightlookup-terminalinfo-rest.p.mashape.com/">
+        <resource uri="TerminalInfo/">
+            <resource uri="{From}/">
+                <param name="From" style="template" type="xsd:string"/>
+                <resource uri="{To}/">
+                    <param name="To" style="template" type="xsd:string"/>
+                    <resource uri="{Month}/">
+                        <param name="Month" style="template" type="xsd:string"/>
+                        <resource uri="{Day}/">
+                            <param name="Day" style="template" type="xsd:string"/>
+                            <resource uri="{Year}/">
+                                <param name="Year" style="template" type="xsd:string"/>
+                                <resource uri="{Airline}/">
+                                    <param name="Airline" style="template" type="xsd:string"/>
+                                    <resource uri="{FlightNumber}/">
+                                        <param name="FlightNumber" style="template" type="xsd:string"/>
+                                        <method displayName="TerminalInfo" id="5854" name="GET">
+                                            <doc>This method returns either the departure or arrival terminal information for a specified airline and flight number or a specified airport on a specified date.</doc>
+                                            <request>
+                                                <param name="airline" required="true" style="query" type="xsd:string">
+                                                    <doc>required letter IATA airline code</doc>
+                                                </param>
+                                                <param name="day" required="true" style="query" type="xsd:integer">
+                                                    <doc>required Departure date day dd</doc>
+                                                </param>
+                                                <param name="flightnumber" required="true" style="query" type="xsd:string">
+                                                    <doc>required Flight Number identifier</doc>
+                                                </param>
+                                                <param name="from" required="true" style="query" type="xsd:string">
+                                                    <doc>required letter IATA code for the departure airport</doc>
+                                                </param>
+                                                <param name="month" required="true" style="query" type="xsd:integer">
+                                                    <doc>required Departure date month mm</doc>
+                                                </param>
+                                                <param name="to" required="true" style="query" type="xsd:string">
+                                                    <doc>required letter IATA code for the destination airport</doc>
+                                                </param>
+                                                <param name="year" required="true" style="query" type="xsd:integer">
+                                                    <doc>required Departure date year yyyy</doc>
+                                                </param>
+                                            </request>
+                                        </method>
+                                    </resource>
+                                </resource>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f316="urn:function:f316" xmlns:f317="urn:function:f317">
+    <grammars>
+        <include href="Function317.xsd"/>
+        <include href="Function316.xsd"/>
+    </grammars>
+    <doc>tagdef com is the worlds largest hashtag dictionary Use this api to access these definitions The content is user generated and the directory currently contains over definitions The hashtags can have many definitions each ordered by user votes The hashtags are often related to Twitter but is also commonly used on Pinterest and Google This API is free to use but you must provide a clickable link back to the tagdef com page for the given tag when using information from the API This link can be found in the uri part of the reply</doc>
+    <resources base="https://tagdef.p.mashape.com/">
+        <resource uri="one.{hashtag}.json/">
+            <param name="hashtag" style="template" type="xsd:string"/>
+            <method displayName="Get top definition" id="317" name="GET">
+                <doc>Returns the top definition for given hashtag. The top definition is calculated based on user votes, and weighed using an intern algorithm on Tagdef.com</doc>
+                <request>
+                    <param name="hashtag" required="true" style="query" type="xsd:string">
+                        <doc>the name of the hashtag</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f317:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="{hashtag}.json/">
+            <param name="hashtag" style="template" type="xsd:string"/>
+            <method displayName="Get list of definitions" id="316" name="GET">
+                <doc>Returns the top definitions, currently max 5. Ordered by popularity. This popularity is based on user votes, but is weighed using an intern algorithm on Tagdef.com</doc>
+                <request>
+                    <param name="hashtag" required="true" style="query" type="xsd:string">
+                        <doc>the name of the hashtag</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f316:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

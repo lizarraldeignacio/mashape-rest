@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>flightLookup Route Service Want to know the regular service between two airports over a date range Returns information for a specific route over a range of dates Flight Number Origin Destination Times Start Date End Date</doc>
+    <resources base="https://flightlookup-routeservice-rest.p.mashape.com/">
+        <resource uri="RouteService/">
+            <resource uri="{From}/">
+                <param name="From" style="template" type="xsd:string"/>
+                <resource uri="{To}/">
+                    <param name="To" style="template" type="xsd:string"/>
+                    <resource uri="{StartMonth}/">
+                        <param name="StartMonth" style="template" type="xsd:string"/>
+                        <resource uri="{StartDay}/">
+                            <param name="StartDay" style="template" type="xsd:string"/>
+                            <resource uri="{StartYear}/">
+                                <param name="StartYear" style="template" type="xsd:string"/>
+                                <resource uri="{EndMonth}/">
+                                    <param name="EndMonth" style="template" type="xsd:string"/>
+                                    <resource uri="{EndDay}/">
+                                        <param name="EndDay" style="template" type="xsd:string"/>
+                                        <resource uri="{EndYear}/">
+                                            <param name="EndYear" style="template" type="xsd:string"/>
+                                            <method displayName="RouteService" id="3968" name="GET">
+                                                <doc>This method returns route summary information for a specified route over a specified time range.</doc>
+                                                <request>
+                                                    <param name="airline" required="true" style="query" type="xsd:string">
+                                                        <doc>required letter IATA airline code</doc>
+                                                    </param>
+                                                    <param name="endday" required="true" style="query" type="xsd:integer">
+                                                        <doc>required End day of date range for Route information dd</doc>
+                                                    </param>
+                                                    <param name="endmonth" required="true" style="query" type="xsd:integer">
+                                                        <doc>required End month of date range for Route information mm</doc>
+                                                    </param>
+                                                    <param name="endyear" required="true" style="query" type="xsd:integer">
+                                                        <doc>required End year of date range for Route information yyyy</doc>
+                                                    </param>
+                                                    <param name="from" required="true" style="query" type="xsd:string">
+                                                        <doc>required letter IATA code for the departure airport</doc>
+                                                    </param>
+                                                    <param name="interline" required="true" style="query" type="xsd:string">
+                                                        <doc>required Show all possible connections even beyond Codeshares Y or N Default Y</doc>
+                                                    </param>
+                                                    <param name="startday" required="true" style="query" type="xsd:integer">
+                                                        <doc>required Start day of date range for Route information dd</doc>
+                                                    </param>
+                                                    <param name="startmonth" required="true" style="query" type="xsd:integer">
+                                                        <doc>required Start month of date range for Route information mm</doc>
+                                                    </param>
+                                                    <param name="startyear" required="true" style="query" type="xsd:integer">
+                                                        <doc>required Start year of date range for Route information yyyy</doc>
+                                                    </param>
+                                                    <param name="to" required="true" style="query" type="xsd:string">
+                                                        <doc>required letter IATA code for the destination airport</doc>
+                                                    </param>
+                                                </request>
+                                            </method>
+                                        </resource>
+                                    </resource>
+                                </resource>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

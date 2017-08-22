@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f138="urn:function:f138" xmlns:f139="urn:function:f139">
+    <grammars>
+        <include href="Function139.xsd"/>
+        <include href="Function138.xsd"/>
+    </grammars>
+    <doc>get station codes and also get PNR status of indian railways using this easy API this is developed for educational purposes only and we are not affiliated to indian railways in any form and this is not an official api also</doc>
+    <resources base="https://indianrailways.p.mashape.com/">
+        <resource uri="index.php/">
+            <method displayName="PNR Status Check" id="139" name="GET">
+                <doc>Just give 10-digit pnr number and get the status.</doc>
+                <request>
+                    <param name="pnr" required="true" style="query" type="xsd:integer">
+                        <doc>pNR number for which query need to be carried out</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f139:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="findstations.php/">
+            <method displayName="Find Stations" id="138" name="GET">
+                <doc>Get station codes from the station name.</doc>
+                <request>
+                    <param name="station" required="true" style="query" type="xsd:string">
+                        <doc>name of the station for which station codes to be pulled</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f138:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3107="urn:function:f3107">
+    <grammars>
+        <include href="Function3107.xsd"/>
+    </grammars>
+    <doc>mbar offers a free read only REST API for access to its programme data including event artist and club series information</doc>
+    <resources base="https://mikaraunio-mbar.p.mashape.com/">
+        <resource uri="event/">
+            <method displayName="Event" id="3107" name="GET">
+                <doc>Can be ordered by start time, descending; and various fields can be filtered</doc>
+                <request>
+                    <param name="club" required="true" style="query" type="xsd:string">
+                        <doc>the id of the club series the event belongs to</doc>
+                    </param>
+                    <param name="clubName" required="true" style="query" type="xsd:string">
+                        <doc>the name of the club series the event belongs to</doc>
+                    </param>
+                    <param name="datefilter" required="true" style="query" type="xsd:string">
+                        <doc>ongoing ongoing events next next events including any ongoing ones upcoming upcoming events excluding any ongoing ones today all events happening today day changes at in the morning tomorrow all events happening tomorrow day changes at in the morning</doc>
+                    </param>
+                    <param name="endTime" required="true" style="query" type="xsd:string">
+                        <doc>the event s end time in YYYY MM DD HH MM ss uuuuuu format</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>the name of the event</doc>
+                    </param>
+                    <param name="startTime" required="true" style="query" type="xsd:string">
+                        <doc>the event s start time in YYYY MM DD HH MM ss uuuuuu format</doc>
+                    </param>
+                    <param name="timeModified" required="true" style="query" type="xsd:string">
+                        <doc>the timestamp of the last modification in YYYY MM DD HH MM ss uuuuuu format</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3107:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="club/">
+            <method displayName="Club Series" id="3106" name="GET">
+                <request>
+                    <param name="description" required="true" style="query" type="xsd:string">
+                        <doc>club series description body</doc>
+                    </param>
+                    <param name="events" required="true" style="query" type="xsd:string">
+                        <doc>a list of objects representing the events in this club series each with the following fields name the name of the event start time event start time and date in ISO format Helsinki local time end time event end time and date in ISO format Helsinki local time resource uri the URI of the event resource</doc>
+                    </param>
+                    <param name="extrainfoUrls" required="true" style="query" type="xsd:string">
+                        <doc>a list of objects representing URLs pointing to extra info about the club series each with the following fields address URL address description URL description type URL type Facebook homepage</doc>
+                    </param>
+                    <param name="hosts" required="true" style="query" type="xsd:string">
+                        <doc>a list of objects representing the artists hosts hosting this club series each with the following fields full name the artist s name with affiliation resource uri the URI of the artist resource</doc>
+                    </param>
+                    <param name="lead" required="true" style="query" type="xsd:string">
+                        <doc>club series description lead</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>the club series name</doc>
+                    </param>
+                    <param name="pictureCaption" required="true" style="query" type="xsd:string">
+                        <doc>club series picture caption</doc>
+                    </param>
+                    <param name="pictureUri" required="true" style="query" type="xsd:string">
+                        <doc>club series picture URI</doc>
+                    </param>
+                    <param name="resourceUri" required="true" style="query" type="xsd:string">
+                        <doc>the URI of this club series resource</doc>
+                    </param>
+                    <param name="resourceWebpageUri" required="true" style="query" type="xsd:string">
+                        <doc>the URI of this club series webpage on mbar s site</doc>
+                    </param>
+                    <param name="timeModified" required="true" style="query" type="xsd:string">
+                        <doc>the timestamp of the last modification</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="artist/">
+            <method displayName="Artist" id="3105" name="GET">
+                <request>
+                    <param name="extraInfo" required="true" style="query" type="xsd:string">
+                        <doc>extra info such as artist affiliation or country of origin</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>the name of the artist</doc>
+                    </param>
+                    <param name="timeModified" required="true" style="query" type="xsd:string">
+                        <doc>the timestamp of the last modification in YYYY MM DD HH MM ss uuuuuu format</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

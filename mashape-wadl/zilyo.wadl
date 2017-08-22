@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f275="urn:function:f275" xmlns:f276="urn:function:f276" xmlns:f277="urn:function:f277" xmlns:f278="urn:function:f278" xmlns:f279="urn:function:f279">
+    <grammars>
+        <include href="Function277.xsd"/>
+        <include href="Function276.xsd"/>
+        <include href="Function275.xsd"/>
+        <include href="Function278.xsd"/>
+        <include href="Function279.xsd"/>
+    </grammars>
+    <doc>this API gives you access from over accommodation listings across the world in over destinations We return results for short term rentals ranging from apartments houses cottages villas castles and even igloos from all over the world We currently support these suppliers Airbnb HomeAway AlwaysOnVacation ApartmentsApart BookingPal BedyCasa CitiesReference Geronimo Gloveler HolidayVelvet HomeStay HostelWorld HouseTrip Interhome Flats Roomorama StopSleepGo TheOtherHome Travelmob VacationRentalPeople VaycayHero WayToStay and WebChalet</doc>
+    <resources base="https://zilyo.p.mashape.com/">
+        <resource uri="id/">
+            <method displayName="id" id="277" name="GET">
+                <doc>Performs a single ID search. The fastest and most efficient way if you want to query only 1 id.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>the listing id</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f277:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="count/">
+            <method displayName="count" id="276" name="GET">
+                <doc>Returns the number of results for a search query. Accepts all parameters from /search. Supports all filtering parameters.</doc>
+                <request>
+                    <param name="latitude" required="true" style="query" type="xsd:integer">
+                        <doc>latitude</doc>
+                    </param>
+                    <param name="longitude" required="true" style="query" type="xsd:integer">
+                        <doc>longitude</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f276:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="search/">
+            <method displayName="box search" id="275" name="GET">
+                <doc>Performs a search query to find listings based on your parameters. Using neLatitude, neLongitude, swLatitude, swLongitude as required parameters. Supports all filtering parameters.</doc>
+                <request>
+                    <param name="isinstantbook" required="true" style="query" type="xsd:boolean">
+                        <doc>show listings that can only be instantly booked</doc>
+                    </param>
+                    <param name="nelatitude" required="true" style="query" type="xsd:integer">
+                        <doc>north East Latitude for a box search</doc>
+                    </param>
+                    <param name="nelongitude" required="true" style="query" type="xsd:integer">
+                        <doc>north East Longitude for a box search</doc>
+                    </param>
+                    <param name="provider" required="true" style="query" type="xsd:string">
+                        <doc>comma separated values of namespaced providers See overview provider for the list</doc>
+                    </param>
+                    <param name="swlatitude" required="true" style="query" type="xsd:integer">
+                        <doc>south west Latitude for a box search</doc>
+                    </param>
+                    <param name="swlongitude" required="true" style="query" type="xsd:integer">
+                        <doc>south west Longitude for a box search</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f275:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="ids collection" id="278" name="GET">
+                <doc>Performs a query with a set of ids given. Supports filtering with parameters.</doc>
+                <request>
+                    <param name="ids" required="true" style="query" type="xsd:string">
+                        <doc>comma separated values of ids</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f278:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="point search" id="279" name="GET">
+                <doc>Performs a search query to find listings based on your parameters. Using latitude and longitude as required parameters. Supports all filtering parameters.</doc>
+                <request>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>the callback function name</doc>
+                    </param>
+                    <param name="etimestamp" required="true" style="query" type="xsd:integer">
+                        <doc>the check out unix timestamp</doc>
+                    </param>
+                    <param name="guests" required="true" style="query" type="xsd:integer">
+                        <doc>the minimum number of guests a listing can occupy</doc>
+                    </param>
+                    <param name="isinstantbook" required="true" style="query" type="xsd:boolean">
+                        <doc>show listings that can only be instantly booked</doc>
+                    </param>
+                    <param name="latitude" required="true" style="query" type="xsd:integer">
+                        <doc>latitude is optional If it s not provided it will fallback to using a box query</doc>
+                    </param>
+                    <param name="longitude" required="true" style="query" type="xsd:integer">
+                        <doc>longitude is optional If it s not provided it will fallback to using a box query</doc>
+                    </param>
+                    <param name="maxdistance" required="true" style="query" type="xsd:integer">
+                        <doc>radius from a center point in Km Value from to</doc>
+                    </param>
+                    <param name="numofbathrooms" required="true" style="query" type="xsd:integer">
+                        <doc>the minimum number of bedrooms a listing can have</doc>
+                    </param>
+                    <param name="numofbedrooms" required="true" style="query" type="xsd:integer">
+                        <doc>the minimum number of bedrooms a listing can have</doc>
+                    </param>
+                    <param name="numofbeds" required="true" style="query" type="xsd:integer">
+                        <doc>the minimum number of beds a listing can have</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>the page number</doc>
+                    </param>
+                    <param name="pricemax" required="true" style="query" type="xsd:integer">
+                        <doc>the maximum price a listing can have in USD nightly</doc>
+                    </param>
+                    <param name="pricemin" required="true" style="query" type="xsd:integer">
+                        <doc>the minimum price a listing can have in USD nightly</doc>
+                    </param>
+                    <param name="provider" required="true" style="query" type="xsd:string">
+                        <doc>comma separated values of namespaced providers See overview provider for the list</doc>
+                    </param>
+                    <param name="resultsperpage" required="true" style="query" type="xsd:integer">
+                        <doc>the number of results per page Value from to</doc>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:string">
+                        <doc>the sort method</doc>
+                    </param>
+                    <param name="stimestamp" required="true" style="query" type="xsd:integer">
+                        <doc>the check in unix timestamp</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f279:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

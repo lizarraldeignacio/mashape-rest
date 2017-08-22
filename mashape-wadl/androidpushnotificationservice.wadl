@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7176="urn:function:f7176">
+    <grammars>
+        <include href="Function7176.xsd"/>
+    </grammars>
+    <doc>cloud service for pushing android notifications Android Push Notification Service APNS is a free to use library for pushing the data to android devices all you need is to download the library and start the service in your app the library use our cloud servers so you needn t pay for the expensive servers hosting</doc>
+    <resources base="https://apns.p.mashape.com/">
+        <resource uri="pushto/">
+            <resource uri="{ch}/">
+                <param name="ch" style="template" type="xsd:string"/>
+                <resource uri="{devid}/">
+                    <param name="devid" style="template" type="xsd:string"/>
+                    <resource uri="{msg}/">
+                        <param name="msg" style="template" type="xsd:string"/>
+                        <resource uri="{random}/">
+                            <param name="random" style="template" type="xsd:string"/>
+                            <resource uri="{hash}/">
+                                <param name="hash" style="template" type="xsd:string"/>
+                                <method displayName="APNS" id="7176" name="POST">
+                                    <doc>Android Push Notification Service</doc>
+                                    <request>
+                                        <param name="ch" required="true" style="query" type="xsd:string">
+                                            <doc>the channel id go to http push notification org to require one</doc>
+                                        </param>
+                                        <param name="devid" required="true" style="query" type="xsd:string">
+                                            <doc>the id of device which should receive the message</doc>
+                                        </param>
+                                        <param name="hash" required="true" style="query" type="xsd:string">
+                                            <doc>md ch devId msg random apiKey go to http push notification org to get the apiKey</doc>
+                                        </param>
+                                        <param name="msg" required="true" style="query" type="xsd:string">
+                                            <doc>the message will be sent</doc>
+                                        </param>
+                                        <param name="random" required="true" style="query" type="xsd:string">
+                                            <doc>random number</doc>
+                                        </param>
+                                    </request>
+                                    <response>
+                                        <representation element="f7176:root" mediaType="application/json"/>
+                                    </response>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

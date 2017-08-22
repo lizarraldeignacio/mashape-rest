@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1252="urn:function:f1252" xmlns:f1253="urn:function:f1253">
+    <grammars>
+        <include href="Function1253.xsd"/>
+        <include href="Function1252.xsd"/>
+    </grammars>
+    <doc>this is a VIN decoder that designed to work within North America Asia and Europe The Salvage VIN Checker only works within North America as of now</doc>
+    <resources base="https://vindecoder.p.mashape.com/">
+        <resource uri="salvage_check/">
+            <method displayName="Salvage Check" id="1253" name="GET">
+                <doc>Retrieve Salvage Information based on VIN Number</doc>
+                <request>
+                    <param name="vin" required="true" style="query" type="xsd:string">
+                        <doc>vin number</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1253:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="decode_vin/">
+            <method displayName="Decode VIN" id="1252" name="GET">
+                <doc>Get Vehicle Specification by VIN Number</doc>
+                <request>
+                    <param name="vin" required="true" style="query" type="xsd:string">
+                        <doc>characters vin numbers</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1252:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3993="urn:function:f3993" xmlns:f3994="urn:function:f3994" xmlns:f3995="urn:function:f3995" xmlns:f3996="urn:function:f3996" xmlns:f3997="urn:function:f3997" xmlns:f3998="urn:function:f3998" xmlns:f3999="urn:function:f3999" xmlns:f4000="urn:function:f4000" xmlns:f4001="urn:function:f4001" xmlns:f4002="urn:function:f4002" xmlns:f4003="urn:function:f4003" xmlns:f4004="urn:function:f4004" xmlns:f4005="urn:function:f4005">
+    <grammars>
+        <include href="Function4005.xsd"/>
+        <include href="Function4004.xsd"/>
+        <include href="Function4003.xsd"/>
+        <include href="Function4002.xsd"/>
+        <include href="Function4001.xsd"/>
+        <include href="Function4000.xsd"/>
+        <include href="Function3999.xsd"/>
+        <include href="Function3998.xsd"/>
+        <include href="Function3997.xsd"/>
+        <include href="Function3996.xsd"/>
+        <include href="Function3995.xsd"/>
+        <include href="Function3994.xsd"/>
+        <include href="Function3993.xsd"/>
+    </grammars>
+    <doc>generate realistic fake data of all kinds</doc>
+    <resources base="https://alanaktion-faker-v1.p.mashape.com/">
+        <resource uri="uuid/">
+            <method displayName="Uuid" id="4005" name="GET">
+                <doc>Generate a UUID</doc>
+                <request/>
+                <response>
+                    <representation element="f4005:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="text/">
+            <resource uri="{length}/">
+                <param name="length" style="template" type="xsd:string"/>
+                <method displayName="Text" id="4004" name="GET">
+                    <doc>Generate semi-realistic text</doc>
+                    <request>
+                        <param name="length" required="true" style="query" type="xsd:string"/>
+                        <param name="locale" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4004:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="person/">
+            <resource uri="{gender}/">
+                <param name="gender" style="template" type="xsd:string"/>
+                <method displayName="Person" id="4003" name="GET">
+                    <doc>Generate a random person</doc>
+                    <request>
+                        <param name="gender" required="true" style="query" type="xsd:string">
+                            <doc>male female</doc>
+                        </param>
+                        <param name="locale" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4003:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="people/">
+            <resource uri="{count}/">
+                <param name="count" style="template" type="xsd:string"/>
+                <method displayName="People" id="4002" name="GET">
+                    <doc>Generate a set of random people</doc>
+                    <request>
+                        <param name="count" required="true" style="query" type="xsd:integer"/>
+                    </request>
+                    <response>
+                        <representation element="f4002:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="net/">
+            <resource uri="{type}/">
+                <param name="type" style="template" type="xsd:string"/>
+                <resource uri="{browser}/">
+                    <param name="browser" style="template" type="xsd:string"/>
+                    <method displayName="Net" id="4001" name="GET">
+                        <doc>Return a random networking-related value</doc>
+                        <request>
+                            <param name="browser" required="true" style="query" type="xsd:string">
+                                <doc>chrome firefox safari opera ie</doc>
+                            </param>
+                            <param name="type" required="true" style="query" type="xsd:string">
+                                <doc>domain url slug mac ip ipv ipv local ua useragent</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4001:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="lorem/">
+            <resource uri="{length}/">
+                <param name="length" style="template" type="xsd:string"/>
+                <method displayName="Lorem" id="4000" name="GET">
+                    <doc>Generate Lorem Ipsum text</doc>
+                    <request>
+                        <param name="length" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4000:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="locale/">
+            <method displayName="Locale" id="3999" name="GET">
+                <doc>Generate a random valid locale</doc>
+                <request/>
+                <response>
+                    <representation element="f3999:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="int/">
+            <resource uri="{min}/">
+                <param name="min" style="template" type="xsd:string"/>
+                <resource uri="{max}/">
+                    <param name="max" style="template" type="xsd:string"/>
+                    <method displayName="Int" id="3998" name="GET">
+                        <doc>Generate a random integer. Can also use /rand</doc>
+                        <request>
+                            <param name="max" required="true" style="query" type="xsd:integer"/>
+                            <param name="min" required="true" style="query" type="xsd:integer"/>
+                        </request>
+                        <response>
+                            <representation element="f3998:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="image/">
+            <resource uri="{width}/">
+                <param name="width" style="template" type="xsd:string"/>
+                <resource uri="{height}/">
+                    <param name="height" style="template" type="xsd:string"/>
+                    <resource uri="{tag}/">
+                        <param name="tag" style="template" type="xsd:string"/>
+                        <method displayName="Image" id="3997" name="GET">
+                            <doc>Get a random image URL from LoremPixel with the given dimensions and tag</doc>
+                            <request>
+                                <param name="height" required="true" style="query" type="xsd:string"/>
+                                <param name="tag" required="true" style="query" type="xsd:string"/>
+                                <param name="width" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f3997:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="hash/">
+            <resource uri="{type}/">
+                <param name="type" style="template" type="xsd:string"/>
+                <method displayName="Hash" id="3996" name="GET">
+                    <doc>Generate a random hash</doc>
+                    <request>
+                        <param name="type" required="true" style="query" type="xsd:string">
+                            <doc>md sha sha</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3996:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="date/">
+            <resource uri="{before}/">
+                <param name="before" style="template" type="xsd:string"/>
+                <resource uri="{format}/">
+                    <param name="format" style="template" type="xsd:string"/>
+                    <method displayName="Date" id="3995" name="GET">
+                        <doc>Get a random date</doc>
+                        <request>
+                            <param name="before" required="true" style="query" type="xsd:string"/>
+                            <param name="format" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f3995:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="color/">
+            <resource uri="{format}/">
+                <param name="format" style="template" type="xsd:string"/>
+                <method displayName="Color" id="3994" name="GET">
+                    <doc>Generate a random color</doc>
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>hex rgb safe name</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3994:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="cc/">
+            <method displayName="Cc" id="3993" name="GET">
+                <doc>Generate a random, valid credit card, can also use /creditcard or /payment</doc>
+                <request/>
+                <response>
+                    <representation element="f3993:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

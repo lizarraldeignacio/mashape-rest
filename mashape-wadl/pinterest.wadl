@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f11="urn:function:f11" xmlns:f12="urn:function:f12">
+    <grammars>
+        <include href="Function12.xsd"/>
+        <include href="Function11.xsd"/>
+    </grammars>
+    <doc>this is an unofficial Pinterest API Pinterest is a pinboard style photo sharing website that allows users to create and manage theme based image collections such as events interests hobbies and more Users can browse other pinboards for inspiration re pin images to their own pinboards or like photos Credits to http pinterestapi co uk for the user specific Pinterest APIs</doc>
+    <resources base="https://ismaelc-pinterest.p.mashape.com/">
+        <resource uri="{u}/">
+            <param name="u" style="template" type="xsd:string"/>
+            <resource uri="pins/">
+                <method displayName="Show User Pins" id="12" name="GET">
+                    <doc>Shows pins from Pinterest user</doc>
+                    <request>
+                        <param name="page" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="u" required="true" style="query" type="xsd:string">
+                            <doc>enter Pinterest username</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f12:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="boards/">
+                <method displayName="Show User Boards" id="11" name="GET">
+                    <doc>Show boards from Pinterest user.  Limited to 50 results</doc>
+                    <request>
+                        <param name="u" required="true" style="query" type="xsd:string">
+                            <doc>pinterest user</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f11:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

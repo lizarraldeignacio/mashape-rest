@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6836="urn:function:f6836" xmlns:f6837="urn:function:f6837" xmlns:f6838="urn:function:f6838" xmlns:f6839="urn:function:f6839" xmlns:f6840="urn:function:f6840" xmlns:f6841="urn:function:f6841" xmlns:f6842="urn:function:f6842" xmlns:f6843="urn:function:f6843" xmlns:f6844="urn:function:f6844">
+    <grammars>
+        <include href="Function6844.xsd"/>
+        <include href="Function6843.xsd"/>
+        <include href="Function6840.xsd"/>
+        <include href="Function6842.xsd"/>
+        <include href="Function6841.xsd"/>
+        <include href="Function6839.xsd"/>
+        <include href="Function6838.xsd"/>
+        <include href="Function6837.xsd"/>
+        <include href="Function6836.xsd"/>
+    </grammars>
+    <doc>knowvent s API is a cloud based heartbeat monitor and notifications hub for your business With Knowvent developers can easily publish events to the business Business managers can subscribe to those events they care the most about With Knowvent email notifications are a thing of the past</doc>
+    <resources base="https://knowvent.p.mashape.com/">
+        <resource uri="Heartbeat/">
+            <resource uri="SetStatus/">
+                <method displayName="SetStatus" id="6844" name="POST">
+                    <doc>Used to update knowvent when a process starts or shuts down gracefully</doc>
+                    <request/>
+                    <response>
+                        <representation element="f6844:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="SendPulse/">
+                <method displayName="Send Pulse" id="6843" name="POST">
+                    <doc>Used to keep Knowvent informed that your critical processes are running.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f6843:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="GetStatuses/">
+                <method displayName="Get Statuses" id="6840" name="GET">
+                    <doc>Allows you to check on the health of your processes</doc>
+                    <request/>
+                    <response>
+                        <representation element="f6840:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="Event/">
+            <resource uri="PublishEvent/">
+                <method displayName="Publish Event" id="6842" name="GET">
+                    <doc>Used to publish an event. This is the heart of the event-publishing platform.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f6842:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="HelloWorld/">
+                <method displayName="HelloWorld" id="6841" name="GET">
+                    <doc>Getting Started Quickly with HelloWorld</doc>
+                    <request/>
+                    <response>
+                        <representation element="f6841:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="GetEvent/">
+                <method displayName="Get Event" id="6839" name="GET">
+                    <doc>If you need to get details on a specific event, this event accepts an eventId as query string parameter.</doc>
+                    <request>
+                        <param name="eventid" required="true" style="query" type="xsd:string">
+                            <doc>the Id of the Event to queried</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6839:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="Reporting/">
+            <resource uri="EventsByLoggingCode/">
+                <method displayName="Events By Logging Code" id="6838" name="GET">
+                    <doc>Used to pull event data based on a date range and Logging Code.</doc>
+                    <request>
+                        <param name="enddate" required="true" style="query" type="xsd:string">
+                            <doc>end Date</doc>
+                        </param>
+                        <param name="loggingcode" required="true" style="query" type="xsd:string"/>
+                        <param name="startdate" required="true" style="query" type="xsd:string">
+                            <doc>start Date</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6838:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="EventsByEventType/">
+                <method displayName="Events By EventType" id="6837" name="GET">
+                    <doc>Used to pull event data based on a date range and event type.</doc>
+                    <request>
+                        <param name="enddate" required="true" style="query" type="xsd:string">
+                            <doc>end Date</doc>
+                        </param>
+                        <param name="eventtype" required="true" style="query" type="xsd:string">
+                            <doc>event Type INFORMATION WARNING ERROR CRITICAL</doc>
+                        </param>
+                        <param name="startdate" required="true" style="query" type="xsd:string">
+                            <doc>start Date</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6837:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="EventsByDateRange/">
+                <method displayName="/Reporting/EventsByDateRange" id="6836" name="GET">
+                    <doc>Used to pull event data based on a date range.</doc>
+                    <request>
+                        <param name="enddate" required="true" style="query" type="xsd:string">
+                            <doc>end Date</doc>
+                        </param>
+                        <param name="startdate" required="true" style="query" type="xsd:string">
+                            <doc>start Date</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6836:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

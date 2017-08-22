@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>this API extracts text data from PDF documents It can be used to create HTML documents that have high fidelity with the look of a PDF document Alternatively it can be used to create documents which capture the main parts of the document sections paragraphs tables lists and footnotes It also supports extraction to Word Excel JSON and plain text</doc>
+    <resources base="https://atticsoftware-pdf-converter-v1.p.mashape.com/">
+        <resource uri="convert/">
+            <method displayName="Convert File" id="6319" name="POST">
+                <doc>Converts pdf files to html, docx, xlsx, json and txt files</doc>
+                <request/>
+            </method>
+            <method displayName="Convert URL" id="6320" name="GET">
+                <doc>Converts pdf files to html, docx, xlsx, json and txt files</doc>
+                <request>
+                    <param name="endpage" required="true" style="query" type="xsd:integer">
+                        <doc>ending page of conversion Use for first page Defaults to last page</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>output format Valid values are html html docx xlsx txt and json Defaults to html</doc>
+                    </param>
+                    <param name="startpage" required="true" style="query" type="xsd:integer">
+                        <doc>starting page of conversion Use for first page Defaults to first page</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>uRL for pdf file to convert Make sure the file has a content type of application pdf Max file size is MB</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2639="urn:function:f2639">
+    <grammars>
+        <include href="Function2639.xsd"/>
+    </grammars>
+    <doc>the World Bank Group has set two goals for the world to achieve by End extreme poverty by decreasing the percentage of people living on less than a day to no more than Promote shared prosperity by fostering the income growth of the bottom for every country The World Bank is a vital source of financial and technical assistance to developing countries around the world We are not a bank in the ordinary sense but a unique partnership to reduce poverty and support development The World Bank Group comprises five institutions managed by their member countries Established in the World Bank Group is headquartered in Washington D C We have more than employees in more than offices worldwide</doc>
+    <resources base="https://community-worldbank.p.mashape.com/">
+        <resource uri="datacatalog/">
+            <method displayName="Data Catalog" id="2639" name="GET">
+                <doc>The Data Catalog API provides programmatic access to the list of datasets in the World Bank’s Open Data Catalog with associated metadata. The users can query metadata for specific datasets and also retrieve datasets using various facets such as Economy Coverage, Topics, Periodicity and Access options.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2639:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

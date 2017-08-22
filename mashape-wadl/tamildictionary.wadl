@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6593="urn:function:f6593" xmlns:f6594="urn:function:f6594">
+    <grammars>
+        <include href="Function6594.xsd"/>
+        <include href="Function6593.xsd"/>
+    </grammars>
+    <doc>tamil Dictionary API Access agarathi com tamil dictionary functionality in an easy to use REST API form The following dictionaries are available University of Madras Lexicon J P Fabricius Tamil and English Dictionary Miron Winslow A Comprehensive Tamil and English Dictionary David McAlpin A Core vocabulary for Tamil agarathi com dictionary</doc>
+    <resources base="https://tamil.p.mashape.com/">
+        <resource uri="search/">
+            <method displayName="search" id="6594" name="GET">
+                <doc>Search a word in agarathi.com dictionaries</doc>
+                <request>
+                    <param name="dictionary" required="true" style="query" type="xsd:string">
+                        <doc>dictionary to search the word in Default is all</doc>
+                    </param>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>tamil word to search</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6594:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="dictionary/">
+            <resource uri="list/">
+                <method displayName="list dictionaries" id="6593" name="GET">
+                    <doc>List the available Dictionaries</doc>
+                    <request/>
+                    <response>
+                        <representation element="f6593:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

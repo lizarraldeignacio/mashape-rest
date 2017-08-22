@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3971="urn:function:f3971">
+    <grammars>
+        <include href="Function3971.xsd"/>
+    </grammars>
+    <doc>a simple UK postcode lookup API with the latest Royal Mail addresses Sign up for a free trial or buy credits on our website Note You will need to purchase credits to go live</doc>
+    <resources base="https://allies-postcoder.p.mashape.com/">
+        <resource uri="{search-key}/">
+            <param name="search-key" style="template" type="xsd:string"/>
+            <resource uri="address/">
+                <resource uri="uk/">
+                    <resource uri="{postcode}/">
+                        <param name="postcode" style="template" type="xsd:string"/>
+                        <method displayName="Postcode lookup web API" id="3971" name="GET">
+                            <doc>Sign up for a free trial or try it out here. Note: You will need to purchase credits to go live.</doc>
+                            <request>
+                                <param name="lines" required="true" style="query" type="xsd:string">
+                                    <doc>number of lines used to display each address</doc>
+                                </param>
+                                <param name="postcode" required="true" style="query" type="xsd:string">
+                                    <doc>postcode to lookup or first part of the address</doc>
+                                </param>
+                                <param name="searchKey" required="true" style="query" type="xsd:string">
+                                    <doc>unique identifier associated with your account our example key is limited to NR PZ Sign up on our website to get your key</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f3971:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="position/">
+                <resource uri="uk/">
+                    <resource uri="{postcode}/">
+                        <param name="postcode" style="template" type="xsd:string"/>
+                        <method displayName="Geocoding with Postcode" id="3970" name="GET">
+                            <doc>Get latitude and longitude co-ordinates along with OS Grid Reference eastings and northings from just a postcode. Sign up for a free trial or try it out here. Note: You will need to purchase credits to go live.</doc>
+                            <request>
+                                <param name="postcode" required="true" style="query" type="xsd:string">
+                                    <doc>postcode to lookup</doc>
+                                </param>
+                                <param name="searchKey" required="true" style="query" type="xsd:string">
+                                    <doc>unique identifier associated with your account our example key is limited to NR PZ Sign up on our website to get your key</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="addressgeo/">
+                <resource uri="uk/">
+                    <resource uri="{postcode}/">
+                        <param name="postcode" style="template" type="xsd:string"/>
+                        <method displayName="Address and Geocoding lookup" id="3969" name="GET">
+                            <doc>Address lookup with geocoding information in one call. Sign up for a free trial or try it out here. Note: You will need to purchase credits to go live.</doc>
+                            <request>
+                                <param name="lines" required="true" style="query" type="xsd:string">
+                                    <doc>number of lines used to display each address</doc>
+                                </param>
+                                <param name="postcode" required="true" style="query" type="xsd:string">
+                                    <doc>postcode to lookup or first part of the address</doc>
+                                </param>
+                                <param name="searchKey" required="true" style="query" type="xsd:string">
+                                    <doc>unique identifier associated with your account our example key is limited to NR PZ Sign up on our website to get your key</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

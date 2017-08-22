@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3097="urn:function:f3097" xmlns:f3098="urn:function:f3098" xmlns:f3099="urn:function:f3099">
+    <grammars>
+        <include href="Function3097.xsd"/>
+        <include href="Function3098.xsd"/>
+        <include href="Function3099.xsd"/>
+    </grammars>
+    <doc>get the most viral videos from YouTube</doc>
+    <resources base="https://garrylachman-youtube-viral-videos-v1.p.mashape.com/">
+        <resource uri="mashape.php/">
+            <method displayName="getCategoriesCount" id="3097" name="GET">
+                <doc>Get categories list, videos count &amp; last update per category</doc>
+                <request>
+                    <param name="action" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3097:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="getViralVideos" id="3098" name="GET">
+                <doc>Get Youtube viral videos, updated every 30 minutes</doc>
+                <request>
+                    <param name="categories" required="true" style="query" type="xsd:string">
+                        <doc>filter by categories separated by commas for categories list use getCategoriesCount endpoint</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>pagenation page</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3098:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="searchViralVideos" id="3099" name="GET">
+                <doc>Search viral videos by title</doc>
+                <request>
+                    <param name="action" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>pagenation page number</doc>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>your search query</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3099:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

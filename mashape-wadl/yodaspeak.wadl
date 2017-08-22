@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>turn your sentences and webpage into Yoda speak Credits to http www yodaspeak co uk for providing this service This API is a test in progress and still sitting on a dev sandbox Things might break quite often</doc>
+    <resources base="https://yoda.p.mashape.com/">
+        <resource uri="yoda/">
+            <method displayName="1. Yoda Speak" id="2" name="GET">
+                <request>
+                    <param name="sentence" required="true" style="query" type="xsd:string">
+                        <doc>input sentence to turn into Yoda speak</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

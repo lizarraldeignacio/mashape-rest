@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>add TV information to your website or app with our easy to use REST API The TVMaze API uses JSON and conforms to the HATEOAS HAL principles</doc>
+    <resources base="https://tvjan-tvmaze-v1.p.mashape.com/">
+        <resource uri="shows/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="/shows/{id}" id="2368" name="GET">
+                    <doc>Get show information</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:integer"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="search/">
+            <resource uri="shows?q={query}/">
+                <param name="query" style="template" type="xsd:string"/>
+                <method displayName="/search/shows?q={query}" id="2367" name="GET">
+                    <doc>Search for shows</doc>
+                    <request>
+                        <param name="query" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="people?q={query}/">
+                <param name="query" style="template" type="xsd:string"/>
+                <method displayName="/search/people?q={query}" id="2366" name="GET">
+                    <doc>Search for people</doc>
+                    <request>
+                        <param name="query" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="schedule/">
+            <method displayName="/schedule" id="2365" name="GET">
+                <doc>Get the TV schedule</doc>
+                <request>
+                    <param name="country" required="true" style="query" type="xsd:string">
+                        <doc>an ISO country code</doc>
+                    </param>
+                    <param name="date" required="true" style="query" type="xsd:string">
+                        <doc>an ISO formatted date</doc>
+                    </param>
+                    <param name="filter" required="true" style="query" type="xsd:string">
+                        <doc>whether to show primetime shows only</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="people/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="/people/{id}" id="2364" name="GET">
+                    <doc>Get person information</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:integer"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>this simple barcode generator allows you to quickly create bar code images for qr code pdf codes or aztec codes</doc>
+    <resources base="https://sjehutch-barcode-generator.p.mashape.com/">
+        <resource uri="{type}/">
+            <param name="type" style="template" type="xsd:string"/>
+            <resource uri="{height}/">
+                <param name="height" style="template" type="xsd:string"/>
+                <resource uri="{width}/">
+                    <param name="width" style="template" type="xsd:string"/>
+                    <method displayName="Create Barcode" id="1288" name="GET">
+                        <doc>Creating Images for pdf417, QRCode or Aztec Code</doc>
+                        <request>
+                            <param name="height" required="true" style="query" type="xsd:string">
+                                <doc>height for barcode image default is</doc>
+                            </param>
+                            <param name="text" required="true" style="query" type="xsd:string">
+                                <doc>this is where you add the barcode number or qr code text to a web page</doc>
+                            </param>
+                            <param name="type" required="true" style="query" type="xsd:string">
+                                <doc>type of Code qrcode pdf or azteccode</doc>
+                            </param>
+                            <param name="width" required="true" style="query" type="xsd:string">
+                                <doc>width for barcode image default is</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

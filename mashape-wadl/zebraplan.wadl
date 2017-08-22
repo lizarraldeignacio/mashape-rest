@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>zebraPlan is an agile project management tool for software development companies ZebraPlan provides a web API which enables developers to integrate their websites mobile applications or other non web based applications with the ZebraPlan software using simple HTTP methods in either XML or JSON formats</doc>
+    <resources base="https://zebraplan-zebraplan-v1.p.mashape.com/">
+        <resource uri="Account/">
+            <resource uri="CheckIfDomainExist?subDomain={subdomain}/">
+                <param name="subdomain" style="template" type="xsd:string"/>
+                <method displayName="Check the Database for a SubDomain" id="7147" name="POST">
+                    <doc>Check the Database for a SubDomain. Use this endpoint to test your api connexion is working.</doc>
+                    <request>
+                        <param name="subdomain" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

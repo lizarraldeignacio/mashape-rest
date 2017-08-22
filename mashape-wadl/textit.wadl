@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1505="urn:function:f1505" xmlns:f1506="urn:function:f1506">
+    <grammars>
+        <include href="Function1506.xsd"/>
+        <include href="Function1505.xsd"/>
+    </grammars>
+    <doc>easily create interactive SMS applications anywhere in the world At the core of TextIt lies our exclusive Flow engine With Flows anybody can set up or modify a complex SMS application without the need of a programmer or expensive consulting company Using a basic Android phone you can launch your application instantly in any country while avoiding expensive set up costs or external technical support</doc>
+    <resources base="https://community-textit.p.mashape.com/">
+        <resource uri="sms.json/">
+            <method displayName="Listing SMS Messages" id="1504" name="GET">
+                <doc>Returns the SMS activity for your organization, listing the most recent messages first.</doc>
+                <request>
+                    <param name="createdOn" required="true" style="query" type="xsd:string">
+                        <doc>the datetime when this sms was either received by the relayer or created by TextIt datetime filterable before and after</doc>
+                    </param>
+                    <param name="deliveredOn" required="true" style="query" type="xsd:string">
+                        <doc>for outgoing messages the datetime when the relayer delivered the message null if not yet sent or an incoming message datetime</doc>
+                    </param>
+                    <param name="direction" required="true" style="query" type="xsd:string">
+                        <doc>the direction of the SMS either I for incoming messages or O for outgoing string filterable direction</doc>
+                    </param>
+                    <param name="phone" required="true" style="query" type="xsd:string">
+                        <doc>the phone number of the sender or receiver depending on direction string filterable phone</doc>
+                    </param>
+                    <param name="relayer" required="true" style="query" type="xsd:string">
+                        <doc>the id of the Android relayer that sent or received this message int filterable relayer</doc>
+                    </param>
+                    <param name="sentOn" required="true" style="query" type="xsd:string">
+                        <doc>for outgoing messages the datetime when the relayer sent the message null if not yet sent or an incoming message datetime</doc>
+                    </param>
+                    <param name="status" required="true" style="query" type="xsd:string">
+                        <doc>the status of this message a string one of filterable status Q Message is queued awaiting to be sent S Message has been sent by the relayer D Message was delivered to the recipient H Incoming message was handled by TextIt F Message was not sent due to a failure</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>the text of the message received not this is the logical view this message may have been received as multiple text messages string</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Sending Messages" id="1506" name="POST">
+                <doc>You can create new messages by making a POST request to this URL with the following JSON data</doc>
+                <request/>
+                <response>
+                    <representation element="f1506:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="relayers.json/">
+            <method displayName="Claim Relayers" id="1502" name="POST">
+                <doc>You can associate a new Android relayer to your account by sending a POST request to this URL with the following JSON data:</doc>
+                <request/>
+            </method>
+            <method displayName="List Relayers" id="1503" name="GET">
+                <doc>A GET returns the list of Android relayers for your organization, in the order of last activity date. Note that all status information for the device is as of the last time it was seen and can be null before the first sync.</doc>
+                <request>
+                    <param name="country" required="true" style="query" type="xsd:string">
+                        <doc>which country the sim card for this relayer is registered for string two letter country code filterable country</doc>
+                    </param>
+                    <param name="lastSeen" required="true" style="query" type="xsd:string">
+                        <doc>the datetime when this relayer was last seen by TextIt datetime filterable before and after</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>the name of this relayer string</doc>
+                    </param>
+                    <param name="networkType" required="true" style="query" type="xsd:string">
+                        <doc>the type of network the device is connected to as reported by Android string</doc>
+                    </param>
+                    <param name="pendingMessageCount" required="true" style="query" type="xsd:string">
+                        <doc>how many messages are assigned to this relayer but not yet sent int</doc>
+                    </param>
+                    <param name="phone" required="true" style="query" type="xsd:string">
+                        <doc>the phone number for the relayer string filterable phone</doc>
+                    </param>
+                    <param name="powerLevel" required="true" style="query" type="xsd:string">
+                        <doc>the power level of the device int</doc>
+                    </param>
+                    <param name="powerSource" required="true" style="query" type="xsd:string">
+                        <doc>the source of power as reported by Android string</doc>
+                    </param>
+                    <param name="powerStatus" required="true" style="query" type="xsd:string">
+                        <doc>the power status either STATUS DISCHARGING or STATUS CHARGING string</doc>
+                    </param>
+                    <param name="relayer" required="true" style="query" type="xsd:string">
+                        <doc>the id of the the relayer long</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Remove Relayers" id="1505" name="DELETE">
+                <doc>A DELETE removes all matching relayers from your account. You can filter the list of relayers to remove using the same attributes as the list call above.</doc>
+                <request/>
+                <response>
+                    <representation element="f1505:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="calls.json/">
+            <method displayName="Calls" id="1501" name="GET">
+                <doc>Returns the incoming and outgoing calls for your organization, most recent first.</doc>
+                <request>
+                    <param name="callType" required="true" style="query" type="xsd:string">
+                        <doc>one of the following strings filterable call type mt call Outgoing Call mo call Incoming Call mo miss Missed Incoming Call</doc>
+                    </param>
+                    <param name="createdOn" required="true" style="query" type="xsd:string">
+                        <doc>when the call was received or sent datetime filterable before and after</doc>
+                    </param>
+                    <param name="duration" required="true" style="query" type="xsd:string">
+                        <doc>the duration of the call in seconds int for missed calls</doc>
+                    </param>
+                    <param name="phone" required="true" style="query" type="xsd:string">
+                        <doc>the phone number of the caller or callee depending on the call type string filterable phone</doc>
+                    </param>
+                    <param name="relayer" required="true" style="query" type="xsd:string">
+                        <doc>which relayer received or placed this call int filterable relayer</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

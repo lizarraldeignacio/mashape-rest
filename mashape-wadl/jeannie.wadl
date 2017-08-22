@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f459="urn:function:f459">
+    <grammars>
+        <include href="Function459.xsd"/>
+    </grammars>
+    <doc>jeannie Voice Actions is a virtual assistant with over three million downloads now also available via API The objective of this service is to provide you and your robot with the smartest response to any natural language question just like Siri Jeannie API provides an interface to the standard functions that users demand of modern voice assistants like chatting controlling your devices looking up information creating messages and much much more You can extend this API to your own needs It also provides useful metadata such as sentence analysis and entity extraction that goes beyond simple chatting and voice commands Several million users have already been in contact with this API http www voice actions com Examples https weannie pannous com api input hi login test user https ask pannous com input hi Complete documentation https docs google com document d dVG B Sc x fi pN iJJjfF bJY KEFzUqjOb NsntI edit</doc>
+    <resources base="https://jeannie.p.mashape.com/">
+        <resource uri="text/">
+            <method displayName="Text" id="461" name="GET">
+                <doc>Plaintext response</doc>
+                <request>
+                    <param name="clientfeatures" required="true" style="query" type="xsd:string">
+                        <doc>see documentation</doc>
+                    </param>
+                    <param name="input" required="true" style="query" type="xsd:string">
+                        <doc>just about any phrase query or command in any language</doc>
+                    </param>
+                    <param name="locale" required="true" style="query" type="xsd:string">
+                        <doc>language you want to communicate in languages supported</doc>
+                    </param>
+                    <param name="location" required="true" style="query" type="xsd:string">
+                        <doc>append longitude and latitude to get more location aware responses Otherwise the IP will used to guess the location</doc>
+                    </param>
+                    <param name="out" required="true" style="query" type="xsd:string"/>
+                    <param name="timezone" required="true" style="query" type="xsd:string">
+                        <doc>offset to CET</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="teach/">
+            <method displayName="teach" id="460" name="POST">
+                <doc>Teach your bot new actions and responses</doc>
+                <request>
+                    <param name="action" required="true" style="query" type="xsd:string">
+                        <doc>action performed if request is matching May be url intent custom json etc</doc>
+                    </param>
+                    <param name="request" required="true" style="query" type="xsd:string">
+                        <doc>question or command to your bot</doc>
+                    </param>
+                    <param name="response" required="true" style="query" type="xsd:string">
+                        <doc>verbal response to request</doc>
+                    </param>
+                    <param name="teaching" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+        <resource uri="api/">
+            <method displayName="JSON" id="459" name="GET">
+                <doc>Http request</doc>
+                <request>
+                    <param name="input" required="true" style="query" type="xsd:string">
+                        <doc>any free text question or command</doc>
+                    </param>
+                    <param name="locale" required="true" style="query" type="xsd:string">
+                        <doc>specify language de en fr en US optional auto detected if omitted</doc>
+                    </param>
+                    <param name="location" required="true" style="query" type="xsd:string">
+                        <doc>append longitude and latitude to get more location aware responses Otherwise the IP will used to guess the location</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>sometimes you may page through lists of links images pages etc</doc>
+                    </param>
+                    <param name="timezone" required="true" style="query" type="xsd:string">
+                        <doc>specify the timezone offset of your client compared to UTC in minutes E g for Germany</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f459:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

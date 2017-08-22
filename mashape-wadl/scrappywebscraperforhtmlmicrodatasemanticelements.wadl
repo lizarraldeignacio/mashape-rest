@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1426="urn:function:f1426">
+    <grammars>
+        <include href="Function1426.xsd"/>
+    </grammars>
+    <doc>scrappy is a tool for extract any kind of schema org semantic microdata from any given URL</doc>
+    <resources base="https://netfluid-framework-scrappy---web-scraper-for-html5-microdata-se.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Scrap microdata elements" id="1426" name="POST">
+                <doc>Return all schema.org microdata present at given URL</doc>
+                <request/>
+                <response>
+                    <representation element="f1426:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

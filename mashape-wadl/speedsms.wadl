@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>gateway SMS for Italy</doc>
+    <resources base="https://speedsms1-speedsms-v1.p.mashape.com/">
+        <resource uri="api.php/">
+            <method displayName="/api.php" id="4871" name="POST">
+                <request>
+                    <param name="message" required="true" style="query" type="xsd:string"/>
+                    <param name="password" required="true" style="query" type="xsd:string"/>
+                    <param name="phone" required="true" style="query" type="xsd:string"/>
+                    <param name="username" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

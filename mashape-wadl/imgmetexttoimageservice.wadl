@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>iMG Me is a free service to convert your text into image You can use this service to prevent crawlers and robots from copying your email address articles or website contents Meanwhile you can handle encoding errors as well if your text is in non English characters</doc>
+    <resources base="https://img4me.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Main" id="347" name="GET">
+                <doc>The API will return the URL of the image generated.</doc>
+                <request>
+                    <param name="bcolor" required="true" style="query" type="xsd:string">
+                        <doc>background color in HEX Leave empty for transparent background</doc>
+                    </param>
+                    <param name="fcolor" required="true" style="query" type="xsd:string">
+                        <doc>font color in HEX</doc>
+                    </param>
+                    <param name="font" required="true" style="query" type="xsd:string">
+                        <doc>font for the image generated Supported word arial comic dyslexic georgia impact lucida simsun tahoma times trebuchet verdana</doc>
+                    </param>
+                    <param name="size" required="true" style="query" type="xsd:integer">
+                        <doc>font size</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>text to be converted into image</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>image format gif jpg png</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

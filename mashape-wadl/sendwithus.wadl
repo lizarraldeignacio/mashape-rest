@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2785="urn:function:f2785">
+    <grammars>
+        <include href="Function2785.xsd"/>
+    </grammars>
+    <doc>sendwithus aims to bring optimization and A B testing to marketers and anyone else sending out targeted promotional emails</doc>
+    <resources base="https://community-sendwithus.p.mashape.com/">
+        <resource uri="send/">
+            <method displayName="Send an email" id="2785" name="POST">
+                <doc>To send an email, you create a new API object. You need to provide your unique API key to create this new object. When sending an email, you need to specify an email template. Email templates are identified by a unique email template ID.</doc>
+                <request/>
+                <response>
+                    <representation element="f2785:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6746="urn:function:f6746">
+    <grammars>
+        <include href="Function6746.xsd"/>
+    </grammars>
+    <doc>this API allows you to convert an photo of a document into a scan of a document You can write your own camera scanner app Improves quality cleans up does perspective transformation all that to produce amazing results Check it out yourself</doc>
+    <resources base="https://bazzilic-doxcan-v1.p.mashape.com/">
+        <resource uri="get/">
+            <resource uri="{filename}/">
+                <param name="filename" style="template" type="xsd:string"/>
+                <method displayName="Download the processed image" id="6745" name="GET">
+                    <request>
+                        <param name="filename" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="image/">
+            <resource uri="upload/">
+                <method displayName="Upload image" id="6746" name="POST">
+                    <doc>Corner marks show how to do a perspective transformation. Each corner mark coord is in range [0.0; 1.0] where (0.0; 0.0) is upper left corner. Basically, after transformation a left-upper mark will move to the left-upper corner, etc. You can head over to http://doxcan.com/ and check out how this works.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f6746:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="download/">
+                <resource uri="{job_id}/">
+                    <param name="job_id" style="template" type="xsd:string"/>
+                    <method displayName="/image/download/{job_id}" id="6744" name="GET">
+                        <doc>There are 4 possible results of this query. Status 202 - image is still being processed, repeat in a few seconds. Status 404 - no such job. Status 415 - service was unable to process your file. Status 302 - file was processed and you are redirected to the URL to download it.</doc>
+                        <request>
+                            <param name="jobId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

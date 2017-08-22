@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3413="urn:function:f3413" xmlns:f3414="urn:function:f3414" xmlns:f3415="urn:function:f3415">
+    <grammars>
+        <include href="Function3414.xsd"/>
+        <include href="Function3415.xsd"/>
+        <include href="Function3413.xsd"/>
+    </grammars>
+    <doc>insto allows the simple addition of realtime websocket functionality to your web projects with no software installation or hardware configuration We handle the boring work behind the scenes to allow you to focus on developing rich and engaging applications for your users Create realtime chat analytics push notifications games presentation packages and so much more It is required that you sign up for an API key via www insto co uk</doc>
+    <resources base="https://mattcollins84-insto---realtime-push-notification-and-communicat.p.mashape.com/">
+        <resource uri="{API_KEY}/">
+            <param name="API_KEY" style="template" type="xsd:string"/>
+            <resource uri="query/">
+                <method displayName="Query" id="3414" name="GET">
+                    <doc>Return connected users that match a supplied query</doc>
+                    <request>
+                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                            <doc>your API key</doc>
+                        </param>
+                        <param name="item" required="true" style="query" type="xsd:string">
+                            <doc>the first key value pair that a user should match</doc>
+                        </param>
+                        <param name="itemn" required="true" style="query" type="xsd:string">
+                            <doc>the Nth key value pair that a user should match</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3414:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="message/">
+                <resource uri="to/">
+                    <resource uri="{KEY}/">
+                        <param name="KEY" style="template" type="xsd:string"/>
+                        <resource uri="{VALUE}/">
+                            <param name="VALUE" style="template" type="xsd:string"/>
+                            <method displayName="Send" id="3415" name="GET">
+                                <doc>Send a collection of key/pair values to all matching connected users</doc>
+                                <request>
+                                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                                        <doc>your API key</doc>
+                                    </param>
+                                    <param name="item" required="true" style="query" type="xsd:string">
+                                        <doc>the first key pair to be sent to the receiving user</doc>
+                                    </param>
+                                    <param name="itemn" required="true" style="query" type="xsd:string">
+                                        <doc>the Nth key pair to be sent to the receiving user</doc>
+                                    </param>
+                                    <param name="key" required="true" style="query" type="xsd:string">
+                                        <doc>the field name that you are trying to match to connected users This can be anything</doc>
+                                    </param>
+                                    <param name="value" required="true" style="query" type="xsd:string">
+                                        <doc>the value of the key In this example any user with a userName of john would receive the notification</doc>
+                                    </param>
+                                </request>
+                                <response>
+                                    <representation element="f3415:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="all/">
+                    <method displayName="Broadcast" id="3413" name="GET">
+                        <doc>Send a collection of key/pair values to all connected users</doc>
+                        <request>
+                            <param name="apiKey" required="true" style="query" type="xsd:string">
+                                <doc>your API key</doc>
+                            </param>
+                            <param name="item" required="true" style="query" type="xsd:string">
+                                <doc>the first key pair to be sent to the receiving users</doc>
+                            </param>
+                            <param name="itemn" required="true" style="query" type="xsd:string">
+                                <doc>the Nth key pair to be sent to the receiving users</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f3413:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

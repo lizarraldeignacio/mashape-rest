@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>get informations about wiman hotspots like name city coordinates etc</doc>
+    <resources base="https://wiman-wiman---the-social-wi-fi-network.p.mashape.com/">
+        <resource uri="venue/">
+            <resource uri="search/">
+                <method displayName="venue search" id="1532" name="GET">
+                    <request>
+                        <param name="latitude" required="true" style="query" type="xsd:string">
+                            <doc>latitude</doc>
+                        </param>
+                        <param name="longitude" required="true" style="query" type="xsd:string">
+                            <doc>longitude</doc>
+                        </param>
+                        <param name="radius" required="true" style="query" type="xsd:integer">
+                            <doc>radius between and</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

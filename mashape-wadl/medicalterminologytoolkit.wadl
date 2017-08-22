@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4622="urn:function:f4622">
+    <grammars>
+        <include href="Function4622.xsd"/>
+    </grammars>
+    <doc>this API aims to offer tools that people can use to more easily parse medical terminology in an automated fashion The API uses data provided by the U S National Library of Medicine more information here http www nlm nih gov mesh More Endpoints coming soon</doc>
+    <resources base="https://arandall-disease-thesaurus-based-on-mesh-data.p.mashape.com/">
+        <resource uri="thesaurus/">
+            <method displayName="Disease Thesaurus" id="4622" name="GET">
+                <doc>Finds synonyms of diseases</doc>
+                <request>
+                    <param name="disease" required="true" style="query" type="xsd:string">
+                        <doc>input disease for synonym search</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4622:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

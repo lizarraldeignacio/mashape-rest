@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4650="urn:function:f4650" xmlns:f4651="urn:function:f4651">
+    <grammars>
+        <include href="Function4651.xsd"/>
+        <include href="Function4650.xsd"/>
+    </grammars>
+    <doc>query millions of SEC Filings such as Annual Reports K Statements Quarterly Reports Q Statements IPO Filings S Filings and almost other SEC Filing types The complete list of files submitted to the SEC is returned including exhibits contracts lease agreements and any other item submitted as part of the filing Search for Insider Transactions Form D Filings commonly used by startups raising money and more Please email info marketbrief com with any additional questions</doc>
+    <resources base="https://marketbrief-sec-filings.p.mashape.com/">
+        <resource uri="filings/">
+            <method displayName="SEC Filings" id="4651" name="GET">
+                <doc>Get latest SEC Filings by company ticket symbol, SEC Filing type, or latest sorted by date</doc>
+                <request>
+                    <param name="filingType" required="true" style="query" type="xsd:string">
+                        <doc>any SEC Filing type K Q S etc full list can be found at API call to filing types</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>based page number if not specified is used</doc>
+                    </param>
+                    <param name="ticker" required="true" style="query" type="xsd:string">
+                        <doc>company Ticker Symbol</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4651:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="filing_types/">
+            <method displayName="List SEC Filing Types" id="4650" name="GET">
+                <doc>Complete list of SEC Filing types with descriptions (S-1, 10-K, 10-Q, etc.)</doc>
+                <request/>
+                <response>
+                    <representation element="f4650:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

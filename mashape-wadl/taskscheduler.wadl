@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2425="urn:function:f2425" xmlns:f2426="urn:function:f2426" xmlns:f2427="urn:function:f2427" xmlns:f2428="urn:function:f2428">
+    <grammars>
+        <include href="Function2428.xsd"/>
+        <include href="Function2427.xsd"/>
+        <include href="Function2426.xsd"/>
+        <include href="Function2425.xsd"/>
+    </grammars>
+    <doc>a simple management and easy to use task scheduling</doc>
+    <resources base="https://taskscheduler.p.mashape.com/">
+        <resource uri="task-test/">
+            <method displayName="Test Run" id="2428" name="GET">
+                <doc>Test your tasks can be run properly, and you can view the test data. Finally, the task is finished, you can via HTTP address: http://api.annice.com.cn/TaskScheduler/task name.txt, view the task execution results.</doc>
+                <request>
+                    <param name="method" required="true" style="query" type="xsd:string">
+                        <doc>the task requests manner the current GET or POST</doc>
+                    </param>
+                    <param name="run" required="true" style="query" type="xsd:string">
+                        <doc>which means that a URL address</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2428:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="task-put/">
+            <method displayName="Task Put" id="2427" name="GET">
+                <doc>Additional or update task, if the task is not included in this section task to add, or update an existing task.</doc>
+                <request>
+                    <param name="date" required="true" style="query" type="xsd:string">
+                        <doc>define the execution date the default is the current date</doc>
+                    </param>
+                    <param name="day" required="true" style="query" type="xsd:integer">
+                        <doc>the number of days of the task intervals</doc>
+                    </param>
+                    <param name="last" required="true" style="query" type="xsd:integer">
+                        <doc>the task repeated execution duration the maximum value of or hours in minutes</doc>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string">
+                        <doc>the task requests mode request to get mode by default</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>define a task name he must be unique</doc>
+                    </param>
+                    <param name="run" required="true" style="query" type="xsd:string">
+                        <doc>the need to request the network address usually a URL address</doc>
+                    </param>
+                    <param name="space" required="true" style="query" type="xsd:integer">
+                        <doc>the task repeat the interval length minutes and means no Repeat</doc>
+                    </param>
+                    <param name="time" required="true" style="query" type="xsd:string">
+                        <doc>the task at what time</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>task type task type RunOnce Executive the Run Daily performed on a daily basis RunWeekly weekly RunMonthly monthly execution</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2427:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="task-get/">
+            <method displayName="Task Get" id="2426" name="GET">
+                <doc>Task information need to specify the name of the task before they can get to the task information.</doc>
+                <request>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>get the name of the task information</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2426:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="task-del/">
+            <method displayName="Task Delete" id="2425" name="GET">
+                <doc>Delete tasks need to specify the name of the task before you can delete the task</doc>
+                <request>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>the name of the task you need to remove</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2425:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

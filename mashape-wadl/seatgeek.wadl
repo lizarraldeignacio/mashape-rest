@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f406="urn:function:f406" xmlns:f407="urn:function:f407" xmlns:f408="urn:function:f408" xmlns:f409="urn:function:f409" xmlns:f410="urn:function:f410" xmlns:f411="urn:function:f411" xmlns:f412="urn:function:f412">
+    <grammars>
+        <include href="Function411.xsd"/>
+        <include href="Function412.xsd"/>
+        <include href="Function410.xsd"/>
+        <include href="Function408.xsd"/>
+        <include href="Function409.xsd"/>
+        <include href="Function406.xsd"/>
+        <include href="Function407.xsd"/>
+    </grammars>
+    <doc>seatGeek is a ticket search site that aggregates sports concert and theater ticket listings from over ticketing sites including StubHub and TicketsNow The SeatGeek API provides developers with broad access to the company s dataset of nearly live events The RESTful API returns requests in JSON JSONP and XML and can provide detailed information on venue lat lon average ticket price seating location and more SeatGeek has a community portal that keeps a record of all support conversations and is a useful tool when looking to get questions answered Sites can also monetize their content with SeatGeek s API by registering in SeatGeek s Partner Program Each time a partner sends a referral to SeatGeek and they purchase a ticket SeatGeek will pay their partner of the revenue earned on that transaction Currently users are averaging per sale generated</doc>
+    <resources base="https://seatgeek-seatgeekcom.p.mashape.com/">
+        <resource uri="venues/">
+            <method displayName="Venue" id="411" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>seatgeek venue id</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f411:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Venues" id="412" name="GET">
+                <request/>
+                <response>
+                    <representation element="f412:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="taxonomies/">
+            <method displayName="Taxonomies" id="410" name="GET">
+                <doc>Returns all seatgeek taxonomies</doc>
+                <request/>
+                <response>
+                    <representation element="f410:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="performers/">
+            <method displayName="Performer" id="408" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>seatgeek performer id</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f408:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Performers" id="409" name="GET">
+                <request/>
+                <response>
+                    <representation element="f409:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="events/">
+            <method displayName="Event" id="406" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>seatgeek event id</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f406:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Events" id="407" name="GET">
+                <doc>Retrieve multiple events</doc>
+                <request/>
+                <response>
+                    <representation element="f407:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

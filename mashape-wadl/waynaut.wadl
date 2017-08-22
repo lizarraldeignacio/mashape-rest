@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6284="urn:function:f6284" xmlns:f6285="urn:function:f6285" xmlns:f6286="urn:function:f6286" xmlns:f6287="urn:function:f6287" xmlns:f6288="urn:function:f6288" xmlns:f6289="urn:function:f6289">
+    <grammars>
+        <include href="Function6287.xsd"/>
+        <include href="Function6288.xsd"/>
+        <include href="Function6289.xsd"/>
+        <include href="Function6284.xsd"/>
+        <include href="Function6285.xsd"/>
+        <include href="Function6286.xsd"/>
+    </grammars>
+    <doc>multimodal Directions as a Service Traditional and innovative means of transportation together in one API We allow every website or app to show their users the best way to get where they need by combining the traditional means of transport such as bus metro or taxi with the most innovative ones like carpooling ridesharing or carsharing</doc>
+    <resources base="https://waynaut.p.mashape.com/">
+        <resource uri="0.1/">
+            <resource uri="getroute/">
+                <resource uri="{lata}/">
+                    <param name="lata" style="template" type="xsd:string"/>
+                    <resource uri="{lnga}/">
+                        <param name="lnga" style="template" type="xsd:string"/>
+                        <resource uri="{latb}/">
+                            <param name="latb" style="template" type="xsd:string"/>
+                            <resource uri="{lngb}/">
+                                <param name="lngb" style="template" type="xsd:string"/>
+                                <method displayName="GetRoute" id="6287" name="GET">
+                                    <doc>Returns a trip-plan between the given coordinates departing "now". There are many optional parameters to tune the departure time and trip preferences.</doc>
+                                    <request>
+                                        <param name="lata" required="true" style="query" type="xsd:integer">
+                                            <doc>latitude of the departure point</doc>
+                                        </param>
+                                        <param name="latb" required="true" style="query" type="xsd:integer">
+                                            <doc>latitude of the arrival point</doc>
+                                        </param>
+                                        <param name="lnga" required="true" style="query" type="xsd:integer">
+                                            <doc>longitude of the departure point</doc>
+                                        </param>
+                                        <param name="lngb" required="true" style="query" type="xsd:integer">
+                                            <doc>longitude of the arrival point</doc>
+                                        </param>
+                                    </request>
+                                    <response>
+                                        <representation element="f6287:root" mediaType="application/json"/>
+                                    </response>
+                                </method>
+                                <method displayName="GetRoute with cheap/fast bar" id="6288" name="GET">
+                                    <doc>Retrieve a multi-modal route between two points using a cheap/fast bar preference. The {bar} expresses a measure of value for the time of the traveler, 10 will look for a cheap trip, 100 will look for a fast and expansive trip.</doc>
+                                    <request>
+                                        <param name="bar" required="true" style="query" type="xsd:integer">
+                                            <doc>a number between and the lower the number the cheaper the trip the higher the number the more expansive the trip</doc>
+                                        </param>
+                                        <param name="lata" required="true" style="query" type="xsd:integer">
+                                            <doc>latitude of the departure point</doc>
+                                        </param>
+                                        <param name="latb" required="true" style="query" type="xsd:integer">
+                                            <doc>latitude of the arrival point</doc>
+                                        </param>
+                                        <param name="lnga" required="true" style="query" type="xsd:integer">
+                                            <doc>longitude of the departure point</doc>
+                                        </param>
+                                        <param name="lngb" required="true" style="query" type="xsd:integer">
+                                            <doc>longitude of the arrival point</doc>
+                                        </param>
+                                    </request>
+                                    <response>
+                                        <representation element="f6288:root" mediaType="application/json"/>
+                                    </response>
+                                </method>
+                                <method displayName="GetRoute with cheap/fast bar and departure time" id="6289" name="GET">
+                                    <doc>Retrieve a route between the given points, departing at a time specified as UNIX epoch and with cheap (bar=10) or fast (bar=100) preference.</doc>
+                                    <request>
+                                        <param name="bar" required="true" style="query" type="xsd:integer">
+                                            <doc>this parameters specifies the value of time for the passenger means the route must be cheap the route must be fast also intermediate number can be used</doc>
+                                        </param>
+                                        <param name="lata" required="true" style="query" type="xsd:integer">
+                                            <doc>latitude of the departure point</doc>
+                                        </param>
+                                        <param name="latb" required="true" style="query" type="xsd:integer">
+                                            <doc>latitude of the arrival point</doc>
+                                        </param>
+                                        <param name="lnga" required="true" style="query" type="xsd:integer">
+                                            <doc>longitude of the departure point</doc>
+                                        </param>
+                                        <param name="lngb" required="true" style="query" type="xsd:integer">
+                                            <doc>longitude of the arrival point</doc>
+                                        </param>
+                                        <param name="millis" required="true" style="query" type="xsd:integer">
+                                            <doc>uNIX epoch that describes the desired departure time</doc>
+                                        </param>
+                                    </request>
+                                    <response>
+                                        <representation element="f6289:root" mediaType="application/json"/>
+                                    </response>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="connected/">
+                <resource uri="{lata}/">
+                    <param name="lata" style="template" type="xsd:string"/>
+                    <resource uri="{lnga}/">
+                        <param name="lnga" style="template" type="xsd:string"/>
+                        <method displayName="Connected" id="6284" name="GET">
+                            <doc>This API call tells you if a point (lat,lng) is covered by our database. I.e. if there is at least one way of transport passing nearby the given point (default distance is 200m, default hour is "now"; these parameters can be specified)</doc>
+                            <request>
+                                <param name="lata" required="true" style="query" type="xsd:integer">
+                                    <doc>latitude of the point in double format e g</doc>
+                                </param>
+                                <param name="lnga" required="true" style="query" type="xsd:integer">
+                                    <doc>longitude of the point in double format e g</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f6284:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Connected within Range" id="6285" name="GET">
+                            <doc>Find if a point (lat,lng) is covered by our transportation system withing a range of {range} meters.</doc>
+                            <request>
+                                <param name="lata" required="true" style="query" type="xsd:integer">
+                                    <doc>latitude of the point in double format e g</doc>
+                                </param>
+                                <param name="lnga" required="true" style="query" type="xsd:integer">
+                                    <doc>longitude of the point in double format e g</doc>
+                                </param>
+                                <param name="range" required="true" style="query" type="xsd:integer">
+                                    <doc>range in meters look for transportation mean stops withing this range form the lat lng point</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f6285:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Connected within Range at a given Time" id="6286" name="GET">
+                            <doc>Find if our system has a transportation mean passing within {range} meters from the given point (lat,lng) at about the given time in milliseconds {millis} (unix epoch time)</doc>
+                            <request>
+                                <param name="lata" required="true" style="query" type="xsd:integer">
+                                    <doc>latitude of the given point in double format e g</doc>
+                                </param>
+                                <param name="lnga" required="true" style="query" type="xsd:integer">
+                                    <doc>longitude of the given point in double format e g</doc>
+                                </param>
+                                <param name="millis" required="true" style="query" type="xsd:integer">
+                                    <doc>milliseconds at which the transportation mean is being checked for a stop</doc>
+                                </param>
+                                <param name="range" required="true" style="query" type="xsd:integer">
+                                    <doc>range in meters to look for transportation mean connection nodes from the given point lat lng</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f6286:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

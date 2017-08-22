@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f553="urn:function:f553">
+    <grammars>
+        <include href="Function553.xsd"/>
+    </grammars>
+    <doc>sentiment analysis and keyword extraction for English French German Russian See http www skyttle com for demos tutorials and example clients The API is reachable on https sentinelprojects skyttle p mashape com</doc>
+    <resources base="https://sentinelprojects-skyttle20.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Main endpoint" id="553" name="POST">
+                <request/>
+                <response>
+                    <representation element="f553:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

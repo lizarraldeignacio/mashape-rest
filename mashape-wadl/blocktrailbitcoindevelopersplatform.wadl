@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>blockTrail is a bitcoin API and developers platform enabling data and payments for developers enterprises and service providers</doc>
+    <resources base="https://btcbb-blocktrail-bitcoin-developers-platform-v1.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="{network}/">
+                <param name="network" style="template" type="xsd:string"/>
+                <method displayName="/v1/{network}" id="5309" name="GET">
+                    <doc>BlockTrail API Endpoint</doc>
+                    <request>
+                        <param name="network" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

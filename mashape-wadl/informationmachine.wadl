@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>with the Information Machine API your users can choose to stream their purchase receipt data from online or loyalty card purchases Your application now has access to live historic product level purchase data fundamentally changing the value you can offer can offer to your customers</doc>
+    <resources base="https://informationmachine-information-machine-v1.p.mashape.com/">
+        <resource uri="">
+            <resource uri="api.iamdata.co/">
+                <resource uri="user/">
+                    <resource uri=":user_id/">
+                        <resource uri="stores/">
+                            <resource uri="?client_id=&lt;your_app_id&gt;&amp;client_secret=&lt;your_app_secret&gt;/">
+                                <method displayName="//api.iamdata.co/user/:user_id/stores/?client_id=&lt;your_app_id&gt;&amp;client_secret=&lt;your_app_secret&gt;" id="7224" name="GET">
+                                    <doc>list of user stores is request</doc>
+                                    <request/>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

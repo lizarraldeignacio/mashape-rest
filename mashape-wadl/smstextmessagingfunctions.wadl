@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>comprehensive SMS messaging functions Direct UK connections set the sender ID and send texts up to characters Send SMS to the UK and Europe Functions include Send SMS Receive SMS Schedule SMS Delivery Reporting Branch Level Identification You can also control your Text Marketer account programmatically for example Inject mobile numbers direct into your account create new sub accounts and move credits between them and create new groups Used by well know brands through to start ups low cost and reliability is our strength See read me to give it a try</doc>
+    <resources base="https://nickrich-send-an-sms.p.mashape.com/">
+        <resource uri="credits/">
+            <method displayName="SMS Credits" id="526" name="GET">
+                <doc>See how many credits you have left, 1 credit = 1 sms (160 chars)</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="sms/">
+            <method displayName="Send SMS" id="525" name="POST">
+                <doc>Send an SMS message or text with up to 612 characters</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="deliveryReport/">
+            <resource uri="{name}/">
+                <param name="name" style="template" type="xsd:string"/>
+                <method displayName="Get a Delivery Report" id="524" name="GET">
+                    <doc>Get the contents of a delivery report whose name is '&lt;name&gt;' as derived from deliveryReports. Using a name of 'all' retrieves all reports.</doc>
+                    <request>
+                        <param name="name" required="true" style="query" type="xsd:string">
+                            <doc>when we receive a delivery report from the operator for a message that you sent this gets added to a delivery report on your account with a standardised name The naming format is as follows GatewayAPI DD MM YY where DD is the day in the month MM is the month YY is the year</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="deliveryReports/">
+            <method displayName="Available Delivery Reports" id="523" name="GET">
+                <doc>Get a list of delivery reports available</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

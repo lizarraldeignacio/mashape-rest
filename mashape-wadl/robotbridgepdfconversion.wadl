@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>robotBridge offers PDF conversion services for HTML web pages Create great looking forms reports letters invoices or resumes in your application using the latest HTML and CSS and then turn those into PDF files RobotBridge uses the open source project WebKit to render HTML pages just like Google s Chrome or Apple s Safari web browsers</doc>
+    <resources base="https://jefflinwood-robotbridge-pdf-conversion.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="pdf/">
+                <resource uri="create/">
+                    <method displayName="Create PDF from URL" id="4633" name="GET">
+                        <request>
+                            <param name="format" required="true" style="query" type="xsd:string">
+                                <doc>format of the PDF to return supported values Letter A</doc>
+                            </param>
+                            <param name="url" required="true" style="query" type="xsd:string">
+                                <doc>the URL of the web page to retrieve</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

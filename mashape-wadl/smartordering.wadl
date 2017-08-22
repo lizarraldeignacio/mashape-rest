@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>this API will sort the given products based on the user selection i e Amenities based or Walk Score based or both</doc>
+    <resources base="https://nibodha-smartordering-v1.p.mashape.com/">
+        <resource uri="smartordering/">
+            <resource uri="sort/">
+                <method displayName="/smartordering/sort" id="7497" name="POST">
+                    <request/>
+                </method>
+                <method displayName="/smartordering/sort/{type}" id="7498" name="POST">
+                    <request>
+                        <param name="type" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

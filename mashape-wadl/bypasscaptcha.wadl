@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3675="urn:function:f3675">
+    <grammars>
+        <include href="Function3675.xsd"/>
+    </grammars>
+    <doc>imageTyperz is a leading bypass captcha service in market Our team can bypass any type of captcha in division of seconds We are guaranteeing our accuracy over with no charge for bad captchas We have captcha bypass APIs available in different types of platform NET C C Java PHP Perl etc</doc>
+    <resources base="https://imagetypers-bypass-captcha-v1.p.mashape.com/">
+        <resource uri="">
+            <resource uri="captchatypers.com/">
+                <resource uri="Forms/">
+                    <resource uri="SetBadImage.htm/">
+                        <method displayName="//captchatypers.com/Forms/SetBadImage.htm" id="3677" name="POST">
+                            <doc>Set Bad  Captcha</doc>
+                            <request/>
+                        </method>
+                    </resource>
+                    <resource uri="RequestBalance.htm/">
+                        <method displayName="//captchatypers.com/Forms/RequestBalance.htm" id="3676" name="GET">
+                            <doc>Request Balance</doc>
+                            <request/>
+                        </method>
+                    </resource>
+                    <resource uri="FileUploadAndGetTextNew.htm/">
+                        <method displayName="//captchatypers.com/Forms/FileUploadAndGetTextNew.htm" id="3675" name="GET">
+                            <request/>
+                            <response>
+                                <representation element="f3675:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="forms/">
+                    <resource uri="FileUploadAndGetTextCaptchaURL.htm/">
+                        <method displayName="//captchatypers.com/forms/FileUploadAndGetTextCaptchaURL.htm" id="3674" name="GET">
+                            <doc>File Upload And GetT ext Captcha URL</doc>
+                            <request/>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

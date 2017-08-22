@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f743="urn:function:f743" xmlns:f744="urn:function:f744" xmlns:f745="urn:function:f745">
+    <grammars>
+        <include href="Function745.xsd"/>
+        <include href="Function744.xsd"/>
+        <include href="Function743.xsd"/>
+    </grammars>
+    <doc>generate lorem ipsum filler text with this easy to use API</doc>
+    <resources base="https://montanaflynn-lorem-text-generator.p.mashape.com/">
+        <resource uri="word/">
+            <method displayName="Word" id="745" name="GET">
+                <doc>Generate a single random lorem ipsum word.</doc>
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:integer">
+                        <doc>how many words would you like Defaults to</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f745:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="sentence/">
+            <method displayName="Sentence" id="744" name="GET">
+                <doc>Generates a random lorem ipsum sentence.</doc>
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:integer">
+                        <doc>how many sentences would you like Defaults to</doc>
+                    </param>
+                    <param name="length" required="true" style="query" type="xsd:integer">
+                        <doc>how many words should be in each sentence</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f744:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="paragraph/">
+            <method displayName="Paragraph" id="743" name="GET">
+                <doc>Generates a random lorem ipsum paragraph.</doc>
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:integer">
+                        <doc>how many paragraphs would you like Defaults to</doc>
+                    </param>
+                    <param name="length" required="true" style="query" type="xsd:integer">
+                        <doc>how many sentences should be in each paragraph</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f743:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

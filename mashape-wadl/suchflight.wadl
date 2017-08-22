@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f990="urn:function:f990">
+    <grammars>
+        <include href="Function990.xsd"/>
+    </grammars>
+    <doc>flight Search API Searches in Airblue Other flights coming soon PIA Shaheen Air</doc>
+    <resources base="https://siddiq-such-flight-v1.p.mashape.com/">
+        <resource uri="search/">
+            <method displayName="search" id="990" name="GET">
+                <doc>Search</doc>
+                <request>
+                    <param name="departDate" required="true" style="query" type="xsd:string">
+                        <doc>yyyy mm dd</doc>
+                    </param>
+                    <param name="from" required="true" style="query" type="xsd:string">
+                        <doc>letter airport code</doc>
+                    </param>
+                    <param name="returnDate" required="true" style="query" type="xsd:string">
+                        <doc>yyyy mm dd</doc>
+                    </param>
+                    <param name="to" required="true" style="query" type="xsd:string">
+                        <doc>letter airport code</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f990:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6342="urn:function:f6342">
+    <grammars>
+        <include href="Function6342.xsd"/>
+    </grammars>
+    <doc>this API allows you to verify military affiliation by last name date of birth or SSN</doc>
+    <resources base="https://gruntroll-military-verification-v1.p.mashape.com/">
+        <resource uri="verify/">
+            <resource uri="active/">
+                <method displayName="Active Duty &amp; Veteran" id="6342" name="POST">
+                    <doc>Verify Active Duty and Veterans. Use SSN or DOB (not both). Last name is always required. Date of service is required when verifying Veterans (no longer on Active Duty).</doc>
+                    <request/>
+                    <response>
+                        <representation element="f6342:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

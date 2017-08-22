@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5234="urn:function:f5234" xmlns:f5235="urn:function:f5235" xmlns:f5236="urn:function:f5236" xmlns:f5237="urn:function:f5237" xmlns:f5238="urn:function:f5238">
+    <grammars>
+        <include href="Function5238.xsd"/>
+        <include href="Function5237.xsd"/>
+        <include href="Function5236.xsd"/>
+        <include href="Function5235.xsd"/>
+        <include href="Function5234.xsd"/>
+    </grammars>
+    <doc>know Your Customers GraphDive s Big Data analytics provide key insights into your users such as Top interests Age income education relationship status</doc>
+    <resources base="https://community-graphdive.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="action/">
+                <resource uri="TaggedTraceableActionProfile.json/">
+                    <resource uri="fb/">
+                        <resource uri="{facebookId}/">
+                            <param name="facebookId" style="template" type="xsd:string"/>
+                            <method displayName="TaggedTraceableActionProfile" id="5238" name="GET">
+                                <doc>This API method returns product or content recommendations based on the given “CATALOGNAME” that is provided to you by GraphDive after you upload your catalog. To begin the catalog upload process, please contact us. sourceContentDigests provides the Facebook signals that support a given user’s recommended products/content as ranked by GraphDive’s algorithms. Signals are individual user events, such as a “like”, or a user activity such as a check-in. For example, a “like” of Kobe Bryant’s Facebook page and a “Let’s go LAKERS!” post are both signals that support a user’s interest in basketball. taggedTraceableScoredActions provides a list of recommended products/content from the given CATALOGNAME and the user interest that they fit under. The products/content are listed under the "scoredActions" field and ranked by GraphDive’s algorithms to reflect their relevance to the user. The user interest that the recommended products/content fit under is identified by a “nodeName” and corresponding “nodeId”. Each interest references items from the sourceContentDigests list that contributed to that particular interest’s score. For example, in the output below, the most important signals supporting “Wilson Wave Indoor/Outdoor Intermediate Basketball” as a recommended product and the corresponding user interest in basketball are indicated by the contentDigestIndices. The contentDigestIndices contain indices and scores that refer to the sourceContentDigests. In this case, the indices (0, 1 and 2) correspond to the user’s “like” of "Basketball", "Kobe Bryant", and a user post of "Let's go LAKERS!", respectively. The “score” field under contentDigestIndices is the strength of the contribution to the interest of Basketball of the individual signal (sourceContentDigests) referenced. The higher the score, the stronger the contribution of that index to the interest.</doc>
+                                <request>
+                                    <param name="catalog" required="true" style="query" type="xsd:string">
+                                        <doc/>
+                                    </param>
+                                    <param name="facebookid" required="true" style="query" type="xsd:string"/>
+                                </request>
+                                <response>
+                                    <representation element="f5238:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="profile/">
+                <resource uri="InferredInterests.json/">
+                    <resource uri="fb/">
+                        <resource uri="{facebookId}/">
+                            <param name="facebookId" style="template" type="xsd:string"/>
+                            <method displayName="InferredInterests" id="5237" name="GET">
+                                <doc>InferredInterests is an API method that provides a user’s ranked interest graph (traceableInterests) and shows the supporting concepts behind it. It has two components: sourceContentDigests and traceableInterests. GraphDive’s algorithms single out the most important signals from all the noisy signals in a user’s social profile and associated data to generate a ranked set of categorized interests for that user. sourceContentDigests is where you can find the Facebook signals that support a given user interest as ranked by GraphDive’s algorithms. A signal can be an individual user event, such as a “like” on Wimbledon’s Facebook page, or a user activity, such as a check-in at a tennis club. traceableInterests is a ranked list of interests for the user where each interest, or node, is assigned a “score” by GraphDive’s algorithms reflecting its importance or relevance to the user. Each interest has a “nodeName” and corresponding “nodeId” and references items from the sourceContentDigests list that contributed to that particular node or interest’s score.</doc>
+                                <request>
+                                    <param name="facebookid" required="true" style="query" type="xsd:string"/>
+                                </request>
+                                <response>
+                                    <representation element="f5237:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="InferredDemographics.json/">
+                    <resource uri="fb/">
+                        <resource uri="{facebookId}/">
+                            <param name="facebookId" style="template" type="xsd:string"/>
+                            <method displayName="InferredDemographics" id="5236" name="GET">
+                                <doc>This API method provides an inferred demographic characterization of the user based on GraphDive’s algorithms. There are currently three demographic inferences that are provided by this API: age is the inferred age of the user. Also returns an age bracket for the user with the following ranges: "&lt; 18, 18-24, 25-34, 35-44, 44-54, 55-64, &gt;65" income is the inferred income of the user. Also returns an income bracket for the user with the following ranges: "&lt; $50k, 50k-$100k, $100k-$150k, $150k-$200k, $200k-$250k, &gt;$250k" education is the inferred education of the user. relationshipStatus is the inferred relationship status of the user. fresh indicates whether the profile data was recently fetched gender is the inferred gender of the user. This feature is not available yet and currently returns false. These probability profiles do not necessarily return a user’s declared age, education or marital status; rather, they reflect how old the user acts, feels and behaves as inferred by GraphDive’s algorithrms.</doc>
+                                <request>
+                                    <param name="facebookid" required="true" style="query" type="xsd:string"/>
+                                </request>
+                                <response>
+                                    <representation element="f5236:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="FetchTriggerProfile.json/">
+                    <resource uri="fb/">
+                        <resource uri="{facebookId}/">
+                            <param name="facebookId" style="template" type="xsd:string"/>
+                            <method displayName="FetchTriggerProfile" id="5235" name="GET">
+                                <doc>FetchTriggerProfile is the basic API call that gives GraphDive access to a user's Facebook Token and ID. Once you make this API call, GraphDive will be able to analyze the user's data and power the User Insights tab in the dashboard.</doc>
+                                <request>
+                                    <param name="facebookid" required="true" style="query" type="xsd:string"/>
+                                </request>
+                                <response>
+                                    <representation element="f5235:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="CategorizedInferredInterests.json/">
+                    <resource uri="fb/">
+                        <resource uri="{facebookId}/">
+                            <param name="facebookId" style="template" type="xsd:string"/>
+                            <method displayName="CategorizedInferredInterests" id="5234" name="GET">
+                                <doc>CategorizedInferredInterests is an API method that provides a user’s interest graph ranked by category and shows the supporting concepts behind it. It has two components: sourceContentDigests and categoryTraceableProfiles. GraphDive’s algorithms single out the most important signals from all the noisy signals in a user’s social profile and associated data to generate a ranked set of categorized interests for that user. sourceContentDigests is where you can find the Facebook signals that support a given user interest as ranked by GraphDive’s algorithms. A signal can be an individual user event, such as a “like” on Wimbledon’s Facebook page, or a user activity, such as a check-in at a tennis club. categorizedTraceableProfiles is a sorted list of interest categories (e.g., Sports or Arts) where the categories (each under “categoryName”) are ranked by GraphDive’s algorithms to reflect their relative importance to the user. Each category is then supported by individual user interests or nodes appearing under the traceableInterests list. Each such interest has a “nodeName” and corresponding “nodeId” and references items from the sourceContentDigests list that contributed to that particular node or interest’s score.</doc>
+                                <request>
+                                    <param name="facebookid" required="true" style="query" type="xsd:string"/>
+                                </request>
+                                <response>
+                                    <representation element="f5234:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

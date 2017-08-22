@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2921="urn:function:f2921">
+    <grammars>
+        <include href="Function2921.xsd"/>
+    </grammars>
+    <doc>fast and inexpensive cloud storage Great alternative to Amazon S GB for free GB for year Requires a Memopal account You can create one downloading the Memopal client from www memopal com</doc>
+    <resources base="https://memopal-cloud-storage-put-file.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="file/">
+                <resource uri="upload/">
+                    <method displayName="upload" id="2921" name="GET">
+                        <doc>With this API you can upload a file to your online account using a simple rest call. If you don't have an account yet go on www.memopal.com, download the software and create one.  Or create a free 3GB account here:&#13;
+https://apps.memopal.com/l/activate-trial.php</doc>
+                        <request>
+                            <param name="content" required="true" style="query" type="xsd:string">
+                                <doc>at least one folder is required then the name of the file</doc>
+                            </param>
+                            <param name="content" required="true" style="query" type="xsd:string">
+                                <doc>base encoded the content of the file</doc>
+                            </param>
+                            <param name="p" required="true" style="query" type="xsd:string">
+                                <doc>mypassword</doc>
+                            </param>
+                            <param name="path" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="pc" required="true" style="query" type="xsd:string">
+                                <doc>memopal is organized in not less then three layers of subfolders Computer first folders other folders or files so you need to specify always at leat a computer name and a folder</doc>
+                            </param>
+                            <param name="u" required="true" style="query" type="xsd:string">
+                                <doc>email address for accessing to your account</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2921:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

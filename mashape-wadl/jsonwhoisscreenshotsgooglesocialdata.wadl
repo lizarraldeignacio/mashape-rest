@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f270="urn:function:f270" xmlns:f271="urn:function:f271" xmlns:f272="urn:function:f272">
+    <grammars>
+        <include href="Function272.xsd"/>
+        <include href="Function271.xsd"/>
+        <include href="Function270.xsd"/>
+    </grammars>
+    <doc>an API to generate a screenshot of a domain get social data whois data alexa data and graphs and lots of other information</doc>
+    <resources base="https://jsonwhois.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="v1/">
+                <resource uri="social/">
+                    <method displayName="Social Data" id="272" name="GET">
+                        <doc>Get social data for a URL</doc>
+                        <request>
+                            <param name="domain" required="true" style="query" type="xsd:string">
+                                <doc>domain Name</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f272:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="screenshot/">
+                    <method displayName="Screenshot" id="271" name="GET">
+                        <request>
+                            <param name="domain" required="true" style="query" type="xsd:string">
+                                <doc>the domain you want to screenshot</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f271:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="whois/">
+                    <method displayName="Domain Information" id="270" name="GET">
+                        <doc>Whois, Screenshot, Alexa, Google, Social Data</doc>
+                        <request>
+                            <param name="domain" required="true" style="query" type="xsd:string">
+                                <doc>the domain you want information for</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f270:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

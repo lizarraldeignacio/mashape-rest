@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>keep in Touch With Your Customers With the Byteplant Phone Number Validation API you can easily verify if any national or international phone number is valid and callable Avoid disconnects and increase the performance of your marketing campaigns now</doc>
+    <resources base="https://community-byteplant-phone-number-online-validation.p.mashape.com/">
+        <resource uri="v2/">
+            <resource uri="verify/">
+                <method displayName="Byteplant Phone Number Validation" id="1907" name="GET">
+                    <doc>Verify Phone Number</doc>
+                    <request>
+                        <param name="countrycode" required="true" style="query" type="xsd:string">
+                            <doc>two letter ISO country code string default US</doc>
+                        </param>
+                        <param name="locale" required="true" style="query" type="xsd:string">
+                            <doc>iETF language tag for Geocoding string default en US</doc>
+                        </param>
+                        <param name="phonenumber" required="true" style="query" type="xsd:string">
+                            <doc>phone number to validate string</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

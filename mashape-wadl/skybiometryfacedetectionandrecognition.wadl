@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f280="urn:function:f280" xmlns:f281="urn:function:f281" xmlns:f282="urn:function:f282" xmlns:f283="urn:function:f283" xmlns:f284="urn:function:f284" xmlns:f285="urn:function:f285" xmlns:f286="urn:function:f286" xmlns:f288="urn:function:f288" xmlns:f289="urn:function:f289" xmlns:f290="urn:function:f290" xmlns:f291="urn:function:f291" xmlns:f292="urn:function:f292">
+    <grammars>
+        <include href="Function292.xsd"/>
+        <include href="Function291.xsd"/>
+        <include href="Function290.xsd"/>
+        <include href="Function289.xsd"/>
+        <include href="Function288.xsd"/>
+        <include href="Function286.xsd"/>
+        <include href="Function285.xsd"/>
+        <include href="Function284.xsd"/>
+        <include href="Function283.xsd"/>
+        <include href="Function282.xsd"/>
+        <include href="Function281.xsd"/>
+        <include href="Function280.xsd"/>
+    </grammars>
+    <doc>an easy to use Face Detection and Recognition API Detect faces at various angle determine gender check if the person is smiling or wears glasses maybe sunglasses with a single API call You must have an application created in your account at SkyBiometry to use it sign up at https www skybiometry com Account Register if you don t have account yet</doc>
+    <resources base="https://face.p.mashape.com/">
+        <resource uri="tags/">
+            <resource uri="save/">
+                <method displayName="Tags/Save" id="292" name="POST">
+                    <doc>Saves a specified face tag to permanent storage. Once the face tag has been saved, you can call faces/train method, which will use the saved tag information to create face template for specified user id and will add it to specified data namespace. When completed you can start recognizing the specified user id (using faces/recognize method).</doc>
+                    <request/>
+                    <response>
+                        <representation element="f292:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="remove/">
+                <method displayName="Tags/Remove" id="291" name="POST">
+                    <doc>Removes a previously saved tag using tags/save.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f291:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="get/">
+                <method displayName="Tags/Get" id="290" name="POST">
+                    <doc>Allows to get already saved tags to data namespace. By specifying different parameters and criteria you can influence the returned tags.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f290:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="add/">
+                <method displayName="Tags/Add" id="289" name="POST">
+                    <doc>Allows to add face tags manually.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f289:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="faces/">
+            <resource uri="train/">
+                <method displayName="Faces/Train" id="288" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f288:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="status/">
+                <method displayName="Faces/Status" id="287" name="POST">
+                    <doc>Method can be used to get training status for specified user ids.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="recognize/">
+                <method displayName="Faces/Recognize" id="286" name="POST">
+                    <doc>Method is used for recognizing trained user ids in one or more photos. For each detected face, method will return user ids that match specified face or empty result set if no matches found. Each tag also includes a threshold score, if matching score is below this threshold - matched user id can be treated as unlikely match.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f286:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="group/">
+                <method displayName="Faces/Group" id="285" name="POST">
+                    <doc>Method can be used to detect, group and optionally recognize one or more user faces in one or more photos. faces/group method tries to match all the faces that were found in the images specified by urls or through POST one to other, then assigns a group ID for all detected faces that appear to be of the same person. If user ids are specified when calling this methods, method also attempts to assign the most likely user id for each detected face/group of faces.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f285:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="detect/">
+                <method displayName="Faces/Detect" id="284" name="POST">
+                    <doc>Returns tags for detected faces in one or more photos, with geometric information of the tag, eyes, nose and mouth, as well as additional attributes such as gender.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f284:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="account/">
+            <resource uri="users/">
+                <method displayName="Account/Users" id="283" name="POST">
+                    <doc>Returns tags that were registered in the specified user data namespace. Tags are added to namespaces by calling tags/save method.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f283:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="namespaces/">
+                <method displayName="Account/Namespaces" id="282" name="POST">
+                    <doc>Returns all valid data namespaces for user authorized by specified api_key.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f282:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="limits/">
+                <method displayName="Account/Limits" id="281" name="POST">
+                    <doc>Returns authentication status. Method can be used to test connection and/or authentication to the API access point. It is not required to call this method before calling any other API methods.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f281:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="authenticate/">
+                <method displayName="Account/Authenticate" id="280" name="POST">
+                    <doc>Returns authentication status. Method can be used to test connection and/or authentication to the API access point. It is not required to call this method before calling any other API methods.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f280:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

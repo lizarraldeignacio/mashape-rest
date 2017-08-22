@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1645="urn:function:f1645" xmlns:f1646="urn:function:f1646" xmlns:f1647="urn:function:f1647">
+    <grammars>
+        <include href="Function1647.xsd"/>
+        <include href="Function1646.xsd"/>
+        <include href="Function1645.xsd"/>
+    </grammars>
+    <doc>real time Exchange Rates designed just for Developers simple fast and accurate JSON currency API with prices for world currencies historical data back to jump over to https openexchangerates org for more info</doc>
+    <resources base="https://joss-open-exchange-rates.p.mashape.com/">
+        <resource uri="latest.json/">
+            <method displayName="latest.json" id="1647" name="GET">
+                <doc>The latest conversion rates from Open Exchange Rates</doc>
+                <request/>
+                <response>
+                    <representation element="f1647:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="historical/">
+            <resource uri="{year}-{month}-{day}.json/">
+                <param name="year" style="template" type="xsd:string"/>
+                <method displayName="historical/yyyy-mm-dd.json" id="1646" name="GET">
+                    <doc>Historical End Of Day exchange rates for any given date from 1st January, 1999</doc>
+                    <request>
+                        <param name="day" required="true" style="query" type="xsd:integer">
+                            <doc>letter day to</doc>
+                        </param>
+                        <param name="month" required="true" style="query" type="xsd:integer">
+                            <doc>letter month to</doc>
+                        </param>
+                        <param name="year" required="true" style="query" type="xsd:integer">
+                            <doc>letter year to</doc>
+                        </param>
+                        <param name="yearMonthDay" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f1646:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="currencies.json/">
+            <method displayName="currencies.json" id="1645" name="GET">
+                <doc>Object containing currency names, labeled by their international-standard 3-letter currency codes.</doc>
+                <request/>
+                <response>
+                    <representation element="f1645:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

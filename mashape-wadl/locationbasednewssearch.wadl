@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4118="urn:function:f4118" xmlns:f4119="urn:function:f4119">
+    <grammars>
+        <include href="Function4119.xsd"/>
+        <include href="Function4118.xsd"/>
+    </grammars>
+    <doc>this API retrieves the news feed for AlertifyMe News You can search news by location or content Each news item is attached to a location</doc>
+    <resources base="https://alertifyme-news.p.mashape.com/">
+        <resource uri="search.php/">
+            <method displayName="Search News Feed" id="4119" name="GET">
+                <doc>This will search the news feed</doc>
+                <request>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>search term</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4119:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="news.php/">
+            <method displayName="Current News Feed" id="4118" name="GET">
+                <doc>Gets the current AlertifyMe News feed. This is in GeoJson format.</doc>
+                <request/>
+                <response>
+                    <representation element="f4118:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

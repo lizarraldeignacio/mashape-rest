@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2172="urn:function:f2172">
+    <grammars>
+        <include href="Function2172.xsd"/>
+    </grammars>
+    <doc>funambol Cloud API to myFUNAMBOL a cloud synchronization service to sync contacts calendar pictures videos and files on multiple devices PC Mac iPhone iPad Android BlackBerry Windows Mobile Symbian and more</doc>
+    <resources base="https://fabricapo-funambol.p.mashape.com/">
+        <resource uri="contacts.jsp/">
+            <method displayName="Get Contacts" id="2172" name="GET">
+                <doc>Get the list of my contacts from my address book in myFunambol</doc>
+                <request>
+                    <param name="action" required="true" style="query" type="xsd:string"/>
+                    <param name="contactid" required="true" style="query" type="xsd:string">
+                        <doc>the ID of the contact</doc>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc>my password on myFUNAMBOL</doc>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc>my username on myFUNAMBOL</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2172:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>the way your friends know you Real time biometric authentication for web enabled applications websites or services</doc>
+    <resources base="https://keylemon.p.mashape.com/">
+        <resource uri="infos/">
+            <method displayName="Usage" id="7245" name="GET">
+                <doc>Returns the monthly usage of images, models, and video streams.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="stream/">
+            <method displayName="Recognize Face - Video" id="7243" name="POST">
+                <doc>Perform face authentication on a video stream. KeyLemon provides an optional JavaScript library, KeyLemon.JS, with liveness detection to integrate streaming video authentication into your website. Download it for free at developers.keylemon.com.</doc>
+                <request>
+                    <param name="identity" required="true" style="query" type="xsd:string">
+                        <doc>the Identity ID to verify against If only a single model is being tested the model parameter should be used instead</doc>
+                    </param>
+                    <param name="model" required="true" style="query" type="xsd:string">
+                        <doc>the model ID to verify against</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="recognize/">
+            <method displayName="Recognize Face" id="7242" name="POST">
+                <doc>Recognize image(s) against one or more identities, models, or groups. Requires either an Identity ID, Model ID, or Group ID for recognition.</doc>
+                <request>
+                    <param name="groups" required="true" style="query" type="xsd:string">
+                        <doc>comma separated list of Group IDs for recognition A Group is a set of models of different people</doc>
+                    </param>
+                    <param name="identities" required="true" style="query" type="xsd:string">
+                        <doc>comma separated list of Identity IDs for recognition An Identity is a set of Models of the same person Each Identity can contain from one to eight models</doc>
+                    </param>
+                    <param name="models" required="true" style="query" type="xsd:string">
+                        <doc>comma separated list of Model IDs Single Models can be called directly for recognition Identity and Group constructs are optional</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Recognize Speaker" id="7244" name="POST">
+                <doc>Performs speaker verification of an audio sample against a given model, group, or identity.</doc>
+                <request>
+                    <param name="identities" required="true" style="query" type="xsd:string">
+                        <doc>the Identity ID s to verify against Comma separated if multiple If only a single model is being tested the models parameter should be used instead</doc>
+                    </param>
+                    <param name="maxResults" required="true" style="query" type="xsd:string">
+                        <doc>maximum number of matching results to return when verifying against multiple models Identify use case Defaults to if not specified</doc>
+                    </param>
+                    <param name="models" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="identity/">
+            <method displayName="List Identities" id="7240" name="GET">
+                <doc>Returns existing Identity IDs. By default, only the first 20 groups are included in the response. Pagination is controlled with the optional "limit" and "offset" parameters.</doc>
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>the number of groups to return default max</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>the offset of the first group in the list default</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="group/">
+            <method displayName="List Groups" id="7239" name="GET">
+                <doc>Returns existing Group IDs. By default, only the first 20 groups are included in the response. Pagination is controlled with the optional "limit" and "offset" parameters.</doc>
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>the number of Group IDs to return default max</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>the offset of the first group in the list default</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="face/">
+            <method displayName="Detect Face" id="7236" name="POST">
+                <doc>Images can be submitted as URLs or binary strings uploaded via POST. Optionally estimate age and gender for each detected face. Detect up to 20 faces per image. Returns the x and y coordinates, width, and height of each face detected in submitted image(s).</doc>
+                <request>
+                    <param name="properties" required="true" style="query" type="xsd:boolean">
+                        <doc>if true the response will include gender and age estimation Defaults to false</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="model/">
+            <method displayName="Delete Model" id="7235" name="DELETE">
+                <doc>Delete an existing model.</doc>
+                <request>
+                    <param name="modelId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Enroll Face" id="7237" name="POST">
+                <doc>Create a biometric model from a collection of faces. Use of 6-10 images is recommended for most accurate recognition.  If multiple faces are detected in the image(s), only the largest face (based on detected width and height) will be used for enrollment. Returns a unique Model-ID to be used to call the model for recognition later.</doc>
+                <request>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>a name for the model Character is not allowed in the name</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Enroll Speaker" id="7238" name="POST">
+                <doc>Create a biometric speaker model using one or more audio recording of speech. Returns a unique Model ID to be used for speaker verification.</doc>
+                <request>
+                    <param name="mean" required="true" style="query" type="xsd:string">
+                        <doc>returns the average match score if multiple images are provided for verification Defaults to false</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>a name for the model Character is not allowed</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="List Models" id="7241" name="GET">
+                <doc>Returns a list of existing Model IDs. The number of models listed is limited to 20 by default. Use the limit and offset parameters to paginate through the list. It is also possible to filter the model list by modality (face/speaker).</doc>
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>the number of Model IDs to return default max</doc>
+                    </param>
+                    <param name="modality" required="true" style="query" type="xsd:string">
+                        <doc>returns only models of the given modality Accepted values are face speaker or all default all</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>the offset of the first model in the list default</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

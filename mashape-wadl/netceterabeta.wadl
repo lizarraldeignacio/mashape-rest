@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>cloud Hosting API and Domain Name Registration Service</doc>
+    <resources base="https://netcetera-netcetera-beta-v4.p.mashape.com/">
+        <resource uri="admin/">
+            <resource uri="say/">
+                <method displayName="say" id="7252" name="GET">
+                    <doc>Checks your Login details and replies with your text</doc>
+                    <request>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>some text</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="domains/">
+            <resource uri="whois/">
+                <resource uri="{domainname}/">
+                    <param name="domainname" style="template" type="xsd:string"/>
+                    <method displayName="/domains/whois" id="7251" name="GET">
+                        <doc>Check whether a Domain is available</doc>
+                        <request>
+                            <param name="domainname" required="true" style="query" type="xsd:string">
+                                <doc>the Domain Name you want to check</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="listdomains/">
+                <method displayName="/domains/listdomains" id="7250" name="GET">
+                    <doc>List Domains</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

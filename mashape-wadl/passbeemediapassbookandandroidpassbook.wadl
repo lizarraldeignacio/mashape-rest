@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5182="urn:function:f5182" xmlns:f5183="urn:function:f5183" xmlns:f5184="urn:function:f5184" xmlns:f5185="urn:function:f5185" xmlns:f5188="urn:function:f5188" xmlns:f5190="urn:function:f5190" xmlns:f5193="urn:function:f5193" xmlns:f5194="urn:function:f5194" xmlns:f5195="urn:function:f5195" xmlns:f5196="urn:function:f5196" xmlns:f5197="urn:function:f5197" xmlns:f5198="urn:function:f5198" xmlns:f5200="urn:function:f5200" xmlns:f5202="urn:function:f5202" xmlns:f5203="urn:function:f5203" xmlns:f5204="urn:function:f5204" xmlns:f5205="urn:function:f5205">
+    <grammars>
+        <include href="Function5205.xsd"/>
+        <include href="Function5204.xsd"/>
+        <include href="Function5203.xsd"/>
+        <include href="Function5202.xsd"/>
+        <include href="Function5200.xsd"/>
+        <include href="Function5198.xsd"/>
+        <include href="Function5197.xsd"/>
+        <include href="Function5196.xsd"/>
+        <include href="Function5195.xsd"/>
+        <include href="Function5194.xsd"/>
+        <include href="Function5190.xsd"/>
+        <include href="Function5188.xsd"/>
+        <include href="Function5193.xsd"/>
+        <include href="Function5185.xsd"/>
+        <include href="Function5184.xsd"/>
+        <include href="Function5183.xsd"/>
+        <include href="Function5182.xsd"/>
+    </grammars>
+    <doc>pass Bee Media API is for developers that need to use our api to get going quickly to create apple passbook and android passbook passes</doc>
+    <resources base="https://passbeemedia.p.mashape.com/">
+        <resource uri="updateUser/">
+            <resource uri="{UserId}/">
+                <param name="UserId" style="template" type="xsd:string"/>
+                <method displayName="updateUser" id="5205" name="POST">
+                    <doc>Updating Passbookbee User Detail</doc>
+                    <request>
+                        <param name="userid" required="true" style="query" type="xsd:string">
+                            <doc>user Id</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5205:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="UpdateExpiredCoupons/">
+            <method displayName="UpdateExpiredCoupons" id="5204" name="GET">
+                <doc>This will be called by Scheduler for updating expired coupons.</doc>
+                <request/>
+                <response>
+                    <representation element="f5204:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="UpdateDynamicPassItems/">
+            <method displayName="Update Pass Items" id="5203" name="POST">
+                <doc>For Updating  pass items and this method will send push notifications</doc>
+                <request/>
+                <response>
+                    <representation element="f5203:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="registerUser/">
+            <resource uri="{bas64encodedEmail}/">
+                <param name="bas64encodedEmail" style="template" type="xsd:string"/>
+                <method displayName="registerUser" id="5202" name="GET">
+                    <doc>Register Passbookbee Users</doc>
+                    <request>
+                        <param name="basEncodedemail" required="true" style="query" type="xsd:string">
+                            <doc>user email id base encoded email id</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5202:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="loginUser/">
+            <resource uri="{bas64encodedEmail}/">
+                <param name="bas64encodedEmail" style="template" type="xsd:string"/>
+                <resource uri="{password}/">
+                    <param name="password" style="template" type="xsd:string"/>
+                    <method displayName="loginUser" id="5200" name="GET">
+                        <doc>Login Passbookbee User</doc>
+                        <request>
+                            <param name="basEncodedemail" required="true" style="query" type="xsd:string">
+                                <doc>user email id base encoded email id</doc>
+                            </param>
+                            <param name="password" required="true" style="query" type="xsd:string">
+                                <doc>user password string</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f5200:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="getWalletTicket/">
+            <resource uri="{ticketId}/">
+                <param name="ticketId" style="template" type="xsd:string"/>
+                <method displayName="getWalletTicket" id="5199" name="GET">
+                    <doc>Generating User Passbook Pass file by Id</doc>
+                    <request>
+                        <param name="ticketid" required="true" style="query" type="xsd:string">
+                            <doc>ticket Id</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="getUserWalletTickets/">
+            <resource uri="{uid}/">
+                <param name="uid" style="template" type="xsd:string"/>
+                <method displayName="getUserWalletTickets" id="5198" name="GET">
+                    <doc>Retrieving User Samsung Wallet Ticket Ids</doc>
+                    <request>
+                        <param name="uid" required="true" style="query" type="xsd:string">
+                            <doc>user UID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5198:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="getUserPassTemplates/">
+            <resource uri="{uid}/">
+                <param name="uid" style="template" type="xsd:string"/>
+                <method displayName="getUserPassTemplates" id="5197" name="GET">
+                    <doc>Retrieving User Pass Templates</doc>
+                    <request>
+                        <param name="uid" required="true" style="query" type="xsd:string">
+                            <doc>user UID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5197:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="getUserPasses/">
+            <method displayName="getUserPasses" id="5196" name="GET">
+                <doc>Get all passes by api key</doc>
+                <request>
+                    <param name="from" required="true" style="query" type="xsd:string">
+                        <doc>from</doc>
+                    </param>
+                    <param name="to" required="true" style="query" type="xsd:string">
+                        <doc>to</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5196:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getUserByUID/">
+            <resource uri="{apikey}/">
+                <param name="apikey" style="template" type="xsd:string"/>
+                <method displayName="getUserByUID" id="5195" name="GET">
+                    <doc>Getting Passbookbee User Details by Id</doc>
+                    <request>
+                        <param name="apikey" required="true" style="query" type="xsd:string">
+                            <doc>user API key Header and Route</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5195:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="getUserByEmail/">
+            <resource uri="{bas64encodedEmail}/">
+                <param name="bas64encodedEmail" style="template" type="xsd:string"/>
+                <method displayName="getUserByEmail" id="5194" name="GET">
+                    <doc>Getting Passbookbee User Details by Email</doc>
+                    <request>
+                        <param name="basEncodedemail" required="true" style="query" type="xsd:string">
+                            <doc>user email id base encoded email id</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5194:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="getShareImage/">
+            <method displayName="getShareImage" id="5192" name="GET">
+                <doc>Generating PassView image</doc>
+                <request>
+                    <param name="serialnumber" required="true" style="query" type="xsd:string">
+                        <doc>pass Serial Number</doc>
+                    </param>
+                    <param name="uid" required="true" style="query" type="xsd:string">
+                        <doc>pass unique UID</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="getPassTemplatebyUID/">
+            <resource uri="{uid}/">
+                <param name="uid" style="template" type="xsd:string"/>
+                <method displayName="getPassTemplatebyUID" id="5191" name="GET">
+                    <doc>Get Pass Template details by UID</doc>
+                    <request>
+                        <param name="uid" required="true" style="query" type="xsd:string">
+                            <doc>pass Template uid</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="getPassTemplate/">
+            <resource uri="{templateId}/">
+                <param name="templateId" style="template" type="xsd:string"/>
+                <method displayName="getPassTemplate" id="5190" name="GET">
+                    <doc>Retrieving Pass Template by Template Id</doc>
+                    <request>
+                        <param name="templateid" required="true" style="query" type="xsd:string">
+                            <doc>pass Template Id</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5190:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="GetPassStaticsByUID/">
+            <resource uri="{uid}/">
+                <param name="uid" style="template" type="xsd:string"/>
+                <method displayName="GetPassStaticsByUID" id="5189" name="GET">
+                    <doc>Fetching User Pass Statics</doc>
+                    <request>
+                        <param name="fromdate" required="true" style="query" type="xsd:string">
+                            <doc>from Date</doc>
+                        </param>
+                        <param name="todate" required="true" style="query" type="xsd:string">
+                            <doc>to Date</doc>
+                        </param>
+                        <param name="uid" required="true" style="query" type="xsd:string">
+                            <doc>user uid</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="GetPassStaticsByPassId/">
+            <method displayName="GetPassStaticsByPassId" id="5188" name="POST">
+                <doc>it will give pass statics by PassId</doc>
+                <request/>
+                <response>
+                    <representation element="f5188:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getpass/">
+            <resource uri="{passuid}/">
+                <param name="passuid" style="template" type="xsd:string"/>
+                <method displayName="getPass" id="5187" name="GET">
+                    <doc>Generating User Passbook Pass file by Id</doc>
+                    <request>
+                        <param name="passuid" required="true" style="query" type="xsd:string">
+                            <doc>pass UID</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="Register/">
+            <resource uri="{version}/">
+                <param name="version" style="template" type="xsd:string"/>
+                <resource uri="{devices}/">
+                    <param name="devices" style="template" type="xsd:string"/>
+                    <resource uri="{deviceLibraryIdentifier}/">
+                        <param name="deviceLibraryIdentifier" style="template" type="xsd:string"/>
+                        <resource uri="{regis}/">
+                            <param name="regis" style="template" type="xsd:string"/>
+                            <resource uri="{passTypeIdentifier}/">
+                                <param name="passTypeIdentifier" style="template" type="xsd:string"/>
+                                <resource uri="{serialNumber}/">
+                                    <param name="serialNumber" style="template" type="xsd:string"/>
+                                    <method displayName="Register Device" id="5201" name="POST">
+                                        <doc>This service will be called by device when pass is being added  into passbook.</doc>
+                                        <request>
+                                            <param name="devicelibraryidentifier" required="true" style="query" type="xsd:string">
+                                                <doc>device generated identifier</doc>
+                                            </param>
+                                            <param name="devices" required="true" style="query" type="xsd:string">
+                                                <doc>it will be same for same request</doc>
+                                            </param>
+                                            <param name="passtypeidentifier" required="true" style="query" type="xsd:string">
+                                                <doc>pass type</doc>
+                                            </param>
+                                            <param name="regis" required="true" style="query" type="xsd:string">
+                                                <doc>same for every call</doc>
+                                            </param>
+                                            <param name="serialnumber" required="true" style="query" type="xsd:string">
+                                                <doc>unique number for pass</doc>
+                                            </param>
+                                            <param name="version" required="true" style="query" type="xsd:string">
+                                                <doc>it will be same for every request</doc>
+                                            </param>
+                                        </request>
+                                    </method>
+                                </resource>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="v1/">
+                <resource uri="devices/">
+                    <resource uri="{deviceLibraryIdentifier}/">
+                        <param name="deviceLibraryIdentifier" style="template" type="xsd:string"/>
+                        <resource uri="{regis}/">
+                            <param name="regis" style="template" type="xsd:string"/>
+                            <resource uri="{passTypeIdentifier}/">
+                                <param name="passTypeIdentifier" style="template" type="xsd:string"/>
+                                <method displayName="GetUpdatedSerails" id="5193" name="GET">
+                                    <doc>This api calls return updated serial numbers to device.</doc>
+                                    <request>
+                                        <param name="devicelibraryidentifier" required="true" style="query" type="xsd:string">
+                                            <doc>device identifier provided by device</doc>
+                                        </param>
+                                        <param name="passtypeidentifier" required="true" style="query" type="xsd:string">
+                                            <doc>pass identifier</doc>
+                                        </param>
+                                        <param name="regis" required="true" style="query" type="xsd:string">
+                                            <doc>same for every call</doc>
+                                        </param>
+                                    </request>
+                                    <response>
+                                        <representation element="f5193:root" mediaType="application/json"/>
+                                    </response>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="passes/">
+                    <resource uri="{passTypeIdentifier}/">
+                        <param name="passTypeIdentifier" style="template" type="xsd:string"/>
+                        <resource uri="{serialno}/">
+                            <param name="serialno" style="template" type="xsd:string"/>
+                            <method displayName="Get updated pass" id="5186" name="GET">
+                                <doc>This api methods sends back the updated pass to device</doc>
+                                <request>
+                                    <param name="passtypeidentifier" required="true" style="query" type="xsd:string">
+                                        <doc>pass identifier</doc>
+                                    </param>
+                                    <param name="serialno" required="true" style="query" type="xsd:string">
+                                        <doc>unique number for pass</doc>
+                                    </param>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="gcmRegisterPass/">
+            <method displayName="gcmRegisterPass" id="5185" name="POST">
+                <doc>Register Pass from Android device using RegistrationId and SerialNumber</doc>
+                <request/>
+                <response>
+                    <representation element="f5185:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="gcmDeletePass/">
+            <method displayName="gcmDeletePass" id="5184" name="DELETE">
+                <doc>Marking Pass as deleted for given RegistrationId and SerialNumber</doc>
+                <request/>
+                <response>
+                    <representation element="f5184:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="createWalletTicket/">
+            <resource uri="{uid}/">
+                <param name="uid" style="template" type="xsd:string"/>
+                <method displayName="createWalletTicket" id="5183" name="POST">
+                    <doc>Create Wallet Ticket</doc>
+                    <request>
+                        <param name="uid" required="true" style="query" type="xsd:string">
+                            <doc>user UID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5183:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="createpass/">
+            <method displayName="createpass" id="5182" name="POST">
+                <doc>Creating Passbook Pass</doc>
+                <request/>
+                <response>
+                    <representation element="f5182:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

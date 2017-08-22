@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3783="urn:function:f3783" xmlns:f3784="urn:function:f3784" xmlns:f3786="urn:function:f3786" xmlns:f3787="urn:function:f3787" xmlns:f3788="urn:function:f3788" xmlns:f3790="urn:function:f3790" xmlns:f3791="urn:function:f3791" xmlns:f3792="urn:function:f3792" xmlns:f3794="urn:function:f3794" xmlns:f3795="urn:function:f3795" xmlns:f3796="urn:function:f3796">
+    <grammars>
+        <include href="Function3791.xsd"/>
+        <include href="Function3790.xsd"/>
+        <include href="Function3783.xsd"/>
+        <include href="Function3784.xsd"/>
+        <include href="Function3786.xsd"/>
+        <include href="Function3787.xsd"/>
+        <include href="Function3788.xsd"/>
+        <include href="Function3792.xsd"/>
+        <include href="Function3794.xsd"/>
+        <include href="Function3795.xsd"/>
+        <include href="Function3796.xsd"/>
+    </grammars>
+    <doc>feed nu API is an api that generates an android application out from a RSS feed Enter your own strings colors images and settings and then generate your own custom android application To get an api token for authentication you need to login at http api feed nu and login with your gmail account then copy your token and use it with this API This is a verry early beta version Please contact me if you have any troubles for more information visit http feed nu</doc>
+    <resources base="https://feed.p.mashape.com/">
+        <resource uri="user/">
+            <method displayName="getUser" id="3791" name="GET">
+                <request/>
+                <response>
+                    <representation element="f3791:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="file/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="getFileContent" id="3789" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="getFileInfo" id="3790" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3790:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="android/">
+            <method displayName="createAndroidApp" id="3783" name="PUT">
+                <request>
+                    <param name="packagename" required="true" style="query" type="xsd:string">
+                        <doc>the package name of your app</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3783:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="deleteAndroidApp" id="3784" name="DELETE">
+                <request>
+                    <param name="packagename" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3784:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="generateAndroidApp" id="3785" name="GET">
+                <request>
+                    <param name="packagename" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="getAndroidApp" id="3786" name="GET">
+                <request>
+                    <param name="packagename" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3786:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="getAndroidApps" id="3787" name="GET">
+                <doc>Get a list of all your android apps</doc>
+                <request/>
+                <response>
+                    <representation element="f3787:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="getAvailableMetaSettings" id="3788" name="GET">
+                <request/>
+                <response>
+                    <representation element="f3788:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="publishBeta" id="3792" name="POST">
+                <request>
+                    <param name="packagename" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3792:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="pushAndroid" id="3793" name="GET">
+                <request>
+                    <param name="packagename" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="setBuildNumber" id="3794" name="POST">
+                <request>
+                    <param name="buildnumber" required="true" style="query" type="xsd:string"/>
+                    <param name="packagename" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3794:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="updateAndroidMeta" id="3795" name="POST">
+                <request>
+                    <param name="packagename" required="true" style="query" type="xsd:string">
+                        <doc>the packageName of your android app</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3795:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="uploadImage" id="3796" name="POST">
+                <request>
+                    <param name="packagename" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3796:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

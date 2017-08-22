@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6343="urn:function:f6343" xmlns:f6344="urn:function:f6344" xmlns:f6345="urn:function:f6345" xmlns:f6346="urn:function:f6346" xmlns:f6347="urn:function:f6347" xmlns:f6348="urn:function:f6348" xmlns:f6349="urn:function:f6349" xmlns:f6350="urn:function:f6350" xmlns:f6351="urn:function:f6351" xmlns:f6352="urn:function:f6352" xmlns:f6353="urn:function:f6353" xmlns:f6354="urn:function:f6354" xmlns:f6355="urn:function:f6355" xmlns:f6356="urn:function:f6356" xmlns:f6357="urn:function:f6357" xmlns:f6358="urn:function:f6358" xmlns:f6359="urn:function:f6359" xmlns:f6360="urn:function:f6360" xmlns:f6361="urn:function:f6361" xmlns:f6362="urn:function:f6362" xmlns:f6363="urn:function:f6363" xmlns:f6364="urn:function:f6364">
+    <grammars>
+        <include href="Function6346.xsd"/>
+        <include href="Function6347.xsd"/>
+        <include href="Function6348.xsd"/>
+        <include href="Function6350.xsd"/>
+        <include href="Function6351.xsd"/>
+        <include href="Function6363.xsd"/>
+        <include href="Function6364.xsd"/>
+        <include href="Function6354.xsd"/>
+        <include href="Function6358.xsd"/>
+        <include href="Function6359.xsd"/>
+        <include href="Function6362.xsd"/>
+        <include href="Function6352.xsd"/>
+        <include href="Function6353.xsd"/>
+        <include href="Function6361.xsd"/>
+        <include href="Function6349.xsd"/>
+        <include href="Function6345.xsd"/>
+        <include href="Function6355.xsd"/>
+        <include href="Function6344.xsd"/>
+        <include href="Function6356.xsd"/>
+        <include href="Function6343.xsd"/>
+        <include href="Function6357.xsd"/>
+        <include href="Function6360.xsd"/>
+    </grammars>
+    <doc>chain API makes it easy to build Bitcoin applications that are fast reliable and secure It doesn t need setup no credit card required Quickly retrieve wallet balances send transactions more</doc>
+    <resources base="https://baskarm28-chain-v1.p.mashape.com/">
+        <resource uri="webhooks/">
+            <method displayName="Create Webhook Event" id="6346" name="POST">
+                <doc>Creates a Webhook Event.</doc>
+                <request>
+                    <param name="address" required="true" style="query" type="xsd:string">
+                        <doc>the address that will be used to match Webhook Events</doc>
+                    </param>
+                    <param name="blockChain" required="true" style="query" type="xsd:string">
+                        <doc>the name of the block chain that the Webhook Event is associated with</doc>
+                    </param>
+                    <param name="confirmations" required="true" style="query" type="xsd:integer">
+                        <doc>the number of confirmations that will be POSTed to the Webhook for each new transaction</doc>
+                    </param>
+                    <param name="event" required="true" style="query" type="xsd:string">
+                        <doc>the event that will trigger the Webhook s POST request</doc>
+                    </param>
+                    <param name="webhookId" required="true" style="query" type="xsd:string">
+                        <doc>the unique id of the associated Webhook</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6346:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete Webhook" id="6347" name="DELETE">
+                <doc>Deletes a Webhook and all associated Webhook Events.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f6347:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete Webhook Event" id="6348" name="DELETE">
+                <doc>Deletes a Webhook Event, which will stop all further POST requests for the event.</doc>
+                <request>
+                    <param name="address" required="true" style="query" type="xsd:string">
+                        <doc>the address that is used to match Webhook Events</doc>
+                    </param>
+                    <param name="eventType" required="true" style="query" type="xsd:string">
+                        <doc>the name of the event</doc>
+                    </param>
+                    <param name="webhookId" required="true" style="query" type="xsd:string">
+                        <doc>the unique id of the associated Webhook</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6348:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List Webhook Events" id="6350" name="GET">
+                <doc>Lists all Webhook Events associated with a Webhook.</doc>
+                <request>
+                    <param name="webhookId" required="true" style="query" type="xsd:string">
+                        <doc>the unique id of the associated Webhook</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6350:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List Webhooks" id="6351" name="GET">
+                <doc>List all of the Webhooks associated with a Chain API KEY.</doc>
+                <request/>
+                <response>
+                    <representation element="f6351:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update Webhook" id="6363" name="PUT">
+                <doc>Update the URL of a Webhook.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>the unique id of the Webhook</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>the new server URL that will receive the Webhook POST requests</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6363:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Webhook create" id="6364" name="POST">
+                <doc>Creates a Webhook.</doc>
+                <request/>
+                <response>
+                    <representation element="f6364:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="bitcoin/">
+            <resource uri="addresses/">
+                <resource uri="{address}/">
+                    <param name="address" style="template" type="xsd:string"/>
+                    <method displayName="OP_RETURN" id="6354" name="GET">
+                        <doc>Returns any OP_RETURN values sent and received by a Bitcoin Address.</doc>
+                        <request>
+                            <param name="address" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f6354:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Single address" id="6358" name="GET">
+                        <doc>Returns basic balance details for one bitcoin address.</doc>
+                        <request>
+                            <param name="address" required="true" style="query" type="xsd:string">
+                                <doc>a Bitcoin address</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6358:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Single address transaction" id="6359" name="GET">
+                        <doc>Returns a set of transactions for one  Bitcoin address.</doc>
+                        <request>
+                            <param name="address" required="true" style="query" type="xsd:string">
+                                <doc>a Bitcoin address</doc>
+                            </param>
+                            <param name="limit" required="true" style="query" type="xsd:integer">
+                                <doc>the max number of transactions to return starting with most recent</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6359:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="unspent output single address" id="6362" name="GET">
+                        <doc>Returns a collection of unspent outputs for a Bitcoin address. These outputs can be used as inputs for a new transaction.</doc>
+                        <request>
+                            <param name="address" required="true" style="query" type="xsd:string">
+                                <doc>a Bitcoin address</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6362:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="{address-address-address}/">
+                    <param name="address-address-address" style="template" type="xsd:string"/>
+                    <method displayName="Multiple address" id="6352" name="GET">
+                        <doc>Returns basic balance details for  more Bitcoin addresses.</doc>
+                        <request>
+                            <param name="addressAddressAddress" required="true" style="query" type="xsd:string">
+                                <doc>a set of Bitcoin addresses</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6352:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Multiple address transaction" id="6353" name="GET">
+                        <doc>Returns a set of transactions for more Bitcoin addresses.</doc>
+                        <request>
+                            <param name="addressAddressAddress" required="true" style="query" type="xsd:string">
+                                <doc>a set of Bitcoin addresses</doc>
+                            </param>
+                            <param name="limit" required="true" style="query" type="xsd:integer">
+                                <doc>the max number of transactions to return starting with most recent</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6353:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="unspent output multiple address" id="6361" name="GET">
+                        <doc>Returns a collection of unspent outputs for a Bitcoin addresses. These outputs can be used as inputs for a new transaction.</doc>
+                        <request>
+                            <param name="addressAddressAddress" required="true" style="query" type="xsd:string">
+                                <doc>a set of Bitcoin addresses</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6361:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="blocks/">
+                <resource uri="latest/">
+                    <method displayName="Latest block" id="6349" name="GET">
+                        <doc>Returns the latest block added to the main chain.</doc>
+                        <request/>
+                        <response>
+                            <representation element="f6349:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="{hash}/">
+                    <param name="hash" style="template" type="xsd:string"/>
+                    <method displayName="Block hash" id="6345" name="GET">
+                        <doc>Returns a block by hash</doc>
+                        <request>
+                            <param name="hash" required="true" style="query" type="xsd:string">
+                                <doc>a block hash</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6345:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="OP_RETURNs by hash" id="6355" name="GET">
+                        <doc>Returns all OP_RETURNs in block by hash.</doc>
+                        <request>
+                            <param name="hash" required="true" style="query" type="xsd:string">
+                                <doc>a block hash</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6355:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="{height}/">
+                    <param name="height" style="template" type="xsd:string"/>
+                    <method displayName="Block by height" id="6344" name="GET">
+                        <doc>Returns a block by height.</doc>
+                        <request>
+                            <param name="height" required="true" style="query" type="xsd:string">
+                                <doc>a block height</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6344:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="OP_RETURNs by height" id="6356" name="GET">
+                        <doc>Returns all OP_RETURNs in block by height.</doc>
+                        <request>
+                            <param name="height" required="true" style="query" type="xsd:string">
+                                <doc>a block height</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6356:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="transactions/">
+                <method displayName="Bit coin transaction" id="6343" name="GET">
+                    <doc>Returns details about a Bitcoin transaction, including inputs and outputs.</doc>
+                    <request>
+                        <param name="hash" required="true" style="query" type="xsd:string">
+                            <doc>a transaction hash</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6343:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Send bitcoin transaction" id="6357" name="POST">
+                    <doc>Accepts a signed transaction in hex format and sends it to the Bitcoin network.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f6357:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Transaction OP_Return" id="6360" name="GET">
+                    <doc>Returns the OP_RETURN value and associated addresses for any transaction containing an OP_RETURN script.</doc>
+                    <request>
+                        <param name="hash" required="true" style="query" type="xsd:string">
+                            <doc>a transaction hash</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6360:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

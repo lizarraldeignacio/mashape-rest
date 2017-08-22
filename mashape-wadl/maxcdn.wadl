@@ -1,0 +1,895 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5007="urn:function:f5007" xmlns:f5025="urn:function:f5025" xmlns:f5026="urn:function:f5026" xmlns:f5034="urn:function:f5034" xmlns:f5035="urn:function:f5035" xmlns:f5040="urn:function:f5040" xmlns:f5044="urn:function:f5044" xmlns:f5047="urn:function:f5047" xmlns:f5064="urn:function:f5064" xmlns:f5071="urn:function:f5071" xmlns:f5073="urn:function:f5073" xmlns:f5075="urn:function:f5075">
+    <grammars>
+        <include href="Function5044.xsd"/>
+        <include href="Function5047.xsd"/>
+        <include href="Function5075.xsd"/>
+        <include href="Function5025.xsd"/>
+        <include href="Function5026.xsd"/>
+        <include href="Function5007.xsd"/>
+        <include href="Function5040.xsd"/>
+        <include href="Function5071.xsd"/>
+        <include href="Function5073.xsd"/>
+        <include href="Function5034.xsd"/>
+        <include href="Function5035.xsd"/>
+        <include href="Function5064.xsd"/>
+    </grammars>
+    <doc>a full API to control MaxCDN products</doc>
+    <resources base="https://dakulov-maxcdn-v1.p.mashape.com/">
+        <resource uri="{companyalias}/">
+            <param name="companyalias" style="template" type="xsd:string"/>
+            <resource uri="zones.json/">
+                <method displayName="Get Zone Count" id="5044" name="GET">
+                    <doc>Counts all zones on the specified account</doc>
+                    <request>
+                        <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5044:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get Zone Summary" id="5047" name="GET">
+                    <doc>Gets a summarized count of all zone types on the specified account</doc>
+                    <request>
+                        <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5047:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="List Zones" id="5075" name="GET">
+                    <doc>Returns a list of all zones on the specified account</doc>
+                    <request>
+                        <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5075:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="v3/">
+                <resource uri="reporting/">
+                    <resource uri="logs.json/">
+                        <method displayName="Get Raw Logs" id="5038" name="GET">
+                            <doc>Retrieve up to five days of raw log data</doc>
+                            <request>
+                                <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="account.json/">
+                <method displayName="Get Account" id="5025" name="GET">
+                    <doc>Gets account information</doc>
+                    <request>
+                        <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5025:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get Account Address" id="5026" name="GET">
+                    <doc>Gets account address information</doc>
+                    <request>
+                        <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5026:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Update Account" id="5080" name="PUT">
+                    <doc>Updates account information</doc>
+                    <request>
+                        <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                        <param name="name" required="true" style="query" type="xsd:string">
+                            <doc>the name of your account</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Update Account Address" id="5081" name="PUT">
+                    <doc>Updates account address information</doc>
+                    <request>
+                        <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="reports/">
+                <resource uri="statuscodes.json/">
+                    <resource uri="{report_type}/">
+                        <param name="report_type" style="template" type="xsd:string"/>
+                        <method displayName="Reports by Status Codes API" id="5079" name="GET">
+                            <doc>Gets HTTP status code response statistics for your account</doc>
+                            <request>
+                                <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                <param name="dateFrom" required="true" style="query" type="xsd:string">
+                                    <doc>start date</doc>
+                                </param>
+                                <param name="dateTo" required="true" style="query" type="xsd:string">
+                                    <doc>end date</doc>
+                                </param>
+                                <param name="reportType" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="statsbydir.json/">
+                    <resource uri="{report_type}/">
+                        <param name="report_type" style="template" type="xsd:string"/>
+                        <method displayName="List Stats By Directory" id="5066" name="GET">
+                            <doc>Gets usage statistics by directory for your account. (This report has to be enabled by Sales).</doc>
+                            <request>
+                                <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                <param name="reportType" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="popularfiles.json/">
+                    <method displayName="List Popular Files" id="5062" name="GET">
+                        <doc>Gets the most popularly requested files for your account, grouped into daily statistics</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                            <param name="dateFrom" required="true" style="query" type="xsd:string">
+                                <doc>start date</doc>
+                            </param>
+                            <param name="dateTo" required="true" style="query" type="xsd:string">
+                                <doc>end date</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="filetypes.json/">
+                    <resource uri="{report_type}/">
+                        <param name="report_type" style="template" type="xsd:string"/>
+                        <method displayName="List File Types" id="5055" name="GET">
+                            <doc>Gets file type statistics for your account</doc>
+                            <request>
+                                <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                <param name="reportType" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="{zone_type}/">
+                    <param name="zone_type" style="template" type="xsd:string"/>
+                    <resource uri="statuscodes.json/">
+                        <resource uri="{report_type}/">
+                            <param name="report_type" style="template" type="xsd:string"/>
+                            <method displayName="List Status Codes by Zone Type" id="5070" name="GET">
+                                <doc>Gets HTTP status code response statistics for a specific {zone_type}</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="reportType" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneType" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                    <resource uri="{zone_id}/">
+                        <param name="zone_id" style="template" type="xsd:string"/>
+                        <resource uri="statuscodes.json/">
+                            <resource uri="{report_type}/">
+                                <param name="report_type" style="template" type="xsd:string"/>
+                                <method displayName="List Status Codes by Zone Id" id="5069" name="GET">
+                                    <doc>Gets HTTP status code response statistics for a specific {zone_type} and {zone_id}</doc>
+                                    <request>
+                                        <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                        <param name="reportType" required="true" style="query" type="xsd:string"/>
+                                        <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                        <param name="zoneType" required="true" style="query" type="xsd:string"/>
+                                    </request>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                    <resource uri="popularfiles.json/">
+                        <method displayName="List Popular Files By Zone Type" id="5063" name="GET">
+                            <doc>Gets the most popularly requested files for your account, filtered by {zone_type} and grouped into daily statistics</doc>
+                            <request>
+                                <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                <param name="zoneType" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                    <resource uri="filetypes.json/">
+                        <resource uri="{report_type}/">
+                            <param name="report_type" style="template" type="xsd:string"/>
+                            <method displayName="List File Types by Zone Type" id="5057" name="GET">
+                                <doc>Gets file type statistics for a specific {zone_type}</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="reportType" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneType" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                    <resource uri="filesizes.json/">
+                        <resource uri="{report_type}/">
+                            <param name="report_type" style="template" type="xsd:string"/>
+                            <method displayName="List File Sizes by Zone Type" id="5054" name="GET">
+                                <doc>Gets request statistics for the specified {zone_type} based on file size ranges</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="reportType" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneType" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="filesizes.json/">
+                    <resource uri="{report_type}/">
+                        <param name="report_type" style="template" type="xsd:string"/>
+                        <method displayName="List File Sizes" id="5052" name="GET">
+                            <doc>Gets request statistics for your account based on file size ranges</doc>
+                            <request>
+                                <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                <param name="reportType" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="nodes.json/">
+                    <method displayName="Get Zone Node" id="5045" name="GET">
+                        <doc>Gets the node information for the specified {node_id}</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                            <param name="nodeId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Get Zone Node Stats by Report Type" id="5046" name="GET">
+                        <doc>Get usage statistics for a particular {node_id} optionally broken up by {report_type}. If no {report_type} is given the request will return the total usage for the node.</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                            <param name="dateFrom" required="true" style="query" type="xsd:string">
+                                <doc>start date</doc>
+                            </param>
+                            <param name="dateTo" required="true" style="query" type="xsd:string">
+                                <doc>end date</doc>
+                            </param>
+                            <param name="nodeId" required="true" style="query" type="xsd:string"/>
+                            <param name="reportType" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="List Nodes" id="5060" name="GET">
+                        <doc>Gets a list of all active nodes (locations)</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="List Zone Node Stats by Report Type" id="5074" name="GET">
+                        <doc>Get usage statistics broken up by nodes and optionally {report_type}. If no {report_type} is given the request will return the total usage broken up by node.</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                            <param name="dateFrom" required="true" style="query" type="xsd:string">
+                                <doc>start date</doc>
+                            </param>
+                            <param name="dateTo" required="true" style="query" type="xsd:string">
+                                <doc>end date</doc>
+                            </param>
+                            <param name="reportType" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="statsbyzone.json/">
+                    <resource uri="{report_type}/">
+                        <param name="report_type" style="template" type="xsd:string"/>
+                        <method displayName="Get All Zone Stats" id="5028" name="GET">
+                            <doc>Gets the total usage statistics for each of your zones, optionally broken up by {report_type}. If no {report_type} is given the timestamp response parameter will be omitted.</doc>
+                            <request>
+                                <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                <param name="dateFrom" required="true" style="query" type="xsd:string">
+                                    <doc>start date</doc>
+                                </param>
+                                <param name="dateTo" required="true" style="query" type="xsd:string">
+                                    <doc>end date</doc>
+                                </param>
+                                <param name="reportType" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="stats.json/">
+                    <resource uri="{report_type}/">
+                        <param name="report_type" style="template" type="xsd:string"/>
+                        <method displayName="Get Account Stats" id="5027" name="GET">
+                            <doc>Gets the total usage statistics for your account, optionally broken up by {report_type}. If no {report_type} is given the request will return the total usage on your account.</doc>
+                            <request>
+                                <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                <param name="dateFrom" required="true" style="query" type="xsd:string">
+                                    <doc>start date</doc>
+                                </param>
+                                <param name="dateTo" required="true" style="query" type="xsd:string">
+                                    <doc>end date</doc>
+                                </param>
+                                <param name="reportType" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="{zone_id}/">
+                    <param name="zone_id" style="template" type="xsd:string"/>
+                    <resource uri="statuscodes.json/">
+                        <resource uri="{report_type}/">
+                            <param name="report_type" style="template" type="xsd:string"/>
+                            <method displayName="List Status Code Responses by Zone Id" id="5068" name="GET">
+                                <doc>Gets HTTP status code response statistics for a specific {zone_id}</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="dateFrom" required="true" style="query" type="xsd:string">
+                                        <doc>start date</doc>
+                                    </param>
+                                    <param name="dateTo" required="true" style="query" type="xsd:string">
+                                        <doc>end date</doc>
+                                    </param>
+                                    <param name="reportType" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                    <resource uri="statsbydir.json/">
+                        <resource uri="{report_type}/">
+                            <param name="report_type" style="template" type="xsd:string"/>
+                            <method displayName="List Stats By Directory and Zone Id" id="5067" name="GET">
+                                <doc>Gets usage statistics by directory for the specified {zone_id}. (This report has to be enabled by Sales).</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="reportType" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                    <resource uri="filetypes.json/">
+                        <resource uri="{report_type}/">
+                            <param name="report_type" style="template" type="xsd:string"/>
+                            <method displayName="List File Types by Zone Id" id="5056" name="GET">
+                                <doc>Gets file type statistics for a specific {zone_id}</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="reportType" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                    <resource uri="filesizes.json/">
+                        <resource uri="{report_type}/">
+                            <param name="report_type" style="template" type="xsd:string"/>
+                            <method displayName="List File Sizes by Zone Id" id="5053" name="GET">
+                                <doc>Gets request statistics for the specified {zone_id} based on file size ranges</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="reportType" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                    <resource uri="nodes.json/">
+                        <method displayName="Get Node by Zone" id="5032" name="GET">
+                            <doc>Gets the node information for the specified {node_id} and {zone_id}</doc>
+                            <request>
+                                <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                <param name="nodeId" required="true" style="query" type="xsd:string"/>
+                                <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="Get Node Stats by Zone and Report Type" id="5033" name="GET">
+                            <doc>Get usage statistics for a particular {node_id} and {zone_id}, optionally broken up by {report_type}. If no {report_type} is given the request will return the total usage for the node.</doc>
+                            <request>
+                                <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                <param name="dateFrom" required="true" style="query" type="xsd:string">
+                                    <doc>start date</doc>
+                                </param>
+                                <param name="dateTo" required="true" style="query" type="xsd:string">
+                                    <doc>end date</doc>
+                                </param>
+                                <param name="nodeId" required="true" style="query" type="xsd:string"/>
+                                <param name="reportType" required="true" style="query" type="xsd:string"/>
+                                <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="List Node Stats by Zone and Report Type" id="5059" name="GET">
+                            <doc>Get usage statistics for a particular {zone_id} broken up by nodes and optionally {report_type}. If no {report_type} is given the request will return the total usage broken up by node.</doc>
+                            <request>
+                                <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                <param name="dateFrom" required="true" style="query" type="xsd:string">
+                                    <doc>start date</doc>
+                                </param>
+                                <param name="dateTo" required="true" style="query" type="xsd:string">
+                                    <doc>end date</doc>
+                                </param>
+                                <param name="reportType" required="true" style="query" type="xsd:string"/>
+                                <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="List Nodes by Zone" id="5061" name="GET">
+                            <doc>Gets a list of all active nodes (locations) specified by the {zone_id} parameter</doc>
+                            <request>
+                                <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                    <resource uri="stats.json/">
+                        <resource uri="{report_type}/">
+                            <param name="report_type" style="template" type="xsd:string"/>
+                            <method displayName="Get a Zone's Stats" id="5024" name="GET">
+                                <doc>Gets the {zone_id} usage statistics optionally broken up by {report_type}. If no {report_type} is given the request will return the total usage for the zones.</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="dateFrom" required="true" style="query" type="xsd:string">
+                                        <doc>start date</doc>
+                                    </param>
+                                    <param name="dateTo" required="true" style="query" type="xsd:string">
+                                        <doc>end date</doc>
+                                    </param>
+                                    <param name="reportType" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="users.json/">
+                <method displayName="Create User" id="5007" name="POST">
+                    <doc>Creates a new user on the specified account</doc>
+                    <request>
+                        <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5007:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Delete User" id="5014" name="DELETE">
+                    <doc>Deletes a user specified by the {user_id} parameter</doc>
+                    <request>
+                        <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                        <param name="userId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Get User" id="5040" name="GET">
+                    <doc>Gets a user specified by the {user_id} parameter</doc>
+                    <request>
+                        <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                        <param name="userId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5040:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="List Users" id="5071" name="GET">
+                    <doc>Returns a list of all users on the specified account</doc>
+                    <request>
+                        <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5071:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Update User" id="5086" name="PUT">
+                    <doc>Updates a user specified by the {user_id} parameter</doc>
+                    <request>
+                        <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                        <param name="userId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="zones/">
+                <resource uri="{zone_type}/">
+                    <param name="zone_type" style="template" type="xsd:string"/>
+                    <resource uri="{zone_id}/">
+                        <param name="zone_id" style="template" type="xsd:string"/>
+                        <resource uri="ssl.json/">
+                            <method displayName="Get Zone's SSL Information" id="5048" name="GET">
+                                <doc>Get the SSL certificate for the specified {zone_type} and {zone_id}.</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneType" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                            <method displayName="Install SSL on Zone" id="5049" name="POST">
+                                <doc>Upload an SSL certificate for the specified {zone_type} and {zone_id}.</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneType" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                            <method displayName="Remove Zone's SSL Information" id="5077" name="DELETE">
+                                <doc>Remove the SSL certificate for the specified {zone_type} and {zone_id}.</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneType" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                            <method displayName="Update Zone's SSL Information" id="5088" name="PUT">
+                                <doc>Update the SSL certificate for the specified {zone_type} and {zone_id}.</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneType" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                        </resource>
+                        <resource uri="upstream.json/">
+                            <method displayName="Enable Upstream on Zone" id="5022" name="POST">
+                                <doc>Create and enable Upstream for a specific {zone_id}.</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneType" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                            <method displayName="Get Upstream information for the current zone" id="5039" name="GET">
+                                <doc>Get the upstream information for the specified {zone_id}.</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneType" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                            <method displayName="Remove Zone's Upstream Information" id="5078" name="DELETE">
+                                <doc>Remove the Upstream Information for the specified {zone_id}.</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneType" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                            <method displayName="Update Zone's Upstream Information" id="5089" name="PUT">
+                                <doc>Update the Upstream information for the specified {zone_id}.</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneType" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="live.json/">
+                    <method displayName="Delete Live Zone" id="5011" name="DELETE">
+                        <doc>Deletes a live zone specified by the {zone_id} parameter</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                            <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Get Live Zone" id="5030" name="GET">
+                        <doc>Gets a live zone specified by the {zone_id} parameter</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                            <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Get Live Zones Count" id="5031" name="GET">
+                        <doc>Counts all live zones on the specified account</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="List Live Zones" id="5058" name="GET">
+                        <doc>Returns a list of all live zones on the specified account</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Update Live Zone" id="5083" name="PUT">
+                        <doc>Updates a live zone specified by the {zone_id} parameter</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                            <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="vod.json/">
+                    <method displayName="Create VOD Zone" id="5009" name="POST">
+                        <doc>Creates a new VOD zone</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Delete VOD Zone" id="5016" name="DELETE">
+                        <doc>Deletes a VOD zone specified by the {zone_id} parameter</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                            <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Get VOD Zone" id="5042" name="GET">
+                        <doc>Gets a VOD zone specified by the {zone_id} parameter</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                            <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Get VOD Zones Count" id="5043" name="GET">
+                        <doc>Counts all VOD zones on the specified account</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="List VOD Zones" id="5073" name="GET">
+                        <doc>Returns a list of all VOD zones on the specified account</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f5073:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Update VOD Zone" id="5087" name="PUT">
+                        <doc>Updates a VOD zone specified by the {zone_id} parameter</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                            <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="vod/">
+                    <resource uri="{zone_id}/">
+                        <param name="zone_id" style="template" type="xsd:string"/>
+                        <resource uri="enable.json/">
+                            <method displayName="Enable VOD Zone" id="5023" name="PUT">
+                                <doc>Enables a VOD zone specified by the {zone_id} parameter</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                        </resource>
+                        <resource uri="disable.json/">
+                            <method displayName="Disable VOD Zone" id="5019" name="PUT">
+                                <doc>Disables a VOD zone specified by the {zone_id} parameter</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                        </resource>
+                        <resource uri="customdomains.json/">
+                            <method displayName="Create VOD Custom Domain" id="5008" name="POST">
+                                <doc>Adds a new custom domain to {zone_id}</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                            <method displayName="Delete VOD Custom Domain" id="5015" name="DELETE">
+                                <doc>Deletes a custom domain specified by the {zone_id} and {customdomain_id} parameters</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="customdomainId" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                            <method displayName="Get VOD Custom Domain" id="5041" name="GET">
+                                <doc>Gets a custom domain specified by the {zone_id} and {customdomain_id} parameters</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="customdomainId" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                            <method displayName="List VOD Custom Domains" id="5072" name="GET">
+                                <doc>Returns a list of all custom domains on the zone specified by {zone_id}</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="push.json/">
+                    <method displayName="Create Push Zone" id="5006" name="POST">
+                        <doc>Creates a new push zone</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Delete Push Zone" id="5013" name="DELETE">
+                        <doc>Deletes a push zone specified by the {zone_id} parameter</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                            <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Get Push Zone" id="5036" name="GET">
+                        <doc>Gets a push zone specified by the {zone_id} parameter</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                            <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Get Push Zones Count" id="5037" name="GET">
+                        <doc>Counts all push zones on the specified account</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="List Push Zones" id="5065" name="GET">
+                        <doc>Returns a list of all push zones on the specified account</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Update Push Zone" id="5085" name="PUT">
+                        <doc>Updates a push zone specified by the {zone_id} parameter</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                            <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="pull.json/">
+                    <method displayName="Create Pull Zone" id="5005" name="POST">
+                        <doc>Creates a new pull zone</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Delete Pull Zone" id="5012" name="DELETE">
+                        <doc>Deletes a pull zone specified by the {zone_id} parameter</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                            <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Get Pull Zone" id="5034" name="GET">
+                        <doc>Gets a pull zone specified by the {zone_id} parameter</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                            <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f5034:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Get Pull Zones Count" id="5035" name="GET">
+                        <doc>Counts all pull zones on the specified account</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f5035:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="List Pull Zones" id="5064" name="GET">
+                        <doc>Returns a list of all pull zones on the specified account</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f5064:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Purge Cache" id="5076" name="DELETE">
+                        <doc>Purges pull zone cache</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                            <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Update Pull Zone" id="5084" name="PUT">
+                        <doc>Updates a pull zone specified by the {zone_id} parameter</doc>
+                        <request>
+                            <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                            <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="push/">
+                    <resource uri="{zone_id}/">
+                        <param name="zone_id" style="template" type="xsd:string"/>
+                        <resource uri="enable.json/">
+                            <method displayName="Enable Push Zone" id="5021" name="PUT">
+                                <doc>Enables a push zone specified by the {zone_id} parameter</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                        </resource>
+                        <resource uri="disable.json/">
+                            <method displayName="Disable Push Zone" id="5018" name="PUT">
+                                <doc>Disables a push zone specified by the {zone_id} parameter</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                        </resource>
+                        <resource uri="customdomains.json/">
+                            <method displayName="Create Custom Push Domain" id="5004" name="POST">
+                                <doc>Adds a new custom domain to {zone_id}</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                            <method displayName="List Custom Push Domains" id="5051" name="GET">
+                                <doc>Returns a list of all custom domains on the zone specified by {zone_id}</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="pull/">
+                    <resource uri="{zone_id}/">
+                        <param name="zone_id" style="template" type="xsd:string"/>
+                        <resource uri="enable.json/">
+                            <method displayName="Enable Pull Zone" id="5020" name="PUT">
+                                <doc>Enables a pull zone specified by the {zone_id} parameter</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                        </resource>
+                        <resource uri="disable.json/">
+                            <method displayName="Disable Pull Zone" id="5017" name="PUT">
+                                <doc>Disables a pull zone specified by the {zone_id} parameter</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                        </resource>
+                        <resource uri="customdomains.json/">
+                            <method displayName="Create Custom Domain" id="5003" name="POST">
+                                <doc>Adds a new custom domain to {zone_id}</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                            <method displayName="Delete Custom Domain" id="5010" name="DELETE">
+                                <doc>Deletes a custom domain specified by the {zone_id} and {customdomain_id} parameters</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="customdomainId" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                            <method displayName="Get Custom Domain" id="5029" name="GET">
+                                <doc>Gets a custom domain specified by the {zone_id} and {customdomain_id} parameters</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="customdomainId" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                            <method displayName="List Custom Domains" id="5050" name="GET">
+                                <doc>Returns a list of all custom domains on the zone specified by {zone_id}</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                            <method displayName="Update Custom Domain" id="5082" name="PUT">
+                                <doc>Updates a custom domain specified by the id parameter</doc>
+                                <request>
+                                    <param name="companyalias" required="true" style="query" type="xsd:string"/>
+                                    <param name="customdomainId" required="true" style="query" type="xsd:string"/>
+                                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

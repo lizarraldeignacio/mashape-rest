@@ -1,0 +1,1128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f100="urn:function:f100" xmlns:f106="urn:function:f106" xmlns:f107="urn:function:f107" xmlns:f108="urn:function:f108" xmlns:f109="urn:function:f109" xmlns:f113="urn:function:f113" xmlns:f116="urn:function:f116" xmlns:f118="urn:function:f118" xmlns:f119="urn:function:f119" xmlns:f120="urn:function:f120" xmlns:f123="urn:function:f123" xmlns:f90="urn:function:f90" xmlns:f93="urn:function:f93" xmlns:f95="urn:function:f95" xmlns:f97="urn:function:f97" xmlns:f98="urn:function:f98">
+    <grammars>
+        <include href="Function123.xsd"/>
+        <include href="Function120.xsd"/>
+        <include href="Function119.xsd"/>
+        <include href="Function118.xsd"/>
+        <include href="Function116.xsd"/>
+        <include href="Function113.xsd"/>
+        <include href="Function109.xsd"/>
+        <include href="Function108.xsd"/>
+        <include href="Function107.xsd"/>
+        <include href="Function106.xsd"/>
+        <include href="Function100.xsd"/>
+        <include href="Function98.xsd"/>
+        <include href="Function97.xsd"/>
+        <include href="Function95.xsd"/>
+        <include href="Function93.xsd"/>
+        <include href="Function90.xsd"/>
+    </grammars>
+    <doc>alchemyAPI provides advanced cloud based and on premise text analysis infrastructure that eliminates the expense and difficulty of integrating natural language processing systems into your application service or data processing pipeline</doc>
+    <resources base="https://alchemy.p.mashape.com/">
+        <resource uri="url/">
+            <resource uri="URLGetTitle/">
+                <method displayName="URLGetTitle" id="127" name="GET">
+                    <request>
+                        <param name="outputmode" required="true" style="query" type="xsd:string">
+                            <doc>desired API output format Possible values xml default json rdf</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>http url must be uri argument encoded</doc>
+                        </param>
+                        <param name="usemetadata" required="true" style="query" type="xsd:string">
+                            <doc>whether to use title information embedded in web page meta data Possible values enable default disable</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="URLGetTextSentiment/">
+                <method displayName="URLGetTextSentiment" id="126" name="GET">
+                    <doc>The URLGetTextSentiment call is utilized to extract positive/negative sentiment from a given web page. AlchemyAPI will download the requested URL, extracting text from the HTML document structure (ignoring navigation links, advertisements, and other undesireable content), and perform sentiment extraction operations.</doc>
+                    <request>
+                        <param name="cquery" required="true" style="query" type="xsd:string">
+                            <doc>a visual constraints query to apply to the web page Constraint queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="showsourcetext" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include the original source text the sentiment was extracted from within the API response Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="sourcetext" required="true" style="query" type="xsd:string">
+                            <doc>where to obtain the text that will be processed by this API call AlchemyAPI supports multiple modes of text extraction web page cleaning removes ads navigation links etc raw text extraction processes all web page text including ads nav links visual constraint queries and XPath queries</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>http url must be uri argument encoded</doc>
+                        </param>
+                        <param name="xpath" required="true" style="query" type="xsd:string">
+                            <doc>an XPath query to apply to the web page XPath queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="URLGetText/">
+                <method displayName="URLGetText" id="125" name="GET">
+                    <doc>The URLGetText call is utilized to extract the primary page / article text from a web page. AlchemyAPI will download the requested URL, extract text from the HTML document structure, and ignore page navigation, advertisements, and other undesireable page content.</doc>
+                    <request>
+                        <param name="extractlinks" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include hyperlinks in the extracted web page text Possible values enable disable default</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>http url must be uri argument encoded</doc>
+                        </param>
+                        <param name="usemetadata" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to use description information embedded in web page meta data Possible values enable default disable</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="URLGetTargetedSentiment/">
+                <method displayName="URLGetTargetedSentiment" id="124" name="GET">
+                    <doc>The URLGetTargetedSentiment call is utilized to extract positive / negative sentiment targeted towards a specific user-specified target phrase inside the text of a given web page. AlchemyAPI will download the requested URL, extracting text from the HTML document structure (ignoring navigation links, advertisements, and other undesireable content), and perform sentiment extraction operations.</doc>
+                    <request>
+                        <param name="cquery" required="true" style="query" type="xsd:string">
+                            <doc>a visual constraints query to apply to the web page Constraint queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="showsourcetext" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include the original source text the sentiment was extracted from within the API response Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="sourcetext" required="true" style="query" type="xsd:string">
+                            <doc>where to obtain the text that will be processed by this API call AlchemyAPI supports multiple modes of text extraction web page cleaning removes ads navigation links etc raw text extraction processes all web page text including ads nav links visual constraint queries and XPath queries</doc>
+                        </param>
+                        <param name="target" required="true" style="query" type="xsd:string">
+                            <doc>target phrase must be uri argument encoded sentiment targeted towards this phrase will be extracted from the text</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>http url must be uri argument encoded</doc>
+                        </param>
+                        <param name="xpath" required="true" style="query" type="xsd:string">
+                            <doc>an XPath query to apply to the web page XPath queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="URLGetRelations/">
+                <method displayName="URLGetRelations" id="123" name="GET">
+                    <doc>The URLGetRelations call is utilized to extract Subject-Action-Object relations from a given web page. AlchemyAPI will download the requested URL, extracting text from the HTML document structure (ignoring navigation links, advertisements, and other undesireable content), and perform relation extraction operations.</doc>
+                    <request>
+                        <param name="baseurl" required="true" style="query" type="xsd:string">
+                            <doc>rel tag output base http url must be uri argument encoded</doc>
+                        </param>
+                        <param name="coreference" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to resolve he she etc coreferences in detected relation subject object named entities Possible values enabled default disabled</doc>
+                        </param>
+                        <param name="cquery" required="true" style="query" type="xsd:string">
+                            <doc>a visual constraints query to apply to the web page Constraint queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                        <param name="disambiguate" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to disambiguate detected relation subject object named entities Possible values enabled default disabled</doc>
+                        </param>
+                        <param name="entities" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to enable relation subject object entity extraction Possible values enabled disabled default optional parameter Note that enabling this option will incur usage of one additional AlchemyAPI transaction</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="linkeddata" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include Linked Data content links with identified relation subject object named entities Possible values enabled default disabled</doc>
+                        </param>
+                        <param name="maxretrieve" required="true" style="query" type="xsd:string">
+                            <doc>maximum number of relations to extract default maximum</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="requireentities" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to only show extracted relations that contain at least one named entity ignoring relations containing no entities Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="sentiment" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to enable directional sentiment analysis Possible values enabled disabled default optional parameter Note that enabling this option will incur usage of one additional AlchemyAPI transaction</doc>
+                        </param>
+                        <param name="sentimentexcludeentities" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to exclude relation subject object named entity text from sentiment processing For example not analyzing New in New York Possible values enabled default disabled</doc>
+                        </param>
+                        <param name="showsourcetext" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include the original source text the relations were extracted from within the API response Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="sourcetext" required="true" style="query" type="xsd:string">
+                            <doc>where to obtain the text that will be processed by this API call AlchemyAPI supports multiple modes of text extraction web page cleaning removes ads navigation links etc raw text extraction processes all web page text including ads nav links visual constraint queries and XPath queries</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>http url must be uri argument encoded</doc>
+                        </param>
+                        <param name="xpath" required="true" style="query" type="xsd:string">
+                            <doc>an XPath query to apply to the web page XPath queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f123:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="URLGetRawText/">
+                <method displayName="URLGetRawText" id="122" name="GET">
+                    <doc>The URLGetRawText call is utilized to extract all text from a web page. AlchemyAPI will download the requested URL, extract text from the HTML document structure, including page navigation, advertisements, and other page content. To ignore this content, please use the URLGetText call.</doc>
+                    <request>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>http url must be uri argument encoded</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="URLGetRankedNamedEntities/">
+                <method displayName="URLGetRankedNamedEntities" id="121" name="GET">
+                    <doc>The URLGetRankedNamedEntities call is utilized to extract a grouped, relevancy-ranked list of named entities (people, companies, organizations, etc.) from a given web page. AlchemyAPI will download the requested URL, extracting text from the HTML document structure (ignoring navigation links, advertisements, and other undesireable content), and perform entity extraction operations.</doc>
+                    <request>
+                        <param name="baseurl" required="true" style="query" type="xsd:string">
+                            <doc>rel tag output base http url optional parameter used with rel tag or rel tag raw outputMode must be uri argument encoded</doc>
+                        </param>
+                        <param name="coreference" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to resolve he she etc coreferences into detected entities Possible values enabled default disabled</doc>
+                        </param>
+                        <param name="cquery" required="true" style="query" type="xsd:string">
+                            <doc>a visual constraints query to apply to the web page Constraint queries enable API operations to be performed on a targeted area of a web page such as a story title or product descriptio</doc>
+                        </param>
+                        <param name="disambiguate" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to disambiguate detected entities Possible values enabled default disabled</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="linkeddata" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include Linked Data content links with disambiguated entities Possible values enabled default disabled</doc>
+                        </param>
+                        <param name="maxretrieve" required="true" style="query" type="xsd:string">
+                            <doc>maximum number of named entities to extract default</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="quotations" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to enable quotations extraction Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="sentiment" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to enable entity level sentiment analysis Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="showsourcetext" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include the original source text the entities were extracted from within the API response Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="sourcetext" required="true" style="query" type="xsd:string">
+                            <doc>where to obtain the text that will be processed by this API call AlchemyAPI supports multiple modes of text extraction web page cleaning removes ads navigation links etc raw text extraction processes all web page text including ads nav links visual constraint queries and XPath queries</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>http url must be uri argument encoded</doc>
+                        </param>
+                        <param name="xpath" required="true" style="query" type="xsd:string">
+                            <doc>an XPath query to apply to the web page XPath queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="URLGetRankedKeywords/">
+                <method displayName="URLGetRankedKeywords" id="120" name="GET">
+                    <doc>The URLGetRankedKeywords call is utilized to extract a relevancy-ranked list of topic keywords from a given web page. AlchemyAPI will download the requested URL, extracting text from the HTML document structure (ignoring navigation links, advertisements, and other undesireable content), and perform keyword extraction operations.</doc>
+                    <request>
+                        <param name="baseurl" required="true" style="query" type="xsd:string">
+                            <doc>rel tag output base http url must be uri argument encoded</doc>
+                        </param>
+                        <param name="cquery" required="true" style="query" type="xsd:string">
+                            <doc>a visual constraints query to apply to the web page Constraint queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="keywordextractmode" required="true" style="query" type="xsd:string">
+                            <doc>keyword extraction mode normal or strict Possible values normal normal keyword extraction mode default strict strict keyword extraction mode returns more well formed keywords refines results at the expense of returning fewer keywords</doc>
+                        </param>
+                        <param name="maxretrieve" required="true" style="query" type="xsd:string">
+                            <doc>maximum number of keywords to extract default</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="sentiment" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to enable keyword level sentiment analysis Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="showsourcetext" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include the original source text the keywords were extracted from within the API response Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="sourcetext" required="true" style="query" type="xsd:string">
+                            <doc>where to obtain the text that will be processed by this API call AlchemyAPI supports multiple modes of text extraction web page cleaning removes ads navigation links etc raw text extraction processes all web page text including ads nav links visual constraint queries and XPath queries</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>http url must be uri argument encoded</doc>
+                        </param>
+                        <param name="xpath" required="true" style="query" type="xsd:string">
+                            <doc>an XPath query to apply to the web page XPath queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f120:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="URLGetRankedConcepts/">
+                <method displayName="URLGetRankedConcepts" id="119" name="GET">
+                    <doc>The URLGetRankedConcepts call is utilized to extract a relevancy-ranked list of concept tags for a given web page. AlchemyAPI will download the requested URL, extracting text from the HTML document structure (ignoring navigation links, advertisements, and other undesireable content), and perform concept tagging operations.</doc>
+                    <request>
+                        <param name="baseurl" required="true" style="query" type="xsd:string">
+                            <doc>rel tag output base http url must be uri argument encoded</doc>
+                        </param>
+                        <param name="cquery" required="true" style="query" type="xsd:string">
+                            <doc>a visual constraints query to apply to the web page Constraint queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback optional parameter requires outputMode to be set to json</doc>
+                        </param>
+                        <param name="linkeddata" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include Linked Data content links with identified concept tags Possible values enabled default disabled</doc>
+                        </param>
+                        <param name="maxretrieve" required="true" style="query" type="xsd:string">
+                            <doc>maximum number of concept tags to extract default</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="showsourcetext" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include the original source text the concept tags were extracted from within the API response Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="sourcetext" required="true" style="query" type="xsd:string">
+                            <doc>where to obtain the text that will be processed by this API call</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>http url must be uri argument encoded</doc>
+                        </param>
+                        <param name="xpath" required="true" style="query" type="xsd:string">
+                            <doc>an XPath query to apply to the web page XPath queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f119:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="URLGetMicroformatData/">
+                <method displayName="URLGetMicroformatData" id="118" name="GET">
+                    <doc>The URLGetMicroformatData call is utilized to extract structured microformats data from a given web page. AlchemyAPI will retrieve the requested URL, process the retrieved HTML document, and look for a variety of Microformats data structures (hCards, geo, adr, etc.).</doc>
+                    <request>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>http url must be uri argument encoded</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f118:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="URLGetLanguage/">
+                <method displayName="URLGetLanguage" id="117" name="GET">
+                    <doc>The URLGetLanguage call is utilized to detect the language utilized within a given web page. AlchemyAPI will download the requested URL, extracting text from the HTML document structure (ignoring navigation links, advertisements, and other undesireable content), and perform language detection operations.</doc>
+                    <request>
+                        <param name="cquery" required="true" style="query" type="xsd:string">
+                            <doc>a visual constraints query to apply to the web page Constraint queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="sourcetext" required="true" style="query" type="xsd:string">
+                            <doc>where to obtain the text that will be processed by this API call AlchemyAPI supports multiple modes of text extraction web page cleaning removes ads navigation links etc raw text extraction processes all web page text including ads nav links visual constraint queries and XPath queries</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>http url must be uri argument encoded</doc>
+                        </param>
+                        <param name="xpath" required="true" style="query" type="xsd:string">
+                            <doc>an XPath query to apply to the web page XPath queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="URLGetFeedLinks/">
+                <method displayName="URLGetFeedLinks" id="116" name="GET">
+                    <doc>The URLGetFeedLinks call is utilized to extract any links to RSS / ATOM feeds contained within the specified web page. AlchemyAPI will download the requested URL, process the retrieved HTML document, looking for RSS / ATOM feed links.</doc>
+                    <request>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>http url must be uri argument encoded</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f116:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="URLGetConstraintQuery/">
+                <method displayName="URLGetConstraintQuery" id="115" name="GET">
+                    <doc>The URLGetConstraintQuery call is utilized to extract structured data from a given web page. AlchemyAPI will download the requested URL, analyze the HTML document structure, and perform structured data extraction operations.</doc>
+                    <request>
+                        <param name="cquery" required="true" style="query" type="xsd:string">
+                            <doc>document constraint query</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>http url must be uri argument encoded</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="URLGetCategory/">
+                <method displayName="URLGetCategory" id="114" name="GET">
+                    <doc>The URLGetCategory call is utilized to categorize a webpage. AlchemyAPI will download the requested URL, extracting text and other important content from the HTML document structure, and perform document categorization operations.</doc>
+                    <request>
+                        <param name="baseurl" required="true" style="query" type="xsd:string">
+                            <doc>rel tag output base http url</doc>
+                        </param>
+                        <param name="cquery" required="true" style="query" type="xsd:string">
+                            <doc>a visual constraints query to apply to the web page Constraint queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="sourcetext" required="true" style="query" type="xsd:string">
+                            <doc>where to obtain the text that will be processed by this API call AlchemyAPI supports multiple modes of text extraction web page cleaning removes ads navigation links etc raw text extraction processes all web page text including ads nav links visual constraint queries and XPath queries</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>http url must be uri argument encoded</doc>
+                        </param>
+                        <param name="xpath" required="true" style="query" type="xsd:string">
+                            <doc>an XPath query to apply to the web page XPath queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="URLGetAuthor/">
+                <method displayName="URLGetAuthor" id="113" name="GET">
+                    <doc>The URLGetAuthor call is utilized to extract author information contained within the specified web page. AlchemyAPI will download the requested URL, process the retrieved HTML document, looking for author information.</doc>
+                    <request>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback optional parameter requires outputMode to be set to json</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>http url must be uri argument encoded</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f113:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="text/">
+            <resource uri="TextGetTextSentiment/">
+                <method displayName="TextGetTextSentiment" id="112" name="GET">
+                    <doc>The TextGetTextSentiment call is utilized to extract positive/negative sentiment from within a posted text document.</doc>
+                    <request>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="showsourcetext" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include the original source text the sentiment was extracted from within the API response Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>text document content must be uri argument encoded</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>text document URL must be uri argument encoded</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="TextGetTargetedSentiment/">
+                <method displayName="TextGetTargetedSentiment" id="111" name="GET">
+                    <doc>The TextGetTargetedSentiment call is utilized to extract positive/negative sentiment targeted towards a user-specified phrase within a posted text document.</doc>
+                    <request>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="showsourcetext" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include the original source text the sentiment was extracted from within the API response Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="target" required="true" style="query" type="xsd:string">
+                            <doc>target phrase must be uri argument encoded sentiment targeted towards this phrase will be extracted from the text</doc>
+                        </param>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>text document content must be uri argument encoded</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>text document URL must be uri argument encoded</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="TextGetRelations/">
+                <method displayName="TextGetRelations" id="110" name="GET">
+                    <doc>The TextGetRelations call is utilized to extract Subject-Action-Object relations from a given text document.</doc>
+                    <request>
+                        <param name="baseurl" required="true" style="query" type="xsd:string">
+                            <doc>rel tag output base http url must be uri argument encoded</doc>
+                        </param>
+                        <param name="coreference" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to resolve he she etc coreferences in detected relation subject object named entities Possible values enabled default disabled</doc>
+                        </param>
+                        <param name="cquery" required="true" style="query" type="xsd:string">
+                            <doc>a visual constraints query to apply to the web page Constraint queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                        <param name="disambiguate" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to disambiguate detected relation subject object named entities Possible values enabled default disabled</doc>
+                        </param>
+                        <param name="entities" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to enable relation subject object entity extraction Possible values enabled disabled default optional parameter Note that enabling this option will incur usage of one additional AlchemyAPI transaction</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="linkeddata" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include Linked Data content links with identified relation subject object named entities Possible values enabled default disabled</doc>
+                        </param>
+                        <param name="maxretrieve" required="true" style="query" type="xsd:string">
+                            <doc>maximum number of relations to extract default maximum</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="requireentities" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to only show extracted relations that contain at least one named entity ignoring relations containing no entities Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="sentiment" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to enable directional sentiment analysis Possible values enabled disabled default optional parameter Note that enabling this option will incur usage of one additional AlchemyAPI transaction</doc>
+                        </param>
+                        <param name="sentimentexcludeentities" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to exclude relation subject object named entity text from sentiment processing For example not analyzing New in New York Possible values enabled default disabled</doc>
+                        </param>
+                        <param name="showsourcetext" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include the original source text the relations were extracted from within the API response Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="sourcetext" required="true" style="query" type="xsd:string">
+                            <doc>where to obtain the text that will be processed by this API call AlchemyAPI supports multiple modes of text extraction web page cleaning removes ads navigation links etc raw text extraction processes all web page text including ads nav links visual constraint queries and XPath queries</doc>
+                        </param>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>text document content must be uri argument encoded</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>text document url must be uri argument encoded</doc>
+                        </param>
+                        <param name="xpath" required="true" style="query" type="xsd:string">
+                            <doc>an XPath query to apply to the web page XPath queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="TextGetRankedNamedEntities/">
+                <method displayName="TextGetRankedNamedEntities" id="109" name="GET">
+                    <doc>The TextGetRankedNamedEntities call is utilized to extract a grouped, ranked list of named entities (people, companies, organizations, etc.) from within a posted text document.</doc>
+                    <request>
+                        <param name="baseurl" required="true" style="query" type="xsd:string">
+                            <doc>rel tag output base http url optional parameter used with rel tag or rel tag raw outputMode must be uri argument encoded</doc>
+                        </param>
+                        <param name="coreference" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to resolve he she etc coreferences into detected entities Possible values enabled default disabled</doc>
+                        </param>
+                        <param name="disambiguate" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to disambiguate detected entities Possible values enabled default disabled</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="linkeddata" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include Linked Data content links with disambiguated entities Possible values enabled default disabled</doc>
+                        </param>
+                        <param name="maxretrieve" required="true" style="query" type="xsd:string">
+                            <doc>maximum number of named entities to extract default</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="quotations" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to enable quotations extraction Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="sentiment" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to enable entity level sentiment analysis Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="showsourcetext" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include the original source text the entities were extracted from within the API response Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>text document content must be uri argument encoded</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>text document URL</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f109:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="TextGetRankedKeywords/">
+                <method displayName="TextGetRankedKeywords" id="108" name="GET">
+                    <doc>The TextGetRankedKeywords call is utilized to extract a relevancy-ranked list of topic keywords from within a posted text document.</doc>
+                    <request>
+                        <param name="baseurl" required="true" style="query" type="xsd:string">
+                            <doc>rel tag output base http url must be uri argument encoded</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="keywordextractmode" required="true" style="query" type="xsd:string">
+                            <doc>keyword extraction mode normal or strict Possible values normal normal keyword extraction mode default strict strict keyword extraction mode returns more well formed keywords refines results at the expense of returning fewer keywords</doc>
+                        </param>
+                        <param name="maxretrieve" required="true" style="query" type="xsd:string">
+                            <doc>maximum number of keywords to extract default</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="sentiment" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to enable keyword level sentiment analysis Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="showsourcetext" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include the original source text the keywords were extracted from within the API response Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>text document content must be uri argument encoded</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>text document URL must be uri argument encoded</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f108:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="TextGetRankedConcepts/">
+                <method displayName="TextGetRankedConcepts" id="107" name="GET">
+                    <request>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback optional parameter requires outputMode to be set to json</doc>
+                        </param>
+                        <param name="linkeddata" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include Linked Data content links with identified concept tags Possible values enabled default disabled</doc>
+                        </param>
+                        <param name="maxretrieve" required="true" style="query" type="xsd:string">
+                            <doc>maximum number of concept tags to extract default</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="showsourcetext" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include the original source text the concept tags were extracted from within the API response Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>text document content must be uri argument encoded</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>text document URL must be uri argument encoded</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f107:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="TextGetLanguage/">
+                <method displayName="TextGetLanguage" id="106" name="GET">
+                    <doc>The TextGetLanguage call is utilized to detect the language utilized within a posted text document.</doc>
+                    <request>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>text document content must be uri argument encoded</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>text document url</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f106:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="TextGetCategory/">
+                <method displayName="TextGetCategory" id="105" name="GET">
+                    <doc>The TextGetCategory call is utilized to categorize posted text document.</doc>
+                    <request>
+                        <param name="baseurl" required="true" style="query" type="xsd:string">
+                            <doc>rel tag output base http url</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>text document content must be uri argument encoded</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>text document URL must be uri argument encoded</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="html/">
+            <resource uri="HTMLGetTitle/">
+                <method displayName="HTMLGetTitle" id="104" name="GET">
+                    <doc>The HTMLGetTitle call is utilized to extract title information from a posted web page. The posted HTML document is processed, extracting any title information.</doc>
+                    <request>
+                        <param name="html" required="true" style="query" type="xsd:string">
+                            <doc>hTML document content must be uri argument encoded</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string">
+                            <doc>desired API output format Possible values xml default json rdf</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>uri argument encoded http url optional parameter</doc>
+                        </param>
+                        <param name="usemetadata" required="true" style="query" type="xsd:string">
+                            <doc>whether to use title information embedded in web page meta data Possible values enable default disable</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="HTMLGetTextSentiment/">
+                <method displayName="HTMLGetTextSentiment" id="103" name="GET">
+                    <doc>The HTMLGetTextSentiment call is utilized to extract positive/negative sentiment from a posted HTML document. AlchemyAPI will extract text from the posted HTML document structure (ignoring navigation links, advertisements, and other undesireable content), and perform sentiment analysis operations.</doc>
+                    <request>
+                        <param name="cquery" required="true" style="query" type="xsd:string">
+                            <doc>a visual constraints query to apply to the web page Constraint queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                        <param name="html" required="true" style="query" type="xsd:string">
+                            <doc>hTML document content must be uri argument encoded</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="showsourcetext" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include the original source text the sentiment was extracted from within the API response Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="sourcetext" required="true" style="query" type="xsd:string">
+                            <doc>where to obtain the text that will be processed by this API call AlchemyAPI supports multiple modes of text extraction web page cleaning removes ads navigation links etc raw text extraction processes all web page text including ads nav links visual constraint queries and XPath queries</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>hTML document URL must be uri argument encoded</doc>
+                        </param>
+                        <param name="xpath" required="true" style="query" type="xsd:string">
+                            <doc>an XPath query to apply to the web page XPath queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="HTMLGetText/">
+                <method displayName="HTMLGetText" id="102" name="GET">
+                    <request>
+                        <param name="extractlinks" required="true" style="query" type="xsd:string">
+                            <doc>whether to include hyperlinks in the extracted web page text Possible values enable disable default</doc>
+                        </param>
+                        <param name="html" required="true" style="query" type="xsd:string">
+                            <doc>hTML document content must be uri argument encoded</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string">
+                            <doc>desired API output format Possible values xml default json rdf</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>hTML document URL must be uri argument encoded optional parameter for response tracking purposes</doc>
+                        </param>
+                        <param name="usemetadata" required="true" style="query" type="xsd:string">
+                            <doc>whether to use description information embedded in web page meta data Possible values enable default disable</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="HTMLGetTargetedSentiment/">
+                <method displayName="HTMLGetTargetedSentiment" id="101" name="GET">
+                    <doc>The HTMLGetTargetedSentiment call is utilized to extract positive/negative sentiment targeted towards a specific user-specified target phrase inside the text of a posted HTML document. AlchemyAPI will extract text from the posted HTML document structure (ignoring navigation links, advertisements, and other undesireable content), and perform sentiment analysis operations.</doc>
+                    <request>
+                        <param name="cquery" required="true" style="query" type="xsd:string">
+                            <doc>a visual constraints query to apply to the web page Constraint queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                        <param name="html" required="true" style="query" type="xsd:string">
+                            <doc>hTML document content must be uri argument encoded</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="showsourcetext" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include the original source text the sentiment was extracted from within the API response Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="sourcetext" required="true" style="query" type="xsd:string">
+                            <doc>where to obtain the text that will be processed by this API call AlchemyAPI supports multiple modes of text extraction web page cleaning removes ads navigation links etc raw text extraction processes all web page text including ads nav links visual constraint queries and XPath queries</doc>
+                        </param>
+                        <param name="target" required="true" style="query" type="xsd:string">
+                            <doc>target phrase must be uri argument encoded sentiment targeted towards this phrase will be extracted from the text</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>hTML document URL must be uri argument encoded</doc>
+                        </param>
+                        <param name="xpath" required="true" style="query" type="xsd:string">
+                            <doc>an XPath query to apply to the web page XPath queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="HTMLGetRelations/">
+                <method displayName="HTMLGetRelations" id="100" name="GET">
+                    <doc>The URLGetRelations call is utilized to extract Subject-Action-Object relations from a posted HTML document. AlchemyAPI will extract text from the HTML document structure (ignoring navigation links, advertisements, and other undesireable content), and perform relation extraction operations.</doc>
+                    <request>
+                        <param name="baseurl" required="true" style="query" type="xsd:string">
+                            <doc>rel tag output base http url must be uri argument encoded</doc>
+                        </param>
+                        <param name="coreference" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to resolve he she etc coreferences in detected relation subject object named entities Possible values enabled default disabled</doc>
+                        </param>
+                        <param name="cquery" required="true" style="query" type="xsd:string">
+                            <doc>a visual constraints query to apply to the web page Constraint queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                        <param name="disambiguate" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to disambiguate detected relation subject object named entities Possible values enabled default disabled</doc>
+                        </param>
+                        <param name="entities" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to enable relation subject object entity extraction Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="html" required="true" style="query" type="xsd:string">
+                            <doc>hTML document content must be uri argument encoded</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="linkeddata" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include Linked Data content links with identified relation subject object named entities Possible values enabled default disabled</doc>
+                        </param>
+                        <param name="maxretrieve" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of relations to extract default maximum</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="requireentities" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to only show extracted relations that contain at least one named entity ignoring relations containing no entities Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="sentiment" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to enable directional sentiment analysis Possible values enabled disabled default optional parameter Note that enabling this option will incur usage of one additional AlchemyAPI transaction</doc>
+                        </param>
+                        <param name="sentimentexcludeentities" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to exclude relation subject object named entity text from sentiment processing For example not analyzing New in New York Possible values enabled default disabled</doc>
+                        </param>
+                        <param name="showsourcetext" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include the original source text the relations were extracted from within the API response Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="sourcetext" required="true" style="query" type="xsd:string">
+                            <doc>where to obtain the text that will be processed by this API call AlchemyAPI supports multiple modes of text extraction web page cleaning removes ads navigation links etc raw text extraction processes all web page text including ads nav links visual constraint queries and XPath queries</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>hTML document URL optional parameter must be uri argument encoded</doc>
+                        </param>
+                        <param name="xpath" required="true" style="query" type="xsd:string">
+                            <doc>an XPath query to apply to the web page XPath queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f100:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="HTMLGetRawText/">
+                <method displayName="HTMLGetRawText" id="99" name="GET">
+                    <doc>The HTMLGetRawText call is utilized to extract all text from a posted web page. AlchemyAPI will extract text from the posted HTML document structure, including page navigation, advertisements, and other page content. To ignore this content, please use the HTMLGetText call.</doc>
+                    <request>
+                        <param name="html" required="true" style="query" type="xsd:string">
+                            <doc>hTML document content must be uri argument encoded</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string">
+                            <doc>desired API output format Possible values xml default json rdf</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>hTML document URL must be uri argument encoded</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="HTMLGetRankedNamedEntities/">
+                <method displayName="HTMLGetRankedNamedEntities" id="98" name="GET">
+                    <doc>The HTMLGetRankedNamedEntities call is utilized to extract a grouped, relevancy-ranked list of named entities (people, companies, organizations, etc.) from a posted HTML document. AlchemyAPI will extract text from the posted HTML document (ignoring navigation links, advertisements, and other undesireable content), and perform entity extraction operations.</doc>
+                    <request>
+                        <param name="baseurl" required="true" style="query" type="xsd:string">
+                            <doc>rel tag output base http url</doc>
+                        </param>
+                        <param name="coreference" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to resolve he she etc coreferences into detected entities Possible values enabled default disabled</doc>
+                        </param>
+                        <param name="cquery" required="true" style="query" type="xsd:string">
+                            <doc>a visual constraints query to apply to the web page Constraint queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                        <param name="disambiguate" required="true" style="query" type="xsd:boolean">
+                            <doc>hether to disambiguate detected entities Possible values enabled default disabled</doc>
+                        </param>
+                        <param name="html" required="true" style="query" type="xsd:string">
+                            <doc>hTML document content must be uri argument encoded</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="linkeddata" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include Linked Data content links with disambiguated entities Possible values enabled default disabled</doc>
+                        </param>
+                        <param name="maxretrieve" required="true" style="query" type="xsd:string">
+                            <doc>maximum number of named entities to extract default</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="quotations" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to enable quotations extraction Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="sentiment" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to enable entity level sentiment analysis Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="showsourcetext" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include the original source text the entities were extracted from within the API response Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="sourcetext" required="true" style="query" type="xsd:string">
+                            <doc>where to obtain the text that will be processed by this API call AlchemyAPI supports multiple modes of text extraction web page cleaning removes ads navigation links etc raw text extraction processes all web page text including ads nav links visual constraint queries and XPath queries</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>hTML document URL</doc>
+                        </param>
+                        <param name="xpath" required="true" style="query" type="xsd:string">
+                            <doc>an XPath query to apply to the web page XPath queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f98:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="HTMLGetRankedKeywords/">
+                <method displayName="HTMLGetRankedKeywords" id="97" name="GET">
+                    <doc>The HTMLGetRankedKeywords call is utilized to extract a relevancy-ranked list of topic keywords from a posted HTML document. AlchemyAPI will extract text from the posted HTML document structure (ignoring navigation links, advertisements, and other undesireable content), and perform keyword extraction operations.</doc>
+                    <request>
+                        <param name="baseurl" required="true" style="query" type="xsd:string">
+                            <doc>rel tag output base http url must be uri argument encoded</doc>
+                        </param>
+                        <param name="cquery" required="true" style="query" type="xsd:string">
+                            <doc>a visual constraints query to apply to the web page Constraint queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                        <param name="html" required="true" style="query" type="xsd:string">
+                            <doc>hTML document content must be uri argument encoded</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="keywordextractmode" required="true" style="query" type="xsd:string">
+                            <doc>keyword extraction mode normal or strict Possible values normal normal keyword extraction mode default strict strict keyword extraction mode returns more well formed keywords refines results at the expense of returning fewer keywords</doc>
+                        </param>
+                        <param name="maxretrieve" required="true" style="query" type="xsd:string">
+                            <doc>maximum number of keywords to extract default</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="sentiment" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to enable keyword level sentiment analysis Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="showsourcetext" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include the original source text the keywords were extracted from within the API response Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="sourcetext" required="true" style="query" type="xsd:string">
+                            <doc>where to obtain the text that will be processed by this API call AlchemyAPI supports multiple modes of text extraction web page cleaning removes ads navigation links etc raw text extraction processes all web page text including ads nav links visual constraint queries and XPath queries</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>hTML document URL must be uri argument encoded</doc>
+                        </param>
+                        <param name="xpath" required="true" style="query" type="xsd:string">
+                            <doc>an XPath query to apply to the web page XPath queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f97:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="HTMLGetRankedConcepts/">
+                <method displayName="HTMLGetRankedConcepts" id="96" name="GET">
+                    <doc>The HTMLGetRankedConcepts call is utilized to extract a relevancy-ranked list of concept tags for a posted HTML document. AlchemyAPI will extract text from the posted HTML document structure (ignoring navigation links, advertisements, and other undesireable content), and perform concept tagging operations.</doc>
+                    <request>
+                        <param name="cquery" required="true" style="query" type="xsd:string">
+                            <doc>a visual constraints query to apply to the web page Constraint queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                        <param name="html" required="true" style="query" type="xsd:string">
+                            <doc>hTML document content must be uri argument encoded</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback optional parameter requires outputMode to be set to json</doc>
+                        </param>
+                        <param name="linkeddata" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include Linked Data content links with identified concept tags Possible values enabled default disabled</doc>
+                        </param>
+                        <param name="maxretrieve" required="true" style="query" type="xsd:string">
+                            <doc>maximum number of concept tags to extract default</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string">
+                            <doc>desired API output format Possible values xml default json rdf</doc>
+                        </param>
+                        <param name="showsourcetext" required="true" style="query" type="xsd:boolean">
+                            <doc>whether to include the original source text the concept tags were extracted from within the API response Possible values enabled disabled default</doc>
+                        </param>
+                        <param name="sourcetext" required="true" style="query" type="xsd:string">
+                            <doc>where to obtain the text that will be processed by this API call AlchemyAPI supports multiple modes of text extraction web page cleaning removes ads navigation links etc raw text extraction processes all web page text including ads nav links visual constraint queries and XPath queries</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>hTML document URL must be uri argument encoded</doc>
+                        </param>
+                        <param name="xpath" required="true" style="query" type="xsd:string">
+                            <doc>an XPath query to apply to the web page XPath queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="HTMLGetMicroformatData/">
+                <method displayName="HTMLGetMicroformatData" id="95" name="GET">
+                    <doc>The HTMLGetMicroformatData call is utilized to extract Microformats content from a posted HTML document. AlchemyAPI will process the posted HTML document, looking for a variety of Microformats data structures (hCards, geo, adr, etc.).</doc>
+                    <request>
+                        <param name="html" required="true" style="query" type="xsd:string">
+                            <doc>hTML document content must be uri argument encoded</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>hTML document URL must be uri argument encoded optional parameter for response tracking purposes</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f95:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="HTMLGetLanguage/">
+                <method displayName="HTMLGetLanguage" id="94" name="GET">
+                    <doc>The HTMLGetLanguage call is utilized to detect the language utilized within a posted HTML document. AlchemyAPI will extract text from the posted HTML document structure (ignoring navigation links, advertisements, and other undesireable content), and perform language detection operations.</doc>
+                    <request>
+                        <param name="cquery" required="true" style="query" type="xsd:string">
+                            <doc>a visual constraints query to apply to the web page Constraint queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                        <param name="html" required="true" style="query" type="xsd:string">
+                            <doc>hTML document content must be uri argument encoded</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="sourcetext" required="true" style="query" type="xsd:string">
+                            <doc>where to obtain the text that will be processed by this API call AlchemyAPI supports multiple modes of text extraction web page cleaning removes ads navigation links etc raw text extraction processes all web page text including ads nav links visual constraint queries and XPath queries</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>hTML document URL optional parameter for response tracking purposes must be uri argument encoded</doc>
+                        </param>
+                        <param name="xpath" required="true" style="query" type="xsd:string">
+                            <doc>an XPath query to apply to the web page XPath queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="HTMLGetFeedLinks/">
+                <method displayName="HTMLGetFeedLinks" id="93" name="GET">
+                    <doc>The HTMLGetFeedLinks call is utilized to extract any links to RSS / ATOM feeds contained within the posted web page. AlchemyAPI will process the posted HTML document, looking for RSS / ATOM feed links.</doc>
+                    <request>
+                        <param name="html" required="true" style="query" type="xsd:string">
+                            <doc>hTML document content must be uri argument encoded</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>hTML document URL must be uri argument encoded optional parameter for response tracking purposes</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f93:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="HTMLGetConstraintQuery/">
+                <method displayName="HTMLGetConstraintQuery" id="92" name="GET">
+                    <doc>The HTMLGetConstraintQuery call is utilized to extract structured data from a posted HTML document. AlchemyAPI will analyze the posted HTML document structure, extracting the desired structured data.</doc>
+                    <request>
+                        <param name="cquery" required="true" style="query" type="xsd:string">
+                            <doc>the constraint query to execute</doc>
+                        </param>
+                        <param name="html" required="true" style="query" type="xsd:string">
+                            <doc>hTML document content must be uri argument encoded</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string">
+                            <doc>desired API output format Possible values xml default json rdf</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>hTML document URL must be uri argument encoded</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="HTMLGetCategory/">
+                <method displayName="HTMLGetCategory" id="91" name="GET">
+                    <doc>The HTMLGetCategory call is utilized to categorize a posted HTML document. AlchemyAPI will extract text and other important content from the posted HTML document structure and perform document categorization operations.</doc>
+                    <request>
+                        <param name="baseurl" required="true" style="query" type="xsd:string">
+                            <doc>rel tag output base http url</doc>
+                        </param>
+                        <param name="cquery" required="true" style="query" type="xsd:string">
+                            <doc>a visual constraints query to apply to the web page Constraint queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                        <param name="html" required="true" style="query" type="xsd:string">
+                            <doc>hTML document content must be uri argument encoded</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string">
+                            <doc>desired API output format Possible values xml default json rdf rel tag rel tag raw</doc>
+                        </param>
+                        <param name="sourcetext" required="true" style="query" type="xsd:string">
+                            <doc>where to obtain the text that will be processed by this API call AlchemyAPI supports multiple modes of text extraction web page cleaning removes ads navigation links etc raw text extraction processes all web page text including ads nav links visual constraint queries and XPath queries</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>hTML document URL must be uri argument encoded</doc>
+                        </param>
+                        <param name="xpath" required="true" style="query" type="xsd:string">
+                            <doc>an XPath query to apply to the web page XPath queries enable API operations to be performed on a targeted area of a web page such as a story title or product description</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="HTMLGetAuthor/">
+                <method displayName="HTMLGetAuthor" id="90" name="GET">
+                    <doc>The HTMLGetAuthor call is utilized to extract author information contained within the specified web page. AlchemyAPI will process the posted HTML document, looking for author information.</doc>
+                    <request>
+                        <param name="html" required="true" style="query" type="xsd:string">
+                            <doc>hTML document content must be uri argument encoded</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>desired JSONP callback optional parameter requires outputMode to be set to json</doc>
+                        </param>
+                        <param name="outputmode" required="true" style="query" type="xsd:string"/>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>hTML document URL must be uri argument encoded optional parameter for response tracking purposes</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f90:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

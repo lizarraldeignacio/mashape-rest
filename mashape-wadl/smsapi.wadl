@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5308="urn:function:f5308">
+    <grammars>
+        <include href="Function5308.xsd"/>
+    </grammars>
+    <doc>sMSAPI is a global SMS provider offering High Quality SMS services BULK SMS HLR lookup for companies to nearly mobile networks in countries Read more here https www smsapi com rest</doc>
+    <resources base="https://smsapicom-smsapi-v1.p.mashape.com/">
+        <resource uri="sms.do/">
+            <method displayName="/sms.do" id="5308" name="POST">
+                <request/>
+                <response>
+                    <representation element="f5308:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

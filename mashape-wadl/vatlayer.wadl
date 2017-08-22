@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>vatlayer is a simple REST based JSON API offering instant EU VAT number validation VAT compliant price calculations and VAT rates for all current member states of the European Union Its system is secured by HTTPS and focused on ease of use integration delivering all VAT data in lightweight and highly portable JSON format This level of compatibility paired with startup and developer friendly pricing and a full stack of features makes the vatlayer API a perfect VAT rate automation and number validation tool for individuals businesses and merchants selling and buying goods in and around the European Union</doc>
+    <resources base="https://apilayer-vatlayer-v1.p.mashape.com/">
+        <resource uri="validate/">
+            <method displayName="Validate VAT Number" id="6668" name="GET">
+                <doc>Using the "validate" endpoint, you may request the API to validate any EU VAT number and obtain information about the company it is assigned to</doc>
+                <request>
+                    <param name="vatNumber" required="true" style="query" type="xsd:string">
+                        <doc>vat number parameter append the VAT number you want to validate</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="rate/">
+            <method displayName="Single EU VAT Rate" id="6667" name="GET">
+                <doc>Using the "rate" endpoint, you may request the API to return standard and reduced VAT rates for a EU member state you specify. Important: Only one of the following three parameters for defining the country is allowed.</doc>
+                <request>
+                    <param name="countryCode" required="true" style="query" type="xsd:string">
+                        <doc>option define country by letter country code</doc>
+                    </param>
+                    <param name="ipAddress" required="true" style="query" type="xsd:string">
+                        <doc>option define country by IP address</doc>
+                    </param>
+                    <param name="useClientIp" required="true" style="query" type="xsd:string">
+                        <doc>option set to in order to use the IP of the client making the API request</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="types/">
+            <method displayName="Request list of types of goods" id="6666" name="GET">
+                <doc>Request an entire list of all available "types of goods", which fall into reduced VAT categories in specific EU member states</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="rate_list/">
+            <method displayName="Request all EU VAT Rates" id="6665" name="GET">
+                <doc>Use the API's "rate_list" endpoint to obtain standard &amp; reduced VAT rates for all 28 current member states</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="price/">
+            <method displayName="Calculate EU VAT Compliant Price" id="6664" name="GET">
+                <doc>Use the "price" endpoint, you may request the API to calculate a country-specific VAT compliant price on your behalf. Important: There are 3 options to define a country - choose only one!</doc>
+                <request>
+                    <param name="amount" required="true" style="query" type="xsd:string">
+                        <doc>amount parameter append the amount to convert to VAT compliant price</doc>
+                    </param>
+                    <param name="countryCode" required="true" style="query" type="xsd:string">
+                        <doc>option define country by letter country code</doc>
+                    </param>
+                    <param name="incl" required="true" style="query" type="xsd:string">
+                        <doc>set to in case your amount already contains the respective VAT percentage</doc>
+                    </param>
+                    <param name="ipAddress" required="true" style="query" type="xsd:string">
+                        <doc>option define country by IP address</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>define a reduced VAT type product category according to the API s type endpoint</doc>
+                    </param>
+                    <param name="useClientIp" required="true" style="query" type="xsd:string">
+                        <doc>option set to in order to use the IP of the client making the API request</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

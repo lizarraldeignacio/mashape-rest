@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>accurately detect the language of text websites or files You can identify languages with an accuracy of more than</doc>
+    <resources base="https://whatlanguage.p.mashape.com/">
+        <resource uri="detect/">
+            <method displayName="Detect language of text string(s) or url(s)" id="6616" name="GET">
+                <doc>Detect the language of one or more text strings</doc>
+                <request>
+                    <param name="encoding" required="true" style="query" type="xsd:string">
+                        <doc>encoding used to URL encode the text from the q parameter If you do not specify an encoding parameter we will look at the charset of your request If that is not supplied we will assume you URL encoded your text from the q parameter in UTF</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>format of response Available formats are json or xml</doc>
+                    </param>
+                    <param name="prettyprint" required="true" style="query" type="xsd:string">
+                        <doc>returns a human readable response pretty printed with indentations and line breaks when set to true Available values are true or false</doc>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>text from which you want to identify the language Please see README either the q or the url parameter need to be specified</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>uRL from which you want to identify the language URL can start with http https or ftp Please see README either the q or the url parameter need to be specified</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Detect language of text string(s) or url(s) of file(s)" id="6617" name="POST">
+                <doc>Detect the language of one or more URLs</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

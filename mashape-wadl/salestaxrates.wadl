@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6612="urn:function:f6612">
+    <grammars>
+        <include href="Function6612.xsd"/>
+    </grammars>
+    <doc>sales and Use tax rates Api so developers can easier query accurate sales tax rates in United States</doc>
+    <resources base="https://sales-tax-rates.p.mashape.com/">
+        <resource uri="zipcode/">
+            <method displayName="Sales Tax and Use Tax rates by Zipcode" id="6612" name="GET">
+                <request>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6612:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

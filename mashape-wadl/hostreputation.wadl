@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1257="urn:function:f1257">
+    <grammars>
+        <include href="Function1257.xsd"/>
+    </grammars>
+    <doc>check the reputation of an IP address or domain against a comprehensive list of blacklists and blocklists DNSBLs We currently check DNSBLs and URI DNSBLs This API can take anywhere from seconds to seconds to run depending on the current response times of the active DNSBLs Please Note you should not call this API repeatedly or concurrently in short periods of time or you may get blocked for list abuse</doc>
+    <resources base="https://neutrinoapi-host-reputation.p.mashape.com/">
+        <resource uri="host-reputation/">
+            <method displayName="Host Reputation" id="1257" name="POST">
+                <request/>
+                <response>
+                    <representation element="f1257:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

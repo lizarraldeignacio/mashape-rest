@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1738="urn:function:f1738" xmlns:f1739="urn:function:f1739" xmlns:f1740="urn:function:f1740" xmlns:f1741="urn:function:f1741">
+    <grammars>
+        <include href="Function1741.xsd"/>
+        <include href="Function1740.xsd"/>
+        <include href="Function1739.xsd"/>
+        <include href="Function1738.xsd"/>
+    </grammars>
+    <doc>retrieve The oldTestament and The New Testament based on chapter or selected verse</doc>
+    <resources base="https://ajith-holy-bible.p.mashape.com/">
+        <resource uri="GetVerseOfaChapter/">
+            <method displayName="GetVerseOfaChapter" id="1741" name="GET">
+                <request>
+                    <param name="book" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="chapter" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                    <param name="verse" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1741:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="GetFromTwoVerses/">
+            <method displayName="GetFromTwoVerses" id="1740" name="GET">
+                <request>
+                    <param name="book" required="true" style="query" type="xsd:string">
+                        <doc>enter one of the books from Bible</doc>
+                    </param>
+                    <param name="chapter" required="true" style="query" type="xsd:integer">
+                        <doc>enter chapter number from given book</doc>
+                    </param>
+                    <param name="versefrom" required="true" style="query" type="xsd:integer">
+                        <doc>enter Verse to start</doc>
+                    </param>
+                    <param name="verseto" required="true" style="query" type="xsd:integer">
+                        <doc>enter Verse to End</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1740:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="GetChapter/">
+            <method displayName="GetChapter" id="1739" name="GET">
+                <request>
+                    <param name="book" required="true" style="query" type="xsd:string">
+                        <doc>enter one of the books from Bible</doc>
+                    </param>
+                    <param name="chapter" required="true" style="query" type="xsd:integer">
+                        <doc>enter chapter number from given book</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1739:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="GetBooks/">
+            <method displayName="GetBooks" id="1738" name="GET">
+                <doc>Get List Of All Books.</doc>
+                <request/>
+                <response>
+                    <representation element="f1738:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

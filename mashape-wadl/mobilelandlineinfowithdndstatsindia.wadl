@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>using this API you can get the details of mobile number and Land Line number all over India You can find the state Service Provider and DND etc Soon other features will be adding to this API Contact US for Mobile Name Finder API Cheers Arun</doc>
+    <resources base="https://sphirelabs-mobile-number.p.mashape.com/">
+        <resource uri="1.php/">
+            <method displayName="Mobile and Landline Info" id="594" name="GET">
+                <doc>GET Indian Mobile LandLine Info with DND stats</doc>
+                <request>
+                    <param name="number" required="true" style="query" type="xsd:integer">
+                        <doc>for Mobile Number Use a Digit mobile number without using and For Landline Number User the number with Digit Code Infront Ex</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

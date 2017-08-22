@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f313="urn:function:f313">
+    <grammars>
+        <include href="Function313.xsd"/>
+    </grammars>
+    <doc>sign up for a free account at http clicksend com ClickSend is not a free service Pricing can be found here http clicksend com r pricing</doc>
+    <resources base="https://clicksend-clicksend-sms.p.mashape.com/">
+        <resource uri="send.json/">
+            <method displayName="Send SMS" id="313" name="POST">
+                <doc>Sends an SMS</doc>
+                <request/>
+                <response>
+                    <representation element="f313:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

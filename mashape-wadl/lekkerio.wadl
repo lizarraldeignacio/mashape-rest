@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>aPI based affiliate tracking</doc>
+    <resources base="https://lekker.p.mashape.com/">
+        <resource uri="contact/">
+            <method displayName="Create Contact" id="7228" name="POST">
+                <doc>Create a new contact in the CRM module</doc>
+                <request/>
+            </method>
+            <method displayName="Get Contact" id="7229" name="GET">
+                <doc>Retrieve a contact from the CRM module</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string"/>
+                    <param name="contactId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

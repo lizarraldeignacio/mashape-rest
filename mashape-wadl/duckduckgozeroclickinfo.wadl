@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f16="urn:function:f16">
+    <grammars>
+        <include href="Function16.xsd"/>
+    </grammars>
+    <doc>duckDuckGo Zero click Info includes topic summaries categories disambiguation official sites bang redirects definitions and more You can use this API for many things e g define people places things words and concepts provides direct links to other services via bang syntax list related topics and gives official sites when available</doc>
+    <resources base="https://duckduckgo-duckduckgo-zero-click-info.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Zero Click Info" id="16" name="GET">
+                <doc>Our Zero-click Info API gives you free access to much of our topic summaries, categories, disambiguation, !bang redirects, definitions and more.</doc>
+                <request>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>function to callback for a JSONP formatted response</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string"/>
+                    <param name="noHtml" required="true" style="query" type="xsd:integer">
+                        <doc>to remove HTML from text e g bold and italics</doc>
+                    </param>
+                    <param name="noRedirect" required="true" style="query" type="xsd:integer">
+                        <doc>to skip HTTP redirects for bang commands see http duckduckgo com bang html</doc>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>search terms</doc>
+                    </param>
+                    <param name="skipDisambig" required="true" style="query" type="xsd:integer">
+                        <doc>to skip disambiguation D Type</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f16:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

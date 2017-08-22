@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6281="urn:function:f6281" xmlns:f6282="urn:function:f6282" xmlns:f6283="urn:function:f6283">
+    <grammars>
+        <include href="Function6283.xsd"/>
+        <include href="Function6282.xsd"/>
+        <include href="Function6281.xsd"/>
+    </grammars>
+    <doc>have you ever thought that the prices and limitations of Google Translate are so frustrating If you agree with that question you re in the right place you can implement this API in your projects without deal with so complicated stuffs The only thing you have to do is to choose the plan that fit your needs the best</doc>
+    <resources base="https://gybra-trans-lator.p.mashape.com/">
+        <resource uri="translate/">
+            <resource uri="{from}/">
+                <param name="from" style="template" type="xsd:string"/>
+                <resource uri="{to}/">
+                    <param name="to" style="template" type="xsd:string"/>
+                    <resource uri="{text}/">
+                        <param name="text" style="template" type="xsd:string"/>
+                        <method displayName="Translate" id="6283" name="GET">
+                            <doc>Translate the text from a language to another</doc>
+                            <request>
+                                <param name="from" required="true" style="query" type="xsd:string">
+                                    <doc>the source language of the text will be translated</doc>
+                                </param>
+                                <param name="text" required="true" style="query" type="xsd:string">
+                                    <doc>the text you want to translate</doc>
+                                </param>
+                                <param name="to" required="true" style="query" type="xsd:string">
+                                    <doc>the language of the resultant translate text</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f6283:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="download/">
+            <resource uri="{file}/">
+                <param name="file" style="template" type="xsd:string"/>
+                <method displayName="Text2Speech file" id="6282" name="GET">
+                    <doc>Download the text2speech audio file in base64 format</doc>
+                    <request>
+                        <param name="file" required="true" style="query" type="xsd:string">
+                            <doc>the name of the file audio</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6282:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="languages/">
+            <method displayName="Languages" id="6281" name="GET">
+                <doc>Get the list of the languages which can be used to translate a text</doc>
+                <request/>
+                <response>
+                    <representation element="f6281:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

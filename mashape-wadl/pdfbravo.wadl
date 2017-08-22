@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>quickly Converts any URL to a beautifully formatted PDF document Generate great looking reports documents invoices in seconds If you need any features just let us know We value your feedback</doc>
+    <resources base="https://pdf-bravo.p.mashape.com/">
+        <resource uri="Pdf/">
+            <resource uri="Convert/">
+                <method displayName="Convert" id="6412" name="GET">
+                    <request>
+                        <param name="filename" required="true" style="query" type="xsd:string"/>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

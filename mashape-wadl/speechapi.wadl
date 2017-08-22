@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6408="urn:function:f6408" xmlns:f6409="urn:function:f6409">
+    <grammars>
+        <include href="Function6409.xsd"/>
+        <include href="Function6408.xsd"/>
+    </grammars>
+    <doc>noise suppression and speech classification API</doc>
+    <resources base="https://sapiens-speechapi.p.mashape.com/">
+        <resource uri="RemoveNoise/">
+            <method displayName="RemoveNoise" id="6409" name="POST">
+                <doc>Removes from audio data everything except the voice. Handles virtually any type of noise, like passing cars, sirens, crying children and so on.</doc>
+                <request>
+                    <param name="inputformat" required="true" style="query" type="xsd:string">
+                        <doc>describe format of the input file wav mp flac vorbis</doc>
+                    </param>
+                    <param name="outputformat" required="true" style="query" type="xsd:string">
+                        <doc>describe format of the output file wav mp flac vorbis</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6409:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="ClassifySpeech/">
+            <method displayName="ClassifySpeech" id="6408" name="POST">
+                <doc>EXPERIMENTAL!!! Finds speech segments inside the file and marks them with attributes, like speaker language. Age, sex, sentiment and speaker dependent hash will come later.</doc>
+                <request>
+                    <param name="inputformat" required="true" style="query" type="xsd:string">
+                        <doc>describe format of the file wav mp flac vorbis</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6408:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

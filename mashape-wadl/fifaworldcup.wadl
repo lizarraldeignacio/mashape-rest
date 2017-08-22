@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f427="urn:function:f427" xmlns:f428="urn:function:f428" xmlns:f429="urn:function:f429" xmlns:f430="urn:function:f430" xmlns:f431="urn:function:f431">
+    <grammars>
+        <include href="Function431.xsd"/>
+        <include href="Function430.xsd"/>
+        <include href="Function429.xsd"/>
+        <include href="Function428.xsd"/>
+        <include href="Function427.xsd"/>
+    </grammars>
+    <doc>keep up with the FIFA World Cup action using this API that returns teams rounds and matches in JSON format</doc>
+    <resources base="https://montanaflynn-fifa-world-cup.p.mashape.com/">
+        <resource uri="teams/">
+            <method displayName="Teams" id="431" name="GET">
+                <doc>List of teams that played.</doc>
+                <request/>
+                <response>
+                    <representation element="f431:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="rounds/">
+            <method displayName="Rounds" id="430" name="GET">
+                <doc>List of rounds.</doc>
+                <request/>
+                <response>
+                    <representation element="f430:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="persons/">
+            <method displayName="Persons" id="429" name="GET">
+                <doc>List of players who scored at least one goal.</doc>
+                <request/>
+                <response>
+                    <representation element="f429:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="goals/">
+            <method displayName="Goals" id="428" name="GET">
+                <doc>List of goals scored.</doc>
+                <request/>
+                <response>
+                    <representation element="f428:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="games/">
+            <method displayName="Games" id="427" name="GET">
+                <doc>List of games.</doc>
+                <request/>
+                <response>
+                    <representation element="f427:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

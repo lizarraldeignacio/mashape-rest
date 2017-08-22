@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6925="urn:function:f6925" xmlns:f6926="urn:function:f6926" xmlns:f6927="urn:function:f6927">
+    <grammars>
+        <include href="Function6927.xsd"/>
+        <include href="Function6926.xsd"/>
+        <include href="Function6925.xsd"/>
+    </grammars>
+    <doc>the matchbox io Match API identifies and deduplicates individuals by providing a consistent identifier By correcting spelling errors and using fuzzy match logic the API can be used to track an individual across different marketing channels including mailing email and social The API can also be used to identify members of the same household and to append third party data Check out http matchbox io to find out more</doc>
+    <resources base="https://matchbox.p.mashape.com/">
+        <resource uri="update/">
+            <method displayName="Update" id="6927" name="POST">
+                <doc>Uses the provided information to update a person in matchbox.io.  If enough contact information is provide, such as a name and address, an email address or a web cookie, that information is used to perform a match and update the person's contact information.  If a match is not found, a new person is created within your matchbox.io account.  In addition, the entire person JSON document is returned.  The matching methodology may be modified if necessary.  Check out matchbox.io for more details.</doc>
+                <request/>
+                <response>
+                    <representation element="f6927:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="person/">
+            <resource uri="{person_id}/">
+                <param name="person_id" style="template" type="xsd:string"/>
+                <method displayName="Person" id="6926" name="GET">
+                    <doc>Returns all stored information about a person based on their matchbox.io person id.  The person_id is found by using either the "update" or "find" methods.</doc>
+                    <request>
+                        <param name="personId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f6926:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="household/">
+            <resource uri="{household_id}/">
+                <param name="household_id" style="template" type="xsd:string"/>
+                <method displayName="Household" id="6925" name="GET">
+                    <doc>Returns each member of a household in a JSON array based on their matchbox.io. household_id.  The household_id is returned by using either the "update" or "find" methods.  A household is determined by two or more individuals have the same (or similar) surname at the same address.</doc>
+                    <request>
+                        <param name="householdId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f6925:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

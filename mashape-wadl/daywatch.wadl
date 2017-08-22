@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5680="urn:function:f5680" xmlns:f5681="urn:function:f5681" xmlns:f5682="urn:function:f5682" xmlns:f5683="urn:function:f5683" xmlns:f5684="urn:function:f5684" xmlns:f5685="urn:function:f5685" xmlns:f5686="urn:function:f5686" xmlns:f5687="urn:function:f5687" xmlns:f5688="urn:function:f5688" xmlns:f5689="urn:function:f5689">
+    <grammars>
+        <include href="Function5689.xsd"/>
+        <include href="Function5688.xsd"/>
+        <include href="Function5687.xsd"/>
+        <include href="Function5686.xsd"/>
+        <include href="Function5685.xsd"/>
+        <include href="Function5684.xsd"/>
+        <include href="Function5683.xsd"/>
+        <include href="Function5682.xsd"/>
+        <include href="Function5681.xsd"/>
+        <include href="Function5680.xsd"/>
+    </grammars>
+    <doc>dayWatch s API provides powerful data access to real time daily deal and coupons data in USA Latin America and South East Asia Search deals per country location category and activity About DayWatch DayWatch is the ultimate real time business reporting and decision support tool for Daily Deal companies Industry reports analytics insights metrics market penetration market shares business performance every moment at anytime All integrated into a web portal http www usedaywatch com A Product Powered by tryolabs com</doc>
+    <resources base="https://tryolabs-daywatch.p.mashape.com/">
+        <resource uri="deal_usa/">
+            <method displayName="USA Deals" id="5689" name="GET">
+                <doc>Currently active daily deals in the United States of America</doc>
+                <request>
+                    <param name="cityIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers available in a given city</doc>
+                    </param>
+                    <param name="descriptionIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers that contain the given string in the offer description</doc>
+                    </param>
+                    <param name="discountRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose discount value is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>response format Supported JSON XML YAML</doc>
+                    </param>
+                    <param name="merchantNameIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers published by the given merchant</doc>
+                    </param>
+                    <param name="offerIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers that contain the given string in the offer title</doc>
+                    </param>
+                    <param name="priceRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose price value in national currency is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                    <param name="priceUsdRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose price value in US dollars is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                    <param name="soldCountRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose sold count is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5689:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="deal_uruguay/">
+            <method displayName="Uruguay Deals" id="5688" name="GET">
+                <doc>Currently active daily deals in Uruguay</doc>
+                <request>
+                    <param name="cityIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers available in a given city</doc>
+                    </param>
+                    <param name="descriptionIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers that contain the given string in the offer description</doc>
+                    </param>
+                    <param name="discountRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose discount value is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>response format Supported JSON XML YAML</doc>
+                    </param>
+                    <param name="merchantNameIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers published by the given merchant</doc>
+                    </param>
+                    <param name="offerIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers that contain the given string in the offer title</doc>
+                    </param>
+                    <param name="priceRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose price value in national currency is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                    <param name="priceUsdRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose price value in US dollars is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                    <param name="soldCountRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose sold count is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5688:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="deal_peru/">
+            <method displayName="Peru Deals" id="5687" name="GET">
+                <doc>Currently active daily deals in Peru</doc>
+                <request>
+                    <param name="cityIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers available in a given city</doc>
+                    </param>
+                    <param name="descriptionIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers that contain the given string in the offer description</doc>
+                    </param>
+                    <param name="discountRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose discount value is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>response format Supported JSON XML YAML</doc>
+                    </param>
+                    <param name="merchantNameIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers published by the given merchant</doc>
+                    </param>
+                    <param name="offerIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers that contain the given string in the offer title</doc>
+                    </param>
+                    <param name="priceRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose price value in national currency is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                    <param name="priceUsdRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose price value in US dollars is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                    <param name="soldCountRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose sold count is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5687:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="deal_mexico/">
+            <method displayName="Mexico Deals" id="5686" name="GET">
+                <doc>Currently active daily deals in Mexico</doc>
+                <request>
+                    <param name="cityIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers available in a given city</doc>
+                    </param>
+                    <param name="descriptionIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers that contain the given string in the offer description</doc>
+                    </param>
+                    <param name="discountRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose discount value is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>response format Supported JSON XML YAML</doc>
+                    </param>
+                    <param name="merchantNameIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers published by the given merchant</doc>
+                    </param>
+                    <param name="offerIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers that contain the given string in the offer title</doc>
+                    </param>
+                    <param name="priceRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose price value in national currency is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                    <param name="priceUsdRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose price value in US dollars is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                    <param name="soldCountRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose sold count is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5686:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="company/">
+            <method displayName="Companies" id="5685" name="GET">
+                <doc>Companies monitored by DayWatch.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>response format Supported JSON XML YAML</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5685:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="deal_colombia/">
+            <method displayName="Colombia Deals" id="5684" name="GET">
+                <doc>Currently active daily deals in Colombia</doc>
+                <request>
+                    <param name="cityIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers available in a given city</doc>
+                    </param>
+                    <param name="descriptionIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers that contain the given string in the offer description</doc>
+                    </param>
+                    <param name="discountRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose discount value is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>response format Supported JSON XML YAML</doc>
+                    </param>
+                    <param name="merchantNameIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers published by the given merchant</doc>
+                    </param>
+                    <param name="offerIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers that contain the given string in the offer title</doc>
+                    </param>
+                    <param name="priceRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose price value in national currency is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                    <param name="priceUsdRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose price value in US dollars is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                    <param name="soldCountRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose sold count is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5684:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="deal_chile/">
+            <method displayName="Chile Deals" id="5683" name="GET">
+                <doc>Currently active daily deals in Chile</doc>
+                <request>
+                    <param name="cityIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers available in a given city</doc>
+                    </param>
+                    <param name="descriptionIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers that contain the given string in the offer description</doc>
+                    </param>
+                    <param name="discountRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose discount value is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>response format Supported JSON XML YAML</doc>
+                    </param>
+                    <param name="merchantNameIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers published by the given merchant</doc>
+                    </param>
+                    <param name="offerIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers that contain the given string in the offer title</doc>
+                    </param>
+                    <param name="priceRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose price value in national currency is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                    <param name="priceUsdRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose price value in US dollars is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                    <param name="soldCountRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose sold count is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5683:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="category/">
+            <method displayName="Categories" id="5682" name="GET">
+                <doc>List of categories for deals.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>response format Supported JSON XML YAML</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5682:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="deal_brasil/">
+            <method displayName="Brasil Deals" id="5681" name="GET">
+                <doc>Currently active daily deals in Brasil</doc>
+                <request>
+                    <param name="cityIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers available in a given city</doc>
+                    </param>
+                    <param name="descriptionIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers that contain the given string in the offer description</doc>
+                    </param>
+                    <param name="discountRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose discount value is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>response format Supported JSON XML YAML</doc>
+                    </param>
+                    <param name="merchantNameIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers published by the given merchant</doc>
+                    </param>
+                    <param name="offerIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers that contain the given string in the offer title</doc>
+                    </param>
+                    <param name="priceRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose price value in national currency is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                    <param name="priceUsdRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose price value in US dollars is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                    <param name="soldCountRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose sold count is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5681:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="deal_argentina/">
+            <method displayName="Argentina Deals" id="5680" name="GET">
+                <doc>Currently active daily deals in Argentina</doc>
+                <request>
+                    <param name="cityIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers available in a given city</doc>
+                    </param>
+                    <param name="descriptionIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers that contain the given string in the offer description</doc>
+                    </param>
+                    <param name="discountRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose discount value is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>response format Supported JSON XML YAML</doc>
+                    </param>
+                    <param name="merchantNameIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers published by the given merchant</doc>
+                    </param>
+                    <param name="offerIcontains" required="true" style="query" type="xsd:string">
+                        <doc>filters offers that contain the given string in the offer title</doc>
+                    </param>
+                    <param name="priceRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose price value in national currency is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                    <param name="priceUsdRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose price value in US dollars is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                    <param name="soldCountRange" required="true" style="query" type="xsd:string">
+                        <doc>filters offers whose sold count is in the given range You may also replace the range modifier by any of the following gt gte lt lte in order to filter values greater than greater or equal lower than lower or equal respectively</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5680:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="">
+            <method displayName="API Summary" id="5679" name="GET">
+                <doc>Resources list</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3891="urn:function:f3891">
+    <grammars>
+        <include href="Function3891.xsd"/>
+    </grammars>
+    <doc>this API provides spelling suggestions for misspelled words</doc>
+    <resources base="https://jchencha-autosuggest.p.mashape.com/">
+        <resource uri="suggest/">
+            <method displayName="Suggest" id="3891" name="GET">
+                <doc>Send the word(s) to be corrected/checked for correction here. For multiple words separate with commas</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>the word that has been misspelled</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3891:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

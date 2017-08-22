@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1153="urn:function:f1153" xmlns:f1154="urn:function:f1154">
+    <grammars>
+        <include href="Function1154.xsd"/>
+        <include href="Function1153.xsd"/>
+    </grammars>
+    <doc>oneWinner Me is a service that lets you check the earning expectation of your lottery numbers and register your combination to prevent other players from choosing similar ones In lotteries Euro Millions some combinations are more played than others It is better to choose combinations rarely played they have the same probability of draw but pay much more because there are fewer winners The service works through a crowdsourcing technology and advanced learning algorithms This API allows third party application to check and register combinations into the OneWinner Me service For the moment only Euro Millions lottery is available but more are coming soon Good luck Mashapers and enjoy</doc>
+    <resources base="https://onewinnerme-onewinnerme.p.mashape.com/">
+        <resource uri="registeremcomb/">
+            <resource uri="{num1}/">
+                <param name="num1" style="template" type="xsd:string"/>
+                <resource uri="{num2}/">
+                    <param name="num2" style="template" type="xsd:string"/>
+                    <resource uri="{num3}/">
+                        <param name="num3" style="template" type="xsd:string"/>
+                        <resource uri="{num4}/">
+                            <param name="num4" style="template" type="xsd:string"/>
+                            <resource uri="{num5}/">
+                                <param name="num5" style="template" type="xsd:string"/>
+                                <resource uri="{star1}/">
+                                    <param name="star1" style="template" type="xsd:string"/>
+                                    <resource uri="{star2}/">
+                                        <param name="star2" style="template" type="xsd:string"/>
+                                        <method displayName="RegisterEMComb" id="1154" name="GET">
+                                            <doc>This method will register a Euro Millions (EM) lottery combination. Registering a combination will prevent other players from choosing the same. &#13;
+Euro Millions is the biggest lottery in the worlds. This pan European lottery game is run in 10 countries at the same time. Approximately 20 million people play every week in Europe.&#13;
+A Euro Millions combination is composed of 5 numbers and 2 stars.</doc>
+                                            <request>
+                                                <param name="num" required="true" style="query" type="xsd:integer">
+                                                    <doc>st number of the lottery combination you want to register Between and</doc>
+                                                </param>
+                                                <param name="num" required="true" style="query" type="xsd:integer">
+                                                    <doc>nd number of the lottery combination you want to register Between and</doc>
+                                                </param>
+                                                <param name="num" required="true" style="query" type="xsd:integer">
+                                                    <doc>rd number of the lottery combination you want to register Between and</doc>
+                                                </param>
+                                                <param name="num" required="true" style="query" type="xsd:integer">
+                                                    <doc>th number of the lottery combination you want to register Between and</doc>
+                                                </param>
+                                                <param name="num" required="true" style="query" type="xsd:integer">
+                                                    <doc>th number of the lottery combination you want to register Between and</doc>
+                                                </param>
+                                                <param name="star" required="true" style="query" type="xsd:integer">
+                                                    <doc>st star of the lottery combination you want to register Between and</doc>
+                                                </param>
+                                                <param name="star" required="true" style="query" type="xsd:integer">
+                                                    <doc>nd number of the lottery combination you want to register Between and</doc>
+                                                </param>
+                                            </request>
+                                            <response>
+                                                <representation element="f1154:root" mediaType="application/json"/>
+                                            </response>
+                                        </method>
+                                    </resource>
+                                </resource>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="getemscore/">
+            <resource uri="{num1}/">
+                <param name="num1" style="template" type="xsd:string"/>
+                <resource uri="{num2}/">
+                    <param name="num2" style="template" type="xsd:string"/>
+                    <resource uri="{num3}/">
+                        <param name="num3" style="template" type="xsd:string"/>
+                        <resource uri="{num4}/">
+                            <param name="num4" style="template" type="xsd:string"/>
+                            <resource uri="{num5}/">
+                                <param name="num5" style="template" type="xsd:string"/>
+                                <resource uri="{star1}/">
+                                    <param name="star1" style="template" type="xsd:string"/>
+                                    <resource uri="{star2}/">
+                                        <param name="star2" style="template" type="xsd:string"/>
+                                        <method displayName="GetEMScore" id="1153" name="GET">
+                                            <doc>This method will return the score (earning expectation) of a Euro Millions (EM) lottery combination. &#13;
+Euro Millions is the biggest lottery in the worlds. This pan European lottery game is run in 10 countries at the same time. Approximately 20 million people play every week in Europe.&#13;
+At Euro Millions combination is composed of 5 numbers and 2 stars.</doc>
+                                            <request>
+                                                <param name="num" required="true" style="query" type="xsd:integer">
+                                                    <doc>st number of the lottery combination you want to check Between and</doc>
+                                                </param>
+                                                <param name="num" required="true" style="query" type="xsd:integer">
+                                                    <doc>nd number of the lottery combination you want to check Between and</doc>
+                                                </param>
+                                                <param name="num" required="true" style="query" type="xsd:integer">
+                                                    <doc>rd number of the lottery combination you want to check Between and</doc>
+                                                </param>
+                                                <param name="num" required="true" style="query" type="xsd:integer">
+                                                    <doc>th number of the lottery combination you want to check Between and</doc>
+                                                </param>
+                                                <param name="num" required="true" style="query" type="xsd:integer">
+                                                    <doc>th number of the lottery combination you want to check Between and</doc>
+                                                </param>
+                                                <param name="star" required="true" style="query" type="xsd:integer">
+                                                    <doc>st star of the lottery combination you want to check Between and</doc>
+                                                </param>
+                                                <param name="star" required="true" style="query" type="xsd:integer">
+                                                    <doc>nd star of the lottery combination you want to check Between and</doc>
+                                                </param>
+                                            </request>
+                                            <response>
+                                                <representation element="f1153:root" mediaType="application/json"/>
+                                            </response>
+                                        </method>
+                                    </resource>
+                                </resource>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

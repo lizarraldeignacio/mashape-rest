@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4182="urn:function:f4182" xmlns:f4186="urn:function:f4186" xmlns:f4188="urn:function:f4188" xmlns:f4189="urn:function:f4189" xmlns:f4190="urn:function:f4190" xmlns:f4191="urn:function:f4191" xmlns:f4192="urn:function:f4192" xmlns:f4193="urn:function:f4193" xmlns:f4194="urn:function:f4194" xmlns:f4195="urn:function:f4195" xmlns:f4196="urn:function:f4196" xmlns:f4197="urn:function:f4197" xmlns:f4198="urn:function:f4198" xmlns:f4200="urn:function:f4200" xmlns:f4201="urn:function:f4201" xmlns:f4203="urn:function:f4203" xmlns:f4204="urn:function:f4204">
+    <grammars>
+        <include href="Function4196.xsd"/>
+        <include href="Function4193.xsd"/>
+        <include href="Function4186.xsd"/>
+        <include href="Function4189.xsd"/>
+        <include href="Function4195.xsd"/>
+        <include href="Function4201.xsd"/>
+        <include href="Function4188.xsd"/>
+        <include href="Function4190.xsd"/>
+        <include href="Function4191.xsd"/>
+        <include href="Function4197.xsd"/>
+        <include href="Function4198.xsd"/>
+        <include href="Function4182.xsd"/>
+        <include href="Function4192.xsd"/>
+        <include href="Function4194.xsd"/>
+        <include href="Function4200.xsd"/>
+        <include href="Function4203.xsd"/>
+        <include href="Function4204.xsd"/>
+    </grammars>
+    <doc>collabinate provides an API for hosted activity streams allowing you to seamlessly build social feeds microblogging and collaboration into your application</doc>
+    <resources base="https://collabinate.p.mashape.com/">
+        <resource uri="users/">
+            <resource uri="{userid}/">
+                <param name="userid" style="template" type="xsd:string"/>
+                <resource uri="following/">
+                    <method displayName="Follow Multiple" id="4187" name="POST">
+                        <doc>Create a follow relationship between a user and a set of entities. The id property of each object in the provided object collection will be used to create the follow relationship.</doc>
+                        <request>
+                            <param name="userid" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="{userId}/">
+                <param name="userId" style="template" type="xsd:string"/>
+                <resource uri="likes/">
+                    <resource uri="{entityId}/">
+                        <param name="entityId" style="template" type="xsd:string"/>
+                        <resource uri="{activityId}/">
+                            <param name="activityId" style="template" type="xsd:string"/>
+                            <method displayName="Get Like" id="4196" name="GET">
+                                <doc>Checks whether a like relationship exists between a user and a single activity.</doc>
+                                <request>
+                                    <param name="activityid" required="true" style="query" type="xsd:string">
+                                        <doc>the ID of the activity to check if the user likes</doc>
+                                    </param>
+                                    <param name="entityid" required="true" style="query" type="xsd:string">
+                                        <doc>the ID of the entity which has the liked activity in its stream</doc>
+                                    </param>
+                                    <param name="userid" required="true" style="query" type="xsd:string">
+                                        <doc>the ID of the user to check</doc>
+                                    </param>
+                                </request>
+                                <response>
+                                    <representation element="f4196:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                            <method displayName="Like Activity" id="4199" name="PUT">
+                                <doc>Creates a like relationship between a user and a single activity.</doc>
+                                <request>
+                                    <param name="activityid" required="true" style="query" type="xsd:string">
+                                        <doc>the ID of the activity that the user likes</doc>
+                                    </param>
+                                    <param name="entityid" required="true" style="query" type="xsd:string">
+                                        <doc>the ID of the entity which has the liked activity in its stream</doc>
+                                    </param>
+                                    <param name="userid" required="true" style="query" type="xsd:string">
+                                        <doc>the ID of the user that likes an activity</doc>
+                                    </param>
+                                </request>
+                            </method>
+                            <method displayName="Unlike Activity" id="4202" name="DELETE">
+                                <doc>Removes a like relationship between a user and a single activity.</doc>
+                                <request>
+                                    <param name="activityid" required="true" style="query" type="xsd:string">
+                                        <doc>the ID of the activity that the user unlikes</doc>
+                                    </param>
+                                    <param name="entityid" required="true" style="query" type="xsd:string">
+                                        <doc>the ID of the entity which has the unliked activity in its stream</doc>
+                                    </param>
+                                    <param name="userid" required="true" style="query" type="xsd:string">
+                                        <doc>the ID of the user that unlikes an activity</doc>
+                                    </param>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="feed/">
+                    <method displayName="Get Feed" id="4193" name="GET">
+                        <doc>Returns a set of activities for the entities followed by a user in reverse chronological order up to the amount in the take query variable, starting at the activity in the position after the skip variable.  If not specified, skip defaults to zero, and take defaults to 20.</doc>
+                        <request>
+                            <param name="comments" required="true" style="query" type="xsd:integer">
+                                <doc>the number of comments on each activity to embed in the response Note that setting this to any value even will embed a collection that contains a value for the count of all comments on each activity along with a set of the most recent comment objects up to the number specified For high volume usage leave this parameter out of the query for best performance</doc>
+                            </param>
+                            <param name="likes" required="true" style="query" type="xsd:integer">
+                                <doc>the number of likes on each activity to embed in the response Note that setting this to any value even will embed a collection that contains a value for the count of all likes on each activity along with a set of like objects up to the number specified For high volume usage leave this parameter out of the query for best performance</doc>
+                            </param>
+                            <param name="skip" required="true" style="query" type="xsd:integer">
+                                <doc>used for paging The number of activities to skip before returning a set of activities Defaults to</doc>
+                            </param>
+                            <param name="take" required="true" style="query" type="xsd:integer">
+                                <doc>used for paging The number of activities to return Defaults to</doc>
+                            </param>
+                            <param name="userid" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the user for which the feed will be retrieved</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4193:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="following/">
+                    <method displayName="Follow Entity" id="4186" name="PUT">
+                        <doc>Adds the given entity to the list of entities that the given user follows. This will create a one-way relationship; for a bi-directional relationship, a second call must be made reversing the entities. The response body will contain an activity representing the follow. Note that the first follow will return 201, subsequent follows will return 200 to indicate that the relationship already exists.</doc>
+                        <request>
+                            <param name="entityid" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the entity that will be followed by the user</doc>
+                            </param>
+                            <param name="userid" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the user that will follow the entity</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4186:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Get All Following" id="4189" name="GET">
+                        <doc>Returns the set of entities followed by the given user.</doc>
+                        <request>
+                            <param name="skip" required="true" style="query" type="xsd:integer">
+                                <doc>used for paging The number of entities to skip before returning a set of entities Defaults to</doc>
+                            </param>
+                            <param name="take" required="true" style="query" type="xsd:integer">
+                                <doc>used for paging The number of entities to return Defaults to</doc>
+                            </param>
+                            <param name="userid" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4189:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Get Following" id="4195" name="GET">
+                        <doc>Returns a follow activity if the given user follows the given entity, or a 404 not found otherwise.</doc>
+                        <request>
+                            <param name="entityid" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the entity to check</doc>
+                            </param>
+                            <param name="userid" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the user to check</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4195:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Unfollow Entity" id="4201" name="DELETE">
+                        <doc>Removes the given entity from the list of entities that the given user follows. This will remove the relationship in one direction only; for a bi-directional relationship, a second call must be made reversing the entities. The response body will contain an activity representing the unfollow.</doc>
+                        <request>
+                            <param name="entityid" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the entity that will stop being followed by the user</doc>
+                            </param>
+                            <param name="userid" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the user that will stop following the entity</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4201:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="entities/">
+            <resource uri="{entityId}/">
+                <param name="entityId" style="template" type="xsd:string"/>
+                <resource uri="stream/">
+                    <method displayName="Delete Activity" id="4183" name="DELETE">
+                        <doc>Removes a single activity from a given stream. All activity data is permanently deleted, including associated comments and likes. The continuity of the remaining stream is maintained.</doc>
+                        <request>
+                            <param name="activityid" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the activity to delete</doc>
+                            </param>
+                            <param name="entityid" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the entity from which the activity will be removed</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Delete Comment" id="4184" name="DELETE">
+                        <doc>Removes a comment from a given activity.</doc>
+                        <request>
+                            <param name="activityid" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the activity from which the comment will be deleted</doc>
+                            </param>
+                            <param name="commentid" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the comment to delete</doc>
+                            </param>
+                            <param name="entityid" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the entity to which the activity with the comment to delete belongs</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Get Activity" id="4188" name="GET">
+                        <doc>Returns a single activity within a given stream.</doc>
+                        <request>
+                            <param name="activityid" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the activity to retrieve</doc>
+                            </param>
+                            <param name="comments" required="true" style="query" type="xsd:integer">
+                                <doc>the number of comments on the activity to embed in the response Note that setting this to any value even will embed a collection that contains a value for the count of all comments on the activity along with a set of the most recent comment objects up to the number specified For high volume usage leave this parameter out of the query for best performance</doc>
+                            </param>
+                            <param name="entityid" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the entity from which s stream the activity will be retrieved</doc>
+                            </param>
+                            <param name="likes" required="true" style="query" type="xsd:integer">
+                                <doc>the number of likes on the activity to embed in the response Note that setting this to any value even will embed a collection that contains a value for the count of all likes on the activity along with a set of like objects up to the number specified For high volume usage leave this parameter out of the query for best performance</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4188:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Get Comment" id="4190" name="GET">
+                        <doc>Gets a single comment on an activity.</doc>
+                        <request>
+                            <param name="activityid" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the activity to which the comment belongs</doc>
+                            </param>
+                            <param name="commentid" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the comment</doc>
+                            </param>
+                            <param name="entityid" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the entity which contains the activity with the comment in its stream</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4190:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Get Comments" id="4191" name="GET">
+                        <doc>Retrieves the set of comments for a given activity.</doc>
+                        <request>
+                            <param name="activityid" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the activity to which the comments belong</doc>
+                            </param>
+                            <param name="count" required="true" style="query" type="xsd:integer">
+                                <doc>used for paging The number of comments to return Defaults to</doc>
+                            </param>
+                            <param name="entityid" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the entity which contains the activity for which to get the comments</doc>
+                            </param>
+                            <param name="start" required="true" style="query" type="xsd:integer">
+                                <doc>used for paging The number of comments to skip before returning a set of comments Defaults to</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4191:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Get Likers" id="4197" name="GET">
+                        <doc>Returns a set of users that like a given activity.</doc>
+                        <request>
+                            <param name="activityid" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the activity for which to retrieve the liking users</doc>
+                            </param>
+                            <param name="entityid" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the entity which has the liked activity in its stream</doc>
+                            </param>
+                            <param name="skip" required="true" style="query" type="xsd:integer">
+                                <doc>used for paging The number of users to skip before returning a set of users Defaults to</doc>
+                            </param>
+                            <param name="take" required="true" style="query" type="xsd:integer">
+                                <doc>used for paging The number of users to return Defaults to</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4197:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Get Stream" id="4198" name="GET">
+                        <doc>Returns a set of activities for an entity in reverse chronological order up to the amount in the take query variable, starting after the skipping the number of activities in the skip query variable.  If not specified, skip defaults to zero, and take defaults to 20.</doc>
+                        <request>
+                            <param name="comments" required="true" style="query" type="xsd:integer">
+                                <doc>the number of comments on each activity to embed in the response Note that setting this to any value even will embed a collection that contains a value for the count of all comments on each activity along with a set of the most recent comment objects up to the number specified For high volume usage leave this parameter out of the query for best performance</doc>
+                            </param>
+                            <param name="entityid" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the entity for which the stream will be retrieved</doc>
+                            </param>
+                            <param name="likes" required="true" style="query" type="xsd:integer">
+                                <doc>the number of likes on each activity to embed in the response Note that setting this to any value even will embed a collection that contains a value for the count of all likes on each activity along with a set of like objects up to the number specified For high volume usage leave this parameter out of the query for best performance</doc>
+                            </param>
+                            <param name="skip" required="true" style="query" type="xsd:integer">
+                                <doc>used for paging The number of activities to skip before returning a set of activities Defaults to</doc>
+                            </param>
+                            <param name="take" required="true" style="query" type="xsd:integer">
+                                <doc>used for paging The number of activities to return Defaults to</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4198:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="{entityid}/">
+                <param name="entityid" style="template" type="xsd:string"/>
+                <method displayName="Create Activity" id="4182" name="POST">
+                    <doc>Adds a single activity to the stream for an entity. The posted data should be in the Activity Streams format (http://activitystrea.ms/specs/json/1.0/#activity). If it is not, the data will be added to the "content" value of a newly created activity. Note that the Collabinate system will generate an ID and add it to the activity. If the activity already has an ID, it will be moved to a metadata field. Adding an activity with an existing ID should be performed via PUT. Comments and likes contained in the activity will be processed by the system unless the URL query parameters "ignoreComments=true" or "ignoreLikes=true" are present.</doc>
+                    <request>
+                        <param name="entityid" required="true" style="query" type="xsd:string"/>
+                        <param name="ignorecomments" required="true" style="query" type="xsd:boolean">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4182:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Delete Entity" id="4185" name="DELETE">
+                    <doc>Delete all data and relationships for an entity or user. CAUTION: This method can delete a large amount of unrecoverable data.</doc>
+                    <request>
+                        <param name="entityid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Get Entity" id="4192" name="GET">
+                    <doc>Gets an ActivityStreamsObject representing an Entity or User.</doc>
+                    <request>
+                        <param name="entityid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4192:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get Followers" id="4194" name="GET">
+                    <doc>Returns the set of users that follow the given entity.</doc>
+                    <request>
+                        <param name="entityid" required="true" style="query" type="xsd:string"/>
+                        <param name="skip" required="true" style="query" type="xsd:integer">
+                            <doc>used for paging The number of users to skip before returning a set of users Defaults to</doc>
+                        </param>
+                        <param name="take" required="true" style="query" type="xsd:integer">
+                            <doc>used for paging The number of users to return Defaults to</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4194:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Post Comment" id="4200" name="POST">
+                    <doc>Adds a comment to the given activity for the given entity. A user can optionally be associated by adding a "userId=johndoe" query parameter. Note that the object type for the comment will be set to "comment", and any existing object type will be relocated. Also note that an ID will be assigned to the comment, and any existing ID will be relocated. To specify an ID for the comment, use PUT.</doc>
+                    <request>
+                        <param name="activityid" required="true" style="query" type="xsd:string"/>
+                        <param name="entityid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4200:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Update Activity" id="4203" name="PUT">
+                    <doc>Creates or replaces a single activity within a given stream. The data should be in the Activity Streams activity format (http://activitystrea.ms/specs/json/1.0/#activity). Comments and likes contained in the activity will be processed by the system unless the URL query parameters "ignoreComments=true" or "ignoreLikes=true" are present.</doc>
+                    <request>
+                        <param name="activityid" required="true" style="query" type="xsd:string"/>
+                        <param name="entityid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4203:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Update Comment" id="4204" name="PUT">
+                    <doc>Creates or replaces a single comment within the stream of comments for a given entity. A user can optionally be associated by adding a "userId=johndoe" query parameter. Note that the object type for the comment will be set to "comment", and any existing object type will be relocated.</doc>
+                    <request>
+                        <param name="activityid" required="true" style="query" type="xsd:string"/>
+                        <param name="commentid" required="true" style="query" type="xsd:string"/>
+                        <param name="entityid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4204:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1333="urn:function:f1333">
+    <grammars>
+        <include href="Function1333.xsd"/>
+    </grammars>
+    <doc>if you think OCR is th century scanner technology ImageVision has revolutionized the technology to recognize text on images If your business revolves around user content and you are concerned with image based advertising or unwanted speech ImageVision s OCR for Images service can help</doc>
+    <resources base="https://imagevision-text-search-v1.p.mashape.com/">
+        <resource uri="textSearch/">
+            <resource uri="detectText/">
+                <method displayName="TextSearch" id="1333" name="POST">
+                    <doc>Use this API to detect and recognize in image text. NOTE: API accepts JSON and XML encoded posts.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1333:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

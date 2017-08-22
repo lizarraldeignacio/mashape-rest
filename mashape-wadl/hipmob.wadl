@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5104="urn:function:f5104" xmlns:f5105="urn:function:f5105" xmlns:f5107="urn:function:f5107" xmlns:f5108="urn:function:f5108" xmlns:f5109="urn:function:f5109" xmlns:f5110="urn:function:f5110" xmlns:f5111="urn:function:f5111" xmlns:f5112="urn:function:f5112" xmlns:f5113="urn:function:f5113" xmlns:f5114="urn:function:f5114" xmlns:f5115="urn:function:f5115" xmlns:f5116="urn:function:f5116" xmlns:f5117="urn:function:f5117" xmlns:f5118="urn:function:f5118" xmlns:f5119="urn:function:f5119">
+    <grammars>
+        <include href="Function5114.xsd"/>
+        <include href="Function5112.xsd"/>
+        <include href="Function5119.xsd"/>
+        <include href="Function5111.xsd"/>
+        <include href="Function5104.xsd"/>
+        <include href="Function5105.xsd"/>
+        <include href="Function5107.xsd"/>
+        <include href="Function5108.xsd"/>
+        <include href="Function5109.xsd"/>
+        <include href="Function5110.xsd"/>
+        <include href="Function5113.xsd"/>
+        <include href="Function5115.xsd"/>
+        <include href="Function5116.xsd"/>
+        <include href="Function5117.xsd"/>
+        <include href="Function5118.xsd"/>
+    </grammars>
+    <doc>talk to mobile users inside your app Used by m commerce SAAS and Subscription services and mobile hardware companies to increase retention</doc>
+    <resources base="https://community-hipmob.p.mashape.com/">
+        <resource uri="transcripts/">
+            <method displayName="List Transcripts" id="5114" name="GET">
+                <doc>Lists all the transcripts saved for the company associated with the authenticated Hipmob account.</doc>
+                <request>
+                    <param name="pagesize" required="true" style="query" type="xsd:string">
+                        <doc>a number greater than zero that will be the starting offset to be used A combination of the start parameter and the pagesize parameter can be used for paging through transcripts</doc>
+                    </param>
+                    <param name="since" required="true" style="query" type="xsd:string">
+                        <doc>a number greater than zero that will be the starting offset to be used A combination of the start parameter and the pagesize parameter can be used for paging through transcripts</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>a number greater than zero that will be the starting offset to be used A combination of the start parameter and the pagesize parameter can be used for paging through transcripts</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5114:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="user/">
+            <resource uri="{username}/">
+                <param name="username" style="template" type="xsd:string"/>
+                <method displayName="Get User Details" id="5112" name="GET">
+                    <doc>Returns the details for a specific user. The API identifies the user by its internal Hipmob username.</doc>
+                    <request>
+                        <param name="username" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5112:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Set User Status" id="5119" name="POST">
+                    <doc>Sets the availability status of the authenticated user.</doc>
+                    <request>
+                        <param name="username" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5119:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="transcript/">
+            <resource uri="{transcript_identifier}/">
+                <param name="transcript_identifier" style="template" type="xsd:string"/>
+                <method displayName="Delete Transcript" id="5106" name="DELETE">
+                    <doc>Deletes a specific transcript in the company associated with the authenticated Hipmob account. The API identifies the requested transcript by its internal Hipmob ID, retrieved using the List Transcripts API call.</doc>
+                    <request>
+                        <param name="transcriptIdentifier" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Get Transcript" id="5111" name="GET">
+                    <doc>Returns the transcript details for a specific transcript in the company associated with the authenticated Hipmob account. The API identifies the requested transcript by its internal Hipmob ID, retrieved using the List Transcripts API call.</doc>
+                    <request>
+                        <param name="transcriptIdentifier" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5111:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="apps/">
+            <method displayName="Add Device Friends" id="5104" name="POST">
+                <doc>Adds friends to the friends list of a specific device: these friends will now be able to send messages to this device, or receive messages from this device.</doc>
+                <request>
+                    <param name="appId" required="true" style="query" type="xsd:string"/>
+                    <param name="hostApplicationIdentifier" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5104:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Check if Device Exists" id="5105" name="GET">
+                <doc>Checks to see if the device running the specified application and using the specified host application identifier is currently online.</doc>
+                <request>
+                    <param name="appId" required="true" style="query" type="xsd:string"/>
+                    <param name="hostApplicationIdentifier" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5105:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Application Details" id="5107" name="GET">
+                <doc>Returns the application details for a specific application associated with the authenticated Hipmob account. The API identifies the requested application by its internal Hipmob ID, which is identical to the application's ID.</doc>
+                <request>
+                    <param name="appId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5107:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Device Details" id="5108" name="GET">
+                <doc>Retrieves the details saved for the device running the specified application and using the specified host application identifier that has connected to the Hipmob communication network.</doc>
+                <request>
+                    <param name="appId" required="true" style="query" type="xsd:string"/>
+                    <param name="hostApplicationIdentifier" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5108:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Device Friends" id="5109" name="GET">
+                <doc>Retrieves the host application identifiers of all devices that are considered friends of the specified device: these are the devices that can send messages to this device, or receive messages from this device.</doc>
+                <request>
+                    <param name="appId" required="true" style="query" type="xsd:string"/>
+                    <param name="hostApplicationIdentifier" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5109:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Device Message Count" id="5110" name="GET">
+                <doc>Retrieves the number of undelivered messages that have been sent to the device running the specified application and using the specified host application identifier.</doc>
+                <request>
+                    <param name="appId" required="true" style="query" type="xsd:string"/>
+                    <param name="hostApplicationIdentifier" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5110:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List Applications" id="5113" name="GET">
+                <doc>Lists all the applications associated with the authenticated Hipmob account.</doc>
+                <request/>
+                <response>
+                    <representation element="f5113:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Remove Device Friend" id="5115" name="DELETE">
+                <doc>Removes a specific friend from the friend list of the specified device: this friend will no longer be able to send messages to this device, or receive messages from this device.</doc>
+                <request>
+                    <param name="appId" required="true" style="query" type="xsd:string"/>
+                    <param name="friendHostApplicationIdentifier" required="true" style="query" type="xsd:string"/>
+                    <param name="hostApplicationIdentifier" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5115:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Remove Device Friends" id="5116" name="DELETE">
+                <doc>Clears the friend list of the specified device: the device will no longer be able to send messages to any other devices, or receive messages from any other devices.</doc>
+                <request>
+                    <param name="appId" required="true" style="query" type="xsd:string"/>
+                    <param name="hostApplicationIdentifier" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5116:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Send Text Message" id="5117" name="POST">
+                <doc>Sends a text message to the specified device.</doc>
+                <request>
+                    <param name="appId" required="true" style="query" type="xsd:string"/>
+                    <param name="hostApplicationIdentifier" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5117:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Set Device Friends" id="5118" name="PUT">
+                <doc>Clears the friends list, and then adds the specified friends to the friends list of a specific device. Equivalent to calling Remove All Device Friends followed by Add Device Friends.</doc>
+                <request>
+                    <param name="appId" required="true" style="query" type="xsd:string"/>
+                    <param name="hostApplicationIdentifier" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5118:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

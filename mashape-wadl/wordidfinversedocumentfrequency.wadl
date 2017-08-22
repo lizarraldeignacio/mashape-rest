@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7412="urn:function:f7412">
+    <grammars>
+        <include href="Function7412.xsd"/>
+    </grammars>
+    <doc>this API helps you to get the Inverse Document Frequency IDF Tf idf stands for term frequency inverse document frequency and the tf idf weight is a weight often used in information retrieval and text mining This weight is a statistical measure used to evaluate how important a word is to a document in a collection or corpus The importance increases proportionally to the number of times a word appears in the document but is offset by the frequency of the word in the corpus Variations of the tf idf weighting scheme are often used by search engines as a central tool in scoring and ranking a document s relevance given a user query</doc>
+    <resources base="https://vortex-idf.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="nlp/">
+                <resource uri="idf/">
+                    <resource uri="{term}/">
+                        <param name="term" style="template" type="xsd:string"/>
+                        <method displayName="Word IDF - Inverse Document Frequency" id="7412" name="GET">
+                            <doc>Gives you back the Inverse Document Frequency of an unigramm (word).</doc>
+                            <request>
+                                <param name="term" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f7412:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="articletext/">
+                    <resource uri="{url}/">
+                        <param name="url" style="template" type="xsd:string"/>
+                        <method displayName="Article extract from a website" id="7411" name="GET">
+                            <doc>Extracts an article from a website. It requires the {url} parameter URI encoded.</doc>
+                            <request>
+                                <param name="url" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

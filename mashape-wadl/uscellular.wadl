@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6693="urn:function:f6693" xmlns:f6694="urn:function:f6694">
+    <grammars>
+        <include href="Function6694.xsd"/>
+        <include href="Function6693.xsd"/>
+    </grammars>
+    <doc>provides guidance on using the Terminal Location interface which allows a Web application to query the location of individual subscribers</doc>
+    <resources base="https://us-cellular.p.mashape.com/">
+        <resource uri="services/">
+            <resource uri="getLocationSandbox/">
+                <resource uri="2_0/">
+                    <resource uri="location/">
+                        <resource uri="queries/">
+                            <resource uri="location?address={address}&amp;requestedAccuracy=200/">
+                                <param name="address" style="template" type="xsd:string"/>
+                                <method displayName="Terminal Location" id="6694" name="GET">
+                                    <request>
+                                        <param name="address" required="true" style="query" type="xsd:string"/>
+                                    </request>
+                                    <response>
+                                        <representation element="f6694:root" mediaType="application/json"/>
+                                    </response>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="terminal_update/">
+            <method displayName="/terminal_update" id="6693" name="POST">
+                <doc>POST Data to this endpoint to update endpoint information</doc>
+                <request/>
+                <response>
+                    <representation element="f6693:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2060="urn:function:f2060" xmlns:f2061="urn:function:f2061">
+    <grammars>
+        <include href="Function2060.xsd"/>
+        <include href="Function2061.xsd"/>
+    </grammars>
+    <doc>mailgun is a programmable email platform It allows your application to become a fully featured email server Send receive and track messages with ease using your favorite programming language</doc>
+    <resources base="https://mailgun.p.mashape.com/">
+        <resource uri="{domain}/">
+            <param name="domain" style="template" type="xsd:string"/>
+            <resource uri="messages/">
+                <method displayName="Send an Email" id="2062" name="POST">
+                    <doc>Allows you to send messages</doc>
+                    <request>
+                        <param name="domain" required="true" style="query" type="xsd:string">
+                            <doc>the hostname of your site as specified in the control panel</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="domains/">
+            <method displayName="Change domain login credentials" id="2054" name="PUT">
+                <doc>Changing login credentials (password only supported)</doc>
+                <request>
+                    <param name="domain" required="true" style="query" type="xsd:string">
+                        <doc>the domain selected</doc>
+                    </param>
+                    <param name="login" required="true" style="query" type="xsd:string">
+                        <doc>username of login</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Create domain" id="2055" name="POST">
+                <doc>Create a domain</doc>
+                <request/>
+            </method>
+            <method displayName="Create Domain Credentials" id="2056" name="POST">
+                <doc>Creating domain credentials</doc>
+                <request>
+                    <param name="domain" required="true" style="query" type="xsd:string">
+                        <doc>your site</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Delete a domain" id="2057" name="DELETE">
+                <doc>Deleting a domain</doc>
+                <request>
+                    <param name="domain" required="true" style="query" type="xsd:string">
+                        <doc>name of domain to be deleted</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Deleting Credentials" id="2058" name="DELETE">
+                <doc>Deleting credentials for a domain</doc>
+                <request>
+                    <param name="domain" required="true" style="query" type="xsd:string">
+                        <doc>the domain selected</doc>
+                    </param>
+                    <param name="login" required="true" style="query" type="xsd:string">
+                        <doc>username of login</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Domain Credentials" id="2059" name="GET">
+                <doc>Retrieve domain credentials</doc>
+                <request>
+                    <param name="domain" required="true" style="query" type="xsd:string">
+                        <doc>the site whose credentials you want to retrieve</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Information about &quot;yourdomain.com&quot;" id="2060" name="GET">
+                <doc>Retrieve only information linked to yourdomain.com</doc>
+                <request>
+                    <param name="domain" required="true" style="query" type="xsd:string">
+                        <doc>an associated domain or subdomain</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2060:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Information for all domains" id="2061" name="GET">
+                <doc>Retrieve information regarding associated domains with your account</doc>
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>maximum number of records to return by default</doc>
+                    </param>
+                    <param name="skip" required="true" style="query" type="xsd:integer">
+                        <doc>number of records to skip by default</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2061:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f301="urn:function:f301" xmlns:f303="urn:function:f303" xmlns:f305="urn:function:f305">
+    <grammars>
+        <include href="Function305.xsd"/>
+        <include href="Function303.xsd"/>
+        <include href="Function301.xsd"/>
+    </grammars>
+    <doc>aPI for Hummingbird the easiest way to track share and discover new anime Free for non commercial use</doc>
+    <resources base="https://hummingbirdv1.p.mashape.com/">
+        <resource uri="libraries/">
+            <resource uri="{anime_id}/">
+                <param name="anime_id" style="template" type="xsd:string"/>
+                <method displayName="Library Remove" id="304" name="POST">
+                    <doc>Remove an entry from the user's library</doc>
+                    <request>
+                        <param name="animeId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Library Update" id="305" name="POST">
+                    <doc>Create or update an entry in a user's library</doc>
+                    <request>
+                        <param name="animeId" required="true" style="query" type="xsd:string">
+                            <doc>anime ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f305:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="users/">
+            <resource uri="{name}/">
+                <param name="name" style="template" type="xsd:string"/>
+                <resource uri="library/">
+                    <method displayName="Library" id="303" name="GET">
+                        <doc>Get a user's library entries in a given section.</doc>
+                        <request>
+                            <param name="authToken" required="true" style="query" type="xsd:string">
+                                <doc>user authentication token</doc>
+                            </param>
+                            <param name="name" required="true" style="query" type="xsd:string">
+                                <doc>username</doc>
+                            </param>
+                            <param name="status" required="true" style="query" type="xsd:string">
+                                <doc>library status</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f303:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="authenticate/">
+                <method displayName="Authenticate" id="302" name="POST">
+                    <doc>Get a user's authentication token, using the password and either one of the username and email.</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="anime/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Anime" id="301" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>anime ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f301:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

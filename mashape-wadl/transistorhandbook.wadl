@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6600="urn:function:f6600" xmlns:f6601="urn:function:f6601" xmlns:f6602="urn:function:f6602" xmlns:f6603="urn:function:f6603">
+    <grammars>
+        <include href="Function6603.xsd"/>
+        <include href="Function6602.xsd"/>
+        <include href="Function6601.xsd"/>
+        <include href="Function6600.xsd"/>
+    </grammars>
+    <doc>this app will guide you to know choose select and design your next board masterpiece using that transistor you weren t remembering With Transistors Handbook you will see the design the kind and all the aspects of more than transistors</doc>
+    <resources base="https://priore-transistorhandbook.p.mashape.com/">
+        <resource uri="transistors.asmx/">
+            <resource uri="UpdateTransistorsJSON/">
+                <method displayName="UpdateTransistorsJSON" id="6603" name="GET">
+                    <doc>Request a updating data of a transistors.</doc>
+                    <request>
+                        <param name="jsonstring" required="true" style="query" type="xsd:string">
+                            <doc>values of the data to be updated Required all values</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6603:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="GetTransistorJSON/">
+                <method displayName="GetTransistorJSON" id="6602" name="GET">
+                    <doc>Search and returns the transistors data.</doc>
+                    <request>
+                        <param name="jsonstring" required="true" style="query" type="xsd:string">
+                            <doc>values of search parameters</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6602:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="GetLastUpdatesJSON/">
+                <method displayName="GetLastUpdatesJSON" id="6601" name="GET">
+                    <doc>Returns the transistors updated from the specified date.</doc>
+                    <request>
+                        <param name="jsonstring" required="true" style="query" type="xsd:string">
+                            <doc>start date for updates</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6601:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="AvailableUpdatesJSON/">
+                <method displayName="AvailableUpdatesJSON" id="6600" name="GET">
+                    <doc>Returns the amount of transistors updated from the specified date.</doc>
+                    <request>
+                        <param name="jsonstring" required="true" style="query" type="xsd:string">
+                            <doc>jSON formatted string</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6600:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5140="urn:function:f5140" xmlns:f5141="urn:function:f5141" xmlns:f5142="urn:function:f5142" xmlns:f5143="urn:function:f5143" xmlns:f5144="urn:function:f5144" xmlns:f5145="urn:function:f5145" xmlns:f5146="urn:function:f5146" xmlns:f5147="urn:function:f5147" xmlns:f5148="urn:function:f5148" xmlns:f5149="urn:function:f5149" xmlns:f5150="urn:function:f5150" xmlns:f5151="urn:function:f5151" xmlns:f5152="urn:function:f5152" xmlns:f5153="urn:function:f5153" xmlns:f5154="urn:function:f5154" xmlns:f5155="urn:function:f5155" xmlns:f5156="urn:function:f5156" xmlns:f5157="urn:function:f5157" xmlns:f5158="urn:function:f5158" xmlns:f5159="urn:function:f5159" xmlns:f5160="urn:function:f5160" xmlns:f5161="urn:function:f5161" xmlns:f5162="urn:function:f5162" xmlns:f5163="urn:function:f5163" xmlns:f5164="urn:function:f5164">
+    <grammars>
+        <include href="Function5163.xsd"/>
+        <include href="Function5164.xsd"/>
+        <include href="Function5161.xsd"/>
+        <include href="Function5162.xsd"/>
+        <include href="Function5159.xsd"/>
+        <include href="Function5160.xsd"/>
+        <include href="Function5158.xsd"/>
+        <include href="Function5157.xsd"/>
+        <include href="Function5155.xsd"/>
+        <include href="Function5156.xsd"/>
+        <include href="Function5154.xsd"/>
+        <include href="Function5152.xsd"/>
+        <include href="Function5153.xsd"/>
+        <include href="Function5150.xsd"/>
+        <include href="Function5151.xsd"/>
+        <include href="Function5149.xsd"/>
+        <include href="Function5148.xsd"/>
+        <include href="Function5147.xsd"/>
+        <include href="Function5146.xsd"/>
+        <include href="Function5145.xsd"/>
+        <include href="Function5143.xsd"/>
+        <include href="Function5144.xsd"/>
+        <include href="Function5142.xsd"/>
+        <include href="Function5140.xsd"/>
+        <include href="Function5141.xsd"/>
+    </grammars>
+    <doc>one API for all your text analysis needs Sentiment Analysis Topic Tagging Lemmatizer and much more Various NLP tools all with one plan Use natural language processing to analyze and understand human sentences</doc>
+    <resources base="https://twinword-twinword-bundle-v1.p.mashape.com/">
+        <resource uri="word_associations/">
+            <method displayName="Word Associations (get)" id="5163" name="GET">
+                <doc>Get word associations with semantic distance score.</doc>
+                <request>
+                    <param name="entry" required="true" style="query" type="xsd:string">
+                        <doc>a word phrase or paragraph</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5163:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Word Associations (post)" id="5164" name="POST">
+                <doc>Get word associations with semantic distance score.</doc>
+                <request/>
+                <response>
+                    <representation element="f5164:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="score_word/">
+            <method displayName="Word (get)" id="5161" name="GET">
+                <doc>Evaluate the difficulty level of a word.</doc>
+                <request>
+                    <param name="entry" required="true" style="query" type="xsd:string">
+                        <doc>input a word to evaluate its difficulty level</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5161:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Word (post)" id="5162" name="POST">
+                <doc>Evaluate the difficulty level of a word.</doc>
+                <request/>
+                <response>
+                    <representation element="f5162:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="context_visualize/">
+            <method displayName="Visualize (get)" id="5159" name="GET">
+                <doc>Diagram information for visualizing concepts or mind maps.</doc>
+                <request>
+                    <param name="entry" required="true" style="query" type="xsd:string">
+                        <doc>type a word to see the words connected to it</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5159:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Visualize (post)" id="5160" name="POST">
+                <doc>Diagram information for visualizing concepts or mind maps.</doc>
+                <request/>
+                <response>
+                    <representation element="f5160:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="quiz_type1/">
+            <method displayName="Type 1" id="5158" name="GET">
+                <doc>Customized word association quiz for game and e-learning software.</doc>
+                <request>
+                    <param name="area" required="true" style="query" type="xsd:string">
+                        <doc>select a test to generate quiz questions and answers es ms hs ksat toeic toefl teps sat ielts gre gmat overall</doc>
+                    </param>
+                    <param name="level" required="true" style="query" type="xsd:integer">
+                        <doc>select the difficulty level of the test</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5158:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="word_theme/">
+            <method displayName="Theme" id="5157" name="GET">
+                <doc>Get the themes of a word.</doc>
+                <request>
+                    <param name="entry" required="true" style="query" type="xsd:string">
+                        <doc>type a word to get its themes</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5157:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="score_text/">
+            <method displayName="Text (get)" id="5155" name="GET">
+                <doc>Evaluate the difficulty level of a word, sentence, or paragraph.</doc>
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>input a some text to evaluate its difficulty level maximum words or characters</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5155:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Text (post)" id="5156" name="POST">
+                <doc>Evaluate the difficulty level of a word, sentence, or paragraph.</doc>
+                <request/>
+                <response>
+                    <representation element="f5156:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="word_reference/">
+            <method displayName="Reference" id="5154" name="GET">
+                <doc>Get the broad terms, narrow terms, related terms, evocations, synonyms, associations, and derived terms of a word.</doc>
+                <request>
+                    <param name="entry" required="true" style="query" type="xsd:string">
+                        <doc>type a word to get its broad terms narrow terms related terms evocations synonyms associations and derived terms</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5154:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="topic_generate/">
+            <method displayName="Generate (get)" id="5152" name="GET">
+                <doc>Detect and generate human like topics to the given text.</doc>
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>enter some text to generate topics maximum words or characters</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5152:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Generate (post)" id="5153" name="POST">
+                <doc>Detect and generate human like topics to the given text.</doc>
+                <request/>
+                <response>
+                    <representation element="f5153:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="lemma_extract/">
+            <method displayName="Extract (get)" id="5150" name="GET">
+                <doc>Return the root of a word or roots of a string of words.</doc>
+                <request>
+                    <param name="excludeNonContentWords" required="true" style="query" type="xsd:boolean">
+                        <doc>optional boolean to exclude non content words ie the is take</doc>
+                    </param>
+                    <param name="flag" required="true" style="query" type="xsd:string">
+                        <doc>pass an optional flag to change output If VALID TOKENS ONLY is passed an array list is returned with only valid lemmas in the order found in the string passed in the text parameter If VALID TOKENS ONLY ORDER BY OCCURRENCE is passed an array list is returned with only valid lemmas in the order of occurrence with the most occurring lemma first If VALID TOKENS ONLY ORDER BY OCCURRENCE SHOW COUNT default is passed an array list is returned with only valid lemmas in the order of occurrence with the most occurring lemma first but with the lemma in the key and the count in the value If ALL TOKENS is passed an array list is returned with all the words in the string passed in the text parameter with words that could be lemmatized as lemmas and words that could not be lemmatized left as is If ALL TOKENS INVALID LOWERCASED is passed an array list is returned with all the words in the string passed in the text parameter with words that could be lemmatized as lemmas and words that could not be lemmatized left as is but lowercased If ALL TOKENS INVALID EMPTY STRING is passed an array list is returned with all the words in the string passed in the text parameter with words that could be lemmatized as lemmas and words that could not be lemmatized as empty string items in the array If ALL TOKENS INVALID NEGATIVE ONE is passed an array list is returned with all the words in the string passed in the text parameter with words that could be lemmatized as lemmas and words that could not be lemmatized as If ALL TOKENS ORDER BY OCCURRENCE is passed an array list is returned with all the words in the string passed in the text parameter with words that could be lemmatized as lemmas and words that could not be lemmatized left as is all in the order of occurrence with the most occurring first If ALL TOKENS ORDER BY OCCURRENCE SHOW COUNT is passed an array list is returned with all the words in the string passed in the text parameter with words that could be lemmatized as lemmas and words that could not be lemmatized left as is all in the order of occurrence with the most occurring first but with the words and lemmas in the key and the count in the value</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>enter some text to extract roots maximum words or characters</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5150:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Extract (post)" id="5151" name="POST">
+                <doc>Return the root of a word or roots of a string of words.</doc>
+                <request/>
+                <response>
+                    <representation element="f5151:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="word_example/">
+            <method displayName="Example" id="5149" name="GET">
+                <doc>See examples of a word used in a sentence</doc>
+                <request>
+                    <param name="entry" required="true" style="query" type="xsd:string">
+                        <doc>type a word to see examples of it used in a sentence</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5149:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="word_examhistory/">
+            <method displayName="Exam History" id="5148" name="GET">
+                <doc>See which exams a word has been on</doc>
+                <request>
+                    <param name="entry" required="true" style="query" type="xsd:string">
+                        <doc>type a word to see which exams it has been on</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5148:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="word_difficulty/">
+            <method displayName="Difficulty" id="5147" name="GET">
+                <doc>Get the difficulty level of a word.</doc>
+                <request>
+                    <param name="entry" required="true" style="query" type="xsd:string">
+                        <doc>type a word to get its difficulty level</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5147:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="word_definition_kr/">
+            <method displayName="Definition KR" id="5146" name="GET">
+                <doc>Get the Korean definitions of a word.</doc>
+                <request>
+                    <param name="entry" required="true" style="query" type="xsd:string">
+                        <doc>type a word to get its Korean definitions</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5146:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="word_definition/">
+            <method displayName="Definition" id="5145" name="GET">
+                <doc>Get the definitions of a word.</doc>
+                <request>
+                    <param name="entry" required="true" style="query" type="xsd:string">
+                        <doc>type a word to get its definitions</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5145:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="text_classify/">
+            <method displayName="Classify (get)" id="5143" name="GET">
+                <doc>Classify and recommend highly related categories for e-commerce and other uses.</doc>
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>enter some text to find related categories</doc>
+                    </param>
+                    <param name="title" required="true" style="query" type="xsd:string">
+                        <doc>enter title of text optional</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5143:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Classify (post)" id="5144" name="POST">
+                <doc>Classify and recommend highly related categories for e-commerce and other uses.</doc>
+                <request/>
+                <response>
+                    <representation element="f5144:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="word_association/">
+            <method displayName="Association" id="5142" name="GET">
+                <doc>Get the associations of a word.</doc>
+                <request>
+                    <param name="entry" required="true" style="query" type="xsd:string">
+                        <doc>type a word to get its associations</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5142:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="sentiment_analyze/">
+            <method displayName="Analyze (get)" id="5140" name="GET">
+                <doc>Return sentiment analysis results with score for the given text.</doc>
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>enter some text to analyze maximum words or characters</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5140:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Analyze (post)" id="5141" name="POST">
+                <doc>Return sentiment analysis results with score for the given text.</doc>
+                <request/>
+                <response>
+                    <representation element="f5141:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

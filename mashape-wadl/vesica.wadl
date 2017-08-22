@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>collection management software for museums and heritage organisations An end to end collection management application Vesica can help museums and heritage organisations document manage preserve and monetize collections Using Vesica is easy and can lead to substantial financial savings</doc>
+    <resources base="https://community-vesica.p.mashape.com/">
+        <resource uri="pieces/">
+            <method displayName="Piece" id="6833" name="GET">
+                <doc>to see all details of piece number</doc>
+                <request>
+                    <param name="number" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Pieces" id="6834" name="GET">
+                <doc>to see a summary all the pieces in your account (default 25, maximum 100 at a time).</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="collections/">
+            <method displayName="Collection" id="6831" name="GET">
+                <doc>a summary of the pieces in a specific collection</doc>
+                <request>
+                    <param name="collection" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Collections" id="6832" name="GET">
+                <doc>to see all the collections in your account and a summary of pieces in those collections.</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

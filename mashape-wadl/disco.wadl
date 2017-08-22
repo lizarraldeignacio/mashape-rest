@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1199="urn:function:f1199" xmlns:f1200="urn:function:f1200">
+    <grammars>
+        <include href="Function1200.xsd"/>
+        <include href="Function1199.xsd"/>
+    </grammars>
+    <doc>multiple Social Networks One API Build applications access data from the major social networks easily through our consolidated Social Discovery API</doc>
+    <resources base="https://community-disco.p.mashape.com/">
+        <resource uri="user/">
+            <method displayName="User" id="1200" name="POST">
+                <doc>For managing your account</doc>
+                <request/>
+                <response>
+                    <representation element="f1200:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="query/">
+            <method displayName="Search" id="1199" name="POST">
+                <doc>For social searching</doc>
+                <request/>
+                <response>
+                    <representation element="f1199:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

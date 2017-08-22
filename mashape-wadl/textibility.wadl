@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1764="urn:function:f1764" xmlns:f1765="urn:function:f1765" xmlns:f1766="urn:function:f1766">
+    <grammars>
+        <include href="Function1765.xsd"/>
+        <include href="Function1764.xsd"/>
+        <include href="Function1766.xsd"/>
+    </grammars>
+    <doc>textibility provides a simple REST API for extracting information from images and documents in a number of formats and generating images and documents from structured data With a simple clean HTTP interface and some clever processing we can quickly and easily unlock information captured in photographs and file uploads A couple of examples supported by the API Decode a barcode from a photograph Generating a barcode for a product UPC a boarding pass PDF or to point to a URL or describe a contact QR Generate an EPub or Kindle compatible electronic book Generate static charts</doc>
+    <resources base="https://ideasynthesis-textibility.p.mashape.com/">
+        <resource uri="chart/">
+            <resource uri="line/">
+                <method displayName="Render Line Chart" id="1775" name="POST">
+                    <doc>Draws a simple line chart based on the g.raphael library and and return a PNG or PDF version of the chart.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="gauge/">
+                <method displayName="Render Gauge" id="1774" name="POST">
+                    <doc>Creates a gauge chart and returns a PNG or PDF version of the chart.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="bar/">
+                <method displayName="Render Bar Chart" id="1773" name="POST">
+                    <doc>Draws a simple bar chart based on the g.raphael library and return a PNG or PDF version of the chart.</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="barcode/">
+            <resource uri="generate/">
+                <method displayName="Generate Barcode" id="1768" name="POST">
+                    <doc>Generates a barcode from specified content and returns it as a PNG/GIF/JPEG image or a PDF file.</doc>
+                    <request/>
+                </method>
+                <method displayName="Generate Barcode Labels" id="1769" name="POST">
+                    <doc>Generates printable labels and returns the labels as a PDF file.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="decode/">
+                <resource uri="{page}/">
+                    <param name="page" style="template" type="xsd:string"/>
+                    <method displayName="Decode Barcode" id="1765" name="POST">
+                        <doc>Decodes the supplied barcode (from an PNG/GIF/JPEG image or a PDF file) and returns the barcode data. If decoding a PDF file an optional starting page number can be added to the end of the URL to specify which page to start searching for a barcode on (if not specified, the search begins on page 1 by default).</doc>
+                        <request>
+                            <param name="page" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f1765:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="book/">
+            <resource uri="create/">
+                <method displayName="Create Electronic Book" id="1764" name="POST">
+                    <doc>Creates an electronic book in either EPub or Kindle (.mobi) format.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1764:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="svg/">
+            <resource uri="generate/">
+                <method displayName="Convert SVG" id="1763" name="POST">
+                    <doc>Converts an SVG document into a bitmap (PNG/JPEG/GIF) or a PDF file.</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="pdf/">
+            <resource uri="unlock/">
+                <method displayName="Unlock PDF File" id="1776" name="POST">
+                    <doc>Removes all password encryption and access permissions from a PDF file. Currently only supports RC4 encryption.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="lock/">
+                <method displayName="Lock PDF File" id="1772" name="POST">
+                    <doc>Adds password encryption and access permissions to a specific file. Currently only supports RC4 encryption.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="join/">
+                <method displayName="Join PDF Files" id="1771" name="POST">
+                    <doc>Joins 2 or more PDF files into a single PDF file.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="thumbnails/">
+                <method displayName="Get Thumbnails" id="1770" name="POST">
+                    <doc>Obtain one or more thumbnail images representing the pages of a PDF file. If a single page is requested it will be returned as a PNG image. If multiple pages are requested then a ZIP file will be returned (with the Content-Type header of the response set to application/zip), and each image within the zip file will be named with the page number (for example, 1.png, 2.png etc).</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="filterpages/">
+                <method displayName="Filter PDF Pages" id="1767" name="POST">
+                    <doc>Removes one or more pages from the specified PDF file.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="text/">
+                <method displayName="Extract Text from PDF" id="1766" name="POST">
+                    <doc>Returns the text in the selected PDF file, separated by page and display line.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1766:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="compress/">
+                <method displayName="Compress a PDF file" id="1762" name="POST">
+                    <doc>Reduce the size of scanned PDFs by shrinking image resolutions.</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

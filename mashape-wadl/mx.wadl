@@ -1,0 +1,754 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6040="urn:function:f6040">
+    <grammars>
+        <include href="Function6040.xsd"/>
+    </grammars>
+    <doc>aT T M X is a highly secure and scalable time series data storage service for network connected devices and the Internet of Things In addition to data storage M X enables automatic data driven action by monitoring streams of data in real time and if a user defined trigger condition is met an event is fired The AT T M X API provides all the needed operations and methods to connect your devices to AT T s M X service and has supported client libraries for Ruby Python Node js PHP C and Java among many other languages platforms and devices like Arduino Spark Core Raspberry Pi and more</doc>
+    <resources base="https://attm2x-m2x-v1.p.mashape.com/">
+        <resource uri="jobs/">
+            <method displayName="List Jobs" id="6037" name="GET">
+                <doc>Retrieve the list of the most recent jobs that belong to the authenticated user.</doc>
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>number of jobs to be returned</doc>
+                    </param>
+                    <param name="state" required="true" style="query" type="xsd:string">
+                        <doc>can be one of queued working complete or failed All returned jobs will be filtered by the given state</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="View Job Details" id="6060" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>job ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="View Job Results" id="6061" name="GET">
+                <doc>View the results of a background job.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>job ID</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="time/">
+            <method displayName="Get Time (ISO 8601)" id="6026" name="GET">
+                <doc>Returns the M2X server time in ISO 8601 format. This is ideal for devices without a real time clock (RTC for short).</doc>
+                <request/>
+            </method>
+            <method displayName="Get Time (Milliseconds)" id="6027" name="GET">
+                <doc>Returns the M2X server time in milliseconds. This is ideal for devices without a real time clock (RTC for short).</doc>
+                <request/>
+            </method>
+            <method displayName="Get Time (Seconds)" id="6028" name="GET">
+                <doc>Returns the M2X server time in seconds. This is ideal for devices without a real time clock (RTC for short).</doc>
+                <request/>
+            </method>
+            <method displayName="Get Time (Seconds, Milliseconds, ISO 8601)" id="6029" name="GET">
+                <doc>Returns the M2X server time in seconds, milliseconds, and ISO 8601 formatted. This is ideal for devices without a real time clock (RTC for short).</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="keys/">
+            <method displayName="Create Key" id="6014" name="POST">
+                <doc>Create a new key associated with the specified account. Only one of the following params can be passed when creating Keys: distribution, collection, device. If none of those are passed, the resulting key will be considered a Master Key. Once a key is created, their distribution, collection, device and stream attributes cannot be updated.</doc>
+                <request>
+                    <param name="collection" required="true" style="query" type="xsd:string">
+                        <doc>the ID of one of the user s Collections to create a key that can access any device in the collection</doc>
+                    </param>
+                    <param name="device" required="true" style="query" type="xsd:string">
+                        <doc>the ID of one of the user s Devices to create a key that can only access to this device</doc>
+                    </param>
+                    <param name="deviceAccess" required="true" style="query" type="xsd:string">
+                        <doc>either private or public This key will be able to access private or only public devices Only applicable to master keys</doc>
+                    </param>
+                    <param name="distribution" required="true" style="query" type="xsd:string">
+                        <doc>the ID of one of the user s Distributions to create a key that can access any device in the distribution</doc>
+                    </param>
+                    <param name="expiresAt" required="true" style="query" type="xsd:string">
+                        <doc>an ISO timestamp specifying when the key will expire</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>the name of the new key</doc>
+                    </param>
+                    <param name="origin" required="true" style="query" type="xsd:string">
+                        <doc>a comma separated list of IP addresses that are allowed to use this key</doc>
+                    </param>
+                    <param name="stream" required="true" style="query" type="xsd:string">
+                        <doc>the Stream ID of one of the streams that belongs to the device in this case device is also required</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Delete Key" id="6024" name="DELETE">
+                <doc>Delete an existing key.</doc>
+                <request>
+                    <param name="key" required="true" style="query" type="xsd:string">
+                        <doc>the key being deleted</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="List Keys" id="6038" name="GET">
+                <doc>Retrieve list of keys associated with the specified account.</doc>
+                <request>
+                    <param name="collection" required="true" style="query" type="xsd:string">
+                        <doc>collection ID it will list all the keys that are associated with that collection</doc>
+                    </param>
+                    <param name="device" required="true" style="query" type="xsd:string">
+                        <doc>device ID it will list all the keys that are associated with that specific device or its streams</doc>
+                    </param>
+                    <param name="distribution" required="true" style="query" type="xsd:string">
+                        <doc>distribution ID it will list all the keys that are associated with that specific distribution</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Regenerate Key" id="6045" name="POST">
+                <doc>Regenerate the specified key.</doc>
+                <request>
+                    <param name="key" required="true" style="query" type="xsd:string">
+                        <doc>the key being regenerated</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Update Key" id="6054" name="PUT">
+                <doc>Update name, stream, permissions, expiration date, origin or device access of an existing key associated with the specified account.</doc>
+                <request>
+                    <param name="key" required="true" style="query" type="xsd:string">
+                        <doc>the key being updated</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="View Key Details" id="6062" name="GET">
+                <doc>Get details of a specific key associated with a developer account.</doc>
+                <request>
+                    <param name="key" required="true" style="query" type="xsd:string">
+                        <doc>the key being accessed</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="devices/">
+            <method displayName="Create Device" id="6013" name="POST">
+                <doc>Creates a new Device.</doc>
+                <request>
+                    <param name="baseDevice" required="true" style="query" type="xsd:string">
+                        <doc>the id of an existing device to be duplicated When sending the base device parameter the attributes from that device will be used to create the new one In that case the name description visibility and collection parameters become optional and are used to override the base device attributes All streams within the base device will be copied over to the newly created device If the developer owns the base device then all the triggers will be copied as well in a disabled state</doc>
+                    </param>
+                    <param name="collection" required="true" style="query" type="xsd:string">
+                        <doc>the id of an existing collection owned by the user The newly created device will be contained within this colleciton and accessible via this collection and any parent collections API keys</doc>
+                    </param>
+                    <param name="description" required="true" style="query" type="xsd:string">
+                        <doc>a description for the device</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>the name of the new device</doc>
+                    </param>
+                    <param name="serial" required="true" style="query" type="xsd:string">
+                        <doc>the device serial number</doc>
+                    </param>
+                    <param name="tags" required="true" style="query" type="xsd:string">
+                        <doc>a comma separated list of device tag names</doc>
+                    </param>
+                    <param name="visibility" required="true" style="query" type="xsd:string">
+                        <doc>either public or private Data from devices that are public is publicly accessible while private devices can only be accessed using authorized M X API Keys</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Create/Update Data Stream" id="6015" name="PUT">
+                <doc>Update a data stream associated with the specified Device (if a stream with this name does not exist it gets created).</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>the device ID for the device being updated</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>the name of the stream to create update</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>either numeric or alphanumeric Alphanumeric streams have a limit of characters for each pushed value Once a stream is created it s type cannot be changed</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Data Stream Sampling" id="6016" name="GET">
+                <doc>Sample values from an existing data stream associated with a specific device, sorted in reverse chronological order (most recent values first). This endpoint only works for numeric streams.</doc>
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:string">
+                        <doc>an ISO timestamp specifying the end of the date range to be considered Any values registered after this timestamp will be simply ignored If omitted it defaults to the current time of the M X server</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>device ID</doc>
+                    </param>
+                    <param name="interval" required="true" style="query" type="xsd:integer">
+                        <doc>should be a positive integer On systematic sampling type nth the size of the sequence from which the first value is returned On aggregated sampling the interval time in seconds used to build the aggregation Should be a value between and</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>maximum number of values to return When using aggregated sampling avg min max count sum the maximum number of values returned by this endpoint will be If the range between start and end holds more values than the limit start will be overridden in order to return values at most In that case you should consider using shorter ranges or higher intervals When using systematic sampling nth the maximum allowed value for limit is such as limit interval Any higher value will be overridden to satisfy this equation</doc>
+                    </param>
+                    <param name="max" required="true" style="query" type="xsd:integer">
+                        <doc>a float value to filter values lesser or equal than this value</doc>
+                    </param>
+                    <param name="min" required="true" style="query" type="xsd:integer">
+                        <doc>a float value to filter values greater or equal than this value</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>stream ID Stream must be numeric</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>an ISO timestamp specifying the start of the date range to be considered Any values registered before this timestamp will be simply ignored</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>valid options are nth min max count avg and sum nth is known as systematic sampling while all other options are considered aggregated sampling</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Data Stream Stats" id="6017" name="GET">
+                <doc>Return count, min, max, average and standard deviation stats for the values on an existing data stream. This endpoint only works for numeric streams.</doc>
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:string">
+                        <doc>an ISO timestamp specifying the end of the date range to be considered Any values registered after this timestamp will be simply ignored If omitted it defaults to the current time of the M X server</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>device ID</doc>
+                    </param>
+                    <param name="max" required="true" style="query" type="xsd:integer">
+                        <doc>a float value to filter values lesser or equal than this value</doc>
+                    </param>
+                    <param name="min" required="true" style="query" type="xsd:integer">
+                        <doc>a float value to filter values greater or equal than this value</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>stream ID</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>an ISO timestamp specifying the start of the date range to be considered Any values registered before this timestamp will be simply ignored Omit this filter to include any values registered since the stream was created</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Delete Data Stream" id="6020" name="DELETE">
+                <doc>Delete an existing data stream associated with a specific device.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>device ID</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>stream ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Delete Data Stream Values" id="6021" name="DELETE">
+                <doc>Delete values in a stream by a date range.</doc>
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:string">
+                        <doc>an ISO formatted timestamp Values ending on this timestamp will be deleted</doc>
+                    </param>
+                    <param name="from" required="true" style="query" type="xsd:string">
+                        <doc>an ISO formatted timestamp Values starting from this timestamp will be deleted</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>device ID</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>stream ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Delete Device" id="6022" name="DELETE">
+                <doc>Delete an existing device.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Delete Device Trigger" id="6023" name="DELETE">
+                <doc>Delete an existing trigger associated with a specific device.</doc>
+                <request>
+                    <param name="deviceId" required="true" style="query" type="xsd:string">
+                        <doc>device ID</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>trigger ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Export Values from all Data Streams of a Device" id="6025" name="GET">
+                <doc>Export all values from all or selected data streams associated with a specific device, sorted in reverse chronological order (most recent values first). The response format can be specified as a file extension. In the current version of the M2X API, only the csv format is specified. This operation will be executed asynchronously meaning that a developer will not get an immediate response with the results. The request will be accepted for background processing and a Job URL will be returned in which the user will be able to track the status of said job. Once the operation is complete, the Job will be marked as complete and the URL for downloading the exported files will be available in the result field of the Job. (See Jobs API for more information about jobs). The results file will be available for one week, after which time it will be deleted.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>device ID</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>maximum number of values to return If omitted it will return all of the existing values on the device and the selected streams</doc>
+                    </param>
+                    <param name="streams" required="true" style="query" type="xsd:string">
+                        <doc>a comma separated string with the names of the streams to be included in the export If omitted the data from all streams will be included</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="List Data Stream Values" id="6032" name="GET">
+                <doc>List values from an existing data stream associated with a specific device, sorted in reverse chronological order (most recent values first).</doc>
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:string">
+                        <doc>an ISO timestamp specifying the end of the date range to be considered Any values registered after this timestamp will be simply ignored If omitted it defaults to the current time of the M X server</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>device ID</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>maximum number of values to return If omitted it defaults to The maximum value for this parameter is If a greater number is specified the server will only return the most recent values on the specified date range</doc>
+                    </param>
+                    <param name="max" required="true" style="query" type="xsd:integer">
+                        <doc>a float value to filter values lesser or equal than this value Only applicable to numeric streams</doc>
+                    </param>
+                    <param name="min" required="true" style="query" type="xsd:integer">
+                        <doc>a float value to filter values greater or equal than this value Only applicable to numeric streams</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>stream ID</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>an ISO timestamp specifying the start of the date range to be considered Any values registered before this timestamp will be simply ignored Omit this filter to include any values registered since the stream was created</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="List Data Streams" id="6033" name="GET">
+                <doc>Retrieve list of data streams associated with the specified device.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>the device ID for the device being updated</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="List Device Tags" id="6034" name="GET">
+                <doc>Retrieve the list of device tags for the authenticated user.</doc>
+                <request/>
+            </method>
+            <method displayName="List Device Triggers" id="6035" name="GET">
+                <doc>Retrieve list of triggers associated with the specified device.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>device ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="List Devices" id="6036" name="GET">
+                <doc>Retrieve the list of devices accessible by the authenticated API key provided in the `X-M2X-KEY` header.</doc>
+                <request>
+                    <param name="dir" required="true" style="query" type="xsd:string">
+                        <doc>the direction devices will be sorted in Accepted values desc descending order asc ascending order</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>number of devices to return per page It must be a number between and If a higher value is sent the API will use instead</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>page number to be retrieved</doc>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:string">
+                        <doc>sort order of the returned devices Accepted values created by the devices creation timestamp last activity by the last activity timestamp of the device or name by device name in alphabetically ascending order</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="List Values from all Data Streams of a Device" id="6039" name="GET">
+                <doc>List values from all data streams associated with a specific device, sorted in reverse chronological order (most recent values first).</doc>
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:string">
+                        <doc>an ISO timestamp specifying the end of the date range to be considered Any values registered after this timestamp will be simply ignored If omitted it defaults to the current time of the M X server</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>device ID</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>maximum number of values to return If omitted it defaults to The maximum value for this parameter is If a greater number is specified the server will only return the most recent values on the specified date range</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>an ISO timestamp specifying the start of the date range to be considered Any values registered before this timestamp will be simply ignored Omit this filter to include any values registered since the device was created</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="List/Search Public Devices Catalog" id="6040" name="GET">
+                <doc>Search the catalog of public Devices. This allows unauthenticated users to search Devices from other users that have been marked as public, allowing them to read public Device metadata, locations, streams list, and view each Devices' stream metadata and its values. The catalog of public devices is sorted by descendant creation date by default, that is, newer devices appear first on the results list.</doc>
+                <request>
+                    <param name="dir" required="true" style="query" type="xsd:string">
+                        <doc>the direction devices will be sorted in Accepted values desc descending order asc ascending order</doc>
+                    </param>
+                    <param name="distance" required="true" style="query" type="xsd:integer">
+                        <doc>devices within the distance specified from the given latitude and longitude coordinates will be returned</doc>
+                    </param>
+                    <param name="distanceUnit" required="true" style="query" type="xsd:string">
+                        <doc>the unit of measure of the distance parameter Accepts mi miles or km</doc>
+                    </param>
+                    <param name="latitude" required="true" style="query" type="xsd:integer">
+                        <doc>the last recorded latitude for the device s to be returned This value must match within km unless the distance and or distance unit parameters are supplied in which case devices with a last known location within the specified distance distance unit from the latitude and longitude coordinates will be returned</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>number of devices to return per page It must be a number between and If a higher value is sent the API will use instead</doc>
+                    </param>
+                    <param name="longitude" required="true" style="query" type="xsd:integer">
+                        <doc>the last recorded longitude for the device s to be returned This value must match within km unless the distance and or distance unit parameters are supplied in which case devices with a last known location within the specified distance distance unit from the latitude and longitude coordinates will be returned</doc>
+                    </param>
+                    <param name="modifiedSince" required="true" style="query" type="xsd:string">
+                        <doc>an ISO timestamp All devices modified since this parameter will be included</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>page number to be retrieved</doc>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>only those devices containing this text in its name or description will be returned</doc>
+                    </param>
+                    <param name="serial" required="true" style="query" type="xsd:string">
+                        <doc>a comma separated list of serial numbers Only devices having a serial number from the list will be returned</doc>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:string">
+                        <doc>sort order of the returned devices Accepted values created by the devices creation timestamp last activity by the last activity timestamp of the device or name by device name in alphabetically ascending order</doc>
+                    </param>
+                    <param name="tags" required="true" style="query" type="xsd:string">
+                        <doc>a comma delimited list of device tags</doc>
+                    </param>
+                    <param name="unmodifiedSince" required="true" style="query" type="xsd:string">
+                        <doc>an ISO timestamp All devices modified before this parameter will be included</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6040:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Post Data Stream Values" id="6041" name="POST">
+                <doc>Post timestamped values to an existing data stream associated with a specific device.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>device ID</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>stream ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Post Device Updates (Multiple Values to Multiple Streams)" id="6042" name="POST">
+                <doc>Post values to multiple streams at once.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>device ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Post Device Updates (Single Values to Multiple Streams)" id="6043" name="POST">
+                <doc>Post singles values to multiple streams at once.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>device ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Read Device Location" id="6044" name="GET">
+                <doc>Get location details of an existing Device.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>device ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Search Devices" id="6047" name="GET">
+                <doc>Retrieve the list of devices accessible by the authenticated API key that meet the search criteria.</doc>
+                <request>
+                    <param name="collection" required="true" style="query" type="xsd:string">
+                        <doc>an id of a Collection owned by the user Only devices included in the collection will be returned</doc>
+                    </param>
+                    <param name="dir" required="true" style="query" type="xsd:string">
+                        <doc>the direction devices will be sorted in Accepted values desc descending order asc ascending order</doc>
+                    </param>
+                    <param name="distance" required="true" style="query" type="xsd:integer">
+                        <doc>devices within the distance specified from the given latitude and longitude coordinates will be returned</doc>
+                    </param>
+                    <param name="distanceUnit" required="true" style="query" type="xsd:string">
+                        <doc>the unit of measure of the distance parameter Accepts mi miles or km</doc>
+                    </param>
+                    <param name="ids" required="true" style="query" type="xsd:string">
+                        <doc>a comma separated list of device IDs Only devices having an ID from the list will be returned</doc>
+                    </param>
+                    <param name="latitude" required="true" style="query" type="xsd:integer">
+                        <doc>the last recorded latitude for the device s to be returned This value must match within km unless the distance and or distance unit parameters are supplied in which case devices with a last known location within the specified distance distance unit from the latitude and longitude coordinates will be returned</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>number of devices to return per page It must be a number between and If a higher value is sent the API will use instead</doc>
+                    </param>
+                    <param name="longitude" required="true" style="query" type="xsd:integer">
+                        <doc>the last recorded longitude for the device s to be returned This value must match within km unless the distance and or distance unit parameters are supplied in which case devices with a last known location within the specified distance distance unit from the latitude and longitude coordinates will be returned</doc>
+                    </param>
+                    <param name="modifiedSince" required="true" style="query" type="xsd:string">
+                        <doc>an ISO timestamp All devices modified since this parameter will be included</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>page number to be retrieved</doc>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>text to search Only those devices containing this text in its name or description will be returned</doc>
+                    </param>
+                    <param name="serial" required="true" style="query" type="xsd:string">
+                        <doc>a comma separated list of serial numbers Only devices having a serial number from the list will be returned</doc>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:string">
+                        <doc>sort order of the returned devices Accepted values created by the devices creation timestamp last activity by the last activity timestamp of the device or name by device name in alphabetically ascending order</doc>
+                    </param>
+                    <param name="status" required="true" style="query" type="xsd:string">
+                        <doc>either enabled or disabled When not specified both enabled and disabled devices will be returned</doc>
+                    </param>
+                    <param name="streams" required="true" style="query" type="xsd:string">
+                        <doc>a set of stream conditions that must met in order for the device s to be returned Syntax</doc>
+                    </param>
+                    <param name="tags" required="true" style="query" type="xsd:string">
+                        <doc>a comma delimited list of device tags</doc>
+                    </param>
+                    <param name="unmodifiedSince" required="true" style="query" type="xsd:string">
+                        <doc>an ISO timestamp All devices modified before this parameter will be included</doc>
+                    </param>
+                    <param name="visibility" required="true" style="query" type="xsd:string">
+                        <doc>either public or private When not specified both public and private devices will be returned</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Search Values from all Data Streams of a Device" id="6048" name="POST">
+                <doc>Search and list values from all data streams associated with a specific device, sorted in reverse chronological order. Values logged during the `start` - `end` timeframe will be returned for the streams listed in the `streams` array if-and-only-if the conditions listed in the `conditions` object have been met. Only numeric streams can be included in the `conditions` object.</doc>
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:string">
+                        <doc>an ISO timestamp specifying the end of the date range to be considered Any values registered after this timestamp will be ignored This timestamp must reference a point in time between start and hours past start at most</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>device ID</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>an ISO timestamp specifying the start of the date range to be considered Any values registered before this timestamp will be ignored</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Update Data Stream Value" id="6051" name="PUT">
+                <doc>Update the current stream value of the specified stream.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>device ID</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>stream ID</doc>
+                    </param>
+                    <param name="timestamp" required="true" style="query" type="xsd:string">
+                        <doc>an ISO timestamp indicating when the device was at this location Defaults to the server s current time</doc>
+                    </param>
+                    <param name="value" required="true" style="query" type="xsd:string">
+                        <doc>the value to record to the given data stream If stream is numeric must be a number If stream is alphanumeric must be a string with a maximum size of characters</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Update Device Details" id="6052" name="PUT">
+                <doc>Update an existing Device's information.</doc>
+                <request>
+                    <param name="collection" required="true" style="query" type="xsd:string">
+                        <doc>the id of an existing collection owned by the user The newly created device will be contained within this colleciton and accessible via this collection and any parent collections API keys</doc>
+                    </param>
+                    <param name="description" required="true" style="query" type="xsd:string">
+                        <doc>a description for the device</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>the id of the device to be updated</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>the name of the device</doc>
+                    </param>
+                    <param name="serial" required="true" style="query" type="xsd:string">
+                        <doc>the device serial number</doc>
+                    </param>
+                    <param name="tags" required="true" style="query" type="xsd:string">
+                        <doc>a comma separated list of device tag names</doc>
+                    </param>
+                    <param name="visibility" required="true" style="query" type="xsd:string">
+                        <doc>either public or private Data from devices that are public is publicly accessible while private devices can only be accessed using authorized M X API Keys</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Update Device Location" id="6053" name="PUT">
+                <doc>Update the current location of the specified device.</doc>
+                <request>
+                    <param name="elevation" required="true" style="query" type="xsd:integer">
+                        <doc>the elevation of the device</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>the ID of the device being updated</doc>
+                    </param>
+                    <param name="latitude" required="true" style="query" type="xsd:integer">
+                        <doc>the latitude of the device</doc>
+                    </param>
+                    <param name="longitude" required="true" style="query" type="xsd:integer">
+                        <doc>the longitude of the device</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>a name identifying this location</doc>
+                    </param>
+                    <param name="timestamp" required="true" style="query" type="xsd:string">
+                        <doc>an ISO timestamp indicating when the device was at this location Defaults to the server s current time</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="View Data Stream" id="6057" name="GET">
+                <doc>Get details of a specific data Stream associated with an existing device.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                    <param name="name" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="View Device Details" id="6058" name="GET">
+                <doc>Get details of an existing Device.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>device ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="View Device Trigger" id="6059" name="GET">
+                <doc>Get details of a specific trigger associated with an existing device.</doc>
+                <request>
+                    <param name="deviceId" required="true" style="query" type="xsd:string">
+                        <doc>device ID</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>trigger ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="View Request Log" id="6063" name="GET">
+                <doc>Retrieve list of HTTP requests received lately by the specified device (up to 100 entries).</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>the ID of the device being accessed</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="collections/">
+            <method displayName="Create Collection" id="6012" name="POST">
+                <doc>Create a new collection.</doc>
+                <request>
+                    <param name="description" required="true" style="query" type="xsd:string">
+                        <doc>a longer description of the collection</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>the name of the new collection</doc>
+                    </param>
+                    <param name="parent" required="true" style="query" type="xsd:string">
+                        <doc>the ID of the collection where this one will be included</doc>
+                    </param>
+                    <param name="tags" required="true" style="query" type="xsd:string">
+                        <doc>a comma separated list of tag names</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Delete Collection" id="6019" name="DELETE">
+                <doc>Delete an existing collection along with all of its children collections and associated devices.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>the ID of the collection to be deleted</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="List Collecitons" id="6031" name="GET">
+                <doc>Retrieve a list of collections accessible by the authenticated user.</doc>
+                <request>
+                    <param name="parent" required="true" style="query" type="xsd:string">
+                        <doc>the ID of a collection owned by the user Only its sub collections will be returned If the parent parameter is present but it s set to an empty value only top level collections will be returned</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Update Collection Details" id="6050" name="PUT">
+                <doc>Update an existing collection's information.</doc>
+                <request>
+                    <param name="description" required="true" style="query" type="xsd:string">
+                        <doc>a longer description of the collection</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>the new name of the collection being updated</doc>
+                    </param>
+                    <param name="parent" required="true" style="query" type="xsd:string">
+                        <doc>the ID of the collection where this one will be included or null to remove the collection from its parent</doc>
+                    </param>
+                    <param name="tags" required="true" style="query" type="xsd:string">
+                        <doc>a comma separated list of device tag names</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="View Collection Details" id="6056" name="GET">
+                <doc>Retrieve information about an existing collection.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>the ID of the collection being accessed</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="charts/">
+            <method displayName="Create Chart" id="6011" name="POST">
+                <doc>Create a new chart associated with the authenticated account.</doc>
+                <request/>
+            </method>
+            <method displayName="Delete Chart" id="6018" name="DELETE">
+                <doc>Delete an existing chart.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>chart ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="List Charts" id="6030" name="GET">
+                <doc>Retrieve the list of charts that belong to the authenticated user.</doc>
+                <request>
+                    <param name="device" required="true" style="query" type="xsd:string">
+                        <doc>a Device ID all charts that are associated with that specific device will be returned</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Render Chart" id="6046" name="GET">
+                <doc>This method is public and therefore it does not require the user to authenticate himself using an API key. It's generally used in the src attribute of an &lt;img&gt; html tag.</doc>
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:string">
+                        <doc>an ISO timestamp specifying the end of the date range to be plotted in the chart Any values registered after this timestamp will be simply ignored By default the last hours will be plotted in the chart</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>either png or svg The format of the chart to be rendered</doc>
+                    </param>
+                    <param name="height" required="true" style="query" type="xsd:integer">
+                        <doc>image height in pixels</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>chart ID</doc>
+                    </param>
+                    <param name="interval" required="true" style="query" type="xsd:integer">
+                        <doc>required when type is not values The interval in seconds of the data sampling Defaults to</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>optional valid only when type is values Maximum number of values to return If omitted it defaults to The maximum value for this parameter is If a greater number is specified the server will only return the most recent values on the specified date range</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>an ISO timestamp specifying the start of the date range to be plotted in the chart Any values registered before this timestamp will be simply ignored By default the last hours will be plotted in the chart</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>the type of chart to render Defaults to values Valid options are nth min max count avg sum and values</doc>
+                    </param>
+                    <param name="width" required="true" style="query" type="xsd:integer">
+                        <doc>image width in pixels</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Update Chart" id="6049" name="PUT">
+                <doc>Update an existing chart.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>chart ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="View Chart Details" id="6055" name="GET">
+                <doc>Get details of a specific chart. This method is public and therefore it does not require the user to authenticate himself using an API key.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>chart ID</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

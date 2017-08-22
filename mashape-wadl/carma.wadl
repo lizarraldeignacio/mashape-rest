@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5100="urn:function:f5100">
+    <grammars>
+        <include href="Function5100.xsd"/>
+    </grammars>
+    <doc>get there together Shared car seats means a faster greener and more affordable commute for you and your neighbors The Carma API provides complete access to developers to build carpool apps and solutions to help solve one of the world s most universal problems NB we have only included a small subset of the Carma APIs on mashape com go to api car ma to see all of them</doc>
+    <resources base="https://carma.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="object/">
+                <resource uri="users/">
+                    <resource uri="search/">
+                        <method displayName="Search Users By Alias" id="5100" name="GET">
+                            <doc>NB For the full Carma API listing go to https://api.car.ma/apidoc/ref/index.html Search users by name, the result will be ordered so users who's last known location is closest to the given location are first. Note: This endpoint does NOT require authentication</doc>
+                            <request>
+                                <param name="clientId" required="true" style="query" type="xsd:string">
+                                    <doc>the oauth client id of the calling application Clients should provide this otherwise they may be subject to much lower rate limits and may be blocked in future</doc>
+                                </param>
+                                <param name="keyword" required="true" style="query" type="xsd:string">
+                                    <doc>the search keyword This can be a prefix of a users first name or a first name and an initial of a surname e g both Bob and Bobby S will match Bobby Sandz More than character of the surname will not be matched e g Bobby Sa will not match Bobby Sandz as surnames are private</doc>
+                                </param>
+                                <param name="lat" required="true" style="query" type="xsd:integer">
+                                    <doc>the latitude of the given location in decimal degrees between and for N Lat for S Lat used to order users nearest to this location optional</doc>
+                                </param>
+                                <param name="lon" required="true" style="query" type="xsd:integer">
+                                    <doc>the longitude of the given location in decimal degrees between and for E Long for W Long used to order users nearest to this location optional</doc>
+                                </param>
+                                <param name="pagenum" required="true" style="query" type="xsd:integer">
+                                    <doc>which page to return indexed For example page with max will get users</doc>
+                                </param>
+                                <param name="pagesize" required="true" style="query" type="xsd:integer">
+                                    <doc>the maximum number of users to return</doc>
+                                </param>
+                                <param name="userfields" required="true" style="query" type="xsd:string">
+                                    <doc>a comma separated list of fields that should be included with the user object Clients SHOULD ask for the minimum amount of data they require If this parameter is not included then the default is used If this is passed in with an empty value as in userFields then this will return just the user id and a flag indicating whether the user account has been deleted The other supported values are NAME ALIAS REGISTRATION TIME EMAIL PHOTO URL HOME CITY COUNTRY WEBPAGE BIO LAST KNOWN LOCATION LAST KNOWN LOCATION ADDRESS LAST KNOWN LOCATION ADDRESS STREET IS CURRENTLY RIDESHARING LAST TRIP SEARCH RATING IS FAVOURITE IS FREE RIDER IS FREE DRIVER VALIDATIONS EMAIL VALIDATIONS PHONE VALIDATIONS NUM POSITIVE REVIEWS VALIDATIONS CONNECTED FACEBOOK VALIDATIONS AFFILIATES LAST SEEN TIMESTAMP LAST LOGIN TIMESTAMP GENDER CREDIT BALANCES LOCALE TEST ACCOUNT STATUS LAST CHANGED TIMESTAMP BASIC ACHIEVEMENTS DISTANCE NOTE The calling user can see all of their own details but will only see a subset of the public fields of another user</doc>
+                                </param>
+                                <param name="userid" required="true" style="query" type="xsd:integer">
+                                    <doc>the user id of the user doing the search optional can be for non logged in users</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f5100:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="trip/">
+                    <resource uri="searchTrips/">
+                        <method displayName="Trip search" id="5101" name="GET">
+                            <doc>NB For the full Carma API listing go to https://api.car.ma/apidoc/ref/index.html. This retrieves a list of trips according to the parameters that were supplied. Note: This endpoint does NOT require authentication.</doc>
+                            <request>
+                                <param name="clientId" required="true" style="query" type="xsd:string">
+                                    <doc>the oauth client id of the calling application Clients should provide this otherwise they may be subject to much lower rate limits and may be blocked in future</doc>
+                                </param>
+                                <param name="destinationlat" required="true" style="query" type="xsd:string">
+                                    <doc>the latitude of the destination in decimal degrees between and for N Lat for S Lat</doc>
+                                </param>
+                                <param name="destinationlon" required="true" style="query" type="xsd:string">
+                                    <doc>the longitude of the destination in decimal degrees between and for E Long for W Long null if destination should be ignored</doc>
+                                </param>
+                                <param name="originlat" required="true" style="query" type="xsd:string">
+                                    <doc>the latitude of the origin in decimal degrees between and for N Lat for S Lat</doc>
+                                </param>
+                                <param name="originlon" required="true" style="query" type="xsd:integer">
+                                    <doc>the longitude of the origin in decimal degrees between and for E Long for W Long</doc>
+                                </param>
+                                <param name="pagenum" required="true" style="query" type="xsd:integer">
+                                    <doc>which page to return indexed For example page with max will get users</doc>
+                                </param>
+                                <param name="pagesize" required="true" style="query" type="xsd:integer">
+                                    <doc>number of results returned for each page</doc>
+                                </param>
+                                <param name="userfields" required="true" style="query" type="xsd:string">
+                                    <doc>userFields A comma separated list of fields that should be included with the user object Clients SHOULD ask for the minimum amount of data they require If this parameter is not included then the default is used If this is passed in with an empty value as in userFields then this will return just the user id and a flag indicating whether the user account has been deleted The other supported values are NAME ALIAS REGISTRATION TIME EMAIL PHOTO URL HOME CITY COUNTRY WEBPAGE BIO LAST KNOWN LOCATION LAST KNOWN LOCATION ADDRESS LAST KNOWN LOCATION ADDRESS STREET IS CURRENTLY RIDESHARING LAST TRIP SEARCH RATING IS FAVOURITE IS FREE RIDER IS FREE DRIVER VALIDATIONS EMAIL VALIDATIONS PHONE VALIDATIONS NUM POSITIVE REVIEWS VALIDATIONS CONNECTED FACEBOOK VALIDATIONS AFFILIATES LAST SEEN TIMESTAMP LAST LOGIN TIMESTAMP GENDER CREDIT BALANCES LOCALE TEST ACCOUNT STATUS LAST CHANGED TIMESTAMP BASIC ACHIEVEMENTS DISTANCE NOTE The calling user can see all of their own details but will only see a subset of the public fields of another user</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                    <resource uri="nearbyUsers/">
+                        <method displayName="Nearby Users" id="5099" name="GET">
+                            <doc>NB For the full Carma API listing go to https://api.car.ma/apidoc/ref/index.html This retrieves a list of nearby users according to the parameters that were supplied. Note: This endpoint does NOT require authentication.</doc>
+                            <request>
+                                <param name="clientId" required="true" style="query" type="xsd:string">
+                                    <doc>the oauth client id of the calling application Clients should provide this otherwise they may be subject to much lower rate limits and may be blocked in future</doc>
+                                </param>
+                                <param name="currentlat" required="true" style="query" type="xsd:integer">
+                                    <doc>optional current location used for contextualising addresses in decimal degrees between and for N Lat for S Lat</doc>
+                                </param>
+                                <param name="currentlon" required="true" style="query" type="xsd:integer">
+                                    <doc>optional current location used for contextualising addresses in decimal degrees between and for E Long for W Long</doc>
+                                </param>
+                                <param name="onlinesince" required="true" style="query" type="xsd:integer">
+                                    <doc>only return users that have been online since the specified time in millisecs from the epoch to disable</doc>
+                                </param>
+                                <param name="orderbyonlinems" required="true" style="query" type="xsd:integer">
+                                    <doc>if then the results are ordered with the users nearest to the current or origin location first If not this will group the results such that users who have been online since this number of milliseconds followed by the remaining users within these groups the users are ordered by distance between their last location and the current location given or the origin location given if the current location is not available</doc>
+                                </param>
+                                <param name="originlabel" required="true" style="query" type="xsd:string">
+                                    <doc>a user provided label for the origin e g an address</doc>
+                                </param>
+                                <param name="originlat" required="true" style="query" type="xsd:integer">
+                                    <doc>the latitude of the origin of the nearby users search in decimal degrees between and for N Lat for S Lat</doc>
+                                </param>
+                                <param name="originlon" required="true" style="query" type="xsd:integer">
+                                    <doc>the longitude of the origin for the nearby users search in decimal degrees between and for E Long for W Long</doc>
+                                </param>
+                                <param name="originradius" required="true" style="query" type="xsd:integer">
+                                    <doc>the radius of the search from the origin in meters</doc>
+                                </param>
+                                <param name="pagenum" required="true" style="query" type="xsd:integer">
+                                    <doc>which page to return indexed For example page with max will get users</doc>
+                                </param>
+                                <param name="pagesize" required="true" style="query" type="xsd:integer">
+                                    <doc>number of results returned for each page</doc>
+                                </param>
+                                <param name="userfields" required="true" style="query" type="xsd:string">
+                                    <doc>a comma separated list of fields that should be included with the user object Clients SHOULD ask for the minimum amount of data they require If this parameter is not included then the default is used If this is passed in with an empty value as in userFields then this will return just the user id and a flag indicating whether the user account has been deleted The other supported values are NAME ALIAS REGISTRATION TIME EMAIL PHOTO URL HOME CITY COUNTRY WEBPAGE BIO LAST KNOWN LOCATION LAST KNOWN LOCATION ADDRESS LAST KNOWN LOCATION ADDRESS STREET IS CURRENTLY RIDESHARING LAST TRIP SEARCH RATING IS FAVOURITE IS FREE RIDER IS FREE DRIVER VALIDATIONS EMAIL VALIDATIONS PHONE VALIDATIONS NUM POSITIVE REVIEWS VALIDATIONS CONNECTED FACEBOOK VALIDATIONS AFFILIATES LAST SEEN TIMESTAMP LAST LOGIN TIMESTAMP GENDER CREDIT BALANCES LOCALE TEST ACCOUNT STATUS LAST CHANGED TIMESTAMP BASIC ACHIEVEMENTS DISTANCE NOTE The calling user can see all of their own details but will only see a subset of the public fields of another user</doc>
+                                </param>
+                                <param name="userid" required="true" style="query" type="xsd:string">
+                                    <doc>the id of the calling user can be used if logged in to indicate the calling user such that their ride data is excluded from the results can be SELF to indicate the caller if authenticated</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

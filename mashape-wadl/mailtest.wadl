@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2618="urn:function:f2618">
+    <grammars>
+        <include href="Function2618.xsd"/>
+    </grammars>
+    <doc>validate email address domains to ensure the domain is registered active has MX records Detects if a domain is used by a Disposable Email Address or monetized bounce service</doc>
+    <resources base="https://joncombe-mailtest-v1.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="{domain}/">
+                <param name="domain" style="template" type="xsd:string"/>
+                <method displayName="/v1/{domain}" id="2618" name="GET">
+                    <doc>Get email domain information</doc>
+                    <request>
+                        <param name="domain" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f2618:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

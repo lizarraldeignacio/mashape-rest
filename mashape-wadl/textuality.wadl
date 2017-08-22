@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1308="urn:function:f1308">
+    <grammars>
+        <include href="Function1308.xsd"/>
+    </grammars>
+    <doc>the API service to convert web page to clear text The API which is highly accurate drills down to the most relevant piece of text of web page or a blog and presents it as text Get started with free daily allowance You can use this API for free for scraping upto pages a day Please note free plan allows extracting pages any use over the limit will be charged You can scale to large volume with our paid plans</doc>
+    <resources base="https://extracttext.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="content_extract/">
+                <method displayName="Web-pages extraction API" id="1308" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f1308:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

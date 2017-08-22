@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f86="urn:function:f86">
+    <grammars>
+        <include href="Function86.xsd"/>
+    </grammars>
+    <doc>guess whether a first name is of male or female gender in the USA</doc>
+    <resources base="https://montanaflynn-gender-guesser.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Check" id="86" name="GET">
+                <doc>Check name for gender</doc>
+                <request>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>name to check</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f86:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4570="urn:function:f4570" xmlns:f4571="urn:function:f4571" xmlns:f4572="urn:function:f4572" xmlns:f4573="urn:function:f4573" xmlns:f4574="urn:function:f4574">
+    <grammars>
+        <include href="Function4574.xsd"/>
+        <include href="Function4573.xsd"/>
+        <include href="Function4572.xsd"/>
+        <include href="Function4571.xsd"/>
+        <include href="Function4570.xsd"/>
+    </grammars>
+    <doc>download free music from gaana com Using this API you can search for Songs Albums browse New Albums Tracks etc This is unofficial API of gaana com Gaana com provides both Indian and international music content The entire Indian music catalog is available to users worldwide</doc>
+    <resources base="https://devru-gaana-v1.p.mashape.com/">
+        <resource uri="search.php/">
+            <method displayName="Search" id="4574" name="GET">
+                <doc>Search Albums, Tracks, Artists etc</doc>
+                <request>
+                    <param name="term" required="true" style="query" type="xsd:string">
+                        <doc>enter your search term here Example Lingaa A R Rehman etc</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4574:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="popularTracks.php/">
+            <method displayName="Popular Tracks" id="4573" name="GET">
+                <request/>
+                <response>
+                    <representation element="f4573:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="newReleases.php/">
+            <method displayName="New Releases" id="4572" name="GET">
+                <doc>New Albums</doc>
+                <request/>
+                <response>
+                    <representation element="f4572:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="featuredAlbums.php/">
+            <method displayName="Featured Albums" id="4571" name="GET">
+                <request/>
+                <response>
+                    <representation element="f4571:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="download.php/">
+            <method displayName="Download Tracks" id="4570" name="GET">
+                <doc>Download Tracks. Track_id Required</doc>
+                <request>
+                    <param name="trackId" required="true" style="query" type="xsd:string">
+                        <doc>enter the Track id of track you want download</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4570:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

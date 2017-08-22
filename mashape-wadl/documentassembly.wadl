@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7105="urn:function:f7105" xmlns:f7106="urn:function:f7106" xmlns:f7107="urn:function:f7107" xmlns:f7110="urn:function:f7110" xmlns:f7111="urn:function:f7111" xmlns:f7112="urn:function:f7112" xmlns:f7113="urn:function:f7113" xmlns:f7114="urn:function:f7114" xmlns:f7115="urn:function:f7115" xmlns:f7116="urn:function:f7116" xmlns:f7117="urn:function:f7117">
+    <grammars>
+        <include href="Function7114.xsd"/>
+        <include href="Function7112.xsd"/>
+        <include href="Function7113.xsd"/>
+        <include href="Function7110.xsd"/>
+        <include href="Function7107.xsd"/>
+        <include href="Function7115.xsd"/>
+        <include href="Function7106.xsd"/>
+        <include href="Function7111.xsd"/>
+        <include href="Function7117.xsd"/>
+        <include href="Function7105.xsd"/>
+        <include href="Function7116.xsd"/>
+    </grammars>
+    <doc>humble Paper s document builder API allows you to build dynamic documents in seconds We call these dynamic documents Wizards Use our api to create a wizard and publish them on Humble Paper or you could embed a wizard on your own website Users can answer questions and download a fully customised document built using the answers to those questions</doc>
+    <resources base="https://humble.p.mashape.com/">
+        <resource uri="document/">
+            <resource uri="{document_id}/">
+                <param name="document_id" style="template" type="xsd:string"/>
+                <method displayName="Get Document Details" id="7114" name="GET">
+                    <doc>Returns details of documents, if the document belongs to the user or is public</doc>
+                    <request>
+                        <param name="documentId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f7114:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="clauses/">
+            <method displayName="Get Clauses" id="7112" name="POST">
+                <doc>Takes a json formatted clause data and creates a new Clause for the document</doc>
+                <request/>
+                <response>
+                    <representation element="f7112:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Clauses for a Document" id="7113" name="GET">
+                <doc>Returns all clauses of the document</doc>
+                <request>
+                    <param name="documentId" required="true" style="query" type="xsd:string">
+                        <doc>identifier for the document</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f7113:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="documents/">
+            <method displayName="Get all documents" id="7110" name="GET">
+                <doc>GET - returns a list of documents</doc>
+                <request/>
+                <response>
+                    <representation element="f7110:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Upload your document" id="7118" name="POST">
+                <doc>POST - takes a text file, extracts document content, and initialises a wizard</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="labels/">
+            <resource uri="{document_id}/">
+                <param name="document_id" style="template" type="xsd:string"/>
+                <method displayName="Get all branch_label in Document" id="7109" name="GET">
+                    <doc>Returns all the branch_label's present in the document</doc>
+                    <request>
+                        <param name="documentId" required="true" style="query" type="xsd:string">
+                            <doc>identifier for the Document</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="questions/">
+            <resource uri="{document_id}/">
+                <param name="document_id" style="template" type="xsd:string"/>
+                <method displayName="Create Question for Document" id="7107" name="POST">
+                    <doc>Takes a 'question' JSON and creates a Question object, returns the newly created question.</doc>
+                    <request>
+                        <param name="documentId" required="true" style="query" type="xsd:string">
+                            <doc>identifier for the Document</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7107:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get Question/Answers for Document" id="7115" name="GET">
+                    <doc>Returns all the questions including their answers for the document.</doc>
+                    <request>
+                        <param name="documentId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f7115:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="clause/">
+            <resource uri="{document_id}/">
+                <param name="document_id" style="template" type="xsd:string"/>
+                <resource uri="{index_no}/">
+                    <param name="index_no" style="template" type="xsd:string"/>
+                    <method displayName="Create Clause at Index" id="7106" name="POST">
+                        <doc>Takes a clause JSON, creates a new Clause, adds it at the url &lt;index&gt;</doc>
+                        <request>
+                            <param name="documentId" required="true" style="query" type="xsd:string">
+                                <doc>identifier for the Document</doc>
+                            </param>
+                            <param name="indexNo" required="true" style="query" type="xsd:string">
+                                <doc>index of clause in Document</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f7106:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Delete Clause(s)" id="7108" name="DELETE">
+                        <doc>Deletes Clause(es) at the specified index</doc>
+                        <request>
+                            <param name="documentId" required="true" style="query" type="xsd:string">
+                                <doc>identifier of the Document</doc>
+                            </param>
+                            <param name="indexNo" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Get clause/branches at index" id="7111" name="GET">
+                        <doc>Returns all the clauses/branches at the specified index</doc>
+                        <request>
+                            <param name="documentId" required="true" style="query" type="xsd:string">
+                                <doc>identifier of the document</doc>
+                            </param>
+                            <param name="indexNo" required="true" style="query" type="xsd:string">
+                                <doc>index of the clause</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f7111:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Put Clause at Index" id="7117" name="PUT">
+                        <doc>Takes a Clause JSON, if the branch label is new then creates a new Clause adds it at the index as a branch. If branch_label is existing, edits the 'text' field of the Clause with new value</doc>
+                        <request>
+                            <param name="documentId" required="true" style="query" type="xsd:string">
+                                <doc>identifier for the Document</doc>
+                            </param>
+                            <param name="indexNo" required="true" style="query" type="xsd:string">
+                                <doc>index of the Branch</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f7117:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="answers/">
+            <resource uri="{document_id}/">
+                <param name="document_id" style="template" type="xsd:string"/>
+                <resource uri="{question_id}/">
+                    <param name="question_id" style="template" type="xsd:string"/>
+                    <method displayName="Answers to Question" id="7105" name="GET">
+                        <doc>Returns all the answers for the question</doc>
+                        <request>
+                            <param name="documentId" required="true" style="query" type="xsd:string">
+                                <doc>identifier for the Document</doc>
+                            </param>
+                            <param name="questionId" required="true" style="query" type="xsd:string">
+                                <doc>identifier for the Question</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f7105:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Post Answer to Question" id="7116" name="POST">
+                        <doc>Takes a 'answer'JSON and creates an Answer object, returns the newly created answer.</doc>
+                        <request>
+                            <param name="documentId" required="true" style="query" type="xsd:string"/>
+                            <param name="questionId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f7116:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

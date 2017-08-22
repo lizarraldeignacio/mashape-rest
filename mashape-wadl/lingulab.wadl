@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3496="urn:function:f3496" xmlns:f3497="urn:function:f3497" xmlns:f3498="urn:function:f3498" xmlns:f3499="urn:function:f3499" xmlns:f3500="urn:function:f3500" xmlns:f3501="urn:function:f3501" xmlns:f3502="urn:function:f3502" xmlns:f3503="urn:function:f3503" xmlns:f3504="urn:function:f3504" xmlns:f3505="urn:function:f3505" xmlns:f3506="urn:function:f3506" xmlns:f3507="urn:function:f3507" xmlns:f3508="urn:function:f3508" xmlns:f3509="urn:function:f3509" xmlns:f3510="urn:function:f3510" xmlns:f3511="urn:function:f3511">
+    <grammars>
+        <include href="Function3496.xsd"/>
+        <include href="Function3497.xsd"/>
+        <include href="Function3498.xsd"/>
+        <include href="Function3499.xsd"/>
+        <include href="Function3500.xsd"/>
+        <include href="Function3501.xsd"/>
+        <include href="Function3502.xsd"/>
+        <include href="Function3503.xsd"/>
+        <include href="Function3504.xsd"/>
+        <include href="Function3505.xsd"/>
+        <include href="Function3506.xsd"/>
+        <include href="Function3507.xsd"/>
+        <include href="Function3508.xsd"/>
+        <include href="Function3509.xsd"/>
+        <include href="Function3510.xsd"/>
+        <include href="Function3511.xsd"/>
+    </grammars>
+    <doc>have fun optimizing your content with LinguLab Understandable and to the point Based on scientific criteria LinguLab verifies the understandability of your content You get wording suggestions that you can accept with one single click Impress with structure Get your content into perfect shape So you attract the attention of your readers and leave a positive impression at first glance Content for readers and machines Optimize your texts on the fly with up to three keywords Save time and money for subsequent SEO campaigns</doc>
+    <resources base="https://ideas2it-Lingulab-v1-1.p.mashape.com/">
+        <resource uri="LiveService.asmx/">
+            <method displayName="Add To Ignore" id="3496" name="POST">
+                <doc>Add To Ignore</doc>
+                <request/>
+                <response>
+                    <representation element="f3496:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Configurations" id="3497" name="POST">
+                <doc>Get Configurations</doc>
+                <request/>
+                <response>
+                    <representation element="f3497:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Help" id="3498" name="POST">
+                <doc>Get Help</doc>
+                <request/>
+                <response>
+                    <representation element="f3498:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Keyword Items" id="3499" name="POST">
+                <doc>Get Keyword Items</doc>
+                <request/>
+                <response>
+                    <representation element="f3499:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Languages" id="3500" name="POST">
+                <doc>Get Languages</doc>
+                <request/>
+                <response>
+                    <representation element="f3500:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Module Items" id="3501" name="POST">
+                <doc>Get Module Items</doc>
+                <request/>
+                <response>
+                    <representation element="f3501:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Result" id="3502" name="POST">
+                <doc>Get Result</doc>
+                <request/>
+                <response>
+                    <representation element="f3502:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Result Adv" id="3503" name="POST">
+                <doc>Get Result Adv</doc>
+                <request/>
+                <response>
+                    <representation element="f3503:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Updated Text" id="3504" name="POST">
+                <doc>Get Updated Text</doc>
+                <request/>
+                <response>
+                    <representation element="f3504:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get User Data" id="3505" name="POST">
+                <doc>Get User Data</doc>
+                <request/>
+                <response>
+                    <representation element="f3505:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Wcag" id="3506" name="POST">
+                <doc>Get Wcag</doc>
+                <request/>
+                <response>
+                    <representation element="f3506:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Login" id="3507" name="POST">
+                <doc>Login into the application to authentication key from the Lingulab.</doc>
+                <request/>
+                <response>
+                    <representation element="f3507:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Process Text Adv" id="3508" name="POST">
+                <doc>Process Text Adv</doc>
+                <request/>
+                <response>
+                    <representation element="f3508:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Process Text For Office" id="3509" name="POST">
+                <doc>Process Text For Office</doc>
+                <request/>
+                <response>
+                    <representation element="f3509:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="ProcessText" id="3510" name="POST">
+                <doc>Process Text</doc>
+                <request/>
+                <response>
+                    <representation element="f3510:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Validate Authentication" id="3511" name="POST">
+                <doc>Validate Authentication</doc>
+                <request/>
+                <response>
+                    <representation element="f3511:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

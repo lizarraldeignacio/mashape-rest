@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4433="urn:function:f4433" xmlns:f4435="urn:function:f4435" xmlns:f4436="urn:function:f4436" xmlns:f4440="urn:function:f4440" xmlns:f4441="urn:function:f4441" xmlns:f4442="urn:function:f4442" xmlns:f4443="urn:function:f4443" xmlns:f4444="urn:function:f4444" xmlns:f4445="urn:function:f4445" xmlns:f4446="urn:function:f4446" xmlns:f4448="urn:function:f4448" xmlns:f4449="urn:function:f4449" xmlns:f4450="urn:function:f4450" xmlns:f4451="urn:function:f4451" xmlns:f4455="urn:function:f4455">
+    <grammars>
+        <include href="Function4446.xsd"/>
+        <include href="Function4455.xsd"/>
+        <include href="Function4441.xsd"/>
+        <include href="Function4449.xsd"/>
+        <include href="Function4436.xsd"/>
+        <include href="Function4445.xsd"/>
+        <include href="Function4451.xsd"/>
+        <include href="Function4440.xsd"/>
+        <include href="Function4448.xsd"/>
+        <include href="Function4433.xsd"/>
+        <include href="Function4435.xsd"/>
+        <include href="Function4442.xsd"/>
+        <include href="Function4450.xsd"/>
+        <include href="Function4443.xsd"/>
+        <include href="Function4444.xsd"/>
+    </grammars>
+    <doc>the Load Impact load test API allows you to configure and start and stop web site application load tests and to retrieve test results from load tests</doc>
+    <resources base="https://ragnarlonn-load-impact.p.mashape.com/">
+        <resource uri="user-scenario-validations/">
+            <method displayName="Get user scenario validation" id="4446" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>user scenario validation ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4446:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get user scenario validation results" id="4447" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>user scenario validation ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Validate user scenario" id="4455" name="POST">
+                <doc>Start a validation of a user scenario</doc>
+                <request/>
+                <response>
+                    <representation element="f4455:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="load-zones/">
+            <method displayName="Get load zone" id="4441" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>load zone id</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4441:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List load zones" id="4449" name="GET">
+                <request/>
+                <response>
+                    <representation element="f4449:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="user-scenarios/">
+            <method displayName="Create user scenario" id="4436" name="POST">
+                <request/>
+                <response>
+                    <representation element="f4436:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete user scenario" id="4439" name="DELETE">
+                <doc>Delete existing user scenario</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get user scenario" id="4445" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>user scenario ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4445:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List user scenarios" id="4451" name="GET">
+                <doc>Get all user scenarios connected to a user account</doc>
+                <request/>
+                <response>
+                    <representation element="f4451:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update user scenario" id="4454" name="PUT">
+                <doc>Update existing user scenario</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>user scenario ID</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="data-stores/">
+            <method displayName="Create data store" id="4434" name="POST">
+                <request/>
+            </method>
+            <method displayName="Delete data store" id="4437" name="DELETE">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>delete specified data store</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get data store" id="4440" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>data store ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4440:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List data stores" id="4448" name="GET">
+                <request/>
+                <response>
+                    <representation element="f4448:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="test-configs/">
+            <method displayName="Clone test config" id="4433" name="POST">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>existing test config ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4433:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Create test config" id="4435" name="POST">
+                <request/>
+                <response>
+                    <representation element="f4435:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete test config" id="4438" name="DELETE">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>test config ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get test configuration" id="4442" name="GET">
+                <doc>Get a single test configuration</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>test config ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4442:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List test configurations" id="4450" name="GET">
+                <doc>Get all test configurations for a certain user</doc>
+                <request/>
+                <response>
+                    <representation element="f4450:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Start a test based on test config" id="4452" name="POST">
+                <doc>Execute a load test based on existing test configuration</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>test config ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Update test configuration" id="4453" name="PUT">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>test config ID</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="tests/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Abort running test" id="4432" name="POST">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>test ID</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Get test data" id="4443" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>test ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4443:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get test results" id="4444" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>test ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4444:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

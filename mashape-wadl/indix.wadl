@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4213="urn:function:f4213" xmlns:f4214="urn:function:f4214" xmlns:f4215="urn:function:f4215" xmlns:f4216="urn:function:f4216" xmlns:f4217="urn:function:f4217" xmlns:f4218="urn:function:f4218">
+    <grammars>
+        <include href="Function4218.xsd"/>
+        <include href="Function4216.xsd"/>
+        <include href="Function4214.xsd"/>
+        <include href="Function4215.xsd"/>
+        <include href="Function4217.xsd"/>
+        <include href="Function4213.xsd"/>
+    </grammars>
+    <doc>indix APIs for products prices promotions stores and more The Most Comprehensive Product Intelligence Platform Sell More Acquire Customers Increase Productivity</doc>
+    <resources base="https://community-indix.p.mashape.com/">
+        <resource uri="stores/">
+            <method displayName="Search Stores - Lists all stores along with their IDs" id="4218" name="GET">
+                <doc>Lists all stores, along with their IDs, matching the query term. Does not support wildcards. Limit 10 results per query.</doc>
+                <request>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>search term to match against store name Partial match Case insensitive</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4218:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="brands/">
+            <method displayName="Search Brands - Lists all brands along with their IDs" id="4216" name="GET">
+                <doc>Lists all brands, along with their IDs, matching query term. Does not support wildcards. Limit is 10 results per query.</doc>
+                <request>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4216:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="products/">
+            <method displayName="Price History - Returns all the prices recorded for the product in the last 30 days" id="4214" name="GET">
+                <doc>Price History - Returns the price history for a product. Returns price history for 30 days prior to the current date.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4214:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Product Details - Returns detailed information for a product and similar products" id="4215" name="GET">
+                <doc>This operation returns the product and price details for the specified product and the products similar to it.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>the Indix product identifier should be a digit HEX value retrieved via the Product Search API</doc>
+                    </param>
+                    <param name="pagenumber" required="true" style="query" type="xsd:string">
+                        <doc>the page number of the result set to return results per page plus similar items</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4215:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Search Products - Retrieves a list of products matching a variety of query parameters" id="4217" name="GET">
+                <doc>Returns a collection of products matching a specified query, along with a variety of statistics about the query results. Requires at least one of query, brandId, storeId, or categoryId.</doc>
+                <request>
+                    <param name="brandid" required="true" style="query" type="xsd:string">
+                        <doc>limits results to products of brand with id int Supports multiple comma separated values acts as OR operator</doc>
+                    </param>
+                    <param name="categoryid" required="true" style="query" type="xsd:string">
+                        <doc>limits results to products of category with this id</doc>
+                    </param>
+                    <param name="endprice" required="true" style="query" type="xsd:string">
+                        <doc>combined with start price limits results to products sold by at least one store at a price between start and end</doc>
+                    </param>
+                    <param name="pagenumber" required="true" style="query" type="xsd:string">
+                        <doc>the page number of the result set to return results per page plus similar items</doc>
+                    </param>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>the product search term could be either product title SKU UPC or MPN To search by SKU input sku value For UPC search input upc value</doc>
+                    </param>
+                    <param name="sortby" required="true" style="query" type="xsd:string">
+                        <doc>sort by values RELEVANCE PRICE LOW TO HIGH PRICE HIGH TO LOW MOST RECENT</doc>
+                    </param>
+                    <param name="startprice" required="true" style="query" type="xsd:string">
+                        <doc>combined with end price limits results to products sold by at least one store at a price between start and end</doc>
+                    </param>
+                    <param name="storeid" required="true" style="query" type="xsd:string">
+                        <doc>limits results to products sold at store with id int Supports multiple comma separated values acts as OR operator</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4217:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="categories/">
+            <method displayName="Export Categories - Lists all categories along with their IDs and path" id="4213" name="GET">
+                <doc>Lists all categories along with their IDs and ancestry</doc>
+                <request/>
+                <response>
+                    <representation element="f4213:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

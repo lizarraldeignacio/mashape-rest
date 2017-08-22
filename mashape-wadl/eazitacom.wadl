@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6630="urn:function:f6630" xmlns:f6631="urn:function:f6631">
+    <grammars>
+        <include href="Function6631.xsd"/>
+        <include href="Function6630.xsd"/>
+    </grammars>
+    <doc>eazita s application programming interface API provides the communication link between your application and Eazita s SMS Gateway allowing you to send and receive text messages and to check the delivery status of text messages you ve already sent</doc>
+    <resources base="https://eazita.p.mashape.com/">
+        <resource uri="json/">
+            <method displayName="Send SMS" id="6631" name="POST">
+                <doc>Send a new outgoing message</doc>
+                <request/>
+                <response>
+                    <representation element="f6631:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="dlvr/">
+            <method displayName="Delivery Reports" id="6630" name="POST">
+                <doc>The option to receive message delivery reports (DLR) via PULL method.</doc>
+                <request/>
+                <response>
+                    <representation element="f6630:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="balance/">
+            <method displayName="Check Account Balance" id="6629" name="GET">
+                <doc>Retrieve your current eazita account balance.</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

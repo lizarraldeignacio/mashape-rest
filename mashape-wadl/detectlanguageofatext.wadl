@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7098="urn:function:f7098">
+    <grammars>
+        <include href="Function7098.xsd"/>
+    </grammars>
+    <doc>using this API you can easily detect which language a certain text is written in Works best with sentences</doc>
+    <resources base="https://detectlanguage.p.mashape.com/">
+        <resource uri="">
+            <method displayName="/detectlanguage/" id="7098" name="GET">
+                <doc>Detect the language of a given text.</doc>
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>set the text parameter to a string or paragraph to detect which language it is Works best with sentences</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f7098:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

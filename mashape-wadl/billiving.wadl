@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3553="urn:function:f3553" xmlns:f3554="urn:function:f3554" xmlns:f3559="urn:function:f3559" xmlns:f3561="urn:function:f3561" xmlns:f3562="urn:function:f3562" xmlns:f3563="urn:function:f3563" xmlns:f3564="urn:function:f3564" xmlns:f3565="urn:function:f3565" xmlns:f3572="urn:function:f3572" xmlns:f3573="urn:function:f3573" xmlns:f3574="urn:function:f3574" xmlns:f3575="urn:function:f3575" xmlns:f3576="urn:function:f3576" xmlns:f3577="urn:function:f3577" xmlns:f3578="urn:function:f3578" xmlns:f3580="urn:function:f3580" xmlns:f3581="urn:function:f3581" xmlns:f3582="urn:function:f3582" xmlns:f3583="urn:function:f3583" xmlns:f3584="urn:function:f3584" xmlns:f3585="urn:function:f3585" xmlns:f3586="urn:function:f3586" xmlns:f3587="urn:function:f3587" xmlns:f3588="urn:function:f3588" xmlns:f3589="urn:function:f3589" xmlns:f3590="urn:function:f3590" xmlns:f3591="urn:function:f3591" xmlns:f3592="urn:function:f3592" xmlns:f3593="urn:function:f3593" xmlns:f3594="urn:function:f3594" xmlns:f3595="urn:function:f3595" xmlns:f3596="urn:function:f3596" xmlns:f3597="urn:function:f3597" xmlns:f3608="urn:function:f3608" xmlns:f3609="urn:function:f3609" xmlns:f3610="urn:function:f3610" xmlns:f3611="urn:function:f3611" xmlns:f3613="urn:function:f3613" xmlns:f3615="urn:function:f3615">
+    <grammars>
+        <include href="Function3597.xsd"/>
+        <include href="Function3595.xsd"/>
+        <include href="Function3593.xsd"/>
+        <include href="Function3592.xsd"/>
+        <include href="Function3591.xsd"/>
+        <include href="Function3589.xsd"/>
+        <include href="Function3587.xsd"/>
+        <include href="Function3586.xsd"/>
+        <include href="Function3585.xsd"/>
+        <include href="Function3584.xsd"/>
+        <include href="Function3583.xsd"/>
+        <include href="Function3576.xsd"/>
+        <include href="Function3578.xsd"/>
+        <include href="Function3596.xsd"/>
+        <include href="Function3613.xsd"/>
+        <include href="Function3615.xsd"/>
+        <include href="Function3561.xsd"/>
+        <include href="Function3572.xsd"/>
+        <include href="Function3580.xsd"/>
+        <include href="Function3608.xsd"/>
+        <include href="Function3565.xsd"/>
+        <include href="Function3577.xsd"/>
+        <include href="Function3581.xsd"/>
+        <include href="Function3594.xsd"/>
+        <include href="Function3609.xsd"/>
+        <include href="Function3564.xsd"/>
+        <include href="Function3575.xsd"/>
+        <include href="Function3590.xsd"/>
+        <include href="Function3559.xsd"/>
+        <include href="Function3563.xsd"/>
+        <include href="Function3574.xsd"/>
+        <include href="Function3588.xsd"/>
+        <include href="Function3611.xsd"/>
+        <include href="Function3562.xsd"/>
+        <include href="Function3573.xsd"/>
+        <include href="Function3582.xsd"/>
+        <include href="Function3610.xsd"/>
+        <include href="Function3554.xsd"/>
+        <include href="Function3553.xsd"/>
+    </grammars>
+    <doc>professional online invoicing service designed for small businesses and freelancers</doc>
+    <resources base="https://billiving-billiving-v1.p.mashape.com/">
+        <resource uri="definitions/">
+            <resource uri="style/">
+                <resource uri="templates/">
+                    <method displayName="List template styles" id="3597" name="GET">
+                        <doc>Retrieve template style collection</doc>
+                        <request/>
+                        <response>
+                            <representation element="f3597:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="status/">
+                <method displayName="List status options" id="3595" name="GET">
+                    <doc>Retrieve a collection of statuses (used for all entities, i.e.: clients, invoices etc.)</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3595:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="paymentmethods/">
+                <method displayName="List payment methods" id="3593" name="GET">
+                    <doc>Retrieve a collection of payment methods (i.e.: cash, check, credit-card etc.)</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3593:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="paystatus/">
+                <method displayName="List pay status options" id="3592" name="GET">
+                    <doc>Retrieve a collection of pay status</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3592:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="languages/">
+                <method displayName="List languages" id="3591" name="GET">
+                    <doc>Retrieve a collection of supported languages</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3591:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="recurfrequency/">
+                <method displayName="List frequency options" id="3589" name="GET">
+                    <doc>Retrieve a collection of frequency (i.e.: weekly, monthly, yearly etc.)</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3589:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="duedays/">
+                <method displayName="List due days options" id="3587" name="GET">
+                    <doc>Retrieve a collection of supported due days</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3587:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="doctypes/">
+                <method displayName="List document types" id="3586" name="GET">
+                    <doc>Retrieve document type collection</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3586:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="dateformats/">
+                <method displayName="List date formats" id="3585" name="GET">
+                    <doc>Retrieve a collection of date formats</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3585:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="currencies/">
+                <method displayName="List currencies" id="3584" name="GET">
+                    <doc>Retrieve a collection of supported currencies</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3584:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="countries/">
+                <method displayName="List countries" id="3583" name="GET">
+                    <doc>Retrieve a collection of supported countries</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3583:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="vendors/">
+            <resource uri="invite/">
+                <method displayName="Invite vendors" id="3579" name="POST">
+                    <doc>Sends a vendors invitation to a list of recipients</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="settings/">
+            <method displayName="Create tax setting" id="3566" name="POST">
+                <doc>Add a new tax setting</doc>
+                <request/>
+            </method>
+            <method displayName="Delete tax setting" id="3571" name="DELETE">
+                <doc>Delete tax setting</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get mail settings" id="3576" name="GET">
+                <doc>Retrieve mail settings</doc>
+                <request/>
+                <response>
+                    <representation element="f3576:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get settings" id="3578" name="GET">
+                <doc>Retrieve account settings</doc>
+                <request/>
+                <response>
+                    <representation element="f3578:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List tax settings" id="3596" name="GET">
+                <doc>Retrieve a collection of tax settings</doc>
+                <request/>
+                <response>
+                    <representation element="f3596:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update mail settings" id="3613" name="PUT">
+                <doc>Update mail settings</doc>
+                <request/>
+                <response>
+                    <representation element="f3613:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update settings" id="3615" name="PUT">
+                <doc>Update account settings</doc>
+                <request/>
+                <response>
+                    <representation element="f3615:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update tax setting" id="3616" name="PUT">
+                <doc>Update tax setting</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+        <resource uri="bankaccounts/">
+            <method displayName="Create bank account" id="3561" name="POST">
+                <doc>Add a new bank account</doc>
+                <request/>
+                <response>
+                    <representation element="f3561:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get bank account" id="3572" name="GET">
+                <doc>Retrieve bank account information</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3572:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List Bank Accounts" id="3580" name="GET">
+                <doc>Retrieve a collection of bank accounts</doc>
+                <request/>
+                <response>
+                    <representation element="f3580:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update bank account" id="3608" name="PUT">
+                <doc>Update bank account</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3608:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="products/">
+            <method displayName="Archive product" id="3558" name="POST">
+                <doc>Archive a product</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Create product" id="3565" name="POST">
+                <doc>Create a new product</doc>
+                <request/>
+                <response>
+                    <representation element="f3565:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete product" id="3570" name="DELETE">
+                <doc>Delete an existing product</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get product" id="3577" name="GET">
+                <doc>Retrieve an existing product</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3577:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List catalog discounts" id="3581" name="GET">
+                <doc>Retrieve catalog discounts (i.e.: Bronze, Silver &amp; Gold)</doc>
+                <request/>
+                <response>
+                    <representation element="f3581:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List products" id="3594" name="GET">
+                <doc>Retrieve a collection of products</doc>
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:integer">
+                        <doc>when count equals record count is returned</doc>
+                    </param>
+                    <param name="freesearch" required="true" style="query" type="xsd:string">
+                        <doc>search ItemId short descripton full description tags fields</doc>
+                    </param>
+                    <param name="orderby" required="true" style="query" type="xsd:string">
+                        <doc>order result set by specified field</doc>
+                    </param>
+                    <param name="skip" required="true" style="query" type="xsd:integer">
+                        <doc>records to skip used for paging</doc>
+                    </param>
+                    <param name="statusid" required="true" style="query" type="xsd:integer">
+                        <doc>list of statuses is available under Enumerations</doc>
+                    </param>
+                    <param name="top" required="true" style="query" type="xsd:integer">
+                        <doc>records to fetch used for paging</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3594:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Publish product" id="3598" name="POST">
+                <doc>Publish a product</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Restore product" id="3602" name="POST">
+                <doc>Restore a product</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Unpublish product" id="3607" name="POST">
+                <doc>Unpublish a product</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Update catalog discounts" id="3609" name="PUT">
+                <doc>Update catalog discounts (i.e.: Bronze, Silver &amp; Gold)</doc>
+                <request/>
+                <response>
+                    <representation element="f3609:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update product" id="3614" name="PUT">
+                <doc>Update an existing product</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+        <resource uri="invoices/">
+            <method displayName="Archive invoice" id="3557" name="POST">
+                <doc>Archive an invoice</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Clone invoice" id="3560" name="POST">
+                <doc>Clone an invoice</doc>
+                <request>
+                    <param name="doctype" required="true" style="query" type="xsd:string"/>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Create invoice" id="3564" name="POST">
+                <doc>Create an invoice</doc>
+                <request/>
+                <response>
+                    <representation element="f3564:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete invoice" id="3569" name="DELETE">
+                <doc>Delete an invoice</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get invoice" id="3575" name="GET">
+                <doc>Get an existing invoice</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3575:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List invoices" id="3590" name="GET">
+                <doc>List invoices</doc>
+                <request>
+                    <param name="companyid" required="true" style="query" type="xsd:integer">
+                        <doc>applicable if managing multiple companies to issue invoices</doc>
+                    </param>
+                    <param name="count" required="true" style="query" type="xsd:integer">
+                        <doc>when Count returns record count</doc>
+                    </param>
+                    <param name="datefrom" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="dateto" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="filetype" required="true" style="query" type="xsd:string">
+                        <doc>may be specified for file download Applicable values are CSV or XSLX</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>invoice identifier</doc>
+                    </param>
+                    <param name="orderby" required="true" style="query" type="xsd:string">
+                        <doc>order result set by field</doc>
+                    </param>
+                    <param name="organizationname" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="refno" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="skip" required="true" style="query" type="xsd:integer">
+                        <doc>paging records to skip</doc>
+                    </param>
+                    <param name="status" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                    <param name="top" required="true" style="query" type="xsd:integer">
+                        <doc>paging records to fetch</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3590:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Restore invoice" id="3601" name="POST">
+                <doc>Restore a deleted or archived invoice</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Send invoice" id="3604" name="POST">
+                <doc>Send an invoice</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Set invoice unviewed" id="3606" name="POST">
+                <doc>Restores document back to its unviewed state</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Update invoice" id="3612" name="PUT">
+                <doc>Update an invoice</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+        <resource uri="estimates/">
+            <method displayName="Archive estimate" id="3556" name="POST">
+                <doc>Archive an estimate</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Clone estimate" id="3559" name="POST">
+                <doc>Clone an estimate</doc>
+                <request>
+                    <param name="doctype" required="true" style="query" type="xsd:integer">
+                        <doc>document types are available under enumerations</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3559:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Create estimate" id="3563" name="POST">
+                <doc>Create an estimate</doc>
+                <request/>
+                <response>
+                    <representation element="f3563:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete estimate" id="3568" name="DELETE">
+                <doc>Delete an estimate</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get estimate" id="3574" name="GET">
+                <doc>Retrieve a single estimate</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3574:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List estimates" id="3588" name="GET">
+                <doc>List estimates</doc>
+                <request>
+                    <param name="companyid" required="true" style="query" type="xsd:integer">
+                        <doc>applicable if managing multiple companies to issue estimates</doc>
+                    </param>
+                    <param name="count" required="true" style="query" type="xsd:integer">
+                        <doc>when Count returns record count</doc>
+                    </param>
+                    <param name="datefrom" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="dateto" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="filetype" required="true" style="query" type="xsd:string">
+                        <doc>may be specified for file download Applicable values are CSV or XSLX</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>estimate identifier</doc>
+                    </param>
+                    <param name="orderby" required="true" style="query" type="xsd:string">
+                        <doc>order result set by field</doc>
+                    </param>
+                    <param name="organizationname" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="refno" required="true" style="query" type="xsd:string">
+                        <doc>reference number</doc>
+                    </param>
+                    <param name="skip" required="true" style="query" type="xsd:integer">
+                        <doc>paging records to skip</doc>
+                    </param>
+                    <param name="status" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                    <param name="top" required="true" style="query" type="xsd:integer">
+                        <doc>paging records to fetch</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3588:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Restore estimate" id="3600" name="POST">
+                <doc>Restore a deleted/archived estimate</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Send estimate" id="3603" name="POST">
+                <doc>Send an estimate</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Set estimate unviewed" id="3605" name="POST">
+                <doc>Restores document back to its unviewed state</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Update estimate" id="3611" name="PUT">
+                <doc>Update an estimate</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3611:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="clients/">
+            <method displayName="Archive client" id="3555" name="POST">
+                <doc>Archive a client</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Create client" id="3562" name="POST">
+                <doc>Create a client</doc>
+                <request/>
+                <response>
+                    <representation element="f3562:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete client" id="3567" name="DELETE">
+                <doc>Delete a client</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get client" id="3573" name="GET">
+                <doc>Get a single client</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3573:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List clients" id="3582" name="GET">
+                <doc>Retrieve a collection of clients</doc>
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:integer">
+                        <doc>when Count returns record count</doc>
+                    </param>
+                    <param name="freetext" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="orderby" required="true" style="query" type="xsd:string">
+                        <doc>order result set by the specified field</doc>
+                    </param>
+                    <param name="skip" required="true" style="query" type="xsd:integer">
+                        <doc>paging records to skip</doc>
+                    </param>
+                    <param name="statusid" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                    <param name="top" required="true" style="query" type="xsd:integer">
+                        <doc>paging records to fetch</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3582:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Restore client" id="3599" name="POST">
+                <doc>Restore a deleted/archived client</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Update client" id="3610" name="PUT">
+                <doc>Update a client</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3610:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="reports/">
+            <resource uri="accountsummary/">
+                <method displayName="Account Summary" id="3554" name="GET">
+                    <doc>Dashboard data</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3554:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="account/">
+            <method displayName="Account Status" id="3553" name="GET">
+                <doc>Retrieve account information (i.e. plan type, expiration date etc)</doc>
+                <request/>
+                <response>
+                    <representation element="f3553:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

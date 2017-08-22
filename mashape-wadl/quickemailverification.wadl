@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1068="urn:function:f1068">
+    <grammars>
+        <include href="Function1068.xsd"/>
+    </grammars>
+    <doc>improve your mail deliverability rates and protect your IP reputation by using our Free Email Verification Service Need further help You can contact us at http quickemailverification com contact us</doc>
+    <resources base="https://quickemailverification.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="verify/">
+                <method displayName="/v1/verify" id="1068" name="GET">
+                    <request>
+                        <param name="email" required="true" style="query" type="xsd:string">
+                            <doc>enter email address to validate</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1068:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2065="urn:function:f2065" xmlns:f2066="urn:function:f2066" xmlns:f2067="urn:function:f2067" xmlns:f2068="urn:function:f2068" xmlns:f2069="urn:function:f2069" xmlns:f2070="urn:function:f2070" xmlns:f2071="urn:function:f2071" xmlns:f2072="urn:function:f2072">
+    <grammars>
+        <include href="Function2072.xsd"/>
+        <include href="Function2071.xsd"/>
+        <include href="Function2070.xsd"/>
+        <include href="Function2069.xsd"/>
+        <include href="Function2068.xsd"/>
+        <include href="Function2067.xsd"/>
+        <include href="Function2066.xsd"/>
+        <include href="Function2065.xsd"/>
+    </grammars>
+    <doc>a dictionary and so much more Rich information for a word with definitions associations examples and much more</doc>
+    <resources base="https://twinword-word-graph-dictionary.p.mashape.com/">
+        <resource uri="theme/">
+            <method displayName="Theme" id="2072" name="GET">
+                <doc>Get the themes of a word.</doc>
+                <request>
+                    <param name="entry" required="true" style="query" type="xsd:string">
+                        <doc>type a word to get its themes</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2072:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="reference/">
+            <method displayName="Reference" id="2071" name="GET">
+                <doc>Get the broad terms, narrow terms, related terms, evocations, synonyms, associations, and derived terms of a word.</doc>
+                <request>
+                    <param name="entry" required="true" style="query" type="xsd:string">
+                        <doc>type a word to get its broad terms narrow terms related terms evocations synonyms associations and derived terms</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2071:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="example/">
+            <method displayName="Example" id="2070" name="GET">
+                <doc>See examples of a word used in a sentence</doc>
+                <request>
+                    <param name="entry" required="true" style="query" type="xsd:string">
+                        <doc>type a word to see examples of it used in a sentence</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2070:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="examhistory/">
+            <method displayName="Exam History" id="2069" name="GET">
+                <doc>See which exams a word has been on</doc>
+                <request>
+                    <param name="entry" required="true" style="query" type="xsd:string">
+                        <doc>type a word to see which exams it has been on</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2069:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="difficulty/">
+            <method displayName="Difficulty" id="2068" name="GET">
+                <doc>Get the difficulty level of a word.</doc>
+                <request>
+                    <param name="entry" required="true" style="query" type="xsd:string">
+                        <doc>type a word to get its difficulty level</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2068:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="definition_kr/">
+            <method displayName="Definition KR" id="2067" name="GET">
+                <doc>Get the Korean definitions of a word.</doc>
+                <request>
+                    <param name="entry" required="true" style="query" type="xsd:string">
+                        <doc>type a word to get its Korean definitions</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2067:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="definition/">
+            <method displayName="Definition" id="2066" name="GET">
+                <doc>Get the definitions of a word.</doc>
+                <request>
+                    <param name="entry" required="true" style="query" type="xsd:string">
+                        <doc>a word</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2066:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="association/">
+            <method displayName="Association" id="2065" name="GET">
+                <doc>Get the associations of a word.</doc>
+                <request>
+                    <param name="entry" required="true" style="query" type="xsd:string">
+                        <doc>type a word to get its associations</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2065:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

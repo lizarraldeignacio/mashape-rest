@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7413="urn:function:f7413" xmlns:f7418="urn:function:f7418" xmlns:f7420="urn:function:f7420" xmlns:f7430="urn:function:f7430" xmlns:f7431="urn:function:f7431" xmlns:f7432="urn:function:f7432" xmlns:f7433="urn:function:f7433" xmlns:f7434="urn:function:f7434">
+    <grammars>
+        <include href="Function7434.xsd"/>
+        <include href="Function7432.xsd"/>
+        <include href="Function7433.xsd"/>
+        <include href="Function7430.xsd"/>
+        <include href="Function7431.xsd"/>
+        <include href="Function7418.xsd"/>
+        <include href="Function7420.xsd"/>
+        <include href="Function7413.xsd"/>
+    </grammars>
+    <doc>le New Black is a wholesale platform dedicated to fashion brands and retailers You must own a valid Le New Black account to use this API Please contact us to get your API client credentials</doc>
+    <resources base="https://lenewblack-le-new-black-v1.p.mashape.com/">
+        <resource uri="retailers/">
+            <method displayName="/retailers (GET)" id="7434" name="GET">
+                <request/>
+                <response>
+                    <representation element="f7434:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="products/">
+            <method displayName="/products (GET)" id="7432" name="GET">
+                <request>
+                    <param name="collectionId" required="true" style="query" type="xsd:integer">
+                        <doc>a collection id to filter products</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f7432:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="/products/{id} (GET)" id="7433" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:integer"/>
+                </request>
+                <response>
+                    <representation element="f7433:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="orders/">
+            <method displayName="/orders (GET)" id="7430" name="GET">
+                <request>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>responses are limited to items Use page to browse through the results set</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f7430:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="/orders/{id} (GET)" id="7431" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:integer"/>
+                </request>
+                <response>
+                    <representation element="f7431:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="colors/">
+            <method displayName="/colors (GET)" id="7426" name="GET">
+                <request/>
+            </method>
+            <method displayName="/colors (POST)" id="7427" name="POST">
+                <doc>Create a color.</doc>
+                <request/>
+            </method>
+            <method displayName="/colors/{id} (GET)" id="7428" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="/colors/{id} (PATCH)" id="7429" name="PATCH">
+                <doc>Update a color.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+        <resource uri="collections/">
+            <method displayName="/collections (GET)" id="7418" name="GET">
+                <request/>
+                <response>
+                    <representation element="f7418:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="/collections (POST)" id="7419" name="POST">
+                <doc>Create a collection.</doc>
+                <request/>
+            </method>
+            <method displayName="/collections/{id} (GET)" id="7420" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:integer"/>
+                </request>
+                <response>
+                    <representation element="f7420:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="/collections/{id} (PATCH)" id="7421" name="PATCH">
+                <doc>Update a collection.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="/collections/{id}/categories (GET)" id="7422" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="/collections/{id}/categories (POST)" id="7423" name="POST">
+                <doc>Create a collection category link.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="/collections/{id}/categories/{category-id} (GET)" id="7424" name="GET">
+                <request>
+                    <param name="categoryId" required="true" style="query" type="xsd:string"/>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="/collections/{id}/categories/{category-id} (PATCH)" id="7425" name="PATCH">
+                <doc>Update a collection category link.</doc>
+                <request>
+                    <param name="categoryId" required="true" style="query" type="xsd:string"/>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+        <resource uri="categories/">
+            <method displayName="/categories (GET)" id="7414" name="GET">
+                <request/>
+            </method>
+            <method displayName="/categories (POST)" id="7415" name="POST">
+                <doc>Create a category.</doc>
+                <request/>
+            </method>
+            <method displayName="/categories/{id} (GET)" id="7416" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="/categories/{id} (PATCH)" id="7417" name="PATCH">
+                <doc>Update a category.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+        <resource uri="auth/">
+            <resource uri="token/">
+                <method displayName="/auth/token" id="7413" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f7413:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

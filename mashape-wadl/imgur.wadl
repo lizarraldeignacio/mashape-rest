@@ -1,0 +1,1050 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f149="urn:function:f149" xmlns:f150="urn:function:f150" xmlns:f151="urn:function:f151" xmlns:f152="urn:function:f152" xmlns:f153="urn:function:f153" xmlns:f154="urn:function:f154" xmlns:f158="urn:function:f158" xmlns:f162="urn:function:f162" xmlns:f163="urn:function:f163" xmlns:f164="urn:function:f164" xmlns:f165="urn:function:f165" xmlns:f166="urn:function:f166" xmlns:f168="urn:function:f168" xmlns:f170="urn:function:f170" xmlns:f171="urn:function:f171" xmlns:f173="urn:function:f173" xmlns:f174="urn:function:f174" xmlns:f178="urn:function:f178" xmlns:f180="urn:function:f180" xmlns:f181="urn:function:f181" xmlns:f183="urn:function:f183" xmlns:f187="urn:function:f187" xmlns:f202="urn:function:f202" xmlns:f206="urn:function:f206" xmlns:f209="urn:function:f209" xmlns:f211="urn:function:f211" xmlns:f212="urn:function:f212" xmlns:f213="urn:function:f213" xmlns:f214="urn:function:f214" xmlns:f218="urn:function:f218" xmlns:f230="urn:function:f230" xmlns:f231="urn:function:f231" xmlns:f232="urn:function:f232" xmlns:f243="urn:function:f243" xmlns:f245="urn:function:f245" xmlns:f246="urn:function:f246">
+    <grammars>
+        <include href="Function230.xsd"/>
+        <include href="Function231.xsd"/>
+        <include href="Function232.xsd"/>
+        <include href="Function187.xsd"/>
+        <include href="Function243.xsd"/>
+        <include href="Function218.xsd"/>
+        <include href="Function209.xsd"/>
+        <include href="Function211.xsd"/>
+        <include href="Function212.xsd"/>
+        <include href="Function213.xsd"/>
+        <include href="Function214.xsd"/>
+        <include href="Function246.xsd"/>
+        <include href="Function206.xsd"/>
+        <include href="Function173.xsd"/>
+        <include href="Function174.xsd"/>
+        <include href="Function178.xsd"/>
+        <include href="Function180.xsd"/>
+        <include href="Function181.xsd"/>
+        <include href="Function183.xsd"/>
+        <include href="Function170.xsd"/>
+        <include href="Function149.xsd"/>
+        <include href="Function150.xsd"/>
+        <include href="Function151.xsd"/>
+        <include href="Function152.xsd"/>
+        <include href="Function153.xsd"/>
+        <include href="Function154.xsd"/>
+        <include href="Function158.xsd"/>
+        <include href="Function162.xsd"/>
+        <include href="Function163.xsd"/>
+        <include href="Function164.xsd"/>
+        <include href="Function165.xsd"/>
+        <include href="Function166.xsd"/>
+        <include href="Function168.xsd"/>
+        <include href="Function171.xsd"/>
+        <include href="Function202.xsd"/>
+        <include href="Function245.xsd"/>
+    </grammars>
+    <doc>imgur s API exposes the entire Imgur infrastructure via a standardized programmatic interface Using Imgur s API you can do just about anything you can do on imgur com while using your programming language of choice If you re familiar with the APIs of Twitter Amazon s S del icio us or a host of other web services you ll feel right at home The full documentation is available at http api imgur com</doc>
+    <resources base="https://imgur-apiv3.p.mashape.com/">
+        <resource uri="g/">
+            <resource uri="{gallery_id}/">
+                <param name="gallery_id" style="template" type="xsd:string"/>
+                <resource uri="{image_id}/">
+                    <param name="image_id" style="template" type="xsd:string"/>
+                    <method displayName="Custom Gallery Image" id="198" name="GET">
+                        <doc>View a single image in a custom gallery</doc>
+                        <request>
+                            <param name="galleryId" required="true" style="query" type="xsd:string">
+                                <doc>the ID for the gallery</doc>
+                            </param>
+                            <param name="imageId" required="true" style="query" type="xsd:string">
+                                <doc>the ID for the image</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="3/">
+            <resource uri="notification/">
+                <method displayName="Notification" id="230" name="GET">
+                    <doc>Returns data about a specific notification</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f230:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Notification Viewed" id="231" name="DELETE">
+                    <doc>Mark a notification as viewed.  This will stop the notification from showing up in the standard requests. Also works as PUT or DELETE request</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the ID of the notification</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f231:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Notifications" id="232" name="GET">
+                    <doc>Get all the notifications for the user that's currently logged in</doc>
+                    <request/>
+                    <response>
+                        <representation element="f232:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="image/">
+                <method displayName="Image" id="222" name="GET">
+                    <doc>Get information about an image</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>iD for the image</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Image Delete" id="223" name="DELETE">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>iD or deletehash of the image</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Image Favorite" id="224" name="POST">
+                    <doc>Favorite an image with the given ID. The user is required to be logged in to favorite the image.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Image Update" id="225" name="POST">
+                    <doc>Updates the title or description of an image. You can only update an image you own and is associated with your account. For an anonymous image, {id} must be the image's deletehash.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Image Upload" id="226" name="POST">
+                    <doc>Upload an image</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="memegen/">
+                <resource uri="defaults/">
+                    <method displayName="Default Memes" id="201" name="GET">
+                        <doc>et the list of default memes.</doc>
+                        <request/>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="g/">
+                <method displayName="Custom Gallery" id="194" name="GET">
+                    <doc>View images for a custom gallery</doc>
+                    <request>
+                        <param name="galleryId" required="true" style="query" type="xsd:string">
+                            <doc>the ID for the custom gallery</doc>
+                        </param>
+                        <param name="page" required="true" style="query" type="xsd:string">
+                            <doc>integer the data paging number</doc>
+                        </param>
+                        <param name="sort" required="true" style="query" type="xsd:string">
+                            <doc>viral time top defaults to viral</doc>
+                        </param>
+                        <param name="window" required="true" style="query" type="xsd:string">
+                            <doc>change the date range of the request if the sort is top day week month year all defaults to week</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Custom Gallery Add Tags" id="195" name="PUT">
+                    <doc>Add tags to a custom gallery</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>iD for the custom gallery</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Custom Gallery Creation" id="196" name="POST">
+                    <doc>Create a custom gallery</doc>
+                    <request/>
+                </method>
+                <method displayName="Custom Gallery Deletion" id="197" name="DELETE">
+                    <doc>Remove a custom gallery</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>iD for the custom gallery</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Custom Gallery Remove Tags" id="199" name="DELETE">
+                    <doc>Remove tags from a custom gallery</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>iD for the custom gallery</doc>
+                        </param>
+                        <param name="tags" required="true" style="query" type="xsd:string">
+                            <doc>array of tags e g cats dogs</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Custom Gallery Update" id="200" name="PUT">
+                    <doc>Update a custom gallery's name</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>iD for the custom gallery</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Filtered Out Gallery Add" id="203" name="POST">
+                    <doc>Filter out a tag</doc>
+                    <request/>
+                </method>
+                <method displayName="Filtered Out Gallery Remove" id="204" name="POST">
+                    <doc>Remove a filtered out tag</doc>
+                    <request/>
+                </method>
+                <method displayName="Filtered Out Tags" id="205" name="GET">
+                    <doc>Retrieve a list of the user's filtered out tags</doc>
+                    <request/>
+                </method>
+                <method displayName="Memes Subgallery" id="227" name="GET">
+                    <doc>View images for memes subgallery</doc>
+                    <request>
+                        <param name="page" required="true" style="query" type="xsd:string">
+                            <doc>integer the data paging number</doc>
+                        </param>
+                        <param name="sort" required="true" style="query" type="xsd:string">
+                            <doc>viral time top defaults to viral</doc>
+                        </param>
+                        <param name="window" required="true" style="query" type="xsd:string">
+                            <doc>change the date range of the request if the sort is top day week month year all defaults to week</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Memes Subgallery Image" id="228" name="GET">
+                    <doc>View a single image in the memes gallery</doc>
+                    <request>
+                        <param name="imageId" required="true" style="query" type="xsd:string">
+                            <doc>the ID for the image</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="User Custom Galleries" id="247" name="GET">
+                    <doc>Fetch a user's custom galleries</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="comment/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Comment" id="185" name="GET">
+                        <doc>Get comment information</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Comment Delete" id="187" name="DELETE">
+                        <doc>Delete a comment, will be marked as deleted if there are any replies</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f187:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Comment Replies" id="189" name="GET">
+                        <doc>View the comment and the thread of replies</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Comment Vote" id="190" name="POST">
+                        <doc>Vote for a comment, :vote is up or down</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                            <param name="vote" required="true" style="query" type="xsd:string">
+                                <doc>the vote variable can only be set as up or down</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Reply Creation" id="237" name="POST">
+                        <doc>Create a reply for the given comment.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Report Comment" id="238" name="POST">
+                        <doc>Report a comment for being vulgar</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>iD of the comment</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="conversations/">
+                <method displayName="Block Sender" id="184" name="POST">
+                    <doc>Block the user from sending messages to the user that is logged in.</doc>
+                    <request>
+                        <param name="username" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Conversation" id="191" name="GET">
+                    <doc>Get information about a specific conversation. Includes messages.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                        <param name="offset" required="true" style="query" type="xsd:string">
+                            <doc>additional offset in current page defaults to</doc>
+                        </param>
+                        <param name="page" required="true" style="query" type="xsd:string">
+                            <doc>page of message thread Starting at for the most recent messages and counting upwards Defaults to</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Conversation Deletion" id="192" name="DELETE">
+                    <doc>Delete a conversation by the given ID.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Conversation List" id="193" name="GET">
+                    <doc>Get list of all conversations for the logged in user.</doc>
+                    <request/>
+                </method>
+                <method displayName="Message Creation" id="229" name="POST">
+                    <doc>Create a new message.</doc>
+                    <request>
+                        <param name="recipient" required="true" style="query" type="xsd:string">
+                            <doc>the recipient username this person will receive the message</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Report Sender" id="239" name="POST">
+                    <doc>Report a user for sending messages that are against the Terms of Service.</doc>
+                    <request>
+                        <param name="username" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="gallery/">
+                <resource uri="r/">
+                    <resource uri="{subreddit}/">
+                        <param name="subreddit" style="template" type="xsd:string"/>
+                        <resource uri="{image_id}/">
+                            <param name="image_id" style="template" type="xsd:string"/>
+                            <method displayName="Subreddit Image" id="244" name="GET">
+                                <doc>View a single image in the subreddit</doc>
+                                <request>
+                                    <param name="imageId" required="true" style="query" type="xsd:string">
+                                        <doc>the ID for the image</doc>
+                                    </param>
+                                    <param name="subreddit" required="true" style="query" type="xsd:string">
+                                        <doc>a valid sub reddit name</doc>
+                                    </param>
+                                </request>
+                            </method>
+                        </resource>
+                        <resource uri="{sort}/">
+                            <param name="sort" style="template" type="xsd:string"/>
+                            <resource uri="{window}/">
+                                <param name="window" style="template" type="xsd:string"/>
+                                <resource uri="{page}/">
+                                    <param name="page" style="template" type="xsd:string"/>
+                                    <method displayName="Subreddit Galleries" id="243" name="GET">
+                                        <doc>View gallery images for a subreddit</doc>
+                                        <request>
+                                            <param name="page" required="true" style="query" type="xsd:integer">
+                                                <doc>integer the data paging number</doc>
+                                            </param>
+                                            <param name="sort" required="true" style="query" type="xsd:string">
+                                                <doc>time top defaults to time</doc>
+                                            </param>
+                                            <param name="subreddit" required="true" style="query" type="xsd:string">
+                                                <doc>a valid subreddit name</doc>
+                                            </param>
+                                            <param name="window" required="true" style="query" type="xsd:string">
+                                                <doc>change the date range of the request if the sort is top day week month year all defaults to week</doc>
+                                            </param>
+                                        </request>
+                                        <response>
+                                            <representation element="f243:root" mediaType="application/json"/>
+                                        </response>
+                                    </method>
+                                </resource>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="random/">
+                    <resource uri="random/">
+                        <resource uri="{page}/">
+                            <param name="page" style="template" type="xsd:string"/>
+                            <method displayName="Random Gallery Images" id="233" name="GET">
+                                <doc>Returns a random set of gallery images.</doc>
+                                <request>
+                                    <param name="page" required="true" style="query" type="xsd:string">
+                                        <doc>a page of random gallery images from Pages are regenerated every hour</doc>
+                                    </param>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="t/">
+                    <resource uri="{t_name}/">
+                        <param name="t_name" style="template" type="xsd:string"/>
+                        <resource uri="{image_id}/">
+                            <param name="image_id" style="template" type="xsd:string"/>
+                            <method displayName="Gallery Tag Image" id="220" name="GET">
+                                <doc>View a single image in a gallery tag</doc>
+                                <request>
+                                    <param name="imageId" required="true" style="query" type="xsd:string">
+                                        <doc>the ID for the image</doc>
+                                    </param>
+                                    <param name="tName" required="true" style="query" type="xsd:string">
+                                        <doc>the name of the tag</doc>
+                                    </param>
+                                </request>
+                            </method>
+                        </resource>
+                        <resource uri="{sort}/">
+                            <param name="sort" style="template" type="xsd:string"/>
+                            <resource uri="{window}/">
+                                <param name="window" style="template" type="xsd:string"/>
+                                <resource uri="{page}/">
+                                    <param name="page" style="template" type="xsd:string"/>
+                                    <method displayName="Gallery Tag" id="219" name="GET">
+                                        <doc>View images for a gallery tag</doc>
+                                        <request>
+                                            <param name="page" required="true" style="query" type="xsd:integer">
+                                                <doc>integer the data paging number</doc>
+                                            </param>
+                                            <param name="sort" required="true" style="query" type="xsd:string">
+                                                <doc>viral time top defaults to viral</doc>
+                                            </param>
+                                            <param name="tName" required="true" style="query" type="xsd:string">
+                                                <doc>the name of the tag</doc>
+                                            </param>
+                                            <param name="window" required="true" style="query" type="xsd:string">
+                                                <doc>change the date range of the request if the sort is top day week month year all defaults to week</doc>
+                                            </param>
+                                        </request>
+                                    </method>
+                                </resource>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="search/">
+                    <resource uri="{sort}/">
+                        <param name="sort" style="template" type="xsd:string"/>
+                        <resource uri="{window}/">
+                            <param name="window" style="template" type="xsd:string"/>
+                            <resource uri="{page}/">
+                                <param name="page" style="template" type="xsd:string"/>
+                                <method displayName="Gallery Search" id="218" name="GET">
+                                    <doc>Search the gallery for a given query string</doc>
+                                    <request>
+                                        <param name="page" required="true" style="query" type="xsd:integer">
+                                            <doc>integer the data paging number</doc>
+                                        </param>
+                                        <param name="q" required="true" style="query" type="xsd:string">
+                                            <doc>query string note if advanced search parameters are set this query string is ignored This parameter also supports boolean operators AND OR NOT and indices tag user title ext subreddit album meme An example compound query would be title cats AND dogs ext gif</doc>
+                                        </param>
+                                        <param name="qAll" required="true" style="query" type="xsd:string">
+                                            <doc>search for all of these words and</doc>
+                                        </param>
+                                        <param name="qAny" required="true" style="query" type="xsd:string">
+                                            <doc>search for any of these words or</doc>
+                                        </param>
+                                        <param name="qExactly" required="true" style="query" type="xsd:string">
+                                            <doc>search for exactly this word or phrase</doc>
+                                        </param>
+                                        <param name="qNot" required="true" style="query" type="xsd:string">
+                                            <doc>exclude results matching this</doc>
+                                        </param>
+                                        <param name="qSizePx" required="true" style="query" type="xsd:string">
+                                            <doc>size ranges small pixels square or less med to pixels square big to pixels square lrg to pixels square huge square pixels and above</doc>
+                                        </param>
+                                        <param name="qType" required="true" style="query" type="xsd:string">
+                                            <doc>show results for any file type jpg png gif anigif animated gif album</doc>
+                                        </param>
+                                        <param name="sort" required="true" style="query" type="xsd:string">
+                                            <doc>time viral defaults to time</doc>
+                                        </param>
+                                        <param name="window" required="true" style="query" type="xsd:string">
+                                            <doc>change the date range of the request if the sort is top day week month year all defaults to week</doc>
+                                        </param>
+                                    </request>
+                                    <response>
+                                        <representation element="f218:root" mediaType="application/json"/>
+                                    </response>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="image/">
+                    <resource uri="{id}/">
+                        <param name="id" style="template" type="xsd:string"/>
+                        <method displayName="Gallery Comment Creation" id="209" name="POST">
+                            <doc>Create a comment, the user must be logged in with OAuth 2 for this to work. Also, works for gallery albums if you replace 'image' with 'album' in the route</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f209:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Gallery Comment Reply" id="211" name="POST">
+                            <doc>Reply to a comment in the gallery</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f211:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Gallery Image" id="212" name="GET">
+                            <doc>Get additional information about an image in the gallery</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>iD of the gallery image</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f212:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Gallery Image Comment Delete" id="213" name="DELETE">
+                            <doc>Delete a comment from an image</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f213:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Gallery Image Comments" id="214" name="GET">
+                            <doc>The Comments of a Gallery Image</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f214:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Gallery Image Vote" id="215" name="POST">
+                            <doc>Vote for an image, {vote} is up or down (also works for Gallery Albums if you replace 'album' with 'image' in the route)</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                                <param name="vote" required="true" style="query" type="xsd:string">
+                                    <doc>up or down</doc>
+                                </param>
+                            </request>
+                        </method>
+                        <method displayName="Gallery Item Votes" id="217" name="GET">
+                            <doc>Get the vote information for an image in the gallery (also works for gallery albums by replacing 'image' with 'album' in the route)</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>iD for the gallery item</doc>
+                                </param>
+                            </request>
+                        </method>
+                        <method displayName="Upload Image to Gallery" id="246" name="POST">
+                            <doc>This allows a user to upload an image to the gallery, you're required to be logged in for this to work.</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f246:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="album/">
+                    <resource uri="{id}/">
+                        <param name="id" style="template" type="xsd:string"/>
+                        <method displayName="Gallery Album" id="207" name="GET">
+                            <doc>Get additional information about an album in the gallery.</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>iD of the gallery album</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="{section}/">
+                    <param name="section" style="template" type="xsd:string"/>
+                    <resource uri="{sort}/">
+                        <param name="sort" style="template" type="xsd:string"/>
+                        <resource uri="{window}/">
+                            <param name="window" style="template" type="xsd:string"/>
+                            <resource uri="{page}/">
+                                <param name="page" style="template" type="xsd:string"/>
+                                <method displayName="Gallery" id="206" name="GET">
+                                    <doc>Returns the images in the gallery. For example the main gallery is /3/gallery/hot/viral/0</doc>
+                                    <request>
+                                        <param name="page" required="true" style="query" type="xsd:integer">
+                                            <doc>integer the data paging number</doc>
+                                        </param>
+                                        <param name="section" required="true" style="query" type="xsd:string">
+                                            <doc>hot top user defaults to hot</doc>
+                                        </param>
+                                        <param name="showviral" required="true" style="query" type="xsd:string">
+                                            <doc>true false Show or hide viral images from the user section Defaults to true</doc>
+                                        </param>
+                                        <param name="sort" required="true" style="query" type="xsd:string">
+                                            <doc>viral time defaults to viral</doc>
+                                        </param>
+                                        <param name="window" required="true" style="query" type="xsd:string">
+                                            <doc>change the date range of the request if the section is top day week month year all defaults to day</doc>
+                                        </param>
+                                    </request>
+                                    <response>
+                                        <representation element="f206:root" mediaType="application/json"/>
+                                    </response>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Album / Image Comment" id="175" name="GET">
+                        <doc>Information about a specific comment. This action also allows any of the additional actions provided in the Comment Endpoint.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>gallery item ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Album / Image Comments" id="176" name="GET">
+                        <doc>Comment on an image in the gallery.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                            <param name="sort" required="true" style="query" type="xsd:string">
+                                <doc>best top new defaults to best</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Album / Image Reporting" id="177" name="POST">
+                        <doc>Report an Image in the gallery</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>iD of the gallery item</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Gallery Comment Count" id="208" name="GET">
+                        <doc>The number of comments on an item in the gallery</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>gallery item ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Gallery Comment Ids" id="210" name="GET">
+                        <doc>List all of the comment ids in an array for a gallery item</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>gallery item ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Gallery Item Tags" id="216" name="GET">
+                        <doc>View tags for a gallery item</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>iD of the gallery item</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Gallery Tag Voting" id="221" name="POST">
+                        <doc>Vote for a tag, 'up' or 'down' vote. Send the same value again to undo a vote.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>iD of the gallery item</doc>
+                            </param>
+                            <param name="tName" required="true" style="query" type="xsd:string">
+                                <doc>name of the tag implicitly created if doesn t exist</doc>
+                            </param>
+                            <param name="vote" required="true" style="query" type="xsd:string">
+                                <doc>up or down</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Remove from Gallery" id="234" name="DELETE">
+                        <doc>This allows the user to remove their content from the gallery.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the gallery item</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Submit to Gallery" id="242" name="POST">
+                        <doc>Add an Album or Image to the Gallery.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>gallery item ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="album/">
+                <method displayName="Add Album Images" id="173" name="POST">
+                    <doc>Takes parameter, ids[], as an array of ids to add to the album. Alternatively, the ids parameter can take a comma delimted string of ids. See below for examples. (Not available for anonymous albums. Adding images to an anonymous album is only available during image uploading.)</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f173:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Album" id="174" name="GET">
+                    <doc>Get album information</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f174:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Album delete" id="178" name="DELETE">
+                    <doc>This deletes an album, the user must be logged in to do this</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f178:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Album Favorite" id="179" name="POST">
+                    <doc>Favorite an album with a given ID. The user is required to be logged in to favorite the album.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Album Image" id="180" name="GET">
+                    <doc>Get information about an image in an album, any additional actions found in Image Endpoint will also work.</doc>
+                    <request>
+                        <param name="albumId" required="true" style="query" type="xsd:string">
+                            <doc>the character string for the album id</doc>
+                        </param>
+                        <param name="imageId" required="true" style="query" type="xsd:string">
+                            <doc>the id for the image</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f180:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Album Images" id="181" name="GET">
+                    <doc>Return all of the images in the album</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f181:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Album Update" id="182" name="POST">
+                    <doc>Update the information of an album. For anonymous albums, {album} should be the deletehash that is returned at creation.</doc>
+                    <request>
+                        <param name="album" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Album Upload" id="183" name="POST">
+                    <doc>This is how you upload an album</doc>
+                    <request/>
+                    <response>
+                        <representation element="f183:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Remove Images from an Album" id="235" name="DELETE">
+                    <doc>Takes parameter, ids[], as an array of ids and removes from the album. For anonymous albums, {album} should be the deletehash that is returned at creation.</doc>
+                    <request>
+                        <param name="album" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Set Album Images" id="241" name="POST">
+                    <doc>Sets the images for an album, removes all other images and only uses the images in this request. (Not available for anonymous albums.)</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="account/">
+                <resource uri="{user}/">
+                    <param name="user" style="template" type="xsd:string"/>
+                    <resource uri="settings/">
+                        <method displayName="Account Settings" id="170" name="GET">
+                            <doc>Get the account settings if you're logged in as the user</doc>
+                            <request>
+                                <param name="user" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f170:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="{username}/">
+                    <param name="username" style="template" type="xsd:string"/>
+                    <method displayName="Account" id="149" name="GET">
+                        <doc>Request standard user information.</doc>
+                        <request>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f149:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Account Album Count" id="150" name="GET">
+                        <doc>The number of albums an account contains</doc>
+                        <request>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f150:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Account Album Deletion" id="151" name="DELETE">
+                        <doc>Delete an account album</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f151:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Account Album Ids" id="152" name="GET">
+                        <doc>Get all of the ids for all of the albums associated with the account</doc>
+                        <request>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f152:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Account Album Information" id="153" name="GET">
+                        <doc>Get More information about a specific album</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f153:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Account Albums" id="154" name="GET">
+                        <doc>Get all the albums associated with the account. Must be logged in as the user to see secret and hidden albums.</doc>
+                        <request>
+                            <param name="page" required="true" style="query" type="xsd:integer">
+                                <doc>integer allows you to set the page number so you don t have to retrieve all the data at once</doc>
+                            </param>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f154:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Account Comment Deletion" id="155" name="DELETE">
+                        <doc>Delete a comment. You are required to be logged in as the user whom created the comment.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Account Comments" id="156" name="GET">
+                        <doc>The comments that the user has made</doc>
+                        <request>
+                            <param name="page" required="true" style="query" type="xsd:string">
+                                <doc>page number items per page Defaults to</doc>
+                            </param>
+                            <param name="sort" required="true" style="query" type="xsd:string">
+                                <doc>best worst oldest or newest Defaults to newest</doc>
+                            </param>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Account Creation" id="157" name="POST">
+                        <doc>You must send recaptcha information with this request. Use this as the public captcha key: 6LeZbt4SAAAAAG2ccJykgGk_oAqjFgQ1y6daNz-H</doc>
+                        <request>
+                            <param name="username" required="true" style="query" type="xsd:string">
+                                <doc>username of the account</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Account Deletion" id="158" name="DELETE">
+                        <doc>Delete a user account, you can only access this if you're logged in as the user.</doc>
+                        <request>
+                            <param name="username" required="true" style="query" type="xsd:string">
+                                <doc>username of the account</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f158:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Account Favorites" id="159" name="GET">
+                        <doc>Returns the users favorited images, only accessible if you're logged in as the user.</doc>
+                        <request>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Account Gallery Favorites" id="160" name="GET">
+                        <doc>Return the images the user has favorited in the gallery.</doc>
+                        <request>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Account Gallery Profile" id="161" name="GET">
+                        <doc>Returns the totals for the gallery profile.</doc>
+                        <request>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Account Image Information" id="162" name="GET">
+                        <doc>Return information about a specific image. This endpoint works the same as the Image Endpoint. You can use any of the additional actions that the image endpoint with this endpoint.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f162:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Account Images" id="163" name="GET">
+                        <doc>Return all of the images associated with the account. You can page through the images by setting the page, this defaults to 0.</doc>
+                        <request>
+                            <param name="page" required="true" style="query" type="xsd:string"/>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f163:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Account Images Count" id="164" name="GET">
+                        <doc>Returns the total number of images associated with the account.</doc>
+                        <request>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f164:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Account Images Ids" id="165" name="GET">
+                        <doc>Returns an array of Image IDs that are associated with the account.</doc>
+                        <request>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f165:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Account Likes" id="166" name="GET">
+                        <doc>Return an array of images that have been upvoted by the user.</doc>
+                        <request>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f166:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Account Messages" id="167" name="GET">
+                        <doc>Returns all messages sent to the user, formatted as a notification. Required to be logged in to view this information.</doc>
+                        <request>
+                            <param name="new" required="true" style="query" type="xsd:string">
+                                <doc>false for all notifications true for only non viewed notification Default is true</doc>
+                            </param>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Account Notifications" id="168" name="GET">
+                        <doc>Return all of the notifications associated with the account. Defaults to return only new notifications, however you can set the GET variable, new, to false to return all of the notifications. You're required to be logged in as the user to view this information.</doc>
+                        <request>
+                            <param name="type" required="true" style="query" type="xsd:string"/>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f168:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Account Send Message" id="169" name="POST">
+                        <doc>Send a message to the user in the URL from the user that's currently logged in. Set the variables subject (the subject of the message) and body (the body of the message) accordingly. A user must be logged in to send a message to another user.</doc>
+                        <request>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Account Statistics" id="171" name="GET">
+                        <doc>Return the statistics about the account.</doc>
+                        <request>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f171:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Account Submissions" id="172" name="GET">
+                        <doc>Return the images a user has submitted to the gallery</doc>
+                        <request>
+                            <param name="page" required="true" style="query" type="xsd:integer">
+                                <doc>starting at page</doc>
+                            </param>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Comment Count" id="186" name="GET">
+                        <doc>Return a count of all of the comments associated with the account.</doc>
+                        <request>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Comment IDs" id="188" name="GET">
+                        <doc>Return an array of all of the comment IDs.</doc>
+                        <request>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Delete Account Image" id="202" name="DELETE">
+                        <doc>Delete an image that belongs to the logged in user</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f202:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Replies" id="236" name="GET">
+                        <doc>Returns all of the reply notifications for the user. Required to be logged in as that user</doc>
+                        <request>
+                            <param name="new" required="true" style="query" type="xsd:string">
+                                <doc>boolean false for all notifications true for only non viewed notification Default is true</doc>
+                            </param>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Send Verification E-mail" id="240" name="POST">
+                        <doc>Sends an email to the user to verify that their email is valid to upload to gallery. Must be logged in as the user to send.</doc>
+                        <request>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Update Account Settings" id="245" name="POST">
+                        <doc>Change the account settings</doc>
+                        <request>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f245:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Verify User's E-mail" id="248" name="GET">
+                        <doc>Checks to see if user has verified their email address</doc>
+                        <request>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

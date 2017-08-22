@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2193="urn:function:f2193" xmlns:f2194="urn:function:f2194" xmlns:f2195="urn:function:f2195" xmlns:f2196="urn:function:f2196" xmlns:f2197="urn:function:f2197" xmlns:f2198="urn:function:f2198" xmlns:f2199="urn:function:f2199" xmlns:f2201="urn:function:f2201" xmlns:f2202="urn:function:f2202" xmlns:f2203="urn:function:f2203">
+    <grammars>
+        <include href="Function2203.xsd"/>
+        <include href="Function2202.xsd"/>
+        <include href="Function2201.xsd"/>
+        <include href="Function2199.xsd"/>
+        <include href="Function2198.xsd"/>
+        <include href="Function2197.xsd"/>
+        <include href="Function2196.xsd"/>
+        <include href="Function2195.xsd"/>
+        <include href="Function2194.xsd"/>
+        <include href="Function2193.xsd"/>
+    </grammars>
+    <doc>provides hackathon style access to the SEPTA API Allows introspection of the SEPTA locations and routes and provides basically realtime data on delays alerts vehicles and routes</doc>
+    <resources base="https://septa.p.mashape.com/">
+        <resource uri="sms/">
+            <method displayName="Plain-text Bus Schedules" id="2200" name="GET">
+                <doc>Intended for SMS.</doc>
+                <request>
+                    <param name="req" required="true" style="query" type="xsd:integer">
+                        <doc>stop ID</doc>
+                    </param>
+                    <param name="req" required="true" style="query" type="xsd:string">
+                        <doc>route number</doc>
+                    </param>
+                    <param name="req" required="true" style="query" type="xsd:string">
+                        <doc>inbound outbound</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="hackathon/">
+            <resource uri="Twitter/">
+                <method displayName="Twitter" id="2203" name="GET">
+                    <request>
+                        <param name="req" required="true" style="query" type="xsd:integer">
+                            <doc>number of posts</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2203:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="TrainView/">
+                <method displayName="TrainView" id="2202" name="GET">
+                    <doc>Regional Rail real-time train locations</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2202:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="RRSchedules/">
+                <method displayName="Regional Rail Schedules" id="2201" name="GET">
+                    <doc>By train number, lol.</doc>
+                    <request>
+                        <param name="req" required="true" style="query" type="xsd:integer">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2201:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="NextToArrive/">
+                <method displayName="Next to Arrive" id="2199" name="GET">
+                    <doc>Fetch a list of regional rail trains that will soon be traveling from point A to point B.</doc>
+                    <request>
+                        <param name="req" required="true" style="query" type="xsd:string">
+                            <doc>origin station</doc>
+                        </param>
+                        <param name="req" required="true" style="query" type="xsd:string">
+                            <doc>destination station</doc>
+                        </param>
+                        <param name="req" required="true" style="query" type="xsd:string">
+                            <doc>number of results</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2199:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="locations/">
+                <resource uri="get_locations.php/">
+                    <method displayName="Get Locations" id="2198" name="GET">
+                        <request>
+                            <param name="lat" required="true" style="query" type="xsd:integer">
+                                <doc>latitude</doc>
+                            </param>
+                            <param name="lon" required="true" style="query" type="xsd:integer">
+                                <doc>longitude</doc>
+                            </param>
+                            <param name="radius" required="true" style="query" type="xsd:integer">
+                                <doc>number of miles accepts a decimal</doc>
+                            </param>
+                            <param name="type" required="true" style="query" type="xsd:string">
+                                <doc>one of bus stops rail stations perk locations trolley stops sales locations</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2198:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="Alerts/">
+                <resource uri="get_alert_data.php/">
+                    <method displayName="Get Alerts" id="2197" name="GET">
+                        <request>
+                            <param name="req" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2197:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="BusSchedules/">
+                <method displayName="Bus/Trolley Schedules" id="2196" name="GET">
+                    <request>
+                        <param name="req" required="true" style="query" type="xsd:integer">
+                            <doc>stop ID</doc>
+                        </param>
+                        <param name="req" required="true" style="query" type="xsd:integer">
+                            <doc>route number</doc>
+                        </param>
+                        <param name="req" required="true" style="query" type="xsd:string">
+                            <doc>i for inbound o for outbound</doc>
+                        </param>
+                        <param name="req" required="true" style="query" type="xsd:integer">
+                            <doc>number of results</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2196:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="Stops/">
+                <method displayName="Bus/Trolley Routes" id="2195" name="GET">
+                    <request>
+                        <param name="req" required="true" style="query" type="xsd:string">
+                            <doc>route number</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2195:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="TransitView/">
+                <resource uri="trips.php/">
+                    <method displayName="Bus/Trolley  Locations" id="2194" name="GET">
+                        <request>
+                            <param name="route" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2194:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="BusDetours/">
+                <method displayName="Bus Detours" id="2193" name="GET">
+                    <request>
+                        <param name="req" required="true" style="query" type="xsd:integer">
+                            <doc>route number</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2193:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

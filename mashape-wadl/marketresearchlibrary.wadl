@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4486="urn:function:f4486">
+    <grammars>
+        <include href="Function4486.xsd"/>
+    </grammars>
+    <doc>the Market Research Library API provides metadata for country and industry reports that are produced by ITA s trade experts and are available in ITA s online market research library ITA commercial officers that are stationed around the world publish these authoritative reports in conjunction with Foreign Service officers from the State Department</doc>
+    <resources base="https://dataservices-market-research-library-v1.p.mashape.com/">
+        <resource uri="api.trade.gov/">
+            <resource uri="v2/">
+                <resource uri="market_research_library/">
+                    <resource uri="search/">
+                        <method displayName="/api.trade.gov/v2/market_research_library/search" id="4486" name="GET">
+                            <request/>
+                            <response>
+                                <representation element="f4486:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

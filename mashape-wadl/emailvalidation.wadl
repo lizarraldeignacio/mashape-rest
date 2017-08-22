@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>validates an email address based on syntax and dns Includes common spelling mistakes</doc>
+    <resources base="https://email-address-validation.p.mashape.com/">
+        <resource uri="validate/">
+            <method displayName="Validate" id="674" name="GET">
+                <request>
+                    <param name="address" required="true" style="query" type="xsd:string">
+                        <doc>the email address you wish to validate</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

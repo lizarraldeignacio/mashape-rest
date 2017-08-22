@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2241="urn:function:f2241" xmlns:f2242="urn:function:f2242" xmlns:f2244="urn:function:f2244" xmlns:f2245="urn:function:f2245" xmlns:f2246="urn:function:f2246" xmlns:f2247="urn:function:f2247" xmlns:f2248="urn:function:f2248" xmlns:f2249="urn:function:f2249" xmlns:f2250="urn:function:f2250" xmlns:f2251="urn:function:f2251" xmlns:f2252="urn:function:f2252" xmlns:f2253="urn:function:f2253" xmlns:f2254="urn:function:f2254">
+    <grammars>
+        <include href="Function2251.xsd"/>
+        <include href="Function2250.xsd"/>
+        <include href="Function2249.xsd"/>
+        <include href="Function2247.xsd"/>
+        <include href="Function2246.xsd"/>
+        <include href="Function2245.xsd"/>
+        <include href="Function2248.xsd"/>
+        <include href="Function2252.xsd"/>
+        <include href="Function2253.xsd"/>
+        <include href="Function2244.xsd"/>
+        <include href="Function2242.xsd"/>
+        <include href="Function2241.xsd"/>
+        <include href="Function2254.xsd"/>
+    </grammars>
+    <doc>easyPost allows you to integrate shipping APIs into any application in minutes</doc>
+    <resources base="https://mashape-community-easypost.p.mashape.com/">
+        <resource uri="scan_forms/">
+            <method displayName="Scan Form" id="2251" name="POST">
+                <doc>SCAN forms are USPS specific documents that can be created to speed up and simplify your carrier parcel pickup process. The SCAN form is one document that can be scanned to mark all included tracking codes as "Accepted for Shipment" by the USPS.</doc>
+                <request/>
+                <response>
+                    <representation element="f2251:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="refunds/">
+            <method displayName="Refunds" id="2250" name="POST">
+                <doc>Generally a refund can be issued for unused shipping labels if the request is made promptly.</doc>
+                <request/>
+                <response>
+                    <representation element="f2250:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="parcels/">
+            <method displayName="Parcels" id="2249" name="POST">
+                <doc>Parcel objects represent the physical container being shipped. Please provide either the length, width, and height dimensions, or a predefined_package string.</doc>
+                <request/>
+                <response>
+                    <representation element="f2249:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="customs_items/">
+            <method displayName="Customs Items" id="2247" name="POST">
+                <doc>Customs items describe goods for international shipment and are included in CustomsInfo objects.</doc>
+                <request/>
+                <response>
+                    <representation element="f2247:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="customs_infos/">
+            <method displayName="Customs Info Forms" id="2246" name="POST">
+                <doc>CustomsInfo objects contain CustomsItem objects and all necessary information for the generation of customs forms required for international shipping.</doc>
+                <request/>
+                <response>
+                    <representation element="f2246:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="shipments/">
+            <method displayName="Buy Postage Label" id="2245" name="POST">
+                <doc>Buying a postage label once you've created a shipment is as simple as specifying which rate you'd like from the available options.</doc>
+                <request>
+                    <param name="shp" required="true" style="query" type="xsd:string">
+                        <doc>shipment ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2245:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Shipping Rates" id="2248" name="GET">
+                <doc>You can request an update to the shipping rate options for a shipment at any time. If there is an existing rate for a carrier/service already attached to this shipment it will be updated, not replaced (it will retain its id).</doc>
+                <request>
+                    <param name="shp" required="true" style="query" type="xsd:string">
+                        <doc>shipment ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2248:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Shipment Insurance" id="2252" name="POST">
+                <doc>Insuring your shipment is simple: just tell us its value!</doc>
+                <request>
+                    <param name="shp" required="true" style="query" type="xsd:string">
+                        <doc>shipment ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2252:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Shipments" id="2253" name="POST">
+                <doc>The workhorse of the EasyPost API, shipments are made up of "to" and "from" addresses, the parcel being shipped, and any customs forms required for international deliveries. Once created a Shipment object can be used to retrieve shipping rates and purchase a postage label.</doc>
+                <request/>
+                <response>
+                    <representation element="f2253:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="batches/">
+            <method displayName="Batch Labels" id="2243" name="POST">
+                <doc>One of the advantages of processing shipments in batches is the ability to retrieve the postage labels for the entire batch in one file. This can only be done once all shipments in the batch are in 'postage_purchased' status. Batch labels can be retrieved in 'pdf' or 'epl2' format.</doc>
+                <request>
+                    <param name="batch" required="true" style="query" type="xsd:string">
+                        <doc>batch Number</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Batches" id="2244" name="POST">
+                <doc>Batches allow you to create a large number of shipments at one time, and retrieve details and shipping labels for them all at once.</doc>
+                <request/>
+                <response>
+                    <representation element="f2244:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="create_and_buy/">
+            <method displayName="Batch Create and Buy" id="2242" name="POST">
+                <doc>The create_and_buy method allows you to specify the carrier and service that you'd like to purchase for each shipment in the batch. After the method is called we will automatically purchase the requested shipping labels and update the batch status accordingly.</doc>
+                <request/>
+                <response>
+                    <representation element="f2242:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="addresses/">
+            <method displayName="Adresses" id="2241" name="POST">
+                <doc>Address objects represent the origin and destination of any shipment, and are required in order to get rates and purchase postage.</doc>
+                <request/>
+                <response>
+                    <representation element="f2241:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Verify Addresses" id="2254" name="GET">
+                <doc>Verifying an address with EasyPost is simple, simply request verification of an Address object and we'll return a new object with the closest verified address.</doc>
+                <request>
+                    <param name="adr" required="true" style="query" type="xsd:string">
+                        <doc>address ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2254:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1223="urn:function:f1223" xmlns:f1224="urn:function:f1224" xmlns:f1225="urn:function:f1225" xmlns:f1226="urn:function:f1226" xmlns:f1227="urn:function:f1227" xmlns:f1228="urn:function:f1228" xmlns:f1229="urn:function:f1229" xmlns:f1234="urn:function:f1234" xmlns:f1235="urn:function:f1235" xmlns:f1237="urn:function:f1237" xmlns:f1238="urn:function:f1238">
+    <grammars>
+        <include href="Function1237.xsd"/>
+        <include href="Function1238.xsd"/>
+        <include href="Function1224.xsd"/>
+        <include href="Function1225.xsd"/>
+        <include href="Function1226.xsd"/>
+        <include href="Function1227.xsd"/>
+        <include href="Function1229.xsd"/>
+        <include href="Function1235.xsd"/>
+        <include href="Function1223.xsd"/>
+        <include href="Function1228.xsd"/>
+        <include href="Function1234.xsd"/>
+    </grammars>
+    <doc>sendHub is the easy way to send one text message to everyone With the SendHub API you can make it easy for your app and your users to do the same</doc>
+    <resources base="https://sendhub.p.mashape.com/">
+        <resource uri="threads/">
+            <resource uri="{threadid}/">
+                <param name="threadid" style="template" type="xsd:string"/>
+                <method displayName="View Threads" id="1239" name="GET">
+                    <request>
+                        <param name="threadid" required="true" style="query" type="xsd:string">
+                            <doc>where THREADID and the full path is obtained from the resource uri value in the Inbox response</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="messages/">
+            <method displayName="Edit Message" id="1236" name="PUT">
+                <doc>The only non-readonly parameter in the edit message resource is the unread field.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get Message" id="1237" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1237:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Send Messages" id="1238" name="POST">
+                <doc>Send message (text) to contact id</doc>
+                <request/>
+                <response>
+                    <representation element="f1238:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="profile/">
+            <method displayName="Collecting the Profile" id="1231" name="GET">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="inbox/">
+            <method displayName="Collect Inbox" id="1230" name="GET">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="groups/">
+            <method displayName="Add Group" id="1224" name="POST">
+                <request/>
+                <response>
+                    <representation element="f1224:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Adding and Removing Contacts" id="1225" name="POST">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1225:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Collect a Group’s Contacts" id="1226" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>iD is the group s id This can be obtained from the id or resource uri field</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1226:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Collect a Single Group’s Data" id="1227" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>iD is the group s id This can be obtained from the id or resource uri field</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1227:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Collect Groups List" id="1229" name="GET">
+                <request/>
+                <response>
+                    <representation element="f1229:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete Group" id="1233" name="DELETE">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>iD is the group s id This can be obtained from the id or resource uri field</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Edit Group" id="1235" name="PUT">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1235:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="contacts/">
+            <method displayName="Add Contact" id="1223" name="POST">
+                <request/>
+                <response>
+                    <representation element="f1223:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Collect Contacts Data" id="1228" name="GET">
+                <request/>
+                <response>
+                    <representation element="f1228:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete Contact" id="1232" name="DELETE">
+                <request>
+                    <param name="contactId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Edit Contact" id="1234" name="PUT">
+                <request>
+                    <param name="contactId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1234:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

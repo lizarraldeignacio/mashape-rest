@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f554="urn:function:f554">
+    <grammars>
+        <include href="Function554.xsd"/>
+    </grammars>
+    <doc>using this API You can generate direct download link of apk files and also grab details about the APK file from Google play store This Google Play Store API is an unofficial one This API is only for educational Purpose</doc>
+    <resources base="https://sphirelabs-google-playstore-downloader-and-scrapper-v1.p.mashape.com/">
+        <resource uri="index.php/">
+            <method displayName="Google Playstore" id="554" name="GET">
+                <doc>Get Direct Download Link and App Details</doc>
+                <request>
+                    <param name="packid" required="true" style="query" type="xsd:string">
+                        <doc>enter the Exact Package Name as In Google Play to Pull data</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f554:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

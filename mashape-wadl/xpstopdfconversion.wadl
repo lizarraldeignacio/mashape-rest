@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7216="urn:function:f7216" xmlns:f7218="urn:function:f7218" xmlns:f7219="urn:function:f7219" xmlns:f7220="urn:function:f7220" xmlns:f7221="urn:function:f7221" xmlns:f7222="urn:function:f7222" xmlns:f7223="urn:function:f7223">
+    <grammars>
+        <include href="Function7222.xsd"/>
+        <include href="Function7223.xsd"/>
+        <include href="Function7220.xsd"/>
+        <include href="Function7221.xsd"/>
+        <include href="Function7219.xsd"/>
+        <include href="Function7218.xsd"/>
+        <include href="Function7216.xsd"/>
+    </grammars>
+    <doc>convert XPS and OXPS files to PDF</doc>
+    <resources base="https://xps2pdf.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="Sessions/">
+                <resource uri="{apikey}/">
+                    <param name="apikey" style="template" type="xsd:string"/>
+                    <method displayName="Sessions-All" id="7222" name="GET">
+                        <doc>Gets a list of all recent conversion jobs.</doc>
+                        <request>
+                            <param name="apikey" required="true" style="query" type="xsd:string">
+                                <doc>customer specific API key</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f7222:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Sessions-Ticket" id="7223" name="GET">
+                        <doc>Gets the conversion status of a specific job.</doc>
+                        <request>
+                            <param name="apikey" required="true" style="query" type="xsd:string">
+                                <doc>customer specific API key</doc>
+                            </param>
+                            <param name="ticket" required="true" style="query" type="xsd:string">
+                                <doc>job ticket</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f7223:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="PublicSessions/">
+                <method displayName="PublicSessions-All" id="7220" name="GET">
+                    <doc>Gets a list of all recent conversion jobs. The current session is determined by the IP address of the invoking HTTP request.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f7220:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="PublicSessions-Single" id="7221" name="GET">
+                    <doc>Gets the conversion status of a specific job.</doc>
+                    <request>
+                        <param name="ticket" required="true" style="query" type="xsd:string">
+                            <doc>job ticket</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7221:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="ConverterAsync/">
+                <resource uri="{apikey}/">
+                    <param name="apikey" style="template" type="xsd:string"/>
+                    <resource uri="{filename}/">
+                        <param name="filename" style="template" type="xsd:string"/>
+                        <method displayName="ConverterAsync-Upload" id="7219" name="POST">
+                            <doc>Uploads an .OXPS or .XPS file and returns the associated job ticket.</doc>
+                            <request>
+                                <param name="apikey" required="true" style="query" type="xsd:string">
+                                    <doc>customer specific API key</doc>
+                                </param>
+                                <param name="filename" required="true" style="query" type="xsd:string">
+                                    <doc>uploaded file name</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f7219:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="{ticket}/">
+                        <param name="ticket" style="template" type="xsd:string"/>
+                        <method displayName="ConverterAsync-Status" id="7218" name="GET">
+                            <doc>Gets the download URL of the converted .PDF file for a given job ticket. Please use the Sessions API in order to check the current conversion status.</doc>
+                            <request>
+                                <param name="apikey" required="true" style="query" type="xsd:string">
+                                    <doc>customer specific API key</doc>
+                                </param>
+                                <param name="ticket" required="true" style="query" type="xsd:string">
+                                    <doc>job ticket</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f7218:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="Converter/">
+                <resource uri="{apikey}/">
+                    <param name="apikey" style="template" type="xsd:string"/>
+                    <resource uri="{filename}/">
+                        <param name="filename" style="template" type="xsd:string"/>
+                        <method displayName="Converter" id="7217" name="POST">
+                            <doc>Directly converts an .OXPS or .XPS file and returns the download URL of the converted .PDF file (or an error). It can take up to several minutes for the conversion to complete depending on server load. Please consider using the Asynchronous Converter to avoid HTTP specific timeouts.</doc>
+                            <request>
+                                <param name="apikey" required="true" style="query" type="xsd:string"/>
+                                <param name="filename" required="true" style="query" type="xsd:string">
+                                    <doc>uploaded file name</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="Account/">
+                <resource uri="{apikey}/">
+                    <param name="apikey" style="template" type="xsd:string"/>
+                    <method displayName="Account" id="7216" name="GET">
+                        <doc>Retrieves quota limits and the current usage.</doc>
+                        <request>
+                            <param name="apikey" required="true" style="query" type="xsd:string">
+                                <doc>customer specific API key</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f7216:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1940="urn:function:f1940">
+    <grammars>
+        <include href="Function1940.xsd"/>
+    </grammars>
+    <doc>the LYRICSnMUSIC API allows your site to legally display up to characters of a songs lyrics with a link back to our copyright compliant lyric page or you can simply link back to the lyrics without displaying them on your App Site</doc>
+    <resources base="https://community-lyricsnmusic.p.mashape.com/">
+        <resource uri="songs/">
+            <method displayName="Search Lyrics" id="1940" name="GET">
+                <doc>By artist name, song title, or lyrics words</doc>
+                <request>
+                    <param name="artist" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="lyrics" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="track" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1940:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>the We the People API currently provides read only access to data within We the People the White House petitions system This API provides access to data on all petitions that passed the signature threshold required to become publicly available on the site We ve also published a gallery of projects leveraging the We the People API including links to live examples and GitHub repositories</doc>
+    <resources base="https://community-we-the-people.p.mashape.com/">
+        <resource uri="petitions/">
+            <method displayName="/petitions/{petition_id}" id="5358" name="GET">
+                <doc>Returns a petition matching the petition id.</doc>
+                <request>
+                    <param name="petitionId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="/petitions/{petition_id}/signatures" id="5359" name="GET">
+                <doc>Display signatures attached to a petition. Unsupported non-Latin characters are replaced with an "x".</doc>
+                <request>
+                    <param name="city" required="true" style="query" type="xsd:string">
+                        <doc>filters results by associated city</doc>
+                    </param>
+                    <param name="country" required="true" style="query" type="xsd:string">
+                        <doc>filters results by associated country</doc>
+                    </param>
+                    <param name="createdafter" required="true" style="query" type="xsd:integer">
+                        <doc>filters results to display items created after specified time Accepts Unix timestamp</doc>
+                    </param>
+                    <param name="createdat" required="true" style="query" type="xsd:integer">
+                        <doc>filters results to display items created before specified time Accepts Unix timestamp</doc>
+                    </param>
+                    <param name="createdbefore" required="true" style="query" type="xsd:integer">
+                        <doc>filters results to display items created before specified time Accepts Unix timestamp</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>the maximum number of results that may be returned E g to return results an offset of and limit of would be passed Maximum limit is developers who need historic data on all public petitions should consider using our bulk data download described above</doc>
+                    </param>
+                    <param name="mock" required="true" style="query" type="xsd:integer">
+                        <doc>when set to this will cause the service to return a mock response</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>offset the returned results by this number E g to return results an offset of and limit of would be passed</doc>
+                    </param>
+                    <param name="petitionId" required="true" style="query" type="xsd:string"/>
+                    <param name="state" required="true" style="query" type="xsd:string">
+                        <doc>filters results by associated state</doc>
+                    </param>
+                    <param name="zipcode" required="true" style="query" type="xsd:integer">
+                        <doc>filters results by associated zipcode</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Petitions" id="5360" name="GET">
+                <doc>This API provides access to data on all petitions that passed the 150 signature threshold required to become publicly-available on the site.</doc>
+                <request>
+                    <param name="body" required="true" style="query" type="xsd:string">
+                        <doc>filters results by keyword or phrase in the Body</doc>
+                    </param>
+                    <param name="createdafter" required="true" style="query" type="xsd:integer">
+                        <doc>filters results to display items created before specified time Accepts Unix timestamp</doc>
+                    </param>
+                    <param name="createdat" required="true" style="query" type="xsd:string">
+                        <doc>filters results to display items created before specified time Accepts Unix timestamp</doc>
+                    </param>
+                    <param name="createdbefore" required="true" style="query" type="xsd:integer">
+                        <doc>filters results to display items created before specified time Accepts Unix timestamp</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                    <param name="mock" required="true" style="query" type="xsd:integer">
+                        <doc>when set to this will cause the service to return a mock response</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>offset the returned results by this number E g to return results an offset of and limit of would be passed</doc>
+                    </param>
+                    <param name="responseassociationtimebefore" required="true" style="query" type="xsd:integer">
+                        <doc>filters results to display items with a Response Assocation before a specified time Accepts Unix timestamp</doc>
+                    </param>
+                    <param name="responseid" required="true" style="query" type="xsd:integer">
+                        <doc>filters results by Response ID</doc>
+                    </param>
+                    <param name="signaturecount" required="true" style="query" type="xsd:integer">
+                        <doc>filters results by exact Signature Count</doc>
+                    </param>
+                    <param name="signaturecountceiling" required="true" style="query" type="xsd:integer">
+                        <doc>filters results by maximum Signature Count</doc>
+                    </param>
+                    <param name="signaturecountfloor" required="true" style="query" type="xsd:integer">
+                        <doc>filters results by minimum Signature Count</doc>
+                    </param>
+                    <param name="signaturethreshold" required="true" style="query" type="xsd:integer">
+                        <doc>filters results by exact Signature Threshold</doc>
+                    </param>
+                    <param name="signaturethresholdceiling" required="true" style="query" type="xsd:integer">
+                        <doc>filters results by maximum Signature Threshold</doc>
+                    </param>
+                    <param name="signaturethresholdfloor" required="true" style="query" type="xsd:integer">
+                        <doc>filters results by minimum Signature Threshold</doc>
+                    </param>
+                    <param name="status" required="true" style="query" type="xsd:string">
+                        <doc>filters results by Status</doc>
+                    </param>
+                    <param name="title" required="true" style="query" type="xsd:string">
+                        <doc>filters results by keyword or phrase in the Title</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>filters results by Petition URL</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

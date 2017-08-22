@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5225="urn:function:f5225" xmlns:f5226="urn:function:f5226" xmlns:f5228="urn:function:f5228" xmlns:f5229="urn:function:f5229" xmlns:f5230="urn:function:f5230" xmlns:f5231="urn:function:f5231">
+    <grammars>
+        <include href="Function5231.xsd"/>
+        <include href="Function5230.xsd"/>
+        <include href="Function5229.xsd"/>
+        <include href="Function5228.xsd"/>
+        <include href="Function5225.xsd"/>
+        <include href="Function5226.xsd"/>
+    </grammars>
+    <doc>provide access to update Soshio account manage subscriptions and generate reports on Chinese social data Existing Soshio members only</doc>
+    <resources base="https://soshio-chinese-social-insights.p.mashape.com/">
+        <resource uri="sentiments/">
+            <resource uri="{query}/">
+                <param name="query" style="template" type="xsd:string"/>
+                <resource uri="{start}.{end}.json/">
+                    <param name="start" style="template" type="xsd:string"/>
+                    <method displayName="Retrieve Sentiments" id="5231" name="GET">
+                        <doc>Retrieve the aggregated sentiments on the data analyzed.   **Polling required. The first call will trigger report generation, and the following calls will check the progress and return results if completed.**</doc>
+                        <request>
+                            <param name="end" required="true" style="query" type="xsd:string">
+                                <doc>end Unix time of the report timeframe</doc>
+                            </param>
+                            <param name="query" required="true" style="query" type="xsd:string">
+                                <doc>query to generate the report from</doc>
+                            </param>
+                            <param name="start" required="true" style="query" type="xsd:string">
+                                <doc>start UNIX time of the report timeframe</doc>
+                            </param>
+                            <param name="startEnd" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f5231:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="overview/">
+            <resource uri="{query}/">
+                <param name="query" style="template" type="xsd:string"/>
+                <resource uri="{start}.{end}.json/">
+                    <param name="start" style="template" type="xsd:string"/>
+                    <method displayName="Retrieve Overview" id="5230" name="GET">
+                        <doc>Retrieve the overview on the data analyzed.  **Polling required. The first call will trigger report generation, and the following calls will check the progress and return results if completed.**</doc>
+                        <request>
+                            <param name="end" required="true" style="query" type="xsd:string">
+                                <doc>end Unix time of the report timeframe</doc>
+                            </param>
+                            <param name="query" required="true" style="query" type="xsd:string">
+                                <doc>query to generate the report from</doc>
+                            </param>
+                            <param name="start" required="true" style="query" type="xsd:string">
+                                <doc>start UNIX time of the report timeframe</doc>
+                            </param>
+                            <param name="startEnd" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f5230:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="demographics/">
+            <resource uri="{query}/">
+                <param name="query" style="template" type="xsd:string"/>
+                <resource uri="{start}.{end}.json/">
+                    <param name="start" style="template" type="xsd:string"/>
+                    <method displayName="Retrieve Demographics" id="5229" name="GET">
+                        <doc>Retrieve the aggregated demographics on the data analyzed.  **Polling required. The first call will trigger report generation, and the following calls will check the progress and return results if completed.**</doc>
+                        <request>
+                            <param name="end" required="true" style="query" type="xsd:string">
+                                <doc>end Unix time of the report timeframe</doc>
+                            </param>
+                            <param name="query" required="true" style="query" type="xsd:string">
+                                <doc>query to generate the report from</doc>
+                            </param>
+                            <param name="start" required="true" style="query" type="xsd:string">
+                                <doc>start UNIX time of the report timeframe</doc>
+                            </param>
+                            <param name="startEnd" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f5229:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="contexts/">
+            <resource uri="{query}/">
+                <param name="query" style="template" type="xsd:string"/>
+                <resource uri="{start}.{end}.json/">
+                    <param name="start" style="template" type="xsd:string"/>
+                    <method displayName="Retrieve Contexts" id="5228" name="GET">
+                        <doc>Retrieve the aggregated contexts on the data analyzed.   **Polling required. The first call will trigger report generation, and the following calls will check the progress and return results if completed.**</doc>
+                        <request>
+                            <param name="end" required="true" style="query" type="xsd:string">
+                                <doc>end Unix time of the report timeframe</doc>
+                            </param>
+                            <param name="query" required="true" style="query" type="xsd:string">
+                                <doc>query to generate the report from</doc>
+                            </param>
+                            <param name="start" required="true" style="query" type="xsd:string">
+                                <doc>start UNIX time of the report timeframe</doc>
+                            </param>
+                            <param name="startEnd" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f5228:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="users/">
+            <resource uri="{username}/">
+                <param name="username" style="template" type="xsd:string"/>
+                <method displayName="Access Account" id="5225" name="GET">
+                    <doc>Access account information such as created date and consumptions</doc>
+                    <request>
+                        <param name="username" required="true" style="query" type="xsd:string">
+                            <doc>soshio username Has to match the authentication credential</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5225:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="List Subscriptions" id="5226" name="GET">
+                    <doc>Access subscribed queries.</doc>
+                    <request>
+                        <param name="includesPast" required="true" style="query" type="xsd:boolean">
+                            <doc>whether or not to include previously subscribed queries</doc>
+                        </param>
+                        <param name="username" required="true" style="query" type="xsd:string">
+                            <doc>soshio username Has to match the authentication credential</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5226:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Remove Subscription" id="5227" name="DELETE">
+                    <doc>Delete a subscription</doc>
+                    <request>
+                        <param name="query" required="true" style="query" type="xsd:string">
+                            <doc>query of a subscription</doc>
+                        </param>
+                        <param name="username" required="true" style="query" type="xsd:string">
+                            <doc>soshio username Has to match the authentication credential</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Update Account" id="5232" name="POST">
+                    <doc>Update account information. Currently only supports password updates.</doc>
+                    <request>
+                        <param name="username" required="true" style="query" type="xsd:string">
+                            <doc>soshio username Has to match the authentication credential</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Upsert Subscription" id="5233" name="POST">
+                    <doc>Create or update  a subscription.</doc>
+                    <request>
+                        <param name="query" required="true" style="query" type="xsd:string">
+                            <doc>query of a subscription Existing subscription will be overwritten</doc>
+                        </param>
+                        <param name="username" required="true" style="query" type="xsd:string">
+                            <doc>soshio username Has to match the authentication credential</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

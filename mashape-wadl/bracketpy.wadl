@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5208="urn:function:f5208" xmlns:f5209="urn:function:f5209" xmlns:f5210="urn:function:f5210" xmlns:f5211="urn:function:f5211" xmlns:f5212="urn:function:f5212" xmlns:f5213="urn:function:f5213" xmlns:f5214="urn:function:f5214" xmlns:f5215="urn:function:f5215" xmlns:f5216="urn:function:f5216" xmlns:f5217="urn:function:f5217">
+    <grammars>
+        <include href="Function5217.xsd"/>
+        <include href="Function5216.xsd"/>
+        <include href="Function5215.xsd"/>
+        <include href="Function5214.xsd"/>
+        <include href="Function5213.xsd"/>
+        <include href="Function5212.xsd"/>
+        <include href="Function5211.xsd"/>
+        <include href="Function5210.xsd"/>
+        <include href="Function5209.xsd"/>
+        <include href="Function5208.xsd"/>
+    </grammars>
+    <doc>bracketPy can help you build innovative applications which can leverage the power of natural language processing and machine learning It enables you to retrieve information from web and build predictive models topic models and recommendation engines</doc>
+    <resources base="https://bracketpy.p.mashape.com/">
+        <resource uri="getYouTubeContext/">
+            <method displayName="YouTube Context" id="5217" name="POST">
+                <doc>This API provides the information about the  You Tube video. It fetches the context  of  the video from description and comments and then provide information about the same topic.  Without going into video analysis detail user can easily get the information about the  topic and context of the video.</doc>
+                <request/>
+                <response>
+                    <representation element="f5217:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="summaryFromUrl/">
+            <method displayName="Url Summary" id="5216" name="POST">
+                <doc>This API creates a summary from the content of the url.  It successfully avoids the links, supporting text and ads.  This is really useful in analyzing content of url and  extracting useful information.</doc>
+                <request/>
+                <response>
+                    <representation element="f5216:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getGenericTopicOfUrl/">
+            <method displayName="Topic of Url" id="5215" name="POST">
+                <doc>This API categorizes given URL's into predefined set of 10 categories based on it's content.</doc>
+                <request/>
+                <response>
+                    <representation element="f5215:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getSummaryFromPdf/">
+            <method displayName="Get Summary from Pdf" id="5214" name="POST">
+                <doc>This API provide the summary from Pdf files also. So it just take the url of the pdf and return back the summary of that pdf.  Since many of online content is available in pdfs it can be really useful. Currently pdf  size is limited to 2 Mb. Soon this limit will be removed.</doc>
+                <request/>
+                <response>
+                    <representation element="f5214:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getSimilar/">
+            <method displayName="Get Similars" id="5213" name="POST">
+                <doc>This API returns the similar words for the query. It is trained on Google's 100 billion word dataset to fetch the most relevant matches. It's similar to Google sets and it also gives a similarity score for each match.</doc>
+                <request/>
+                <response>
+                    <representation element="f5213:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="fetchUrls/">
+            <method displayName="Fetch Urls" id="5212" name="POST">
+                <doc>This API returns all the urls from a webpage. It is quite useful in information retrieval and finding similar content on web, and also in hyperlink analysis.</doc>
+                <request/>
+                <response>
+                    <representation element="f5212:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="cleanTweets/">
+            <method displayName="Clean Tweets" id="5211" name="POST">
+                <doc>This API is quite useful in cleaning up dirty text. It is primarily meant for tweets but it can work on other texts as well. It tries it best to correct spellings and unicode errors. Alongside it expands short forms and provides the title of the url posted with tweet.</doc>
+                <request/>
+                <response>
+                    <representation element="f5211:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="classifyUrlDeep/">
+            <method displayName="Classify Url Deep Learned" id="5210" name="POST">
+                <doc>It's similar to Classify URL Api. However it uses a different algorithm, which also provides the similarity quotient for an uncategorized url in each category.</doc>
+                <request/>
+                <response>
+                    <representation element="f5210:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="classifyUrl/">
+            <method displayName="Classify Url" id="5209" name="POST">
+                <doc>It's a machine learning model which trains on the data provided by the user of [URL,category] pair types. Our model learns from these pairs and predicts the category of the un-categorized URL, from the training data. The training and classification is purely based on the content of the URL's.</doc>
+                <request/>
+                <response>
+                    <representation element="f5209:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="classifyText/">
+            <method displayName="Classify Text" id="5208" name="POST">
+                <doc>It's a machine learning model which trains on the data provided by the user of [text,category] pair types. Our model learns from these pairs and predicts the category of the un-categorized text, from the training data.</doc>
+                <request/>
+                <response>
+                    <representation element="f5208:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

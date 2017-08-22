@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3417="urn:function:f3417" xmlns:f3419="urn:function:f3419">
+    <grammars>
+        <include href="Function3419.xsd"/>
+        <include href="Function3417.xsd"/>
+    </grammars>
+    <doc>fREE Dictionary Translation API Hablaa Use it to translate words from and into more than languages The API use is free and requires no authentication Have fun</doc>
+    <resources base="https://hablaa-dictionary-translation-hablaa-v1.p.mashape.com/">
+        <resource uri="translations-similar/">
+            <resource uri="{text_to_translate}/">
+                <param name="text_to_translate" style="template" type="xsd:string"/>
+                <resource uri="{lang_code_src-lang_code_dst}/">
+                    <param name="lang_code_src-lang_code_dst" style="template" type="xsd:string"/>
+                    <method displayName="Similar words" id="3419" name="GET">
+                        <doc>Get translations of similar words.</doc>
+                        <request>
+                            <param name="langCodeSrcLangCodeDst" required="true" style="query" type="xsd:string"/>
+                            <param name="textToTranslate" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f3419:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="languages/">
+            <method displayName="Get available languages" id="3418" name="GET">
+                <doc>Get a list of available languages.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="translation/">
+            <resource uri="{text_to_translate}/">
+                <param name="text_to_translate" style="template" type="xsd:string"/>
+                <resource uri="{lang_code_src-lang_code_dst}/">
+                    <param name="lang_code_src-lang_code_dst" style="template" type="xsd:string"/>
+                    <method displayName="Get a translation" id="3417" name="GET">
+                        <doc>Get a translation by defining source and destination languages as well as a word to translate.</doc>
+                        <request>
+                            <param name="langCodeSrcLangCodeDst" required="true" style="query" type="xsd:string"/>
+                            <param name="textToTranslate" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f3417:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="translations-examples/">
+            <resource uri="{text_to_translate}/">
+                <param name="text_to_translate" style="template" type="xsd:string"/>
+                <resource uri="{lang_code_src-lang_code_dst}/">
+                    <param name="lang_code_src-lang_code_dst" style="template" type="xsd:string"/>
+                    <method displayName="Example sentences" id="3416" name="GET">
+                        <doc>Request multiple example sentences containing the word to translate.</doc>
+                        <request>
+                            <param name="langCodeSrcLangCodeDst" required="true" style="query" type="xsd:string"/>
+                            <param name="textToTranslate" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

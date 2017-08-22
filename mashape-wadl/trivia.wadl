@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f850="urn:function:f850" xmlns:f851="urn:function:f851" xmlns:f852="urn:function:f852" xmlns:f853="urn:function:f853" xmlns:f854="urn:function:f854">
+    <grammars>
+        <include href="Function854.xsd"/>
+        <include href="Function853.xsd"/>
+        <include href="Function852.xsd"/>
+        <include href="Function851.xsd"/>
+        <include href="Function850.xsd"/>
+    </grammars>
+    <doc>trivia API to provide questions which can be incorporated in your Application Open Source and Free to use</doc>
+    <resources base="https://pareshchouhan-trivia-v1.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="getQuizQuestionsByCategory/">
+                <method displayName="QuizQuestionByCategory" id="854" name="GET">
+                    <doc>Fetch questions by category id.</doc>
+                    <request>
+                        <param name="categoryid" required="true" style="query" type="xsd:integer">
+                            <doc>category ID to fetch questions for</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:integer">
+                            <doc>no of questions to fetch</doc>
+                        </param>
+                        <param name="page" required="true" style="query" type="xsd:integer">
+                            <doc>page to fetch</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f854:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="questionCount/">
+                <method displayName="QuestionCount" id="853" name="GET">
+                    <doc>Total question Count.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f853:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="getRandomQuestion/">
+                <method displayName="getRandomQuestion" id="852" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f852:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="getCategoryList/">
+                <method displayName="GetCategoryList" id="851" name="GET">
+                    <doc>Fetches available category list.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f851:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="getAllQuizQuestions/">
+                <method displayName="AllQuizQuestions" id="850" name="GET">
+                    <doc>Fetch All quiz Questions</doc>
+                    <request>
+                        <param name="limit" required="true" style="query" type="xsd:string">
+                            <doc>no of items to fetch</doc>
+                        </param>
+                        <param name="page" required="true" style="query" type="xsd:string">
+                            <doc>page to fetch for Pagination</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f850:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

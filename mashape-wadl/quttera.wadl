@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6329="urn:function:f6329" xmlns:f6330="urn:function:f6330">
+    <grammars>
+        <include href="Function6330.xsd"/>
+        <include href="Function6329.xsd"/>
+    </grammars>
+    <doc>quttera API attempts to conform to the design principles of Representational State Transfer REST Simply change the format extension in a request to get results in the format of your choice API supports JSON XML and YAML formats If no format is specified JSON is used as default format</doc>
+    <resources base="https://baskarm28-quttera-v1.p.mashape.com/">
+        <resource uri="{api-key}/">
+            <param name="api-key" style="template" type="xsd:string"/>
+            <resource uri="url/">
+                <resource uri="{domain-name}.yaml/">
+                    <param name="domain-name" style="template" type="xsd:string"/>
+                    <method displayName="Remove scan investigation" id="6333" name="DELETE">
+                        <doc>Removes investigation information of previously scanned domain.</doc>
+                        <request>
+                            <param name="apiKey" required="true" style="query" type="xsd:string"/>
+                            <param name="domainName" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="scan/">
+                    <resource uri="{domain-name}.yaml/">
+                        <param name="domain-name" style="template" type="xsd:string"/>
+                        <method displayName="New scan" id="6331" name="POST">
+                            <doc>Submits domain for new scan</doc>
+                            <request>
+                                <param name="apiKey" required="true" style="query" type="xsd:string"/>
+                                <param name="domainName" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="Re scan" id="6332" name="PUT">
+                            <doc>Submits domain, with existing threat report, for re-scan</doc>
+                            <request>
+                                <param name="apiKey" required="true" style="query" type="xsd:string"/>
+                                <param name="domainName" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="report/">
+                    <resource uri="{domain-name}.yaml/">
+                        <param name="domain-name" style="template" type="xsd:string"/>
+                        <method displayName="Investigation report" id="6330" name="GET">
+                            <doc>Retrieves detailed investigation report for previously scanned domain.</doc>
+                            <request>
+                                <param name="apiKey" required="true" style="query" type="xsd:string"/>
+                                <param name="domainName" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f6330:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="stats/">
+                    <method displayName="Current system status" id="6329" name="POST">
+                        <doc>Retrieves current status of the system.</doc>
+                        <request>
+                            <param name="apiKey" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f6329:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="status/">
+                    <resource uri="{domain-name}.yaml/">
+                        <param name="domain-name" style="template" type="xsd:string"/>
+                        <method displayName="Current status" id="6328" name="GET">
+                            <doc>Retrieves current investigation status of URL submitted for scan.</doc>
+                            <request>
+                                <param name="apiKey" required="true" style="query" type="xsd:string"/>
+                                <param name="domainName" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

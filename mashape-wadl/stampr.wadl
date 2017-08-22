@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5218="urn:function:f5218" xmlns:f5219="urn:function:f5219" xmlns:f5220="urn:function:f5220">
+    <grammars>
+        <include href="Function5220.xsd"/>
+        <include href="Function5219.xsd"/>
+        <include href="Function5218.xsd"/>
+    </grammars>
+    <doc>postal mail has finally moved to the cloud Mail letters online Free Account Fast Secure Support from Humans</doc>
+    <resources base="https://community-stampr.p.mashape.com/">
+        <resource uri="health/">
+            <method displayName="Health" id="5221" name="GET">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="mailings/">
+            <method displayName="3. Create new mailing" id="5220" name="POST">
+                <doc>Returns: Mailing Object</doc>
+                <request/>
+                <response>
+                    <representation element="f5220:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="batches/">
+            <method displayName="2. Create new batch" id="5219" name="POST">
+                <doc>Create a new, empty batch container to be used with Mailings.</doc>
+                <request/>
+                <response>
+                    <representation element="f5219:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="configs/">
+            <method displayName="1. Create new config" id="5218" name="POST">
+                <doc>Create a new mailing configuration to be used with Batches.</doc>
+                <request/>
+                <response>
+                    <representation element="f5218:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

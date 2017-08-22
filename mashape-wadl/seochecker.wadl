@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f988="urn:function:f988">
+    <grammars>
+        <include href="Function988.xsd"/>
+    </grammars>
+    <doc>the API can analyze a given text for it s seo validity and can give you tips how to optimize the article to get a better search engine ranking The API is still beta Please report any bugs to markus www factory de</doc>
+    <resources base="https://seo.p.mashape.com/">
+        <resource uri="api/">
+            <method displayName="SEO Article Check" id="988" name="GET">
+                <request>
+                    <param name="html" required="true" style="query" type="xsd:string">
+                        <doc>the html of your article without the layout html</doc>
+                    </param>
+                    <param name="keyword" required="true" style="query" type="xsd:string">
+                        <doc>the keyword you want to rank for</doc>
+                    </param>
+                    <param name="metaDesciption" required="true" style="query" type="xsd:string">
+                        <doc>the meta description of your article</doc>
+                    </param>
+                    <param name="title" required="true" style="query" type="xsd:string">
+                        <doc>your article title</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>the URL to the article Can also be an unpublished url</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f988:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

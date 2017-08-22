@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>we value your time and make it our mission to deliver a simple SDK which wraps up everything you need in one place The Zooz SDK is designed to facilitate all your payment needs with minimal effort Integrating our code into your app or site should take only a few minutes</doc>
+    <resources base="https://andyku-zooz-html5-sdk.p.mashape.com/">
+        <resource uri="zoozStartCheckout/">
+            <resource uri="{token}/">
+                <param name="token" style="template" type="xsd:string"/>
+                <resource uri="{uniqueId}/">
+                    <param name="uniqueId" style="template" type="xsd:string"/>
+                    <resource uri="{isSandbox}/">
+                        <param name="isSandbox" style="template" type="xsd:string"/>
+                        <resource uri="{returnUrl}/">
+                            <param name="returnUrl" style="template" type="xsd:string"/>
+                            <resource uri="{cancelUrl}/">
+                                <param name="cancelUrl" style="template" type="xsd:string"/>
+                                <method displayName="ZooZ Checkout" id="5825" name="GET">
+                                    <doc>Open the ZooZ checkout window and start the payment process.</doc>
+                                    <request>
+                                        <param name="cancelurl" required="true" style="query" type="xsd:string">
+                                            <doc>cancel URL</doc>
+                                        </param>
+                                        <param name="issandbox" required="true" style="query" type="xsd:string">
+                                            <doc>flag for Sandbox environment</doc>
+                                        </param>
+                                        <param name="returnurl" required="true" style="query" type="xsd:string">
+                                            <doc>return URL</doc>
+                                        </param>
+                                        <param name="token" required="true" style="query" type="xsd:string">
+                                            <doc>token as received by openTrx</doc>
+                                        </param>
+                                        <param name="uniqueid" required="true" style="query" type="xsd:string">
+                                            <doc>unique ID as registered</doc>
+                                        </param>
+                                    </request>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="mobile/">
+            <resource uri="SecuredWebServlet/">
+                <method displayName="Open or Verify Transaction" id="5824" name="GET">
+                    <doc>Open transaction on a secured channel to ZooZ server. This call returns a token that will be used to uniquely identify the transaction.</doc>
+                    <request>
+                        <param name="amount" required="true" style="query" type="xsd:string">
+                            <doc>the amount to pay</doc>
+                        </param>
+                        <param name="cmd" required="true" style="query" type="xsd:string">
+                            <doc>openTrx or verifyTrx</doc>
+                        </param>
+                        <param name="currencycode" required="true" style="query" type="xsd:string">
+                            <doc>the paid currency ISO code for instance USD EUR GBP</doc>
+                        </param>
+                        <param name="transactiondisplayid" required="true" style="query" type="xsd:string">
+                            <doc>an easy to view transaction identifier</doc>
+                        </param>
+                        <param name="transactionid" required="true" style="query" type="xsd:string">
+                            <doc>transaction ID as received from the payment page by returnUrl</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

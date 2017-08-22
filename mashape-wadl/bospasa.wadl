@@ -1,0 +1,781 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7254="urn:function:f7254">
+    <grammars>
+        <include href="Function7254.xsd"/>
+    </grammars>
+    <doc>this api allows developers to interact with bospasa content for creating or integrating their own applications</doc>
+    <resources base="https://bospasa-bospasa-v1.p.mashape.com/">
+        <resource uri="treatments/">
+            <resource uri="get/">
+                <resource uri="{treatment_id}?access_token={access_token}/">
+                    <param name="treatment_id" style="template" type="xsd:string"/>
+                    <method displayName="Get Treatment" id="7305" name="GET">
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="treatmentId" required="true" style="query" type="xsd:integer">
+                                <doc>if not specified all active treatments will be returned</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="employee/">
+            <resource uri="getschedule/">
+                <resource uri="{employee_id}/">
+                    <param name="employee_id" style="template" type="xsd:string"/>
+                    <resource uri="{from}/">
+                        <param name="from" style="template" type="xsd:string"/>
+                        <resource uri="{to}?access_token={access_token}/">
+                            <param name="to" style="template" type="xsd:string"/>
+                            <method displayName="Get Employee Schedule" id="7293" name="GET">
+                                <request>
+                                    <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                                    <param name="employeeId" required="true" style="query" type="xsd:integer"/>
+                                    <param name="from" required="true" style="query" type="xsd:integer">
+                                        <doc>uTC timestamp</doc>
+                                    </param>
+                                    <param name="to" required="true" style="query" type="xsd:integer">
+                                        <doc>uTC Timestamp</doc>
+                                    </param>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="currencies/">
+            <resource uri="get/">
+                <resource uri="{currency}/">
+                    <param name="currency" style="template" type="xsd:string"/>
+                    <method displayName="Get Currency List" id="7291" name="GET">
+                        <request>
+                            <param name="currency" required="true" style="query" type="xsd:string">
+                                <doc>Character currency code if not set a list of all currencies will be returned</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="clients/">
+            <resource uri="get_client/">
+                <method displayName="Get Client" id="7289" name="GET">
+                    <doc>This method retrieves a client that will be used to represent the user. If the user is not already logged in a new client is created. NOTE: when a new client is issued, please make sure you store the client_secret as it is ONLY supplied at the point of creation.</doc>
+                    <request>
+                        <param name="newClient" required="true" style="query" type="xsd:boolean">
+                            <doc>if this parameter is set to true it will force the creation for a new client Creation of a new client will require your users to re authorize your application</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="maps/">
+            <resource uri="get_neighbourhood/">
+                <resource uri="{city_id}?access_token={access_token}/">
+                    <param name="city_id" style="template" type="xsd:string"/>
+                    <method displayName="Get Neighbourhoods" id="7300" name="GET">
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="cityId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="get_country/">
+                <resource uri="{country_id}?access_token={access_token}/">
+                    <param name="country_id" style="template" type="xsd:string"/>
+                    <method displayName="Get Country" id="7290" name="GET">
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="countryId" required="true" style="query" type="xsd:integer">
+                                <doc>if not specified all active countries are returned</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="get_cities/">
+                <resource uri="{country_id}/">
+                    <param name="country_id" style="template" type="xsd:string"/>
+                    <method displayName="Get Cities" id="7287" name="GET">
+                        <request>
+                            <param name="countryId" required="true" style="query" type="xsd:integer"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="enrolment/">
+            <resource uri="get/">
+                <resource uri="{enrolment_id}?access_token={access_token}/">
+                    <param name="enrolment_id" style="template" type="xsd:string"/>
+                    <method displayName="Get Enrolment" id="7295" name="GET">
+                        <doc>This method retrieves details for a specified enrolment</doc>
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="enrolmentId" required="true" style="query" type="xsd:integer"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="edit/">
+                <resource uri="{enrolment_id}?access_token={access_token}/">
+                    <param name="enrolment_id" style="template" type="xsd:string"/>
+                    <method displayName="Edit Enrolment" id="7279" name="POST">
+                        <doc>Edit the enrolment</doc>
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="enrolmentId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="clasess/">
+            <resource uri="edit/">
+                <resource uri="{class_id}?access_token={access_token}/">
+                    <param name="class_id" style="template" type="xsd:string"/>
+                    <method displayName="Edit Class" id="7277" name="POST">
+                        <doc>Edit class details</doc>
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="classId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="class/">
+            <resource uri="delete/">
+                <resource uri="{class_id}?access_token={access_token}/">
+                    <param name="class_id" style="template" type="xsd:string"/>
+                    <method displayName="Delete Class" id="7269" name="DELETE">
+                        <doc>Deletes a class and its sessions.</doc>
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="classId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="availabilities/">
+            <resource uri="get/">
+                <resource uri="{availability_id}?access_token={access_token}/">
+                    <param name="availability_id" style="template" type="xsd:string"/>
+                    <method displayName="Get Availability" id="7285" name="GET">
+                        <doc>This endpoint returns the specified availability along with any bookings or classes that are scheduled on that availability. NOTE: this method is restricted.</doc>
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="availabilityId" required="true" style="query" type="xsd:string">
+                                <doc>this is the record ID of the availability</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="edit/">
+                <resource uri="{availability_id}?access_token={access_token}/">
+                    <param name="availability_id" style="template" type="xsd:string"/>
+                    <method displayName="Edit Availability" id="7275" name="POST">
+                        <doc>This endpoint allows you to edit an availability.</doc>
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="availabilityId" required="true" style="query" type="xsd:integer">
+                                <doc>the record ID of the availability that is to be modified</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="delete/">
+                <resource uri="{availability_id}/">
+                    <param name="availability_id" style="template" type="xsd:string"/>
+                    <method displayName="Delete Availability" id="7268" name="DELETE">
+                        <doc>This method deletes a specified availability</doc>
+                        <request>
+                            <param name="availabilityId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="batch_create?access_token={access_token}/">
+                <param name="access_token" style="template" type="xsd:string"/>
+                <method displayName="Create Batch Availabilities" id="7267" name="POST">
+                    <doc>This creates a batch of availabilities based on specified criteria</doc>
+                    <request>
+                        <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="create?access_token={access_token}/">
+                <param name="access_token" style="template" type="xsd:string"/>
+                <method displayName="Create Availability" id="7266" name="POST">
+                    <doc>This creates an availability or group of availabilities.</doc>
+                    <request>
+                        <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="search/">
+            <resource uri="text?access_token={access_token}/">
+                <param name="access_token" style="template" type="xsd:string"/>
+                <method displayName="Text Search" id="7310" name="POST">
+                    <doc>Search by text</doc>
+                    <request>
+                        <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="basic?access_token={access_token}/">
+                <param name="access_token" style="template" type="xsd:string"/>
+                <method displayName="Basic Search" id="7264" name="POST">
+                    <request>
+                        <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="class_sessions/">
+            <resource uri="get/">
+                <resource uri="{session_id}?access_token={access_token}/">
+                    <param name="session_id" style="template" type="xsd:string"/>
+                    <method displayName="Get Session" id="7304" name="GET">
+                        <doc>Retrieves Session details</doc>
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="sessionId" required="true" style="query" type="xsd:integer"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="edit/">
+                <resource uri="{session_id}?access_token={access_token}/">
+                    <param name="session_id" style="template" type="xsd:string"/>
+                    <method displayName="Edit Session" id="7283" name="POST">
+                        <doc>Edit a session</doc>
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="sessionId" required="true" style="query" type="xsd:integer"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="delete/">
+                <resource uri="{session_id}?access_token={access_token}/">
+                    <param name="session_id" style="template" type="xsd:string"/>
+                    <method displayName="Delete Session" id="7274" name="DELETE">
+                        <doc>Delete a session</doc>
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="sessionId" required="true" style="query" type="xsd:integer"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="add?access_token={access_token}/">
+                <param name="access_token" style="template" type="xsd:string"/>
+                <method displayName="Add Session" id="7262" name="POST">
+                    <doc>Create a new session</doc>
+                    <request>
+                        <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="services/">
+            <resource uri="list_by_location/">
+                <resource uri="{location_id}?access_token={access_token}/">
+                    <param name="location_id" style="template" type="xsd:string"/>
+                    <method displayName="List Service by Location" id="7308" name="GET">
+                        <doc>List by Location</doc>
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="locationId" required="true" style="query" type="xsd:integer"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="list_employee/">
+                <resource uri="{employee_id}?access_token={access_token}/">
+                    <param name="employee_id" style="template" type="xsd:string"/>
+                    <method displayName="List by Employee" id="7306" name="GET">
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="employeeId" required="true" style="query" type="xsd:integer"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="get/">
+                <resource uri="{service_id}?access_token={access_token}/">
+                    <param name="service_id" style="template" type="xsd:string"/>
+                    <method displayName="Get Service" id="7303" name="GET">
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="serviceId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="get_partner_menu/">
+                <resource uri="{partner_id}/">
+                    <param name="partner_id" style="template" type="xsd:string"/>
+                    <resource uri="{json}?access_token={access_token}/">
+                        <param name="json" style="template" type="xsd:string"/>
+                        <method displayName="Get Partner Service Menu" id="7302" name="GET">
+                            <request>
+                                <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                                <param name="json" required="true" style="query" type="xsd:boolean">
+                                    <doc>return json response</doc>
+                                </param>
+                                <param name="partnerId" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="getminprice/">
+                <resource uri="{timestamp}/">
+                    <param name="timestamp" style="template" type="xsd:string"/>
+                    <resource uri="{service_id}/">
+                        <param name="service_id" style="template" type="xsd:string"/>
+                        <resource uri="{json}?access_token={access_token}/">
+                            <param name="json" style="template" type="xsd:string"/>
+                            <method displayName="Get Minimum Price" id="7299" name="GET">
+                                <request>
+                                    <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                                    <param name="json" required="true" style="query" type="xsd:boolean">
+                                        <doc>return json</doc>
+                                    </param>
+                                    <param name="serviceId" required="true" style="query" type="xsd:integer"/>
+                                    <param name="timestamp" required="true" style="query" type="xsd:string">
+                                        <doc>uTC timestamp for when service will be booked</doc>
+                                    </param>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="getmaxdiscount/">
+                <resource uri="{timestamp}/">
+                    <param name="timestamp" style="template" type="xsd:string"/>
+                    <resource uri="{service_id}/">
+                        <param name="service_id" style="template" type="xsd:string"/>
+                        <resource uri="{json}?access_token={access_token}/">
+                            <param name="json" style="template" type="xsd:string"/>
+                            <method displayName="Get Maximum Discount" id="7298" name="GET">
+                                <request>
+                                    <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                                    <param name="json" required="true" style="query" type="xsd:boolean">
+                                        <doc>return Json</doc>
+                                    </param>
+                                    <param name="serviceId" required="true" style="query" type="xsd:integer"/>
+                                    <param name="timestamp" required="true" style="query" type="xsd:string">
+                                        <doc>uTC timestamp for when service will be booked</doc>
+                                    </param>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="edit/">
+                <resource uri="{service_id}?access_token={access_token}/">
+                    <param name="service_id" style="template" type="xsd:string"/>
+                    <method displayName="Edit Service" id="7282" name="POST">
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="serviceId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="delete/">
+                <resource uri="{service_id}?access_token={access_token}/">
+                    <param name="service_id" style="template" type="xsd:string"/>
+                    <method displayName="Delete Service" id="7273" name="DELETE">
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="serviceId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="add?access_token={access_token}/">
+                <param name="access_token" style="template" type="xsd:string"/>
+                <method displayName="Add Service" id="7261" name="POST">
+                    <doc>Add Service</doc>
+                    <request>
+                        <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="locations/">
+            <resource uri="listbypartner/">
+                <resource uri="{partner_id}?access_token={access_token}/">
+                    <param name="partner_id" style="template" type="xsd:string"/>
+                    <method displayName="List Partner Locations" id="7307" name="GET">
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="partnerId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="get/">
+                <resource uri="{location_id}?access_token={access_token}/">
+                    <param name="location_id" style="template" type="xsd:string"/>
+                    <method displayName="Get Location" id="7296" name="GET">
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="locationId" required="true" style="query" type="xsd:integer"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="edit/">
+                <resource uri="{location_id}?access_token={access_token}/">
+                    <param name="location_id" style="template" type="xsd:string"/>
+                    <method displayName="Edit Location" id="7280" name="POST">
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="locationId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="delete/">
+                <resource uri="{location_id}?access_token={access_token}/">
+                    <param name="location_id" style="template" type="xsd:string"/>
+                    <method displayName="Delete Location" id="7271" name="POST">
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="locationId" required="true" style="query" type="xsd:integer"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="add?access_token={access_token}/">
+                <param name="access_token" style="template" type="xsd:string"/>
+                <method displayName="Add Location" id="7259" name="POST">
+                    <request>
+                        <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="enrolments/">
+            <resource uri="add?access_token={access_token}/">
+                <param name="access_token" style="template" type="xsd:string"/>
+                <method displayName="Add Enrolment" id="7258" name="POST">
+                    <doc>Create a new enrolment</doc>
+                    <request>
+                        <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="employees/">
+            <resource uri="getbylocation/">
+                <resource uri="{location_id}?access_token={access_token}/">
+                    <param name="location_id" style="template" type="xsd:string"/>
+                    <method displayName="Get Employees by Location" id="7294" name="GET">
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="locationId" required="true" style="query" type="xsd:integer"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="get/">
+                <resource uri="{employee_id}?access_token={access_token}/">
+                    <param name="employee_id" style="template" type="xsd:string"/>
+                    <method displayName="Get Employee" id="7292" name="GET">
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="employeeId" required="true" style="query" type="xsd:integer"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="edit/">
+                <resource uri="{employee_id}?access_token={access_token}/">
+                    <param name="employee_id" style="template" type="xsd:string"/>
+                    <method displayName="Edit Employee" id="7278" name="POST">
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="employeeId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="delete/">
+                <resource uri="{employee_id}?access_token={access_token}/">
+                    <param name="employee_id" style="template" type="xsd:string"/>
+                    <method displayName="Delete Employee" id="7270" name="DELETE">
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="employeeId" required="true" style="query" type="xsd:integer"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="add?access_token={access_token}/">
+                <param name="access_token" style="template" type="xsd:string"/>
+                <method displayName="Add Employee" id="7257" name="POST">
+                    <request>
+                        <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="classes/">
+            <resource uri="getmaxdiscount/">
+                <resource uri="{class_id}/">
+                    <param name="class_id" style="template" type="xsd:string"/>
+                    <resource uri="{start_time}/">
+                        <param name="start_time" style="template" type="xsd:string"/>
+                        <resource uri="{json}/">
+                            <param name="json" style="template" type="xsd:string"/>
+                            <resource uri="{timestring}?access_token={access_token}/">
+                                <param name="timestring" style="template" type="xsd:string"/>
+                                <method displayName="Get Max Discount" id="7297" name="GET">
+                                    <doc>Retrieves the highest applicable discount based on a submitted UTC timestamp</doc>
+                                    <request>
+                                        <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                                        <param name="classId" required="true" style="query" type="xsd:integer"/>
+                                        <param name="json" required="true" style="query" type="xsd:boolean">
+                                            <doc>response type required</doc>
+                                        </param>
+                                        <param name="startTime" required="true" style="query" type="xsd:integer">
+                                            <doc>uTC timestamp</doc>
+                                        </param>
+                                        <param name="timestring" required="true" style="query" type="xsd:string">
+                                            <doc>time in string format HH MM AM</doc>
+                                        </param>
+                                    </request>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="get/">
+                <resource uri="{class_id}/">
+                    <param name="class_id" style="template" type="xsd:string"/>
+                    <resource uri="{json}/">
+                        <param name="json" style="template" type="xsd:string"/>
+                        <resource uri="{schedule}/">
+                            <param name="schedule" style="template" type="xsd:string"/>
+                            <resource uri="{location_id}/">
+                                <param name="location_id" style="template" type="xsd:string"/>
+                                <resource uri="{start}?access_token={access_token}/">
+                                    <param name="start" style="template" type="xsd:string"/>
+                                    <method displayName="Get Class and schedule(optional)" id="7288" name="GET">
+                                        <doc>This endpoint retrieves a classes and, based on parameters, it's schedule</doc>
+                                        <request>
+                                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                                            <param name="classId" required="true" style="query" type="xsd:integer">
+                                                <doc>this is the id of the class</doc>
+                                            </param>
+                                            <param name="json" required="true" style="query" type="xsd:string"/>
+                                            <param name="locationId" required="true" style="query" type="xsd:integer">
+                                                <doc>restricts schedule to specific location</doc>
+                                            </param>
+                                            <param name="schedule" required="true" style="query" type="xsd:boolean">
+                                                <doc>if set to true a chedule will also be retrieved for the class</doc>
+                                            </param>
+                                            <param name="start" required="true" style="query" type="xsd:integer">
+                                                <doc>uTC timestamp for when the schedule should start</doc>
+                                            </param>
+                                        </request>
+                                    </method>
+                                </resource>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="get_partner_list/">
+                <resource uri="{partner_id}/">
+                    <param name="partner_id" style="template" type="xsd:string"/>
+                    <resource uri="{json}?access_token={access_token}/">
+                        <param name="json" style="template" type="xsd:string"/>
+                        <method displayName="Get All Partner Classes" id="7284" name="GET">
+                            <doc>Retrieves all classes offered by the specified partner.</doc>
+                            <request>
+                                <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                                <param name="json" required="true" style="query" type="xsd:boolean">
+                                    <doc>if the response type should be a json object</doc>
+                                </param>
+                                <param name="partnerId" required="true" style="query" type="xsd:integer"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="add?access_token={access_token}/">
+                <param name="access_token" style="template" type="xsd:string"/>
+                <method displayName="Add Class" id="7256" name="POST">
+                    <doc>Create a new class</doc>
+                    <request>
+                        <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="bookings/">
+            <resource uri="getpartnerbooking/">
+                <resource uri="{booking_id}?access_token={access_token}/">
+                    <param name="booking_id" style="template" type="xsd:string"/>
+                    <method displayName="Get Partner Booking" id="7301" name="GET">
+                        <doc>Get Details of partner booking</doc>
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="bookingId" required="true" style="query" type="xsd:integer"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="get/">
+                <resource uri="{booking_id}?access_token={authorization-token}/">
+                    <param name="booking_id" style="template" type="xsd:string"/>
+                    <method displayName="Get Booking" id="7286" name="GET">
+                        <doc>This gets the details of a booking</doc>
+                        <request>
+                            <param name="authorizationToken" required="true" style="query" type="xsd:string"/>
+                            <param name="bookingId" required="true" style="query" type="xsd:integer"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="editpartnerbooking/">
+                <resource uri="{booking_id}?access_token={access_token}/">
+                    <param name="booking_id" style="template" type="xsd:string"/>
+                    <method displayName="Edit Partner Booking" id="7281" name="POST">
+                        <doc>This allows a venue to change details about a partner-generated booking</doc>
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="bookingId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="edit/">
+                <resource uri="{booking_id}?access_token={access_token}/">
+                    <param name="booking_id" style="template" type="xsd:string"/>
+                    <method displayName="Edit Booking" id="7276" name="POST">
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="bookingId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="delete/">
+                <resource uri="{booking_id}?access_token={access_token}/">
+                    <param name="booking_id" style="template" type="xsd:string"/>
+                    <method displayName="Delete Partner Booking" id="7272" name="DELETE">
+                        <doc>This deletes the partner-generated booking.</doc>
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="bookingId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="changestatus/">
+                <resource uri="{booking_id}/">
+                    <param name="booking_id" style="template" type="xsd:string"/>
+                    <resource uri="{status}/">
+                        <param name="status" style="template" type="xsd:string"/>
+                        <resource uri="{partner_generated}?access_token={access_token}/">
+                            <param name="partner_generated" style="template" type="xsd:string"/>
+                            <method displayName="Change Booking Status" id="7265" name="GET">
+                                <doc>This endpoint is used to confirm or cancel a booking.</doc>
+                                <request>
+                                    <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                                    <param name="bookingId" required="true" style="query" type="xsd:integer"/>
+                                    <param name="partnerGenerated" required="true" style="query" type="xsd:integer">
+                                        <doc>Client Generated Partner Generated</doc>
+                                    </param>
+                                    <param name="status" required="true" style="query" type="xsd:integer">
+                                        <doc>Cancel Confirm</doc>
+                                    </param>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="addpartnerbooking?access_token={access_token}/">
+                <param name="access_token" style="template" type="xsd:string"/>
+                <method displayName="Add Partner Booking" id="7260" name="POST">
+                    <doc>This lets the venue create bookings that do not require payment to be processed. It is useful for walk--ins and bookings made over the phone.</doc>
+                    <request>
+                        <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="add?access_token={access_token}/">
+                <param name="access_token" style="template" type="xsd:string"/>
+                <method displayName="Add Booking" id="7255" name="POST">
+                    <doc>Create a new booking. This booking will not be processed until payment for the booking is completed.</doc>
+                    <request>
+                        <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="oauth/">
+            <resource uri="login?client_id={client_id}/">
+                <param name="client_id" style="template" type="xsd:string"/>
+                <method displayName="Login" id="7309" name="POST">
+                    <doc>This endpoint allows you to login with the users' credentials. If the user has already authorized the client, you will receive an authorization code that you can use exchange for an authorization token.</doc>
+                    <request>
+                        <param name="clientId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="authorize?client_id={client_id}&amp;response_type={response_type}&amp;redirect_uri={redirect_uri}/">
+                <param name="client_id" style="template" type="xsd:string"/>
+                <method displayName="Authorize Client" id="7263" name="GET">
+                    <doc>This endpoint logs in and authorize a user client against the application. This basically allows you to make calls on behalf of the user. If the client has previously been authorized, you can skip this step.</doc>
+                    <request>
+                        <param name="clientId" required="true" style="query" type="xsd:string">
+                            <doc>the client ID provided to you in the clients get client method</doc>
+                        </param>
+                        <param name="redirectUri" required="true" style="query" type="xsd:string"/>
+                        <param name="responseType" required="true" style="query" type="xsd:string">
+                            <doc>the type of authorization response the bospasa authorization process will provide</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="token?code={authorization-code}/">
+                <param name="authorization-code" style="template" type="xsd:string"/>
+                <method displayName="/oauth/token?code={authorization-code}" id="7254" name="GET">
+                    <doc>This retrieves an access token and refresh token for the client to use when making calls. Please make sure you store these so you don't have to keep having your clients reauthorize your application.</doc>
+                    <request>
+                        <param name="authorizationCode" required="true" style="query" type="xsd:string"/>
+                        <param name="clientSecret" required="true" style="query" type="xsd:string">
+                            <doc>this is the client secret provided when the client was created</doc>
+                        </param>
+                        <param name="grantType" required="true" style="query" type="xsd:string">
+                            <doc>this is the type of authorization that your client expects to get back</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7254:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

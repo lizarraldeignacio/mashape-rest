@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>geocoder ca provides a simple XML interface to do real time automated geocoding for your application</doc>
+    <resources base="https://community-geocoderca.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Geocode" id="2508" name="GET">
+                <request>
+                    <param name="addresst" required="true" style="query" type="xsd:string">
+                        <doc>the name of the street address A string no longer that bytes</doc>
+                    </param>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>callback string if Output is in JSON format Optionally you may request data in JSON format The callback can be any string value</doc>
+                    </param>
+                    <param name="city" required="true" style="query" type="xsd:string">
+                        <doc>the City Name A string no longer that bytes</doc>
+                    </param>
+                    <param name="decimal" required="true" style="query" type="xsd:string">
+                        <doc>an integer positive number This is an optional parameter to limit the number of decimal places in the response note that a small number will reduce accuracy</doc>
+                    </param>
+                    <param name="geoit" required="true" style="query" type="xsd:string">
+                        <doc>the output type desired Only one allowed value XML</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>optionally you can include your own transaction id this will be returned along with the response if provided a number or string no longer that bytes</doc>
+                    </param>
+                    <param name="jsonp" required="true" style="query" type="xsd:string">
+                        <doc>output in JSON format Optionally you may request data in JSON format Accepted value</doc>
+                    </param>
+                    <param name="locate" required="true" style="query" type="xsd:string">
+                        <doc>optionally you can specify a location for example metcalfe ottawa or metcalfe wellington ottawa This is an optional parameter for your convenience We will parse out an address or intersection from it</doc>
+                    </param>
+                    <param name="postal" required="true" style="query" type="xsd:string">
+                        <doc>a six letter canadian postal code The postal code format should follow the following format ANANAN where N represents a number and A a letter</doc>
+                    </param>
+                    <param name="prov" required="true" style="query" type="xsd:string">
+                        <doc>the Two letter Canadian province code or US state abbreviation AB BC MB NB NL NS NT NU ON PE QC SK YT</doc>
+                    </param>
+                    <param name="showpostal" required="true" style="query" type="xsd:string">
+                        <doc>optionally If you supply just a street address or intersection the showpostal parameter will instruct the algorithm to return the postal code of the location along with the latitude longitude pair Only one allowed value</doc>
+                    </param>
+                    <param name="standard" required="true" style="query" type="xsd:string">
+                        <doc>return the properly formated standartized address in the response This is an optional parameter for address standardization There is only one valid value</doc>
+                    </param>
+                    <param name="stno" required="true" style="query" type="xsd:string">
+                        <doc>street Number A number</doc>
+                    </param>
+                    <param name="strict" required="true" style="query" type="xsd:string">
+                        <doc>optional Parameter for enabling strict parsing of free form location input</doc>
+                    </param>
+                    <param name="strictmode" required="true" style="query" type="xsd:string">
+                        <doc>optionally you can prevent geocoder from making guesses on your input for example if you enter just a city name without the state or province instead of geocoder determining the most likely city it will let you chose from a list of suggestions Allowed values are Integer or</doc>
+                    </param>
+                    <param name="topmatches" required="true" style="query" type="xsd:string">
+                        <doc>optionally If you supply a partial street address and wish to obtain a fixed number of the most likely suggestions send a value through this parameter This must be the maximum number of suggestions desired in the response The topmatches parameter value must be a positive integer</doc>
+                    </param>
+                    <param name="utm" required="true" style="query" type="xsd:string">
+                        <doc>output latitude longitude pair in The Universal Transverse Mercator UTM geographic coordinate system Optional Accepted value</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

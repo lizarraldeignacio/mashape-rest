@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>greek Pos Tag is an api that analyses Greek text and tags its parts of speech It is created with NlpTools http php nlp tools com</doc>
+    <resources base="https://katharas-greek-pos-tag.p.mashape.com/">
+        <resource uri="">
+            <method displayName="/" id="3195" name="POST">
+                <doc>Tag the parts of speech in Greek text.</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6185="urn:function:f6185" xmlns:f6187="urn:function:f6187" xmlns:f6188="urn:function:f6188" xmlns:f6189="urn:function:f6189" xmlns:f6190="urn:function:f6190" xmlns:f6191="urn:function:f6191">
+    <grammars>
+        <include href="Function6190.xsd"/>
+        <include href="Function6188.xsd"/>
+        <include href="Function6189.xsd"/>
+        <include href="Function6191.xsd"/>
+        <include href="Function6185.xsd"/>
+        <include href="Function6187.xsd"/>
+    </grammars>
+    <doc>a Jersey based Todo API example hosted on Heroku</doc>
+    <resources base="https://arik-so-arik-mashape-experiment-v1.p.mashape.com/">
+        <resource uri="search/">
+            <resource uri="{query}/">
+                <param name="query" style="template" type="xsd:string"/>
+                <method displayName="Search Items" id="6190" name="GET">
+                    <doc>Search all todo items.</doc>
+                    <request>
+                        <param name="query" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f6190:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="{itemid}/">
+            <param name="itemid" style="template" type="xsd:string"/>
+            <method displayName="Delete Item" id="6186" name="DELETE">
+                <doc>Remove an existing todo item.</doc>
+                <request>
+                    <param name="itemid" required="true" style="query" type="xsd:string"/>
+                    <param name="modificationToken" required="true" style="query" type="xsd:string">
+                        <doc>the modification token of the todo item It is shown at creation and is required for the modification and removal of todo items</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get Item" id="6188" name="GET">
+                <doc>Get a todo item by its ID.</doc>
+                <request>
+                    <param name="itemid" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f6188:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Modify Item" id="6189" name="PUT">
+                <doc>Modify an existing todo item.</doc>
+                <request>
+                    <param name="itemid" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f6189:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Subscribe" id="6191" name="GET">
+                <doc>Subscribe to the done status changes of a todo item.</doc>
+                <request>
+                    <param name="itemid" required="true" style="query" type="xsd:string"/>
+                    <param name="phonenumber" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f6191:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="">
+            <method displayName="Create Item" id="6185" name="POST">
+                <doc>Create a new todo item.</doc>
+                <request/>
+                <response>
+                    <representation element="f6185:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get All Items" id="6187" name="GET">
+                <doc>Get all todo items.</doc>
+                <request/>
+                <response>
+                    <representation element="f6187:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

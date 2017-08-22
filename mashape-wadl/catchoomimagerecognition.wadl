@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f595="urn:function:f595">
+    <grammars>
+        <include href="Function595.xsd"/>
+    </grammars>
+    <doc>the Image Recognition API allows you to integrate our cloud image recognition into your applications and services</doc>
+    <resources base="https://community-catchoom.p.mashape.com/">
+        <resource uri="search/">
+            <method displayName="Search" id="595" name="POST">
+                <doc>It allows sending visual recognition requests from client applications (such as mobile apps or your own server).</doc>
+                <request/>
+                <response>
+                    <representation element="f595:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

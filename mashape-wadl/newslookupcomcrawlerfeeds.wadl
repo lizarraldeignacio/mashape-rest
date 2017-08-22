@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>newslookup com is a news search engine news aggregator and news services provider We provide subscription based API access to our crawler and search index</doc>
+    <resources base="https://kynast-newslookupcom-crawler-feeds.p.mashape.com/">
+        <resource uri="search/">
+            <resource uri="{package}/">
+                <param name="package" style="template" type="xsd:string"/>
+                <method displayName="Search Feeds" id="2569" name="GET">
+                    <request>
+                        <param name="dt" required="true" style="query" type="xsd:string">
+                            <doc>date range Default is last days Last number of days specified in minutes</doc>
+                        </param>
+                        <param name="fmt" required="true" style="query" type="xsd:string">
+                            <doc>field Format Default Provides article title link description category publication date site url name and article ID Above items with meta keywords meta description referrer link and geo region id s Above items with article words extract All of the above and link to cached copy Note fields returned are dependent on availability in article source</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:string">
+                            <doc>limit the amount of records returned</doc>
+                        </param>
+                        <param name="mt" required="true" style="query" type="xsd:string">
+                            <doc>media Type Internet Magazine News Agencies Newspapers Radio Television</doc>
+                        </param>
+                        <param name="package" required="true" style="query" type="xsd:string">
+                            <doc>search feed packages See readme for a complete list of packages</doc>
+                        </param>
+                        <param name="politics" required="true" style="query" type="xsd:string">
+                            <doc>currently assigned only for select US political sites Communist Conservative Democrat Leans Left Leans Right Liberal Libertarianism Neo Conservative Non Partisan Paleo Conservative Progressive Republican Socialist</doc>
+                        </param>
+                        <param name="q" required="true" style="query" type="xsd:string">
+                            <doc>your query string</doc>
+                        </param>
+                        <param name="region" required="true" style="query" type="xsd:string">
+                            <doc>see documentation for a list of region group ID s</doc>
+                        </param>
+                        <param name="s" required="true" style="query" type="xsd:string">
+                            <doc>sort Defaults to relevance by date</doc>
+                        </param>
+                        <param name="subject" required="true" style="query" type="xsd:string">
+                            <doc>Business Commentary Crypto Currencies Entertainment Environment Health Internet Domain Names IT Lead Headline Libraries Archives Local News National News Politics Press Releases Radio Science Sports Tech Network Security Technology Travel World News</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="feed/">
+            <resource uri="{package}/">
+                <param name="package" style="template" type="xsd:string"/>
+                <method displayName="Crawler Feeds" id="2568" name="GET">
+                    <request>
+                        <param name="fmt" required="true" style="query" type="xsd:string">
+                            <doc>field Format Default Provides article title link description category publication date site url name and article ID Above items with meta keywords meta description referrer link and geo region id s Above items with article words extract All of the above and link to cached copy Note fields returned are dependent on availability in article source</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>to optimize performance and reduce bandwidth retrieve records greater than this record id</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:integer">
+                            <doc>limit the amount of records returned</doc>
+                        </param>
+                        <param name="mt" required="true" style="query" type="xsd:integer">
+                            <doc>media Type Internet Magazine News Agencies Newspapers Radio Television</doc>
+                        </param>
+                        <param name="output" required="true" style="query" type="xsd:string">
+                            <doc>no option defaults to XML</doc>
+                        </param>
+                        <param name="package" required="true" style="query" type="xsd:string">
+                            <doc>crawler feed packages See readme for a complete list of packages</doc>
+                        </param>
+                        <param name="politics" required="true" style="query" type="xsd:integer">
+                            <doc>currently assigned only for select US political sites Communist Conservative Democrat Leans Left Leans Right Liberal Libertarianism Neo Conservative Non Partisan Paleo Conservative Progressive Republican Socialist</doc>
+                        </param>
+                        <param name="subject" required="true" style="query" type="xsd:integer">
+                            <doc>Business Commentary Crypto Currencies Entertainment Environment Health Internet Domain Names IT Lead Headline Libraries Archives Local News National News Politics Press Releases Radio Science Sports Tech Network Security Technology Travel World News</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

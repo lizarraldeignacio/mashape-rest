@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1862="urn:function:f1862" xmlns:f1863="urn:function:f1863" xmlns:f1864="urn:function:f1864" xmlns:f1865="urn:function:f1865" xmlns:f1866="urn:function:f1866" xmlns:f1867="urn:function:f1867" xmlns:f1868="urn:function:f1868" xmlns:f1869="urn:function:f1869" xmlns:f1870="urn:function:f1870" xmlns:f1871="urn:function:f1871" xmlns:f1872="urn:function:f1872" xmlns:f1875="urn:function:f1875" xmlns:f1876="urn:function:f1876" xmlns:f1877="urn:function:f1877" xmlns:f1878="urn:function:f1878" xmlns:f1879="urn:function:f1879" xmlns:f1880="urn:function:f1880" xmlns:f1881="urn:function:f1881" xmlns:f1882="urn:function:f1882" xmlns:f1886="urn:function:f1886" xmlns:f1891="urn:function:f1891" xmlns:f1892="urn:function:f1892" xmlns:f1893="urn:function:f1893" xmlns:f1895="urn:function:f1895" xmlns:f1897="urn:function:f1897" xmlns:f1898="urn:function:f1898" xmlns:f1899="urn:function:f1899">
+    <grammars>
+        <include href="Function1877.xsd"/>
+        <include href="Function1870.xsd"/>
+        <include href="Function1872.xsd"/>
+        <include href="Function1876.xsd"/>
+        <include href="Function1886.xsd"/>
+        <include href="Function1895.xsd"/>
+        <include href="Function1869.xsd"/>
+        <include href="Function1875.xsd"/>
+        <include href="Function1878.xsd"/>
+        <include href="Function1880.xsd"/>
+        <include href="Function1881.xsd"/>
+        <include href="Function1865.xsd"/>
+        <include href="Function1879.xsd"/>
+        <include href="Function1891.xsd"/>
+        <include href="Function1899.xsd"/>
+        <include href="Function1864.xsd"/>
+        <include href="Function1868.xsd"/>
+        <include href="Function1871.xsd"/>
+        <include href="Function1893.xsd"/>
+        <include href="Function1898.xsd"/>
+        <include href="Function1862.xsd"/>
+        <include href="Function1863.xsd"/>
+        <include href="Function1866.xsd"/>
+        <include href="Function1867.xsd"/>
+        <include href="Function1882.xsd"/>
+        <include href="Function1892.xsd"/>
+        <include href="Function1897.xsd"/>
+    </grammars>
+    <doc>aPI to integrate your app with Mailee me You can automatically send email marketing campaigns track its results and keep your contacts synced We are still in beta If you have any problems or suggestions please contact us at support mailee me</doc>
+    <resources base="https://mailee.p.mashape.com/">
+        <resource uri="valid_key/">
+            <method displayName="Valid key" id="1896" name="GET">
+                <doc>check if your api_key is valid</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="transactional_deliveries/">
+            <resource uri="bounces/">
+                <method displayName="Transactional Deliveries Bounce" id="1888" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Transactional Deliveries Bounces" id="1889" name="GET">
+                    <request>
+                        <param name="page" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="send/">
+                <method displayName="Send transactional delivery" id="1885" name="POST">
+                    <doc>This method should be used to send transactional messages (messages to only a one address)</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="me/">
+            <method displayName="Me" id="1877" name="GET">
+                <doc>info about your account</doc>
+                <request/>
+                <response>
+                    <representation element="f1877:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="templates/">
+            <method displayName="Create new template" id="1870" name="POST">
+                <request/>
+                <response>
+                    <representation element="f1870:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete template" id="1872" name="DELETE">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1872:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Generate template thumbnail" id="1873" name="PUT">
+                <doc>Generate thumbmail</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get template html" id="1874" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="List all templates" id="1876" name="GET">
+                <request>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1876:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Template information" id="1886" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1886:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update template information" id="1895" name="PUT">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1895:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="messages/">
+            <method displayName="Create message" id="1869" name="POST">
+                <doc>You should use this method to start the creation of a message</doc>
+                <request/>
+                <response>
+                    <representation element="f1869:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List all messages" id="1875" name="GET">
+                <request>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1875:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Message information" id="1878" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1878:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Message sending status" id="1880" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1880:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="messages new" id="1881" name="GET">
+                <request/>
+                <response>
+                    <representation element="f1881:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Send or schedule message" id="1883" name="PUT">
+                <doc>send or schedule the message to be sent</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>id of the message</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Send test for message" id="1884" name="PUT">
+                <doc>send test messages</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>id of the message being created</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Update message html" id="1894" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+        <resource uri="reports/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Clicks of a message" id="1865" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                        <param name="page" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1865:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Message reports" id="1879" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>message id</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1879:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Unsubscribes of a message" id="1891" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f1891:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Views of a message" id="1899" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>id of the message</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1899:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="lists/">
+            <method displayName="All lists" id="1864" name="GET">
+                <request>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1864:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Create a list" id="1868" name="POST">
+                <doc>You will have to select a list of contacts to send a message. Using this method you will be able to create a new list.</doc>
+                <request/>
+                <response>
+                    <representation element="f1868:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete a list" id="1871" name="DELETE">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1871:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Total active contacts of a list" id="1887" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Update list information" id="1893" name="PUT">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1893:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="View list" id="1898" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1898:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="contacts/">
+            <method displayName="Add a contact to a list" id="1862" name="PUT">
+                <doc>To send messages you will need to select lists of contacts. This method should be used to add a contact to a list.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>id of the contact</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1862:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="All contacts" id="1863" name="GET">
+                <doc>List all contacts of your account</doc>
+                <request>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                    <param name="where" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="whereContactStatusId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="whereEmail" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="whereName" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1863:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="contacts new" id="1866" name="GET">
+                <request/>
+                <response>
+                    <representation element="f1866:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Create a contact" id="1867" name="POST">
+                <doc>Create a new contact</doc>
+                <request/>
+                <response>
+                    <representation element="f1867:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Remove a contact from a list" id="1882" name="PUT">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1882:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Unsubscribe contact" id="1890" name="PUT">
+                <doc>Unsubscribe a contact from your account. Warning: the contact won't receive your none of your message anymore.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>id of the contact to unsubscribe</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Update contact information" id="1892" name="PUT">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1892:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="View contact" id="1897" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:integer"/>
+                </request>
+                <response>
+                    <representation element="f1897:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6787="urn:function:f6787">
+    <grammars>
+        <include href="Function6787.xsd"/>
+    </grammars>
+    <doc>quickly scan host against a list of provided ports</doc>
+    <resources base="https://marcinpraski-portscan-v1.p.mashape.com/">
+        <resource uri="scan/">
+            <method displayName="Scan" id="6787" name="GET">
+                <doc>Scan host against supplied ports.</doc>
+                <request>
+                    <param name="host" required="true" style="query" type="xsd:string">
+                        <doc>the host to be scanned</doc>
+                    </param>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>a list of ports to be scanned The query consists of single ports e g scan host com or range e g scan host com Ports and ranges can be freely combined into complex query e g scan host com The number of scanned ports per one call is limited to If not provided a list of common ports is scanned</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6787:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

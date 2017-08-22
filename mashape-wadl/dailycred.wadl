@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>identity made simple everything you need to manage users for your website or app DailyCred wraps all of your OAuth providers into a single OAuth call You can also use DailyCred to authenticate email and password users as well as Twitter and LinkedIn users using OAuth DailyCred aggregates all of your user data and combines it with page view information in a single place View the demo of the DailyCred dashboard here https www dailycred com demo</doc>
+    <resources base="https://juliuss-dailycred.p.mashape.com/">
+        <resource uri="r/">
+            <method displayName="Trigger a Referral" id="6162" name="POST">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="attribute/">
+            <resource uri="set/">
+                <method displayName="Set an Attribute" id="6160" name="POST">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="remove/">
+                <method displayName="Remove an Attribute" id="6158" name="POST">
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="api/">
+            <resource uri="user/">
+                <resource uri="passwordreset.json/">
+                    <method displayName="Get Password Reset Token" id="6157" name="POST">
+                        <request/>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="connect/">
+            <method displayName="Connect an Existing User with a New Identity Provider" id="6153" name="GET">
+                <request>
+                    <param name="clientId" required="true" style="query" type="xsd:string">
+                        <doc>your DailyCred client ID</doc>
+                    </param>
+                    <param name="identityProvider" required="true" style="query" type="xsd:string">
+                        <doc>the desired social network your user to authenticate with If no identity provider parameter is provided it will default to email and password authentication You can also set identity provider to gateway to use our UI to let the user choose who to sign in with</doc>
+                    </param>
+                    <param name="redirectUri" required="true" style="query" type="xsd:string">
+                        <doc>after authentication the user will be redirected to this url The url must be within one of your approved domains in your account settings If omitted we will use your account default callback</doc>
+                    </param>
+                    <param name="state" required="true" style="query" type="xsd:string">
+                        <doc>you can include a state parameter to help prevent cross site request forgery When your user is redirected back to your site after authenticating the state parameter will be included</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="password/">
+            <resource uri="api/">
+                <resource uri="reset/">
+                    <method displayName="Reset Passwords" id="6159" name="POST">
+                        <request/>
+                    </method>
+                </resource>
+                <resource uri="change/">
+                    <method displayName="Change Password" id="6152" name="POST">
+                        <request/>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="auth/">
+            <resource uri="email/">
+                <resource uri="change/">
+                    <method displayName="Change a User's Email Address" id="6151" name="POST">
+                        <request/>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="admin/">
+            <resource uri="api/">
+                <resource uri="user/">
+                    <resource uri="activity.json/">
+                        <method displayName="User Event Timeline" id="6164" name="GET">
+                            <request>
+                                <param name="eventType" required="true" style="query" type="xsd:string">
+                                    <doc>the type of event you wish to see the user s activity for</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                    <resource uri="untag.json/">
+                        <method displayName="Untagging Users" id="6163" name="POST">
+                            <request/>
+                        </method>
+                    </resource>
+                    <resource uri="tag.json/">
+                        <method displayName="Tagging Users" id="6161" name="POST">
+                            <request/>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="user.json/">
+                    <method displayName="Find a User" id="6156" name="GET">
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string">
+                                <doc>an access token for your user</doc>
+                            </param>
+                            <param name="clientId" required="true" style="query" type="xsd:string">
+                                <doc>your client id found on your settings page</doc>
+                            </param>
+                            <param name="clientSecret" required="true" style="query" type="xsd:string">
+                                <doc>your client secret key found on your settings page</doc>
+                            </param>
+                            <param name="email" required="true" style="query" type="xsd:string">
+                                <doc>the user s email</doc>
+                            </param>
+                            <param name="userId" required="true" style="query" type="xsd:string">
+                                <doc>the user s dailycred user id</doc>
+                            </param>
+                            <param name="username" required="true" style="query" type="xsd:string">
+                                <doc>the user s username</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="email/">
+                    <method displayName="Create a User With Only an Email" id="6155" name="GET">
+                        <request>
+                            <param name="clientId" required="true" style="query" type="xsd:string">
+                                <doc>your client id found on your settings page</doc>
+                            </param>
+                            <param name="email" required="true" style="query" type="xsd:string">
+                                <doc>the user s email</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="customevent.json/">
+                    <method displayName="Create a Custom Event" id="6154" name="POST">
+                        <request/>
+                    </method>
+                </resource>
+                <resource uri="eventgraph.json/">
+                    <method displayName="Account Event Timeline" id="6150" name="GET">
+                        <request>
+                            <param name="clientId" required="true" style="query" type="xsd:string">
+                                <doc>your client id found on your settings page</doc>
+                            </param>
+                            <param name="clientSecret" required="true" style="query" type="xsd:string">
+                                <doc>your client secret key found on your settings page</doc>
+                            </param>
+                            <param name="eventType" required="true" style="query" type="xsd:string">
+                                <doc>the specific event type you want to query for</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1562="urn:function:f1562" xmlns:f1563="urn:function:f1563" xmlns:f1564="urn:function:f1564" xmlns:f1565="urn:function:f1565" xmlns:f1566="urn:function:f1566">
+    <grammars>
+        <include href="Function1565.xsd"/>
+        <include href="Function1566.xsd"/>
+        <include href="Function1564.xsd"/>
+        <include href="Function1563.xsd"/>
+        <include href="Function1562.xsd"/>
+    </grammars>
+    <doc>enhance your app with powerful Twitter hashtag analytics</doc>
+    <resources base="https://osakasaul-ritetag-v1.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="v2.1/">
+                <resource uri="reports/">
+                    <resource uri="grader/">
+                        <method displayName="Social Media Coach" id="1565" name="GET">
+                            <doc>paramert "tweet" tweet=Do you know when and how to #media optimize #iphonegames? What related hashtags are top-rated? https://ritetag.com/best-hashtags-for/iphonegames</doc>
+                            <request>
+                                <param name="network" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="photo" required="true" style="query" type="xsd:boolean">
+                                    <doc/>
+                                </param>
+                                <param name="tweet" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f1565:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="v2/">
+                <resource uri="trending-hashtags/">
+                    <method displayName="Trending Hashtags" id="1566" name="GET">
+                        <request>
+                            <param name="green" required="true" style="query" type="xsd:boolean">
+                                <doc/>
+                            </param>
+                            <param name="onlylatin" required="true" style="query" type="xsd:boolean">
+                                <doc/>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1566:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="influencers-for-hashtag/">
+                    <resource uri="{hashtag}/">
+                        <param name="hashtag" style="template" type="xsd:string"/>
+                        <method displayName="Influencers for Hashtag" id="1564" name="GET">
+                            <request>
+                                <param name="hashtag" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f1564:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="historical-data/">
+                    <resource uri="{hashtag}/">
+                        <param name="hashtag" style="template" type="xsd:string"/>
+                        <method displayName="Hashtag Historical Usage" id="1563" name="GET">
+                            <request>
+                                <param name="hashtag" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f1563:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="ai/">
+                    <resource uri="twitter/">
+                        <resource uri="{query}/">
+                            <param name="query" style="template" type="xsd:string"/>
+                            <method displayName="Associated Hashtags" id="1562" name="GET">
+                                <doc>Returns an array of up to 10 hashtags most frequently used in tweets containing your query + returns stats on 'query hashtag' (hashtag created by adding # sign to your query).</doc>
+                                <request>
+                                    <param name="query" required="true" style="query" type="xsd:string"/>
+                                </request>
+                                <response>
+                                    <representation element="f1562:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

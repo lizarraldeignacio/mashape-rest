@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4764="urn:function:f4764" xmlns:f4766="urn:function:f4766" xmlns:f4767="urn:function:f4767" xmlns:f4768="urn:function:f4768">
+    <grammars>
+        <include href="Function4768.xsd"/>
+        <include href="Function4767.xsd"/>
+        <include href="Function4766.xsd"/>
+        <include href="Function4764.xsd"/>
+    </grammars>
+    <doc>it s a place where both newcomers and trading professionals will be able to trade with ease hitbtc was built on top of modern technologies to provide fast secure and reliable service Customers will appreciate fast order execution convenient ways to add deposit and withdraw and competitive client service Newcomers will like intuitive user friendly interface and easy to start platform Our key focus is client funds safety Daily backups of everything distributed all over the world servers step authentication based on your mobile device and much more for your security For professional traders we have quite a number of features WebSocket subscription for prices and trades Asynchronous WebSocket based trading interface FOK and IOC orders</doc>
+    <resources base="https://community-hitbtc.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="1/">
+                <resource uri="public/">
+                    <resource uri="time/">
+                        <method displayName="/api/1/public/time" id="4768" name="GET">
+                            <request/>
+                            <response>
+                                <representation element="f4768:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="symbols/">
+                        <method displayName="/api/1/public/symbols" id="4767" name="GET">
+                            <request/>
+                            <response>
+                                <representation element="f4767:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="{symbol}/">
+                        <param name="symbol" style="template" type="xsd:string"/>
+                        <resource uri="trades/">
+                            <method displayName="/api/1/public/:symbol/trades" id="4766" name="GET">
+                                <request>
+                                    <param name="by" required="true" style="query" type="xsd:string">
+                                        <doc/>
+                                    </param>
+                                    <param name="from" required="true" style="query" type="xsd:string">
+                                        <doc/>
+                                    </param>
+                                    <param name="maxResults" required="true" style="query" type="xsd:string">
+                                        <doc/>
+                                    </param>
+                                    <param name="sort" required="true" style="query" type="xsd:string">
+                                        <doc/>
+                                    </param>
+                                    <param name="startIndex" required="true" style="query" type="xsd:string">
+                                        <doc/>
+                                    </param>
+                                    <param name="symbol" required="true" style="query" type="xsd:string"/>
+                                </request>
+                                <response>
+                                    <representation element="f4766:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                        <resource uri="ticker/">
+                            <method displayName="/api/1/public/:symbol/ticker" id="4765" name="GET">
+                                <doc>24h means last 24h + last incomplete minute high - highest trade price / 24 h low - lowest trade price / 24 h volume - volume / 24h</doc>
+                                <request>
+                                    <param name="symbol" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                        </resource>
+                        <resource uri="orderbook/">
+                            <method displayName="/api/1/public/:symbol/orderbook" id="4764" name="GET">
+                                <request>
+                                    <param name="formatAmount" required="true" style="query" type="xsd:string">
+                                        <doc>optional string default or number</doc>
+                                    </param>
+                                    <param name="formatAmountUnit" required="true" style="query" type="xsd:string">
+                                        <doc>optional currency default or lot</doc>
+                                    </param>
+                                    <param name="formatPrice" required="true" style="query" type="xsd:string">
+                                        <doc>optional string default or number</doc>
+                                    </param>
+                                    <param name="symbol" required="true" style="query" type="xsd:string"/>
+                                </request>
+                                <response>
+                                    <representation element="f4764:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

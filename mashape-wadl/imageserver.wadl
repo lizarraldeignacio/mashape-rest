@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1212="urn:function:f1212" xmlns:f1213="urn:function:f1213">
+    <grammars>
+        <include href="Function1213.xsd"/>
+        <include href="Function1212.xsd"/>
+    </grammars>
+    <doc>image Server is a scalable and automated image recognition service</doc>
+    <resources base="https://fashionbase-image-server.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="img/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Register" id="1214" name="PUT">
+                        <doc>Register image</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Unregister" id="1215" name="DELETE">
+                        <doc>Unregister image</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="pair/">
+                <method displayName="Pair" id="1213" name="POST">
+                    <doc>Match images without having to register</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1213:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="match/">
+                <method displayName="Match" id="1212" name="POST">
+                    <doc>Match with registered images</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1212:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>signNow is the easiest way to sign a document anywhere you go You can sign your own documents or invite clients to sign and close contracts faster SignNow is free to use and simple to get started</doc>
+    <resources base="https://signnowapi-signnow.p.mashape.com/">
+        <resource uri="document/">
+            <method displayName="Retrieve a document resource" id="3092" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Uploads a file" id="3095" name="POST">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="oauth2/">
+            <resource uri="token/">
+                <method displayName="Request an access token for a user" id="3091" name="POST">
+                    <request/>
+                </method>
+                <method displayName="Verify an access token for a user" id="3096" name="GET">
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri=" /">
+            <resource uri="document/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <resource uri="download/">
+                        <method displayName="Download a collapsed document" id="3090" name="GET">
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                    <resource uri="invite/">
+                        <method displayName="Create an invite to sign a document" id="3089" name="POST">
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="user/">
+            <method displayName="Create a user" id="3088" name="POST">
+                <request/>
+            </method>
+            <method displayName="Retrieve a list of the user’s documents" id="3093" name="GET">
+                <request/>
+            </method>
+            <method displayName="Retrieve a user resource" id="3094" name="GET">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="notaryinvite/">
+            <method displayName="Create a notary invite to sign a document" id="3087" name="POST">
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

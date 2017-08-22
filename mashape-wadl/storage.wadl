@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2760="urn:function:f2760" xmlns:f2762="urn:function:f2762" xmlns:f2763="urn:function:f2763">
+    <grammars>
+        <include href="Function2762.xsd"/>
+        <include href="Function2760.xsd"/>
+        <include href="Function2763.xsd"/>
+    </grammars>
+    <doc>storage stores stuff Simply POST some stuff to us and we ll host it We haven t fully launched yet but when we do it ll be awesome</doc>
+    <resources base="https://storage.p.mashape.com/">
+        <resource uri="status/">
+            <method displayName="Status" id="2762" name="GET">
+                <doc>Get the current api status</doc>
+                <request/>
+                <response>
+                    <representation element="f2762:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="object/">
+            <method displayName="Delete" id="2760" name="DELETE">
+                <doc>Delete an object</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>object ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2760:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Information" id="2761" name="GET">
+                <doc>Get object details</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>object ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Upload" id="2763" name="POST">
+                <doc>Upload data to our servers</doc>
+                <request/>
+                <response>
+                    <representation element="f2763:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

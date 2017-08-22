@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1481="urn:function:f1481" xmlns:f1482="urn:function:f1482" xmlns:f1483="urn:function:f1483">
+    <grammars>
+        <include href="Function1481.xsd"/>
+        <include href="Function1482.xsd"/>
+        <include href="Function1483.xsd"/>
+    </grammars>
+    <doc>get all active Indian deals offers and coupons from different stores like flipkart amazon shopperstop etc This API gets the data from various networks like payoom icubeswire flipkart etc</doc>
+    <resources base="https://udayogra-deal-and-coupons-v1.p.mashape.com/">
+        <resource uri="dl/">
+            <method displayName="/getMerchants" id="1481" name="GET">
+                <doc>Get all the merchants/stores who have atleast 1 active deal/offer</doc>
+                <request>
+                    <param name="action" required="true" style="query" type="xsd:string">
+                        <doc>this is a constant Keep it as it is</doc>
+                    </param>
+                    <param name="submittype" required="true" style="query" type="xsd:string">
+                        <doc>this is a constant Keep it as it is</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1481:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="/getOffersByMerchant" id="1482" name="GET">
+                <doc>Get all deals,coupons and offers of a particular merchant or store. Merchant can be jabong,mcdonalds,fashionara etc. Get all merchants from /getMerchants endpoint</doc>
+                <request>
+                    <param name="action" required="true" style="query" type="xsd:string">
+                        <doc>this is a constant Keep it as it is</doc>
+                    </param>
+                    <param name="merchant" required="true" style="query" type="xsd:string">
+                        <doc>name of the merchant or store whose deals and offers you want to fetch</doc>
+                    </param>
+                    <param name="submittype" required="true" style="query" type="xsd:string">
+                        <doc>this is a constant Keep it as it is</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1482:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="/getOffersByNetwork" id="1483" name="GET">
+                <doc>Get all deals,coupons and offers of a particular affiliate network. Currently we have tied to flipkart, tyroo, vcommission, payoom and icubeswire</doc>
+                <request>
+                    <param name="action" required="true" style="query" type="xsd:string">
+                        <doc>it is a constant Keep it as it is</doc>
+                    </param>
+                    <param name="network" required="true" style="query" type="xsd:string">
+                        <doc>network name whose deals you want to fetch Currently this API is tied with networks flipkart vcommission icubeswire payoom and tyroo</doc>
+                    </param>
+                    <param name="submittype" required="true" style="query" type="xsd:string">
+                        <doc>this is a constant Keep it as it is</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1483:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>an invoice is created by sending an http POST to https bips me api v invoice containing the details of your product or service price and the currency On a successful POST an invoice URL will be received in the response Your system should redirect to this URL to allow the customer to pay</doc>
+    <resources base="https://bips-invoice.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Invoice" id="2119" name="POST">
+                <doc>An invoice is created by sending an http POST to https:// bips.me /api/v1/invoice</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

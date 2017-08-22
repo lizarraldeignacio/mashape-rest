@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6634="urn:function:f6634">
+    <grammars>
+        <include href="Function6634.xsd"/>
+    </grammars>
+    <doc>this API provide for the given website domain name the list of the technologies used in the websites the website IP Address the server location the global rank the linked domains and the main language used</doc>
+    <resources base="https://meparis-sites-x-ray-v1.p.mashape.com/">
+        <resource uri="{website-domain-name}/">
+            <param name="website-domain-name" style="template" type="xsd:string"/>
+            <method displayName="/{website-domain-name}" id="6634" name="GET">
+                <doc>website domain name</doc>
+                <request>
+                    <param name="websiteDomainName" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f6634:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1530="urn:function:f1530" xmlns:f1531="urn:function:f1531">
+    <grammars>
+        <include href="Function1531.xsd"/>
+        <include href="Function1530.xsd"/>
+    </grammars>
+    <doc>sell photos from our database or just access our affiliate program and earn money</doc>
+    <resources base="https://pixmac-pixmac-stock-photos.p.mashape.com/">
+        <resource uri="search/">
+            <resource uri="apikey/">
+                <resource uri="{apikey}/">
+                    <param name="apikey" style="template" type="xsd:string"/>
+                    <resource uri="searchText/">
+                        <resource uri="{searchText}/">
+                            <param name="searchText" style="template" type="xsd:string"/>
+                            <method displayName="Search" id="1531" name="GET">
+                                <request>
+                                    <param name="apikey" required="true" style="query" type="xsd:string">
+                                        <doc>register at Pixmac and ask for API key at api pixmac com</doc>
+                                    </param>
+                                    <param name="searchtext" required="true" style="query" type="xsd:string">
+                                        <doc>keywords separated with</doc>
+                                    </param>
+                                </request>
+                                <response>
+                                    <representation element="f1531:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="detail/">
+            <resource uri="apikey/">
+                <resource uri="{apikey}/">
+                    <param name="apikey" style="template" type="xsd:string"/>
+                    <resource uri="id/">
+                        <resource uri="{id}/">
+                            <param name="id" style="template" type="xsd:string"/>
+                            <method displayName="Detail" id="1530" name="GET">
+                                <request>
+                                    <param name="apikey" required="true" style="query" type="xsd:string">
+                                        <doc>aPI key</doc>
+                                    </param>
+                                    <param name="id" required="true" style="query" type="xsd:string">
+                                        <doc>image ID</doc>
+                                    </param>
+                                </request>
+                                <response>
+                                    <representation element="f1530:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

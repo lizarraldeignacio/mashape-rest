@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1="urn:function:f1">
+    <grammars>
+        <include href="Function1.xsd"/>
+    </grammars>
+    <doc>accurate weather forecasts for today and the next days Easy and free to use</doc>
+    <resources base="https://george-vustrey-weather.p.mashape.com/">
+        <resource uri="api.php/">
+            <method displayName="getForecasts" id="1" name="GET">
+                <doc>Gets forecast given a location</doc>
+                <request>
+                    <param name="location" required="true" style="query" type="xsd:string">
+                        <doc>your location</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

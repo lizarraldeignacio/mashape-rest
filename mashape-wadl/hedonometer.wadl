@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f892="urn:function:f892">
+    <grammars>
+        <include href="Function892.xsd"/>
+    </grammars>
+    <doc>with hedonometer org we ve created an instrument that measures the happiness of large populations in real time Our hedonometer is based on people s online expressions capitalizing on data rich social media and we re measuring how people present themselves to the outside world For our first version of hedonometer org we re using Twitter as a source but in principle we can expand to any data source in any language</doc>
+    <resources base="https://andyreagan-hedonometer-v1.p.mashape.com/">
+        <resource uri="timeseries/">
+            <method displayName="Timeseries" id="892" name="GET">
+                <doc>Call the happiness timeseries</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f892:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

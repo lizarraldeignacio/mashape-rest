@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f597="urn:function:f597">
+    <grammars>
+        <include href="Function597.xsd"/>
+    </grammars>
+    <doc>detect and censor bad words swear words and profanity in a given text Currently works with an English only database which includes leetspeak</doc>
+    <resources base="https://neutrinoapi-bad-word-filter.p.mashape.com/">
+        <resource uri="bad-word-filter/">
+            <method displayName="Bad Word Filter" id="597" name="POST">
+                <request/>
+                <response>
+                    <representation element="f597:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

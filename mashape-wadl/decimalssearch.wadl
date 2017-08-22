@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5090="urn:function:f5090" xmlns:f5091="urn:function:f5091" xmlns:f5092="urn:function:f5092">
+    <grammars>
+        <include href="Function5092.xsd"/>
+        <include href="Function5091.xsd"/>
+        <include href="Function5090.xsd"/>
+    </grammars>
+    <doc>decimals Search is an irrational number search engine It provides billions decimals of irrational numbers pi e sqrt golden ratio ln ln apery s constant euler mascheroni s constant You can search a numeric string count decimals and get any decimals</doc>
+    <resources base="https://totodunet-decimals-search-v1.p.mashape.com/">
+        <resource uri="inaudi.php?number={number}&amp;search={search}&amp;start={start}&amp;end={end}/">
+            <param name="number" style="template" type="xsd:string"/>
+            <method displayName="/inaudi.php?number={number}&amp;search={search}&amp;start={start}&amp;end={end}" id="5092" name="GET">
+                <doc>Get the first position of any numeric string</doc>
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:integer">
+                        <doc>the limit end the default value is max value</doc>
+                    </param>
+                    <param name="number" required="true" style="query" type="xsd:string">
+                        <doc>the irrational number pi e sqrt ln ln apery phi mascheroni The default number is pi</doc>
+                    </param>
+                    <param name="search" required="true" style="query" type="xsd:integer">
+                        <doc>the numeric string that you want to know his first position in decimals</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:integer">
+                        <doc>start to search n end value the default value is</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5092:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="inaudi.php?number={number}&amp;decimal={decimal}&amp;display={display}/">
+            <param name="number" style="template" type="xsd:string"/>
+            <method displayName="/inaudi.php?number={number}&amp;decimal={decimal}&amp;display={display}" id="5091" name="GET">
+                <doc>Get any decimal</doc>
+                <request>
+                    <param name="decimal" required="true" style="query" type="xsd:integer">
+                        <doc>the n th decimal that you want to know n if number is Pi else n</doc>
+                    </param>
+                    <param name="display" required="true" style="query" type="xsd:integer">
+                        <doc>display the n next decimals n This parameter is optional</doc>
+                    </param>
+                    <param name="number" required="true" style="query" type="xsd:string">
+                        <doc>the irrational number pi e sqrt ln ln apery phi mascheroni The default number is pi</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5091:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="inaudi.php?number={number}&amp;count={count}&amp;start={start}&amp;end={end}/">
+            <param name="number" style="template" type="xsd:string"/>
+            <method displayName="/inaudi.php?number={number}&amp;count={count}&amp;start={start}&amp;end={end}" id="5090" name="GET">
+                <doc>Count your number in decimals between start and end</doc>
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:integer">
+                        <doc>the numeric string that you want count his occurency</doc>
+                    </param>
+                    <param name="end" required="true" style="query" type="xsd:integer">
+                        <doc>the limit end the default value is max value</doc>
+                    </param>
+                    <param name="number" required="true" style="query" type="xsd:string">
+                        <doc>the irrational number pi e sqrt ln ln apery phi mascheroni The default number is pi</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:integer">
+                        <doc>start to count n end value the default value is</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5090:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

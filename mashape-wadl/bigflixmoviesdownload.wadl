@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6192="urn:function:f6192" xmlns:f6193="urn:function:f6193" xmlns:f6194="urn:function:f6194">
+    <grammars>
+        <include href="Function6194.xsd"/>
+        <include href="Function6193.xsd"/>
+        <include href="Function6192.xsd"/>
+    </grammars>
+    <doc>this API offers a wide array of films movie trailers and reviews on and about Indian entertainment This unofficial API allows you to download and stream movies directly from BigFlix database Movies are available in different genres like action comedy drama romance etc and cater to several Indian languages like Hindi Telugu Tamil and Bengali</doc>
+    <resources base="https://devru-bigflix-movies-download-v1.p.mashape.com/">
+        <resource uri="search.php/">
+            <method displayName="Search" id="6194" name="GET">
+                <doc>Search Movies</doc>
+                <request>
+                    <param name="term" required="true" style="query" type="xsd:string">
+                        <doc>enter Movie Name here Example Murder Dhoom etc</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6194:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="movieDetails.php/">
+            <method displayName="Movie Details" id="6193" name="GET">
+                <doc>get Movie Details</doc>
+                <request>
+                    <param name="movieid" required="true" style="query" type="xsd:string">
+                        <doc>enter movieid Refer Endpoint and</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6193:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="movieList.php/">
+            <method displayName="Get Movies" id="6192" name="GET">
+                <doc>Get All Movies</doc>
+                <request>
+                    <param name="pageindex" required="true" style="query" type="xsd:string">
+                        <doc>page Index Default is</doc>
+                    </param>
+                    <param name="resultsperpage" required="true" style="query" type="xsd:string">
+                        <doc>set Maximum results per page</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6192:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

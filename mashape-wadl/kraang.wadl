@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1857="urn:function:f1857">
+    <grammars>
+        <include href="Function1857.xsd"/>
+    </grammars>
+    <doc>translate sentences into Kraang speak This API is just for fun and you can find it on kraang io</doc>
+    <resources base="https://keymholio-kraang-v1.p.mashape.com/">
+        <resource uri="translate/">
+            <method displayName="/translate/" id="1857" name="POST">
+                <doc>Translate sentences into Kraang talk.</doc>
+                <request/>
+                <response>
+                    <representation element="f1857:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4646="urn:function:f4646" xmlns:f4647="urn:function:f4647">
+    <grammars>
+        <include href="Function4646.xsd"/>
+        <include href="Function4647.xsd"/>
+    </grammars>
+    <doc>concur lets you save time processing your work expense and travel Give it a spin at https www concur com These APIs allow you to create applications that interface with Concur</doc>
+    <resources base="https://ismaelc-concur.p.mashape.com/">
+        <resource uri="expense/">
+            <resource uri="receiptimages/">
+                <method displayName="Get ReceiptImages by ID" id="4646" name="GET">
+                    <doc>Get a receipt image URL by image ID.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>receiptImage ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4646:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get ReceiptImages IDs" id="4647" name="GET">
+                    <doc>Get a list of all receipt IDs owned by the user associated with the OAuth token</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4647:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Post ReceiptImage" id="4648" name="POST">
+                    <doc>Creates a new image in the receipt store.</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,828 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>access to Zen Alert monitoring features from you APP or WebAPP</doc>
+    <resources base="https://zen-alert-zen-alert.p.mashape.com/">
+        <resource uri="viewthing/">
+            <method displayName="View Thing" id="5305" name="GET">
+                <doc>View Thing Details</doc>
+                <request>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc>required for user authentication</doc>
+                    </param>
+                    <param name="thingId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="thingKey" required="true" style="query" type="xsd:string">
+                        <doc>required for thing authentication</doc>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc>required for user authentication</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="regionalsettings/">
+            <method displayName="View Regional Settings" id="5304" name="GET">
+                <doc>View account Regional Settings</doc>
+                <request>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc>required if you use username</doc>
+                    </param>
+                    <param name="thingId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="thingKey" required="true" style="query" type="xsd:string">
+                        <doc>required if you use thing id</doc>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="">
+            <method displayName="View Billing Informations" id="5303" name="GET">
+                <doc>View Account Billing Informations</doc>
+                <request>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc>required for user authentication</doc>
+                    </param>
+                    <param name="thingId" required="true" style="query" type="xsd:string">
+                        <doc>required for thing authentication</doc>
+                    </param>
+                    <param name="thingKey" required="true" style="query" type="xsd:string">
+                        <doc>required for thing authentication</doc>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc>required for user authentication</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="updateusername/">
+            <method displayName="Update Username" id="5302" name="GET">
+                <doc>Update your username (email address)</doc>
+                <request>
+                    <param name="newUsername" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="updatething/">
+            <method displayName="Update Thing" id="5301" name="GET">
+                <doc>Update Thing (also Computer and ZenBox)  informations</doc>
+                <request>
+                    <param name="address" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="city" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="countryCode" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="description" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="latitude" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="longitude" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="note" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc>required for user authentication</doc>
+                    </param>
+                    <param name="state" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="thingId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="thingKey" required="true" style="query" type="xsd:string">
+                        <doc>required for thing authentication</doc>
+                    </param>
+                    <param name="tzname" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc>required for user authentication</doc>
+                    </param>
+                    <param name="zip" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="updateregionalsettings/">
+            <method displayName="Update Regional Settings" id="5300" name="GET">
+                <doc>Update the Account Regional Setting s</doc>
+                <request>
+                    <param name="countryCode" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="dateformatId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="firstdayId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="timeformatId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="tzname" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="updatepassword/">
+            <method displayName="Update Password" id="5299" name="GET">
+                <doc>Change Your Password</doc>
+                <request>
+                    <param name="newPassword" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="paswword" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="updatemonitoring/">
+            <method displayName="Update Monitoring" id="5298" name="GET">
+                <request>
+                    <param name="deviceKey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="process" required="true" style="query" type="xsd:string">
+                        <doc>name of processes separated by a comma</doc>
+                    </param>
+                    <param name="thingId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="updatebillinginformations/">
+            <method displayName="Update Billing Informations" id="5297" name="GET">
+                <doc>Update Account Billing Informations</doc>
+                <request>
+                    <param name="address" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="city" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="company" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="countryCode" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="state" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="surname" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="taxId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="wizard" required="true" style="query" type="xsd:string">
+                        <doc>default is</doc>
+                    </param>
+                    <param name="zip" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="updatealarmcode/">
+            <method displayName="Update Alert Code" id="5296" name="GET">
+                <doc>Update an existing Alert Code</doc>
+                <request>
+                    <param name="alertCode" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="alertCodeId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="description" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="updateactivevitalsignal/">
+            <method displayName="Update Active Vital Signal" id="5295" name="GET">
+                <doc>Create, Update or Delete Active Notice</doc>
+                <request>
+                    <param name="frequency" required="true" style="query" type="xsd:string">
+                        <doc>minutes Default is</doc>
+                    </param>
+                    <param name="friday" required="true" style="query" type="xsd:string">
+                        <doc>for disable for enable Default is</doc>
+                    </param>
+                    <param name="fromtime" required="true" style="query" type="xsd:string">
+                        <doc>time in H i format</doc>
+                    </param>
+                    <param name="monday" required="true" style="query" type="xsd:string">
+                        <doc>for disable for enable Default is</doc>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="saturday" required="true" style="query" type="xsd:string">
+                        <doc>for disable for enable Default is</doc>
+                    </param>
+                    <param name="sunday" required="true" style="query" type="xsd:string">
+                        <doc>for disable for enable Default is</doc>
+                    </param>
+                    <param name="thingId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="thursday" required="true" style="query" type="xsd:string">
+                        <doc>for disable for enable Default is</doc>
+                    </param>
+                    <param name="timeactivityset" required="true" style="query" type="xsd:string">
+                        <doc>univocal code of the active notice in the format Ymd H i s Leave blank to create a new active notice</doc>
+                    </param>
+                    <param name="totime" required="true" style="query" type="xsd:string">
+                        <doc>time in H i format</doc>
+                    </param>
+                    <param name="tuesday" required="true" style="query" type="xsd:string">
+                        <doc>for disable for enable Default is</doc>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="vitalsignalCodeId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="wednesday" required="true" style="query" type="xsd:string">
+                        <doc>for disable for enable Default is</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="unlinkthing/">
+            <method displayName="Unlink Thing" id="5294" name="GET">
+                <doc>Unlink  a Computer (or a Zen Box)  from an Account</doc>
+                <request>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc>required for user authentication</doc>
+                    </param>
+                    <param name="thingId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="thingKey" required="true" style="query" type="xsd:string">
+                        <doc>required for thing authentication</doc>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc>required for user authentication</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="signal/">
+            <method displayName="Send Signal" id="5293" name="GET">
+                <doc>Send an Event or Vital Signal</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>your API security key</doc>
+                    </param>
+                    <param name="code" required="true" style="query" type="xsd:string">
+                        <doc>an Event Code or alive for Signal Code</doc>
+                    </param>
+                    <param name="description" required="true" style="query" type="xsd:string">
+                        <doc>the description of the Signal</doc>
+                    </param>
+                    <param name="thingId" required="true" style="query" type="xsd:string">
+                        <doc>the ID of the Thing</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="passwordrecovery/">
+            <method displayName="Password Recovery" id="5292" name="GET">
+                <doc>Recover Password</doc>
+                <request>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="login/">
+            <method displayName="Login" id="5291" name="GET">
+                <doc>Login user</doc>
+                <request>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="vitalsignalcodes/">
+            <method displayName="List Vital Signal Code" id="5290" name="GET">
+                <doc>Lists all Vital Signal Codes in the account</doc>
+                <request>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="timezones/">
+            <method displayName="List Time Zones" id="5289" name="GET">
+                <doc>List all accepted Time Zones</doc>
+                <request>
+                    <param name="order" required="true" style="query" type="xsd:string">
+                        <doc>order list of Time Zone by city default or by continent</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="timeformats/">
+            <method displayName="List Time Formats" id="5288" name="GET">
+                <doc>List all accepted Time Formats</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="things/">
+            <method displayName="List Things" id="5287" name="GET">
+                <doc>View all the Things in the account</doc>
+                <request>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="languages/">
+            <method displayName="List Languages" id="5286" name="GET">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="invoices/">
+            <method displayName="List Invoices" id="5285" name="GET">
+                <request>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="directions/">
+            <method displayName="List Directions" id="5284" name="GET">
+                <doc>Directions list of a specific  user_id, thing_id, alert_code_id or vitalsignal_code_id</doc>
+                <request>
+                    <param name="ownerId" required="true" style="query" type="xsd:string">
+                        <doc>user id thing id alert code id or vital sign id</doc>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="directiontypes/">
+            <method displayName="List Direction Types" id="5283" name="GET">
+                <doc>View all Direction Types</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="days/">
+            <method displayName="List Days" id="5282" name="GET">
+                <doc>List of days</doc>
+                <request>
+                    <param name="language" required="true" style="query" type="xsd:string">
+                        <doc>default is English</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="dateformat/">
+            <method displayName="List Date Formats" id="5281" name="GET">
+                <doc>View all accepted Date Formats</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="countries/">
+            <method displayName="List Countries" id="5280" name="GET">
+                <doc>View all accepted countries</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="alerts/">
+            <method displayName="List Alerts" id="5279" name="GET">
+                <doc>List all alerts to an account</doc>
+                <request>
+                    <param name="alertId" required="true" style="query" type="xsd:string">
+                        <doc>view all alert after alert id</doc>
+                    </param>
+                    <param name="all" required="true" style="query" type="xsd:string">
+                        <doc>if true also shows hidden alert default is false</doc>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc>required if username is present</doc>
+                    </param>
+                    <param name="thingId" required="true" style="query" type="xsd:string">
+                        <doc>username or thing id is required</doc>
+                    </param>
+                    <param name="thingKey" required="true" style="query" type="xsd:string">
+                        <doc>required if thing id is present</doc>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc>username or thing id is required</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="alertcodes/">
+            <method displayName="List Alert Codes" id="5278" name="GET">
+                <doc>View all the Alerts Codes of account</doc>
+                <request>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="activities/">
+            <method displayName="List Activities" id="5277" name="GET">
+                <doc>View the activities of a Thing</doc>
+                <request>
+                    <param name="days" required="true" style="query" type="xsd:string">
+                        <doc>how many days Default</doc>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc>required if you use username</doc>
+                    </param>
+                    <param name="thingId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="thingKey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc>alternative to device key</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="activevitalsignals/">
+            <method displayName="List Active Vital Signals" id="5276" name="GET">
+                <doc>Lists all the Active Vital Signal in the account</doc>
+                <request>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="thingIt" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="linkbox/">
+            <method displayName="Link ZenBox" id="5275" name="GET">
+                <doc>Link a ZenBox to an Account</doc>
+                <request>
+                    <param name="countryCode" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="description" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="thingId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="thingKey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="tzname" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="linkcomputer/">
+            <method displayName="Link Computer" id="5274" name="GET">
+                <doc>Link the computer to an account</doc>
+                <request>
+                    <param name="countryCode" required="true" style="query" type="xsd:string">
+                        <doc>required for new Computer</doc>
+                    </param>
+                    <param name="description" required="true" style="query" type="xsd:string">
+                        <doc>required for new Computer</doc>
+                    </param>
+                    <param name="globalAlerts" required="true" style="query" type="xsd:string">
+                        <doc>no yes Default</doc>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="thingId" required="true" style="query" type="xsd:string">
+                        <doc>required for relink Computer</doc>
+                    </param>
+                    <param name="tzname" required="true" style="query" type="xsd:string">
+                        <doc>required for new Computer</doc>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="getdata/">
+            <method displayName="Get Data" id="5273" name="GET">
+                <doc>Retrieve data collected by a thing</doc>
+                <request>
+                    <param name="days" required="true" style="query" type="xsd:string">
+                        <doc>max days</doc>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="thingId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="deleteobject/">
+            <method displayName="Delete Thing" id="5272" name="GET">
+                <doc>Delete Thing, also Computer (or ZenBox) of is unlinked</doc>
+                <request>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="thingId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="deletedirection/">
+            <method displayName="Delete Direction" id="5271" name="GET">
+                <doc>Delete an Alert Direction from an User, Object, Alert Code or Vital Signal Code</doc>
+                <request>
+                    <param name="direction" required="true" style="query" type="xsd:string">
+                        <doc>depends on the direction type</doc>
+                    </param>
+                    <param name="directionType" required="true" style="query" type="xsd:string">
+                        <doc>check the listdirectiontype API</doc>
+                    </param>
+                    <param name="ownerId" required="true" style="query" type="xsd:string">
+                        <doc>user id object id alert code id or vitalsign code id</doc>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="deletealarmcode/">
+            <method displayName="Delete Alert Code" id="5270" name="GET">
+                <doc>Delete an Alert Code</doc>
+                <request>
+                    <param name="alertCodeId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="deleteaccount/">
+            <method displayName="Delete Account" id="5269" name="GET">
+                <doc>Delete an Account</doc>
+                <request>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="userId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="creatething/">
+            <method displayName="Create Thing" id="5268" name="GET">
+                <doc>Create New Device</doc>
+                <request>
+                    <param name="address" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="city" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="countryCode" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="description" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="note" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="state" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="testMode" required="true" style="query" type="xsd:string">
+                        <doc>default or</doc>
+                    </param>
+                    <param name="tzname" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="zip" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="createdirection/">
+            <method displayName="Create Direction" id="5267" name="GET">
+                <doc>Crete an Alert Direction from an User, Object, Alert Code or Vital Signal Code</doc>
+                <request>
+                    <param name="direction" required="true" style="query" type="xsd:string">
+                        <doc>depends on the direction type</doc>
+                    </param>
+                    <param name="directionType" required="true" style="query" type="xsd:string">
+                        <doc>check the listdirectiontype API</doc>
+                    </param>
+                    <param name="ownerId" required="true" style="query" type="xsd:string">
+                        <doc>user id object id alert code id or vitalsign code id</doc>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="createalertcode/">
+            <method displayName="Create Alert Code" id="5266" name="GET">
+                <doc>Create new Alert Code</doc>
+                <request>
+                    <param name="alertCode" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="description" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="createaccount/">
+            <method displayName="Create Account" id="5265" name="GET">
+                <doc>Create e new account</doc>
+                <request>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="tzname" required="true" style="query" type="xsd:string">
+                        <doc>default is UTC View api zenalert com timezones</doc>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="confirmemail/">
+            <method displayName="Confirm Email Address" id="5264" name="GET">
+                <doc>Confirms the email address of an account</doc>
+                <request>
+                    <param name="keyconfirm" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="userId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="checkthingowner/">
+            <method displayName="Check Thing Owner" id="5263" name="GET">
+                <doc>Check if the user is owner of the Thing</doc>
+                <request>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="thingId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="checkversion/">
+            <method displayName="Check Client Version" id="5262" name="GET">
+                <doc>Check version of client software</doc>
+                <request>
+                    <param name="os" required="true" style="query" type="xsd:string">
+                        <doc>mac win or linux</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2021="urn:function:f2021">
+    <grammars>
+        <include href="Function2021.xsd"/>
+    </grammars>
+    <doc>this API takes a URL or domain as input and returns back DNS data</doc>
+    <resources base="https://enclout-dns.p.mashape.com/">
+        <resource uri="show.json/">
+            <method displayName="DNS" id="2021" name="GET">
+                <doc>DNS record</doc>
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>uRL or domain</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2021:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

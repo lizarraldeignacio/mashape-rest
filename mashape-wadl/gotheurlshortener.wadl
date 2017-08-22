@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3740="urn:function:f3740">
+    <grammars>
+        <include href="Function3740.xsd"/>
+    </grammars>
+    <doc>gO The advanced Short URL maker Boasts advanced options like geo targeted redirects password protection etc</doc>
+    <resources base="https://go.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Short URL" id="3740" name="GET">
+                <doc>Get the short URL for a long URL</doc>
+                <request>
+                    <param name="custom" required="true" style="query" type="xsd:string">
+                        <doc>the alias you want If left blank a random alias will be assigned</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>the long URL you want cur short</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3740:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

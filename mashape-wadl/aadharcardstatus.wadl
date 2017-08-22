@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f345="urn:function:f345" xmlns:f346="urn:function:f346">
+    <grammars>
+        <include href="Function346.xsd"/>
+        <include href="Function345.xsd"/>
+    </grammars>
+    <doc>check the status of the UIDAI s Aadhar Card by just providing your UIDAI Aadhar card enrollment ID and time of enrollment</doc>
+    <resources base="https://aadharcardstatus.p.mashape.com/">
+        <resource uri="getStatus.php/">
+            <method displayName="Status check" id="346" name="GET">
+                <doc>Get the status of the aadhar card using this end point.</doc>
+                <request>
+                    <param name="captchavalue" required="true" style="query" type="xsd:string">
+                        <doc>captcha value for the image that you got by calling get token endpoint</doc>
+                    </param>
+                    <param name="eid" required="true" style="query" type="xsd:string">
+                        <doc>enrollment id of the aadhar card</doc>
+                    </param>
+                    <param name="etimestamp" required="true" style="query" type="xsd:string">
+                        <doc>enrollment date and time of the aadhar card</doc>
+                    </param>
+                    <param name="secretkey" required="true" style="query" type="xsd:string">
+                        <doc>the secret key that you got by calling get token endpoint</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f346:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getToken.php/">
+            <method displayName="Get token" id="345" name="GET">
+                <doc>Call this endpoint to get a unique token for the call to check status of the the aadhar.</doc>
+                <request/>
+                <response>
+                    <representation element="f345:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

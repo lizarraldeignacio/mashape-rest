@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>reliefWeb is a leading source of information on global crises and disasters Our continuous coverage and archive going back to the s makes ReliefWeb an unparalleled resource for both current and historical data on humanitarian response</doc>
+    <resources base="https://community-relief-web.p.mashape.com/">
+        <resource uri="reports/">
+            <method displayName="Reports" id="2728" name="GET">
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Reports by ID" id="2729" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

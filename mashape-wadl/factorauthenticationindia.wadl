@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f440="urn:function:f440" xmlns:f441="urn:function:f441" xmlns:f442="urn:function:f442" xmlns:f443="urn:function:f443">
+    <grammars>
+        <include href="Function443.xsd"/>
+        <include href="Function442.xsd"/>
+        <include href="Function441.xsd"/>
+        <include href="Function440.xsd"/>
+    </grammars>
+    <doc>Factor in provides extremely simple to use APIs for implementing Factor Authentication Phone verification with just API Call Best Part of Factor in solution is its Fast Reliable Economical too</doc>
+    <resources base="https://2factor.p.mashape.com/">
+        <resource uri="API/">
+            <resource uri="V1/">
+                <resource uri="{api_key}/">
+                    <param name="api_key" style="template" type="xsd:string"/>
+                    <resource uri="VOICE/">
+                        <resource uri="{phone_number}/">
+                            <param name="phone_number" style="template" type="xsd:string"/>
+                            <resource uri="{otp}/">
+                                <param name="otp" style="template" type="xsd:string"/>
+                                <method displayName="Sending Voice OTP" id="443" name="GET">
+                                    <doc>This endpoint is used to send VOICE OTP to India</doc>
+                                    <request>
+                                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                                            <doc>aPI Obtained From Factor in</doc>
+                                        </param>
+                                        <param name="otp" required="true" style="query" type="xsd:integer">
+                                            <doc>Digit Numeric OTP code to be sent</doc>
+                                        </param>
+                                        <param name="phoneNumber" required="true" style="query" type="xsd:string">
+                                            <doc>Digit Indian Phone Number</doc>
+                                        </param>
+                                    </request>
+                                    <response>
+                                        <representation element="f443:root" mediaType="application/json"/>
+                                    </response>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                    <resource uri="SMS/">
+                        <resource uri="{phone_number}/">
+                            <param name="phone_number" style="template" type="xsd:string"/>
+                            <resource uri="{otp}/">
+                                <param name="otp" style="template" type="xsd:string"/>
+                                <method displayName="Sending SMS OTP" id="442" name="GET">
+                                    <doc>This endpoint is used to send SMS OTP to India</doc>
+                                    <request>
+                                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                                            <doc>aPI Obtained From Factor in</doc>
+                                        </param>
+                                        <param name="otp" required="true" style="query" type="xsd:string">
+                                            <doc>Digit Numeric OTP code to be sent</doc>
+                                        </param>
+                                        <param name="phoneNumber" required="true" style="query" type="xsd:string">
+                                            <doc>Digit Indian Phone Number</doc>
+                                        </param>
+                                    </request>
+                                    <response>
+                                        <representation element="f442:root" mediaType="application/json"/>
+                                    </response>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                    <resource uri="BAL/">
+                        <resource uri="VOICE/">
+                            <method displayName="Check Voice Balance" id="441" name="GET">
+                                <doc>This endpoint is used to check VOICE OTP balance</doc>
+                                <request>
+                                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                                        <doc>check VOICE OTP Balance</doc>
+                                    </param>
+                                </request>
+                                <response>
+                                    <representation element="f441:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                        <resource uri="SMS/">
+                            <method displayName="Check SMS Balance" id="440" name="GET">
+                                <doc>This endpoint is used to check SMS OTP balance</doc>
+                                <request>
+                                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                                        <doc>check SMS OTP Balance</doc>
+                                    </param>
+                                </request>
+                                <response>
+                                    <representation element="f440:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

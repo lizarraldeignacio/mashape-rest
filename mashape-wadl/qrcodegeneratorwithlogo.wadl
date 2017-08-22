@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1217="urn:function:f1217">
+    <grammars>
+        <include href="Function1217.xsd"/>
+    </grammars>
+    <doc>generate QR code images with logo for multiple data types</doc>
+    <resources base="https://ajith-qr-code-generator-with-logo.p.mashape.com/">
+        <resource uri="getQrcode/">
+            <method displayName="getQrcode" id="1217" name="GET">
+                <doc>QR code url</doc>
+                <request>
+                    <param name="logo" required="true" style="query" type="xsd:string">
+                        <doc>enter the url of your logo The size of the image should be less than x px</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>select one of the QR code formats to generate</doc>
+                    </param>
+                    <param name="value" required="true" style="query" type="xsd:string">
+                        <doc>enter value as per your QR code type</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1217:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

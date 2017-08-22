@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6641="urn:function:f6641" xmlns:f6642="urn:function:f6642" xmlns:f6643="urn:function:f6643" xmlns:f6644="urn:function:f6644" xmlns:f6645="urn:function:f6645" xmlns:f6647="urn:function:f6647" xmlns:f6648="urn:function:f6648" xmlns:f6649="urn:function:f6649" xmlns:f6650="urn:function:f6650" xmlns:f6651="urn:function:f6651" xmlns:f6652="urn:function:f6652" xmlns:f6653="urn:function:f6653">
+    <grammars>
+        <include href="Function6647.xsd"/>
+        <include href="Function6648.xsd"/>
+        <include href="Function6649.xsd"/>
+        <include href="Function6650.xsd"/>
+        <include href="Function6651.xsd"/>
+        <include href="Function6652.xsd"/>
+        <include href="Function6653.xsd"/>
+        <include href="Function6641.xsd"/>
+        <include href="Function6642.xsd"/>
+        <include href="Function6643.xsd"/>
+        <include href="Function6644.xsd"/>
+        <include href="Function6645.xsd"/>
+    </grammars>
+    <doc>Events is a simple yet powerful calendaring event management service that allows for the sending of calendaring events directly to your customer s calendar It could be used for Webinars Seminars Training etc If the customer accepts the calendar invite they are automatically signed up for the event Standards based iCal compliant that works with Exchange calendars Google Calendars mobile phones No more Click to download to calendar Send directly to a email account for accept or reject</doc>
+    <resources base="https://pinke01-31events-auth.p.mashape.com/">
+        <resource uri="event/">
+            <method displayName="EventBulkSubscribe" id="6646" name="POST">
+                <request>
+                    <param name="eventId" required="true" style="query" type="xsd:string">
+                        <doc>event ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="EventCreate" id="6647" name="POST">
+                <request/>
+                <response>
+                    <representation element="f6647:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="EventDelete" id="6648" name="DELETE">
+                <request>
+                    <param name="eventId" required="true" style="query" type="xsd:string">
+                        <doc>event ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6648:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="EventGet" id="6649" name="GET">
+                <request>
+                    <param name="eventId" required="true" style="query" type="xsd:string">
+                        <doc>event ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6649:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="EventList" id="6650" name="GET">
+                <request/>
+                <response>
+                    <representation element="f6650:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="EventResponses" id="6651" name="GET">
+                <request>
+                    <param name="eventId" required="true" style="query" type="xsd:string">
+                        <doc>event ID</doc>
+                    </param>
+                    <param name="responseType" required="true" style="query" type="xsd:string">
+                        <doc>one of accepted attended declined noreply</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6651:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="EventSend" id="6652" name="POST">
+                <request>
+                    <param name="eventId" required="true" style="query" type="xsd:string">
+                        <doc>event ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6652:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="EventUpdate" id="6653" name="PUT">
+                <request>
+                    <param name="eventId" required="true" style="query" type="xsd:string">
+                        <doc>event ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6653:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="account/">
+            <method displayName="AccoungGet" id="6641" name="GET">
+                <request>
+                    <param name="customerId" required="true" style="query" type="xsd:string">
+                        <doc>customer ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6641:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="AccountCreate" id="6642" name="POST">
+                <request/>
+                <response>
+                    <representation element="f6642:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="AccountDelete" id="6643" name="DELETE">
+                <request>
+                    <param name="customerId" required="true" style="query" type="xsd:string">
+                        <doc>customer ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6643:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="AccountList" id="6644" name="GET">
+                <request/>
+                <response>
+                    <representation element="f6644:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="AccountUpdate" id="6645" name="PUT">
+                <request>
+                    <param name="customerId" required="true" style="query" type="xsd:string">
+                        <doc>customer ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6645:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

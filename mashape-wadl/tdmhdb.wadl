@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7440="urn:function:f7440" xmlns:f7441="urn:function:f7441" xmlns:f7442="urn:function:f7442">
+    <grammars>
+        <include href="Function7442.xsd"/>
+        <include href="Function7441.xsd"/>
+        <include href="Function7440.xsd"/>
+    </grammars>
+    <doc>file hash checksum value database Contains MD SHA SHA SHA</doc>
+    <resources base="https://thejaydox-tdm-hdb-v1.p.mashape.com/">
+        <resource uri="lookup/">
+            <method displayName="Search by value" id="7442" name="GET">
+                <doc>Note, The value must be a proper MD5, SHA1, SHA256, or SHA512!</doc>
+                <request>
+                    <param name="searchByval" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f7442:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="auth/">
+            <method displayName="Authenticate User" id="7441" name="GET">
+                <doc>Once the user has authenticated their client key can be used for any HDB account api activities.</doc>
+                <request>
+                    <param name="authUser" required="true" style="query" type="xsd:string"/>
+                    <param name="userauthkey" required="true" style="query" type="xsd:string">
+                        <doc>this value is found after log in HDB on the user panel</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f7441:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="app/">
+            <method displayName="Apps Directory" id="7440" name="GET">
+                <doc>Apps using TDM HDB &amp; their details.</doc>
+                <request>
+                    <param name="appdetailsByid" required="true" style="query" type="xsd:integer">
+                        <doc>the ID of the stored application</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f7440:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="manage/">
+            <method displayName="Add To DB" id="7439" name="GET">
+                <request>
+                    <param name="check" required="true" style="query" type="xsd:string">
+                        <doc>rEQUIRED You will need to calculate and pass the SHA check sum for record new md md sha sha sha sha sha sha filename filename user user</doc>
+                    </param>
+                    <param name="filename" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="md" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="record" required="true" style="query" type="xsd:string">
+                        <doc>passing the submitrecord tells the db manager to expect a new set of values</doc>
+                    </param>
+                    <param name="reqkey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="sha" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="sha" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="sha" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

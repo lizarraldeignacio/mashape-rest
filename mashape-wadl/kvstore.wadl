@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1058="urn:function:f1058">
+    <grammars>
+        <include href="Function1058.xsd"/>
+    </grammars>
+    <doc>the simple key value API based storage service</doc>
+    <resources base="https://kvstore.p.mashape.com/">
+        <resource uri="users/">
+            <method displayName="Sign up" id="1064" name="POST">
+                <doc>Sign up kvstore.io</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="collections/">
+            <method displayName="Collection List" id="1057" name="GET">
+                <doc>Get the list of all collections</doc>
+                <request/>
+            </method>
+            <method displayName="Create Collection" id="1058" name="POST">
+                <doc>Create a new collection</doc>
+                <request/>
+                <response>
+                    <representation element="f1058:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete Collection" id="1059" name="DELETE">
+                <doc>Delete a Collection</doc>
+                <request>
+                    <param name="collection" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Delete key" id="1060" name="DELETE">
+                <doc>Delete a key,value pair</doc>
+                <request>
+                    <param name="collection" required="true" style="query" type="xsd:string"/>
+                    <param name="key" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get a value" id="1061" name="GET">
+                <doc>Read the value</doc>
+                <request>
+                    <param name="collection" required="true" style="query" type="xsd:string"/>
+                    <param name="key" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get Collection info" id="1062" name="GET">
+                <doc>Get information about the Collection</doc>
+                <request>
+                    <param name="collection" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get items" id="1063" name="GET">
+                <doc>Get &lt;key,value&gt; pairs ordered by DESC creation time</doc>
+                <request>
+                    <param name="collection" required="true" style="query" type="xsd:string"/>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>the created at date to start retrieving data from in descending order</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Store value" id="1065" name="PUT">
+                <doc>Store a key, value pair</doc>
+                <request>
+                    <param name="collection" required="true" style="query" type="xsd:string"/>
+                    <param name="key" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

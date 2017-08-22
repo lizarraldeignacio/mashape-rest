@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f13="urn:function:f13" xmlns:f14="urn:function:f14" xmlns:f15="urn:function:f15">
+    <grammars>
+        <include href="Function15.xsd"/>
+        <include href="Function14.xsd"/>
+        <include href="Function13.xsd"/>
+    </grammars>
+    <doc>geocode and reverse lookup location information by IP address address or latitude longitude coordinates</doc>
+    <resources base="https://montanaflynn-geocoder.p.mashape.com/">
+        <resource uri="reverse/">
+            <method displayName="Reverse" id="15" name="GET">
+                <doc>Reverse lat/long to geocode</doc>
+                <request>
+                    <param name="latitude" required="true" style="query" type="xsd:string"/>
+                    <param name="longitude" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f15:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="ip/">
+            <method displayName="IP" id="14" name="GET">
+                <doc>Get the geocode information for an IP address</doc>
+                <request>
+                    <param name="ip" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f14:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="address/">
+            <method displayName="Address" id="13" name="GET">
+                <doc>Address based location lookup</doc>
+                <request>
+                    <param name="address" required="true" style="query" type="xsd:string">
+                        <doc>street city state any type of address will work</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f13:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

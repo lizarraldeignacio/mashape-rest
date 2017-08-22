@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>create a reversed video file of custom dimensions Full API specs at https stupeflix tasks api readthedocs org en latest tasks html video reverse</doc>
+    <resources base="https://stupeflixvideoreverse.p.mashape.com/">
+        <resource uri="create_file/">
+            <method displayName="video.reverse create_file" id="5690" name="POST">
+                <doc>Create and queue a video.reverse Task, block until finished and redirect to output image file. Full API specs at https://stupeflix-tasks-api.readthedocs.org/en/latest/tasks.html#video-thumb. Create API keys here : http://developer.stupeflix.com/dragon-keychain/new/</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

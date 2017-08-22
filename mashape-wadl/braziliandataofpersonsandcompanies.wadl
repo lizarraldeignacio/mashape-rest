@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2310="urn:function:f2310">
+    <grammars>
+        <include href="Function2310.xsd"/>
+    </grammars>
+    <doc>before start doing business in Brazil try our API to identify Persons and Companies</doc>
+    <resources base="https://ebridge-data-v1.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="Person/">
+                <resource uri="GetPerson/">
+                    <resource uri="{documentid}/">
+                        <param name="documentid" style="template" type="xsd:string"/>
+                        <method displayName="/api/Person/GetPerson/{documentid}" id="2310" name="GET">
+                            <doc>getPerson</doc>
+                            <request>
+                                <param name="documentid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f2310:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

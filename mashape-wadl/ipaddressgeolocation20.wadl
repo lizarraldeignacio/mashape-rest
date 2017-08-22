@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>iP Address Geolocation Service to Identify the Continent Country Code Country Name Region State County Province Region Territory District etc City Postal ZIP Code Metro Code Area Code Latitude Longitude Internet Service Provider ISP and Organization</doc>
+    <resources base="https://ipaddresslabs-ip-address-geolocation.p.mashape.com/">
+        <resource uri="locateip/">
+            <method displayName="locateip" id="6301" name="GET">
+                <doc>Geolocates an IP address. Please check our documentation at www.IPAddressLabs.com</doc>
+                <request>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>we also support JSON with Padding JSONP which allows callers to insert a dynamic script element and requires a user specified function name If you have specified the format as JSON you can request that our service return the JSON data wrapped in a specified function name To do so use the callback parameter in the form callback your JavaScript function name</doc>
+                    </param>
+                    <param name="compact" required="true" style="query" type="xsd:string">
+                        <doc>by default the answers in XML and JSON come formated with indentations spacings and line breaks This facilitates its reading and understanding for humans However our service will be ultimately used by automated processes through parsing To facilitate this process and abreviate the size of the response it is possible to obviate the formating elements This can be achieved using the compact parameter in the form compact Y</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>specifies the data format for the response XML or JSON If this parameter is not present the default format is XML</doc>
+                    </param>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>contains the IP address to geolocate Alternatively the ip parameter may contain local ip as a static value instead of the visitor s IP address In such case the IP address of the host from which our service is invoked will be geolocated This is particularly useful when our service is invoked from a desktop application that needs to geolocate the IP address of the host from which it is being executed It is also very useful when our service is invoked by a static javascript code that is executed in the visitor s browser instead of by the web server in which the site resides</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

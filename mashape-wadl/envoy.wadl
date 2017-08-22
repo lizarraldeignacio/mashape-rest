@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4576="urn:function:f4576" xmlns:f4578="urn:function:f4578" xmlns:f4579="urn:function:f4579">
+    <grammars>
+        <include href="Function4579.xsd"/>
+        <include href="Function4578.xsd"/>
+        <include href="Function4576.xsd"/>
+    </grammars>
+    <doc>envoy API modernizes your front desk From collecting names emails and NDAs to pre registering visitors and texting their host when they arrive Envoy makes visitor management simple and it s a joy to use</doc>
+    <resources base="https://baskarm28-envoy-v1.p.mashape.com/">
+        <resource uri="configuration/">
+            <resource uri="employee_list/">
+                <method displayName="Uploading an employee list" id="4579" name="POST">
+                    <doc>Update the Directory with a new list of hosts via CSV file. New names in the CSV will be added to the Directory. Missing names will be removed from the Directory and Matching Name+Email combos will be updated. The CSV Format is as follows: `host full name`,`host email address`,`host phone`.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4579:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="invites/">
+            <resource uri="upload/">
+                <method displayName="Uploading a list of pre-registered guests" id="4578" name="POST">
+                    <doc>Upload a list of guests to pre-register via CSV. The CSV has to be in this format:												`invitee_name`,`invitee_email`,`expected_arrival_time`,`private_notes`,`host_name` 	Note that `invitee_email` and `private_notes` can be blank, but the rest of the fields are required. `host_name` must also be an exact match to a name on the Directory for that location.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4578:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="entries/">
+            <resource uri="ENTRY_ID_HERE.json/">
+                <method displayName="Specific metadata retrieve" id="4577" name="GET">
+                    <doc>Retrieve the metadata associated with a specific entry_id. Note that the S3 URLs that are returned expire after one hour.</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="entries.json/">
+            <method displayName="Retrieve all" id="4575" name="GET">
+                <doc>Retrieve the metadata associated with all entries on the account. Note that the S3 URLs that are returned expire after one hour</doc>
+                <request/>
+            </method>
+            <method displayName="Retrieve metadata from date" id="4576" name="GET">
+                <doc>Retrieve the metadata associated with all entries on the account starting from `from_date` and ending on `to_date`. Note that the S3 URLs that are returned expire after one hour.</doc>
+                <request>
+                    <param name="fromDate" required="true" style="query" type="xsd:string">
+                        <doc>ruby DateTime parse compatible string picking which day to start from</doc>
+                    </param>
+                    <param name="toDate" required="true" style="query" type="xsd:string">
+                        <doc>ruby DateTime parse compatible string picking which day to end on</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4576:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

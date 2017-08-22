@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2022="urn:function:f2022" xmlns:f2023="urn:function:f2023">
+    <grammars>
+        <include href="Function2022.xsd"/>
+        <include href="Function2023.xsd"/>
+    </grammars>
+    <doc>portrait D API is based on Avatarion s Tethys D solution and provides software developers with a technology to create animated facial models based on photos</doc>
+    <resources base="https://avatarion-portrait3d.p.mashape.com/">
+        <resource uri="create/">
+            <method displayName="Create Avatar From POST File" id="2022" name="POST">
+                <request/>
+                <response>
+                    <representation element="f2022:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Create Avatar From URL" id="2023" name="GET">
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>source image URL Supported image types are JPEG and PNG x up to x pixels KB up to MB size</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2023:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

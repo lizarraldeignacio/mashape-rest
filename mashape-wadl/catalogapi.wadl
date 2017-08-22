@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>catalog API is a service that ties your application to our catalog and order support department With minimal integration you can receive data feeds easily scoped to your demographics to provide exciting up to date and motivating catalogs Your pa</doc>
+    <resources base="https://kkollstedt-catalogapi.p.mashape.com/">
+        <resource uri="">
+            <resource uri="order_place/">
+                <method displayName="Place Order without Cart" id="6851" name="POST">
+                    <doc>The order place method has a different endpoint than the other methods. You must POST your request to /v1/json/order_place/ if you are sending the order as json, or to /v1/xml/order_place/ if you are sending the order as xml.</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="{format}/">
+            <param name="format" style="template" type="xsd:string"/>
+            <resource uri="view_item/">
+                <method displayName="View Item" id="6860" name="GET">
+                    <doc>Returns an image and description of the item</doc>
+                    <request>
+                        <param name="catalogItemId" required="true" style="query" type="xsd:string">
+                            <doc>the catalog item id from the search catalog method</doc>
+                        </param>
+                        <param name="credsChecksum" required="true" style="query" type="xsd:string">
+                            <doc>checksum</doc>
+                        </param>
+                        <param name="credsDatetime" required="true" style="query" type="xsd:string">
+                            <doc>uTC iso</doc>
+                        </param>
+                        <param name="credsUuid" required="true" style="query" type="xsd:string">
+                            <doc>gUID</doc>
+                        </param>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>rest or restx</doc>
+                        </param>
+                        <param name="socketId" required="true" style="query" type="xsd:string">
+                            <doc>this is the socket that the item is in You can find your available sockets by using the list available catalogs method</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="cart_view/">
+                <method displayName="View" id="6859" name="GET">
+                    <doc>Returns the current address and items in the cart.</doc>
+                    <request>
+                        <param name="credsChecksum" required="true" style="query" type="xsd:string">
+                            <doc>checksum</doc>
+                        </param>
+                        <param name="credsDatetime" required="true" style="query" type="xsd:string">
+                            <doc>uTC iso</doc>
+                        </param>
+                        <param name="credsUuid" required="true" style="query" type="xsd:string">
+                            <doc>gUID</doc>
+                        </param>
+                        <param name="externalUserId" required="true" style="query" type="xsd:string">
+                            <doc>this is an id from your system that identifies the user that the cart is for It can contain alphanumeric characters dashes and underscores</doc>
+                        </param>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>rest or restx</doc>
+                        </param>
+                        <param name="socketId" required="true" style="query" type="xsd:string">
+                            <doc>this is the socket that the item is in You can find your available sockets by using the list available catalogs method</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="cart_validate/">
+                <method displayName="Validate" id="6858" name="GET">
+                    <doc>Validates the address and items in the cart. You should call this method just before placing an order to make sure that the order will not be rejected.</doc>
+                    <request>
+                        <param name="credsChecksum" required="true" style="query" type="xsd:string">
+                            <doc>checksum</doc>
+                        </param>
+                        <param name="credsDatetime" required="true" style="query" type="xsd:string">
+                            <doc>uTC iso</doc>
+                        </param>
+                        <param name="credsUuid" required="true" style="query" type="xsd:string">
+                            <doc>gUID</doc>
+                        </param>
+                        <param name="externalUserId" required="true" style="query" type="xsd:string">
+                            <doc>this is an id from your system that identifies the user that the cart is for It can contain alphanumeric characters dashes and underscores</doc>
+                        </param>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>rest or restx</doc>
+                        </param>
+                        <param name="locked" required="true" style="query" type="xsd:string">
+                            <doc>set this to to lock the cart Defaults to A locked cart cannot be modified meaning that items cannot be added or removed and the address cannot be changed One use for this would be to lock the cart before processing a credit card transaction in your system You would then be ensured that the item in the cart could not be changed while the transaction is processing You can only call cart view cart unlock or cart order place on a locked cart</doc>
+                        </param>
+                        <param name="socketId" required="true" style="query" type="xsd:string">
+                            <doc>this is the socket that the item is in You can find your available sockets by using the list available catalogs method</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="carts_unlock/">
+                <method displayName="Unlock" id="6857" name="GET">
+                    <doc>Unlocks a cart that has been locked via the cart_validate method.</doc>
+                    <request>
+                        <param name="credsChecksum" required="true" style="query" type="xsd:string">
+                            <doc>checksum</doc>
+                        </param>
+                        <param name="credsDatetime" required="true" style="query" type="xsd:string">
+                            <doc>uTC iso</doc>
+                        </param>
+                        <param name="credsUuid" required="true" style="query" type="xsd:string">
+                            <doc>gUID</doc>
+                        </param>
+                        <param name="externalUserId" required="true" style="query" type="xsd:string">
+                            <doc>this is an id from your system that identifies the user that the cart is for It can contain alphanumeric characters dashes and underscores</doc>
+                        </param>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>rest or restx</doc>
+                        </param>
+                        <param name="socketId" required="true" style="query" type="xsd:string">
+                            <doc>this is the socket that the item is in You can find your available sockets by using the list available catalogs method</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="order_track/">
+                <method displayName="Track Order" id="6856" name="GET">
+                    <doc>Tracks an order given an order number.</doc>
+                    <request>
+                        <param name="credsChecksum" required="true" style="query" type="xsd:string">
+                            <doc>checksum</doc>
+                        </param>
+                        <param name="credsDatetime" required="true" style="query" type="xsd:string">
+                            <doc>uTC iso</doc>
+                        </param>
+                        <param name="credsUuid" required="true" style="query" type="xsd:string">
+                            <doc>gUID</doc>
+                        </param>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>rest or restx</doc>
+                        </param>
+                        <param name="orderNumber" required="true" style="query" type="xsd:string">
+                            <doc>the order number you received after placing an order with order place or cart order place</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="cart_set_item_quantity/">
+                <method displayName="Set Item Quantity" id="6855" name="GET">
+                    <doc>Adds items to the cart. The quantity passed to this call overrides the quantity of a duplicate item.</doc>
+                    <request>
+                        <param name="catalogItemId" required="true" style="query" type="xsd:string">
+                            <doc>the catalog item id from the search catalog method</doc>
+                        </param>
+                        <param name="credsChecksum" required="true" style="query" type="xsd:string">
+                            <doc>checksum</doc>
+                        </param>
+                        <param name="credsDatetime" required="true" style="query" type="xsd:string">
+                            <doc>uTC iso</doc>
+                        </param>
+                        <param name="credsUuid" required="true" style="query" type="xsd:string">
+                            <doc>gUID</doc>
+                        </param>
+                        <param name="externalUserId" required="true" style="query" type="xsd:string">
+                            <doc>this is an id from your system that identifies the user that the cart is for It can contain alphanumeric characters dashes and underscores</doc>
+                        </param>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>rest or restx</doc>
+                        </param>
+                        <param name="optionId" required="true" style="query" type="xsd:string">
+                            <doc>the option id from the search catalog method This is required for items that have options</doc>
+                        </param>
+                        <param name="quantity" required="true" style="query" type="xsd:string">
+                            <doc>the number of items to add If this item is already in the cart this quantity will replace the current quantity</doc>
+                        </param>
+                        <param name="socketId" required="true" style="query" type="xsd:string">
+                            <doc>this is the socket that the item is in You can find your available sockets by using the list available catalogs method</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="cart_set_address/">
+                <method displayName="Set Address" id="6854" name="GET">
+                    <doc>Adds a shipping address to the cart</doc>
+                    <request>
+                        <param name="address" required="true" style="query" type="xsd:string">
+                            <doc>max length is characters</doc>
+                        </param>
+                        <param name="address" required="true" style="query" type="xsd:string">
+                            <doc>max length is characters</doc>
+                        </param>
+                        <param name="address" required="true" style="query" type="xsd:string">
+                            <doc>max length is characters</doc>
+                        </param>
+                        <param name="city" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="country" required="true" style="query" type="xsd:string">
+                            <doc>the ISO alpha country code of the country the order will be shipped to</doc>
+                        </param>
+                        <param name="credsChecksum" required="true" style="query" type="xsd:string">
+                            <doc>checksum</doc>
+                        </param>
+                        <param name="credsDatetime" required="true" style="query" type="xsd:string">
+                            <doc>uTC iso</doc>
+                        </param>
+                        <param name="credsUuid" required="true" style="query" type="xsd:string">
+                            <doc>gUID</doc>
+                        </param>
+                        <param name="email" required="true" style="query" type="xsd:string">
+                            <doc>if set this must be a valid email address We highly recommend that you provide an email address so that we can contact the addressee if there is a problem with the order</doc>
+                        </param>
+                        <param name="externalUserId" required="true" style="query" type="xsd:string">
+                            <doc>this is an id from your system that identifies the user that the cart is for It can contain alphanumeric characters dashes and underscores</doc>
+                        </param>
+                        <param name="firstName" required="true" style="query" type="xsd:string">
+                            <doc>max length is characters</doc>
+                        </param>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>rest or restx</doc>
+                        </param>
+                        <param name="lastName" required="true" style="query" type="xsd:string">
+                            <doc>max length is characters</doc>
+                        </param>
+                        <param name="phoneNumber" required="true" style="query" type="xsd:string">
+                            <doc>if set this must be a valid phone number This will only be used for order support or to contact the addressee to arrange a delivery time for any items that require a signature</doc>
+                        </param>
+                        <param name="postalCode" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="socketId" required="true" style="query" type="xsd:string">
+                            <doc>this is the socket that the item is in You can find your available sockets by using the list available catalogs method</doc>
+                        </param>
+                        <param name="stateProvince" required="true" style="query" type="xsd:string">
+                            <doc>for US states this must be the two character abbreviation</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="search_catalog/">
+                <method displayName="Search Catalog" id="6853" name="GET">
+                    <doc>Searches the catalog based on the parameters passed.</doc>
+                    <request>
+                        <param name="categoryId" required="true" style="query" type="xsd:string">
+                            <doc>returns only items within this category id</doc>
+                        </param>
+                        <param name="credsChecksum" required="true" style="query" type="xsd:string">
+                            <doc>checksum</doc>
+                        </param>
+                        <param name="credsDatetime" required="true" style="query" type="xsd:string">
+                            <doc>uTC iso</doc>
+                        </param>
+                        <param name="credsUuid" required="true" style="query" type="xsd:string">
+                            <doc>gUID</doc>
+                        </param>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>rest or restx</doc>
+                        </param>
+                        <param name="maxPoints" required="true" style="query" type="xsd:string">
+                            <doc>return only items that have a point value of no more than this value</doc>
+                        </param>
+                        <param name="maxRank" required="true" style="query" type="xsd:string">
+                            <doc>do not return items with a rank higher than this value</doc>
+                        </param>
+                        <param name="minPoints" required="true" style="query" type="xsd:string">
+                            <doc>return only items that have a point value of at least this value</doc>
+                        </param>
+                        <param name="name" required="true" style="query" type="xsd:string">
+                            <doc>searchs the name of items</doc>
+                        </param>
+                        <param name="page" required="true" style="query" type="xsd:string">
+                            <doc>the page number Defaults to</doc>
+                        </param>
+                        <param name="perPage" required="true" style="query" type="xsd:string">
+                            <doc>the number of items to return per page Can be from to Defaults to</doc>
+                        </param>
+                        <param name="search" required="true" style="query" type="xsd:string">
+                            <doc>search the name description and model of items</doc>
+                        </param>
+                        <param name="socketId" required="true" style="query" type="xsd:string">
+                            <doc>this is the socket id of the catalog you are searching You can find your available sockets by using the list available catalogs method</doc>
+                        </param>
+                        <param name="sort" required="true" style="query" type="xsd:string">
+                            <doc>the following sort values are supported points desc points asc rank asc score desc</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="cart_remove_item/">
+                <method displayName="Remove Item" id="6852" name="GET">
+                    <doc>Removes items from the cart.</doc>
+                    <request>
+                        <param name="catalogItemId" required="true" style="query" type="xsd:string">
+                            <doc>the catalog item id of the item This item must already exist in the cart</doc>
+                        </param>
+                        <param name="credsChecksum" required="true" style="query" type="xsd:string">
+                            <doc>checksum</doc>
+                        </param>
+                        <param name="credsDatetime" required="true" style="query" type="xsd:string">
+                            <doc>uTC iso</doc>
+                        </param>
+                        <param name="credsUuid" required="true" style="query" type="xsd:string">
+                            <doc>gUID</doc>
+                        </param>
+                        <param name="externalUserId" required="true" style="query" type="xsd:string">
+                            <doc>this is an id from your system that identifies the user that the cart is for It can contain alphanumeric characters dashes and underscores</doc>
+                        </param>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>rest of restx</doc>
+                        </param>
+                        <param name="optionId" required="true" style="query" type="xsd:string">
+                            <doc>the option id of the item if the item has options This option id must match the option id the item already in the cart</doc>
+                        </param>
+                        <param name="socketId" required="true" style="query" type="xsd:string">
+                            <doc>this is the socket that the item is in You can find your available sockets by using the list available catalogs method</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="cart_order_place/">
+                <method displayName="Place Order" id="6850" name="GET">
+                    <doc>This method places as order using the address and items in the cart. Once the order is placed, the cart is deleted.</doc>
+                    <request>
+                        <param name="cartVersion" required="true" style="query" type="xsd:string">
+                            <doc>if cart version is passed this method will only succeed if the passed version matches the version of the current cart</doc>
+                        </param>
+                        <param name="credsChecksum" required="true" style="query" type="xsd:string">
+                            <doc>checksum</doc>
+                        </param>
+                        <param name="credsDatetime" required="true" style="query" type="xsd:string">
+                            <doc>uTC iso</doc>
+                        </param>
+                        <param name="credsUuid" required="true" style="query" type="xsd:string">
+                            <doc>gUID</doc>
+                        </param>
+                        <param name="externalUserId" required="true" style="query" type="xsd:string">
+                            <doc>this is an id from your system that identifies the user that the cart is for It can contain alphanumeric characters dashes and underscores</doc>
+                        </param>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>rest or restx</doc>
+                        </param>
+                        <param name="socketId" required="true" style="query" type="xsd:string">
+                            <doc>this is the socket that the item is in You can find your available sockets by using the list available catalogs method</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="order_list/">
+                <method displayName="Order List" id="6849" name="GET">
+                    <doc>This method returns a list of order numbers (the Catalog API order numbers, not external_order_number) that match a given external_user_id.</doc>
+                    <request>
+                        <param name="credsChecksum" required="true" style="query" type="xsd:string">
+                            <doc>checksum</doc>
+                        </param>
+                        <param name="credsDatetime" required="true" style="query" type="xsd:string">
+                            <doc>uTC iso</doc>
+                        </param>
+                        <param name="credsUuid" required="true" style="query" type="xsd:string">
+                            <doc>gUID</doc>
+                        </param>
+                        <param name="externalUserId" required="true" style="query" type="xsd:string">
+                            <doc>this is the external user id you passed when you placed the order This method does not work with orders that do not have an external user id set</doc>
+                        </param>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>rest or restx</doc>
+                        </param>
+                        <param name="page" required="true" style="query" type="xsd:string">
+                            <doc>the page number of results to return when there are more than per page results</doc>
+                        </param>
+                        <param name="perPage" required="true" style="query" type="xsd:string">
+                            <doc>the number of orders to return Defaults to Can be increased to a maximum of</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="list_available_catalogs/">
+                <method displayName="List Available Catalogs" id="6848" name="GET">
+                    <doc>Lists the Available Catalogs</doc>
+                    <request>
+                        <param name="credsChecksum" required="true" style="query" type="xsd:string">
+                            <doc>checksum</doc>
+                        </param>
+                        <param name="credsDatetime" required="true" style="query" type="xsd:string">
+                            <doc>uTC iso datetime</doc>
+                        </param>
+                        <param name="credsUuid" required="true" style="query" type="xsd:string">
+                            <doc>gUID</doc>
+                        </param>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>rest or restx</doc>
+                        </param>
+                        <param name="token" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="cart_empty/">
+                <method displayName="Empty" id="6847" name="GET">
+                    <doc>Removes all items in the cart.</doc>
+                    <request>
+                        <param name="credsChecksum" required="true" style="query" type="xsd:string">
+                            <doc>checksum</doc>
+                        </param>
+                        <param name="credsDatetime" required="true" style="query" type="xsd:string">
+                            <doc>uTC iso</doc>
+                        </param>
+                        <param name="credsUuid" required="true" style="query" type="xsd:string">
+                            <doc>gUID</doc>
+                        </param>
+                        <param name="externalUserId" required="true" style="query" type="xsd:string">
+                            <doc>this is an id from your system that identifies the user that the cart is for It can contain alphanumeric characters dashes and underscores</doc>
+                        </param>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>rest or restx</doc>
+                        </param>
+                        <param name="socketId" required="true" style="query" type="xsd:string">
+                            <doc>this is the socket that the item is in You can find your available sockets by using the list available catalogs method</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="catalog_breakdown/">
+                <method displayName="Catalog Breakdown" id="6846" name="GET">
+                    <doc>Breaks down the catalog into its categories</doc>
+                    <request>
+                        <param name="credsChecksum" required="true" style="query" type="xsd:string">
+                            <doc>checksum</doc>
+                        </param>
+                        <param name="credsDatetime" required="true" style="query" type="xsd:string">
+                            <doc>uTC iso</doc>
+                        </param>
+                        <param name="credsUuid" required="true" style="query" type="xsd:string">
+                            <doc>gUID</doc>
+                        </param>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>rest or restx</doc>
+                        </param>
+                        <param name="isFlat" required="true" style="query" type="xsd:string">
+                            <doc>by default this method will return categories in a tree structure with child categories contained within their parents If you set is flat to the categories will be returned as a flat list instead of a tree</doc>
+                        </param>
+                        <param name="socketId" required="true" style="query" type="xsd:string">
+                            <doc>this is the socket you want to receive the breakdown for You can find your available sockets by using the list available catalogs method</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="cart_add_item/">
+                <method displayName="Add Item" id="6845" name="GET">
+                    <doc>Adds items to the cart</doc>
+                    <request>
+                        <param name="catalogItemId" required="true" style="query" type="xsd:string">
+                            <doc>the catalog item id from the search catalog method</doc>
+                        </param>
+                        <param name="credsChecksum" required="true" style="query" type="xsd:string">
+                            <doc>checksum</doc>
+                        </param>
+                        <param name="credsDatetime" required="true" style="query" type="xsd:string">
+                            <doc>uTC iso</doc>
+                        </param>
+                        <param name="credsUuid" required="true" style="query" type="xsd:string">
+                            <doc>gUID</doc>
+                        </param>
+                        <param name="externalUserId" required="true" style="query" type="xsd:string">
+                            <doc>this is an id from your system that identifies the user that the cart is for It can contain alphanumeric characters dashes and underscores</doc>
+                        </param>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>rest or restx</doc>
+                        </param>
+                        <param name="optionId" required="true" style="query" type="xsd:string">
+                            <doc>the option id from the search catalog method This is required for items that have options</doc>
+                        </param>
+                        <param name="quantity" required="true" style="query" type="xsd:string">
+                            <doc>the number of items to add If this item is already in the cart this quantity will be added to the current quantity</doc>
+                        </param>
+                        <param name="socketId" required="true" style="query" type="xsd:string">
+                            <doc>this is the socket that the item is in You can find your available sockets by using the list available catalogs method</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2104="urn:function:f2104" xmlns:f2105="urn:function:f2105" xmlns:f2106="urn:function:f2106" xmlns:f2107="urn:function:f2107" xmlns:f2108="urn:function:f2108" xmlns:f2109="urn:function:f2109" xmlns:f2110="urn:function:f2110" xmlns:f2111="urn:function:f2111">
+    <grammars>
+        <include href="Function2111.xsd"/>
+        <include href="Function2109.xsd"/>
+        <include href="Function2108.xsd"/>
+        <include href="Function2107.xsd"/>
+        <include href="Function2105.xsd"/>
+        <include href="Function2110.xsd"/>
+        <include href="Function2106.xsd"/>
+        <include href="Function2104.xsd"/>
+    </grammars>
+    <doc>be the first to know about concerts Track your favourite artists and never miss them live</doc>
+    <resources base="https://community-songkick.p.mashape.com/">
+        <resource uri="venues/">
+            <resource uri="{venue_id}/">
+                <param name="venue_id" style="template" type="xsd:string"/>
+                <resource uri="calendar.json/">
+                    <method displayName="Venue’s upcoming events (calendar)" id="2111" name="GET">
+                        <doc>Find upcoming events for a venue. Use our venue search to find a venue ID.</doc>
+                        <request>
+                            <param name="venueId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f2111:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="users/">
+            <resource uri="{username}/">
+                <param name="username" style="template" type="xsd:string"/>
+                <resource uri="calendar.json/">
+                    <method displayName="User’s upcoming events (calendar)" id="2109" name="GET">
+                        <doc>Find upcoming events on a user’s calendar. There is another API request for past events.</doc>
+                        <request>
+                            <param name="reason" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f2109:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="events.json/">
+            <method displayName="Upcoming event search" id="2108" name="GET">
+                <request>
+                    <param name="artistName" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="location" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2108:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="metro_areas/">
+            <resource uri="{metro_area_id}/">
+                <param name="metro_area_id" style="template" type="xsd:string"/>
+                <resource uri="calendar.json/">
+                    <method displayName="Metro area’s upcoming events (calendar)" id="2107" name="GET">
+                        <doc>Find upcoming events for a metro area. A metro area is a city or a collection of cities that Songkick uses to notify users of concerts near them. Use our location search to find a metro area ID.</doc>
+                        <request>
+                            <param name="metroAreaId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f2107:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="artists/">
+            <resource uri="{artist_id}/">
+                <param name="artist_id" style="template" type="xsd:string"/>
+                <resource uri="calendar.json/">
+                    <method displayName="Artist’s upcoming events (calendar)" id="2105" name="GET">
+                        <doc>Find upcoming events for an artist. Use our artist search to find an artist ID.</doc>
+                        <request>
+                            <param name="artistId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f2105:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="search/">
+            <resource uri="venues.json/">
+                <method displayName="Venue search" id="2110" name="GET">
+                    <doc>Search for venues on Songkick using full text search, including past names and aliases. Sorted by relevancy.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2110:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="locations.json/">
+                <method displayName="Location search" id="2106" name="GET">
+                    <doc>Search for locations: a city and its metro area. A metro area is a city or a collection of cities that Songkick uses to notify users of concerts near them.</doc>
+                    <request>
+                        <param name="location" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2106:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="artists/">
+                <method displayName="Artist search" id="2104" name="GET">
+                    <doc>Search for artists by name using full text search. Sorted by relevancy.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2104:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6005="urn:function:f6005" xmlns:f6007="urn:function:f6007" xmlns:f6008="urn:function:f6008">
+    <grammars>
+        <include href="Function6008.xsd"/>
+        <include href="Function6007.xsd"/>
+        <include href="Function6005.xsd"/>
+    </grammars>
+    <doc>the porn JSON api will serve movies clips picture galleries and siterips of adult content Be it through streams torrents or direct downloads from well known file hosters</doc>
+    <resources base="https://steppschuh-json-porn-v1.p.mashape.com/">
+        <resource uri="search/">
+            <method displayName="Search" id="6008" name="GET">
+                <doc>Endpoints to search for actors or porn entries. Returns an array of actors and porn entries matching the search query.</doc>
+                <request>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>the query string</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6008:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="porn/">
+            <method displayName="Porn" id="6007" name="GET">
+                <doc>Returns an array of the latest porn entries.</doc>
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:string">
+                        <doc>the number of entries you want</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>the number of entries you want to skip</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6007:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="image/">
+            <resource uri="{imagekeyid}/">
+                <param name="imagekeyid" style="template" type="xsd:string"/>
+                <resource uri="{width}.jpg/">
+                    <param name="width" style="template" type="xsd:string"/>
+                    <method displayName="Images" id="6006" name="GET">
+                        <doc>Serves images by a given imageKeyId and resizes them as requested. If the requested image width exceeds the original width, the image will be served in its original resolution.</doc>
+                        <request>
+                            <param name="imagekeyid" required="true" style="query" type="xsd:string">
+                                <doc>the image key id as provided in actor or porn entries</doc>
+                            </param>
+                            <param name="width" required="true" style="query" type="xsd:string">
+                                <doc>the maximum width of the image</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="actors/">
+            <method displayName="Actors" id="6005" name="GET">
+                <doc>Returns an array of actors matching your request. If you have an actor key ID, use only the actorId parameter. If you are looking for a name, use the actorName param. Keep in mind that the actorName matches using the .startsWith() function. If you want an advanced search (including actor nick names), use the /search/ endpoint. If you don't specify a name or an id, the endpoint will return all available actors in alphabetical order.</doc>
+                <request>
+                    <param name="actorid" required="true" style="query" type="xsd:string">
+                        <doc>the actor key ID of a known actor</doc>
+                    </param>
+                    <param name="actorname" required="true" style="query" type="xsd:string">
+                        <doc>the name of the actor you are looking for</doc>
+                    </param>
+                    <param name="count" required="true" style="query" type="xsd:string">
+                        <doc>the number of entries you want</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>the number of entries you want to skip</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6005:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

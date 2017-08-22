@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3625="urn:function:f3625" xmlns:f3626="urn:function:f3626" xmlns:f3627="urn:function:f3627" xmlns:f3628="urn:function:f3628" xmlns:f3629="urn:function:f3629" xmlns:f3630="urn:function:f3630" xmlns:f3631="urn:function:f3631" xmlns:f3632="urn:function:f3632" xmlns:f3633="urn:function:f3633" xmlns:f3634="urn:function:f3634" xmlns:f3635="urn:function:f3635" xmlns:f3636="urn:function:f3636" xmlns:f3637="urn:function:f3637" xmlns:f3638="urn:function:f3638" xmlns:f3639="urn:function:f3639" xmlns:f3640="urn:function:f3640" xmlns:f3641="urn:function:f3641" xmlns:f3642="urn:function:f3642" xmlns:f3643="urn:function:f3643" xmlns:f3644="urn:function:f3644" xmlns:f3645="urn:function:f3645" xmlns:f3646="urn:function:f3646" xmlns:f3647="urn:function:f3647" xmlns:f3648="urn:function:f3648" xmlns:f3649="urn:function:f3649" xmlns:f3650="urn:function:f3650" xmlns:f3651="urn:function:f3651" xmlns:f3652="urn:function:f3652" xmlns:f3653="urn:function:f3653" xmlns:f3654="urn:function:f3654" xmlns:f3655="urn:function:f3655" xmlns:f3656="urn:function:f3656" xmlns:f3657="urn:function:f3657">
+    <grammars>
+        <include href="Function3657.xsd"/>
+        <include href="Function3656.xsd"/>
+        <include href="Function3655.xsd"/>
+        <include href="Function3654.xsd"/>
+        <include href="Function3653.xsd"/>
+        <include href="Function3652.xsd"/>
+        <include href="Function3651.xsd"/>
+        <include href="Function3650.xsd"/>
+        <include href="Function3649.xsd"/>
+        <include href="Function3648.xsd"/>
+        <include href="Function3647.xsd"/>
+        <include href="Function3646.xsd"/>
+        <include href="Function3644.xsd"/>
+        <include href="Function3643.xsd"/>
+        <include href="Function3642.xsd"/>
+        <include href="Function3641.xsd"/>
+        <include href="Function3640.xsd"/>
+        <include href="Function3639.xsd"/>
+        <include href="Function3637.xsd"/>
+        <include href="Function3636.xsd"/>
+        <include href="Function3634.xsd"/>
+        <include href="Function3633.xsd"/>
+        <include href="Function3632.xsd"/>
+        <include href="Function3631.xsd"/>
+        <include href="Function3630.xsd"/>
+        <include href="Function3629.xsd"/>
+        <include href="Function3628.xsd"/>
+        <include href="Function3627.xsd"/>
+        <include href="Function3645.xsd"/>
+        <include href="Function3638.xsd"/>
+        <include href="Function3635.xsd"/>
+        <include href="Function3626.xsd"/>
+        <include href="Function3625.xsd"/>
+    </grammars>
+    <doc>sendGrid s cloud based email infrastructure relieves businesses of the cost and complexity of maintaining custom email systems SendGrid provides reliable delivery scalability and real time analytics along with flexible API s that make custom integration a breeze</doc>
+    <resources base="https://community-sendgrid.p.mashape.com/">
+        <resource uri="profile.get.json/">
+            <method displayName="View Profile" id="3657" name="POST">
+                <doc>View your SendGrid Profile</doc>
+                <request/>
+                <response>
+                    <representation element="f3657:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="filter.setup.json/">
+            <method displayName="Setup App" id="3656" name="POST">
+                <doc>Change application settings. - Please refer to http://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html</doc>
+                <request/>
+                <response>
+                    <representation element="f3656:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="profile.setUsername.json/">
+            <method displayName="Set Username" id="3655" name="POST">
+                <doc>Please note, your account username is used to login to our SMTP server and the website. Changes will take effect immediately.</doc>
+                <request/>
+                <response>
+                    <representation element="f3655:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="profile.set.json/">
+            <method displayName="Set Profile" id="3654" name="POST">
+                <request/>
+                <response>
+                    <representation element="f3654:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="password.set.json/">
+            <method displayName="Set Password" id="3653" name="POST">
+                <request/>
+                <response>
+                    <representation element="f3653:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="parse.set.json/">
+            <method displayName="Set Parse Webhook Settings" id="3652" name="POST">
+                <doc>Specify the hostname and url for parsing incoming emails.</doc>
+                <request/>
+                <response>
+                    <representation element="f3652:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="profile.setEmail.json/">
+            <method displayName="Set Email" id="3651" name="POST">
+                <doc>Please note, we send out a confirmation email to the new email account in order to be validated. Your email address changes when you click on the confirmation link.</doc>
+                <request/>
+                <response>
+                    <representation element="f3651:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="stats.get.json/">
+            <method displayName="Retrieve General Statistics" id="3650" name="POST">
+                <doc>You can specify either the days parameter or the start_date and end_date parameters. If provided with no parameters, the current day’s statistics are returned.</doc>
+                <request/>
+                <response>
+                    <representation element="f3650:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="mail.send.json/">
+            <method displayName="Mail" id="3649" name="POST">
+                <doc>This endpoint allows you to send email.</doc>
+                <request/>
+                <response>
+                    <representation element="f3649:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="unsubscribes.get.json/">
+            <method displayName="Get Unsubscribes" id="3648" name="POST">
+                <doc>Retrieve a list of Unsubscribes with addresses and optionally with dates.</doc>
+                <request/>
+                <response>
+                    <representation element="f3648:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="spamreports.get.json/">
+            <method displayName="Get Spam Reports" id="3647" name="POST">
+                <doc>Retrieve and delete entries in the Spam Reports list.</doc>
+                <request/>
+                <response>
+                    <representation element="f3647:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="parse.get.json/">
+            <method displayName="Get Parse Webhook Settings" id="3646" name="POST">
+                <doc>Retrieve settings already configured for parsing incoming email.</doc>
+                <request/>
+                <response>
+                    <representation element="f3646:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="invalidemails.get.json/">
+            <method displayName="Get Invalid Emails" id="3644" name="POST">
+                <doc>This endpoint allows you to retrieve and delete entries in the Invalid Emails list.</doc>
+                <request/>
+                <response>
+                    <representation element="f3644:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="bounces.get.json/">
+            <method displayName="Get Bounces" id="3643" name="POST">
+                <doc>Retrieve a list of bounces with addresses and response codes, optionally with dates.</doc>
+                <request/>
+                <response>
+                    <representation element="f3643:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="blocks.get.json/">
+            <method displayName="Get Blocks" id="3642" name="POST">
+                <doc>Retrieve a list of Blocks with addresses and response codes, optionally with dates.</doc>
+                <request/>
+                <response>
+                    <representation element="f3642:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="filter.getavailable.json/">
+            <method displayName="Get Available" id="3641" name="GET">
+                <doc>List all of the available apps.  Note: The name entry is used in all the other API calls to identify a app. For a list of all the apps and parameters accesible with the Web API you can check the Filter Settings page. - Please refer to http://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html</doc>
+                <request/>
+                <response>
+                    <representation element="f3641:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="filter.getsettings.json/">
+            <method displayName="Get App Settings" id="3640" name="GET">
+                <doc>Get the Settings Of An App - Please refer to http://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html</doc>
+                <request>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3640:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="stats.getAdvanced.json/">
+            <method displayName="Get Advanced Statistics" id="3639" name="POST">
+                <doc>Get Statistics for: Browsers, Clients, Devices, Geo, Global, Isp</doc>
+                <request/>
+                <response>
+                    <representation element="f3639:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="unsubscribes.delete.json/">
+            <method displayName="Delete Unsubscribes" id="3637" name="POST">
+                <doc>Delete an address from the Unsubscribe list. Please note that if no parameters are provided or if empty parameters are provided the ENTIRE list will be removed.</doc>
+                <request/>
+                <response>
+                    <representation element="f3637:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="spamreports.delete.json/">
+            <method displayName="Delete Spam Reports" id="3636" name="POST">
+                <doc>Delete an address from the Spam Reports list.</doc>
+                <request/>
+                <response>
+                    <representation element="f3636:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="invalidemails.delete.json/">
+            <method displayName="Delete Invalid Emails" id="3634" name="POST">
+                <doc>Delete an address from the Invalid Email list.</doc>
+                <request/>
+                <response>
+                    <representation element="f3634:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="parse.delete.json/">
+            <method displayName="Delete Entry Parse Webhook Settings" id="3633" name="POST">
+                <doc>Delete the existing settings for parsing incoming emails.</doc>
+                <request/>
+                <response>
+                    <representation element="f3633:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="bounces.delete.json/">
+            <method displayName="Delete Bounces" id="3632" name="POST">
+                <doc>Delete an address from the Bounce list. Please note that if no parameters are specified the ENTIRE list will be deleted.</doc>
+                <request/>
+                <response>
+                    <representation element="f3632:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="blocks.delete.json/">
+            <method displayName="Delete Blocks" id="3631" name="POST">
+                <doc>Delete an address from the Block list.</doc>
+                <request/>
+                <response>
+                    <representation element="f3631:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="filter.deactivate.json/">
+            <method displayName="Deactivate App" id="3630" name="POST">
+                <doc>Deactivate an app. - Please refer to http://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html</doc>
+                <request/>
+                <response>
+                    <representation element="f3630:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="bounces.count.json/">
+            <method displayName="Count Bounces" id="3629" name="POST">
+                <request/>
+                <response>
+                    <representation element="f3629:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="blocks.count.json/">
+            <method displayName="Count Blocks" id="3628" name="POST">
+                <request/>
+                <response>
+                    <representation element="f3628:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="unsubscribes.add.json/">
+            <method displayName="Add Unsubscribes" id="3627" name="POST">
+                <doc>Add email addresses to the Unsubscribe list.</doc>
+                <request/>
+                <response>
+                    <representation element="f3627:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="credentials/">
+            <resource uri="get.json/">
+                <method displayName="Get Multiple Credentials" id="3645" name="POST">
+                    <doc>Retrieve a list of all credentials, or permissions for a specific credential.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3645:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="edit.json/">
+                <method displayName="Edit Multiple Credentials" id="3638" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f3638:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="remove.json/">
+                <method displayName="Delete Multiple Credentials" id="3635" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f3635:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="add.json/">
+                <method displayName="Add Multiple Credentials" id="3626" name="POST">
+                    <doc>This API call allows user to add a new set of credentials to their account.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3626:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="filter.activate.json/">
+            <method displayName="Activate App" id="3625" name="POST">
+                <doc>Activate an app. - Please refer to http://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html</doc>
+                <request/>
+                <response>
+                    <representation element="f3625:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

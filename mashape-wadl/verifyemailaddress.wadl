@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f260="urn:function:f260">
+    <grammars>
+        <include href="Function260.xsd"/>
+    </grammars>
+    <doc>check if email address really exist or not using this API and validate email id of any domain</doc>
+    <resources base="https://ajith-Verify-email-address-v1.p.mashape.com/">
+        <resource uri="varifyEmail/">
+            <method displayName="varifyEmail" id="260" name="GET">
+                <doc>Check if Email Address Really Exist or not Using this API.</doc>
+                <request>
+                    <param name="email" required="true" style="query" type="xsd:string">
+                        <doc>please enter a valid email id Format name domain xxx</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f260:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

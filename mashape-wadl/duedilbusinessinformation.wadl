@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2010="urn:function:f2010" xmlns:f2011="urn:function:f2011">
+    <grammars>
+        <include href="Function2011.xsd"/>
+        <include href="Function2010.xsd"/>
+    </grammars>
+    <doc>duedil is a provider of private company information for due diligence Duedil allows users to identify compare and screen potential suppliers and clients and track private company performance The Duedil API allows developers to access and integrate the Duedil functionality and data with other applications Some example API methods include searching companies and retrieving company information</doc>
+    <resources base="https://duedil.p.mashape.com/">
+        <resource uri="search/">
+            <method displayName="Search" id="2011" name="GET">
+                <doc>Search for companies in the UK and Ireland.</doc>
+                <request>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>the Company name</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2011:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="uk/">
+            <resource uri="company/">
+                <resource uri="{company_number}.json/">
+                    <param name="company_number" style="template" type="xsd:string"/>
+                    <method displayName="Company Profile" id="2010" name="GET">
+                        <doc>The /uk/company/ endpoint returns information about companies registered in the UK.</doc>
+                        <request>
+                            <param name="companyNumber" required="true" style="query" type="xsd:string">
+                                <doc>the Company Number</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2010:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

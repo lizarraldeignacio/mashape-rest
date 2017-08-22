@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5971="urn:function:f5971" xmlns:f5972="urn:function:f5972">
+    <grammars>
+        <include href="Function5972.xsd"/>
+        <include href="Function5971.xsd"/>
+    </grammars>
+    <doc>content spinning is an SEO method where search engine optimizers post an original variant of content on article directories Web services or other sources for backlinks It s sometimes used by web masters on their own websites but typically avoided because the quality of rewritten articles will often be lower than hand written content Unlike other automated spinners SpinMaster uses semantic analysis of your text to determine its actual meaning Not just the meaning of the text as a whole but the way that words relate to one another This allows the software to generate high quality unique articles at the push of a button by using only synonyms that make sense in their given context Billing is straightforward There are two methods you can call one to create spintax from a given piece of text and one to generate unique texts based on a piece of spintax</doc>
+    <resources base="https://spinmaster.p.mashape.com/">
+        <resource uri="spin/">
+            <resource uri="content/">
+                <method displayName="Spin Content" id="5972" name="GET">
+                    <doc>Generate unique articles based on a given spintax</doc>
+                    <request>
+                        <param name="spins" required="true" style="query" type="xsd:integer">
+                            <doc>return this many spun articles Max Defaults to</doc>
+                        </param>
+                        <param name="spintax" required="true" style="query" type="xsd:string">
+                            <doc>your text in spintax spun form</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5972:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="create/">
+                <method displayName="Create Spintax" id="5971" name="GET">
+                    <doc>Given a body of text, generate spintax for that text</doc>
+                    <request>
+                        <param name="spins" required="true" style="query" type="xsd:integer">
+                            <doc>in addition to returning the spintax return this many unique spun articles Max Defaults to</doc>
+                        </param>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>enter the text you wish to generate spintax for</doc>
+                        </param>
+                        <param name="uniqueness" required="true" style="query" type="xsd:integer">
+                            <doc>enter a uniqueness between and for low uniqueness and high quality and for high uniqueness and low quality Defaults to</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5971:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

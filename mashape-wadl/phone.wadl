@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f432="urn:function:f432" xmlns:f433="urn:function:f433" xmlns:f434="urn:function:f434" xmlns:f435="urn:function:f435" xmlns:f436="urn:function:f436" xmlns:f437="urn:function:f437">
+    <grammars>
+        <include href="Function437.xsd"/>
+        <include href="Function436.xsd"/>
+        <include href="Function435.xsd"/>
+        <include href="Function434.xsd"/>
+        <include href="Function433.xsd"/>
+        <include href="Function432.xsd"/>
+    </grammars>
+    <doc>full set of cool Telephone validation functions with a coverage of more than a hundred different countries Phone Metropolis API can analyse get location information and parse the content of a given phone number</doc>
+    <resources base="https://metropolis-api-phone.p.mashape.com/">
+        <resource uri="region/">
+            <method displayName="region" id="437" name="GET">
+                <doc>Get the Geographic Region information</doc>
+                <request>
+                    <param name="areaCode" required="true" style="query" type="xsd:string">
+                        <doc>local Area Code</doc>
+                    </param>
+                    <param name="country" required="true" style="query" type="xsd:string">
+                        <doc>ISO letter country code or Name of the Country in English</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f437:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="iso/">
+            <method displayName="iso" id="436" name="GET">
+                <doc>Get the ISO codes from a given Country</doc>
+                <request>
+                    <param name="country" required="true" style="query" type="xsd:string">
+                        <doc>description of the Country in English</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f436:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="flag/">
+            <method displayName="flag" id="435" name="GET">
+                <doc>Get the Flag Image from a given Country</doc>
+                <request>
+                    <param name="country" required="true" style="query" type="xsd:string">
+                        <doc>Country ISO Code or Description of the Country in English</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f435:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="directory/">
+            <method displayName="directory" id="434" name="GET">
+                <doc>Get all the Local Area Codes from a given Country</doc>
+                <request>
+                    <param name="country" required="true" style="query" type="xsd:string">
+                        <doc>ISO letter country code or Name of the Country in English</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f434:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="area-code/">
+            <method displayName="area-code" id="433" name="GET">
+                <doc>Get the International Country Calling Code and the Local Area Code information</doc>
+                <request>
+                    <param name="country" required="true" style="query" type="xsd:string">
+                        <doc>ISO letter country code or Name of the Country in English</doc>
+                    </param>
+                    <param name="region" required="true" style="query" type="xsd:string">
+                        <doc>geographic Region e g City No accented letter is required</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f433:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="analysis/">
+            <method displayName="analysis" id="432" name="GET">
+                <doc>Analyse, validate and parse the content of a given Phone Number</doc>
+                <request>
+                    <param name="country" required="true" style="query" type="xsd:string">
+                        <doc>ISO letter country code or Name of the Country in English</doc>
+                    </param>
+                    <param name="telephone" required="true" style="query" type="xsd:string">
+                        <doc>full Telephone Number</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f432:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

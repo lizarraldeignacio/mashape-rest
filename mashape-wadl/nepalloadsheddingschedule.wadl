@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>the core API which powers the Loadshedding Schedule service provided by Sparrow SMS for getting the weekly powercut schedule for any group in Nepal Sparrow SMS has been providing this service via SMS and Web And its now public for developers too D</doc>
+    <resources base="https://acpmasquerade-nepal-loadshedding-schedule-by-sparrow-sms.p.mashape.com/">
+        <resource uri="schedule.php/">
+            <method displayName="Get Schedule" id="2112" name="GET">
+                <doc>Returns whole week schedule for a particular group specified</doc>
+                <request>
+                    <param name="ampm" required="true" style="query" type="xsd:boolean">
+                        <doc>if AM PM Format is required ampm true should be supplied</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>format json for JSON output else its optional</doc>
+                    </param>
+                    <param name="group" required="true" style="query" type="xsd:string">
+                        <doc>group number to fetch the schedule for</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

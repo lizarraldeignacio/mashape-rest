@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>printchomp API from the very start was envisioned and developed with developers in mind We make sure we re always accessible to our API partners and welcome all feedback Printchomp API is truly RESTful and has adopted Hypertext Application Language HAL to make it easily consumable and explorable All API calls and responses are very consistent making it a delight to program against</doc>
+    <resources base="https://printchomp.p.mashape.com/">
+        <resource uri="files/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Retrieve a file" id="7451" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>numeric id of the file</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="products/">
+            <method displayName="List all products" id="7450" name="GET">
+                <request/>
+            </method>
+            <method displayName="Retrieve a product" id="7452" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>numeric id of the product</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="offers/">
+            <method displayName="List all offers" id="7448" name="GET">
+                <request>
+                    <param name="exclusive" required="true" style="query" type="xsd:string">
+                        <doc>if false all available offers will be returned If missing or any other value only exclusive offers will be returned</doc>
+                    </param>
+                    <param name="productName" required="true" style="query" type="xsd:string">
+                        <doc>if present only offers with the given product name will be returned</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Retrieve an offer" id="7455" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>numeric id of the offer</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="orders/">
+            <method displayName="Create an order" id="7446" name="POST">
+                <request/>
+            </method>
+            <method displayName="List all files for an order" id="7447" name="GET">
+                <request>
+                    <param name="orderId" required="true" style="query" type="xsd:string">
+                        <doc>numeric id of an order</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="List all orders" id="7449" name="GET">
+                <request/>
+            </method>
+            <method displayName="Retrieve an order" id="7456" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>numeric id of the order</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="users/">
+            <method displayName="Create a user" id="7445" name="POST">
+                <doc>Creates a user and associates the user with your application.</doc>
+                <request/>
+            </method>
+            <method displayName="Retrieve a user" id="7453" name="GET">
+                <doc>Retrieves a user</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>numeric id of the user to retrieve</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Retrieve all users" id="7454" name="GET">
+                <doc>Retrieves all users associated with your application.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="shipping/">
+            <method displayName="Create a shipping quote" id="7444" name="POST">
+                <doc>Obtains a shipping quote for an offer.</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

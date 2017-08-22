@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6669="urn:function:f6669" xmlns:f6670="urn:function:f6670">
+    <grammars>
+        <include href="Function6670.xsd"/>
+        <include href="Function6669.xsd"/>
+    </grammars>
+    <doc>appetitoso is a semantic search engine for dishes It allows developers to include a search engine and a recommender system into their applications by suggesting to the final users only the best dishes prepared by the restaurant near a location Each dish has a score computed by Appetitoso taking into account more than different parameter</doc>
+    <resources base="https://appetitoso-best-food-dishes-v1.p.mashape.com/">
+        <resource uri="dish/">
+            <resource uri="suggestions/">
+                <method displayName="suggestions" id="6670" name="GET">
+                    <doc>This endpoint allows developers to get best dishes suggested by Appetitoso nearby.</doc>
+                    <request>
+                        <param name="lang" required="true" style="query" type="xsd:string">
+                            <doc>language preference it en</doc>
+                        </param>
+                        <param name="lat" required="true" style="query" type="xsd:integer">
+                            <doc>latitude of the place that you want explore</doc>
+                        </param>
+                        <param name="lng" required="true" style="query" type="xsd:integer">
+                            <doc>longitude of the place that you want explore</doc>
+                        </param>
+                        <param name="radius" required="true" style="query" type="xsd:integer">
+                            <doc>distance from the center lat lng in KM Max value</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6670:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="search/">
+                <method displayName="search" id="6669" name="GET">
+                    <doc>Semantic Search Engine for dishes. It allows developers to find best dishes given a query and a position.</doc>
+                    <request>
+                        <param name="lang" required="true" style="query" type="xsd:string">
+                            <doc>language preference it en</doc>
+                        </param>
+                        <param name="lat" required="true" style="query" type="xsd:integer">
+                            <doc>latitude of the place that you want explore</doc>
+                        </param>
+                        <param name="lng" required="true" style="query" type="xsd:integer">
+                            <doc>longitude of the place that you want explore</doc>
+                        </param>
+                        <param name="query" required="true" style="query" type="xsd:string">
+                            <doc>text query in natural language Typically it is the name of the dish e g pasta or the cuisine type e g italian</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6669:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7511="urn:function:f7511" xmlns:f7512="urn:function:f7512">
+    <grammars>
+        <include href="Function7511.xsd"/>
+        <include href="Function7512.xsd"/>
+    </grammars>
+    <doc>netLicensing is a first class solution in the Licensing as a Service LaaS sector Based on open standards it provides a cost effective integrated and scalable platform for software vendors and developers who want to concentrate on their product s core functionality instead of spending resources on developing an own license management software NetLicensing allows vendors and developers to enable license management for their new or existing products right away and with minimum effort</doc>
+    <resources base="https://netlicensing.p.mashape.com/">
+        <resource uri="core/">
+            <resource uri="v2/">
+                <resource uri="rest/">
+                    <resource uri="licensee/">
+                        <method displayName="Licensees list" id="7511" name="GET">
+                            <doc>Return a list of all licensees for the current vendor</doc>
+                            <request/>
+                            <response>
+                                <representation element="f7511:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Validate licensee" id="7512" name="GET">
+                            <doc>Validates active licenses of the licensee</doc>
+                            <request>
+                                <param name="licenseenumber" required="true" style="query" type="xsd:string">
+                                    <doc>use valid licensee number can be obtained by calling Licensees list</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f7512:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

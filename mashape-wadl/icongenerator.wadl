@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6792="urn:function:f6792" xmlns:f6794="urn:function:f6794" xmlns:f6796="urn:function:f6796" xmlns:f6798="urn:function:f6798" xmlns:f6800="urn:function:f6800" xmlns:f6802="urn:function:f6802" xmlns:f6804="urn:function:f6804">
+    <grammars>
+        <include href="Function6804.xsd"/>
+        <include href="Function6802.xsd"/>
+        <include href="Function6800.xsd"/>
+        <include href="Function6798.xsd"/>
+        <include href="Function6796.xsd"/>
+        <include href="Function6794.xsd"/>
+        <include href="Function6792.xsd"/>
+    </grammars>
+    <doc>create iconsets for iPhone iPad and Android The iconset download links are available for minutes since creation</doc>
+    <resources base="https://marcinpraski-icongenerator-v1.p.mashape.com/">
+        <resource uri="universal/">
+            <method displayName="Universal iconset" id="6804" name="POST">
+                <doc>Generate universal iconset for iOS 6.1+ and newest devices.</doc>
+                <request/>
+                <response>
+                    <representation element="f6804:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Universal iconset url" id="6805" name="GET">
+                <doc>Generate universal iconset for iOS 6.1+ and newest devices.</doc>
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>the url of image to be iconified</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="universalold/">
+            <method displayName="Old universal iconset" id="6802" name="POST">
+                <doc>Generate universal iconset for devices running iOS 6.1 and below.</doc>
+                <request/>
+                <response>
+                    <representation element="f6802:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Old universal iconset url" id="6803" name="GET">
+                <doc>Generate universal iconset for devices running iOS 6.1 and below.</doc>
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>the url of image to be iconified</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="iphoneold/">
+            <method displayName="Old iPhone iconset" id="6800" name="POST">
+                <doc>Generate iconset suitable for projects aimed at iPhones running iOS 6.1 and below.</doc>
+                <request/>
+                <response>
+                    <representation element="f6800:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Old iPhone iconset url" id="6801" name="GET">
+                <doc>Generate iconset suitable for projects aimed at iPhones running iOS 6.1 and below.</doc>
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>the url of image to be iconified</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="ipadold/">
+            <method displayName="Old iPad iconset" id="6798" name="POST">
+                <doc>Generate iconset suitable for iPads running iOS 6.1 and below.</doc>
+                <request/>
+                <response>
+                    <representation element="f6798:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Old iPad iconset url" id="6799" name="GET">
+                <doc>Generate iconset suitable for iPads running iOS 6.1 and below.</doc>
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>the url of image to be iconified</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="iphone/">
+            <method displayName="iPhone iconset" id="6796" name="POST">
+                <doc>Generate iconset suitable for projects aimed at iOS 6.1+ and newest iPhones.</doc>
+                <request/>
+                <response>
+                    <representation element="f6796:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="IPhone iconset url" id="6797" name="GET">
+                <doc>Generate iconset suitable for projects aimed at iOS 6.1+ and newest iPhones.</doc>
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>the url of image to be iconified</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="ipad/">
+            <method displayName="iPad iconset" id="6794" name="POST">
+                <doc>Generate iconset suitable for projects aimed at iOS 6.1+ and newest iPads.</doc>
+                <request/>
+                <response>
+                    <representation element="f6794:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="iPad iconset url" id="6795" name="GET">
+                <doc>Generate iconset suitable for projects aimed at iOS 6.1+ and newest iPads.</doc>
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>the url of image to be iconified</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="android/">
+            <method displayName="Android iconset" id="6792" name="POST">
+                <doc>Generate iconset for Android devices.</doc>
+                <request/>
+                <response>
+                    <representation element="f6792:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Android iconset url" id="6793" name="GET">
+                <doc>Generate iconset for Android devices.</doc>
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>the url of image to be iconified</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

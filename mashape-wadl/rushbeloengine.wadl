@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6892="urn:function:f6892" xmlns:f6893="urn:function:f6893" xmlns:f6894="urn:function:f6894" xmlns:f6895="urn:function:f6895" xmlns:f6896="urn:function:f6896" xmlns:f6897="urn:function:f6897" xmlns:f6898="urn:function:f6898" xmlns:f6899="urn:function:f6899" xmlns:f6900="urn:function:f6900" xmlns:f6901="urn:function:f6901" xmlns:f6902="urn:function:f6902" xmlns:f6903="urn:function:f6903" xmlns:f6904="urn:function:f6904" xmlns:f6905="urn:function:f6905" xmlns:f6906="urn:function:f6906" xmlns:f6907="urn:function:f6907">
+    <grammars>
+        <include href="Function6892.xsd"/>
+        <include href="Function6893.xsd"/>
+        <include href="Function6894.xsd"/>
+        <include href="Function6895.xsd"/>
+        <include href="Function6896.xsd"/>
+        <include href="Function6897.xsd"/>
+        <include href="Function6898.xsd"/>
+        <include href="Function6899.xsd"/>
+        <include href="Function6900.xsd"/>
+        <include href="Function6901.xsd"/>
+        <include href="Function6902.xsd"/>
+        <include href="Function6903.xsd"/>
+        <include href="Function6904.xsd"/>
+        <include href="Function6905.xsd"/>
+        <include href="Function6906.xsd"/>
+        <include href="Function6907.xsd"/>
+    </grammars>
+    <doc>rushb makes it easy to implement the ELO rating system for your game using FIDE settings It supports not only creating rating for new matches but updating or deleting previous matches</doc>
+    <resources base="https://akdarrah-rushb-elo-engine-v1.p.mashape.com/">
+        <resource uri="1/">
+            <resource uri="games/">
+                <method displayName="Create Game" id="6892" name="POST">
+                    <doc>Create a new game for the application.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f6892:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Create Match" id="6893" name="POST">
+                    <doc>Create a new match between two players of the game. Ranking rating are automatically created based on the match results.</doc>
+                    <request>
+                        <param name="gameId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f6893:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Create Player" id="6894" name="POST">
+                    <doc>Create a new player for the game. Once created, this player can be used for matches.</doc>
+                    <request>
+                        <param name="gameId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f6894:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Delete Game" id="6895" name="DELETE">
+                    <doc>Delete a game from your application. This will also delete all players, matches, and rankings associated to the game.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f6895:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Delete Match" id="6896" name="DELETE">
+                    <doc>Delete an existing match. Rankings for all impacted matches and players will automatically be updated.</doc>
+                    <request>
+                        <param name="gameId" required="true" style="query" type="xsd:string"/>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f6896:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Delete Player" id="6897" name="DELETE">
+                    <doc>Delete a player. This can only be done if the player is not associated to any matches.</doc>
+                    <request>
+                        <param name="gameId" required="true" style="query" type="xsd:string"/>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f6897:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Game Rankings" id="6898" name="GET">
+                    <doc>All rankings associated to the provided Game.</doc>
+                    <request>
+                        <param name="gameId" required="true" style="query" type="xsd:string"/>
+                        <param name="page" required="true" style="query" type="xsd:integer">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6898:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Games Index" id="6899" name="GET">
+                    <doc>The games created for this application.</doc>
+                    <request>
+                        <param name="page" required="true" style="query" type="xsd:integer">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6899:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Match Rankings" id="6900" name="GET">
+                    <doc>All rankings associated to the provided Match.</doc>
+                    <request>
+                        <param name="gameId" required="true" style="query" type="xsd:string"/>
+                        <param name="matchId" required="true" style="query" type="xsd:string"/>
+                        <param name="page" required="true" style="query" type="xsd:integer">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6900:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Matches Index" id="6901" name="GET">
+                    <doc>Get all matches for the provided game.</doc>
+                    <request>
+                        <param name="gameId" required="true" style="query" type="xsd:string"/>
+                        <param name="page" required="true" style="query" type="xsd:integer">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6901:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Player Rankings" id="6902" name="GET">
+                    <doc>All rankings associated to the provided Player.</doc>
+                    <request>
+                        <param name="gameId" required="true" style="query" type="xsd:string"/>
+                        <param name="page" required="true" style="query" type="xsd:integer">
+                            <doc/>
+                        </param>
+                        <param name="playerId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f6902:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Players Index" id="6903" name="GET">
+                    <doc>Get players that participate in the provided game.</doc>
+                    <request>
+                        <param name="gameId" required="true" style="query" type="xsd:integer"/>
+                        <param name="page" required="true" style="query" type="xsd:integer">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6903:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Show Game" id="6904" name="GET">
+                    <doc>Show the game data for the provided game ID.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:integer"/>
+                    </request>
+                    <response>
+                        <representation element="f6904:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Show Match" id="6905" name="GET">
+                    <doc>Get the data for an individual match.</doc>
+                    <request>
+                        <param name="gameId" required="true" style="query" type="xsd:string"/>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f6905:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Show Player" id="6906" name="GET">
+                    <doc>Get the data for an individual player.</doc>
+                    <request>
+                        <param name="gameId" required="true" style="query" type="xsd:string"/>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f6906:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Update Match" id="6907" name="PUT">
+                    <doc>Update an existing match. Rankings for all impacted matches and players will automatically be updated.</doc>
+                    <request>
+                        <param name="gameId" required="true" style="query" type="xsd:string"/>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f6907:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

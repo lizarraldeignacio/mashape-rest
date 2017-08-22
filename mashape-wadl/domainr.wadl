@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f306="urn:function:f306" xmlns:f308="urn:function:f308" xmlns:f310="urn:function:f310" xmlns:f311="urn:function:f311">
+    <grammars>
+        <include href="Function311.xsd"/>
+        <include href="Function310.xsd"/>
+        <include href="Function308.xsd"/>
+        <include href="Function306.xsd"/>
+    </grammars>
+    <doc>instant domain search Docs https github com domainr api</doc>
+    <resources base="https://domainr.p.mashape.com/">
+        <resource uri="v2/">
+            <resource uri="status/">
+                <method displayName="/v2/status" id="311" name="GET">
+                    <doc>Check domain availability.</doc>
+                    <request>
+                        <param name="domain" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of domains to check</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f311:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="search/">
+                <method displayName="/v2/search" id="310" name="GET">
+                    <doc>Responds with search suggestions related to the query.</doc>
+                    <request>
+                        <param name="defaults" required="true" style="query" type="xsd:string">
+                            <doc>optionally include a comma separated list of zones to include by default</doc>
+                        </param>
+                        <param name="location" required="true" style="query" type="xsd:string">
+                            <doc>optional two character country code to include Geo TLDs</doc>
+                        </param>
+                        <param name="query" required="true" style="query" type="xsd:string">
+                            <doc>search query</doc>
+                        </param>
+                        <param name="registrar" required="true" style="query" type="xsd:string">
+                            <doc>optionally restrict returned results to those supported by a registrar</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f310:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="register/">
+                <method displayName="/v2/register" id="309" name="GET">
+                    <doc>Responds with an HTTP redirect to a supporting registrar.</doc>
+                    <request>
+                        <param name="domain" required="true" style="query" type="xsd:string">
+                            <doc>domain to register</doc>
+                        </param>
+                        <param name="registrar" required="true" style="query" type="xsd:string">
+                            <doc>the registrar s root domain</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="v1/">
+            <resource uri="search/">
+                <method displayName="/v1/search" id="308" name="GET">
+                    <doc>Responds with search suggestions related to the query, as well as availability, and links to register the suggested domains.</doc>
+                    <request>
+                        <param name="q" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f308:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="register/">
+                <method displayName="/v1/register" id="307" name="GET">
+                    <doc>The Register API takes a domain parameter and responds with an HTTP redirect to a supporting registrar.</doc>
+                    <request>
+                        <param name="domain" required="true" style="query" type="xsd:string">
+                            <doc>must be a domain name</doc>
+                        </param>
+                        <param name="registrar" required="true" style="query" type="xsd:string">
+                            <doc>the registrar s root domain</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="info/">
+                <method displayName="/v1/info" id="306" name="GET">
+                    <doc>Responds with info about the domain, e.g. its availability, where to register it, etc.</doc>
+                    <request>
+                        <param name="q" required="true" style="query" type="xsd:string">
+                            <doc>must be a domain name</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f306:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f17="urn:function:f17">
+    <grammars>
+        <include href="Function17.xsd"/>
+    </grammars>
+    <doc>this tool works by examining individual words and short sequences of words n grams and comparing them with a probability model The probability model is built on a prelabeled test set of IMDb movie reviews It can also detect negations in phrases i e the phrase not bad will be classified as positive despite having two individual words with a negative sentiment</doc>
+    <resources base="https://community-sentiment.p.mashape.com/">
+        <resource uri="text/">
+            <method displayName="Sentiment" id="17" name="POST">
+                <request/>
+                <response>
+                    <representation element="f17:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

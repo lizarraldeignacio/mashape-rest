@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>bitcoin API that is free reliable and accurate</doc>
+    <resources base="https://montanaflynn-bitcoin-exchange-rate.p.mashape.com/">
+        <resource uri="currencies/">
+            <resource uri="exchange_rates/">
+                <method displayName="Currency Exchange Rate" id="326" name="GET">
+                    <doc>Current Bitcoin exchange rates for major international currencies.</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="prices/">
+            <resource uri="spot_rate/">
+                <method displayName="Spot Price" id="328" name="GET">
+                    <doc>The spot price is in between the buy and sell price and the best current price of a bitcoin.</doc>
+                    <request>
+                        <param name="currency" required="true" style="query" type="xsd:string">
+                            <doc>iSO currency code Default is USD</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="sell/">
+                <method displayName="Sell Price" id="327" name="GET">
+                    <doc>Current selling price of Bitcoin in USD.</doc>
+                    <request>
+                        <param name="qty" required="true" style="query" type="xsd:string">
+                            <doc>the amount of Bitcoins</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="buy/">
+                <method displayName="Buy Price" id="325" name="GET">
+                    <doc>Current buying price of Bitcoin in USD.</doc>
+                    <request>
+                        <param name="qty" required="true" style="query" type="xsd:integer">
+                            <doc>the amount of Bitcoins</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

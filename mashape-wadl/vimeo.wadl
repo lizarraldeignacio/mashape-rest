@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>vimeo API</doc>
+    <resources base="https://vimeo.p.mashape.com/">
+        <resource uri="v2/">
+            <method displayName="GetAllCategories" id="1270" name="GET">
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>json or xml or php</doc>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="GetAllChannels" id="1271" name="GET">
+                <doc>Get a list of all public channels.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>json xml php</doc>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>the page number to show</doc>
+                    </param>
+                    <param name="perPage" required="true" style="query" type="xsd:string">
+                        <doc>number of items to show on each page Max</doc>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:string">
+                        <doc>method to sort by newest oldest alphabetical most videos most subscribed or most recently updated</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="GetCategoryInfo" id="1272" name="GET">
+                <request>
+                    <param name="category" required="true" style="query" type="xsd:string">
+                        <doc>the name of the category</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>json or xml or php</doc>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="GetChannelInfo" id="1273" name="GET">
+                <doc>Get the information on a single channel.</doc>
+                <request>
+                    <param name="channelId" required="true" style="query" type="xsd:string">
+                        <doc>the numeric id of the channel or its url name</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>json xml php</doc>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="GetChannelVideos" id="1274" name="GET">
+                <doc>Get a list of the videos in a channel.</doc>
+                <request>
+                    <param name="channelId" required="true" style="query" type="xsd:string">
+                        <doc>the numeric id of the channel or its url name</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>json xml php</doc>
+                    </param>
+                    <param name="fullResponse" required="true" style="query" type="xsd:boolean">
+                        <doc>set this parameter to get back the full video information</doc>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>the page number to show</doc>
+                    </param>
+                    <param name="perPage" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                    <param name="summaryResponse" required="true" style="query" type="xsd:boolean">
+                        <doc>set this parameter to get back more information</doc>
+                    </param>
+                    <param name="userId" required="true" style="query" type="xsd:string">
+                        <doc>the ID number or username of the user A token may be used instead</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="GetRelatedChannels" id="1275" name="GET">
+                <request>
+                    <param name="category" required="true" style="query" type="xsd:string">
+                        <doc>category name</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>json or xml or php</doc>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>the page number to show</doc>
+                    </param>
+                    <param name="perPage" required="true" style="query" type="xsd:integer">
+                        <doc>number of items to show on each page Max</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="GetRelatedPeople" id="1276" name="GET">
+                <doc>Get a list of related people for a category.</doc>
+                <request>
+                    <param name="category" required="true" style="query" type="xsd:string">
+                        <doc>the name of the category</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>json or xml or php</doc>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>the page number to show</doc>
+                    </param>
+                    <param name="perPage" required="true" style="query" type="xsd:integer">
+                        <doc>number of items to show on each page Max</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="GetRelatedTags" id="1277" name="GET">
+                <doc>Get a list of related tags for a category.</doc>
+                <request>
+                    <param name="category" required="true" style="query" type="xsd:string">
+                        <doc>the Name of category</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>json or xml or php</doc>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>the page number to show</doc>
+                    </param>
+                    <param name="perPage" required="true" style="query" type="xsd:integer">
+                        <doc>number of items to show on each page Max</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="GetRelatedVideos" id="1278" name="GET">
+                <request>
+                    <param name="category" required="true" style="query" type="xsd:string">
+                        <doc>the name of the category</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>json or xml or php</doc>
+                    </param>
+                    <param name="fullResponse" required="true" style="query" type="xsd:boolean">
+                        <doc>set this parameter to get back the full video information</doc>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>the page number to show</doc>
+                    </param>
+                    <param name="perPage" required="true" style="query" type="xsd:integer">
+                        <doc>number of items to show on each page Max</doc>
+                    </param>
+                    <param name="summaryResponse" required="true" style="query" type="xsd:boolean">
+                        <doc>set this parameter to get back more information</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="GetVideoFromUser" id="1279" name="GET">
+                <doc>Get all videos credited to a user (both uploaded and appears).</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>json xml php</doc>
+                    </param>
+                    <param name="fullResponse" required="true" style="query" type="xsd:boolean">
+                        <doc>set this parameter to get back the full video information</doc>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>the page number to show</doc>
+                    </param>
+                    <param name="perPage" required="true" style="query" type="xsd:string">
+                        <doc>number of items to show on each page Max</doc>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:string">
+                        <doc>method to sort by newest oldest most played most commented or most liked</doc>
+                    </param>
+                    <param name="summaryResponse" required="true" style="query" type="xsd:boolean">
+                        <doc>set this parameter to get back more information</doc>
+                    </param>
+                    <param name="userId" required="true" style="query" type="xsd:string">
+                        <doc>the ID number or username of the user A token may be used instead</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="GetVideosByTag" id="1280" name="GET">
+                <doc>Get a list of videos that have the specified tag.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>json php xml</doc>
+                    </param>
+                    <param name="fullResponse" required="true" style="query" type="xsd:boolean">
+                        <doc>set this parameter to get back the full video information</doc>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>page number to show</doc>
+                    </param>
+                    <param name="perPage" required="true" style="query" type="xsd:string">
+                        <doc>number of items to show on each page Max</doc>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:string">
+                        <doc>method to sort by relevant newest oldest most played most commented or most liked</doc>
+                    </param>
+                    <param name="summaryResponse" required="true" style="query" type="xsd:boolean">
+                        <doc>set this parameter to get back more information</doc>
+                    </param>
+                    <param name="tag" required="true" style="query" type="xsd:string">
+                        <doc>the tag to get</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="GetVideosComment" id="1281" name="GET">
+                <doc>Get a list of the comments on a video.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>json php xml</doc>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>the page number to show</doc>
+                    </param>
+                    <param name="perPage" required="true" style="query" type="xsd:integer">
+                        <doc>number of items to show on each page Max</doc>
+                    </param>
+                    <param name="videoId" required="true" style="query" type="xsd:string">
+                        <doc>the ID of the video</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="SearchVideos" id="1282" name="GET">
+                <doc>Search for videos.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>json xml php</doc>
+                    </param>
+                    <param name="fullResponse" required="true" style="query" type="xsd:boolean">
+                        <doc>set this parameter to get back the full video information</doc>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>the page number to show</doc>
+                    </param>
+                    <param name="perPage" required="true" style="query" type="xsd:integer">
+                        <doc>number of items to show on each page Max</doc>
+                    </param>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>the search terms</doc>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:string">
+                        <doc>method to sort by relevant newest oldest most played most commented or most liked</doc>
+                    </param>
+                    <param name="summaryResponse" required="true" style="query" type="xsd:boolean">
+                        <doc>set this parameter to get back more information</doc>
+                    </param>
+                    <param name="userId" required="true" style="query" type="xsd:string">
+                        <doc>the ID number or username of the user</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

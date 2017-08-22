@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3124="urn:function:f3124" xmlns:f3125="urn:function:f3125" xmlns:f3126="urn:function:f3126" xmlns:f3127="urn:function:f3127" xmlns:f3128="urn:function:f3128" xmlns:f3129="urn:function:f3129" xmlns:f3130="urn:function:f3130" xmlns:f3131="urn:function:f3131" xmlns:f3132="urn:function:f3132" xmlns:f3133="urn:function:f3133">
+    <grammars>
+        <include href="Function3133.xsd"/>
+        <include href="Function3132.xsd"/>
+        <include href="Function3131.xsd"/>
+        <include href="Function3130.xsd"/>
+        <include href="Function3129.xsd"/>
+        <include href="Function3128.xsd"/>
+        <include href="Function3127.xsd"/>
+        <include href="Function3126.xsd"/>
+        <include href="Function3125.xsd"/>
+        <include href="Function3124.xsd"/>
+    </grammars>
+    <doc>this API provides information related to Indian Railways Trains You can get the list of stations trains between stations route of a train current running status of the train and get PNR current status This is unofficial NTES API NTES provides train running related and real time status queries for all trains of India</doc>
+    <resources base="https://devru-ntes-national-train-enquiry-system-v1.p.mashape.com/">
+        <resource uri="trainType.php/">
+            <method displayName="Train Type" id="3133" name="GET">
+                <doc>Returns Lits of all train types</doc>
+                <request/>
+                <response>
+                    <representation element="f3133:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="stationSearch.php/">
+            <method displayName="Station Code Search" id="3132" name="GET">
+                <doc>Returns a list of all Stations for a given input string. It can be used as Quick Search Tool</doc>
+                <request>
+                    <param name="station" required="true" style="query" type="xsd:string">
+                        <doc>rETURNS Station Code Enter the station name here Need not be a complete Endpoint gives suggestions for Incomplete names</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3132:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="rescheduledTrains.php/">
+            <method displayName="7. Rescheduled Trains" id="3131" name="GET">
+                <doc>RETURNS Rescheduled Trains</doc>
+                <request>
+                    <param name="dateType" required="true" style="query" type="xsd:string">
+                        <doc>values Today TD Tomorrow TM Yesterday YS</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3131:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="divertedTrains.php/">
+            <method displayName="6. Diverted trains" id="3130" name="GET">
+                <doc>RETURNS Diverted trains</doc>
+                <request>
+                    <param name="dateType" required="true" style="query" type="xsd:string">
+                        <doc>values Today TD Tomorrow TM Yesterday YS</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3130:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="cancelledTrains.php/">
+            <method displayName="5. Cancelled Trains" id="3129" name="GET">
+                <doc>Returns Cancelled Trains For a Given Date</doc>
+                <request>
+                    <param name="dateType" required="true" style="query" type="xsd:string">
+                        <doc>values Today TD Tomorrow TM Yesterday YS</doc>
+                    </param>
+                    <param name="excpType" required="true" style="query" type="xsd:string">
+                        <doc>cancelled train type values Fully Cancelled EC Partially Cancelled EPC</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3129:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="trainBetweenStation.php/">
+            <method displayName="4. Train Between Stations" id="3128" name="GET">
+                <doc>RETURNS train between stations</doc>
+                <request>
+                    <param name="stationFrom" required="true" style="query" type="xsd:string"/>
+                    <param name="stationTo" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="trainType" required="true" style="query" type="xsd:string">
+                        <doc>rEFER train type in DATA GROUP ENDPOINT</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3128:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="liveStation.php/">
+            <method displayName="3. Live Station" id="3127" name="GET">
+                <doc>RETURNS all train details for a given Station</doc>
+                <request>
+                    <param name="inNextHour" required="true" style="query" type="xsd:string">
+                        <doc>enter TimeSpan for trains to find Value is in hours Example etc</doc>
+                    </param>
+                    <param name="journeyStation" required="true" style="query" type="xsd:string">
+                        <doc>enter Station name here</doc>
+                    </param>
+                    <param name="toStation" required="true" style="query" type="xsd:string">
+                        <doc>OPTIONAL Going to Station Example BHP</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3127:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="spotYourTrain_showRun.php/">
+            <method displayName="2. Train Schedule Details" id="3126" name="GET">
+                <doc>Returns run details of a train for a given Station</doc>
+                <request>
+                    <param name="dateType" required="true" style="query" type="xsd:string">
+                        <doc>enter date type values Today TD Tomorrow TM Yesterday YS</doc>
+                    </param>
+                    <param name="journeyStation" required="true" style="query" type="xsd:string">
+                        <doc>enter journey station Code Refer ENDPOINT</doc>
+                    </param>
+                    <param name="trainNo" required="true" style="query" type="xsd:string">
+                        <doc>enter Train Number Here</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3126:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="trainSchedule.php/">
+            <method displayName="1. Train Schedule" id="3125" name="GET">
+                <doc>Returns Schedule of a given Trian</doc>
+                <request>
+                    <param name="trainNo" required="true" style="query" type="xsd:string">
+                        <doc>enter Train Number here</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3125:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="pnrStatus.php/">
+            <method displayName="0. PNR Status" id="3124" name="GET">
+                <doc>RETURNS PNR status</doc>
+                <request>
+                    <param name="pnr" required="true" style="query" type="xsd:string">
+                        <doc>enter PNR here</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3124:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

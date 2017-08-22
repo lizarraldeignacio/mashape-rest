@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3689="urn:function:f3689">
+    <grammars>
+        <include href="Function3689.xsd"/>
+    </grammars>
+    <doc>the Snowflake Widget API allows rd party sites to display the Simply Wall St s Snowflake for any company in the Simply Wall St database or display another company at random that fits a specific criteria The Snowflake is generated daily by Simply Wall St and an associated infographic for companies on the NYSE Nasdaq LSE and ASX Our Snowflake is generated from financial checks in different core areas of a company specifically Value value based on future cash flows and its price relative to the stock market Future Performance expected performance in the next years Past Performance historical performance over the past years Health financial health and the level of debt Income the current dividend yield its volatility and sustainability</doc>
+    <resources base="https://simplywallst-snowflake-widget-v1.p.mashape.com/">
+        <resource uri="{exchange-ticker}​/">
+            <param name="exchange-ticker" style="template" type="xsd:string"/>
+            <method displayName="Exchange and ticker symbol for stock to be retrieved" id="3689" name="GET">
+                <doc>e.g. ASX:TLS</doc>
+                <request>
+                    <param name="exchangeTicker" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3689:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

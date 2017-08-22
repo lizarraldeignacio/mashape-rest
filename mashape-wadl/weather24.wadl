@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6920="urn:function:f6920">
+    <grammars>
+        <include href="Function6920.xsd"/>
+    </grammars>
+    <doc>get weather forecast for a specific location WOEID</doc>
+    <resources base="https://ericpeng-weather-v1.p.mashape.com/">
+        <resource uri="forecastrss?w={location}/">
+            <param name="location" style="template" type="xsd:string"/>
+            <method displayName="Weather" id="6920" name="GET">
+                <doc>Get weather forecast by specific location.</doc>
+                <request>
+                    <param name="location" required="true" style="query" type="xsd:string">
+                        <doc>location is Where On Earth ID WOEID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6920:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

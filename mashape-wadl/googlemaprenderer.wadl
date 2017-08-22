@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2094="urn:function:f2094">
+    <grammars>
+        <include href="Function2094.xsd"/>
+    </grammars>
+    <doc>when you need to render a map on your application by searching the physical address our Google Map Renderer can be a solution You have to pass these parameters address a physical US address locationName a name of the physical address width a map width in pixels height a map height in pixels</doc>
+    <resources base="https://coolcld-google-map-renderer-v1.p.mashape.com/">
+        <resource uri="">
+            <method displayName="showMap function" id="2094" name="GET">
+                <request>
+                    <param name="address" required="true" style="query" type="xsd:string">
+                        <doc>a physical address you want to search</doc>
+                    </param>
+                    <param name="appkey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="height" required="true" style="query" type="xsd:string">
+                        <doc>map s height</doc>
+                    </param>
+                    <param name="locationname" required="true" style="query" type="xsd:string">
+                        <doc>a name of the physical address</doc>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="width" required="true" style="query" type="xsd:string">
+                        <doc>map s width</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2094:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

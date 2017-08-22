@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f344="urn:function:f344">
+    <grammars>
+        <include href="Function344.xsd"/>
+    </grammars>
+    <doc>this API will give details of recharge for various mobile operators in India You can integrate into your mobile recharging sites or apps The data is pullled from official telecom operator site For Commercial purpose contact www datayuge in Keywords indian recharge tariff telecom data recharge plans</doc>
+    <resources base="https://sphirelabs-indian-telecom-data-recharge-plans-v1.p.mashape.com/">
+        <resource uri="telecomdata/">
+            <resource uri="v1/">
+                <resource uri="get/">
+                    <resource uri="index.php/">
+                        <method displayName="Recharge Options" id="344" name="GET">
+                            <doc>Grab Telecom Recharge Options.    ** New Version available @ http://www.datayuge.in/API/recharge-plans-api-telecom-data-india/</doc>
+                            <request>
+                                <param name="circle" required="true" style="query" type="xsd:string">
+                                    <doc>your telecom circle State Code format Assam as Bihar br Chennai ch Delhi dl Himachal Pradesh hp Karnataka ka Kolkata kk Maharashtra mh Mumbai mb North East ne Orissa or Punjab pb Rajasthan rj Tamil Nadu tn Uttar Pradesh E upe Uttar Pradesh W upw West Bengal wb Jammu jk Andhra Pradesh ap Gujarat gj Haryana hr Kerala kl Madhya Pradesh mp</doc>
+                                </param>
+                                <param name="opcode" required="true" style="query" type="xsd:string">
+                                    <doc>operator Name Operator Code Format Aircel aircel Airtel airtel BSNL bsnl Tata Docomo GSM tatadocomogsm Idea idea Loop Mobile loopmobile MTNL Delhi mtnldelhi Reliance CDMA reliancecdma Tata Indicom tataindicom Uninor uninor Vodafone Vodafone MTS mts Videocon Mobile videoconmobile Virgin GSM virgingsm Tata Docomo CDMA tatadocomocdma MTNL Mumbai mtnlmumbai</doc>
+                                </param>
+                                <param name="type" required="true" style="query" type="xsd:string">
+                                    <doc>get recharge type G G Other Topup Data G</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f344:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

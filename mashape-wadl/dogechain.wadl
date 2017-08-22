@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>the API of the Dogecoin blockchain get info on an address and current network statistics</doc>
+    <resources base="https://community-dogechain.p.mashape.com/">
+        <resource uri="transactions/">
+            <method displayName="Transactions" id="3192" name="GET">
+                <doc>Returns the amount transactions of the last blocks.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="totalbc/">
+            <method displayName="Totalbc" id="3191" name="GET">
+                <doc>Returns the amount of currency ever mined</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="nethash/">
+            <method displayName="Net Hash" id="3190" name="GET">
+                <doc>Returns statistics about difficulty and network power.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="hashtoaddress/">
+            <resource uri="{address}/">
+                <param name="address" style="template" type="xsd:string"/>
+                <method displayName="Hash to Address" id="3189" name="GET">
+                    <doc>Returns the address with the given version prefix and hash.</doc>
+                    <request>
+                        <param name="address" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="getsentbyaddress/">
+            <resource uri="{address}/">
+                <param name="address" style="template" type="xsd:string"/>
+                <method displayName="Get Sent by Address" id="3188" name="GET">
+                    <doc>Returns the amount ever sent from a given address.</doc>
+                    <request>
+                        <param name="address" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="getreceivedbyaddress/">
+            <resource uri="{address}/">
+                <param name="address" style="template" type="xsd:string"/>
+                <method displayName="Get Received by Address" id="3187" name="GET">
+                    <doc>Returns the amount ever received by a given address.</doc>
+                    <request>
+                        <param name="address" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="getdifficulty/">
+            <method displayName="Get Difficulty" id="3186" name="GET">
+                <doc>Returns the last solved block's difficulty</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getblockcount/">
+            <method displayName="Get Block Count" id="3185" name="GET">
+                <doc>Returns the current block count</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="decode_address/">
+            <resource uri="{address}/">
+                <param name="address" style="template" type="xsd:string"/>
+                <method displayName="Decode Address" id="3184" name="GET">
+                    <doc>Returns the version prefix and hash encoded in an address.</doc>
+                    <request>
+                        <param name="address" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="checkaddress/">
+            <resource uri="{address}/">
+                <param name="address" style="template" type="xsd:string"/>
+                <method displayName="Check Address" id="3183" name="GET">
+                    <doc>Check an Address for Validity</doc>
+                    <request>
+                        <param name="address" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="addresstohash/">
+            <resource uri="{address}/">
+                <param name="address" style="template" type="xsd:string"/>
+                <method displayName="Address to Hash" id="3182" name="GET">
+                    <doc>Returns the public key hash encoded in an address.</doc>
+                    <request>
+                        <param name="address" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="addressbalance/">
+            <resource uri="{address}/">
+                <param name="address" style="template" type="xsd:string"/>
+                <method displayName="Address Balance" id="3181" name="GET">
+                    <doc>Returns amount ever received minus amount ever sent by a given address.</doc>
+                    <request>
+                        <param name="address" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

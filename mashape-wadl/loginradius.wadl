@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1319="urn:function:f1319" xmlns:f1320="urn:function:f1320" xmlns:f1321="urn:function:f1321" xmlns:f1322="urn:function:f1322" xmlns:f1323="urn:function:f1323" xmlns:f1324="urn:function:f1324" xmlns:f1325="urn:function:f1325" xmlns:f1326="urn:function:f1326" xmlns:f1327="urn:function:f1327">
+    <grammars>
+        <include href="Function1327.xsd"/>
+        <include href="Function1326.xsd"/>
+        <include href="Function1325.xsd"/>
+        <include href="Function1324.xsd"/>
+        <include href="Function1323.xsd"/>
+        <include href="Function1322.xsd"/>
+        <include href="Function1321.xsd"/>
+        <include href="Function1320.xsd"/>
+        <include href="Function1319.xsd"/>
+    </grammars>
+    <doc>loginRadius is one simplified API for popular ID providers such as Facebook Google Twitter LinkedIn Amazon etc LoginRadius unified API websites can quickly integrate multiple social networks and no need to worry about the maintenance and changes with provider s API LoginRadius technology has made it possible to aggregate the data sets and unify the protocols OpenID and oAuth into one API</doc>
+    <resources base="https://loginradius.p.mashape.com/">
+        <resource uri="UserProfile/">
+            <resource uri="{SECRET}/">
+                <param name="SECRET" style="template" type="xsd:string"/>
+                <resource uri="{TOKEN}/">
+                    <param name="TOKEN" style="template" type="xsd:string"/>
+                    <method displayName="User Profile API" id="1327" name="GET">
+                        <doc>This API is use to get the social profile data from user’s social account after authentication. The social profile will be retrieved via oAuth and OpenID protocols. The data would be normalized into LoginRadius’s JSON format. - API help Endpoint	https://hub.loginradius.com/userprofile/help</doc>
+                        <request>
+                            <param name="secret" required="true" style="query" type="xsd:string">
+                                <doc>loginRadius API Secret</doc>
+                            </param>
+                            <param name="token" required="true" style="query" type="xsd:string">
+                                <doc>loginRadius login session Token</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1327:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="status/">
+            <resource uri="mentions/">
+                <resource uri="{SECRET}/">
+                    <param name="SECRET" style="template" type="xsd:string"/>
+                    <resource uri="{TOKEN}/">
+                        <param name="TOKEN" style="template" type="xsd:string"/>
+                        <method displayName="Twitter mentions API" id="1326" name="GET">
+                            <doc>Twitter mentions API - API help Endpoint	https://hub.loginradius.com/status/help</doc>
+                            <request>
+                                <param name="secret" required="true" style="query" type="xsd:string">
+                                    <doc>loginRadius API Secret</doc>
+                                </param>
+                                <param name="token" required="true" style="query" type="xsd:string">
+                                    <doc>user profile session Token</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f1326:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="update/">
+                <resource uri="{SECRET}/">
+                    <param name="SECRET" style="template" type="xsd:string"/>
+                    <resource uri="{TOKEN}/">
+                        <param name="TOKEN" style="template" type="xsd:string"/>
+                        <method displayName="Status Update" id="1325" name="POST">
+                            <doc>Status Update - API help Endpoint	https://hub.loginradius.com/status/help</doc>
+                            <request>
+                                <param name="secret" required="true" style="query" type="xsd:string">
+                                    <doc>loginRadius API Secret</doc>
+                                </param>
+                                <param name="token" required="true" style="query" type="xsd:string">
+                                    <doc>user profile session Token</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f1325:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="GetCompany/">
+            <resource uri="{SECRET}/">
+                <param name="SECRET" style="template" type="xsd:string"/>
+                <resource uri="{TOKEN}/">
+                    <param name="TOKEN" style="template" type="xsd:string"/>
+                    <method displayName="LinkedIn followed Companies" id="1324" name="GET">
+                        <doc>Companies followed in LinkedIn API - API help Endpoint: https://hub.loginradius.com/GetCompany/help</doc>
+                        <request>
+                            <param name="secret" required="true" style="query" type="xsd:string">
+                                <doc>loginRadius API Secret</doc>
+                            </param>
+                            <param name="token" required="true" style="query" type="xsd:string">
+                                <doc>user profile session Token</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1324:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="GetPosts/">
+            <resource uri="{SECRET}/">
+                <param name="SECRET" style="template" type="xsd:string"/>
+                <resource uri="{TOKEN}/">
+                    <param name="TOKEN" style="template" type="xsd:string"/>
+                    <method displayName="Facebook Posts API" id="1323" name="GET">
+                        <doc>Facebook Posts API - API help Endpoint	https://hub.loginradius.com/GetPosts/help</doc>
+                        <request>
+                            <param name="secret" required="true" style="query" type="xsd:string">
+                                <doc>loginRadius API Secret</doc>
+                            </param>
+                            <param name="token" required="true" style="query" type="xsd:string">
+                                <doc>user profile session Token</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1323:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="GetGroups/">
+            <resource uri="{SECRET}/">
+                <param name="SECRET" style="template" type="xsd:string"/>
+                <resource uri="{TOKEN}/">
+                    <param name="TOKEN" style="template" type="xsd:string"/>
+                    <method displayName="Facebook Groups API" id="1322" name="GET">
+                        <doc>Facebook Groups API - API help Endpoint	https://hub.loginradius.com/GetGroups/help</doc>
+                        <request>
+                            <param name="secret" required="true" style="query" type="xsd:string">
+                                <doc>loginRadius API Secret</doc>
+                            </param>
+                            <param name="token" required="true" style="query" type="xsd:string">
+                                <doc>user profile session Token</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1322:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="GetEvents/">
+            <resource uri="{SECRET}/">
+                <param name="SECRET" style="template" type="xsd:string"/>
+                <resource uri="{TOKEN}/">
+                    <param name="TOKEN" style="template" type="xsd:string"/>
+                    <method displayName="Facebook Events API" id="1321" name="GET">
+                        <doc>Facebook Events API - API help Endpoint	https://hub.loginradius.com/GetEvents/help</doc>
+                        <request>
+                            <param name="secret" required="true" style="query" type="xsd:string">
+                                <doc>loginRadius API Secret</doc>
+                            </param>
+                            <param name="token" required="true" style="query" type="xsd:string">
+                                <doc>user profile session Token</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1321:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="directmessage/">
+            <resource uri="{SECRET}/">
+                <param name="SECRET" style="template" type="xsd:string"/>
+                <resource uri="{TOKEN}/">
+                    <param name="TOKEN" style="template" type="xsd:string"/>
+                    <method displayName="Direct Message API" id="1320" name="POST">
+                        <doc>Direct Message API - API help Endpoint	https://hub.loginradius.com/directmessage/help</doc>
+                        <request>
+                            <param name="secret" required="true" style="query" type="xsd:string">
+                                <doc>loginRadius API Secret</doc>
+                            </param>
+                            <param name="token" required="true" style="query" type="xsd:string">
+                                <doc>user profile session Token</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1320:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="contacts/">
+            <resource uri="{SECRET}/">
+                <param name="SECRET" style="template" type="xsd:string"/>
+                <resource uri="{TOKEN}/">
+                    <param name="TOKEN" style="template" type="xsd:string"/>
+                    <method displayName="Contact/Network API" id="1319" name="GET">
+                        <doc>This API is use to get contacts/network data for user’s social account. This API is only supported by oAuth ID providers such as Facebook, LinkedIn, Twitter, Google, Yahoo, MSN. - API help Endpoint	https://hub.loginradius.com/contacts/help</doc>
+                        <request>
+                            <param name="secret" required="true" style="query" type="xsd:string">
+                                <doc>loginRadius API Secret</doc>
+                            </param>
+                            <param name="token" required="true" style="query" type="xsd:string">
+                                <doc>user profile session Token</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1319:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

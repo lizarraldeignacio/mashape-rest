@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>the Trade Leads API provides contract opportunities for U S businesses selling their products and services overseas These leads come from a variety of sources and we continue to expand the number of leads available</doc>
+    <resources base="https://dataservices-trade-leads-v1.p.mashape.com/">
+        <resource uri="api.trade.gov/">
+            <resource uri="v2/">
+                <resource uri="trade_leads/">
+                    <resource uri="search/">
+                        <method displayName="/api.trade.gov/v2/trade_leads/search" id="6172" name="GET">
+                            <request/>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

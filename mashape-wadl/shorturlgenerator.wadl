@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2947="urn:function:f2947">
+    <grammars>
+        <include href="Function2947.xsd"/>
+    </grammars>
+    <doc>generate Short Urls Easy Peezey</doc>
+    <resources base="https://sjehutch-passbeemedia-shorturl.p.mashape.com/">
+        <resource uri="CreateUrl/">
+            <method displayName="CreateUrl" id="2947" name="GET">
+                <doc>Creating ShortUrls</doc>
+                <request>
+                    <param name="realUrl" required="true" style="query" type="xsd:string">
+                        <doc>string long url for conversion required</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2947:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

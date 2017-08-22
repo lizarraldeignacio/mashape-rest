@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>vend is web based POS and retail management software for store owners to have visibility and centralized control of their retail stores Vend REST API</doc>
+    <resources base="https://pzurek-vend-v1.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="2.0/">
+                <resource uri="products/">
+                    <method displayName="List all products" id="6613" name="GET">
+                        <request>
+                            <param name="after" required="true" style="query" type="xsd:integer">
+                                <doc>select lower limit for the version number</doc>
+                            </param>
+                            <param name="before" required="true" style="query" type="xsd:integer">
+                                <doc>select upper limit for the version number</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

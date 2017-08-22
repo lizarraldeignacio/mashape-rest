@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>clean and sanitize untrusted HTML This can be used to make user supplied content safe and prevent cross site scripting attacks XSS The scrubbing method used is immune to XSS evasion techniques by using an HTML whitelist approach</doc>
+    <resources base="https://neutrinoapi-html-clean.p.mashape.com/">
+        <resource uri="html-clean/">
+            <method displayName="HTML Clean" id="1547" name="POST">
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

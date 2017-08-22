@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>shorticle is an article summarization tool capable of summarising web articles to a custom variable length picking article s title and main image fetching article s social shares and detecting language Shorticle can work with shortened URLs Shorticle uses advanced algorithms to determine sentence value based on article keywords and sentence relationship to ensure that sentences used in summary are comprehensible and cover the entire scope of the article</doc>
+    <resources base="https://shorticle.p.mashape.com/">
+        <resource uri="summary/">
+            <method displayName="Article Summary" id="2025" name="GET">
+                <doc>Endpoint to fetch article summary, main image and social shares</doc>
+                <request>
+                    <param name="language" required="true" style="query" type="xsd:boolean">
+                        <doc>determines whether Shorticle will attempt to detect the language used in the article</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>number of paragraphs to be returned Minimum value is and max is Default Value is</doc>
+                    </param>
+                    <param name="returnContent" required="true" style="query" type="xsd:boolean">
+                        <doc>determines whether Shorticle will return body text content</doc>
+                    </param>
+                    <param name="showImages" required="true" style="query" type="xsd:boolean">
+                        <doc>determines whether Shorticle should return the article s main image</doc>
+                    </param>
+                    <param name="socialShares" required="true" style="query" type="xsd:boolean">
+                        <doc>determines whether Shorticle should return the social media shares Facebook Google or Twitter from given URL</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>uRL resource from which to summarize article</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

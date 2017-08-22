@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>basic API for scraping other manga sites for manga content Currently only mangareader net mangafox me and mangastream com are supported</doc>
+    <resources base="https://doodle-manga-scraper.p.mashape.com/">
+        <resource uri="">
+            <method displayName="getSiteList" id="603" name="GET">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="{siteid}/">
+            <param name="siteid" style="template" type="xsd:string"/>
+            <method displayName="getChapter" id="598" name="GET">
+                <request>
+                    <param name="chapterid" required="true" style="query" type="xsd:integer"/>
+                    <param name="mangaid" required="true" style="query" type="xsd:string"/>
+                    <param name="siteid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="getGenreList" id="599" name="GET">
+                <request>
+                    <param name="siteid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="getManga" id="600" name="GET">
+                <request>
+                    <param name="mangaid" required="true" style="query" type="xsd:string"/>
+                    <param name="siteid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="getMangaByGenre" id="601" name="GET">
+                <request>
+                    <param name="genreid" required="true" style="query" type="xsd:string"/>
+                    <param name="siteid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="getMangaList" id="602" name="GET">
+                <request>
+                    <param name="siteid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Search" id="604" name="GET">
+                <request>
+                    <param name="g" required="true" style="query" type="xsd:string">
+                        <doc>genres</doc>
+                    </param>
+                    <param name="l" required="true" style="query" type="xsd:string">
+                        <doc>limit</doc>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>query</doc>
+                    </param>
+                    <param name="siteid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

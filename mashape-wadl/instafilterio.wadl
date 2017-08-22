@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>an easy RESTful API for manipulating images and applying customizable filters in real time You can use the built in filters or create your own ones on top of our filters And not only filters includes resize rotate and crop functions among the others No monthly price Easy as per filter Maximum file size is MB</doc>
+    <resources base="https://thefosk-instafilterio.p.mashape.com/">
+        <resource uri="Rotate/">
+            <method displayName="Rotate" id="2223" name="POST">
+                <doc>Rotates the image (by 90, 180, 270 degrees) or flips it horizontally or vertically.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="mixchannels/">
+            <method displayName="RGB Mixer" id="2222" name="POST">
+                <doc>Mixes RGB channels. For each channel, you can specify how much of the other two channels to mix in.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="resize/">
+            <method displayName="Resize" id="2221" name="POST">
+                <doc>Shrinks an image while maintaining its aspect ratio.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="padding/">
+            <method displayName="Padding" id="2220" name="POST">
+                <doc>Adds padding around the image. You can specify both the size and the color.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="oil/">
+            <method displayName="Oil" id="2219" name="POST">
+                <doc>Creates an oil painting effect.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="noise/">
+            <method displayName="Noise" id="2218" name="POST">
+                <doc>Adds random noise to the image. You can specify the amount and density.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="mosaic/">
+            <method displayName="Mosaic" id="2217" name="POST">
+                <doc>Creates a mosaic effect. You can specify the block's size.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="levels/">
+            <method displayName="Levels" id="2216" name="POST">
+                <doc>Adjusts the image levels by moving and stretching the brightness of the image histogram.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="invert/">
+            <method displayName="Invert" id="2215" name="POST">
+                <doc>Inverts all the pixels of the image</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="gamma/">
+            <method displayName="Gamma" id="2214" name="POST">
+                <doc>Adjusts the gamma, used for changing the brightness of an image</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="edge/">
+            <method displayName="Edge Detection" id="2213" name="POST">
+                <doc>Edge detection with a dark background.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="hsb/">
+            <method displayName="Custom HSB" id="2212" name="POST">
+                <doc>Specify custom hue, saturation and brightness.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="crop/">
+            <method displayName="Crop" id="2211" name="POST">
+                <doc>Crops an image in a rectangle, by specifying its size and coordinates.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="contrast/">
+            <method displayName="Contrast" id="2210" name="POST">
+                <doc>Changes the gain and bias of the colors in the image.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="colorededge/">
+            <method displayName="Colored Edge Detection" id="2209" name="POST">
+                <doc>Similar to the Edge Detection filter, except with more color.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="blackandwhite/">
+            <method displayName="Black &amp; White" id="2208" name="POST">
+                <doc>Converts the image colors to shades of grey</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

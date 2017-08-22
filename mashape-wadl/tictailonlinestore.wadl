@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4473="urn:function:f4473" xmlns:f4475="urn:function:f4475" xmlns:f4476="urn:function:f4476" xmlns:f4477="urn:function:f4477" xmlns:f4478="urn:function:f4478" xmlns:f4481="urn:function:f4481" xmlns:f4482="urn:function:f4482" xmlns:f4484="urn:function:f4484" xmlns:f4485="urn:function:f4485">
+    <grammars>
+        <include href="Function4473.xsd"/>
+        <include href="Function4475.xsd"/>
+        <include href="Function4476.xsd"/>
+        <include href="Function4477.xsd"/>
+        <include href="Function4478.xsd"/>
+        <include href="Function4481.xsd"/>
+        <include href="Function4482.xsd"/>
+        <include href="Function4484.xsd"/>
+        <include href="Function4485.xsd"/>
+    </grammars>
+    <doc>tictail is an easy and free online shop solution that not only helps you create a beautiful online store within minutes but also helps you run it successfully</doc>
+    <resources base="https://community-tictail-online-store.p.mashape.com/">
+        <resource uri="GET /">
+            <resource uri="v1/">
+                <resource uri="stores/">
+                    <resource uri="{store_id}/">
+                        <param name="store_id" style="template" type="xsd:string"/>
+                        <resource uri="theme/">
+                            <method displayName="GET /v1/stores/&lt;store_id&gt;/theme" id="4483" name="GET">
+                                <doc>Retrieve a store's (store_id) theme</doc>
+                                <request>
+                                    <param name="storeId" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="v1/">
+            <resource uri="me/">
+                <method displayName="GET /v1/me" id="4474" name="GET">
+                    <doc>Check which store the provided access token has access to</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="stores/">
+                <resource uri="{store_id}/">
+                    <param name="store_id" style="template" type="xsd:string"/>
+                    <method displayName="DELETE /v1/stores/&lt;store_id&gt;/followers/&lt;follower_id&gt;" id="4473" name="DELETE">
+                        <doc>Remove a follower of this store (store_id)</doc>
+                        <request>
+                            <param name="followerId" required="true" style="query" type="xsd:string"/>
+                            <param name="storeId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4473:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="GET /v1/stores/&lt;store_id&gt;" id="4475" name="GET">
+                        <doc>Get a store (store_id)</doc>
+                        <request>
+                            <param name="storeId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4475:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="GET /v1/stores/&lt;store_id&gt;/customers" id="4476" name="GET">
+                        <doc>Get a list of all customers in this store (store_id)</doc>
+                        <request>
+                            <param name="after" required="true" style="query" type="xsd:string">
+                                <doc>only get customers after this id Defaults to the first customer</doc>
+                            </param>
+                            <param name="before" required="true" style="query" type="xsd:string">
+                                <doc>only get customers before this id</doc>
+                            </param>
+                            <param name="limit" required="true" style="query" type="xsd:string">
+                                <doc>limit number of customers returned default</doc>
+                            </param>
+                            <param name="storeId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4476:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="GET /v1/stores/&lt;store_id&gt;/customers/&lt;customer_id&gt;" id="4477" name="GET">
+                        <doc>Get a single customer (customer_id) of this store (store_id)</doc>
+                        <request>
+                            <param name="customerId" required="true" style="query" type="xsd:string"/>
+                            <param name="storeId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4477:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="GET /v1/stores/&lt;store_id&gt;/followers" id="4478" name="GET">
+                        <doc>Get a list of followers of this store (store_id)</doc>
+                        <request>
+                            <param name="after" required="true" style="query" type="xsd:string">
+                                <doc>only get followers after this follower id Defaults to the first follower</doc>
+                            </param>
+                            <param name="before" required="true" style="query" type="xsd:string">
+                                <doc>only get followers before this follower id</doc>
+                            </param>
+                            <param name="limit" required="true" style="query" type="xsd:string">
+                                <doc>limit number of followers returned default</doc>
+                            </param>
+                            <param name="storeId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4478:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="GET /v1/stores/&lt;store_id&gt;/orders" id="4479" name="GET">
+                        <doc>Retrieve a list of orders for this store (store_id), sorted by created_at</doc>
+                        <request>
+                            <param name="after" required="true" style="query" type="xsd:string">
+                                <doc>only get orders after this id</doc>
+                            </param>
+                            <param name="before" required="true" style="query" type="xsd:string">
+                                <doc>only get orders before this id</doc>
+                            </param>
+                            <param name="limit" required="true" style="query" type="xsd:string">
+                                <doc>limit number of orders returned default</doc>
+                            </param>
+                            <param name="modifiedAfter" required="true" style="query" type="xsd:string">
+                                <doc>only get orders that have been modified after this date useful for keeping data in sync</doc>
+                            </param>
+                            <param name="modifiedBefore" required="true" style="query" type="xsd:string">
+                                <doc>only get orders that have been modified before this date</doc>
+                            </param>
+                            <param name="storeId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="GET /v1/stores/&lt;store_id&gt;/orders/&lt;order_id&gt;" id="4480" name="GET">
+                        <doc>Retrieve an order for this store (store_id)</doc>
+                        <request>
+                            <param name="orderId" required="true" style="query" type="xsd:string"/>
+                            <param name="storeId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="GET /v1/stores/&lt;store_id&gt;/products" id="4481" name="GET">
+                        <doc>Retrieve a list of products in this store (store_id).</doc>
+                        <request>
+                            <param name="after" required="true" style="query" type="xsd:string">
+                                <doc>only get products after this product id Defaults to the first product</doc>
+                            </param>
+                            <param name="before" required="true" style="query" type="xsd:string">
+                                <doc>only get products before this product id</doc>
+                            </param>
+                            <param name="limit" required="true" style="query" type="xsd:string">
+                                <doc>limit number of products returned default</doc>
+                            </param>
+                            <param name="storeId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4481:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="GET /v1/stores/&lt;store_id&gt;/products/&lt;product_id&gt;" id="4482" name="GET">
+                        <doc>Retrieve an product (product_id) in this store (store_id)</doc>
+                        <request>
+                            <param name="productId" required="true" style="query" type="xsd:string"/>
+                            <param name="storeId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4482:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="POST /v1/stores/&lt;store_id&gt;/cards" id="4484" name="POST">
+                        <request>
+                            <param name="storeId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4484:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="POST /v1/stores/&lt;store_id&gt;/followers" id="4485" name="POST">
+                        <doc>Add a new follower of this store (store_id)</doc>
+                        <request>
+                            <param name="storeId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4485:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1328="urn:function:f1328">
+    <grammars>
+        <include href="Function1328.xsd"/>
+    </grammars>
+    <doc>this is a language detection webservice It accepts text and produces result with detected language code and score Currently detects languages</doc>
+    <resources base="https://community-language-detection.p.mashape.com/">
+        <resource uri="detect/">
+            <method displayName="Basic Detection" id="1328" name="POST">
+                <doc>This is a language detection webservice. It accepts text and produces result with detected language code and score.  Currently detects 83 languages.</doc>
+                <request/>
+                <response>
+                    <representation element="f1328:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

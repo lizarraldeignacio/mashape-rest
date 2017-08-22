@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5843="urn:function:f5843" xmlns:f5844="urn:function:f5844" xmlns:f5845="urn:function:f5845" xmlns:f5848="urn:function:f5848" xmlns:f5849="urn:function:f5849" xmlns:f5850="urn:function:f5850" xmlns:f5851="urn:function:f5851">
+    <grammars>
+        <include href="Function5850.xsd"/>
+        <include href="Function5849.xsd"/>
+        <include href="Function5851.xsd"/>
+        <include href="Function5848.xsd"/>
+        <include href="Function5845.xsd"/>
+        <include href="Function5844.xsd"/>
+        <include href="Function5843.xsd"/>
+    </grammars>
+    <doc>save up to Every Day on Great Brands like Carhartt Columbia New Balance and more Great Deals on hiking boots cycling gear sporting goods</doc>
+    <resources base="https://sierra-tp.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="1.0/">
+                <resource uri="review/">
+                    <resource uri="{id}/">
+                        <param name="id" style="template" type="xsd:string"/>
+                        <method displayName="Review Details" id="5852" name="GET">
+                            <doc>Individual review details</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>the review s unique identifier</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="reviewsbyproduct/">
+                    <resource uri="{id}/">
+                        <param name="id" style="template" type="xsd:string"/>
+                        <method displayName="Product Reviews" id="5850" name="GET">
+                            <doc>Individual product reviews</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>the product s unique identifier</doc>
+                                </param>
+                                <param name="page" required="true" style="query" type="xsd:integer">
+                                    <doc>current page number default</doc>
+                                </param>
+                                <param name="perpage" required="true" style="query" type="xsd:integer">
+                                    <doc>number of items per page default</doc>
+                                </param>
+                                <param name="sort" required="true" style="query" type="xsd:string">
+                                    <doc>sorting method for a list of reviews possible values RatingHighToLow RatingLowToHigh HelpfulScoreHigToLow HelpfulScoreLowToHigh SubmissionDateNeToOld SubmissionDateOldToNew</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f5850:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="products/">
+                    <method displayName="Product List" id="5849" name="GET">
+                        <doc>Listing of all products; default to 24 items per page.</doc>
+                        <request>
+                            <param name="page" required="true" style="query" type="xsd:integer">
+                                <doc>current page number default</doc>
+                            </param>
+                            <param name="perpage" required="true" style="query" type="xsd:integer">
+                                <doc>number of items per page default</doc>
+                            </param>
+                            <param name="sort" required="true" style="query" type="xsd:string">
+                                <doc>sorting method for a list of products possible values Brand Newest SavingsHighToLow DiscountHighToLow LowestPrice HighestPrice HighestRated MostReviwed SearchRanking CostAndQuantityAscending OnSale TopSellersScore EndecaRelevance</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f5849:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Product search" id="5851" name="GET">
+                        <doc>returns product listing for a given search term</doc>
+                        <request>
+                            <param name="page" required="true" style="query" type="xsd:integer">
+                                <doc>current page number default</doc>
+                            </param>
+                            <param name="perpage" required="true" style="query" type="xsd:integer">
+                                <doc>number of items per page default</doc>
+                            </param>
+                            <param name="searchTerm" required="true" style="query" type="xsd:string">
+                                <doc>search term url encoded with hyphens</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f5851:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="product/">
+                    <resource uri="{id}/">
+                        <param name="id" style="template" type="xsd:string"/>
+                        <method displayName="Product Details" id="5848" name="GET">
+                            <doc>Individual product details</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>the product s unique identifier</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f5848:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="departments/">
+                    <method displayName="Dept List" id="5847" name="GET">
+                        <doc>Listing of all departments starting at the root level then decends to its children.</doc>
+                        <request>
+                            <param name="page" required="true" style="query" type="xsd:integer">
+                                <doc>current page number default</doc>
+                            </param>
+                            <param name="perpage" required="true" style="query" type="xsd:integer">
+                                <doc>number of items per page default</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="department/">
+                    <resource uri="{id}/">
+                        <param name="id" style="template" type="xsd:string"/>
+                        <method displayName="Dept Details" id="5846" name="GET">
+                            <doc>Individual department detail</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>the department s unique identifier</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="brands/">
+                    <method displayName="Brands List" id="5845" name="GET">
+                        <doc>Listing of all brands</doc>
+                        <request>
+                            <param name="page" required="true" style="query" type="xsd:integer">
+                                <doc>current page number default</doc>
+                            </param>
+                            <param name="perpage" required="true" style="query" type="xsd:integer">
+                                <doc>number of items per page default</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f5845:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="reviewsbybrand/">
+                    <resource uri="{id}/">
+                        <param name="id" style="template" type="xsd:string"/>
+                        <method displayName="Brand Review" id="5844" name="GET">
+                            <doc>Brand reviews</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>the brand s unique identifier</doc>
+                                </param>
+                                <param name="page" required="true" style="query" type="xsd:integer">
+                                    <doc>current page number default</doc>
+                                </param>
+                                <param name="perpage" required="true" style="query" type="xsd:integer">
+                                    <doc>number of items per page default</doc>
+                                </param>
+                                <param name="sort" required="true" style="query" type="xsd:string">
+                                    <doc>sorting method for a list of reviews possible values RatingHighToLow RatingLowToHigh HelpfulScoreHigToLow HelpfulScoreLowToHigh SubmissionDateNeToOld SubmissionDateOldToNew</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f5844:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="brand/">
+                    <resource uri="{id}/">
+                        <param name="id" style="template" type="xsd:string"/>
+                        <method displayName="Brand Details" id="5843" name="GET">
+                            <doc>Individual brand details</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>the brand s unique identifier</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f5843:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

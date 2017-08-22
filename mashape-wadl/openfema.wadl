@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2570="urn:function:f2570" xmlns:f2571="urn:function:f2571">
+    <grammars>
+        <include href="Function2570.xsd"/>
+        <include href="Function2571.xsd"/>
+    </grammars>
+    <doc>openFEMA is an authoritative source for FEMA s public data which has been released as part of the Open Government Initiative The OpenFEMA API provides the public with free read only access to FEMA datasets that include information on public assistance funded projects public assistance applicants hazard mitigation grants and disaster declarations The API can also be used to retrieve its own documentation and a listing of the available datasets</doc>
+    <resources base="https://community-openfema.p.mashape.com/">
+        <resource uri="{entity}/">
+            <param name="entity" style="template" type="xsd:string"/>
+            <method displayName="Get Entity" id="2570" name="GET">
+                <doc>You can find a full list of supported Entities at http://www.fema.gov/data-feeds#APIs</doc>
+                <request>
+                    <param name="entity" required="true" style="query" type="xsd:string">
+                        <doc>this corresponds to the name of the entity set you are requesting The entity names can be found in the list of released data sets</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2570:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Entity by ID" id="2571" name="GET">
+                <doc>Retrieves a specific record identified by its ID field (_id)</doc>
+                <request>
+                    <param name="entity" required="true" style="query" type="xsd:string">
+                        <doc>this corresponds to the name of the entity set you are requesting The entity names can be found in the list of released data sets</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>this is a id value of a previously identified record in an entity</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2571:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

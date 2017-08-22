@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>sending bitcoin via API is done by sending an http POST to https bips me api v sendto containing amount to from and notes On a successful POST the word success will be received in the response On any invalid API request an error message will be received in the response of the POST Your system should account for this API key should never be publicly visible If compromised one can generate a new one in BIPS account Numbers MUST be in their international format no leading zeroes The UK number will become</doc>
+    <resources base="https://bips-sendto.p.mashape.com/">
+        <resource uri="">
+            <method displayName="SendTo" id="4863" name="POST">
+                <doc>Sending bitcoin via API is done by sending an http POST to https://bips.me/api/v1/sendto containing amount, to, from and notes.</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

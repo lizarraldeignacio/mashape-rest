@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6820="urn:function:f6820" xmlns:f6821="urn:function:f6821" xmlns:f6822="urn:function:f6822" xmlns:f6823="urn:function:f6823" xmlns:f6824="urn:function:f6824" xmlns:f6825="urn:function:f6825" xmlns:f6826="urn:function:f6826" xmlns:f6827="urn:function:f6827" xmlns:f6828="urn:function:f6828">
+    <grammars>
+        <include href="Function6828.xsd"/>
+        <include href="Function6827.xsd"/>
+        <include href="Function6826.xsd"/>
+        <include href="Function6825.xsd"/>
+        <include href="Function6824.xsd"/>
+        <include href="Function6823.xsd"/>
+        <include href="Function6822.xsd"/>
+        <include href="Function6821.xsd"/>
+        <include href="Function6820.xsd"/>
+    </grammars>
+    <doc>kred created by PeopleBrowsr measures influence in online communities connected by interest Kred values audience quality and engagement over audience size It assesses the ability to inspire action Influence and propensity to engage with others Outreach</doc>
+    <resources base="https://kred-kred-paid.p.mashape.com/">
+        <resource uri="kredentials/">
+            <method displayName="Kredentials API" id="6828" name="GET">
+                <doc>Kredentials presents the online history of a user in a comprehensive format that makes it simple to understand the source of your Kred score. Internally, we refer to this as your identity archive. Data from March 2011 has been aggregated data make this up, and through a simple call, you're able to return all of this via API. Access to Kredentials is only available when you have signed up for a 1200+ plan</doc>
+                <request>
+                    <param name="source" required="true" style="query" type="xsd:string">
+                        <doc>source twitter will return a user s kred score from Twitter source facebook will return kred score for user who has uploaded facebook source combined will return the combined kred score for users for both Facebook and Twitter</doc>
+                    </param>
+                    <param name="term" required="true" style="query" type="xsd:string">
+                        <doc>twitter name or username Must use only name Example term pepsi term pepsi will not return data</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6828:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="kredretweetinfluence/">
+            <method displayName="Kred RT Influence" id="6827" name="GET">
+                <doc>Returns @names that have posted within the time range specified ranked by those with the most amount of total RTs. Search functions include a [term] a user has mentioned (keyword, phrase, #hashtag, url), [bio] term (keyword, #hashtag, url), and/or [location] (city, state, country) over a specified timeframe.</doc>
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:string">
+                        <doc>count is used as a period proxy to specified time periods The standard time period is a day so using count you would specify the last to days by specifying last today count or another period length</doc>
+                    </param>
+                    <param name="first" required="true" style="query" type="xsd:string">
+                        <doc>Defines the start of the time period If January to February was the specification required start with specifying the the first time point with first Alternatively say the specification was between yesterday and today</doc>
+                    </param>
+                    <param name="last" required="true" style="query" type="xsd:string">
+                        <doc>defines the end of a time period To continue the example above if the date range specified is January to February specify last Alternatively say the time period you always wanted to measure was today One could specify last today and then use count to specify up to days back relative to the time range enabled for the account on the API</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>limit search results to the specified number Limit will only return data points and can be used in histograms or charts</doc>
+                    </param>
+                    <param name="number" required="true" style="query" type="xsd:string">
+                        <doc>specifies number of items in non histogram queries If the parameter number the query will only return data points</doc>
+                    </param>
+                    <param name="period" required="true" style="query" type="xsd:string">
+                        <doc>integer of the number of seconds that a period constitutes if count is specified rather than a start end date</doc>
+                    </param>
+                    <param name="reverse" required="true" style="query" type="xsd:string">
+                        <doc>when set to reverse true this will reverse the order of the histograms charts</doc>
+                    </param>
+                    <param name="source" required="true" style="query" type="xsd:string">
+                        <doc>source twitter</doc>
+                    </param>
+                    <param name="term" required="true" style="query" type="xsd:string">
+                        <doc>parameter description values Name Keyword Multiple Keywords Hashtag Phrase or Post</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6827:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="kredoutreach/">
+            <method displayName="Kred Outreach" id="6826" name="GET">
+                <doc>Returns @names ranked by Kred Outreach Level. Search functions include a term a user has mentioned, bio term (keyword, #hashtag, url, etc.), and/or location over a specified timeframe.</doc>
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:string">
+                        <doc>count is used as a period proxy to specified time periods The standard time period is a day so using count you would specify the last to days by specifying last today count or another period length</doc>
+                    </param>
+                    <param name="first" required="true" style="query" type="xsd:string">
+                        <doc>defines the start of the time period If January to February was the specification required start with specifying the the first time point with first Alternatively say the specification was between yesterday and today</doc>
+                    </param>
+                    <param name="last" required="true" style="query" type="xsd:string">
+                        <doc>defines the end of a time period To continue the example above if the date range specified is January to February specify last Alternatively say the time period you always wanted to measure was today One could specify last today and then use count to specify up to days back relative to the time range enabled for the account on the API</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>limit search results to the specified number Limit will only return data points and can be used in histograms or charts</doc>
+                    </param>
+                    <param name="number" required="true" style="query" type="xsd:string">
+                        <doc>specifies number of items in non histogram queries If the parameter number the query will only return data points</doc>
+                    </param>
+                    <param name="period" required="true" style="query" type="xsd:string">
+                        <doc>integer of the number of seconds that a period constitutes if specified rather than a start end date</doc>
+                    </param>
+                    <param name="reverse" required="true" style="query" type="xsd:string">
+                        <doc>when set to reverse true this will reverse the order of the histograms charts When set to reverse true this will reverse the order of the histograms charts</doc>
+                    </param>
+                    <param name="source" required="true" style="query" type="xsd:string">
+                        <doc>source twitter</doc>
+                    </param>
+                    <param name="term" required="true" style="query" type="xsd:string">
+                        <doc>parameter description values Name Keyword Multiple Keywords Hashtag Phrase or Post</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6826:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="kredinfluence/">
+            <method displayName="Kred Influence" id="6825" name="GET">
+                <doc>Returns @names that have posted most recently that have matched what is specified within the term ranked by Kred Influence Score. Search functions include a [term] a user has mentioned (keyword, phrase, #hashtag, url), [bio] term (keyword, #hashtag, url), and/or [location] (city, state, country) over a specified timeframe.</doc>
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:string">
+                        <doc>count is used as a period proxy to specified time periods The standard time period is a day so using count you would specify the last to days by specifying last today count or another period length</doc>
+                    </param>
+                    <param name="first" required="true" style="query" type="xsd:string">
+                        <doc>defines the start of the time period If January to February was the specification required start with specifying the the first time point with first Alternatively say the specification was between yesterday and today</doc>
+                    </param>
+                    <param name="last" required="true" style="query" type="xsd:string">
+                        <doc>defines the end of a time period To continue the example above if the date range specified is January to February specify last Alternatively say the time period you always wanted to measure was today One could specify last today and then use count to specify up to days back relative to the time range enabled for the account on the API</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>limit search results to the specified number Limit will only return data points and can be used in histograms or charts</doc>
+                    </param>
+                    <param name="number" required="true" style="query" type="xsd:string">
+                        <doc>specifies number of items in non histogram queries If the parameter number the query will only return data points</doc>
+                    </param>
+                    <param name="period" required="true" style="query" type="xsd:string">
+                        <doc>integer of the number of seconds that a period constitutes if count is specified rather than a start end date</doc>
+                    </param>
+                    <param name="reverse" required="true" style="query" type="xsd:string">
+                        <doc>when set to reverse true this will reverse the order of the histograms charts</doc>
+                    </param>
+                    <param name="source" required="true" style="query" type="xsd:string">
+                        <doc>source twitter</doc>
+                    </param>
+                    <param name="term" required="true" style="query" type="xsd:string">
+                        <doc>parameter description values Name Keyword Multiple Keywords Hashtag Phrase or Post</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6825:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="kred/">
+            <method displayName="Kred Community Score" id="6824" name="GET">
+                <doc>Returns Kred Influence Score + Outreach Level for all communities within the kred library.</doc>
+                <request>
+                    <param name="source" required="true" style="query" type="xsd:string">
+                        <doc>source twitter will return a user s kred score from Twitter source facebook will return kred score for user who has uploaded facebook source combined will return the combined kred score for users for both Facebook and Twitter</doc>
+                    </param>
+                    <param name="term" required="true" style="query" type="xsd:string">
+                        <doc>twitter name or username Must use only name Example term pepsi term pepsi will not return data</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6824:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="dailyscore/">
+            <method displayName="Historical Daily Kred Score" id="6823" name="GET">
+                <doc>Returns a histogram of a user's kred score over a time range specified. Ability to visualize increase or decrease in both influence and outreach for a user over a time range.All histograms default to returning in GMT format</doc>
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:string">
+                        <doc>count is used as a period proxy to specified time periods The standard time period is a day so using count you would specify the last to days by specifying last today count or another period length</doc>
+                    </param>
+                    <param name="first" required="true" style="query" type="xsd:string">
+                        <doc>defines the start of the time period If January to February was the specification required start with specifying the the first time point with first Alternatively say the specification was between yesterday and today</doc>
+                    </param>
+                    <param name="last" required="true" style="query" type="xsd:string">
+                        <doc>defines the end of a time period To continue the example above if the date range specified is January to February specify last Alternatively say the time period you always wanted to measure was today One could specify last today and then use count to specify up to days back relative to the time range enabled for the account on the API</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>limit search results to the specified number Limit will only return data points and can be used in histograms or charts</doc>
+                    </param>
+                    <param name="number" required="true" style="query" type="xsd:string">
+                        <doc>specifies number of items in non histogram queries If the parameter number the query will only return data points</doc>
+                    </param>
+                    <param name="period" required="true" style="query" type="xsd:string">
+                        <doc>integer of the number of seconds that a period constitutes if count is specified rather than a start end date</doc>
+                    </param>
+                    <param name="reverse" required="true" style="query" type="xsd:string">
+                        <doc>when set to reverse true this will reverse the order of the histograms charts</doc>
+                    </param>
+                    <param name="source" required="true" style="query" type="xsd:string">
+                        <doc>source twitter will return a user s kred score from Twitter source facebook will return kred score for user who has uploaded facebook source combined will return the combined kred score for users for both Facebook and Twitter</doc>
+                    </param>
+                    <param name="term" required="true" style="query" type="xsd:string">
+                        <doc>twitter name or username Must use only name Example term pepsi term pepsi will not return data</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6823:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="dailypoints/">
+            <method displayName="Historical Daily Kred Point" id="6822" name="GET">
+                <doc>Delivers a histogram of a user's kred points over time range. Kred scores are normalized using kred points using our algorithim exposed at kred.com/rules. All histograms default to returning in GMT format</doc>
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:string">
+                        <doc>count is used as a period proxy to specified time periods The standard time period is a day so using count you would specify the last to days by specifying last today count or another period length</doc>
+                    </param>
+                    <param name="first" required="true" style="query" type="xsd:string">
+                        <doc>defines the start of the time period If January to February was the specification required start with specifying the the first time point with first Alternatively say the specification was between yesterday and today</doc>
+                    </param>
+                    <param name="last" required="true" style="query" type="xsd:string">
+                        <doc>defines the end of a time period To continue the example above if the date range specified is January to February specify last Alternatively say the time period you always wanted to measure was today One could specify last today and then use count to specify up to days back relative to the time range enabled for the account on the API</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>limit search results to the specified number Limit will only return data points and can be used in histograms or charts</doc>
+                    </param>
+                    <param name="number" required="true" style="query" type="xsd:string">
+                        <doc>specifies number of items in non histogram queries If the parameter number the query will only return data points</doc>
+                    </param>
+                    <param name="period" required="true" style="query" type="xsd:string">
+                        <doc>integer of the number of seconds that a period constitutes if count is specified rather than a start end date</doc>
+                    </param>
+                    <param name="reverse" required="true" style="query" type="xsd:string">
+                        <doc>when set to reverse true this will reverse the order of the histograms charts</doc>
+                    </param>
+                    <param name="source" required="true" style="query" type="xsd:string">
+                        <doc>source twitter will return a user s kred score from Twitter source facebook will return kred score for user who has uploaded facebook source combined will return the combined kred score for users for both Facebook and Twitter</doc>
+                    </param>
+                    <param name="term" required="true" style="query" type="xsd:string">
+                        <doc>twitter name or username Must use only name Example term pepsi term pepsi will not return data</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6822:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="FriendStream/">
+            <method displayName="Friend Activity Stream" id="6821" name="GET">
+                <doc>The Friend Stream an activity statement of the users a specified user is following on Twitter and how their influence / outreach changes relative to the action metrics.</doc>
+                <request>
+                    <param name="source" required="true" style="query" type="xsd:string">
+                        <doc>source twitter will return a user s kred score from Twitter source facebook will return kred score for user who has uploaded facebook source combined will return the combined kred score for users for both Facebook and Twitter</doc>
+                    </param>
+                    <param name="term" required="true" style="query" type="xsd:string">
+                        <doc>twitter name or username Must use only name Example term pepsi term pepsi will not return data</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6821:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="activity-stream/">
+            <method displayName="Activity Stream" id="6820" name="GET">
+                <doc>The Activity Stream provides an activity statement of a user's activity on Twitter according to a provided date range how their influence / outreach changes relative to the action metrics.</doc>
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:string">
+                        <doc>count is used as a period proxy to specified time periods The standard time period is a day so using count you would specify the last to days by specifying last today count or another period length</doc>
+                    </param>
+                    <param name="first" required="true" style="query" type="xsd:string">
+                        <doc>defines the start of the time period If January to February was the specification required start with specifying the the first time point with first Alternatively say the specification was between yesterday and today</doc>
+                    </param>
+                    <param name="last" required="true" style="query" type="xsd:string">
+                        <doc>defines the end of a time period To continue the example above if the date range specified is January to February specify last Alternatively say the time period you always wanted to measure was today One could specify last today and then use count to specify up to days back relative to the time range enabled for the account on the API</doc>
+                    </param>
+                    <param name="source" required="true" style="query" type="xsd:string">
+                        <doc>source twitter will return a user s kred score from Twitter source facebook will return kred score for user who has uploaded facebook source combined will return the combined kred score for users for both Facebook and Twitter</doc>
+                    </param>
+                    <param name="term" required="true" style="query" type="xsd:string">
+                        <doc>twitter name or username Must use only name Example term pepsi term pepsi will not return data</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6820:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

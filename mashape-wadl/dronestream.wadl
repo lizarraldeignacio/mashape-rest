@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2440="urn:function:f2440">
+    <grammars>
+        <include href="Function2440.xsd"/>
+    </grammars>
+    <doc>real time and historical data about every reported United States drone strike</doc>
+    <resources base="https://joshbegley-dronestream.p.mashape.com/">
+        <resource uri="data/">
+            <method displayName="All US drone strikes" id="2440" name="GET">
+                <request/>
+                <response>
+                    <representation element="f2440:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

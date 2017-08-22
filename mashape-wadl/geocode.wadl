@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1254="urn:function:f1254">
+    <grammars>
+        <include href="Function1254.xsd"/>
+    </grammars>
+    <doc>metropolis Geocode finds the associated geographic coordinates latitude and longitude from a given worldwide address provided Metropolis can turn any address data of yours into latitude longitude values Plain and Simple</doc>
+    <resources base="https://metropolis-api-geocode.p.mashape.com/">
+        <resource uri="solve/">
+            <method displayName="solve" id="1254" name="GET">
+                <doc>The API takes the provided address and returns the latitude and longitude for the desired location.</doc>
+                <request>
+                    <param name="address" required="true" style="query" type="xsd:string">
+                        <doc>address to be Geocoded Format expected Street City State ZipCode and Country</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1254:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

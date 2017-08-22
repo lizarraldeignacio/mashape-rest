@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2824="urn:function:f2824">
+    <grammars>
+        <include href="Function2824.xsd"/>
+    </grammars>
+    <doc>remove backgrounds from images The Background Burner quickly removes the background from any image or photo Our patent pending technology does all the work for you automatically</doc>
+    <resources base="https://community-background-burner.p.mashape.com/">
+        <resource uri="background_burns/">
+            <method displayName="1. Create" id="2821" name="POST">
+                <doc>Queue a new background burn.</doc>
+                <request/>
+            </method>
+            <method displayName="2. Show" id="2822" name="GET">
+                <doc>Get the progress of a specific background burn.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>the unique ID of the Background Burn for which you want to view</doc>
+                    </param>
+                    <param name="userId" required="true" style="query" type="xsd:string">
+                        <doc>the user identifier you assigned to the user when queueing the background burn Generally it s the unique ID assigned to the user by your application We will optimize burn performance for repeat users who burn the same type of images</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="3. Update" id="2823" name="PUT">
+                <doc>Select the "final mask" for a specific background burn.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>the unique ID of the Background Burn for which you want to view</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Index" id="2824" name="GET">
+                <doc>List the 100 most recent burns for a specific user.</doc>
+                <request>
+                    <param name="userId" required="true" style="query" type="xsd:string">
+                        <doc>the user identifier you assigned to the user when queueing the background burn Generally it s the unique ID assigned to the user by your application We will optimize burn performance for repeat users who burn the same type of images</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2824:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,849 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4676="urn:function:f4676" xmlns:f4677="urn:function:f4677" xmlns:f4678="urn:function:f4678" xmlns:f4679="urn:function:f4679" xmlns:f4680="urn:function:f4680" xmlns:f4681="urn:function:f4681" xmlns:f4682="urn:function:f4682" xmlns:f4683="urn:function:f4683" xmlns:f4684="urn:function:f4684" xmlns:f4685="urn:function:f4685" xmlns:f4686="urn:function:f4686" xmlns:f4687="urn:function:f4687" xmlns:f4688="urn:function:f4688" xmlns:f4689="urn:function:f4689" xmlns:f4690="urn:function:f4690" xmlns:f4691="urn:function:f4691" xmlns:f4692="urn:function:f4692" xmlns:f4693="urn:function:f4693" xmlns:f4694="urn:function:f4694" xmlns:f4695="urn:function:f4695" xmlns:f4696="urn:function:f4696" xmlns:f4697="urn:function:f4697" xmlns:f4698="urn:function:f4698" xmlns:f4699="urn:function:f4699" xmlns:f4700="urn:function:f4700" xmlns:f4701="urn:function:f4701" xmlns:f4702="urn:function:f4702" xmlns:f4703="urn:function:f4703" xmlns:f4704="urn:function:f4704" xmlns:f4705="urn:function:f4705" xmlns:f4706="urn:function:f4706" xmlns:f4707="urn:function:f4707" xmlns:f4708="urn:function:f4708" xmlns:f4709="urn:function:f4709" xmlns:f4710="urn:function:f4710" xmlns:f4711="urn:function:f4711" xmlns:f4712="urn:function:f4712" xmlns:f4713="urn:function:f4713" xmlns:f4714="urn:function:f4714" xmlns:f4715="urn:function:f4715" xmlns:f4716="urn:function:f4716" xmlns:f4717="urn:function:f4717" xmlns:f4718="urn:function:f4718" xmlns:f4719="urn:function:f4719" xmlns:f4720="urn:function:f4720" xmlns:f4721="urn:function:f4721" xmlns:f4722="urn:function:f4722" xmlns:f4723="urn:function:f4723" xmlns:f4724="urn:function:f4724" xmlns:f4725="urn:function:f4725" xmlns:f4726="urn:function:f4726">
+    <grammars>
+        <include href="Function4700.xsd"/>
+        <include href="Function4687.xsd"/>
+        <include href="Function4686.xsd"/>
+        <include href="Function4711.xsd"/>
+        <include href="Function4710.xsd"/>
+        <include href="Function4707.xsd"/>
+        <include href="Function4706.xsd"/>
+        <include href="Function4705.xsd"/>
+        <include href="Function4698.xsd"/>
+        <include href="Function4695.xsd"/>
+        <include href="Function4694.xsd"/>
+        <include href="Function4693.xsd"/>
+        <include href="Function4685.xsd"/>
+        <include href="Function4683.xsd"/>
+        <include href="Function4682.xsd"/>
+        <include href="Function4726.xsd"/>
+        <include href="Function4715.xsd"/>
+        <include href="Function4714.xsd"/>
+        <include href="Function4712.xsd"/>
+        <include href="Function4692.xsd"/>
+        <include href="Function4680.xsd"/>
+        <include href="Function4709.xsd"/>
+        <include href="Function4708.xsd"/>
+        <include href="Function4704.xsd"/>
+        <include href="Function4702.xsd"/>
+        <include href="Function4701.xsd"/>
+        <include href="Function4699.xsd"/>
+        <include href="Function4697.xsd"/>
+        <include href="Function4681.xsd"/>
+        <include href="Function4678.xsd"/>
+        <include href="Function4725.xsd"/>
+        <include href="Function4724.xsd"/>
+        <include href="Function4723.xsd"/>
+        <include href="Function4722.xsd"/>
+        <include href="Function4721.xsd"/>
+        <include href="Function4720.xsd"/>
+        <include href="Function4719.xsd"/>
+        <include href="Function4718.xsd"/>
+        <include href="Function4717.xsd"/>
+        <include href="Function4716.xsd"/>
+        <include href="Function4703.xsd"/>
+        <include href="Function4696.xsd"/>
+        <include href="Function4690.xsd"/>
+        <include href="Function4688.xsd"/>
+        <include href="Function4684.xsd"/>
+        <include href="Function4679.xsd"/>
+        <include href="Function4677.xsd"/>
+        <include href="Function4713.xsd"/>
+        <include href="Function4691.xsd"/>
+        <include href="Function4689.xsd"/>
+        <include href="Function4676.xsd"/>
+    </grammars>
+    <doc>you can use the PamFax API to send faxes show incoming faxes create new PamFax users and a lot more</doc>
+    <resources base="https://pamfax-pamfax.p.mashape.com/">
+        <resource uri="OnlineStorage/">
+            <resource uri="ListProviders/">
+                <method displayName="ListProviders" id="4700" name="GET">
+                    <doc>Returns a list of supported providers.</doc>
+                    <request>
+                        <param name="attachSettings" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4700:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="NumberInfo/">
+            <resource uri="GetPagePrice/">
+                <method displayName="GetPagePrice" id="4687" name="GET">
+                    <doc>Calculate the expected price per page to a given fax number.  Use GetNumberInfo when you do not need pricing information, as calculating expected price takes longer then just looking up the info for a number.</doc>
+                    <request>
+                        <param name="faxnumber" required="true" style="query" type="xsd:string">
+                            <doc>the faxnumber to query incl countrycode min length Login user first to get personalized prices</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4687:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="GetNumberInfo/">
+                <method displayName="GetNumberInfo" id="4686" name="GET">
+                    <doc>Get some information about a fax number.  Result contains zone, type, city, ... Validates and corrects the number too.</doc>
+                    <request>
+                        <param name="faxnumber" required="true" style="query" type="xsd:string">
+                            <doc>the faxnumber to query incl countrycode min length</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4686:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="Common/">
+            <resource uri="ListZones/">
+                <method displayName="ListZones" id="4711" name="GET">
+                    <doc>Returns price and price_pro for a given zone</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4711:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="ListVersions/">
+                <method displayName="ListVersions" id="4710" name="GET">
+                    <doc>Lists the current Versions.  Result contains versions for the PamFax Gadget, Client etc and returns the version and update url</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4710:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="ListTimezones/">
+                <method displayName="ListTimezones" id="4707" name="GET">
+                    <doc>List all supported timezones.  TimezonesList result list will contain attributes 'default' and (if a user is logged in) 'user_timezone' which contain that values. Additionally the corresponding list entries are marked with attributes 'is_default' and 'is_user_timezone'.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4707:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="ListSupportedFileTypes/">
+                <method displayName="ListSupportedFileTypes" id="4706" name="GET">
+                    <doc>Returns the supported file types for documents that can be faxed.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4706:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="ListStrings/">
+                <method displayName="ListStrings" id="4705" name="GET">
+                    <doc>Returns a list of strings translated into the given language.</doc>
+                    <request>
+                        <param name="culture" required="true" style="query" type="xsd:string">
+                            <doc>culture identifier defaults to users culture Accepts full culture codes like en US de DE and just a language code like en de</doc>
+                        </param>
+                        <param name="ids" required="true" style="query" type="xsd:string">
+                            <doc>array of String identifiers You may also pass a comma separated list as ids ids BTN YES BTN NO</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4705:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="ListLanguages/">
+                <method displayName="ListLanguages" id="4698" name="GET">
+                    <doc>List all available languages.  Result may be filtered to that only languages are returned that are at least translated $min_percent_translated %</doc>
+                    <request>
+                        <param name="minPercentTranslated" required="true" style="query" type="xsd:string">
+                            <doc>the percentage value the languages have to be translated default</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4698:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="ListCurrencies/">
+                <method displayName="ListCurrencies" id="4695" name="GET">
+                    <doc>Returns the list of supported currencies.  Result contains convertion rates too. If $code is given will only return the specified currency's information.</doc>
+                    <request>
+                        <param name="code" required="true" style="query" type="xsd:string">
+                            <doc>currencyCode</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4695:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="ListCountriesForZone/">
+                <method displayName="ListCountriesForZone" id="4694" name="GET">
+                    <doc>Returns all countries in the given zone  Result includes their translated names, countrycode and country-prefix.</doc>
+                    <request>
+                        <param name="zone" required="true" style="query" type="xsd:string">
+                            <doc>zone of the country which is wanted</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4694:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="ListCountries/">
+                <method displayName="ListCountries" id="4693" name="GET">
+                    <doc>Returns a preview page for a fax.  May be in progress, sent or from inbox.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4693:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="GetGeoIPInformation/">
+                <method displayName="GetGeoIPInformation" id="4685" name="GET">
+                    <doc>Returns Geo information based on the given IP address (IPV4)</doc>
+                    <request>
+                        <param name="ip" required="true" style="query" type="xsd:string">
+                            <doc>the ip to get geo information off</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4685:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="GetCurrentSettings/">
+                <method displayName="GetCurrentSettings" id="4683" name="GET">
+                    <doc>Returns the current settings for timezone and currency.  This is the format/timezone ALL return values of the API are in. These are taken from the user (if logged in, the api user's settings or the current ip address)</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4683:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="GetCurrentCultureInfo/">
+                <method displayName="GetCurrentCultureInfo" id="4682" name="GET">
+                    <doc>Returns the current culture info data.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4682:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="Session/">
+            <resource uri="VerifyUser/">
+                <method displayName="VerifyUser" id="4726" name="GET">
+                    <doc>Verifies a PamFax user via username/password</doc>
+                    <request>
+                        <param name="password" required="true" style="query" type="xsd:string">
+                            <doc>the password or the md of the password that the user entered in the registration process for the given username case sensitive</doc>
+                        </param>
+                        <param name="username" required="true" style="query" type="xsd:string">
+                            <doc>username of the user or the md of user s username That s what he has entered when he registered</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4726:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="ReloadUser/">
+                <method displayName="ReloadUser" id="4715" name="GET">
+                    <doc>Returns the current user object.  Use this if you need to ensure that your locally stored user object is up to date.</doc>
+                    <request>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4715:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="RegisterListener/">
+                <method displayName="RegisterListener" id="4714" name="GET">
+                    <doc>Registers listeners for the current session.  Any change of the listened types will then be available via Session::ListChanges function</doc>
+                    <request>
+                        <param name="append" required="true" style="query" type="xsd:boolean">
+                            <doc/>
+                        </param>
+                        <param name="listenerTypes" required="true" style="query" type="xsd:string">
+                            <doc>array of types to be registered faxall faxsending faxsucceeded faxfailed faxretrying</doc>
+                        </param>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4714:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="Logout/">
+                <method displayName="Logout" id="4712" name="GET">
+                    <doc>Terminate the current session.</doc>
+                    <request>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4712:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="ListChanges/">
+                <method displayName="ListChanges" id="4692" name="GET">
+                    <doc>Returns all changes in the system that affect the currently logged in user.  This could be changes to the user's profile, credit, settings, ... Changes will be deleted after you received them once via this call, so use it wisely ;)</doc>
+                    <request>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4692:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="CreateLoginIdentifier/">
+                <method displayName="CreateLoginIdentifier" id="4680" name="GET">
+                    <doc>Creates an identifier for the current user  The created identifier then can be passed to the portal to directly log in the user: https://portal.pamfax.biz/?_id= Be aware that these identifiers are case sensitive. Identifiers with ttl &gt; 0 can only be used once.</doc>
+                    <request>
+                        <param name="timetolifeminutes" required="true" style="query" type="xsd:string">
+                            <doc>optional a lifetime of this identifier Defaults to seconds If is given the identifier does not expire and can be used more then once but are tied to your current API key and can not be passed to online shop portal in the url default</doc>
+                        </param>
+                        <param name="userIp" required="true" style="query" type="xsd:string">
+                            <doc>the IP address of the client on which this identifier will be bound to Using the identfier from a different ip address will fail</doc>
+                        </param>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4680:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="FaxHistory/">
+            <resource uri="ListUnpaidFaxes/">
+                <method displayName="ListUnpaidFaxes" id="4709" name="GET">
+                    <doc>Lists all unpaid faxes  That are waiting for a payment. When this user makes a transaction to add credit, these faxes will be sent automatically if they are younger that 2 hours.</doc>
+                    <request>
+                        <param name="currentPage" required="true" style="query" type="xsd:string">
+                            <doc>the page which should be shown default</doc>
+                        </param>
+                        <param name="itemsPerPage" required="true" style="query" type="xsd:string">
+                            <doc>how many items are shown per page default</doc>
+                        </param>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4709:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="ListTrash/">
+                <method displayName="ListTrash" id="4708" name="GET">
+                    <doc>Lists all faxes in trash.</doc>
+                    <request>
+                        <param name="currentPage" required="true" style="query" type="xsd:string">
+                            <doc>the page which should be shown default</doc>
+                        </param>
+                        <param name="itemsPerPage" required="true" style="query" type="xsd:string">
+                            <doc>how many items are shown per page default</doc>
+                        </param>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4708:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="ListSentFaxes/">
+                <method displayName="ListSentFaxes" id="4704" name="GET">
+                    <doc>List all sent faxes (successful or not)</doc>
+                    <request>
+                        <param name="currentPage" required="true" style="query" type="xsd:string">
+                            <doc>the page which should be shown default</doc>
+                        </param>
+                        <param name="itemsPerPage" required="true" style="query" type="xsd:string">
+                            <doc>how many items are shown per page default</doc>
+                        </param>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4704:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="ListRecentRecipients/">
+                <method displayName="ListRecentRecipients" id="4702" name="GET">
+                    <doc>Returns a list of the last recipient  This is fixed to a maximum of 20 records.</doc>
+                    <request>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4702:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="ListRecentFaxes/">
+                <method displayName="ListRecentFaxes" id="4701" name="GET">
+                    <doc>Returns a list of latest faxes for the user.  Does not contain deleted and delayed faxes (See ListTrash for deleted faxes).</doc>
+                    <request>
+                        <param name="count" required="true" style="query" type="xsd:string">
+                            <doc>the count of items to return Valid values are between and default</doc>
+                        </param>
+                        <param name="dataToList" required="true" style="query" type="xsd:string">
+                            <doc>any message types you want this function to return Allowed models are sent inbox outbox Leave empty to get faxes of any type</doc>
+                        </param>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4701:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="ListOutboxFaxes/">
+                <method displayName="ListOutboxFaxes" id="4699" name="GET">
+                    <doc>Faxes in the outbox that are currently in the sending process</doc>
+                    <request>
+                        <param name="currentPage" required="true" style="query" type="xsd:string">
+                            <doc>the page which should be shown default</doc>
+                        </param>
+                        <param name="itemsPerPage" required="true" style="query" type="xsd:string">
+                            <doc>how many items are shown per page default</doc>
+                        </param>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4699:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="ListInboxFaxes/">
+                <method displayName="ListInboxFaxes" id="4697" name="GET">
+                    <doc>List all faxes in the inbox of the current user.</doc>
+                    <request>
+                        <param name="currentPage" required="true" style="query" type="xsd:string">
+                            <doc>the page which should be shown default</doc>
+                        </param>
+                        <param name="itemsPerPage" required="true" style="query" type="xsd:string">
+                            <doc>how many items are shown per page default</doc>
+                        </param>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4697:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="EmptyTrash/">
+                <method displayName="EmptyTrash" id="4681" name="GET">
+                    <doc>Removes all faxes from trash for user and if user is member of a company and has delete rights also for the owners inbox faxes</doc>
+                    <request>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4681:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="CountFaxes/">
+                <method displayName="CountFaxes" id="4678" name="GET">
+                    <doc>Returns the number of faxes from users history with a specific state.</doc>
+                    <request>
+                        <param name="type" required="true" style="query" type="xsd:string">
+                            <doc>possible values history inbox inbox unread outbox or unpaid</doc>
+                        </param>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4678:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="FaxJob/">
+            <resource uri="StartPreviewCreation/">
+                <method displayName="StartPreviewCreation" id="4725" name="GET">
+                    <doc>Starts creating the preview for this fax.  Call after fax is ready (GetFaxState returns FAX_READY_TO_SEND)  DEPRECATED! Use FaxJob::GetPreview instead</doc>
+                    <request>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4725:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="SetRecipients/">
+                <method displayName="SetRecipients" id="4724" name="GET">
+                    <doc>Creates recipients for the current fax.  All recipients are replaced with the given ones! Note that each name may be 80 characters long. More characters will be cut off.</doc>
+                    <request>
+                        <param name="names" required="true" style="query" type="xsd:string">
+                            <doc>optional array of recipient names lnegth must match length of numbers argument</doc>
+                        </param>
+                        <param name="numbers" required="true" style="query" type="xsd:string">
+                            <doc>array of recipient numbers each in international format</doc>
+                        </param>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4724:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="SetNotifications/">
+                <method displayName="SetNotifications" id="4723" name="GET">
+                    <doc>Sets the notification options for the current fax.  Notification options that are not in the array will not be changed/resetted. Note: defaults for notification settings will be taken from users account, so potentially not need to call this on every fax.  DEPRECATED! We do not support setting these settings per fax anymore. Please use UserInfo::SetNotifyProviderSettings and UserInfo::SetGlobalNotifySettings instead to set the profile-wide settings.</doc>
+                    <request>
+                        <param name="errorNotification" required="true" style="query" type="xsd:integer">
+                            <doc>send only notificatiosn when an error occured</doc>
+                        </param>
+                        <param name="groupNotification" required="true" style="query" type="xsd:integer">
+                            <doc>send grouped notifications for the whole job makes sense only if multiple recipients</doc>
+                        </param>
+                        <param name="notifications" required="true" style="query" type="xsd:integer">
+                            <doc>an array of notification settings Currently supported sms email skypechat one per row with as value</doc>
+                        </param>
+                        <param name="saveDefaults" required="true" style="query" type="xsd:integer">
+                            <doc>save Notification Settings to user s Profile</doc>
+                        </param>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4723:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="SetCover/">
+                <method displayName="SetCover" id="4722" name="GET">
+                    <doc>Sets the cover template for the current fax.  IMPORTANT NOTE: This method allowed only selection of cover template using the cover_id argument up to and including API 3.4MR8. We kept that argument valid in API 3.5 meaning that the UUIDs for the standard covers are the same as their ID. We will remove the template_id argument in future versions of this API and most likely reorder the arguments. So: for now everything is backwards compatible, but we will break that soon, so please update your code to use the UUID pattern. Just do not pass template_id anymore and pass template_uuid instead.  Since API 3.5 you may set your own covers using the UserInfoAPI. See AddCover method there for a detailed description of standard placeholders, here's just the list: {ToName} {FaxNumber} {FromName} {Date} {Page} {Pages} {Message}  Using the $data $argument you can fill up the cover with user-specific data other than the standard placeholders. You may also use it to overwrite the standard placeholders values with you own data. Your data keys should be build up like this: {my_var} (including the brackets) Sample: "{MyOwnName}"=&gt;"PamFax Tester", "{MyOwnLorem}"=&gt;"Ipsum"  Note that you may send in more data than actually present in the cover template, meaning that if you provide your own set of standard covers with your own placeholders, you may pass the values in here even if the user selected another/an own cover without the placeholders inside.</doc>
+                    <request>
+                        <param name="data" required="true" style="query" type="xsd:string">
+                            <doc>optional data to fill placeholders in the coverpage template key value pairs</doc>
+                        </param>
+                        <param name="templateId" required="true" style="query" type="xsd:string">
+                            <doc>the id of the cover Use to remove cover</doc>
+                        </param>
+                        <param name="templateUuid" required="true" style="query" type="xsd:string">
+                            <doc>cover UUID as returned by UserInfoAPI ListCovers default</doc>
+                        </param>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>cover text as pure text</doc>
+                        </param>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4722:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="SendLater/">
+                <method displayName="SendLater" id="4721" name="GET">
+                    <doc>Put the fax in the unpaid faxes queue.  Only possible if user has NOT enough credit to send this fax directly. You may pass in a datetime when the fax shall be sent. This must be a string formatted in the users chosen culture (so exactly as you would show it to him) and may not be in the past nor be greater than 'now + 14days'. Additionally you may give a timezone the send_at value is in.</doc>
+                    <request>
+                        <param name="sendAt" required="true" style="query" type="xsd:string">
+                            <doc>datetime when the fax shall be sent</doc>
+                        </param>
+                        <param name="sendAtTimezone" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4721:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="Send/">
+                <method displayName="Send" id="4720" name="GET">
+                    <doc>Start the fax sending.  Only successfull if all necessary data is set to the fax: at least 1 recipient and a cover page or a file uploaded. Will only work if user has enough credit to pay for the fax. You may pass in a datetime when the fax shall be sent. This must be a string formatted in the users chosen culture (so exactly as you would show it to him) and may not be in the past nor be greater than 'now + 14days'. Additionally you may give a timezone the send_at value is in.</doc>
+                    <request>
+                        <param name="sendAt" required="true" style="query" type="xsd:string">
+                            <doc>datetime when the fax shall be sent</doc>
+                        </param>
+                        <param name="sendAtTimezone" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4720:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="ResetNotifications/">
+                <method displayName="ResetNotifications" id="4719" name="GET">
+                    <doc>Resets the notification options for the current fax to their default values.  Notification options will be set to what is set for the user as default.</doc>
+                    <request>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4719:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="RemoveCover/">
+                <method displayName="RemoveCover" id="4718" name="GET">
+                    <doc>Removes the cover from fax</doc>
+                    <request>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4718:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="RemoveAllRecipients/">
+                <method displayName="RemoveAllRecipients" id="4717" name="GET">
+                    <doc>Removes all recipients for the current fax.</doc>
+                    <request>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4717:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="RemoveAllFiles/">
+                <method displayName="RemoveAllFiles" id="4716" name="GET">
+                    <doc>Remove all uploaded files from the current fax</doc>
+                    <request>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4716:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="ListRecipients/">
+                <method displayName="ListRecipients" id="4703" name="GET">
+                    <doc>Returns the recipients for the current fax.</doc>
+                    <request>
+                        <param name="currentPage" required="true" style="query" type="xsd:string">
+                            <doc>the page which should be shown default</doc>
+                        </param>
+                        <param name="itemsPerPage" required="true" style="query" type="xsd:string">
+                            <doc>how many items are shown per page default</doc>
+                        </param>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4703:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="ListFaxFiles/">
+                <method displayName="ListFaxFiles" id="4696" name="GET">
+                    <doc>Get all uploaded files for the current fax</doc>
+                    <request>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4696:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="ListAvailableCovers/">
+                <method displayName="ListAvailableCovers" id="4690" name="GET">
+                    <doc>Returns a list of all coverpages the user may use.  Result includes the "no cover" if the fax job already contains a file as in that case there's no need to add a cover.</doc>
+                    <request>
+                        <param name="defaultsIfEmpty" required="true" style="query" type="xsd:string">
+                            <doc>optional default true</doc>
+                        </param>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4690:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="GetPreview/">
+                <method displayName="GetPreview" id="4688" name="GET">
+                    <doc>Returns the states of all preview pages.  Call after fax is ready (GetFaxState returns FAX_READY_TO_SEND).</doc>
+                    <request>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4688:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="GetFaxState/">
+                <method displayName="GetFaxState" id="4684" name="GET">
+                    <doc>Returns the state of the current fax.</doc>
+                    <request>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4684:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="Create/">
+                <method displayName="Create" id="4679" name="GET">
+                    <doc>Creates a new fax in the API backend and returns it.  If a fax job is currently in edit mode in this session, this fax job is returned instead. Note: This is not an error. It provides you with the possibility to continue with the fax.</doc>
+                    <request>
+                        <param name="origin" required="true" style="query" type="xsd:string">
+                            <doc>from where was this fax started i e printer desktop home For reporting and analysis purposes</doc>
+                        </param>
+                        <param name="userAgent" required="true" style="query" type="xsd:string">
+                            <doc>user agent string of the client device If not available put something descriptive like iPhone OS</doc>
+                        </param>
+                        <param name="userIp" required="true" style="query" type="xsd:string">
+                            <doc>the IP address of the client if available If you pass an invalid IP address i e just a the current public caller IP will be used</doc>
+                        </param>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4679:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="AddRemoteFile/">
+                <method displayName="AddRemoteFile" id="4677" name="GET">
+                    <doc>Add a remote file to the fax.  The url parameter may contain username:password for basic http auth, but this is the only supported authentication method. URL Examples: http://myusername:andpassord@somewhere.com/download.php?id=0815 https://myusername:andpassord@somewhere.com/image1.jpeg http://www.justplaindomain.com/test.txt</doc>
+                    <request>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>the url of the file to add</doc>
+                        </param>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4677:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="Shopping/">
+            <resource uri="RedeemCreditVoucher/">
+                <method displayName="RedeemCreditVoucher" id="4713" name="GET">
+                    <doc>Redeem a credit voucher.  These are different then the shop vouchers to be used in the online shop! You can use "PCPC0815" to test this function in the Sandbox API</doc>
+                    <request>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="vouchercode" required="true" style="query" type="xsd:string">
+                            <doc>vouchercode The voucher code Format is ignored</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4713:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="ListAvailableItems/">
+                <method displayName="ListAvailableItems" id="4691" name="GET">
+                    <doc>Returns a list of available items from the shop.  When a user is logged in, it will also contain the items only available to validated customers.</doc>
+                    <request>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4691:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="GetShopLink/">
+                <method displayName="GetShopLink" id="4689" name="GET">
+                    <doc>Returns different shop links.  Use these links to open a browser window with the shop in a specific state.</doc>
+                    <request>
+                        <param name="pay" required="true" style="query" type="xsd:boolean">
+                            <doc>DEPRECATED direct leads to checkout page</doc>
+                        </param>
+                        <param name="product" required="true" style="query" type="xsd:string">
+                            <doc>product to add Available BasicPlan ProPlan OnDemand Pack Pack Pack Pack Pack Pack Pack</doc>
+                        </param>
+                        <param name="type" required="true" style="query" type="xsd:string">
+                            <doc>type of link to return Available credit packs basic plan pro plan checkout</doc>
+                        </param>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4689:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="AddCreditToSandboxUser/">
+                <method displayName="AddCreditToSandboxUser" id="4676" name="GET">
+                    <doc>Adds some credit in user's currency to the currently logged in user.  NOTES: This method is for testing purposes only, so it is not available in the LIVE system. Use it to create some 'virtual' credits for your users.</doc>
+                    <request>
+                        <param name="amount" required="true" style="query" type="xsd:integer">
+                            <doc>the amount of credit you want to add to the current user s pamfax credit Currency is the user s currency You can also pass a negative value to remove credit from user for testing</doc>
+                        </param>
+                        <param name="reason" required="true" style="query" type="xsd:string">
+                            <doc>optionally add some reason why you added this credit default</doc>
+                        </param>
+                        <param name="usertoken" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4676:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

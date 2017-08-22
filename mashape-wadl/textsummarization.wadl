@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1249="urn:function:f1249" xmlns:f1250="urn:function:f1250" xmlns:f1251="urn:function:f1251">
+    <grammars>
+        <include href="Function1251.xsd"/>
+        <include href="Function1250.xsd"/>
+        <include href="Function1249.xsd"/>
+    </grammars>
+    <doc>text Summarization API provides professional text summarizer service which is based on advanced Natural Language Processing and Machine Learning technologies It can be used to summarize short important text from the URL or document that user provided If you want test our automatic text summarization service you can use our free automaticText Summarizer online demo http textsummarization net text summarizer</doc>
+    <resources base="https://textanalysis-text-summarization.p.mashape.com/">
+        <resource uri="text-summarizer-url/">
+            <method displayName="Text Summarization for URL" id="1251" name="POST">
+                <doc>Just summarized the page url by the text summarizer</doc>
+                <request/>
+                <response>
+                    <representation element="f1251:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="text-summarizer-text/">
+            <method displayName="Text Summarization for Text" id="1250" name="POST">
+                <doc>Text Summarization for text only</doc>
+                <request/>
+                <response>
+                    <representation element="f1250:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="text-summarizer/">
+            <method displayName="Text Summarization" id="1249" name="POST">
+                <doc>Automatic Text Summarization API, you can test details summarized result on our text summarizer online demo: http://textsummarization.net/text-summarizer ， and you can find the details document  on our website: http://textsummarization.net/text-summarization-api-document</doc>
+                <request/>
+                <response>
+                    <representation element="f1249:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

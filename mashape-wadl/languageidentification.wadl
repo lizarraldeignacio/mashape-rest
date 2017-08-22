@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2943="urn:function:f2943">
+    <grammars>
+        <include href="Function2943.xsd"/>
+    </grammars>
+    <doc>automatic language detection for texts obtained from any kind of source blog twitter online news and so on Through statistic techniques based on N grams evaluation more than languages are correctly identified</doc>
+    <resources base="https://language-identification.p.mashape.com/">
+        <resource uri="lang-1.1.php/">
+            <method displayName="lang-1.1" id="2943" name="GET">
+                <doc>Language identification</doc>
+                <request>
+                    <param name="doc" required="true" style="query" type="xsd:string">
+                        <doc>input file with the content to analyze The supported formats for file contents can be found at https textalytics com core supported formats if doc has a value url and txt must be empty</doc>
+                    </param>
+                    <param name="txt" required="true" style="query" type="xsd:string">
+                        <doc>input text It can be plain text HTML or XML always using UTF encoding if txt has a value url and doc must be empty</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>uRL of the content to analyze Currently only non authenticated HTTP and FTP are supported The content types supported for URL contents can be found at https textalytics com core supported formats if url has a value txt and doc must be empty</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2943:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

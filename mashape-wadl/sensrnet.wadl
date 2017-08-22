@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>access your account and surveillance cameras on Sensr net</doc>
+    <resources base="https://yacc-sensrnet.p.mashape.com/">
+        <resource uri="devices/">
+            <resource uri="{id}.json/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Returns a device resource" id="7388" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the id of the device</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Updates a device resource" id="7399" name="PUT">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the id of the device</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="plans/">
+            <resource uri="current.json/">
+                <method displayName="Current user data" id="7377" name="GET">
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="clips/">
+            <resource uri="owned.json/">
+                <method displayName="Returns a list of clips that belong to the current user" id="7393" name="GET">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="public.json/">
+                <method displayName="Returns a list of clips that are accessible to the current user" id="7392" name="GET">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="{id}.json/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Create or Update a new clip that belongs to the current user" id="7376" name="PUT">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>id of the clip to update</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Delete an existing clip that belongs to the current user" id="7379" name="DELETE">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>id of the clip to delete</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Returns a clip resource" id="7387" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the id of the clip</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="clips.json/">
+            <method displayName="Create a new clip that belongs to the current user" id="7375" name="POST">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="cameras/">
+            <resource uri="update/">
+                <method displayName="Update a camera that belongs to the current user" id="7398" name="POST">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="owned.json/">
+                <method displayName="Returns a list of cameras that belong to the current user." id="7391" name="GET">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="shared.json/">
+                <method displayName="Returns a list of cameras that are shared with the current user" id="7390" name="GET">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="public.json/">
+                <method displayName="Returns a list of cameras that are accessible to the current user" id="7389" name="GET">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="create/">
+                <method displayName="Create a new camera that belongs to the current user" id="7374" name="POST">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Convert a utc time to the camera's time zone." id="7373" name="GET">
+                    <request>
+                        <param name="epochTime" required="true" style="query" type="xsd:string">
+                            <doc>epoch time or iso utc string</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>id of the camera to view</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Delete an existing camera that belongs to the current user" id="7378" name="DELETE">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>id of the camera to delete</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Get a daily view of a camera" id="7380" name="GET">
+                    <request>
+                        <param name="epochTime" required="true" style="query" type="xsd:string">
+                            <doc>epoch time indicating the day</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>id of the camera to view</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Get a hourly view of a camera" id="7381" name="GET">
+                    <request>
+                        <param name="epochTime" required="true" style="query" type="xsd:string">
+                            <doc>epoch time indicating the hour</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>id of the camera to view</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Get a monthly view of a camera" id="7382" name="GET">
+                    <request>
+                        <param name="epochTime" required="true" style="query" type="xsd:string">
+                            <doc>epoch time indicating the month</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>id of the camera to view</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Get a weekly view of a camera" id="7383" name="GET">
+                    <request>
+                        <param name="epochTime" required="true" style="query" type="xsd:string">
+                            <doc>epoch time indicating the week</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>id of the camera to view</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Get the latest image or segment for a camera" id="7384" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>id of the camera to view</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Send the camera a request to turn off its led" id="7394" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>id of the camera to view</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Send the camera a request to turn on its led" id="7395" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>id of the camera to view</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Send the camera a zoom in request" id="7396" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>id of the camera to view</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Send the camera a zoom out request" id="7397" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>id of the camera to view</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="users/">
+            <resource uri="register/">
+                <method displayName="Registers a new user" id="7386" name="POST">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="me.json/">
+                <method displayName="get user data" id="7385" name="GET">
+                    <doc>get current user data</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="cancel/">
+                <method displayName="Cancel the account of the current user" id="7372" name="POST">
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

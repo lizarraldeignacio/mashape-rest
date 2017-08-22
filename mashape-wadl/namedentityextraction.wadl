@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6789="urn:function:f6789">
+    <grammars>
+        <include href="Function6789.xsd"/>
+    </grammars>
+    <doc>aPI to extract NER and Key words from text by NaturalText com</doc>
+    <resources base="https://rajasankar-ner_keyword-extraction-v1.p.mashape.com/">
+        <resource uri="api/">
+            <method displayName="/api" id="6789" name="POST">
+                <doc>POST API for extracting keywords from text</doc>
+                <request/>
+                <response>
+                    <representation element="f6789:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

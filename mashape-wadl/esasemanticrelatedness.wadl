@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1596="urn:function:f1596">
+    <grammars>
+        <include href="Function1596.xsd"/>
+    </grammars>
+    <doc>calculates the semantic relatedness between pairs of text excerpts based on the likeness of their meaning or semantic content</doc>
+    <resources base="https://amtera.p.mashape.com/">
+        <resource uri="relatedness/">
+            <resource uri="{lang}/">
+                <param name="lang" style="template" type="xsd:string"/>
+                <method displayName="Relatedness" id="1596" name="POST">
+                    <doc>Calculates the semantic relatedness between pairs of text excerpts based on the likeness of their meaning  or semantic content.</doc>
+                    <request>
+                        <param name="lang" required="true" style="query" type="xsd:string">
+                            <doc>the language of the texts you are submitting Supported languages are en for English and pt for Portuguese</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1596:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

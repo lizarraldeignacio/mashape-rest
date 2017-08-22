@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6655="urn:function:f6655">
+    <grammars>
+        <include href="Function6655.xsd"/>
+    </grammars>
+    <doc>make RSS feed from any page using css paths to feed elements Use Firebug Copy CSS path feature to copy path Firefinder for Firebug to debug and highlight matches</doc>
+    <resources base="https://iuyuukukiu-rss-from-any-page-v1.p.mashape.com/">
+        <resource uri="feed/">
+            <method displayName="/feed/" id="6655" name="GET">
+                <request>
+                    <param name="blFilterKeywords" required="true" style="query" type="xsd:string">
+                        <doc>filter blacklist comma separated</doc>
+                    </param>
+                    <param name="charset" required="true" style="query" type="xsd:string">
+                        <doc>charset</doc>
+                    </param>
+                    <param name="detailsLinkCssPath" required="true" style="query" type="xsd:string">
+                        <doc>css path to element link</doc>
+                    </param>
+                    <param name="detailsPageTextCssPath" required="true" style="query" type="xsd:string">
+                        <doc>css path to text on details page</doc>
+                    </param>
+                    <param name="indexUrl" required="true" style="query" type="xsd:string">
+                        <doc>index page url page with new feed elements</doc>
+                    </param>
+                    <param name="wlFilterKeywords" required="true" style="query" type="xsd:string">
+                        <doc>filter whitelist comma separated</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6655:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

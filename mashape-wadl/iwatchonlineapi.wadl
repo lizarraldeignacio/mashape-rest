@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1372="urn:function:f1372" xmlns:f1373="urn:function:f1373">
+    <grammars>
+        <include href="Function1372.xsd"/>
+        <include href="Function1373.xsd"/>
+    </grammars>
+    <doc>official Iwatchonline API for getting Movies TV Show Details and Sharing Links</doc>
+    <resources base="https://iwatchonline.p.mashape.com/">
+        <resource uri="http:/">
+            <resource uri="">
+                <resource uri="www.iwatchonline.to/">
+                    <resource uri="api/">
+                        <method displayName="Episode" id="1371" name="POST">
+                            <doc>The same Endpoint for all DATA</doc>
+                            <request/>
+                        </method>
+                        <method displayName="Movie" id="1372" name="POST">
+                            <doc>The same Endpoint for all data</doc>
+                            <request/>
+                            <response>
+                                <representation element="f1372:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Show" id="1373" name="POST">
+                            <doc>The same Endpoint for All Data</doc>
+                            <request/>
+                            <response>
+                                <representation element="f1373:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Submit Episode Links" id="1374" name="POST">
+                            <doc>Post Links to Iwatchonline</doc>
+                            <request/>
+                        </method>
+                        <method displayName="Submit Links" id="1375" name="POST">
+                            <doc>Submit Links to Iwatchonline</doc>
+                            <request/>
+                        </method>
+                        <method displayName="Submit Movies Links to Iwatchonline" id="1376" name="POST">
+                            <doc>The same End Point for all data</doc>
+                            <request/>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

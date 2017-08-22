@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1586="urn:function:f1586" xmlns:f1587="urn:function:f1587">
+    <grammars>
+        <include href="Function1587.xsd"/>
+        <include href="Function1586.xsd"/>
+    </grammars>
+    <doc>display on your website widget or app Inspirational Images Motivational Pictures Healing Quotes and more</doc>
+    <resources base="https://healthruwords.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="topics/">
+                <method displayName="/v1/topics/" id="1587" name="GET">
+                    <doc>Delivers available Inspirational Topics</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1587:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="quotes/">
+                <method displayName="/v1/quotes/" id="1586" name="GET">
+                    <doc>Delivers Inspirational Quotes - if used without parameters, it will return one random quote (default behavior)</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>id of the quote Takes precedence over all other parameters</doc>
+                        </param>
+                        <param name="maxr" required="true" style="query" type="xsd:integer">
+                            <doc>max number of quotes returned Default</doc>
+                        </param>
+                        <param name="size" required="true" style="query" type="xsd:string">
+                            <doc>defines the size of the image to be returned Possible values medium thumbnail Default value thumbnail</doc>
+                        </param>
+                        <param name="t" required="true" style="query" type="xsd:string">
+                            <doc>list of topics within which selection one or several quotes will be returned</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1586:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

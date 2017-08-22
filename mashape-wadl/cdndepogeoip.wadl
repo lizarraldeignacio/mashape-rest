@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4394="urn:function:f4394" xmlns:f4395="urn:function:f4395" xmlns:f4396="urn:function:f4396" xmlns:f4397="urn:function:f4397">
+    <grammars>
+        <include href="Function4397.xsd"/>
+        <include href="Function4396.xsd"/>
+        <include href="Function4395.xsd"/>
+        <include href="Function4394.xsd"/>
+    </grammars>
+    <doc>this API is a simple GeoLocation API based on the MaxMind DB with a few extra network tools integrated</doc>
+    <resources base="https://bolvarak-cdn-depo-geoip-v1.p.mashape.com/">
+        <resource uri="{ipaddress}/">
+            <param name="ipaddress" style="template" type="xsd:string"/>
+            <resource uri="xml/">
+                <method displayName="Static XML GeoIP Location" id="4397" name="GET">
+                    <doc>This endpoint returns an XML response for a specific IP address.</doc>
+                    <request>
+                        <param name="ipaddress" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4397:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="json/">
+                <method displayName="Static JSON/JSONP GeoIP Location" id="4396" name="GET">
+                    <doc>This endpoint returns a JSON or JSONP response for a specific IP address.  Simply add a callback GET parameter to trigger the JSONP response.</doc>
+                    <request>
+                        <param name="callback" required="true" style="query" type="xsd:string">
+                            <doc>this parameter triggers a JSONP response</doc>
+                        </param>
+                        <param name="ipaddress" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4396:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="xml/">
+            <method displayName="Dynamic XML GeoIP Location" id="4395" name="GET">
+                <doc>This endpoint provides an XML response based on your IP.</doc>
+                <request/>
+                <response>
+                    <representation element="f4395:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="json/">
+            <method displayName="Dynamic JSON/JSONP GeoIP Location" id="4394" name="GET">
+                <doc>This endpoint will send a JSON or JSONP response based on your IP.  Simply add a callback URL parameter to trigger the JSONP response.</doc>
+                <request>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>this parameter is used to trigger a JSONP response from the server</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4394:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2820="urn:function:f2820">
+    <grammars>
+        <include href="Function2820.xsd"/>
+    </grammars>
+    <doc>iP Location web service does a reverse lookup of an IP address to an ISO country code region name city name latitude longitude ZIP code ISP and domain Credits are needed to perform queries which can be purchased from the http ip location com web service page</doc>
+    <resources base="https://ip2location-ip2location-v1.p.mashape.com/">
+        <resource uri="">
+            <method displayName="IP2Location WS10" id="2820" name="GET">
+                <doc>IP2Location WS10 Web Service</doc>
+                <request>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>iP address to query</doc>
+                    </param>
+                    <param name="key" required="true" style="query" type="xsd:string">
+                        <doc>aPI key</doc>
+                    </param>
+                    <param name="package" required="true" style="query" type="xsd:string">
+                        <doc>web service package</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2820:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

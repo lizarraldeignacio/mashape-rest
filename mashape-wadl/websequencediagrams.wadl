@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4878="urn:function:f4878">
+    <grammars>
+        <include href="Function4878.xsd"/>
+    </grammars>
+    <doc>the web s UML sequence diagram tool saving you time since</doc>
+    <resources base="https://smhanov-websequencediagrams.p.mashape.com/">
+        <resource uri="">
+            <method displayName="create" id="4878" name="POST">
+                <doc>create an image</doc>
+                <request/>
+                <response>
+                    <representation element="f4878:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

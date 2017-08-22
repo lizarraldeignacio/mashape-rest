@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1144="urn:function:f1144" xmlns:f1145="urn:function:f1145">
+    <grammars>
+        <include href="Function1145.xsd"/>
+        <include href="Function1144.xsd"/>
+    </grammars>
+    <doc>a fun API combining cowsay and fortune cookies</doc>
+    <resources base="https://thibaultcha-fortunecow-v1.p.mashape.com/">
+        <resource uri="think/">
+            <method displayName="Think text" id="1147" name="GET">
+                <doc>The cow thinks the given text</doc>
+                <request>
+                    <param name="cow" required="true" style="query" type="xsd:string">
+                        <doc>use a different cow template see List cows</doc>
+                    </param>
+                    <param name="face" required="true" style="query" type="xsd:string">
+                        <doc>use a different face template see List faces</doc>
+                    </param>
+                    <param name="t" required="true" style="query" type="xsd:string">
+                        <doc>text to think</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="say/">
+            <method displayName="Say text" id="1146" name="GET">
+                <doc>The cow says the given text</doc>
+                <request>
+                    <param name="cow" required="true" style="query" type="xsd:string">
+                        <doc>use a different cow template see List cows</doc>
+                    </param>
+                    <param name="face" required="true" style="query" type="xsd:string">
+                        <doc>use a different face template see List faces</doc>
+                    </param>
+                    <param name="t" required="true" style="query" type="xsd:string">
+                        <doc>text to say</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="">
+            <method displayName="Say random fortune" id="1145" name="GET">
+                <doc>The cow says a random fortune cookie</doc>
+                <request>
+                    <param name="cow" required="true" style="query" type="xsd:string">
+                        <doc>use a different cow template see List cows</doc>
+                    </param>
+                    <param name="face" required="true" style="query" type="xsd:string">
+                        <doc>use a different face template see List faces</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1145:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="random/">
+            <method displayName="Random Fortunecow" id="1144" name="GET">
+                <doc>The cow uses a random template to say a random fortune cookie</doc>
+                <request/>
+                <response>
+                    <representation element="f1144:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="cows/">
+            <method displayName="List cows templates" id="1143" name="GET">
+                <doc>List the available cows templates</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="faces/">
+            <method displayName="List cows faces" id="1142" name="GET">
+                <doc>List the available cows faces</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

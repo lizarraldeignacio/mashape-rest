@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3477="urn:function:f3477" xmlns:f3478="urn:function:f3478">
+    <grammars>
+        <include href="Function3478.xsd"/>
+        <include href="Function3477.xsd"/>
+    </grammars>
+    <doc>grab and retrieve colors from an image with this simple api returns colors in multiple formats RGB HEX RGBA HSL HSV HSB LAB and more Color extraction works for PNG JPEG ICO BMP GIF No longer worry about CORS or dealing with complex color and image manipulation libraries</doc>
+    <resources base="https://colorengine.p.mashape.com/">
+        <resource uri="palette/">
+            <resource uri="{image_url}/">
+                <param name="image_url" style="template" type="xsd:string"/>
+                <method displayName="Retrieve Palette" id="3478" name="GET">
+                    <doc>Retrieves color palette from a specified image url.</doc>
+                    <request>
+                        <param name="imageUrl" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3478:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="color/">
+            <resource uri="{image_url}/">
+                <param name="image_url" style="template" type="xsd:string"/>
+                <method displayName="Retrieve Color" id="3477" name="GET">
+                    <doc>Retrieves primary / dominant color from the specified image url.</doc>
+                    <request>
+                        <param name="imageUrl" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3477:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

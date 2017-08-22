@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2375="urn:function:f2375" xmlns:f2376="urn:function:f2376" xmlns:f2377="urn:function:f2377">
+    <grammars>
+        <include href="Function2377.xsd"/>
+        <include href="Function2376.xsd"/>
+        <include href="Function2375.xsd"/>
+    </grammars>
+    <doc>yotpo is taking reviews social being a fun social way for your e commerce customers to read and write reviews BEFORE YOU BEGIN you must sign for a free account at Yotpo https www yotpo com register and you are more than welcome to further read on us at http www yotpo com We also encourage first time users to checkout our example sites where Yotpo is installed http magento yotpo com http shop yotpo com for list of existing customers please refer to our website Yotpo API works above the Yotpo Social Reviews service It is designed to create more customised solutions for Yotpo customers and to let them smartly integrate with Yotpo s system Stayed tuned the Yotpo API is a work in progress</doc>
+    <resources base="https://yotpo.p.mashape.com/">
+        <resource uri="apps/">
+            <resource uri="{app_key}/">
+                <param name="app_key" style="template" type="xsd:string"/>
+                <resource uri="products/">
+                    <method displayName="Get Products" id="2377" name="GET">
+                        <doc>getting all products stored for a specific app_key</doc>
+                        <request>
+                            <param name="appKey" required="true" style="query" type="xsd:string">
+                                <doc>your application key that is assigned to you after signing up to Yotpo www yotpo com</doc>
+                            </param>
+                            <param name="count" required="true" style="query" type="xsd:string">
+                                <doc>specify how many products you want to pull</doc>
+                            </param>
+                            <param name="page" required="true" style="query" type="xsd:string">
+                                <doc>specify the page number you want to pull</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2377:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="products/">
+            <resource uri="{app_key}/">
+                <param name="app_key" style="template" type="xsd:string"/>
+                <resource uri="{domain_key}/">
+                    <param name="domain_key" style="template" type="xsd:string"/>
+                    <resource uri="reviews/">
+                        <method displayName="Get Product Reviews" id="2376" name="GET">
+                            <doc>get all reviews for a specific product that belongs to a specific app_key</doc>
+                            <request>
+                                <param name="appKey" required="true" style="query" type="xsd:string">
+                                    <doc>your application key that is assigned to you after signing up to Yotpo www yotpo com</doc>
+                                </param>
+                                <param name="count" required="true" style="query" type="xsd:string">
+                                    <doc>specify how many reviews you want to pull</doc>
+                                </param>
+                                <param name="domainKey" required="true" style="query" type="xsd:string">
+                                    <doc>unique identifier of the product as stored when creating the review</doc>
+                                </param>
+                                <param name="page" required="true" style="query" type="xsd:string">
+                                    <doc>specify the page number you want to pull</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2376:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="bottomline/">
+                        <method displayName="Get Product Bottom Line Score" id="2375" name="GET">
+                            <doc>get bottom line score for a specific product that belongs to a specific app_key</doc>
+                            <request>
+                                <param name="appKey" required="true" style="query" type="xsd:string">
+                                    <doc>your application key that is assigned to you after signing up to Yotpo www yotpo com</doc>
+                                </param>
+                                <param name="domainKey" required="true" style="query" type="xsd:string">
+                                    <doc>unique identifier of the product as stored when creating the review</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2375:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>search the Royal Mail PAF database for a list of addresses from a UK postcode or search for an address based on address id</doc>
+    <resources base="https://samsinfield-postcodes-4-u-uk-address-finder.p.mashape.com/">
+        <resource uri="ByPostcode/">
+            <resource uri="xml/">
+                <method displayName="Search by Postcode (XML)" id="1687" name="GET">
+                    <doc>Search Royal Mail PAF database for list of addresses based on postcode (XML)</doc>
+                    <request>
+                        <param name="key" required="true" style="query" type="xsd:string">
+                            <doc>your Postcodes U Key</doc>
+                        </param>
+                        <param name="postcode" required="true" style="query" type="xsd:string">
+                            <doc>search postcode</doc>
+                        </param>
+                        <param name="username" required="true" style="query" type="xsd:string">
+                            <doc>your Postcodes U Username</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="json/">
+                <method displayName="Search By Postcode (JSON)" id="1686" name="GET">
+                    <doc>Search Royal Mail PAF database for a list of addresses based on a postcode, get results in JSON format</doc>
+                    <request>
+                        <param name="callback" required="true" style="query" type="xsd:string">
+                            <doc>name of your javascript callback funtion</doc>
+                        </param>
+                        <param name="key" required="true" style="query" type="xsd:string">
+                            <doc>your Postcodes U Key</doc>
+                        </param>
+                        <param name="postcode" required="true" style="query" type="xsd:string">
+                            <doc>search postcode</doc>
+                        </param>
+                        <param name="username" required="true" style="query" type="xsd:string">
+                            <doc>your Postcodes U Username</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="byid/">
+            <resource uri="xml/">
+                <method displayName="Search By Address Id (XML)" id="1685" name="GET">
+                    <doc>Search Royal Mail PAF database by address id</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>postcodes U AddressId</doc>
+                        </param>
+                        <param name="key" required="true" style="query" type="xsd:string">
+                            <doc>your Postcodes U Key</doc>
+                        </param>
+                        <param name="username" required="true" style="query" type="xsd:string">
+                            <doc>your Postcodes U Username</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="json/">
+                <method displayName="Search By Address Id (JSON)" id="1684" name="GET">
+                    <doc>Search the PAF Royal Mail database for an address based on address id</doc>
+                    <request>
+                        <param name="callback" required="true" style="query" type="xsd:string">
+                            <doc>the name of your javascript callback function</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>postcodes U Address Id</doc>
+                        </param>
+                        <param name="key" required="true" style="query" type="xsd:string">
+                            <doc>your Postcodes U Key</doc>
+                        </param>
+                        <param name="username" required="true" style="query" type="xsd:string">
+                            <doc>your Postcodes U Username</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f522="urn:function:f522">
+    <grammars>
+        <include href="Function522.xsd"/>
+    </grammars>
+    <doc>simple tool for get current weather</doc>
+    <resources base="https://mxrck-ser-programadores-apis.p.mashape.com/">
+        <resource uri="weather/">
+            <resource uri="forecast/">
+                <resource uri="{location}/">
+                    <param name="location" style="template" type="xsd:string"/>
+                    <resource uri="{unit}.json/">
+                        <param name="unit" style="template" type="xsd:string"/>
+                        <method displayName="Weather Forecast" id="522" name="GET">
+                            <request>
+                                <param name="lang" required="true" style="query" type="xsd:string">
+                                    <doc>languaje for description</doc>
+                                </param>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>current city code you can find info here http serprogramador es api para obtener el clima</doc>
+                                </param>
+                                <param name="unit" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f522:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

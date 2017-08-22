@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2382="urn:function:f2382">
+    <grammars>
+        <include href="Function2382.xsd"/>
+    </grammars>
+    <doc>postmark removes the headaches of delivering email with minimal setup time and zero maintenance</doc>
+    <resources base="https://postmark-postmark-email.p.mashape.com/">
+        <resource uri="email/">
+            <method displayName="Email" id="2382" name="POST">
+                <doc>http://developer.postmarkapp.com/developer-build.html#message-format</doc>
+                <request/>
+                <response>
+                    <representation element="f2382:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

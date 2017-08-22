@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>urlchecker net is a website tools to help you find out the link want to download still A Live or Dead get name size and decode encode links</doc>
+    <resources base="https://urlchecker.p.mashape.com/">
+        <resource uri="">
+            <method displayName="decodelink" id="6916" name="GET">
+                <doc>Decode single link only (adf.ly,safelinking.net,bit.ly ...)</doc>
+                <request>
+                    <param name="decodelink" required="true" style="query" type="xsd:string">
+                        <doc>decode single link only adf ly safelinking net bit ly</doc>
+                    </param>
+                    <param name="responseFormat" required="true" style="query" type="xsd:string">
+                        <doc>xml txt or json default xml</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="decodelinks" id="6917" name="GET">
+                <doc>Decode multi link or website</doc>
+                <request>
+                    <param name="decodelinks" required="true" style="query" type="xsd:string">
+                        <doc>decode multi link or website</doc>
+                    </param>
+                    <param name="responseFormat" required="true" style="query" type="xsd:string">
+                        <doc>xml txt or json default xml</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="links" id="6918" name="GET">
+                <doc>single Links ( see list host support from http://urlchecker.net/#hosts) (rapidgator.net,mediafire.com...)</doc>
+                <request>
+                    <param name="links" required="true" style="query" type="xsd:string">
+                        <doc>single Links see list host support from http urlchecker net hosts rapidgator net mediafire com</doc>
+                    </param>
+                    <param name="responseFormat" required="true" style="query" type="xsd:string">
+                        <doc>xml txt or json default xml</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="url" id="6919" name="GET">
+                <doc>website or folder need extract ( extract and check )</doc>
+                <request>
+                    <param name="responseFormat" required="true" style="query" type="xsd:string">
+                        <doc>xml txt or json default xml</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>website or folder need extract extract and check</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

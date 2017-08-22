@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1084="urn:function:f1084" xmlns:f1085="urn:function:f1085" xmlns:f1087="urn:function:f1087">
+    <grammars>
+        <include href="Function1087.xsd"/>
+        <include href="Function1085.xsd"/>
+        <include href="Function1084.xsd"/>
+    </grammars>
+    <doc>this API allows developer access to login view cases and submit Pardon Punish votes in the League of Legends Tribunal</doc>
+    <resources base="https://alikonda-league-of-legends-tribunal.p.mashape.com/">
+        <resource uri="vote/">
+            <method displayName="Vote" id="1087" name="POST">
+                <doc>Submit your vote (Pardon/Punish) for a Tribunal case</doc>
+                <request/>
+                <response>
+                    <representation element="f1087:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="login/">
+            <method displayName="User Login" id="1086" name="POST">
+                <doc>Allows a user to log in and retrieve an access token for the Tribunal</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="case/">
+            <resource uri="{token}/">
+                <param name="token" style="template" type="xsd:string"/>
+                <method displayName="Tribunal Case" id="1085" name="GET">
+                    <doc>Retrieve the next available Tribunal Case to review</doc>
+                    <request>
+                        <param name="token" required="true" style="query" type="xsd:string">
+                            <doc>access token retrieved from User Login</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1085:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="captcha/">
+            <method displayName="Login Captcha" id="1084" name="GET">
+                <doc>Retrieve a captcha image (and associated id) for user verification.</doc>
+                <request/>
+                <response>
+                    <representation element="f1084:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

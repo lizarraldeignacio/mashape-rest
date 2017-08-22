@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2403="urn:function:f2403" xmlns:f2404="urn:function:f2404" xmlns:f2405="urn:function:f2405">
+    <grammars>
+        <include href="Function2405.xsd"/>
+        <include href="Function2404.xsd"/>
+        <include href="Function2403.xsd"/>
+    </grammars>
+    <doc>the WebKnox search API lets you search the WebKnox Web index and news results</doc>
+    <resources base="https://webknox-search.p.mashape.com/">
+        <resource uri="index/">
+            <resource uri="websites/">
+                <method displayName="Web Search" id="2405" name="GET">
+                    <doc>Search for Web pages containing certain query terms.</doc>
+                    <request>
+                        <param name="numresults" required="true" style="query" type="xsd:integer">
+                            <doc>the number of results to return max</doc>
+                        </param>
+                        <param name="offset" required="true" style="query" type="xsd:integer">
+                            <doc>the number of top results to skip</doc>
+                        </param>
+                        <param name="query" required="true" style="query" type="xsd:string">
+                            <doc>the query to the index</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2405:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="news/">
+            <resource uri="search/">
+                <method displayName="News Search" id="2404" name="GET">
+                    <doc>Search for news containing certain query terms.</doc>
+                    <request>
+                        <param name="exacttitlematch" required="true" style="query" type="xsd:boolean">
+                            <doc>whether the search term has to appear exactly in the title of the news</doc>
+                        </param>
+                        <param name="numresults" required="true" style="query" type="xsd:integer">
+                            <doc>the number of results to return max</doc>
+                        </param>
+                        <param name="offset" required="true" style="query" type="xsd:integer">
+                            <doc>the number of top results to skip</doc>
+                        </param>
+                        <param name="query" required="true" style="query" type="xsd:string">
+                            <doc>the query to search for in the news</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2404:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="media/">
+            <resource uri="images/">
+                <resource uri="search/">
+                    <method displayName="Image Search" id="2403" name="GET">
+                        <doc>Search for images.</doc>
+                        <request>
+                            <param name="keyword" required="true" style="query" type="xsd:string">
+                                <doc>a keyword that describes the sought after picture</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2403:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

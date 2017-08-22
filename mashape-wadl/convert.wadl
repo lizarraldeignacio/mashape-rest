@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1216="urn:function:f1216">
+    <grammars>
+        <include href="Function1216.xsd"/>
+    </grammars>
+    <doc>a powerful unit conversion tool Convert currency using an up to date international currency feed Convert most known measurement types imperial metric mass length temperature time and more The convertor will accept full unit names as well as abbreviations e g millimeter and mm</doc>
+    <resources base="https://community-neutrino-currency-conversion.p.mashape.com/">
+        <resource uri="convert/">
+            <method displayName="Convert" id="1216" name="POST">
+                <request/>
+                <response>
+                    <representation element="f1216:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

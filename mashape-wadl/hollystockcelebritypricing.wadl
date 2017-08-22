@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>retrieve the pricing of all celebrities from the online celebrity stock market game HollyStock Results can be returned in XML or JSON</doc>
+    <resources base="https://hollystock-hollystock-celebrity-pricing.p.mashape.com/">
+        <resource uri="http:/">
+            <resource uri="">
+                <resource uri="www.hollystock.com/">
+                    <resource uri="developers/">
+                        <resource uri="export/">
+                            <resource uri="XML/">
+                                <method displayName="XML" id="3494" name="GET">
+                                    <doc>Response in XML format</doc>
+                                    <request/>
+                                </method>
+                            </resource>
+                            <resource uri="JSON/">
+                                <method displayName="JSON" id="3493" name="GET">
+                                    <doc>Results in JSON format</doc>
+                                    <request/>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

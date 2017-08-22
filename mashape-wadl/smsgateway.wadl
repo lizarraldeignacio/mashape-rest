@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>messageBird provides a simple and fast API for sending and receiving text messages SMS all over the world Other related services are HLR Lookup network query and sending and receiving Premium SMS messages</doc>
+    <resources base="https://messagebird-sms-gateway.p.mashape.com/">
+        <resource uri="sms/">
+            <method displayName="SMS Gateway" id="142" name="POST">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="hlr/">
+            <method displayName="HLR-lookup (network query)" id="141" name="POST">
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

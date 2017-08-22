@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3175="urn:function:f3175">
+    <grammars>
+        <include href="Function3175.xsd"/>
+    </grammars>
+    <doc>what s another word for this word phrase or paragraph More than just synonyms related words too</doc>
+    <resources base="https://twinword-word-associations-v1.p.mashape.com/">
+        <resource uri="associations/">
+            <method displayName="Word Associations (get)" id="3174" name="GET">
+                <doc>Get word associations with semantic distance score.</doc>
+                <request>
+                    <param name="entry" required="true" style="query" type="xsd:string">
+                        <doc>a word phrase or paragraph</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Word Associations (post)" id="3175" name="POST">
+                <doc>Get word associations with semantic distance score.</doc>
+                <request/>
+                <response>
+                    <representation element="f3175:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

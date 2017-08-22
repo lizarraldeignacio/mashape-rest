@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2738="urn:function:f2738" xmlns:f2739="urn:function:f2739" xmlns:f2740="urn:function:f2740" xmlns:f2741="urn:function:f2741" xmlns:f2742="urn:function:f2742" xmlns:f2743="urn:function:f2743">
+    <grammars>
+        <include href="Function2742.xsd"/>
+        <include href="Function2743.xsd"/>
+        <include href="Function2740.xsd"/>
+        <include href="Function2741.xsd"/>
+        <include href="Function2739.xsd"/>
+        <include href="Function2738.xsd"/>
+    </grammars>
+    <doc>the most granular real time financial sentiment API in the world</doc>
+    <resources base="https://mashaper-psychsignal.p.mashape.com/">
+        <resource uri="sentiments/">
+            <method displayName="GET /api/sentiments" id="2742" name="GET">
+                <doc>Returns the raw bullish and bearish values for a specific stock and specified date range aggregated by period. Defaults to most recent data available for your API access level.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>output format Accepted output formats are json or csv Defaults to JSON Optional</doc>
+                    </param>
+                    <param name="from" required="true" style="query" type="xsd:string">
+                        <doc>start date of the returned range The date can be formatted as YYYY MM DD or YYYY MM DD HH MM SS Range can be modified depending on your API access level Optional</doc>
+                    </param>
+                    <param name="period" required="true" style="query" type="xsd:string">
+                        <doc>period of sentiments aggregation It can be d for daily values or for minutes values Required</doc>
+                    </param>
+                    <param name="symbol" required="true" style="query" type="xsd:string">
+                        <doc>stock symbol Examples AAPL IBM FB For the aggregate of all market sentiment use MARKET as symbol Required</doc>
+                    </param>
+                    <param name="to" required="true" style="query" type="xsd:string">
+                        <doc>end date of the returned range The date can be formatted as YYYY MM DD or YYYY MM DD HH MM SS Range can be modified depending on your API access level Optional</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2742:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="GET /api/sentiments/all" id="2743" name="GET">
+                <doc>Returns the raw bullish and bearish values for all stocks and specific date aggregated by period. Defaults to most recent data available for your API access level.</doc>
+                <request>
+                    <param name="date" required="true" style="query" type="xsd:string">
+                        <doc>specific date of the request The date can be formatted as YYYY MM DD Date can be modified depending on your API access level Optional</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>output format Accepted output formats are json or csv Defaults to JSON Optional</doc>
+                    </param>
+                    <param name="period" required="true" style="query" type="xsd:string">
+                        <doc>period of sentiments aggregation It can be d for daily values or for minutes values Required</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2743:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="ratio/">
+            <method displayName="GET /api/ratio" id="2740" name="GET">
+                <doc>Returns daily bullish / bearish messages volume ratio for a specific symbol. Defaults to most recent data available for your API access level.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>output format Accepted output formats are json or csv Defaults to JSON Optional</doc>
+                    </param>
+                    <param name="from" required="true" style="query" type="xsd:string">
+                        <doc>start date of the returned range The date must be formatted as YYYY MM DD Range can be modified depending on your API access level Optional</doc>
+                    </param>
+                    <param name="symbol" required="true" style="query" type="xsd:string">
+                        <doc>stock symbol Examples AAPL IBM FB For the aggregate of all market sentiment use MARKET as symbol Defaults to MARKET optional</doc>
+                    </param>
+                    <param name="to" required="true" style="query" type="xsd:string">
+                        <doc>end date of the returned range The date must be formatted as YYYY MM DD Range can be modified depending on your API access level Optional</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2740:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="GET /api/ratio/all" id="2741" name="GET">
+                <doc>Returns daily bullish / bearish messages volume ratio for all symbols. Defaults to most recent data available for your API access level.</doc>
+                <request>
+                    <param name="date" required="true" style="query" type="xsd:string">
+                        <doc>specific date of the request The date can be formatted as YYYY MM DD Date can be modified depending on your API access level Optional</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>output format Accepted output formats are json or csv Defaults to JSON Optional</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2741:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="alerts-stream/">
+            <method displayName="GET /api/alerts-stream" id="2739" name="GET">
+                <doc>Returns paginated alerts triggered on the system from most recent to oldest. It can be stock specific and it is limited to 100 alerts per request. It's also limited by your API level access.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>output format Accepted output formats are json or csv Defaults to JSON Optional</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>number of alerts to be returned Max and default to alerts Optional</doc>
+                    </param>
+                    <param name="maxId" required="true" style="query" type="xsd:string">
+                        <doc>alert ID Alerts returned will be older than the specified id Optional</doc>
+                    </param>
+                    <param name="symbol" required="true" style="query" type="xsd:string">
+                        <doc>stock symbol Examples AAPL IBM FB For the aggregate of all market sentiment use MARKET as symbol Optional</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2739:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="alerts/">
+            <method displayName="GET /api/alerts" id="2738" name="GET">
+                <doc>Returns alerts triggered on the system for the requested date range. Defaults to most recent data available for your API access level. It can be stock specific and the date range is limited to 30 days.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>output format Accepted output formats are json or csv Defaults to JSON Optional</doc>
+                    </param>
+                    <param name="from" required="true" style="query" type="xsd:string">
+                        <doc>start date of the returned range The date can be formatted as YYYY MM DD or YYYY MM DD HH MM SS Range can be modified depending on your API access level Optional</doc>
+                    </param>
+                    <param name="symbol" required="true" style="query" type="xsd:string">
+                        <doc>stock symbol Examples AAPL IBM FB For the aggregate of all market sentiment use MARKET as symbol Optional</doc>
+                    </param>
+                    <param name="to" required="true" style="query" type="xsd:string">
+                        <doc>end date of the returned range The date can be formatted as YYYY MM DD or YYYY MM DD HH MM SS Range can be modified depending on your API access level Optional</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2738:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

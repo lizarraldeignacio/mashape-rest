@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5973="urn:function:f5973" xmlns:f5974="urn:function:f5974" xmlns:f5975="urn:function:f5975" xmlns:f5976="urn:function:f5976" xmlns:f5977="urn:function:f5977" xmlns:f5978="urn:function:f5978" xmlns:f5979="urn:function:f5979" xmlns:f5981="urn:function:f5981" xmlns:f5982="urn:function:f5982" xmlns:f5983="urn:function:f5983" xmlns:f5984="urn:function:f5984" xmlns:f5987="urn:function:f5987" xmlns:f5989="urn:function:f5989" xmlns:f5990="urn:function:f5990" xmlns:f5991="urn:function:f5991" xmlns:f5992="urn:function:f5992" xmlns:f5993="urn:function:f5993">
+    <grammars>
+        <include href="Function5981.xsd"/>
+        <include href="Function5976.xsd"/>
+        <include href="Function5979.xsd"/>
+        <include href="Function5987.xsd"/>
+        <include href="Function5992.xsd"/>
+        <include href="Function5993.xsd"/>
+        <include href="Function5973.xsd"/>
+        <include href="Function5974.xsd"/>
+        <include href="Function5975.xsd"/>
+        <include href="Function5977.xsd"/>
+        <include href="Function5978.xsd"/>
+        <include href="Function5982.xsd"/>
+        <include href="Function5983.xsd"/>
+        <include href="Function5984.xsd"/>
+        <include href="Function5989.xsd"/>
+        <include href="Function5990.xsd"/>
+        <include href="Function5991.xsd"/>
+    </grammars>
+    <doc>creating signing and managing a contract becomes as simple as sending an email</doc>
+    <resources base="https://contractlive.p.mashape.com/">
+        <resource uri="env/">
+            <method displayName="Get Environment" id="5981" name="GET">
+                <doc>Retrieve current Environment data. See Readme, for more details about environment.</doc>
+                <request/>
+                <response>
+                    <representation element="f5981:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="template/">
+            <method displayName="Create Template" id="5976" name="POST">
+                <doc>Create a new template. See Readme, for more details about templates.</doc>
+                <request/>
+                <response>
+                    <representation element="f5976:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete Template" id="5979" name="DELETE">
+                <doc>Delete a template</doc>
+                <request>
+                    <param name="uid" required="true" style="query" type="xsd:string">
+                        <doc>unique ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5979:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Template" id="5987" name="GET">
+                <doc>Retrieve template information (without content)</doc>
+                <request>
+                    <param name="uid" required="true" style="query" type="xsd:string">
+                        <doc>unique ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5987:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Template Content" id="5988" name="GET">
+                <doc>Retrieve the content of a template</doc>
+                <request>
+                    <param name="uid" required="true" style="query" type="xsd:string">
+                        <doc>unique ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Update Template" id="5992" name="POST">
+                <doc>Update a template. If an optional parameter is not set, the current value doesn't change (except for tags).</doc>
+                <request>
+                    <param name="uid" required="true" style="query" type="xsd:string">
+                        <doc>unique ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5992:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Use Template" id="5993" name="POST">
+                <doc>Use a template to create a new negotiation.</doc>
+                <request>
+                    <param name="uid" required="true" style="query" type="xsd:string">
+                        <doc>unique ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5993:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="negotiation/">
+            <method displayName="Create Negotiation" id="5973" name="POST">
+                <doc>Create a new negotiation. See Readme, for more details about negotiations.</doc>
+                <request/>
+                <response>
+                    <representation element="f5973:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Create Negotiation Activity" id="5974" name="POST">
+                <request>
+                    <param name="uid" required="true" style="query" type="xsd:string">
+                        <doc>negotiation uid to put the activity into</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5974:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Create Negotiation Attachment" id="5975" name="POST">
+                <doc>Create an attachment file linked to a negotiation</doc>
+                <request>
+                    <param name="negotiationuid" required="true" style="query" type="xsd:string">
+                        <doc>unique ID of negotiation</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5975:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete Negotiation" id="5977" name="DELETE">
+                <doc>Break a negotiation and delete it.</doc>
+                <request>
+                    <param name="uid" required="true" style="query" type="xsd:string">
+                        <doc>unique ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5977:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete Negotiation Attachment" id="5978" name="DELETE">
+                <doc>Delete an attachment file linked to a negotiation</doc>
+                <request>
+                    <param name="negotiationuid" required="true" style="query" type="xsd:string">
+                        <doc>negotiation unique ID</doc>
+                    </param>
+                    <param name="uid" required="true" style="query" type="xsd:string">
+                        <doc>attachment unique ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5978:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get a Negotiaiton Signed PDF" id="5980" name="GET">
+                <doc>When a negotiation is signed, the result is a signed PDF</doc>
+                <request>
+                    <param name="uid" required="true" style="query" type="xsd:string">
+                        <doc>uid of the negotiation</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get Negotiation" id="5982" name="GET">
+                <doc>Retrieve negotiation information (without the content)</doc>
+                <request>
+                    <param name="uid" required="true" style="query" type="xsd:string">
+                        <doc>unique ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5982:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get negotiation activities" id="5983" name="GET">
+                <doc>Return all activities of a negotiation</doc>
+                <request>
+                    <param name="negotiationuid" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5983:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Negotiation Attachment" id="5984" name="GET">
+                <doc>Get information about a negotiation attachment (except the file itself)</doc>
+                <request>
+                    <param name="negotiationuid" required="true" style="query" type="xsd:string">
+                        <doc>unique ID of negotiation</doc>
+                    </param>
+                    <param name="uid" required="true" style="query" type="xsd:string">
+                        <doc>unique ID of attachment</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5984:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Negotiation Attachment Content" id="5985" name="GET">
+                <doc>Return the file contained in a negotiation attachment</doc>
+                <request>
+                    <param name="negotiationuid" required="true" style="query" type="xsd:string">
+                        <doc>negotiation Unique ID</doc>
+                    </param>
+                    <param name="uid" required="true" style="query" type="xsd:string">
+                        <doc>attachment Unique ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get Negotiation Content" id="5986" name="GET">
+                <doc>Retrieve negotiation content (last version) in HTML or PDF format.</doc>
+                <request>
+                    <param name="uid" required="true" style="query" type="xsd:string">
+                        <doc>unique Identifier</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="List Negotiation Attachments" id="5989" name="GET">
+                <doc>List all attachments for a given negotiation</doc>
+                <request>
+                    <param name="negotiationuid" required="true" style="query" type="xsd:string">
+                        <doc>unique ID of negotiation</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5989:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update Negotiation" id="5990" name="POST">
+                <doc>Update a negotiation. If an optional parameter is not set, the current value doesn't change (except for tags).</doc>
+                <request>
+                    <param name="uid" required="true" style="query" type="xsd:string">
+                        <doc>unique ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5990:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update Negotiation Attachment" id="5991" name="POST">
+                <doc>Update an attachment file linked to a negotiation</doc>
+                <request>
+                    <param name="negotiationuid" required="true" style="query" type="xsd:string">
+                        <doc>negotiation unique ID</doc>
+                    </param>
+                    <param name="uid" required="true" style="query" type="xsd:string">
+                        <doc>attachment unique ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5991:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

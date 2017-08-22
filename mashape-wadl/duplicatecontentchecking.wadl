@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2554="urn:function:f2554" xmlns:f2555="urn:function:f2555" xmlns:f2556="urn:function:f2556" xmlns:f2557="urn:function:f2557" xmlns:f2558="urn:function:f2558" xmlns:f2559="urn:function:f2559">
+    <grammars>
+        <include href="Function2559.xsd"/>
+        <include href="Function2558.xsd"/>
+        <include href="Function2557.xsd"/>
+        <include href="Function2556.xsd"/>
+        <include href="Function2555.xsd"/>
+        <include href="Function2554.xsd"/>
+    </grammars>
+    <doc>plagSpotter API allows to check online and offline content for plagiarism or duplication</doc>
+    <resources base="https://plagspotter-duplicate-content-checking.p.mashape.com/">
+        <resource uri="v2.add-url-for-checking/">
+            <method displayName="URL Check Request" id="2560" name="POST">
+                <doc>To send the URL for checking, use addURLForChecking method. - See more at: http://www.plagspotter.com/api/#sthash.uU8QX4cy.dpuf</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="v2.add-text-for-checking/">
+            <method displayName="Text Check Request" id="2559" name="POST">
+                <doc>To send texts for checking, use addTextForChecking method. - See more at: http://www.plagspotter.com/api/#sthash.uU8QX4cy.dpuf</doc>
+                <request/>
+                <response>
+                    <representation element="f2559:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="v2.get-text-status/">
+            <method displayName="Request the Status of your Check" id="2558" name="GET">
+                <doc>To get the checking status for particular text, use getTextStatus method. - See more at: http://www.plagspotter.com/api/#sthash.uU8QX4cy.dpuf</doc>
+                <request>
+                    <param name="hash" required="true" style="query" type="xsd:string">
+                        <doc>unique hash code of the text</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2558:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="v2.get-result/">
+            <method displayName="Get Results" id="2557" name="GET">
+                <doc>To get the result report of duplicate content checking request, use getResult method. - See more at: http://www.plagspotter.com/api/#sthash.uU8QX4cy.dpuf</doc>
+                <request>
+                    <param name="hash" required="true" style="query" type="xsd:string">
+                        <doc>unique hash code of the text</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2557:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="v2.get-result-with-quotes/">
+            <method displayName="Get Result with Quotes" id="2556" name="GET">
+                <doc>To get the checking results with the quotations from search engines, use getResultWithQuotes method. - See more at: http://www.plagspotter.com/api/#sthash.uU8QX4cy.dpuf</doc>
+                <request>
+                    <param name="hash" required="true" style="query" type="xsd:string">
+                        <doc>unique hash code of the text</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2556:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="v2.get-plagiarism-percent/">
+            <method displayName="Get Plagiarism Percent" id="2555" name="GET">
+                <doc>To get the percentage of the duplicate content, use getPlagiarismPercent method.</doc>
+                <request>
+                    <param name="hash" required="true" style="query" type="xsd:string">
+                        <doc>unique hash code of the text</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2555:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="v2.add-file-for-checking/">
+            <method displayName="File Check Request" id="2554" name="POST">
+                <doc>To send text files for checking, use addFileForChecking method. - See more at: http://www.plagspotter.com/api/#sthash.uU8QX4cy.dpuf</doc>
+                <request/>
+                <response>
+                    <representation element="f2554:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

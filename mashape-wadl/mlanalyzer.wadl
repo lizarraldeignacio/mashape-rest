@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1088="urn:function:f1088" xmlns:f1089="urn:function:f1089" xmlns:f1091="urn:function:f1091" xmlns:f1092="urn:function:f1092" xmlns:f1093="urn:function:f1093" xmlns:f1094="urn:function:f1094" xmlns:f1095="urn:function:f1095" xmlns:f1096="urn:function:f1096">
+    <grammars>
+        <include href="Function1096.xsd"/>
+        <include href="Function1095.xsd"/>
+        <include href="Function1094.xsd"/>
+        <include href="Function1093.xsd"/>
+        <include href="Function1092.xsd"/>
+        <include href="Function1091.xsd"/>
+        <include href="Function1089.xsd"/>
+        <include href="Function1088.xsd"/>
+    </grammars>
+    <doc>text Classification Article Summarization Sentiment Analysis Stock symbol extraction Person Names Extractor Language Detection Locations Extractor Adult content Analyzer</doc>
+    <resources base="https://nehac-ml-analyzer.p.mashape.com/">
+        <resource uri="stocks/">
+            <method displayName="Stocks Symbols Extractor" id="1096" name="GET">
+                <doc>Extract stock symbols / companies from a text block</doc>
+                <request>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1096:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="sentiment/">
+            <method displayName="Sentiment Analyzer" id="1095" name="GET">
+                <doc>Analyze a text block for sentiment (English only)</doc>
+                <request>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>callback</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>encoded text to analyze</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1095:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="names/">
+            <method displayName="Names Extractor" id="1094" name="GET">
+                <doc>Extract Names from a text block</doc>
+                <request>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1094:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="location/">
+            <method displayName="Location Extractor" id="1093" name="GET">
+                <doc>Extract locations from a text block</doc>
+                <request>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1093:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="language/">
+            <method displayName="Language Detector" id="1092" name="GET">
+                <doc>Analyze the text language</doc>
+                <request>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1092:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="classifier/">
+            <method displayName="Content Classifier" id="1091" name="GET">
+                <doc>Classify a text block into a category (English only)</doc>
+                <request>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1091:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="article/">
+            <method displayName="Article Summarizer" id="1089" name="GET">
+                <doc>Summarize the sentences in articles</doc>
+                <request>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="size" required="true" style="query" type="xsd:string">
+                        <doc>number of sentences to summarize into</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>uRL encoded text</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1089:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Article Summarizer (POST)" id="1090" name="POST">
+                <doc>Summarize the sentences in articles</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="adult/">
+            <method displayName="Adult Content Analyzer" id="1088" name="GET">
+                <doc>Analyze a block of text for adult content (English only)</doc>
+                <request>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>a callback to use for PJSON</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>specify the text that you want to analyze</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1088:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

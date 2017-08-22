@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1416="urn:function:f1416">
+    <grammars>
+        <include href="Function1416.xsd"/>
+    </grammars>
+    <doc>public identity lookup service IDlight uses established and emerging standards like Webfinger XRD and hCard to retrieve public profiles and render them under a unified format either proprietary to IDlight or compliant to Portable Contacts XML aficionados can find the WADL here http api idlight net wadl xml The support forum is there http support idlight net</doc>
+    <resources base="https://idlight.p.mashape.com/">
+        <resource uri="lookup/">
+            <method displayName="Profile Look-up" id="1416" name="GET">
+                <doc>Look-up a public profile with a search term that is either an email, an HTTP(S) URL or a Twitter handle (like @idlightapp). Returns an "application/json" representation of the profile. Use the HTTP header "Accept: application/xml" for the XML representation, or "Accept: application/poco+json" and "Accept: application/poco+xml" for the Portable Contact formats.</doc>
+                <request>
+                    <param name="cb" required="true" style="query" type="xsd:string">
+                        <doc>if provided IDlight will respond immediately perform the lookup asynchronously and HTTP POST the result to the provided callback URL The POSTed request has a header named X IDlight Profile Found with values true and false</doc>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>a profile search term Currently email addresses Twitter handles and HTTP S addresses are supported The value demo is also supported it returns a fake profile for test purposes</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1416:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

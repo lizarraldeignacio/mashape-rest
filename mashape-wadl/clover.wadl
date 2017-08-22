@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3972="urn:function:f3972" xmlns:f3973="urn:function:f3973" xmlns:f3974="urn:function:f3974" xmlns:f3975="urn:function:f3975" xmlns:f3976="urn:function:f3976" xmlns:f3977="urn:function:f3977" xmlns:f3978="urn:function:f3978" xmlns:f3979="urn:function:f3979" xmlns:f3980="urn:function:f3980" xmlns:f3981="urn:function:f3981" xmlns:f3982="urn:function:f3982" xmlns:f3983="urn:function:f3983" xmlns:f3984="urn:function:f3984" xmlns:f3985="urn:function:f3985" xmlns:f3986="urn:function:f3986" xmlns:f3987="urn:function:f3987" xmlns:f3988="urn:function:f3988" xmlns:f3989="urn:function:f3989" xmlns:f3990="urn:function:f3990" xmlns:f3991="urn:function:f3991">
+    <grammars>
+        <include href="Function3988.xsd"/>
+        <include href="Function3991.xsd"/>
+        <include href="Function3989.xsd"/>
+        <include href="Function3990.xsd"/>
+        <include href="Function3986.xsd"/>
+        <include href="Function3987.xsd"/>
+        <include href="Function3984.xsd"/>
+        <include href="Function3985.xsd"/>
+        <include href="Function3982.xsd"/>
+        <include href="Function3983.xsd"/>
+        <include href="Function3981.xsd"/>
+        <include href="Function3979.xsd"/>
+        <include href="Function3980.xsd"/>
+        <include href="Function3978.xsd"/>
+        <include href="Function3976.xsd"/>
+        <include href="Function3977.xsd"/>
+        <include href="Function3974.xsd"/>
+        <include href="Function3975.xsd"/>
+        <include href="Function3972.xsd"/>
+        <include href="Function3973.xsd"/>
+    </grammars>
+    <doc>overworked small business owners Clover is here to help Everything you need Clover replaces your cash register payment terminal receipt printer and barcode scanner with an all in one solution</doc>
+    <resources base="https://community-clover.p.mashape.com/">
+        <resource uri="">
+            <method displayName="GET /v2/merchant/{mId}/inventory/items_with_categories" id="3988" name="GET">
+                <doc>Return a list of items with categories</doc>
+                <request/>
+                <response>
+                    <representation element="f3988:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="merchant/">
+            <resource uri="{mId}/">
+                <param name="mId" style="template" type="xsd:string"/>
+                <resource uri="inventory/">
+                    <resource uri="modifiers/">
+                        <resource uri="{modifierId}/">
+                            <param name="modifierId" style="template" type="xsd:string"/>
+                            <method displayName="GET /v2/merchant/{mId}/inventory/modifiers/{modifierId}" id="3991" name="GET">
+                                <doc>Return a single modifier</doc>
+                                <request>
+                                    <param name="mid" required="true" style="query" type="xsd:string"/>
+                                    <param name="modifierid" required="true" style="query" type="xsd:string"/>
+                                </request>
+                                <response>
+                                    <representation element="f3991:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                        <resource uri="groups/">
+                            <method displayName="GET /v2/merchant/{mId}/inventory/modifiers/groups" id="3989" name="GET">
+                                <doc>List all the modifier groups</doc>
+                                <request>
+                                    <param name="mid" required="true" style="query" type="xsd:string"/>
+                                </request>
+                                <response>
+                                    <representation element="f3989:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                            <method displayName="GET /v2/merchant/{mId}/inventory/modifiers/groups/{groupId}" id="3990" name="GET">
+                                <doc>List all the modifiers belonging to a modifier group</doc>
+                                <request>
+                                    <param name="groupid" required="true" style="query" type="xsd:string"/>
+                                    <param name="mid" required="true" style="query" type="xsd:string"/>
+                                </request>
+                                <response>
+                                    <representation element="f3990:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                    <resource uri="items/">
+                        <method displayName="GET /v2/merchant/{mId}/inventory/items" id="3986" name="GET">
+                            <doc>List all items in the merchant's inventory</doc>
+                            <request>
+                                <param name="mid" required="true" style="query" type="xsd:string">
+                                    <doc>your merchant ID is embedded in the URL used to access the Clover merchant website More details at https www clover com docs web api</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f3986:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="GET /v2/merchant/{mId}/inventory/items/{itemId}" id="3987" name="GET">
+                            <request>
+                                <param name="itemid" required="true" style="query" type="xsd:string"/>
+                                <param name="mid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f3987:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="discounts/">
+                        <method displayName="GET /v2/merchant/{mId}/inventory/discounts" id="3984" name="GET">
+                            <doc>Return a list of custom discounts</doc>
+                            <request>
+                                <param name="mid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f3984:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="GET /v2/merchant/{mId}/inventory/discounts/{discountId}" id="3985" name="GET">
+                            <doc>Return a single discount</doc>
+                            <request>
+                                <param name="discountid" required="true" style="query" type="xsd:string"/>
+                                <param name="mid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f3985:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="categories/">
+                        <method displayName="GET /v2/merchant/{mId}/inventory/categories" id="3982" name="GET">
+                            <doc>List all categories and the number of items in each category</doc>
+                            <request>
+                                <param name="mid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f3982:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="GET /v2/merchant/{mId}/inventory/categories/{categoryId}" id="3983" name="GET">
+                            <doc>Return a single category and lists all items in it</doc>
+                            <request>
+                                <param name="categoryid" required="true" style="query" type="xsd:string"/>
+                                <param name="mid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f3983:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="inventory/">
+            <resource uri="modifiers/">
+                <resource uri="{modifierId}/">
+                    <param name="modifierId" style="template" type="xsd:string"/>
+                    <method displayName="GET /v2/inventory/modifiers/{modifierId}" id="3981" name="GET">
+                        <doc>Return a single modifier</doc>
+                        <request>
+                            <param name="modifierid" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f3981:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="groups/">
+                    <method displayName="GET /v2/inventory/modifiers/groups" id="3979" name="GET">
+                        <doc>List all the modifier groups</doc>
+                        <request/>
+                        <response>
+                            <representation element="f3979:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="GET /v2/inventory/modifiers/groups/{groupId}" id="3980" name="GET">
+                        <doc>List all the modifiers belonging to a modifier group</doc>
+                        <request>
+                            <param name="groupid" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f3980:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="items_with_categories/">
+                <method displayName="GET /v2/inventory/items_with_categories" id="3978" name="GET">
+                    <doc>Return a list of items with categories</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3978:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="items/">
+                <method displayName="GET /v2/inventory/items" id="3976" name="GET">
+                    <doc>List all items in the merchant's inventory</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3976:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="GET /v2/inventory/items/{itemId}" id="3977" name="GET">
+                    <doc>Return a single item</doc>
+                    <request>
+                        <param name="itemid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3977:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="discounts/">
+                <method displayName="GET /v2/inventory/discounts" id="3974" name="GET">
+                    <doc>Return a list of custom discounts</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3974:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="GET /v2/inventory/discounts/{discountId}" id="3975" name="GET">
+                    <doc>Return a single discount</doc>
+                    <request>
+                        <param name="discountid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3975:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="categories/">
+                <method displayName="GET /v2/inventory/categories" id="3972" name="GET">
+                    <doc>List all categories and the number of items in each category</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3972:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="GET /v2/inventory/categories/{categoryId}" id="3973" name="GET">
+                    <doc>Return a single category and lists all items in it</doc>
+                    <request>
+                        <param name="categoryid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3973:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

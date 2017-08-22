@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>see the value of a Bitcoin according to different sources with a simple JSON API All major currencies are supported USD EUR GBP CAD JPY CNY etc</doc>
+    <resources base="https://community-bitcointy.p.mashape.com/">
+        <resource uri="price/">
+            <resource uri="{currency}/">
+                <param name="currency" style="template" type="xsd:string"/>
+                <method displayName="Get currency conversion" id="726" name="GET">
+                    <doc>GET /price/:currency to get the plain text conversion for a currency</doc>
+                    <request>
+                        <param name="currency" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="{ticker}/">
+            <param name="ticker" style="template" type="xsd:string"/>
+            <resource uri="{currency}/">
+                <param name="currency" style="template" type="xsd:string"/>
+                <method displayName="Get conversation rates in source" id="725" name="GET">
+                    <doc>GET /:ticker/:currency to get the conversion rates in a source (see next section for available providers) for a currency</doc>
+                    <request>
+                        <param name="currency" required="true" style="query" type="xsd:string"/>
+                        <param name="ticker" required="true" style="query" type="xsd:string">
+                            <doc>blockChain blockchain MtGox mtgox Bitcoin Charts btccharts Coinbase coinbase BitPay bitpay</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="all/">
+            <resource uri="{currency}/">
+                <param name="currency" style="template" type="xsd:string"/>
+                <method displayName="Get conversation rates for all sources" id="724" name="GET">
+                    <doc>GET /all/:currency to get all the conversion rates in all sources for a currency</doc>
+                    <request>
+                        <param name="currency" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="charts/">
+            <resource uri="{type}/">
+                <param name="type" style="template" type="xsd:string"/>
+                <method displayName="Get chart data" id="723" name="GET">
+                    <doc>GET /charts/:type to get the data that fills the charts in https://bitcointy.herokuapp.com/ (types are circulation, price and transactions)</doc>
+                    <request>
+                        <param name="type" required="true" style="query" type="xsd:string">
+                            <doc>types are circulation price and transactions</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="average/">
+            <resource uri="{currency}/">
+                <param name="currency" style="template" type="xsd:string"/>
+                <method displayName="Get average price" id="722" name="GET">
+                    <doc>GET /average/:currency to get an average price based on all the providers for a currency</doc>
+                    <request>
+                        <param name="currency" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="convert/">
+            <resource uri="{amount}/">
+                <param name="amount" style="template" type="xsd:string"/>
+                <resource uri="{currency}/">
+                    <param name="currency" style="template" type="xsd:string"/>
+                    <method displayName="Convert a BTC amount to the desired currency" id="721" name="GET">
+                        <doc>GET /convert/:amount/:currency to convert an amount of BTC to the desired currency</doc>
+                        <request>
+                            <param name="amount" required="true" style="query" type="xsd:string"/>
+                            <param name="currency" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

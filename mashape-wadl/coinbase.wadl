@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1335="urn:function:f1335" xmlns:f1336="urn:function:f1336" xmlns:f1337="urn:function:f1337" xmlns:f1338="urn:function:f1338" xmlns:f1339="urn:function:f1339" xmlns:f1340="urn:function:f1340" xmlns:f1341="urn:function:f1341" xmlns:f1342="urn:function:f1342" xmlns:f1343="urn:function:f1343" xmlns:f1344="urn:function:f1344" xmlns:f1345="urn:function:f1345" xmlns:f1346="urn:function:f1346" xmlns:f1347="urn:function:f1347" xmlns:f1348="urn:function:f1348" xmlns:f1349="urn:function:f1349" xmlns:f1350="urn:function:f1350" xmlns:f1351="urn:function:f1351" xmlns:f1352="urn:function:f1352" xmlns:f1353="urn:function:f1353" xmlns:f1354="urn:function:f1354" xmlns:f1355="urn:function:f1355" xmlns:f1356="urn:function:f1356" xmlns:f1357="urn:function:f1357" xmlns:f1358="urn:function:f1358" xmlns:f1359="urn:function:f1359" xmlns:f1360="urn:function:f1360" xmlns:f1361="urn:function:f1361" xmlns:f1362="urn:function:f1362" xmlns:f1363="urn:function:f1363">
+    <grammars>
+        <include href="Function1357.xsd"/>
+        <include href="Function1361.xsd"/>
+        <include href="Function1354.xsd"/>
+        <include href="Function1352.xsd"/>
+        <include href="Function1351.xsd"/>
+        <include href="Function1360.xsd"/>
+        <include href="Function1350.xsd"/>
+        <include href="Function1359.xsd"/>
+        <include href="Function1348.xsd"/>
+        <include href="Function1347.xsd"/>
+        <include href="Function1346.xsd"/>
+        <include href="Function1358.xsd"/>
+        <include href="Function1345.xsd"/>
+        <include href="Function1344.xsd"/>
+        <include href="Function1343.xsd"/>
+        <include href="Function1342.xsd"/>
+        <include href="Function1341.xsd"/>
+        <include href="Function1340.xsd"/>
+        <include href="Function1339.xsd"/>
+        <include href="Function1338.xsd"/>
+        <include href="Function1337.xsd"/>
+        <include href="Function1363.xsd"/>
+        <include href="Function1335.xsd"/>
+        <include href="Function1336.xsd"/>
+        <include href="Function1349.xsd"/>
+        <include href="Function1353.xsd"/>
+        <include href="Function1355.xsd"/>
+        <include href="Function1356.xsd"/>
+        <include href="Function1362.xsd"/>
+    </grammars>
+    <doc>bitcoin made simple Coinbase is an international digital wallet that allows you to securely buy use and accept bitcoin currency</doc>
+    <resources base="https://community-coinbase.p.mashape.com/">
+        <resource uri="currencies/">
+            <method displayName="Show exchange rates" id="1357" name="GET">
+                <doc>Show exchange rates between BTC and other currencies.</doc>
+                <request/>
+                <response>
+                    <representation element="f1357:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Show supported currencies" id="1361" name="GET">
+                <doc>Show currencies supported by Coinbase.</doc>
+                <request/>
+                <response>
+                    <representation element="f1361:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="">
+            <method displayName="Sell bitcoin" id="1354" name="POST">
+                <doc>Sell bitcoin and receive a credit to your U.S. bank account.</doc>
+                <request/>
+                <response>
+                    <representation element="f1354:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="buys/">
+            <method displayName="Purchase bitcoin" id="1352" name="POST">
+                <doc>Purchase bitcoin by debiting your U.S. bank account.</doc>
+                <request/>
+                <response>
+                    <representation element="f1352:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="subscribers/">
+            <method displayName="List subscriptions" id="1351" name="GET">
+                <doc>List customer subscriptions</doc>
+                <request/>
+                <response>
+                    <representation element="f1351:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Show individual subscription" id="1360" name="GET">
+                <doc>Show an individual customer subscription</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1360:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="recurring_payments/">
+            <method displayName="List recurring payments" id="1350" name="GET">
+                <doc>List your recurring payments</doc>
+                <request/>
+                <response>
+                    <representation element="f1350:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Show individual recurring payment" id="1359" name="GET">
+                <doc>Show an individual recurring payment</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1359:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="transfers/">
+            <method displayName="List recent buys and sells" id="1348" name="GET">
+                <doc>List a user's recent buys and sells</doc>
+                <request/>
+                <response>
+                    <representation element="f1348:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="contacts/">
+            <method displayName="List previously used emails" id="1347" name="GET">
+                <doc>List emails the user has previously used for autocompletion.</doc>
+                <request/>
+                <response>
+                    <representation element="f1347:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="orders/">
+            <method displayName="List orders received" id="1346" name="GET">
+                <doc>List merchant orders received.</doc>
+                <request/>
+                <response>
+                    <representation element="f1346:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Show individual order" id="1358" name="GET">
+                <doc>Show an individual merchant order.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1358:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="addresses/">
+            <method displayName="List bitcoin addresses" id="1345" name="GET">
+                <doc>List bitcoin addresses associated with this account.</doc>
+                <request/>
+                <response>
+                    <representation element="f1345:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="prices/">
+            <resource uri="sell/">
+                <method displayName="Get total sell price" id="1344" name="GET">
+                    <doc>Get the total sell price for some bitcoin amount.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1344:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="buy/">
+                <method displayName="Get total buy price" id="1343" name="GET">
+                    <doc>Get the total buy price for some bitcoin amount.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1343:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="spot_rate/">
+                <method displayName="Get spot price" id="1342" name="GET">
+                    <doc>Get the spot price of bitcoin.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1342:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="account/">
+            <resource uri="receive_address/">
+                <method displayName="Get bitcoin receive address" id="1341" name="GET">
+                    <doc>Get the user's current bitcoin receive address.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1341:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="balance/">
+                <method displayName="Get account balance" id="1340" name="GET">
+                    <doc>Get the user's account balance in BTC.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1340:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="generate_receive_address/">
+                <method displayName="Generate bitcoin receive address" id="1339" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f1339:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="buttons/">
+            <method displayName="Create payment button" id="1338" name="POST">
+                <doc>Create a new payment button.</doc>
+                <request/>
+                <response>
+                    <representation element="f1338:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="users/">
+            <method displayName="Create a new user" id="1337" name="POST">
+                <doc>Create or signup a new user</doc>
+                <request/>
+                <response>
+                    <representation element="f1337:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Show user account settings" id="1363" name="GET">
+                <doc>Show current user with account settings</doc>
+                <request/>
+                <response>
+                    <representation element="f1363:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update account settings" id="1364" name="PUT">
+                <doc>Update account settings for current user</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+        <resource uri="transactions/">
+            <method displayName="Cancel money request" id="1335" name="DELETE">
+                <doc>Cancel a money request</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1335:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Complete money request" id="1336" name="PUT">
+                <doc>Complete a money request</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1336:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List recent transactions" id="1349" name="GET">
+                <doc>List a user's recent transactions.</doc>
+                <request/>
+                <response>
+                    <representation element="f1349:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Resend money request email" id="1353" name="PUT">
+                <doc>Resend emails for a money request.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1353:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Send bitcoins to address" id="1355" name="POST">
+                <doc>Send bitcoins to an email address or bitcoin address.</doc>
+                <request/>
+                <response>
+                    <representation element="f1355:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Send invoice request to address" id="1356" name="POST">
+                <doc>Send an invoice/money request to an email address.</doc>
+                <request/>
+                <response>
+                    <representation element="f1356:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Show transaction details" id="1362" name="GET">
+                <doc>Show details for an individual transaction.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1362:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

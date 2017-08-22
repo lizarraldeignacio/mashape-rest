@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>mortal Kombat data exposed as an API from wikia</doc>
+    <resources base="https://anonfunction-mortal-kombat-v1.p.mashape.com/">
+        <resource uri="Articles/">
+            <resource uri="List/">
+                <method displayName="/Articles/List" id="1683" name="GET">
+                    <request>
+                        <param name="limit" required="true" style="query" type="xsd:integer">
+                            <doc>how many articles to return</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

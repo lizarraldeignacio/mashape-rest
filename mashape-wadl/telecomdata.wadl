@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f578="urn:function:f578">
+    <grammars>
+        <include href="Function578.xsd"/>
+    </grammars>
+    <doc>this data API from DataWeave provides details of all recharge options available with various telecom operators India across all circles The data is aggregated from the websites of all telecom operators</doc>
+    <resources base="https://community-telecom-data.p.mashape.com/">
+        <resource uri="telecom_data/">
+            <resource uri="listByCircle/">
+                <method displayName="Telecom Data" id="578" name="GET">
+                    <doc>This data API provides details of all recharge options available with various telecom operators across all circles. The data is aggregated from the websites of all telecom operators</doc>
+                    <request>
+                        <param name="circle" required="true" style="query" type="xsd:string">
+                            <doc>karnataka Uttar Pradesh E Chennai Maharashtra Andhra Pradesh Bihar Kerala North East Orissa Kolkata Madhya Pradesh Haryana JK Tamil Nadu Uttar Pradesh W West Bengal Punjab Gujrat Rajasthan</doc>
+                        </param>
+                        <param name="operator" required="true" style="query" type="xsd:string">
+                            <doc>bSNL Tata DOCOMO Uninor Idea Aircel Reliance CDMA Reliance GSM Vodafone Airtel</doc>
+                        </param>
+                        <param name="page" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="perPage" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f578:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

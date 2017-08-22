@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7466="urn:function:f7466">
+    <grammars>
+        <include href="Function7466.xsd"/>
+    </grammars>
+    <doc>first Facts API in the market Collection of Mind boggling facts from various categories and various sources If you have any problem in using API you can contact us support smartdevelopers in OR mishrapk live com</doc>
+    <resources base="https://mishrapk12-wtf-facts-v1.p.mashape.com/">
+        <resource uri="facts/">
+            <resource uri="v1/">
+                <resource uri="facts/">
+                    <method displayName="/facts/v1/facts" id="7466" name="GET">
+                        <request>
+                            <param name="category" required="true" style="query" type="xsd:integer">
+                                <doc>random human body science technology funny love sex food everyday animals history common gaming phobia language</doc>
+                            </param>
+                            <param name="from" required="true" style="query" type="xsd:integer">
+                                <doc/>
+                            </param>
+                            <param name="to" required="true" style="query" type="xsd:integer"/>
+                        </request>
+                        <response>
+                            <representation element="f7466:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

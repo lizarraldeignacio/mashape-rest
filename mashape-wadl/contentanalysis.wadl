@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2027="urn:function:f2027">
+    <grammars>
+        <include href="Function2027.xsd"/>
+    </grammars>
+    <doc>this API performs a basic content analysis for a given domain It extracts category Language URL redirect URL meta keywords meta description company phone and email information</doc>
+    <resources base="https://enclout-content-analysis.p.mashape.com/">
+        <resource uri="show.json/">
+            <method displayName="Content" id="2027" name="GET">
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2027:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

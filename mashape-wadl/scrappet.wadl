@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2849="urn:function:f2849">
+    <grammars>
+        <include href="Function2849.xsd"/>
+    </grammars>
+    <doc>get information about pages via a RESTful API It scrapes a given page by the URL and returns you all informations about that page</doc>
+    <resources base="https://davidesantangelo-scrappet-v1.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="scrape/">
+                <method displayName="/api/scrape" id="2849" name="GET">
+                    <doc>get all page informations</doc>
+                    <request>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>the url to be inspected</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2849:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

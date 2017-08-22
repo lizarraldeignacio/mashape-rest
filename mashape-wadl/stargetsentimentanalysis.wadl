@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>this is a short text a twitt or a single sentence sentiment classification API It has two types of analysis one for finding more but less accurate sentiment snippets and another one for finding more accurate sentiment but missing some difficult cases Long documents are planned to be supported later</doc>
+    <resources base="https://tezer-starget-sentiment-analysis.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Startget sentimnt analysis" id="1051" name="GET">
+                <doc>This service returns sentiment for a given text regarding a specified target.</doc>
+                <request>
+                    <param name="classifier" required="true" style="query" type="xsd:string">
+                        <doc>sentiment analysis type r to maximize recall p to maximize precision default</doc>
+                    </param>
+                    <param name="context" required="true" style="query" type="xsd:string">
+                        <doc>the text that needs to be processed</doc>
+                    </param>
+                    <param name="target" required="true" style="query" type="xsd:string">
+                        <doc>specify a word or phrase must be present in a text that is commented about Sentiment target is usually a noun or a pronoun</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

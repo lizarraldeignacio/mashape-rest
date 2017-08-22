@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1460="urn:function:f1460">
+    <grammars>
+        <include href="Function1460.xsd"/>
+    </grammars>
+    <doc>andMe s OAuth API lets developers build apps and tools on the human genome Our customers are genotyped for over SNPs conveniently accessible through our free REST API Not genotyped We have demo endpoints No need for a Ph D Our scientists have analyzed disease risk calculated ancestry and found relatives for genotyped customers You could use this data without even knowing what a gene is</doc>
+    <resources base="https://23andme-23andme.p.mashape.com/">
+        <resource uri="user/">
+            <method displayName="user" id="1460" name="GET">
+                <doc>Gets the user id, and a list of profiles (an account can have multiple genotyped people) with ids and whether or not they're genotyped. This endpoint is great for using an app anonymously because there is no personally identifying information.</doc>
+                <request/>
+                <response>
+                    <representation element="f1460:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="traits/">
+            <resource uri="{profile_id}/">
+                <param name="profile_id" style="template" type="xsd:string"/>
+                <method displayName="traits" id="1459" name="GET">
+                    <doc>Our analysis for each profile for these traits (starred reports). trait is a value in possible_traits, or null if the profile's not analyzed at those markers.</doc>
+                    <request>
+                        <param name="profileId" required="true" style="query" type="xsd:string">
+                            <doc>profile id</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="risks/">
+            <resource uri="{profile_id}/">
+                <param name="profile_id" style="template" type="xsd:string"/>
+                <method displayName="risks" id="1458" name="GET">
+                    <doc>Our analysis for each profile's lifetime risk of these diseases (starred reports). population_risk is the average risk for the population for which the analysis applies, and risk is the profile's risk.</doc>
+                    <request>
+                        <param name="profileId" required="true" style="query" type="xsd:string">
+                            <doc>profile id</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="relatives/">
+            <resource uri="{profile_id}/">
+                <param name="profile_id" style="template" type="xsd:string"/>
+                <method displayName="relatives" id="1457" name="GET">
+                    <doc>Relatives on 23andMe, for the user's profile. shared_segments is the total number of shared IBD segments; similarity is the actual proportion (1.00 being you, or an identical twin). maternal/paternal_side are True if this match is a relative from your mom or dad's side. range is defined if we couldn't pinpoint the relatedness of the match. match_id is a unique identifier.  Since you could have thousands of matches, limit defaults to 10, and offset to 0. count gives the total number of matches. Results are sorted by updated, descending. You can also get results that have been updated or added since a timestamp.</doc>
+                    <request>
+                        <param name="limit" required="true" style="query" type="xsd:string">
+                            <doc>limit</doc>
+                        </param>
+                        <param name="offset" required="true" style="query" type="xsd:string">
+                            <doc>offset</doc>
+                        </param>
+                        <param name="profileId" required="true" style="query" type="xsd:string">
+                            <doc>profile id</doc>
+                        </param>
+                        <param name="since" required="true" style="query" type="xsd:string">
+                            <doc>since</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="publish/">
+            <resource uri="{profile_id}/">
+                <param name="profile_id" style="template" type="xsd:string"/>
+                <resource uri="{feature_id}/">
+                    <param name="feature_id" style="template" type="xsd:string"/>
+                    <method displayName="publish_get" id="1453" name="GET">
+                        <request>
+                            <param name="featureId" required="true" style="query" type="xsd:string">
+                                <doc>feature id</doc>
+                            </param>
+                            <param name="profileId" required="true" style="query" type="xsd:string">
+                                <doc>profile id</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="publish_get by  link" id="1454" name="GET">
+                        <request>
+                            <param name="featureId" required="true" style="query" type="xsd:string"/>
+                            <param name="linkId" required="true" style="query" type="xsd:string"/>
+                            <param name="profileId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="publish_post" id="1455" name="POST">
+                        <doc>Users can publish and share certain features publicly, for example on social networks, with a special link. Anyone with the link, if active, can view that person's results for the following feature_ids:</doc>
+                        <request>
+                            <param name="featureId" required="true" style="query" type="xsd:string"/>
+                            <param name="profileId" required="true" style="query" type="xsd:string">
+                                <doc>profile id</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="publish_put" id="1456" name="PUT">
+                        <request>
+                            <param name="featureId" required="true" style="query" type="xsd:string">
+                                <doc>feature id</doc>
+                            </param>
+                            <param name="linkId" required="true" style="query" type="xsd:string">
+                                <doc>link id</doc>
+                            </param>
+                            <param name="profileId" required="true" style="query" type="xsd:string">
+                                <doc>profile id</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="profile_picture/">
+            <resource uri="{profile_id}/">
+                <param name="profile_id" style="template" type="xsd:string"/>
+                <method displayName="profile_picture" id="1451" name="GET">
+                    <request>
+                        <param name="profileId" required="true" style="query" type="xsd:string">
+                            <doc>profile id as returned from user</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="profile_picture_post" id="1452" name="POST">
+                    <doc>Gets the user's profile picture for a few sizes, or uploads a picture, &lt; 5MB, and crops it. The POST returns the same info as the GET, if successful. For the POST, set Content-Type: multipart/form-data and upload the image with parameter image.</doc>
+                    <request>
+                        <param name="profileId" required="true" style="query" type="xsd:string">
+                            <doc>profile id as returned from user</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="neanderthal/">
+            <resource uri="{profile_id}/">
+                <param name="profile_id" style="template" type="xsd:string"/>
+                <method displayName="neanderthal" id="1450" name="GET">
+                    <doc>Estimated genome-wide proportion of Neanderthal ancestry for the user's profile. Most users have between 0.01 and 0.04 Neanderthal ancestry -- read a full explanation of the science. proportion is -1 for un-genotyped (or as-of-yet uncomputed) profiles.</doc>
+                    <request>
+                        <param name="profileId" required="true" style="query" type="xsd:string">
+                            <doc>profile id</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="names/">
+            <resource uri="{profile_id}/">
+                <param name="profile_id" style="template" type="xsd:string"/>
+                <method displayName="names" id="1449" name="GET">
+                    <doc>For the user and user's profile, gets first and last names. If your user wants to remain anonymous, you shouldn't request this scope. You can optionally filter by profile_id to get the names for just that profile.</doc>
+                    <request>
+                        <param name="profileId" required="true" style="query" type="xsd:string">
+                            <doc>profile id as returned from user</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="haplogroups/">
+            <resource uri="{profile_id}/">
+                <param name="profile_id" style="template" type="xsd:string"/>
+                <method displayName="haplogroups" id="1448" name="GET">
+                    <doc>For the user's profile, gets maternal and paternal haplogroups, as well as terminal SNPs. Maternal terminal SNPs include the rsid and rCRS reference position, while the paternal ones include the rsid and ISOGG SNP.  Note: if the profile belongs to a female, the paternal (y) haplogroup and terminal SNP information will be null.</doc>
+                    <request>
+                        <param name="profileId" required="true" style="query" type="xsd:string">
+                            <doc>profile id</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="genotypes/">
+            <resource uri="{profile_id}/">
+                <param name="profile_id" style="template" type="xsd:string"/>
+                <method displayName="genotypes" id="1447" name="GET">
+                    <doc>Returns the entire profile's genome as a packed string of base pairs "AACTGA...". This ~2MB request returns over a million SNP locations, so you must specify profile_id. If the profile has not yet unlocked certain SNPs, they'll be replaced with __. To know which SNP corresponds to which index in the string, see this key.  When our genotyping chip is upgraded, the packed string and corresponding key will grow, but the changes will be backwards-compatible additions.</doc>
+                    <request>
+                        <param name="locations" required="true" style="query" type="xsd:string">
+                            <doc>ex rs i</doc>
+                        </param>
+                        <param name="profileId" required="true" style="query" type="xsd:string">
+                            <doc>profile id</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="genomes/">
+            <resource uri="{profile_id}/">
+                <param name="profile_id" style="template" type="xsd:string"/>
+                <method displayName="genomes" id="1446" name="GET">
+                    <doc>Returns the entire profile's genome as a packed string of base pairs "AACTGA...". This ~2MB request returns over a million SNP locations, so you must specify profile_id. If the profile has not yet unlocked certain SNPs, they'll be replaced with __. To know which SNP corresponds to which index in the string, see this key.  When our genotyping chip is upgraded, the packed string and corresponding key will grow, but the changes will be backwards-compatible additions.</doc>
+                    <request>
+                        <param name="profileId" required="true" style="query" type="xsd:string">
+                            <doc>profile id</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="drug_responses/">
+            <resource uri="{profile_id}/">
+                <param name="profile_id" style="template" type="xsd:string"/>
+                <method displayName="drug_responses" id="1445" name="GET">
+                    <doc>Our analysis of how each profile responds to these drugs (starred reports). status is reduced, typical, or increased for a person, not_applicable if the drug is not applicable to them (e.g., the oral contraceptives report is for women only), or null if they're not analyzed at any of the markers.</doc>
+                    <request>
+                        <param name="profileId" required="true" style="query" type="xsd:string">
+                            <doc>profile id</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="carriers/">
+            <resource uri="{profile_id}/">
+                <param name="profile_id" style="template" type="xsd:string"/>
+                <method displayName="carriers" id="1444" name="GET">
+                    <doc>Our analysis of whether or not each profile is a carrier for these diseases (starred reports). The person has 0, 1, or 2 mutations, or null if they're not analyzed at any of the markers. Normally, with one mutation, the person is considered a "carrier" and can pass the mutation to children; with two, the person is likely to be affected by the disease.</doc>
+                    <request>
+                        <param name="profileId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="ancestry/">
+            <resource uri="{profile_id}/">
+                <param name="profile_id" style="template" type="xsd:string"/>
+                <method displayName="ancestry" id="1443" name="GET">
+                    <doc>Ancestral breakdown for the user's profile. Each population has an absolute proportion of the genome. A population with sub_populations has an unassigned proportion — the ancestry we couldn't classify in it.   threshold is optional, default 0.75 and range (0.5, 1.0) exclusive. 0.51 means a speculative estimate, 0.75 standard, and 0.90 conservative. A higher threshold would increase the unassigned proportions, a lower would speculate.</doc>
+                    <request>
+                        <param name="profileId" required="true" style="query" type="xsd:string"/>
+                        <param name="threshold" required="true" style="query" type="xsd:string">
+                            <doc>threshold ex</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

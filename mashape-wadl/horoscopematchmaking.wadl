@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7457="urn:function:f7457" xmlns:f7458="urn:function:f7458" xmlns:f7459="urn:function:f7459" xmlns:f7460="urn:function:f7460" xmlns:f7461="urn:function:f7461" xmlns:f7462="urn:function:f7462" xmlns:f7463="urn:function:f7463">
+    <grammars>
+        <include href="Function7463.xsd"/>
+        <include href="Function7462.xsd"/>
+        <include href="Function7461.xsd"/>
+        <include href="Function7460.xsd"/>
+        <include href="Function7459.xsd"/>
+        <include href="Function7458.xsd"/>
+        <include href="Function7457.xsd"/>
+    </grammars>
+    <doc>match Making made easier with Vedic Rishi Astro Match APIs These APIs provides various details and reports of horoscopes of a boy and girl matched according to Vedic Astrology This considers the Ashtakoota points detailed analysis along with Rajju Vedha and Manglik Match reports</doc>
+    <resources base="https://vedicrishi-horoscope-match-making-v1.p.mashape.com/">
+        <resource uri="match_planet_details/">
+            <method displayName="Matching planetary details" id="7463" name="POST">
+                <doc>Provides both male and female planetary position details of their corresponding horoscopes.</doc>
+                <request/>
+                <response>
+                    <representation element="f7463:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="match_obstructions/">
+            <method displayName="Matching Obstruction" id="7462" name="POST">
+                <doc>Matching Obstruction provide whether matching have obstruction or not.</doc>
+                <request/>
+                <response>
+                    <representation element="f7462:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="match_birth_details/">
+            <method displayName="Matching birth details" id="7461" name="POST">
+                <doc>Gives birth details of both male and femaile horoscope.</doc>
+                <request/>
+                <response>
+                    <representation element="f7461:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="match_astro_details/">
+            <method displayName="Matching astrology details" id="7460" name="POST">
+                <doc>Provides matching astrological details like, varna, vashya,maitri,nadi,gan etc.</doc>
+                <request/>
+                <response>
+                    <representation element="f7460:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="match_manglik_report/">
+            <method displayName="Match manglik report" id="7459" name="POST">
+                <doc>Match manglik reports gives you manglik report for male and female horoscopes.</doc>
+                <request/>
+                <response>
+                    <representation element="f7459:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="match_making_report/">
+            <method displayName="Match making report" id="7458" name="POST">
+                <doc>Match making report gives matching report based on male and female horoscope.</doc>
+                <request/>
+                <response>
+                    <representation element="f7458:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="match_ashtakoot_points/">
+            <method displayName="Ashtakoot details" id="7457" name="POST">
+                <doc>Ashtakoot details provides complete ashtakoot analysis .</doc>
+                <request/>
+                <response>
+                    <representation element="f7457:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

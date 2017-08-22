@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>tradier is a brokerage platform for equity and options trading It is designed to provide simple intuitive and inexpensive ways for users to place trades check their balances and transfer money Tradier provides a RESTful API for accessing the platform s trading functions account services and real time and historical market data</doc>
+    <resources base="https://tradier.p.mashape.com/">
+        <resource uri="markets/">
+            <resource uri="clock/">
+                <method displayName="Get the market status" id="2306" name="GET">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="calendar/">
+                <method displayName="Get the market calendar" id="2305" name="GET">
+                    <request>
+                        <param name="month" required="true" style="query" type="xsd:string">
+                            <doc>month</doc>
+                        </param>
+                        <param name="year" required="true" style="query" type="xsd:string">
+                            <doc>year</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="quote/">
+                <method displayName="Get quotes" id="2304" name="GET">
+                    <request>
+                        <param name="symbols" required="true" style="query" type="xsd:string">
+                            <doc>a comma delimited list of equity or option symbols</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="options/">
+                <resource uri="strikes/">
+                    <method displayName="Get option strikes" id="2303" name="GET">
+                        <request>
+                            <param name="expiration" required="true" style="query" type="xsd:string">
+                                <doc>an expiration date</doc>
+                            </param>
+                            <param name="symbols" required="true" style="query" type="xsd:string">
+                                <doc>an equity symbol</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="expirations/">
+                    <method displayName="Get option expirations" id="2302" name="GET">
+                        <request>
+                            <param name="symbols" required="true" style="query" type="xsd:string">
+                                <doc>an equity symbol</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="chains/">
+                    <method displayName="Get option chains" id="2301" name="GET">
+                        <request>
+                            <param name="expiration" required="true" style="query" type="xsd:string">
+                                <doc>an expiration date</doc>
+                            </param>
+                            <param name="symbols" required="true" style="query" type="xsd:string">
+                                <doc>an equity symbol</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="history/">
+                <method displayName="Get historical pricing" id="2300" name="GET">
+                    <request>
+                        <param name="end" required="true" style="query" type="xsd:string">
+                            <doc>the end date</doc>
+                        </param>
+                        <param name="interval" required="true" style="query" type="xsd:string">
+                            <doc>one of daily weekly or monthly</doc>
+                        </param>
+                        <param name="start" required="true" style="query" type="xsd:string">
+                            <doc>the start date</doc>
+                        </param>
+                        <param name="symbols" required="true" style="query" type="xsd:string">
+                            <doc>an equity symbol</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="user/">
+            <resource uri="profile/">
+                <method displayName="Get a user's profile" id="2293" name="GET">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="positions/">
+                <method displayName="Get a user's positions" id="2292" name="GET">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="orders/">
+                <method displayName="Get a user's orders" id="2291" name="GET">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="history/">
+                <method displayName="Get a user's history" id="2290" name="GET">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="costbasis/">
+                <method displayName="Get a user's cost basis" id="2289" name="GET">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="balances/">
+                <method displayName="Get a user's balances" id="2288" name="GET">
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="accounts/">
+            <resource uri="{account}/">
+                <param name="account" style="template" type="xsd:string"/>
+                <resource uri="positions/">
+                    <method displayName="Get an account's positions" id="2299" name="GET">
+                        <request>
+                            <param name="account" required="true" style="query" type="xsd:string">
+                                <doc>an account number</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="costbasis/">
+                    <method displayName="Get an account's cost basis" id="2297" name="GET">
+                        <request>
+                            <param name="account" required="true" style="query" type="xsd:string">
+                                <doc>an account number</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="balances/">
+                    <method displayName="Get an account's balances" id="2296" name="GET">
+                        <request>
+                            <param name="account" required="true" style="query" type="xsd:string">
+                                <doc>an account number</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="order/">
+                    <resource uri="{id}/">
+                        <param name="id" style="template" type="xsd:string"/>
+                        <method displayName="Get a specific order" id="2287" name="GET">
+                            <request>
+                                <param name="account" required="true" style="query" type="xsd:string">
+                                    <doc>an account number</doc>
+                                </param>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>an order ID</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="orders/">
+                    <method displayName="Cancel an order" id="2281" name="DELETE">
+                        <request>
+                            <param name="account" required="true" style="query" type="xsd:string">
+                                <doc>an account number</doc>
+                            </param>
+                            <param name="id" required="true" style="query" type="xsd:boolean">
+                                <doc>an order ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Change an order" id="2282" name="PUT">
+                        <request>
+                            <param name="account" required="true" style="query" type="xsd:string">
+                                <doc>an account number</doc>
+                            </param>
+                            <param name="id" required="true" style="query" type="xsd:boolean">
+                                <doc>an order ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Create an order" id="2284" name="POST">
+                        <doc>For more details around complex orders, please visit: https://developer.tradier.com/documentation/trading/getting-started</doc>
+                        <request>
+                            <param name="account" required="true" style="query" type="xsd:string">
+                                <doc>an account number</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Get an account's orders" id="2298" name="GET">
+                        <request>
+                            <param name="account" required="true" style="query" type="xsd:string">
+                                <doc>an account number</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Preview an order" id="2307" name="POST">
+                        <doc>For more details around complex orders, please visit: https://developer.tradier.com/documentation/trading/getting-started</doc>
+                        <request>
+                            <param name="account" required="true" style="query" type="xsd:string">
+                                <doc>an account number</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="watchlists/">
+            <method displayName="Add watchlist symbols" id="2280" name="POST">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>a watchlist ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Create a watchlist" id="2283" name="POST">
+                <request/>
+            </method>
+            <method displayName="Delete a watchlist" id="2285" name="DELETE">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>a watchlist ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Delete a watchlist symbol" id="2286" name="DELETE">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>a watchlist ID</doc>
+                    </param>
+                    <param name="symbol" required="true" style="query" type="xsd:string">
+                        <doc>a symbol</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get a watchlist" id="2294" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>a watchlist ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get a watchlist symbol" id="2295" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>a watchlist ID</doc>
+                    </param>
+                    <param name="symbol" required="true" style="query" type="xsd:string">
+                        <doc>a symbol</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Update a watchlist" id="2308" name="PUT">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>a watchlist ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Update a watchlist symbol" id="2309" name="PUT">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>a watchlist ID</doc>
+                    </param>
+                    <param name="symbol" required="true" style="query" type="xsd:string">
+                        <doc>a symbol</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

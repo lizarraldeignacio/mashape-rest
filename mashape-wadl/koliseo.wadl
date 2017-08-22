@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3699="urn:function:f3699" xmlns:f3700="urn:function:f3700" xmlns:f3702="urn:function:f3702" xmlns:f3703="urn:function:f3703" xmlns:f3704="urn:function:f3704" xmlns:f3705="urn:function:f3705" xmlns:f3706="urn:function:f3706" xmlns:f3707="urn:function:f3707" xmlns:f3708="urn:function:f3708" xmlns:f3710="urn:function:f3710" xmlns:f3711="urn:function:f3711" xmlns:f3712="urn:function:f3712" xmlns:f3713="urn:function:f3713" xmlns:f3714="urn:function:f3714" xmlns:f3715="urn:function:f3715" xmlns:f3716="urn:function:f3716" xmlns:f3718="urn:function:f3718" xmlns:f3719="urn:function:f3719" xmlns:f3720="urn:function:f3720" xmlns:f3721="urn:function:f3721" xmlns:f3722="urn:function:f3722" xmlns:f3723="urn:function:f3723" xmlns:f3726="urn:function:f3726" xmlns:f3727="urn:function:f3727" xmlns:f3728="urn:function:f3728" xmlns:f3729="urn:function:f3729">
+    <grammars>
+        <include href="Function3699.xsd"/>
+        <include href="Function3700.xsd"/>
+        <include href="Function3702.xsd"/>
+        <include href="Function3703.xsd"/>
+        <include href="Function3704.xsd"/>
+        <include href="Function3705.xsd"/>
+        <include href="Function3706.xsd"/>
+        <include href="Function3707.xsd"/>
+        <include href="Function3708.xsd"/>
+        <include href="Function3710.xsd"/>
+        <include href="Function3711.xsd"/>
+        <include href="Function3712.xsd"/>
+        <include href="Function3713.xsd"/>
+        <include href="Function3714.xsd"/>
+        <include href="Function3715.xsd"/>
+        <include href="Function3716.xsd"/>
+        <include href="Function3718.xsd"/>
+        <include href="Function3719.xsd"/>
+        <include href="Function3720.xsd"/>
+        <include href="Function3721.xsd"/>
+        <include href="Function3722.xsd"/>
+        <include href="Function3723.xsd"/>
+        <include href="Function3726.xsd"/>
+        <include href="Function3727.xsd"/>
+        <include href="Function3728.xsd"/>
+        <include href="Function3729.xsd"/>
+    </grammars>
+    <doc>koliseo is an event ticketing platform with an attitude</doc>
+    <resources base="https://koliseo.p.mashape.com/">
+        <resource uri="search/">
+            <method displayName="Search" id="3725" name="GET">
+                <doc>Will search for users and shows matching this query. Advanced queries are available like "uuid: icoloma" or "description:"foo bar" "</doc>
+                <request>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>the query to execute</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="{user}/">
+            <param name="user" style="template" type="xsd:string"/>
+            <method displayName="Create Discount" id="3699" name="POST">
+                <request>
+                    <param name="event" required="true" style="query" type="xsd:string">
+                        <doc>event uuid</doc>
+                    </param>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>user uuid</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3699:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Create Event" id="3700" name="POST">
+                <request>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>user uuid</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3700:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Create payment" id="3701" name="POST">
+                <request>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>the user uuid</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Create Performance" id="3702" name="POST">
+                <request>
+                    <param name="event" required="true" style="query" type="xsd:string">
+                        <doc>event uuid</doc>
+                    </param>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>user uuid</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3702:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete Discount" id="3703" name="DELETE">
+                <request>
+                    <param name="event" required="true" style="query" type="xsd:string">
+                        <doc>event uuid</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>discount internal ID</doc>
+                    </param>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>user uuid</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3703:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete Event" id="3704" name="DELETE">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>event uuid</doc>
+                    </param>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>user uuid</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3704:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete Performance" id="3705" name="DELETE">
+                <request>
+                    <param name="event" required="true" style="query" type="xsd:string"/>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                    <param name="user" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3705:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Discount" id="3706" name="GET">
+                <doc>Retrieve a discount by name</doc>
+                <request>
+                    <param name="event" required="true" style="query" type="xsd:string">
+                        <doc>the event uuid</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>the internal id</doc>
+                    </param>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>the user uuid</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3706:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Discounts" id="3707" name="GET">
+                <request>
+                    <param name="cursor" required="true" style="query" type="xsd:string">
+                        <doc>the cursor to continue a previous request</doc>
+                    </param>
+                    <param name="event" required="true" style="query" type="xsd:string">
+                        <doc>event uuid</doc>
+                    </param>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>user uuid</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3707:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get event" id="3708" name="GET">
+                <doc>Retrieve a JSON representation of an Event</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>event uuid</doc>
+                    </param>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>user uuid</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3708:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Event QR" id="3709" name="GET">
+                <doc>Retrieve the QR code of an Event for offline promotion</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>event uuid</doc>
+                    </param>
+                    <param name="size" required="true" style="query" type="xsd:integer">
+                        <doc>the width of the returned square image</doc>
+                    </param>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>user uuid</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get events" id="3710" name="GET">
+                <request>
+                    <param name="cursor" required="true" style="query" type="xsd:string">
+                        <doc>the cursor to continue a previous request</doc>
+                    </param>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>the user uuid</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3710:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get payment" id="3711" name="GET">
+                <request>
+                    <param name="paymentid" required="true" style="query" type="xsd:string">
+                        <doc>the internal ID of the Payment instance to retrieve</doc>
+                    </param>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>the user uuid</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3711:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get payments" id="3712" name="GET">
+                <request>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>the user uuid</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3712:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Performance" id="3713" name="GET">
+                <request>
+                    <param name="event" required="true" style="query" type="xsd:string">
+                        <doc>event UUID</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>performance internal ID</doc>
+                    </param>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>user UUID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3713:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get performances in a payment" id="3714" name="GET">
+                <doc>Retrieve the list of performances that compose a Payment</doc>
+                <request>
+                    <param name="paymentid" required="true" style="query" type="xsd:string">
+                        <doc>the payment internal ID</doc>
+                    </param>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>the user uuid</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3714:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get performances in user balance" id="3715" name="GET">
+                <doc>Retrieve the list of all performances that have not yet been paid</doc>
+                <request>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>the user uuid</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3715:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Ticket" id="3716" name="GET">
+                <request>
+                    <param name="event" required="true" style="query" type="xsd:string">
+                        <doc>event uuid</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>internal ID of the Ticket</doc>
+                    </param>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>user uuid</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3716:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Ticket QR" id="3717" name="GET">
+                <request>
+                    <param name="event" required="true" style="query" type="xsd:string">
+                        <doc>event uuid</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>internal ID of the Ticket</doc>
+                    </param>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>user uuid</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get Tickets" id="3718" name="GET">
+                <doc>Get sold tickets for an Event</doc>
+                <request>
+                    <param name="cursor" required="true" style="query" type="xsd:string">
+                        <doc>the cursor to continue a previous request</doc>
+                    </param>
+                    <param name="event" required="true" style="query" type="xsd:string">
+                        <doc>event uuid</doc>
+                    </param>
+                    <param name="performanceid" required="true" style="query" type="xsd:string">
+                        <doc>the internal ID of the Performance</doc>
+                    </param>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>user uuid</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3718:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get tickets purchased by a user" id="3719" name="GET">
+                <request>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>user uuid</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3719:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get tickets sold by a user" id="3720" name="GET">
+                <request>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>user uuid</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3720:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get User" id="3721" name="GET">
+                <request>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>the uuid of the user to retrieve</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3721:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get user balance" id="3722" name="GET">
+                <request>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>the user uuid</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3722:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Is discount valid" id="3723" name="GET">
+                <doc>Check if a discount is available for this event</doc>
+                <request>
+                    <param name="discount" required="true" style="query" type="xsd:string">
+                        <doc>name of the discount to check</doc>
+                    </param>
+                    <param name="event" required="true" style="query" type="xsd:string">
+                        <doc>event uuid</doc>
+                    </param>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>user uuid</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3723:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Refresh balance" id="3724" name="POST">
+                <doc>Trigger a recalculation of the user balance, adding the income of all past performances that have not yet been paid. Note that this operation may take some time, specially for big events</doc>
+                <request>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>the user uuid</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Update Discount" id="3726" name="PUT">
+                <request>
+                    <param name="event" required="true" style="query" type="xsd:string">
+                        <doc>event uuid</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>internal Discount id</doc>
+                    </param>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>user uuid</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3726:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update Event" id="3727" name="PUT">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>event uuid</doc>
+                    </param>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>user uuid</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3727:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update Performance" id="3728" name="PUT">
+                <request>
+                    <param name="event" required="true" style="query" type="xsd:string">
+                        <doc>event UUID</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>performance Internal ID</doc>
+                    </param>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>user UUID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3728:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update User" id="3729" name="PUT">
+                <request>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>the user uuid</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3729:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

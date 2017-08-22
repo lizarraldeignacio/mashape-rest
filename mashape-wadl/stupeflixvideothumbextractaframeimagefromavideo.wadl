@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>create an image thumbnail of custom dimensions extracted from the frames of a video at a specific time Full API specs at https stupeflix tasks api readthedocs org en latest tasks html video thumb</doc>
+    <resources base="https://stupeflixvideothumb.p.mashape.com/">
+        <resource uri="create_file/">
+            <method displayName="video.thumb create_file" id="5098" name="POST">
+                <doc>Create and queue a video.thumb Task, block until finished and redirect to output image file. Full API specs at https://stupeflix-tasks-api.readthedocs.org/en/latest/tasks.html#video-thumb. Create API keys here : http://developer.stupeflix.com/dragon-keychain/new/</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

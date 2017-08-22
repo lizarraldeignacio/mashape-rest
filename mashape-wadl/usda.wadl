@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2334="urn:function:f2334" xmlns:f2335="urn:function:f2335" xmlns:f2337="urn:function:f2337">
+    <grammars>
+        <include href="Function2334.xsd"/>
+        <include href="Function2335.xsd"/>
+        <include href="Function2337.xsd"/>
+    </grammars>
+    <doc>united States Government Data and API</doc>
+    <resources base="https://t14ha70d-usda-v1.p.mashape.com/">
+        <resource uri="content/">
+            <resource uri="Topics/">
+                <method displayName="/topics  node count" id="2332" name="GET">
+                    <doc>Retrieves a total count of all topic nodes.</doc>
+                    <request>
+                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                            <doc>api key</doc>
+                        </param>
+                        <param name="getcount" required="true" style="query" type="xsd:boolean">
+                            <doc>getCount A boolean parameter that indicates to return a count Specifying a false value will return zero FromUri</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="/topics child node count" id="2333" name="GET">
+                    <doc>Retrieves a total count of all child topic nodes.</doc>
+                    <request>
+                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                            <doc>api key</doc>
+                        </param>
+                        <param name="getchildren" required="true" style="query" type="xsd:boolean">
+                            <doc>a boolean parameter that specifies to return child nodes When true child nodes are returned When false the parent specified parent node is returned FromUri</doc>
+                        </param>
+                        <param name="getcount" required="true" style="query" type="xsd:boolean">
+                            <doc>a boolean parameter that indicates to return a count Specifying a false value will return zero FromUri</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>an integer parameter that specifies the ID of the partent topic node for which child nodes are returned FromUri</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="/topics Child nodes" id="2334" name="GET">
+                    <doc>Retrieves a collection of all child topic nodes of the specified topic node.</doc>
+                    <request>
+                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                            <doc>api key</doc>
+                        </param>
+                        <param name="getchildren" required="true" style="query" type="xsd:boolean">
+                            <doc>a boolean parameter that specifies to return child nodes When true child nodes are returned When false the parent specified parent node is returned FromUri</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>an integer parameter that specifies the ID of the partent topic node for which child nodes are returned FromUri</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2334:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="/topics child topics" id="2335" name="GET">
+                    <doc>Retrieves a paged collection of all child topic nodes of the specified topic node.</doc>
+                    <request>
+                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                            <doc>api key</doc>
+                        </param>
+                        <param name="getchildren" required="true" style="query" type="xsd:boolean">
+                            <doc>a boolean parameter that specifies to return child nodes When true child nodes are returned When false the parent specified parent node is returned FromUri</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>an integer parameter that specifies the ID of the partent topic node for which child nodes are returned FromUri</doc>
+                        </param>
+                        <param name="size" required="true" style="query" type="xsd:integer">
+                            <doc>an integer parameter that specifies the desired page size FromUri</doc>
+                        </param>
+                        <param name="start" required="true" style="query" type="xsd:integer">
+                            <doc>a zero index integer parameter that specifies the desired starting index for page for page etc FromUri</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2335:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="/topics content node collection" id="2336" name="GET">
+                    <doc>Retrieves a paged collection of topic content nodes.</doc>
+                    <request>
+                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                            <doc>api key</doc>
+                        </param>
+                        <param name="size" required="true" style="query" type="xsd:integer">
+                            <doc>an integer parameter that specifies the desired page size FromUri</doc>
+                        </param>
+                        <param name="start" required="true" style="query" type="xsd:integer">
+                            <doc>a zero index integer parameter that specifies the desired starting index for page for page etc FromUri</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="/topics root level content" id="2337" name="GET">
+                    <doc>Retrieves a collection of all root level topic content nodes.</doc>
+                    <request>
+                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                            <doc>api key</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2337:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="/topics single topic" id="2338" name="GET">
+                    <doc>Retrieves a single topic node.</doc>
+                    <request>
+                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                            <doc>api key</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>an integer parameter that specifies the ID of the node returned FromUri</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="Charts/">
+                <method displayName="/chart Retrieve content" id="2327" name="GET">
+                    <doc>Retrieves a single chart content node.</doc>
+                    <request>
+                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                            <doc>api key</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>an integer parameter that specifies the ID of the node returned FromUri</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="/Charts First 100 nodes" id="2328" name="GET">
+                    <doc>Retrieves a collection of the first 100 chart content nodes, sorted by descending release date.</doc>
+                    <request>
+                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                            <doc>api key</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="/charts Retrieve chart aliases" id="2329" name="GET">
+                    <doc>Retrieves a collection of valid chart collection aliases.</doc>
+                    <request>
+                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                            <doc>api key</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="/Charts Retrieve nodes" id="2330" name="GET">
+                    <doc>Retrieves a paged collection of chart content nodes, sorted by descending release date.</doc>
+                    <request>
+                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                            <doc>api key</doc>
+                        </param>
+                        <param name="size" required="true" style="query" type="xsd:integer">
+                            <doc>an integer parameter that specifies the desired page size FromUri</doc>
+                        </param>
+                        <param name="start" required="true" style="query" type="xsd:integer">
+                            <doc>a zero index integer parameter that specifies the desired starting index for page for page etc FromUri</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="/charts Total Count" id="2331" name="GET">
+                    <doc>Retrieves a total count of all chart content nodes.</doc>
+                    <request>
+                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                            <doc>api key</doc>
+                        </param>
+                        <param name="getcount" required="true" style="query" type="xsd:boolean">
+                            <doc>a boolean parameter that indicates to return a count Specifying a false value will return zero FromUri</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="AmberWaves/">
+                <method displayName="/AmberWaves First 100 content nodes" id="2321" name="GET">
+                    <doc>Retrieves the first 100 amber waves content nodes, sorted by descending release date.</doc>
+                    <request>
+                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                            <doc>api key</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="/AmberWaves Single node content" id="2325" name="GET">
+                    <doc>Retrieves a single amber waves content node.</doc>
+                    <request>
+                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                            <doc>api key</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>an integer parameter that specifies the ID of the node returned FromUri</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="Amber Waves/">
+                <method displayName="/AmberWaves collection of content nodes" id="2319" name="GET">
+                    <doc>Retrieves a paged collection of amber waves content nodes, sorted by descending release date.</doc>
+                    <request>
+                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                            <doc>api key</doc>
+                        </param>
+                        <param name="size" required="true" style="query" type="xsd:integer">
+                            <doc>an integer parameter that specifies the desired page size FromUri</doc>
+                        </param>
+                        <param name="start" required="true" style="query" type="xsd:integer">
+                            <doc>a zero index integer parameter that specifies the desired starting index for page for page etc FromUri</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="/AmberWaves Filtered Count" id="2320" name="GET">
+                    <doc>Retrieves a total count of amber waves content nodes filtered by a particular section alias.</doc>
+                    <request>
+                        <param name="alias" required="true" style="query" type="xsd:string">
+                            <doc>a string parameter that specifies a series alias used for filtering FromUri</doc>
+                        </param>
+                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                            <doc>api key</doc>
+                        </param>
+                        <param name="getcount" required="true" style="query" type="xsd:boolean">
+                            <doc>a boolean parameter that indicates to return a count Specifying a false value will return zero FromUri</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="/AmberWaves First 100 nodes" id="2322" name="GET">
+                    <doc>Retrieves the first 100 amber waves nodes filtered by a particular section alias, ordered by descending release date.</doc>
+                    <request>
+                        <param name="alias" required="true" style="query" type="xsd:string">
+                            <doc>a string parameter that specifies a series alias used for filtering FromUri</doc>
+                        </param>
+                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                            <doc>api key</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="/AmberWaves Retrieve Paged Collection" id="2323" name="GET">
+                    <doc>Retrieves a paged collection of amber waves content nodes filtered by a particular section alias, ordered by descending release date.</doc>
+                    <request>
+                        <param name="alias" required="true" style="query" type="xsd:string">
+                            <doc>a string parameter that specifies a series alias used for filtering FromUri</doc>
+                        </param>
+                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                            <doc>api key</doc>
+                        </param>
+                        <param name="size" required="true" style="query" type="xsd:integer">
+                            <doc>an integer parameter that specifies the desired page size FromUri</doc>
+                        </param>
+                        <param name="start" required="true" style="query" type="xsd:integer">
+                            <doc>a zero index integer parameter that specifies the desired starting index for page for page etc FromUri</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="/AmberWaves Section Aliases" id="2324" name="GET">
+                    <doc>Retrieves all amber waves section aliases.</doc>
+                    <request>
+                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                            <doc>api key</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="/AmberWaves Total Count" id="2326" name="GET">
+                    <doc>Retrieves a total count of all amber waves content nodes.</doc>
+                    <request>
+                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                            <doc>api key</doc>
+                        </param>
+                        <param name="getcount" required="true" style="query" type="xsd:boolean">
+                            <doc>a boolean parameter that indicates to return a count Specifying a false value will return zero FromUri</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

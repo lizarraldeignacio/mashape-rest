@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3157="urn:function:f3157">
+    <grammars>
+        <include href="Function3157.xsd"/>
+    </grammars>
+    <doc>the MailBoxValidator Email Validation Web Service allows instant email address verification by using real time mail server connectivity and syntax checker Sign up for free license key at http www fraudlabs com freelicense aspx PackageID which allows up to queries a month</doc>
+    <resources base="https://fraudlabs-mailboxvalidator-v1.p.mashape.com/">
+        <resource uri="mailboxvalidatorwebservice.asmx/">
+            <method displayName="MailBoxValidator API" id="3157" name="GET">
+                <doc>Email validation API</doc>
+                <request>
+                    <param name="email" required="true" style="query" type="xsd:string">
+                        <doc>email address to validate</doc>
+                    </param>
+                    <param name="license" required="true" style="query" type="xsd:string">
+                        <doc>aPI license key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3157:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

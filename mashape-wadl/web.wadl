@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1793="urn:function:f1793" xmlns:f1794="urn:function:f1794" xmlns:f1795="urn:function:f1795" xmlns:f1796="urn:function:f1796" xmlns:f1797="urn:function:f1797" xmlns:f1798="urn:function:f1798" xmlns:f1799="urn:function:f1799">
+    <grammars>
+        <include href="Function1799.xsd"/>
+        <include href="Function1798.xsd"/>
+        <include href="Function1797.xsd"/>
+        <include href="Function1796.xsd"/>
+        <include href="Function1795.xsd"/>
+        <include href="Function1794.xsd"/>
+        <include href="Function1793.xsd"/>
+    </grammars>
+    <doc>this WebKnox web API lets you process Web pages You can detect publish modified dates language extract author content facts and rank using a service or rating the quality</doc>
+    <resources base="https://webknox-web.p.mashape.com/">
+        <resource uri="webpage/">
+            <resource uri="quality/">
+                <method displayName="Rate the Quality" id="1799" name="GET">
+                    <doc>Determine the quality of an article.</doc>
+                    <request>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>the URL of the Web page which contains an article that should be rated</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1799:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="rank/">
+                <resource uri="{service}/">
+                    <param name="service" style="template" type="xsd:string"/>
+                    <method displayName="Rank a Web Page" id="1798" name="GET">
+                        <doc>Rank a Web page with a certain service.</doc>
+                        <request>
+                            <param name="service" required="true" style="query" type="xsd:string">
+                                <doc>the name of the service with which the Web page should be ranked</doc>
+                            </param>
+                            <param name="url" required="true" style="query" type="xsd:string">
+                                <doc>the URL of the Web page that should be ranked</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1798:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="content/">
+                <method displayName="Extract Content" id="1797" name="GET">
+                    <doc>Extract the main content of a Web page.</doc>
+                    <request>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>the URL of the page</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1797:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="dates/">
+                <resource uri="published/">
+                    <method displayName="Detect Publish Date" id="1796" name="GET">
+                        <doc>Detect the publish date of the Web page.</doc>
+                        <request>
+                            <param name="url" required="true" style="query" type="xsd:string">
+                                <doc>the URL of the Web page</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1796:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="lastModified/">
+                    <method displayName="Detect Last Modified Date" id="1795" name="GET">
+                        <doc>Detect when the page was last modified.</doc>
+                        <request>
+                            <param name="url" required="true" style="query" type="xsd:string">
+                                <doc>the URL of the Web page</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1795:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="language/">
+                <method displayName="Detect Language" id="1794" name="GET">
+                    <doc>Detect the language of a natural language text.</doc>
+                    <request>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>the URL of the page</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1794:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="author/">
+                <method displayName="Detect Author" id="1793" name="GET">
+                    <doc>Detect the author of the article on a Web page.</doc>
+                    <request>
+                        <param name="language" required="true" style="query" type="xsd:string">
+                            <doc>the language of the Web page en English de German</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>the URL of the article for which the author should be extracted</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1793:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>aPI Built to return the title of a webpage</doc>
+    <resources base="https://orliesaurus-scraper.p.mashape.com/">
+        <resource uri="dd877363732c233a805b27acd4e4573b/">
+            <method displayName="URL" id="2850" name="POST">
+                <doc>HTTP:// or HTTPS:// Prefixed URL to scrape title from</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>the key</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

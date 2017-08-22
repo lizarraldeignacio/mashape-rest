@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>the BART API gives you access to pretty much all of the BART service and station data available on the BART website</doc>
+    <resources base="https://community-bart.p.mashape.com/">
+        <resource uri="stn.aspx/">
+            <method displayName="Station information" id="2536" name="GET">
+                <request>
+                    <param name="cmd" required="true" style="query" type="xsd:string">
+                        <doc>see more examples at http api bart gov docs overview examples aspx</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="sched.aspx/">
+            <method displayName="Schedule information" id="2535" name="GET">
+                <request>
+                    <param name="cmd" required="true" style="query" type="xsd:string">
+                        <doc>see more examples at http api bart gov docs overview examples aspx</doc>
+                    </param>
+                    <param name="dest" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="orig" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="route.aspx/">
+            <method displayName="Route information" id="2534" name="GET">
+                <request>
+                    <param name="cmd" required="true" style="query" type="xsd:string">
+                        <doc>see more examples http api bart gov docs overview examples aspx</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="etd.aspx/">
+            <method displayName="Real-time information" id="2533" name="GET">
+                <request>
+                    <param name="cmd" required="true" style="query" type="xsd:string">
+                        <doc>see more examples http api bart gov docs overview examples aspx</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="bsa.aspx/">
+            <method displayName="Advisory information" id="2532" name="GET">
+                <request>
+                    <param name="cmd" required="true" style="query" type="xsd:string">
+                        <doc>see more examples http api bart gov docs overview examples aspx</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

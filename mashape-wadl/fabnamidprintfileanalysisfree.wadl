@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3692="urn:function:f3692" xmlns:f3693="urn:function:f3693">
+    <grammars>
+        <include href="Function3693.xsd"/>
+        <include href="Function3692.xsd"/>
+    </grammars>
+    <doc>this API computes the geometric and topological properties of STL OBJ and PLY files which are commonly used in D printing On top of common measure like volume and surface this API uses fast proprietary algorithms to check for thin walls and self intersecting faces</doc>
+    <resources base="https://fabnami-test.p.mashape.com/">
+        <resource uri="submit/">
+            <method displayName="Submit file for analysis" id="3693" name="POST">
+                <request/>
+                <response>
+                    <representation element="f3693:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="{workflow_id}/">
+            <param name="workflow_id" style="template" type="xsd:string"/>
+            <resource uri="measures/">
+                <method displayName="Retrieve file measures" id="3692" name="GET">
+                    <request>
+                        <param name="workflowId" required="true" style="query" type="xsd:string">
+                            <doc>workflow ID obtained at the file URL submission</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3692:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

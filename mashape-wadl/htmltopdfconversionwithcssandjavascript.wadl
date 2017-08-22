@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>converts HTML to PDF with support for CSS and JavaScript Allows watermarking merging scaling to one page and much more</doc>
+    <resources base="https://tkdchamp-html-to-pdf-conversion-with-css-and-javascript.p.mashape.com/">
+        <resource uri="urltopdf/">
+            <method displayName="urltopdf" id="987" name="GET">
+                <doc>URL / web page to PDF</doc>
+                <request>
+                    <param name="apikey" required="true" style="query" type="xsd:string">
+                        <doc>key to use the service</doc>
+                    </param>
+                    <param name="bg" required="true" style="query" type="xsd:string">
+                        <doc>location of background image for the PDF</doc>
+                    </param>
+                    <param name="bg" required="true" style="query" type="xsd:string">
+                        <doc>location of second background image for the PDF</doc>
+                    </param>
+                    <param name="bg" required="true" style="query" type="xsd:string">
+                        <doc>location of third background image for the PDF</doc>
+                    </param>
+                    <param name="bgAngle" required="true" style="query" type="xsd:integer">
+                        <doc>rotation angle for the background</doc>
+                    </param>
+                    <param name="bgOpac" required="true" style="query" type="xsd:integer">
+                        <doc>opacity of the background</doc>
+                    </param>
+                    <param name="bgSx" required="true" style="query" type="xsd:integer">
+                        <doc>horizontal scaling for the background means scale to full width</doc>
+                    </param>
+                    <param name="bgSy" required="true" style="query" type="xsd:integer">
+                        <doc>vertical scaling for the background means scale to full height</doc>
+                    </param>
+                    <param name="bgX" required="true" style="query" type="xsd:integer">
+                        <doc>x location of background</doc>
+                    </param>
+                    <param name="bgY" required="true" style="query" type="xsd:integer">
+                        <doc>y location of background</doc>
+                    </param>
+                    <param name="bottom" required="true" style="query" type="xsd:integer">
+                        <doc>bottom margin</doc>
+                    </param>
+                    <param name="cmt" required="true" style="query" type="xsd:string">
+                        <doc>cSS media type either print or screen</doc>
+                    </param>
+                    <param name="encryption" required="true" style="query" type="xsd:string">
+                        <doc>specifies encryption type</doc>
+                    </param>
+                    <param name="footer" required="true" style="query" type="xsd:string">
+                        <doc>location of custom footer HTML</doc>
+                    </param>
+                    <param name="header" required="true" style="query" type="xsd:string">
+                        <doc>location of custom header html</doc>
+                    </param>
+                    <param name="height" required="true" style="query" type="xsd:integer">
+                        <doc>width of the PDF means one long page</doc>
+                    </param>
+                    <param name="left" required="true" style="query" type="xsd:integer">
+                        <doc>left margin</doc>
+                    </param>
+                    <param name="nocopy" required="true" style="query" type="xsd:boolean">
+                        <doc>if set Acrobat Reader does not allow copying</doc>
+                    </param>
+                    <param name="nomodify" required="true" style="query" type="xsd:boolean">
+                        <doc>if set Acrobat Reader does not allow modifying the PDF</doc>
+                    </param>
+                    <param name="noprint" required="true" style="query" type="xsd:boolean">
+                        <doc>if set Acrobat Reader does not allow printing</doc>
+                    </param>
+                    <param name="right" required="true" style="query" type="xsd:integer">
+                        <doc>right margin</doc>
+                    </param>
+                    <param name="top" required="true" style="query" type="xsd:integer">
+                        <doc>top margin</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>uRL of the webpage to convert</doc>
+                    </param>
+                    <param name="width" required="true" style="query" type="xsd:integer">
+                        <doc>width of the PDF</doc>
+                    </param>
+                    <param name="wm" required="true" style="query" type="xsd:string">
+                        <doc>the full URL where we can find the image you want to use as watermark</doc>
+                    </param>
+                    <param name="wmAngle" required="true" style="query" type="xsd:integer">
+                        <doc>rotation angle of the watermark</doc>
+                    </param>
+                    <param name="wmOpac" required="true" style="query" type="xsd:integer">
+                        <doc>opacity of the watermark</doc>
+                    </param>
+                    <param name="wmSx" required="true" style="query" type="xsd:integer">
+                        <doc>scaling factor for horizontal sizing</doc>
+                    </param>
+                    <param name="wmSy" required="true" style="query" type="xsd:integer">
+                        <doc>scaling factor for vertical sizing</doc>
+                    </param>
+                    <param name="wmX" required="true" style="query" type="xsd:integer">
+                        <doc>x location of the watermark</doc>
+                    </param>
+                    <param name="wmY" required="true" style="query" type="xsd:integer">
+                        <doc>y location of the watermark</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

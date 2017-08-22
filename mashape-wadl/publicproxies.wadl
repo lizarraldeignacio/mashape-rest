@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3060="urn:function:f3060" xmlns:f3061="urn:function:f3061" xmlns:f3062="urn:function:f3062" xmlns:f3063="urn:function:f3063">
+    <grammars>
+        <include href="Function3063.xsd"/>
+        <include href="Function3062.xsd"/>
+        <include href="Function3061.xsd"/>
+        <include href="Function3060.xsd"/>
+    </grammars>
+    <doc>the most reliable public proxy servers list Thousands of http and socks proxies tested daily</doc>
+    <resources base="https://jmillerdesign-public-proxies.p.mashape.com/">
+        <resource uri="proxies.xml/">
+            <method displayName="proxies.xml" id="3063" name="GET">
+                <doc>XML</doc>
+                <request>
+                    <param name="alive" required="true" style="query" type="xsd:boolean">
+                        <doc>only retrieve proxies that were tested to be working within the last minutes DEFAULT true</doc>
+                    </param>
+                    <param name="countryCode" required="true" style="query" type="xsd:string">
+                        <doc>add this to retrieve only proxies at this location Comma separate multiple values to search with OR condition DEFAULT All countries</doc>
+                    </param>
+                    <param name="protocols" required="true" style="query" type="xsd:string">
+                        <doc>add this to retrieve only proxies with a specific protocol Comma separate multiple values to search with OR condition DEFAULT http socks socks</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>add this to retrieve only proxies with a type Comma separate multiple values to search with OR condition DEFAULT elite anonymous transparent</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3063:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="proxies.txt/">
+            <method displayName="proxies.txt" id="3062" name="GET">
+                <doc>TXT</doc>
+                <request>
+                    <param name="alive" required="true" style="query" type="xsd:boolean">
+                        <doc>only retrieve proxies that were tested to be working within the last minutes DEFAULT true</doc>
+                    </param>
+                    <param name="countryCode" required="true" style="query" type="xsd:string">
+                        <doc>add this to retrieve only proxies at this location Comma separate multiple values to search with OR condition DEFAULT All countries</doc>
+                    </param>
+                    <param name="protocols" required="true" style="query" type="xsd:string">
+                        <doc>add this to retrieve only proxies with a specific protocol Comma separate multiple values to search with OR condition DEFAULT http socks socks</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>add this to retrieve only proxies with a type Comma separate multiple values to search with OR condition DEFAULT elite anonymous transparent</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3062:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="proxies.json/">
+            <method displayName="proxies.json" id="3061" name="GET">
+                <doc>JSON</doc>
+                <request>
+                    <param name="alive" required="true" style="query" type="xsd:boolean">
+                        <doc>only retrieve proxies that were tested to be working within the last minutes DEFAULT true</doc>
+                    </param>
+                    <param name="countryCode" required="true" style="query" type="xsd:string">
+                        <doc>add this to retrieve only proxies at this location Comma separate multiple values to search with OR condition DEFAULT All countries</doc>
+                    </param>
+                    <param name="protocols" required="true" style="query" type="xsd:string">
+                        <doc>add this to retrieve only proxies with a specific protocol Comma separate multiple values to search with OR condition DEFAULT http socks socks</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>add this to retrieve only proxies with a type Comma separate multiple values to search with OR condition DEFAULT elite anonymous transparent</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3061:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="proxies.csv/">
+            <method displayName="proxies.csv" id="3060" name="GET">
+                <doc>CSV</doc>
+                <request>
+                    <param name="alive" required="true" style="query" type="xsd:boolean">
+                        <doc>only retrieve proxies that were tested to be working within the last minutes DEFAULT true</doc>
+                    </param>
+                    <param name="countryCode" required="true" style="query" type="xsd:string">
+                        <doc>add this to retrieve only proxies at this location Comma separate multiple values to search with OR condition DEFAULT All countries</doc>
+                    </param>
+                    <param name="protocols" required="true" style="query" type="xsd:string">
+                        <doc>add this to retrieve only proxies with a specific protocol Comma separate multiple values to search with OR condition DEFAULT http socks socks</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>add this to retrieve only proxies with a type Comma separate multiple values to search with OR condition DEFAULT elite anonymous transparent</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3060:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

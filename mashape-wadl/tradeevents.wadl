@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>the Trade Events API provides data on events for U S businesses interested in selling their products and services overseas These events include industry conferences webinars lectures and trade missions organized by ITA and other trade agencies including The U S Trade and Development Agency The Export Import Bank The State Department The Small Business Administration</doc>
+    <resources base="https://dataservices-trade-events-v1.p.mashape.com/">
+        <resource uri="api.trade.gov/">
+            <resource uri="v2/">
+                <resource uri="trade_events/">
+                    <resource uri="search/">
+                        <method displayName="/api.trade.gov/v2/trade_events/search" id="5594" name="GET">
+                            <request/>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

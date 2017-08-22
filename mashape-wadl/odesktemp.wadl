@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3512="urn:function:f3512" xmlns:f3513="urn:function:f3513" xmlns:f3514="urn:function:f3514" xmlns:f3515="urn:function:f3515" xmlns:f3516="urn:function:f3516" xmlns:f3517="urn:function:f3517" xmlns:f3518="urn:function:f3518" xmlns:f3519="urn:function:f3519" xmlns:f3520="urn:function:f3520">
+    <grammars>
+        <include href="Function3519.xsd"/>
+        <include href="Function3520.xsd"/>
+        <include href="Function3518.xsd"/>
+        <include href="Function3517.xsd"/>
+        <include href="Function3515.xsd"/>
+        <include href="Function3516.xsd"/>
+        <include href="Function3512.xsd"/>
+        <include href="Function3513.xsd"/>
+        <include href="Function3514.xsd"/>
+    </grammars>
+    <doc>refactoring oDesk APIs</doc>
+    <resources base="https://harryanderson35-odesktemp.p.mashape.com/">
+        <resource uri="public/">
+            <resource uri="openings/">
+                <method displayName="Search jobs" id="3519" name="GET">
+                    <doc>Search for job openings</doc>
+                    <request>
+                        <param name="c" required="true" style="query" type="xsd:string">
+                            <doc>category name for now the full list of categories</doc>
+                        </param>
+                        <param name="c" required="true" style="query" type="xsd:string">
+                            <doc>subcategory which is related to category c</doc>
+                        </param>
+                        <param name="dp" required="true" style="query" type="xsd:string">
+                            <doc>date posted</doc>
+                        </param>
+                        <param name="dur" required="true" style="query" type="xsd:integer">
+                            <doc>engagement duration Ongoing More than months to months to months Less than month Less than week</doc>
+                        </param>
+                        <param name="fb" required="true" style="query" type="xsd:integer">
+                            <doc>limit your search to buyers with at least a score of the number passed in this parameter</doc>
+                        </param>
+                        <param name="gr" required="true" style="query" type="xsd:string">
+                            <doc>prefered group</doc>
+                        </param>
+                        <param name="max" required="true" style="query" type="xsd:integer">
+                            <doc>maximal budget</doc>
+                        </param>
+                        <param name="min" required="true" style="query" type="xsd:integer">
+                            <doc>minimal budget</doc>
+                        </param>
+                        <param name="page" required="true" style="query" type="xsd:string">
+                            <doc>paging based on offset count e g return records starting from</doc>
+                        </param>
+                        <param name="q" required="true" style="query" type="xsd:string">
+                            <doc>search query</doc>
+                        </param>
+                        <param name="qs" required="true" style="query" type="xsd:string">
+                            <doc>skill</doc>
+                        </param>
+                        <param name="sort" required="true" style="query" type="xsd:string">
+                            <doc>sorting in format field name field name field nameN AD A where A eq asc D eq desc e g date posted A</doc>
+                        </param>
+                        <param name="st" required="true" style="query" type="xsd:string">
+                            <doc>status for search Open Jobs Open Jobs in Progress In Progress Completed Jobs Completed Canceled Jobs Cancelled</doc>
+                        </param>
+                        <param name="t" required="true" style="query" type="xsd:string">
+                            <doc>job type</doc>
+                        </param>
+                        <param name="tba" required="true" style="query" type="xsd:integer">
+                            <doc>total billed assignments</doc>
+                        </param>
+                        <param name="to" required="true" style="query" type="xsd:string">
+                            <doc>search in titles only</doc>
+                        </param>
+                        <param name="wl" required="true" style="query" type="xsd:integer">
+                            <doc>hours per week As Needed Hours Week Part Time hrs week Full Time hrs week</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3519:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Search specific jobs" id="3520" name="GET">
+                    <doc>See the details of a specific job opening</doc>
+                    <request>
+                        <param name="openingid" required="true" style="query" type="xsd:string">
+                            <doc>job opening ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3520:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="regions/">
+                <method displayName="List Regions" id="3518" name="GET">
+                    <doc>Get list of regions</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3518:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="categories/">
+                <method displayName="List Categories" id="3517" name="GET">
+                    <doc>Get job categories</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3517:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="client/">
+            <resource uri="tractor/">
+                <resource uri="companies/">
+                    <resource uri="{companyid}/">
+                        <param name="companyid" style="template" type="xsd:string"/>
+                        <resource uri="openings/">
+                            <method displayName="List all job for a company" id="3515" name="GET">
+                                <request>
+                                    <param name="companyid" required="true" style="query" type="xsd:string"/>
+                                    <param name="createdby" required="true" style="query" type="xsd:string">
+                                        <doc>the user ID</doc>
+                                    </param>
+                                    <param name="createdtimefrom" required="true" style="query" type="xsd:string">
+                                        <doc>filter from time</doc>
+                                    </param>
+                                    <param name="createdtimeto" required="true" style="query" type="xsd:string">
+                                        <doc>filter to time</doc>
+                                    </param>
+                                    <param name="orderby" required="true" style="query" type="xsd:string">
+                                        <doc>sorting</doc>
+                                    </param>
+                                    <param name="page" required="true" style="query" type="xsd:string">
+                                        <doc>pagination formed as offset count</doc>
+                                    </param>
+                                    <param name="status" required="true" style="query" type="xsd:string">
+                                        <doc>status of Job</doc>
+                                    </param>
+                                </request>
+                                <response>
+                                    <representation element="f3515:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="companies/">
+                <resource uri="{companyid}/">
+                    <param name="companyid" style="template" type="xsd:string"/>
+                    <resource uri="team/">
+                        <resource uri="{team}/">
+                            <param name="team" style="template" type="xsd:string"/>
+                            <resource uri="openings/">
+                                <method displayName="List all job for a team" id="3516" name="GET">
+                                    <request>
+                                        <param name="buyerteamreference" required="true" style="query" type="xsd:integer">
+                                            <doc>the buyer s team reference ID</doc>
+                                        </param>
+                                        <param name="companyid" required="true" style="query" type="xsd:string">
+                                            <doc>company ID</doc>
+                                        </param>
+                                        <param name="createdby" required="true" style="query" type="xsd:string">
+                                            <doc>the user ID</doc>
+                                        </param>
+                                        <param name="createdtimefrom" required="true" style="query" type="xsd:string">
+                                            <doc>filter from time</doc>
+                                        </param>
+                                        <param name="createdtimeto" required="true" style="query" type="xsd:string">
+                                            <doc>filter to time</doc>
+                                        </param>
+                                        <param name="includesubteams" required="true" style="query" type="xsd:string">
+                                            <doc>wether to include info about sub teams</doc>
+                                        </param>
+                                        <param name="orderby" required="true" style="query" type="xsd:string">
+                                            <doc>sorting</doc>
+                                        </param>
+                                        <param name="page" required="true" style="query" type="xsd:string">
+                                            <doc>pagination formed as offset count</doc>
+                                        </param>
+                                        <param name="status" required="true" style="query" type="xsd:string">
+                                            <doc>status of Job</doc>
+                                        </param>
+                                        <param name="team" required="true" style="query" type="xsd:string">
+                                            <doc>team ID</doc>
+                                        </param>
+                                    </request>
+                                    <response>
+                                        <representation element="f3516:root" mediaType="application/json"/>
+                                    </response>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                    <resource uri="openings/">
+                        <method displayName="Cancel the Job" id="3512" name="DELETE">
+                            <request>
+                                <param name="companyid" required="true" style="query" type="xsd:string">
+                                    <doc>company ID that posted job</doc>
+                                </param>
+                                <param name="openingid" required="true" style="query" type="xsd:string">
+                                    <doc>job ID</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f3512:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Create Job Opening" id="3513" name="POST">
+                            <doc>See the details of a Create a job opening</doc>
+                            <request>
+                                <param name="companyid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f3513:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Get the details for job" id="3514" name="GET">
+                            <request>
+                                <param name="companyid" required="true" style="query" type="xsd:string">
+                                    <doc>company ID that posted job</doc>
+                                </param>
+                                <param name="openingid" required="true" style="query" type="xsd:string">
+                                    <doc>job ID</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f3514:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Update job opening" id="3521" name="PUT">
+                            <request>
+                                <param name="companyid" required="true" style="query" type="xsd:string">
+                                    <doc>comapny ID</doc>
+                                </param>
+                                <param name="openingid" required="true" style="query" type="xsd:string">
+                                    <doc>job ID</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

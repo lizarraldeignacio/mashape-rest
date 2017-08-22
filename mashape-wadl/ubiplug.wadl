@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>create awesome products using our data API It can help you to visualize data of a house appliances and represent them beautifully before users</doc>
+    <resources base="https://ubiplug.p.mashape.com/">
+        <resource uri="&quot;/">
+            <resource uri="user/">
+                <resource uri="&quot;/">
+                    <method displayName="User Information" id="7514" name="GET">
+                        <doc>Get user's information</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:integer">
+                                <doc>user id</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

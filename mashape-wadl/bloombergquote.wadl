@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6109="urn:function:f6109">
+    <grammars>
+        <include href="Function6109.xsd"/>
+    </grammars>
+    <doc>unofficial Bloomberg API based on Bloomberg s Open Market Data Initiative Give Bloomberg Ticker return data</doc>
+    <resources base="https://bloomberg-quote-api.p.mashape.com/">
+        <resource uri="quote/">
+            <method displayName="/quote" id="6109" name="GET">
+                <doc>Give a bloomberg ticker to get stock data about compagny and quote</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>google Bloomberg ticker</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6109:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

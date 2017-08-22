@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>send real physical postcards using our partner API A print on demand service</doc>
+    <resources base="https://paaaaaaaaaa-postcards.p.mashape.com/">
+        <resource uri="balance/">
+            <resource uri="get/">
+                <method displayName="Get Balance" id="5730" name="GET">
+                    <doc>Return your current balance</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="postcards/">
+            <resource uri="get/">
+                <method displayName="Previously Sent Postcards" id="5731" name="GET">
+                    <doc>Get your previously sent postcards.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="create/">
+                <method displayName="Create a Postcard" id="5729" name="POST">
+                    <doc>Create a postcard</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

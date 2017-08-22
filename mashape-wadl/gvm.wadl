@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>the API to GVM the Groovy enVironment Manager This is a multi platform tool for installing multiple SDK versions side by side</doc>
+    <resources base="https://marcovermeulen-groovy-environment-manager.p.mashape.com/">
+        <resource uri="alive/">
+            <method displayName="Health Check" id="3903" name="GET">
+                <doc>Checks to see if API is alive</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="api/">
+            <resource uri="broadcast/">
+                <resource uri="{version}/">
+                    <param name="version" style="template" type="xsd:string"/>
+                    <method displayName="Broadcast" id="3899" name="GET">
+                        <doc>Returns the broadcast message</doc>
+                        <request>
+                            <param name="version" required="true" style="query" type="xsd:string">
+                                <doc>the local API version</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="version/">
+                <method displayName="API Version" id="3898" name="GET">
+                    <doc>Returns the version of the API</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="candidates/">
+            <method displayName="All Candidates" id="3897" name="GET">
+                <doc>Gets all candidates available.</doc>
+                <request/>
+            </method>
+            <method displayName="Candidate Download" id="3900" name="GET">
+                <doc>Download a Candidate Version</doc>
+                <request>
+                    <param name="candidate" required="true" style="query" type="xsd:string">
+                        <doc>the candidate</doc>
+                    </param>
+                    <param name="version" required="true" style="query" type="xsd:string">
+                        <doc>the candidate version</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Candidate List" id="3901" name="GET">
+                <doc>A template that renders a list of Candidate Versions available.</doc>
+                <request>
+                    <param name="candidate" required="true" style="query" type="xsd:string">
+                        <doc>the candidate name</doc>
+                    </param>
+                    <param name="current" required="true" style="query" type="xsd:string">
+                        <doc>the current version</doc>
+                    </param>
+                    <param name="installed" required="true" style="query" type="xsd:string">
+                        <doc>a CSV of versions</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Default Candidate Version" id="3902" name="GET">
+                <doc>Returns the default version for a Candidate</doc>
+                <request>
+                    <param name="candidate" required="true" style="query" type="xsd:string">
+                        <doc>the name of the candidate</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Validate Candidate Version" id="3904" name="GET">
+                <doc>Validates the given Version of a Candidate</doc>
+                <request>
+                    <param name="candidate" required="true" style="query" type="xsd:string">
+                        <doc>the candidate</doc>
+                    </param>
+                    <param name="version" required="true" style="query" type="xsd:string">
+                        <doc>the version</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

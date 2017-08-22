@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1311="urn:function:f1311">
+    <grammars>
+        <include href="Function1311.xsd"/>
+    </grammars>
+    <doc>domain Availability Checker</doc>
+    <resources base="https://nviror-domain-v1.p.mashape.com/">
+        <resource uri="google.com/">
+            <method displayName="/google.com" id="1311" name="GET">
+                <doc>Currently only supports following TLDs: com, net. org, info. in</doc>
+                <request/>
+                <response>
+                    <representation element="f1311:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

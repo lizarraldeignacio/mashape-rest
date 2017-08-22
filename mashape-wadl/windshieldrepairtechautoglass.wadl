@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>the restful webservice provided by WindshieldRepairTech can be used to access vehicle year make model and body style information Assuming you ve requested and received access requests are made using HTTP GET with an API KEY included as a GET parameter</doc>
+    <resources base="https://windshieldrepairtech-windshield-repair-tech-auto-glass-v1.p.mashape.com/">
+        <resource uri="vehicle/">
+            <resource uri="v1/">
+                <resource uri="years/">
+                    <method displayName="Year Lookup" id="6305" name="GET">
+                        <doc>Use the years endpoint to request a list of years that vehicles were produced in.</doc>
+                        <request>
+                            <param name="format" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="key" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="makes/">
+                    <method displayName="Makes Lookup" id="6304" name="GET">
+                        <doc>Use the makes endpoint to request a list of makes for a given year.</doc>
+                        <request>
+                            <param name="format" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="key" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

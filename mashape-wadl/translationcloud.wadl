@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>simple to use API to get machine and human translation in over languages Powered by Translation Cloud s network of linguists</doc>
+    <resources base="https://alexburan-translation-cloud.p.mashape.com/">
+        <resource uri="available_translators/">
+            <method displayName="Retrieve the number of available translators for a given language pair." id="2424" name="POST">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="get_price/">
+            <resource uri="project/">
+                <method displayName="Get price" id="2423" name="POST">
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="get_translation/">
+            <resource uri="project/">
+                <method displayName="Get a translation for the supplied project ID." id="2422" name="POST">
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="get_translation_file/">
+            <resource uri="project/">
+                <method displayName="Get a translation file for the supplied project ID." id="2421" name="POST">
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="languages/">
+            <method displayName="Get a list of available languages and their abbreviations." id="2420" name="POST">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="create/">
+            <resource uri="project/">
+                <method displayName="Create Project" id="2419" name="POST">
+                    <doc>Create a new project</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

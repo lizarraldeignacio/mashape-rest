@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4488="urn:function:f4488">
+    <grammars>
+        <include href="Function4488.xsd"/>
+    </grammars>
+    <doc>mock Test Track HTTP calls</doc>
+    <resources base="https://console.p.mashape.com/">
+        <resource uri="status/">
+            <resource uri="{code}/">
+                <param name="code" style="template" type="xsd:string"/>
+                <resource uri="{reason}/">
+                    <param name="reason" style="template" type="xsd:string"/>
+                    <method displayName="/status/{code}/{reason}" id="4498" name="GET">
+                        <doc>Returns a response with the given HTTP Status code and message in status line and body</doc>
+                        <request>
+                            <param name="code" required="true" style="query" type="xsd:string"/>
+                            <param name="reason" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="redirect/">
+            <resource uri="{status}/">
+                <param name="status" style="template" type="xsd:string"/>
+                <resource uri="{count}/">
+                    <param name="count" style="template" type="xsd:string"/>
+                    <method displayName="/redirect/{status}/{count}" id="4497" name="GET">
+                        <doc>Start a redirects loop using the redirect custom status code: status, looping through the url pattern: /redirect/:status/[:count -1] eventually landing on :url (or /redirect/:status/0 if no url was provided)</doc>
+                        <request>
+                            <param name="count" required="true" style="query" type="xsd:string"/>
+                            <param name="status" required="true" style="query" type="xsd:string"/>
+                            <param name="to" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="ips/">
+            <method displayName="/ips" id="4496" name="GET">
+                <doc>Parses the "X-Forwarded-For" ip address list and return an array. Otherwise, an empty array is returned.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="ip/">
+            <method displayName="/ip" id="4495" name="GET">
+                <doc>Returns Origin IP.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="headers/">
+            <method displayName="/headers" id="4494" name="GET">
+                <doc>Returns list of all headers used in request as well as total number of bytes from the start of the HTTP request message until (and including) the double CRLF before the body.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="header/">
+            <resource uri="{name}/">
+                <param name="name" style="template" type="xsd:string"/>
+                <method displayName="/header/{name}" id="4493" name="GET">
+                    <doc>Returns the value of header with the name {name}</doc>
+                    <request>
+                        <param name="name" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="gzip/">
+            <method displayName="/gzip" id="4492" name="GET">
+                <doc>Identical to /echo but with forced compression on response body (returns back all the info sent through your request in HAR format)</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="echo/">
+            <method displayName="/echo" id="4491" name="GET">
+                <doc>Returns back all the info sent through your request in HAR format</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="cookies/">
+            <method displayName="/cookies" id="4490" name="GET">
+                <doc>Returns list of all cookies sent by the client</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="cookie/">
+            <resource uri="{name}/">
+                <param name="name" style="template" type="xsd:string"/>
+                <method displayName="/cookie/{name}" id="4489" name="GET">
+                    <doc>Returns the value of the cookie with the name {name}</doc>
+                    <request>
+                        <param name="name" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="agent/">
+            <method displayName="/agent" id="4488" name="GET">
+                <doc>Returns user-agent</doc>
+                <request/>
+                <response>
+                    <representation element="f4488:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

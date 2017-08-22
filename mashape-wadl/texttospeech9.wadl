@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>this API instantly generates high quality speech from text Simply send a request with the text you want read and we ll instantly return a wav mp or ogg with it been spoken</doc>
+    <resources base="https://tts.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="tts/">
+                <method displayName="/v1/tts" id="1052" name="GET">
+                    <doc>Converts text into high quality speech.</doc>
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>wav mp and ogg file formats are supported</doc>
+                        </param>
+                        <param name="language" required="true" style="query" type="xsd:string">
+                            <doc>see v tts languages to query the available languages</doc>
+                        </param>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>whatever text you want to be converted into audio</doc>
+                        </param>
+                        <param name="voice" required="true" style="query" type="xsd:string">
+                            <doc>see v tts voices for details on how to query the installed voices</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="/v1/tts/languages" id="1053" name="GET">
+                    <doc>List the available languages</doc>
+                    <request/>
+                </method>
+                <method displayName="/v1/tts/voices" id="1054" name="GET">
+                    <doc>List the available voices</doc>
+                    <request>
+                        <param name="language" required="true" style="query" type="xsd:string">
+                            <doc>returns the names of voices that are available for the given language</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

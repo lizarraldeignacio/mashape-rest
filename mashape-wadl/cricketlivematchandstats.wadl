@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6865="urn:function:f6865" xmlns:f6867="urn:function:f6867">
+    <grammars>
+        <include href="Function6867.xsd"/>
+        <include href="Function6865.xsd"/>
+    </grammars>
+    <doc>litzscore provides live cricket data api which covers all cricket formats from ICC IPL and CL matches Litzscore also provides stats api and ball by ball time line API</doc>
+    <resources base="https://cricket.p.mashape.com/">
+        <resource uri="rest/">
+            <resource uri="v2/">
+                <resource uri="season/">
+                    <resource uri="{season_key}/">
+                        <param name="season_key" style="template" type="xsd:string"/>
+                        <resource uri="stats/">
+                            <method displayName="Season Stats API" id="6869" name="GET">
+                                <doc>It gives stats for the given season (series). Its response will have the following items,  Total Number of Fours, Sixes and Runs scored in the season. Fielding: Most number of catches Batting: Best battings, Most fours, Most sixes, Most dots, Most boundries and Best battings. Bowling: Most wickets, Most runs, Most fours, Most sixes, Most boundries and Best bowling.  Only the seasons from past 1 months, current month and upcoming months are accessible.</doc>
+                                <request>
+                                    <param name="seasonKey" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="schedule/">
+                    <method displayName="Schedule API" id="6868" name="GET">
+                        <doc>Provides schedule for the given month or for the given season. By default it provides current month schedule and for season based request, it provides the schedule of the whole season. If the date is provided with the request, you will get the schedule for that particular day.  Schedules are available only for past 2 and upcoming 1 months.</doc>
+                        <request>
+                            <param name="cardType" required="true" style="query" type="xsd:string">
+                                <doc>optional Default to micro card</doc>
+                            </param>
+                            <param name="date" required="true" style="query" type="xsd:string">
+                                <doc>optional Formate YYYY MM or YYYY MM DD</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="recent_matches/">
+                    <method displayName="Recent Matches" id="6867" name="GET">
+                        <doc>Recent matches API provides list of all world wide recent matches . It also provides the recent matches for specific season. Usally it will give 3 completed matches, 3 upcoming matches and all live matches.</doc>
+                        <request>
+                            <param name="cardType" required="true" style="query" type="xsd:string">
+                                <doc>optional Default to micro card</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6867:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="news_aggregation/">
+                    <method displayName="News Aggregation API" id="6866" name="GET">
+                        <doc>News Aggregation API provides news feed from the popular rss.</doc>
+                        <request/>
+                    </method>
+                </resource>
+                <resource uri="match/">
+                    <resource uri="{match_key}/">
+                        <param name="match_key" style="template" type="xsd:string"/>
+                        <method displayName="Ball By Ball API" id="6864" name="GET">
+                            <doc>Provides all details about balls of requested over. If the over key is not provided with request, response will have, 1st over of 1st innings. Only the matches from past 2 months, current month and upcoming months are accessible.</doc>
+                            <request>
+                                <param name="matchKey" required="true" style="query" type="xsd:string">
+                                    <doc>match Key</doc>
+                                </param>
+                                <param name="oversKey" required="true" style="query" type="xsd:string">
+                                    <doc>in the format of TEAM KEY INNINGS KEY OVER NUMBER Where Match team key possible values are a and b INNINGS KEY Key of the innings possible values are and superover OVER NUMBER Over number starts from</doc>
+                                </param>
+                            </request>
+                        </method>
+                        <method displayName="Match API" id="6865" name="GET">
+                            <doc>Match API provides the full details of a match. Only the matches from past 2 months, current month and upcoming months are accessible.</doc>
+                            <request>
+                                <param name="cardType" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="matchKey" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f6865:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

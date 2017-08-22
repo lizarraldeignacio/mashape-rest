@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3690="urn:function:f3690">
+    <grammars>
+        <include href="Function3690.xsd"/>
+    </grammars>
+    <doc>cSV Import is a powerful csv file parsing solution that automatically detects different delimiters and works on them The API returns an associative array containing the values as parsed with the keys as the fields and the values in the csv mapped to the values in the array</doc>
+    <resources base="https://jchencha-csv-importer.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="csv/">
+                <method displayName="Input csv file" id="3690" name="POST">
+                    <doc>The file you wish to be parsed to an array</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3690:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

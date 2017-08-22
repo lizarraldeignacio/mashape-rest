@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4075="urn:function:f4075">
+    <grammars>
+        <include href="Function4075.xsd"/>
+    </grammars>
+    <doc>a public unofficial API for Greek lottery numbers games Super Extra Lotto Proto Tzoker Always up to date and extremely fast mongodb used for caching</doc>
+    <resources base="https://gnsping-greece-opap-draw-numbers.p.mashape.com/">
+        <resource uri="{Game}/">
+            <param name="Game" style="template" type="xsd:string"/>
+            <resource uri="{LevelOfDetail}/">
+                <param name="LevelOfDetail" style="template" type="xsd:string"/>
+                <resource uri="{DrawNum}/">
+                    <param name="DrawNum" style="template" type="xsd:string"/>
+                    <method displayName="OPAPI" id="4075" name="GET">
+                        <request>
+                            <param name="drawnum" required="true" style="query" type="xsd:string">
+                                <doc>oPAP draw number as appears on the slip</doc>
+                            </param>
+                            <param name="game" required="true" style="query" type="xsd:string">
+                                <doc>possible values Super Extra Lotto Proto Tzoker</doc>
+                            </param>
+                            <param name="levelofdetail" required="true" style="query" type="xsd:string">
+                                <doc>level of details Possible values GetSummary GetDetais</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4075:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

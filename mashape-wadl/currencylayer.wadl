@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4628="urn:function:f4628">
+    <grammars>
+        <include href="Function4628.xsd"/>
+    </grammars>
+    <doc>currencylayer provides an easy to integrate REST API with real time and historical exchange rates for world currencies and precious metals delivered in lightweight and highly portable JSON format and compatible with any application framework or language Sign up for your free API Access Key at https currencylayer com product</doc>
+    <resources base="https://apilayer-currencylayer-v1.p.mashape.com/">
+        <resource uri="timeframe/">
+            <method displayName="&quot;timeframe&quot; endpoint - request exchange rates for a specified timeframe" id="4629" name="GET">
+                <doc>Appending a valid "start_date" and "end_date", the API's "timeframe" endpoint will return exchange rates for this specified period.</doc>
+                <request>
+                    <param name="currencies" required="true" style="query" type="xsd:string">
+                        <doc>currencies request only specific currencies e g EUR CAD GBP</doc>
+                    </param>
+                    <param name="endDate" required="true" style="query" type="xsd:string">
+                        <doc>end date the end date of the time frame you want to specify</doc>
+                    </param>
+                    <param name="source" required="true" style="query" type="xsd:string">
+                        <doc>source the currency to which all other exchange rates are relative Source Currency</doc>
+                    </param>
+                    <param name="startDate" required="true" style="query" type="xsd:string">
+                        <doc>start date the starting date of the time frame you want to specify</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="live/">
+            <method displayName="&quot;live&quot; endpoint - request the most recent exchange rates" id="4628" name="GET">
+                <doc>Making a request to the API's "live" endpoint will return the most recent exchange rate data available.</doc>
+                <request>
+                    <param name="currencies" required="true" style="query" type="xsd:string">
+                        <doc>currencies request only specific currencies e g EUR CAD GBP</doc>
+                    </param>
+                    <param name="source" required="true" style="query" type="xsd:string">
+                        <doc>source the currency to which all other exchange rates are relative Source Currency</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4628:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="list/">
+            <method displayName="&quot;list&quot; endpoint - obtain a JSON list of all supported currencies" id="4627" name="GET">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="historical/">
+            <method displayName="&quot;historical&quot; endpoint - request exchange rates for a specific date" id="4626" name="GET">
+                <doc>Make a request to the API's "historical" endpoint providing a valid "date" in the format "YYYY-MM-DD"</doc>
+                <request>
+                    <param name="currencies" required="true" style="query" type="xsd:string">
+                        <doc>currencies request only specific currencies e g EUR CAD GBP</doc>
+                    </param>
+                    <param name="date" required="true" style="query" type="xsd:string">
+                        <doc>the date you want to obtain exchange rates for e g</doc>
+                    </param>
+                    <param name="source" required="true" style="query" type="xsd:string">
+                        <doc>source the currency to which all other exchange rates are relative Source Currency</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="convert/">
+            <method displayName="&quot;convert&quot; endpoint - convert any amount from one currency to another" id="4625" name="GET">
+                <doc>The "convert" endpoint lets you convert any amount from one currency to another using real-time exchange rates. If you append an additional "date" parameter, exchange rates of the specified dates will be used for your conversion.</doc>
+                <request>
+                    <param name="amount" required="true" style="query" type="xsd:string">
+                        <doc>amount the amount to be converted</doc>
+                    </param>
+                    <param name="date" required="true" style="query" type="xsd:string">
+                        <doc>date format YYYY MM DD perform the conversion with historical data from the date you specify</doc>
+                    </param>
+                    <param name="from" required="true" style="query" type="xsd:string">
+                        <doc>from the currency your conversion is based on</doc>
+                    </param>
+                    <param name="to" required="true" style="query" type="xsd:string">
+                        <doc>to the currency you convert the specified amount to</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="change/">
+            <method displayName="&quot;change&quot; endpoint - request a currency's change parameters" id="4624" name="GET">
+                <doc>Using the "change" API endpoint, you can obtain the "change" parameters (margin and percentage) of one or more currencies, optionally within a specific time-frame. Important: If you do not specify a time-frame, change parameters for "yesterday to now" will be displayed.</doc>
+                <request>
+                    <param name="currencies" required="true" style="query" type="xsd:string">
+                        <doc>currencies request only specific currencies e g EUR CAD GBP</doc>
+                    </param>
+                    <param name="endDate" required="true" style="query" type="xsd:string">
+                        <doc>end date optional the end date of the time frame you want to specify format YYYY MM DD</doc>
+                    </param>
+                    <param name="source" required="true" style="query" type="xsd:string">
+                        <doc>source the currency to which all other exchange rates are relative Source Currency</doc>
+                    </param>
+                    <param name="startDate" required="true" style="query" type="xsd:string">
+                        <doc>start date optional the starting date of the time frame you want to specify format YYYY MM DD</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

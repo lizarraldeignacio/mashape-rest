@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2922="urn:function:f2922">
+    <grammars>
+        <include href="Function2922.xsd"/>
+    </grammars>
+    <doc>a free super fast CDN for developers and webmasters</doc>
+    <resources base="https://community-jsdelivr.p.mashape.com/">
+        <resource uri="{provider}/">
+            <param name="provider" style="template" type="xsd:string"/>
+            <resource uri="libraries/">
+                <method displayName="Libraries" id="2922" name="GET">
+                    <request>
+                        <param name="assets" required="true" style="query" type="xsd:string">
+                            <doc>files hosted per versions read only</doc>
+                        </param>
+                        <param name="author" required="true" style="query" type="xsd:string">
+                            <doc>the author of project Example jQuery Foundation</doc>
+                        </param>
+                        <param name="description" required="true" style="query" type="xsd:string">
+                            <doc>description of the project</doc>
+                        </param>
+                        <param name="fields" required="true" style="query" type="xsd:string">
+                            <doc>you can combine the above parameters with the parameter fields This way you can control the output</doc>
+                        </param>
+                        <param name="github" required="true" style="query" type="xsd:string">
+                            <doc>github page of project Example https github com jquery jquery</doc>
+                        </param>
+                        <param name="homepage" required="true" style="query" type="xsd:string">
+                            <doc>webpage of project Example http jquery com</doc>
+                        </param>
+                        <param name="lastversion" required="true" style="query" type="xsd:string">
+                            <doc>lastversion of the project Example will match multiple projects</doc>
+                        </param>
+                        <param name="mainfile" required="true" style="query" type="xsd:string">
+                            <doc>mainfile parameter in info ini Example jquery min js</doc>
+                        </param>
+                        <param name="name" required="true" style="query" type="xsd:string">
+                            <doc>name of library Example jquery</doc>
+                        </param>
+                        <param name="provider" required="true" style="query" type="xsd:string">
+                            <doc>jsdelivr cdnjs google or bootstrapcdn</doc>
+                        </param>
+                        <param name="versions" required="true" style="query" type="xsd:string">
+                            <doc>all hosted versions for selected project read only</doc>
+                        </param>
+                        <param name="zip" required="true" style="query" type="xsd:string">
+                            <doc>zip name of project Example jquery zip</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2922:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

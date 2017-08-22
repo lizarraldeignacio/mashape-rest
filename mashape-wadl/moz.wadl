@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>the Mozscape API allows you to customize and integrate data from our dynamic Mozscape index right into your own applications Our Mozscape index is updated frequently to ensure that you re getting the freshest look at the web possible With billions of links in our index intelligent metrics and thorough URL data our Mozscape API offers unlimited possibilities</doc>
+    <resources base="https://watsonr-moz.p.mashape.com/">
+        <resource uri="url-metrics/">
+            <resource uri="{target_url}/">
+                <param name="target_url" style="template" type="xsd:string"/>
+                <method displayName="url-metrics" id="2566" name="GET">
+                    <doc>The url-metrics Mozscape endpoint returns metrics for a URL or set of URLs you specify. Use the Cols parameter to specify which metrics to return; enter the sum of the bit flag values for each metric.  For a single URL, use a GET request—the typical Mozscape format, with all information contained in the body of a single URL. Use batched calls for more than one URL.  Response fields help you organize the information Mozscape returns.</doc>
+                    <request>
+                        <param name="cols" required="true" style="query" type="xsd:string">
+                            <doc>specifies which URL metrics to retrieve for a target URL</doc>
+                        </param>
+                        <param name="filter" required="true" style="query" type="xsd:string">
+                            <doc>filter excludes results for Mozscape calls that do not meet specified criteria For example followed links and equity links often affect search engine results more than other types of links so it s useful to filter for equity links or only some types of equity links The links anchor text and top pages endpoints each accept different Filter values For links calls Filter is additive you can apply more than one filter to a query Use the plus symbol between criteria to specify more than one filter parameter Filter is a true logical and meaning results return only if they meet all filter criteria For anchor text and top pages calls Mozscape accepts only one Filter value</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:string">
+                            <doc>specifies a maximum number of results to return for a call Limit ensures the results of an API call are easy for your application to handle and helps ensure timely API responses when you submit a query for a target URL with many potential source URLs Returning large amounts of data can cause Mozscape to time out The default value for Limit is The maximum value is</doc>
+                        </param>
+                        <param name="linkcols" required="true" style="query" type="xsd:string">
+                            <doc>specifies which link metrics to retrieve for a link Only links calls use this parameter</doc>
+                        </param>
+                        <param name="offset" required="true" style="query" type="xsd:string">
+                            <doc>specifies a number of results to skip past Offset helps when making multiple Mozscape calls for information about the same URL or URLs For example to find all source URLs pointing to moz com a number in the thousands make several calls with increasing Offset values until all results return The default value of Offset is Offsets greater than return an empty array Offsets inclusive of a hundred thousandth result return up to that result Mozscape offers a maximum of results per URL</doc>
+                        </param>
+                        <param name="scope" required="true" style="query" type="xsd:string">
+                            <doc>scope narrows results by returning only certain kinds of links For example Scope can help you find all unique domains linking to a target URL you specify Use Scope for analyzing domain level metrics For example a Mozscape call with Scope domain to page Limit Sort page authority returns the unique domain with the highest page authority for the target URL Only links and anchor text calls accept Scope values Each endpoint has its own set of possible values</doc>
+                        </param>
+                        <param name="sort" required="true" style="query" type="xsd:string">
+                            <doc>sort orders results in descending order for a particular value Only links metadata and top pages endpoints accept Sort parameters Mozscape allows one Sort value per call The default value of Sort is page authority</doc>
+                        </param>
+                        <param name="sourcecols" required="true" style="query" type="xsd:string">
+                            <doc>specifies which URL metrics to retrieve for the source URL of a link Only links calls use this parameter</doc>
+                        </param>
+                        <param name="targetUrl" required="true" style="query" type="xsd:string">
+                            <doc>the URL for the link you want to analyze</doc>
+                        </param>
+                        <param name="targetcols" required="true" style="query" type="xsd:string">
+                            <doc>specifies which URL metrics to retrieve for the target URL of a link Only links calls use this parameter</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="top-pages/">
+            <resource uri="{target_url}/">
+                <param name="target_url" style="template" type="xsd:string"/>
+                <method displayName="top-pages" id="2565" name="GET">
+                    <doc>The top-pages endpoint, accessible to Mozscape paid users, returns metrics for many URLs on a subdomain you specify.  Make top-pages calls with a GET request for a single subdomain and specify metrics to return with the Cols parameter.</doc>
+                    <request>
+                        <param name="filter" required="true" style="query" type="xsd:string">
+                            <doc>mozscape accepts only one Filter value for top pages calls The default value of Filter for top pages is all</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:string">
+                            <doc>a maximum of records can be retrieved per call Use Offset and Limit to retrieve a maximum of total records</doc>
+                        </param>
+                        <param name="offset" required="true" style="query" type="xsd:string">
+                            <doc>a maximum of records can be retrieved per call Use Offset and Limit to retrieve a maximum of total records</doc>
+                        </param>
+                        <param name="sort" required="true" style="query" type="xsd:string">
+                            <doc>you can Sort top pages results by Page Authority page authority or the number of distinct root domains linking to a source URL domains linking page The default value of Sort for top pages is page authority</doc>
+                        </param>
+                        <param name="targetUrl" required="true" style="query" type="xsd:string">
+                            <doc>the URL for the link you want to analyze</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="metadata/">
+            <resource uri="{command}/">
+                <param name="command" style="template" type="xsd:string"/>
+                <method displayName="metadata" id="2564" name="GET">
+                    <doc>Find index statistics and release dates with metadata.  Metadata is available to free and paid API users.</doc>
+                    <request>
+                        <param name="command" required="true" style="query" type="xsd:string">
+                            <doc>last update last update json Returns the date in Unix Epoch format of the last Mozscape Index update In JSON none next update next update json Returns the date in Unix Epoch format of the next scheduled Mozscape Index update In JSON none index stats Returns data about the volume of information in the Mozscape Index crawl duration Duration in days of the current index crawl length urls Number of URLs fqdns Number of fully qualified domain names subdomains plds Number of paid level domains root domains links Number of links crawled nofollow Percentage of links with a nofollow attribute specified rel canonical Percentage of links with a canonical attribute specified links per page Average number of links per page external links per page Average number of external links per page</doc>
+                        </param>
+                        <param name="sort" required="true" style="query" type="xsd:string">
+                            <doc>sort value Description page authority Source URLs with the most Page Authority return first domains linking page The number of distinct root domains linking to a source URL</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="links/">
+            <resource uri="{target_url}/">
+                <param name="target_url" style="template" type="xsd:string"/>
+                <method displayName="link-metrics" id="2563" name="GET">
+                    <doc>The links endpoint returns information about links between a target URL and other pages and domains. Parameters for links let you receive a wide array or a narrow subset of results, with multiple options for how results are sorted. Response fields help you organize the information Mozscape returns.</doc>
+                    <request>
+                        <param name="filter" required="true" style="query" type="xsd:string">
+                            <doc>filter excludes results unless they meet criteria you specify You can specify more than one value by separating multiple Filter parameters with a plus symbol</doc>
+                        </param>
+                        <param name="linkcols" required="true" style="query" type="xsd:string">
+                            <doc>linkCols is a bit flag a numerical value specifying which data to include about the link itself for example if the link is nofollowed</doc>
+                        </param>
+                        <param name="scope" required="true" style="query" type="xsd:string">
+                            <doc>indicates which links to return based on whether the target and source URLs are pages domains or subdomains</doc>
+                        </param>
+                        <param name="sort" required="true" style="query" type="xsd:string">
+                            <doc>sort links results by Page Authority page authority Domain Authority domain authority Number of unique root domains linking to the root domain domains linking domain Number of unique root domains linking to the page domains linking page</doc>
+                        </param>
+                        <param name="sourcecols" required="true" style="query" type="xsd:string">
+                            <doc>sourceCols is a bit flag a numerical value specifying which data to include about source URLs that link to the target URL</doc>
+                        </param>
+                        <param name="targetUrl" required="true" style="query" type="xsd:string">
+                            <doc>the URL for the link you want to analyze</doc>
+                        </param>
+                        <param name="targetcols" required="true" style="query" type="xsd:string">
+                            <doc>targetCols is a bit flag a numerical value specifying which data to include about the target URL</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="anchor-text/">
+            <resource uri="{target_url}/">
+                <param name="target_url" style="template" type="xsd:string"/>
+                <method displayName="anchor-text-metrics" id="2562" name="GET">
+                    <doc>The anchor-text endpoint returns anchor text for inbound links.</doc>
+                    <request>
+                        <param name="cols" required="true" style="query" type="xsd:string">
+                            <doc>cols</doc>
+                        </param>
+                        <param name="filter" required="true" style="query" type="xsd:string">
+                            <doc>mozscape accepts only one Filter value for anchor text calls The default value of Filter for anchor text is external</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:string">
+                            <doc>limit</doc>
+                        </param>
+                        <param name="scope" required="true" style="query" type="xsd:string">
+                            <doc>mozscape allows one Scope per call The default value of Scope for anchor text is phrase to page</doc>
+                        </param>
+                        <param name="sourcecols" required="true" style="query" type="xsd:string">
+                            <doc>sourceCols</doc>
+                        </param>
+                        <param name="targetUrl" required="true" style="query" type="xsd:string">
+                            <doc>the URL for the link you want to analyze</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

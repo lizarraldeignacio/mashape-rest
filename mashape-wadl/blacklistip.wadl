@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4569="urn:function:f4569">
+    <grammars>
+        <include href="Function4569.xsd"/>
+    </grammars>
+    <doc>rest api to verify if an IP has been blacklisted</doc>
+    <resources base="https://tony11-blacklist-ip-v1.p.mashape.com/">
+        <resource uri="ipv4/">
+            <resource uri="{ip}/">
+                <param name="ip" style="template" type="xsd:string"/>
+                <method displayName="/ipv4/{ip}" id="4569" name="GET">
+                    <doc>Check if an IP is blacklisted</doc>
+                    <request>
+                        <param name="ip" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4569:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

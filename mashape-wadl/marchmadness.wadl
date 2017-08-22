@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2983="urn:function:f2983" xmlns:f2984="urn:function:f2984">
+    <grammars>
+        <include href="Function2984.xsd"/>
+        <include href="Function2983.xsd"/>
+    </grammars>
+    <doc>the unofficial NCAA March Madness tournament API providing team and game data in json xml csv and tsv formats</doc>
+    <resources base="https://community-march-madness-v1.p.mashape.com/">
+        <resource uri="teams/">
+            <method displayName="Teams" id="2984" name="GET">
+                <doc>Returns teams in the 2015 NCAA March Madness Tournament.</doc>
+                <request/>
+                <response>
+                    <representation element="f2984:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="games/">
+            <method displayName="Games" id="2983" name="GET">
+                <doc>Returns game dates, teams, scores in the 2015 NCAA March Madness Tournament.</doc>
+                <request/>
+                <response>
+                    <representation element="f2983:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

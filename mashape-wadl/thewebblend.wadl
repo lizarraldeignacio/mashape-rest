@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5697="urn:function:f5697" xmlns:f5698="urn:function:f5698" xmlns:f5699="urn:function:f5699" xmlns:f5700="urn:function:f5700" xmlns:f5701="urn:function:f5701" xmlns:f5702="urn:function:f5702" xmlns:f5703="urn:function:f5703" xmlns:f5704="urn:function:f5704" xmlns:f5705="urn:function:f5705">
+    <grammars>
+        <include href="Function5702.xsd"/>
+        <include href="Function5701.xsd"/>
+        <include href="Function5699.xsd"/>
+        <include href="Function5700.xsd"/>
+        <include href="Function5698.xsd"/>
+        <include href="Function5703.xsd"/>
+        <include href="Function5704.xsd"/>
+        <include href="Function5705.xsd"/>
+        <include href="Function5697.xsd"/>
+    </grammars>
+    <doc>the Web Blend API is in Beta at the moment but we re looking for developers and designers to try it out and help us work out the kinks You ll need to request an API key to be able to use it The v API responses are returned in JSON format and all of the queries are read only All requests must be prefaced by http api thewebblend com</doc>
+    <resources base="https://baskarm28-thewebblend-v1.p.mashape.com/">
+        <resource uri="services/">
+            <resource uri="v1/">
+                <resource uri="recent_blenders/">
+                    <method displayName="posts recent users" id="5702" name="GET">
+                        <doc>Returns recently logged in users</doc>
+                        <request/>
+                        <response>
+                            <representation element="f5702:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="newest_users/">
+                    <method displayName="posts new users" id="5701" name="GET">
+                        <doc>Returns the newest confirmed users</doc>
+                        <request/>
+                        <response>
+                            <representation element="f5701:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="contents/">
+                    <method displayName="posts details" id="5699" name="GET">
+                        <doc>Returns details about a post</doc>
+                        <request/>
+                        <response>
+                            <representation element="f5699:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="posts most recent" id="5700" name="GET">
+                        <doc>Returns the 10 most recent posts</doc>
+                        <request/>
+                        <response>
+                            <representation element="f5700:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="users/">
+                    <method displayName="posts contents of user" id="5698" name="GET">
+                        <doc>Returns the content for a user (accepts the same filter arguments as contents API query)</doc>
+                        <request/>
+                        <response>
+                            <representation element="f5698:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="posts top users" id="5703" name="GET">
+                        <doc>Returns the Top Users</doc>
+                        <request/>
+                        <response>
+                            <representation element="f5703:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="posts user comments" id="5704" name="GET">
+                        <doc>Returns the comments for a user</doc>
+                        <request/>
+                        <response>
+                            <representation element="f5704:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="posts user details" id="5705" name="GET">
+                        <doc>Returns info about a user</doc>
+                        <request/>
+                        <response>
+                            <representation element="f5705:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="comments/">
+                    <method displayName="all comments" id="5697" name="GET">
+                        <doc>Returns all comments.</doc>
+                        <request/>
+                        <response>
+                            <representation element="f5697:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

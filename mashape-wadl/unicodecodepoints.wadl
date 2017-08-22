@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4780="urn:function:f4780" xmlns:f4781="urn:function:f4781" xmlns:f4785="urn:function:f4785" xmlns:f4787="urn:function:f4787" xmlns:f4788="urn:function:f4788">
+    <grammars>
+        <include href="Function4788.xsd"/>
+        <include href="Function4787.xsd"/>
+        <include href="Function4785.xsd"/>
+        <include href="Function4781.xsd"/>
+        <include href="Function4780.xsd"/>
+    </grammars>
+    <doc>a RESTful Interface to Unicode Data this API gives easy and standardized access to all information from Codepoints net The detailed documentation is available on Github https github com Boldewyn Codepoints net wiki API</doc>
+    <resources base="https://codepoints.p.mashape.com/">
+        <resource uri="transform/">
+            <resource uri="{action}/">
+                <param name="action" style="template" type="xsd:string"/>
+                <resource uri="{data}/">
+                    <param name="data" style="template" type="xsd:string"/>
+                    <method displayName="Transform" id="4789" name="GET">
+                        <doc>Transform a String, e.g. , to upper-case, NFC, NFD, …</doc>
+                        <request>
+                            <param name="action" required="true" style="query" type="xsd:string">
+                                <doc>the action to be applied to data one of lower upper title mirror nfc nfd nfkc nfkd</doc>
+                            </param>
+                            <param name="data" required="true" style="query" type="xsd:string">
+                                <doc>the string to apply the transformation</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="search/">
+            <method displayName="Search" id="4788" name="GET">
+                <doc>Search for Codepoints. This API exposes the functionality of the main site’s search.</doc>
+                <request>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>jSON P return function name</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>page number for paginated results</doc>
+                    </param>
+                    <param name="perPage" required="true" style="query" type="xsd:string">
+                        <doc>results per page</doc>
+                    </param>
+                    <param name="properties" required="true" style="query" type="xsd:string">
+                        <doc>one or several key value pairs of Unicode properties or int for decimal codepoint values or q for free text search</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4788:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="script/">
+            <resource uri="{script}/">
+                <param name="script" style="template" type="xsd:string"/>
+                <method displayName="Script" id="4787" name="GET">
+                    <doc>Information about a Script</doc>
+                    <request>
+                        <param name="callback" required="true" style="query" type="xsd:string">
+                            <doc>jSON P response function name</doc>
+                        </param>
+                        <param name="script" required="true" style="query" type="xsd:string">
+                            <doc>one or more ISO script codes separated by comma</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4787:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="property/">
+            <resource uri="{property}/">
+                <param name="property" style="template" type="xsd:string"/>
+                <method displayName="Property" id="4786" name="GET">
+                    <doc>Show one Property for All Codepoints</doc>
+                    <request>
+                        <param name="property" required="true" style="query" type="xsd:string">
+                            <doc>the Unicode property to render</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="plane/">
+            <resource uri="{plane}/">
+                <param name="plane" style="template" type="xsd:string"/>
+                <method displayName="Plane" id="4785" name="GET">
+                    <doc>Information about a Unicode plane</doc>
+                    <request>
+                        <param name="callback" required="true" style="query" type="xsd:string">
+                            <doc>jSON P function name</doc>
+                        </param>
+                        <param name="plane" required="true" style="query" type="xsd:string">
+                            <doc>name of the Unicode plane</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4785:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="name/">
+            <resource uri="{codepoint}/">
+                <param name="codepoint" style="template" type="xsd:string"/>
+                <method displayName="Name" id="4784" name="GET">
+                    <doc>Request a Codepoint’s Name</doc>
+                    <request>
+                        <param name="callback" required="true" style="query" type="xsd:string">
+                            <doc>jSON P function name</doc>
+                        </param>
+                        <param name="codepoint" required="true" style="query" type="xsd:string">
+                            <doc>hexadecimal codepoint</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="glyph/">
+            <resource uri="{codepoint}/">
+                <param name="codepoint" style="template" type="xsd:string"/>
+                <method displayName="Glyph" id="4783" name="GET">
+                    <doc>Request a Sample Glyph</doc>
+                    <request>
+                        <param name="codepoint" required="true" style="query" type="xsd:string">
+                            <doc>hexadecimal codepoint</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="filter/">
+            <resource uri="{data}/">
+                <param name="data" style="template" type="xsd:string"/>
+                <method displayName="Filter" id="4782" name="GET">
+                    <doc>Filter a String, e.g. , by Unicode version or only uppercase letters</doc>
+                    <request>
+                        <param name="callback" required="true" style="query" type="xsd:string">
+                            <doc>jSON P return function name</doc>
+                        </param>
+                        <param name="data" required="true" style="query" type="xsd:string">
+                            <doc>an UTF encoded string</doc>
+                        </param>
+                        <param name="properties" required="true" style="query" type="xsd:string">
+                            <doc>any Unicode property Appending a negates it</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="codepoint/">
+            <resource uri="{codepoint}/">
+                <param name="codepoint" style="template" type="xsd:string"/>
+                <method displayName="Codepoint" id="4781" name="GET">
+                    <doc>show detailed information about a single codepoint. You can specify fields of interest with the “property” parameter: codepoint/1234?property=age,uc,lc</doc>
+                    <request>
+                        <param name="codepoint" required="true" style="query" type="xsd:string">
+                            <doc>the hex number of the codepoint</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4781:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="block/">
+            <resource uri="{block}/">
+                <param name="block" style="template" type="xsd:string"/>
+                <method displayName="Block" id="4780" name="GET">
+                    <doc>Information about a Unicode block</doc>
+                    <request>
+                        <param name="block" required="true" style="query" type="xsd:string">
+                            <doc>name of the Unicode block</doc>
+                        </param>
+                        <param name="callback" required="true" style="query" type="xsd:string">
+                            <doc>jSON P function name</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4780:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

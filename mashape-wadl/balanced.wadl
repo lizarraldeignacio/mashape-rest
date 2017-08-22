@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5645="urn:function:f5645" xmlns:f5650="urn:function:f5650" xmlns:f5652="urn:function:f5652" xmlns:f5663="urn:function:f5663" xmlns:f5666="urn:function:f5666">
+    <grammars>
+        <include href="Function5645.xsd"/>
+        <include href="Function5650.xsd"/>
+        <include href="Function5652.xsd"/>
+        <include href="Function5663.xsd"/>
+        <include href="Function5666.xsd"/>
+    </grammars>
+    <doc>payment processing escrow and payouts in one simple API Accept credit cards and debit bank accounts for your business Proceeds are available immediately Use with any card processor or as a stand alone service for same day bank deposits Combine card processing and bank payouts with escrow</doc>
+    <resources base="https://jkwade-balanced.p.mashape.com/">
+        <resource uri="{bank_account_id}/">
+            <param name="bank_account_id" style="template" type="xsd:string"/>
+            <resource uri="verifications/">
+                <resource uri="{verification_id}/">
+                    <param name="verification_id" style="template" type="xsd:string"/>
+                    <method displayName="Retrieve A Verification For A Bank Account" id="5673" name="GET">
+                        <request>
+                            <param name="bankAccountId" required="true" style="query" type="xsd:string"/>
+                            <param name="verificationId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="events/">
+            <method displayName="List all events" id="5658" name="GET">
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Retrieve a event" id="5670" name="GET">
+                <request>
+                    <param name="eventId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+        <resource uri="credits/">
+            <method displayName="Credit A New Bank Account" id="5648" name="POST">
+                <doc>To credit a new bank account, you simply pass the amount along with the bank account details. We do not store this bank account when you create a credit this way, so you can safely assume that the information has been deleted.</doc>
+                <request/>
+            </method>
+            <method displayName="List All Credits" id="5654" name="GET">
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Retrieve A Credit" id="5668" name="GET">
+                <request>
+                    <param name="creditId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+        <resource uri="bank_accounts/">
+            <method displayName="Confirm A Bank Account Verification" id="5640" name="PUT">
+                <doc>Confirms the trial deposit amounts. For the test environment the trial deposit amounts are always 1 and 1.</doc>
+                <request>
+                    <param name="bankAccountId" required="true" style="query" type="xsd:string"/>
+                    <param name="verificationId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Creates a new bank account verification." id="5643" name="POST">
+                <request>
+                    <param name="bankAccountId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Creating A New Bank Account∵" id="5645" name="POST">
+                <request/>
+                <response>
+                    <representation element="f5645:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Credit An Existing Bank Account" id="5649" name="POST">
+                <request>
+                    <param name="bankAccountId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Delete a bank account" id="5650" name="DELETE">
+                <request>
+                    <param name="bankAccountId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5650:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List All Bank Accounts" id="5652" name="GET">
+                <doc>Returns a list of bank accounts that you've created but haven't deleted.</doc>
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>integer Defaults to</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>nteger Defaults to</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5652:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List All Credits For A Bank Account" id="5655" name="GET">
+                <doc>Returns a list of credits you've previously created to a specific bank account. The credits_uri is a convenient uri provided so that you can simply issue a GET to the credits_uri. The credits are returned in sorted order, with the most recent credits appearing first.</doc>
+                <request>
+                    <param name="bankAccountId" required="true" style="query" type="xsd:string"/>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+            <method displayName="List All Verifications For A Bank Accoun" id="5663" name="GET">
+                <request>
+                    <param name="bankAccountId" required="true" style="query" type="xsd:string"/>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5663:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Retrieve A Bank Account" id="5666" name="GET">
+                <request>
+                    <param name="bankAccountId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5666:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="marketplaces/">
+            <resource uri="{marketplace_id}/">
+                <param name="marketplace_id" style="template" type="xsd:string"/>
+                <resource uri="holds/">
+                    <method displayName="List all holds" id="5659" name="GET">
+                        <request>
+                            <param name="limit" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="marketplaceId" required="true" style="query" type="xsd:string"/>
+                            <param name="offset" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Retrieve A Hold" id="5671" name="GET">
+                        <request>
+                            <param name="holdId" required="true" style="query" type="xsd:string"/>
+                            <param name="marketplaceId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Update a hold" id="5677" name="PUT">
+                        <request>
+                            <param name="holdId" required="true" style="query" type="xsd:string"/>
+                            <param name="marketplaceId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="debits/">
+                    <method displayName="List All Debits" id="5656" name="GET">
+                        <request>
+                            <param name="limit" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="marketplaceId" required="true" style="query" type="xsd:string"/>
+                            <param name="offset" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Refund A Debit" id="5665" name="POST">
+                        <request>
+                            <param name="debitId" required="true" style="query" type="xsd:string"/>
+                            <param name="marketplaceId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Retrieve A Debit" id="5669" name="GET">
+                        <request>
+                            <param name="debitId" required="true" style="query" type="xsd:string"/>
+                            <param name="marketplaceId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="refunds/">
+                    <method displayName="Issue A Refund" id="5651" name="POST">
+                        <request>
+                            <param name="marketplaceId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="list all refunds" id="5661" name="GET">
+                        <request>
+                            <param name="limit" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="marketplaceId" required="true" style="query" type="xsd:string"/>
+                            <param name="offset" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Retrieve a refund" id="5672" name="GET">
+                        <request>
+                            <param name="marketplaceId" required="true" style="query" type="xsd:string"/>
+                            <param name="refundId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Update A Refund" id="5678" name="PUT">
+                        <request>
+                            <param name="marketplaceId" required="true" style="query" type="xsd:string"/>
+                            <param name="refundId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="cards/">
+                    <method displayName="Creates a new card" id="5644" name="POST">
+                        <request>
+                            <param name="marketplaceId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="List All Cards" id="5653" name="GET">
+                        <doc>Returns a list of cards that you've created.</doc>
+                        <request>
+                            <param name="limit" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="marketplaceId" required="true" style="query" type="xsd:string"/>
+                            <param name="offset" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Retrieve A Card" id="5667" name="GET">
+                        <request>
+                            <param name="cardId" required="true" style="query" type="xsd:string"/>
+                            <param name="marketplaceId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Update A Card" id="5675" name="PUT">
+                        <request>
+                            <param name="cardId" required="true" style="query" type="xsd:string"/>
+                            <param name="marketplaceId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="accounts/">
+                    <method displayName="Adding A Bank Account or a card To An Account" id="5639" name="PUT">
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            <param name="marketplaceId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Create A New Debit" id="5641" name="POST">
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            <param name="marketplaceId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Create A New Hold" id="5642" name="POST">
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            <param name="marketplaceId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Creating A New Credit For An Account" id="5646" name="POST">
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            <param name="marketplaceId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Creating An Account" id="5647" name="GET">
+                        <request>
+                            <param name="marketplaceId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="List All Debits For An Account" id="5657" name="GET">
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            <param name="limit" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="marketplaceId" required="true" style="query" type="xsd:string"/>
+                            <param name="offset" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="List all holds on an account" id="5660" name="GET">
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            <param name="limit" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="marketplaceId" required="true" style="query" type="xsd:string"/>
+                            <param name="offset" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="List All Refunds For An Account" id="5662" name="GET">
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            <param name="marketplaceId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Listing All Credits For An Account" id="5664" name="GET">
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            <param name="marketplaceId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Underwriting An Individual or business" id="5674" name="POST">
+                        <doc>A person, or an individual, is a US based individual or a sole proprietor.Balanced associates a merchant role to signify whether or not an account has been underwritten.</doc>
+                        <request>
+                            <param name="marketplaceId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Update A Debit" id="5676" name="PUT">
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            <param name="debitId" required="true" style="query" type="xsd:string"/>
+                            <param name="marketplaceId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

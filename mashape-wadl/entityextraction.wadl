@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2385="urn:function:f2385">
+    <grammars>
+        <include href="Function2385.xsd"/>
+    </grammars>
+    <doc>entity extraction Named Entity Recognition This API annotates text and returns identified entities such as people locations dates products etc The text also gets classified into predefined or custom categories such as politics entertainment music technology etc We are using a huge database of entities addresses celebrities etc and combining it with pattern recognition approaches Please contact us if you need custom entities or topics</doc>
+    <resources base="https://ner.p.mashape.com/">
+        <resource uri="extract/">
+            <resource uri="{client}/">
+                <param name="client" style="template" type="xsd:string"/>
+                <method displayName="extract" id="2386" name="GET">
+                    <doc>extract entities from a document</doc>
+                    <request>
+                        <param name="client" required="true" style="query" type="xsd:string">
+                            <doc>your client ID use testEN</doc>
+                        </param>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>text to be analyzed</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="autocomplete/">
+            <resource uri="{client}/">
+                <param name="client" style="template" type="xsd:string"/>
+                <method displayName="autocomplete" id="2385" name="GET">
+                    <request>
+                        <param name="client" required="true" style="query" type="xsd:string">
+                            <doc>your id</doc>
+                        </param>
+                        <param name="num" required="true" style="query" type="xsd:string">
+                            <doc>number of autosuggest results</doc>
+                        </param>
+                        <param name="prefix" required="true" style="query" type="xsd:string">
+                            <doc>word to be autocompleted</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2385:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

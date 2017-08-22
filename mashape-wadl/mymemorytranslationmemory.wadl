@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f935="urn:function:f935">
+    <grammars>
+        <include href="Function935.xsd"/>
+    </grammars>
+    <doc>get a better translation MyMemory is the world s largest Translation Memory It contains billions of words translated by professional translators MyMemory will give you a machine translation Google Microsoft or our only when a human translation is not available</doc>
+    <resources base="https://translated-mymemory---translation-memory.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="get/">
+                <method displayName="get" id="935" name="GET">
+                    <doc>Get a list of translation from the translation memory ranked by quality and similarity (what we call match).</doc>
+                    <request>
+                        <param name="key" required="true" style="query" type="xsd:string">
+                            <doc>gives access to private memories and customized limits</doc>
+                        </param>
+                        <param name="langpair" required="true" style="query" type="xsd:string">
+                            <doc>the language pair Two ISO language codes separated by MyMemory support over languages but some combinations may contains no data Nepali into Vietnamese</doc>
+                        </param>
+                        <param name="mt" required="true" style="query" type="xsd:string">
+                            <doc>if you want or now machine translation in case we do not have an exact human translation match</doc>
+                        </param>
+                        <param name="of" required="true" style="query" type="xsd:string">
+                            <doc>the output format This can be json default or XML or a serialized PHP array</doc>
+                        </param>
+                        <param name="q" required="true" style="query" type="xsd:string">
+                            <doc>the text you want to translate Normally a sentence</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f935:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

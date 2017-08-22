@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>images into real postcards Send us a picture a message and an address and we will turn this into a real printed postcard which we will dispatch same day by Royal Mail Prepay with credits on your API key and as the cards are dispatched your balance will be reduced Send cards to anywhere in the world Cards sent to the UK cost credit cards to ROW are credits We have a tiered pricing structure based on volume of credits purchased Starting at p and reducing to p with volume We are happy to give free credits to any trial platform API keys can be obtained by contacting the Stannp team at http www stannp com apicontact php</doc>
+    <resources base="https://stannpcom-print-on-demand-postcards.p.mashape.com/">
+        <resource uri="apicall.php/">
+            <method displayName="API call" id="6001" name="GET">
+                <doc>Call the API to create a card or show your  available credits</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

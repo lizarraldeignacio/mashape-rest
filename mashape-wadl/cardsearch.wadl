@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7346="urn:function:f7346" xmlns:f7348="urn:function:f7348">
+    <grammars>
+        <include href="Function7348.xsd"/>
+        <include href="Function7346.xsd"/>
+    </grammars>
+    <doc>magic the Gathering card set and Dutch price information Each api call is required to provide a authentication key You can request one by email it s free by the way info cardsearch nl Each api call can provide an additional parameter format with values json xml csv or table Json is the default format Example GET http api cardsearch nl v sets key demo format xml</doc>
+    <resources base="https://jaap-cardsearch-v1.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="sets/">
+                <method displayName="/v1/sets" id="7348" name="GET">
+                    <doc>Get all sets</doc>
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>json xml csv or table</doc>
+                        </param>
+                        <param name="key" required="true" style="query" type="xsd:string">
+                            <doc>your Cardsearch api key</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7348:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="prices/">
+                <method displayName="/v1/prices" id="7347" name="GET">
+                    <doc>Get general price information per card</doc>
+                    <request>
+                        <param name="key" required="true" style="query" type="xsd:string">
+                            <doc>your Cardsearch api key</doc>
+                        </param>
+                        <param name="mids" required="true" style="query" type="xsd:string">
+                            <doc>a single card or multiple cards by multiverseid</doc>
+                        </param>
+                        <param name="names" required="true" style="query" type="xsd:string">
+                            <doc>single card Terror card from set Terror ED</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="cards/">
+                <method displayName="/v1/cards" id="7346" name="GET">
+                    <doc>Get card information</doc>
+                    <request>
+                        <param name="active" required="true" style="query" type="xsd:string">
+                            <doc>active cards</doc>
+                        </param>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>json xml csv or table</doc>
+                        </param>
+                        <param name="key" required="true" style="query" type="xsd:string">
+                            <doc>your Cardsearch api key</doc>
+                        </param>
+                        <param name="mids" required="true" style="query" type="xsd:string">
+                            <doc>a single card or multiple cards by multiverseid</doc>
+                        </param>
+                        <param name="names" required="true" style="query" type="xsd:string">
+                            <doc>single card Terror card from set Terror ED</doc>
+                        </param>
+                        <param name="since" required="true" style="query" type="xsd:string">
+                            <doc>multiple cards by modified date</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7346:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

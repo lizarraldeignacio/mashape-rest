@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f250="urn:function:f250" xmlns:f251="urn:function:f251" xmlns:f252="urn:function:f252">
+    <grammars>
+        <include href="Function252.xsd"/>
+        <include href="Function251.xsd"/>
+        <include href="Function250.xsd"/>
+    </grammars>
+    <doc>using this API anyone can get the information of Indian Post s Speed post consignment just give consignment id itemno as input and get the whole details also get the pincodes search feature spread the word with your friends who are interested in this</doc>
+    <resources base="https://indianpost.p.mashape.com/">
+        <resource uri="index.php/">
+            <method displayName="Speed Post Tracking" id="252" name="GET">
+                <doc>Track any Indian Post's Speed Post by giving consignment Id.</doc>
+                <request>
+                    <param name="itemno" required="true" style="query" type="xsd:string">
+                        <doc>item Number or Consignment Id for which tracking info is needed</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f252:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getPincodes.php/">
+            <method displayName="Get Pincodes by Office/City name" id="251" name="GET">
+                <doc>Get the pincodes of any place in India by just giving the office or location name.</doc>
+                <request>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>name of the location or office for which pincodes are needed</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f251:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getOffices.php/">
+            <method displayName="Get Offices by Pincodes" id="250" name="GET">
+                <doc>Just enter the pincode and look for available post offices in that area.</doc>
+                <request>
+                    <param name="pincode" required="true" style="query" type="xsd:string">
+                        <doc>pincode of the location</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f250:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

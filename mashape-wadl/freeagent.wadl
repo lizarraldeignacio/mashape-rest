@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2985="urn:function:f2985" xmlns:f2986="urn:function:f2986" xmlns:f2991="urn:function:f2991" xmlns:f2992="urn:function:f2992" xmlns:f2997="urn:function:f2997" xmlns:f3001="urn:function:f3001" xmlns:f3004="urn:function:f3004" xmlns:f3008="urn:function:f3008" xmlns:f3010="urn:function:f3010" xmlns:f3011="urn:function:f3011" xmlns:f3012="urn:function:f3012" xmlns:f3021="urn:function:f3021" xmlns:f3022="urn:function:f3022" xmlns:f3024="urn:function:f3024" xmlns:f3025="urn:function:f3025" xmlns:f3026="urn:function:f3026" xmlns:f3027="urn:function:f3027" xmlns:f3028="urn:function:f3028" xmlns:f3029="urn:function:f3029" xmlns:f3038="urn:function:f3038" xmlns:f3039="urn:function:f3039" xmlns:f3040="urn:function:f3040" xmlns:f3045="urn:function:f3045" xmlns:f3048="urn:function:f3048" xmlns:f3054="urn:function:f3054" xmlns:f3055="urn:function:f3055" xmlns:f3058="urn:function:f3058" xmlns:f3059="urn:function:f3059">
+    <grammars>
+        <include href="Function3025.xsd"/>
+        <include href="Function3026.xsd"/>
+        <include href="Function3010.xsd"/>
+        <include href="Function3028.xsd"/>
+        <include href="Function3059.xsd"/>
+        <include href="Function3008.xsd"/>
+        <include href="Function3001.xsd"/>
+        <include href="Function3045.xsd"/>
+        <include href="Function3040.xsd"/>
+        <include href="Function2992.xsd"/>
+        <include href="Function3004.xsd"/>
+        <include href="Function3022.xsd"/>
+        <include href="Function3024.xsd"/>
+        <include href="Function3039.xsd"/>
+        <include href="Function3055.xsd"/>
+        <include href="Function3058.xsd"/>
+        <include href="Function2991.xsd"/>
+        <include href="Function3021.xsd"/>
+        <include href="Function3038.xsd"/>
+        <include href="Function3054.xsd"/>
+        <include href="Function2986.xsd"/>
+        <include href="Function3012.xsd"/>
+        <include href="Function3029.xsd"/>
+        <include href="Function2985.xsd"/>
+        <include href="Function2997.xsd"/>
+        <include href="Function3011.xsd"/>
+        <include href="Function3027.xsd"/>
+        <include href="Function3048.xsd"/>
+    </grammars>
+    <doc>accounting software simplified Thousands of freelancers and small businesses are discovering a stress free way to manage their books and invoicing Say hello to FreeAgent</doc>
+    <resources base="https://freeagent-freeagent.p.mashape.com/">
+        <resource uri="v2/">
+            <resource uri="accounting/">
+                <resource uri="trial_balance/">
+                    <resource uri="summary/">
+                        <method displayName="Get the opening balances" id="3025" name="GET">
+                            <doc>Minimum access level: Tax, Accounting &amp; Users, unless stated otherwise.</doc>
+                            <request/>
+                            <response>
+                                <representation element="f3025:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Get the trial balance summary" id="3026" name="GET">
+                            <doc>Minimum access level: Tax, Accounting &amp; Users, unless stated otherwise.</doc>
+                            <request>
+                                <param name="date" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f3026:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="recurring_invoices/">
+                <method displayName="Get a single recurring invoice" id="3019" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="List all recurring invoices" id="3036" name="GET">
+                    <request>
+                        <param name="active" required="true" style="query" type="xsd:string">
+                            <doc>show only active recurring invoices</doc>
+                        </param>
+                        <param name="contact" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="draft" required="true" style="query" type="xsd:string">
+                            <doc>show only draft recurring invoices</doc>
+                        </param>
+                        <param name="inactive" required="true" style="query" type="xsd:string">
+                            <doc>show only inactive recurring invoices</doc>
+                        </param>
+                        <param name="view" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="categories/">
+                <method displayName="Get a single category" id="3013" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="List all categories" id="3030" name="GET">
+                    <doc>Returns the list of all categories for the current company in four sets: Admin Expenses, Cost of Sales, Income and General. The list of categories varies between companies as users can create custom categories.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="bank_transactions/">
+                <method displayName="Get a single bank transaction" id="3010" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3010:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="List all bank transactions under a certain bank account" id="3028" name="GET">
+                    <request>
+                        <param name="bankAccount" required="true" style="query" type="xsd:string">
+                            <doc>bank account</doc>
+                        </param>
+                        <param name="fromDate" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="toDate" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3028:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Upload a bank account statement to a certain bank account" id="3059" name="POST">
+                    <doc>We strongly recommend using OFX, sometimes referred to as QBO or Quickbooks or MS Money 2005. We also support QIF format and some CSV formats.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3059:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="company/">
+                <method displayName="General Company Information" id="3008" name="GET">
+                    <doc>The company object represents the company for which FreeAgent is managing the accounts.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3008:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Upcoming Tax Events" id="3046" name="GET">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="estimates/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Delete an invoice" id="3006" name="DELETE">
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="task/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Delete a task" id="3002" name="DELETE">
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="attachments/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Delete a single attachment" id="3001" name="DELETE">
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>attachment ID</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f3001:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Show a single attachment" id="3045" name="GET">
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>attachment ID</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f3045:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="bank_accounts/">
+                <method displayName="Create Bank Account" id="2995" name="POST">
+                    <request/>
+                </method>
+                <method displayName="Delete a Bank Account" id="2996" name="DELETE">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Get a Single Bank Account" id="3009" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="List Bank Accounts" id="3040" name="GET">
+                    <request>
+                        <param name="view" required="true" style="query" type="xsd:string">
+                            <doc>view filters standard bank accounts credit card accounts paypal accounts</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3040:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Update a Bank Account" id="3047" name="PUT">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="invoices/">
+                <method displayName="Create an invoice" id="2994" name="POST">
+                    <request/>
+                </method>
+                <method displayName="Email an invoice" id="3007" name="POST">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Get a single invoice" id="3016" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Get invoice timeline" id="3023" name="GET">
+                    <request/>
+                </method>
+                <method displayName="List all invoices" id="3033" name="GET">
+                    <request>
+                        <param name="contact" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="draft" required="true" style="query" type="xsd:string">
+                            <doc>show only draft invoices</doc>
+                        </param>
+                        <param name="lastNMonths" required="true" style="query" type="xsd:string">
+                            <doc>show only invoices from the last N months</doc>
+                        </param>
+                        <param name="nestedInvoiceItems" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="openOrOverdue" required="true" style="query" type="xsd:string">
+                            <doc>show only open or overdue invoices</doc>
+                        </param>
+                        <param name="project" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="recentOpenOrOverdue" required="true" style="query" type="xsd:string">
+                            <doc>show only recent open or overdue invoices</doc>
+                        </param>
+                        <param name="reminderEmails" required="true" style="query" type="xsd:string">
+                            <doc>show only invoices with active reminders</doc>
+                        </param>
+                        <param name="scheduledToEmail" required="true" style="query" type="xsd:string">
+                            <doc>show only invoices scheduled to email</doc>
+                        </param>
+                        <param name="thankYouEmails" required="true" style="query" type="xsd:string">
+                            <doc>show only invoices with active thank you emails</doc>
+                        </param>
+                        <param name="view" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Mark invoice as cancelled" id="3041" name="PUT">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Mark invoice as draft" id="3042" name="PUT">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Mark invoice as scheduled" id="3043" name="PUT">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Mark invoice as sent" id="3044" name="PUT">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Update an invoice" id="3057" name="PUT">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="expenses/">
+                <method displayName="Create an expense" id="2993" name="POST">
+                    <request/>
+                </method>
+                <method displayName="Delete an expense" id="3005" name="DELETE">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Get a single expense" id="3015" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="List all expenses" id="3032" name="GET">
+                    <request>
+                        <param name="fromDate" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="recent" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="recurring" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="toDate" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="view" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Update an expense" id="3056" name="PUT">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="users/">
+                <method displayName="Create a user" id="2992" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f2992:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Delete a user" id="3004" name="DELETE">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>user ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3004:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get a single user" id="3022" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>user ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3022:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get personal profile" id="3024" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f3024:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="List all users" id="3039" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f3039:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Update a user" id="3055" name="PUT">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>user ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3055:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Update personal profile" id="3058" name="PUT">
+                    <request/>
+                    <response>
+                        <representation element="f3058:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="timeslips/">
+                <method displayName="Create a timeslip" id="2991" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f2991:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Delete a timeslip" id="3003" name="DELETE">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Get a single timeslip" id="3021" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>timeslip ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3021:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="List all timeslips" id="3038" name="GET">
+                    <doc>Minimum access level: Time, unless stated otherwise.</doc>
+                    <request>
+                        <param name="fromDate" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="toDate" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3038:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Update a timeslip" id="3054" name="PUT">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3054:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="tasks/">
+                <method displayName="Create a task under a certain project" id="2990" name="POST">
+                    <request/>
+                </method>
+                <method displayName="Get a single task" id="3020" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="List all tasks under a certain project" id="3037" name="GET">
+                    <request>
+                        <param name="project" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Update a task" id="3053" name="PUT">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="projects/">
+                <method displayName="Create a project" id="2989" name="POST">
+                    <request/>
+                </method>
+                <method displayName="Delete a project" id="3000" name="DELETE">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Get a single project" id="3018" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="List all projects" id="3035" name="GET">
+                    <request>
+                        <param name="active" required="true" style="query" type="xsd:string">
+                            <doc>show only active projects</doc>
+                        </param>
+                        <param name="cancelled" required="true" style="query" type="xsd:string">
+                            <doc>show only cancelled projects</doc>
+                        </param>
+                        <param name="completed" required="true" style="query" type="xsd:string">
+                            <doc>show only completed projects</doc>
+                        </param>
+                        <param name="contact" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="hidden" required="true" style="query" type="xsd:string">
+                            <doc>show only hidden projects</doc>
+                        </param>
+                        <param name="view" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Update a project" id="3052" name="PUT">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="notes/">
+                <method displayName="Create a note" id="2988" name="POST">
+                    <request/>
+                </method>
+                <method displayName="Delete a note" id="2999" name="DELETE">
+                    <request/>
+                </method>
+                <method displayName="Get a single note" id="3017" name="GET">
+                    <request/>
+                </method>
+                <method displayName="List all notes" id="3034" name="GET">
+                    <request>
+                        <param name="contact" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="project" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Update a note" id="3051" name="PUT">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="contacts/">
+                <method displayName="Create a contact" id="2987" name="POST">
+                    <request/>
+                </method>
+                <method displayName="Delete a contact" id="2998" name="DELETE">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Get a single contact" id="3014" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="List all contacts" id="3031" name="GET">
+                    <request>
+                        <param name="view" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Update a contact" id="3050" name="PUT">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="bills/">
+                <method displayName="Create a bill" id="2986" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f2986:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get a single bill" id="3012" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3012:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="List all bills" id="3029" name="GET">
+                    <request>
+                        <param name="fromDate" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="toDate" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="view" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3029:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Update a bill" id="3049" name="PUT">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="bank_transaction_explanations/">
+                <method displayName="Create a bank transaction explanation" id="2985" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f2985:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Delete a bank transaction explanation" id="2997" name="DELETE">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f2997:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get a single bank transaction explanation" id="3011" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>bank Account ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3011:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="List all bank transaction explanations" id="3027" name="GET">
+                    <doc>List all bank transaction explanations</doc>
+                    <request>
+                        <param name="bankAccount" required="true" style="query" type="xsd:string">
+                            <doc>bank Account ID</doc>
+                        </param>
+                        <param name="fromDate" required="true" style="query" type="xsd:string">
+                            <doc>date from</doc>
+                        </param>
+                        <param name="toDate" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3027:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Update a bank transaction explanation" id="3048" name="PUT">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3048:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

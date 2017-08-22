@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>newsinapp is an API which allows you to add relevant news from topics into your apps</doc>
+    <resources base="https://community-newsinappio.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Retrieve latest news on all your topics" id="1489" name="GET">
+                <doc>Return latest news related to all topics you have subscribed.</doc>
+                <request>
+                    <param name="beforeid" required="true" style="query" type="xsd:string">
+                        <doc>retrieve all news after this publish id Do not combine with page parameter For advanced user</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>the page number starting at to return Do not combine with beforeId parameter</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="topics/">
+            <resource uri="search/">
+                <resource uri="v1/">
+                    <method displayName="Search available topics" id="1490" name="GET">
+                        <doc>Return topics that match a specified query.</doc>
+                        <request>
+                            <param name="entity" required="true" style="query" type="xsd:string">
+                                <doc>restrict search to the given entity</doc>
+                            </param>
+                            <param name="page" required="true" style="query" type="xsd:string">
+                                <doc>the page number starting at to return</doc>
+                            </param>
+                            <param name="query" required="true" style="query" type="xsd:string">
+                                <doc>search query</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="{topic_id}/">
+                <param name="topic_id" style="template" type="xsd:string"/>
+                <resource uri="subscribe/">
+                    <resource uri="v1/">
+                        <method displayName="Subscribe a topic" id="1491" name="POST">
+                            <doc>Subscribe a topic in order to get news about it.</doc>
+                            <request>
+                                <param name="topicId" required="true" style="query" type="xsd:string">
+                                    <doc>the unique identifier of the topic to subscribe to</doc>
+                                </param>
+                            </request>
+                        </method>
+                        <method displayName="Unsubscribe a topic" id="1492" name="DELETE">
+                            <doc>Cancel subscription of a topic in order to stop receiving news about it.</doc>
+                            <request>
+                                <param name="topicId" required="true" style="query" type="xsd:string">
+                                    <doc>the unique identifier of the topic to unsubscribe to</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="news/">
+                    <resource uri="v1/">
+                        <method displayName="Retrieve latest news on a topic" id="1488" name="GET">
+                            <doc>Return latest news related to the given topic.</doc>
+                            <request>
+                                <param name="beforeid" required="true" style="query" type="xsd:string">
+                                    <doc>retrieve all news after this publish id Do not combine with page parameter For advanced user</doc>
+                                </param>
+                                <param name="page" required="true" style="query" type="xsd:string">
+                                    <doc>the page number starting at to return Do not combine with beforeId parameter</doc>
+                                </param>
+                                <param name="topicId" required="true" style="query" type="xsd:string">
+                                    <doc>the unique identifier of the desired topic</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="v1/">
+                <method displayName="Create a topic" id="1486" name="POST">
+                    <doc>Create a new topic. Before creating it be, sur this topics does not already exist with search method. When you create a topic, you automatically subscibe to it.</doc>
+                    <request/>
+                </method>
+                <method displayName="List all your topics" id="1487" name="GET">
+                    <doc>Return all topics you have subscribed.</doc>
+                    <request>
+                        <param name="page" required="true" style="query" type="xsd:string">
+                            <doc>the page number starting at to return</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

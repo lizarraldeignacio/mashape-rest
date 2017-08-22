@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f312="urn:function:f312">
+    <grammars>
+        <include href="Function312.xsd"/>
+    </grammars>
+    <doc>unofficial barebones wrapper of the google maps API provides basic driving directions between two points</doc>
+    <resources base="https://montanaflynn-mapit.p.mashape.com/">
+        <resource uri="directions/">
+            <method displayName="Directions" id="312" name="GET">
+                <doc>Step by step directions between any two addresses</doc>
+                <request>
+                    <param name="ending" required="true" style="query" type="xsd:string">
+                        <doc>destination address</doc>
+                    </param>
+                    <param name="starting" required="true" style="query" type="xsd:string">
+                        <doc>beginning address</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f312:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

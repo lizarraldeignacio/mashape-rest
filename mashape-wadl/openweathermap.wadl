@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f392="urn:function:f392" xmlns:f394="urn:function:f394">
+    <grammars>
+        <include href="Function394.xsd"/>
+        <include href="Function392.xsd"/>
+    </grammars>
+    <doc>get weather and weather forecasts for multiple cities</doc>
+    <resources base="https://community-open-weather-map.p.mashape.com/">
+        <resource uri="find/">
+            <method displayName="Search Weather Data" id="395" name="GET">
+                <doc>By city name. Put the city name or its part and get the list of the most proper cities in the world. Example - Lon or Lond or London. The more precise city name you put the more precise list you will get. To make it more precise put the city's name or its part, comma, the name of the county or 2-letter country code. You will get all proper cities in chosen county. The order is important - the first is city name than comma than county. Example - Lon, UK or Lon, GB or London, GB or Lon, England. By geographic coordinates.</doc>
+                <request>
+                    <param name="cnt" required="true" style="query" type="xsd:integer">
+                        <doc>to limit number of listed cities please setup cnt parameter</doc>
+                    </param>
+                    <param name="lat" required="true" style="query" type="xsd:integer">
+                        <doc>must be used with lon Get current weather data when you know the latitude of the city</doc>
+                    </param>
+                    <param name="lon" required="true" style="query" type="xsd:integer">
+                        <doc>must be used with lat Get current weather data when you know the longitude of the city</doc>
+                    </param>
+                    <param name="mode" required="true" style="query" type="xsd:string">
+                        <doc>if left blank will default to JSON output Ability to retrieve data in XML or HTML</doc>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>use this parameter when searching for a city Do not use with other parameters</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>to setup accuracy level please use type parameter that have two values accurate and like In case of accurate value you will get results that exactly equivalent to your searching word In case of like value the result is searching by substring type accurate like Example</doc>
+                    </param>
+                    <param name="units" required="true" style="query" type="xsd:string">
+                        <doc>you can use different types of metric systems by units metric or imperial</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="forecast/">
+            <method displayName="Forecast Weather Data" id="394" name="GET">
+                <doc>You can recieve weather forecast in any location on the earth. The flexible algorithm of weather calculation let us provide weather data not only for cities but for any geographic coordinates. It is important for megapolices, for example, where weather is different on opposit city edges. You can get forecast data every 3 hours or daily. The 3 hours forecast is available for 5 days. Daily forecast is available for 14 days. All weather data can be obtained in JSON or XML format.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                    <param name="lat" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                    <param name="lon" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f394:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="daily/">
+            <method displayName="Daily Forecast Weather Data" id="393" name="GET">
+                <doc>You can get weather forecast for 14 days. All weather data can be obtained in JSON or XML format.</doc>
+                <request>
+                    <param name="cnt" required="true" style="query" type="xsd:integer">
+                        <doc>amount of days in the future to forecast</doc>
+                    </param>
+                    <param name="lat" required="true" style="query" type="xsd:integer">
+                        <doc>must be used with lon Get current weather data when you know the latitude of the city</doc>
+                    </param>
+                    <param name="lon" required="true" style="query" type="xsd:integer">
+                        <doc>must be used with lat Get current weather data when you know the longitude of the city</doc>
+                    </param>
+                    <param name="mode" required="true" style="query" type="xsd:string">
+                        <doc>if left blank will default to JSON output Ability to retrieve data in XML or HTML</doc>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>use this parameter when searching for a city Do not use with other parameters</doc>
+                    </param>
+                    <param name="units" required="true" style="query" type="xsd:string">
+                        <doc>you can use different types of metric systems by units metric or imperial</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="weather/">
+            <method displayName="Current Weather Data" id="392" name="GET">
+                <doc>Using this kind of requests you can get weather data in any location on the earth. The current weather data are updated online based on data from more than 40,000 weather stations.</doc>
+                <request>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>to use JavaScrip code you can transfer callback functionName to JSONP callback</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>get current weather data when you know the city ID Not to be used with lon lat or q</doc>
+                    </param>
+                    <param name="lang" required="true" style="query" type="xsd:string">
+                        <doc>you can use lang parameter to get output in your language We support the following languages that you can use with the corresponded lang values English en Russian ru Italian it Spanish sp Ukrainian ua German de Portuguese pt Romanian ro Polish pl Finnish fi Dutch nl French fr Bulgarian bg Swedish se Chinese Traditional zh tw Chinese Simplified zh cn Turkish tr</doc>
+                    </param>
+                    <param name="lat" required="true" style="query" type="xsd:integer">
+                        <doc>must be used with lon Get current weather data when you know the latitude of the city</doc>
+                    </param>
+                    <param name="lon" required="true" style="query" type="xsd:integer">
+                        <doc>must be used with lat Get current weather data when you know the longitude of the city</doc>
+                    </param>
+                    <param name="mode" required="true" style="query" type="xsd:string">
+                        <doc>if left blank will default to JSON output Ability to retrieve data in XML or HTML</doc>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>use this parameter when searching for a city Do not use with other parameters</doc>
+                    </param>
+                    <param name="units" required="true" style="query" type="xsd:string">
+                        <doc>you can use different types of metric systems by units metric or imperial</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f392:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f56="urn:function:f56" xmlns:f57="urn:function:f57" xmlns:f58="urn:function:f58" xmlns:f59="urn:function:f59" xmlns:f60="urn:function:f60" xmlns:f61="urn:function:f61" xmlns:f62="urn:function:f62" xmlns:f63="urn:function:f63" xmlns:f64="urn:function:f64" xmlns:f65="urn:function:f65" xmlns:f66="urn:function:f66" xmlns:f67="urn:function:f67">
+    <grammars>
+        <include href="Function67.xsd"/>
+        <include href="Function66.xsd"/>
+        <include href="Function65.xsd"/>
+        <include href="Function64.xsd"/>
+        <include href="Function63.xsd"/>
+        <include href="Function62.xsd"/>
+        <include href="Function61.xsd"/>
+        <include href="Function60.xsd"/>
+        <include href="Function59.xsd"/>
+        <include href="Function58.xsd"/>
+        <include href="Function57.xsd"/>
+        <include href="Function56.xsd"/>
+    </grammars>
+    <doc>the fastest most powerful and legal way to display lyrics on your website or in your application Today A complete music catalogue featuring k artists and M of tracks organized by albums A powerful search engine including all our library is available through our api Every artist track album has a score based on our api requests this is our rating You can sort the artist track albums search results by this rating providing the most relevant content for your users musiXmatch lyrics API is a robust service that permits you to search a complete music catalogue and retrieve lyrics in the simplest possible way It just works</doc>
+    <resources base="https://musixmatchcom-musixmatch.p.mashape.com/">
+        <resource uri="wsr/">
+            <resource uri="1.1/">
+                <resource uri="track.snippet.get/">
+                    <method displayName="Track.snippet" id="67" name="GET">
+                        <request>
+                            <param name="trackId" required="true" style="query" type="xsd:integer">
+                                <doc>musixmatch track id</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f67:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="track.search/">
+                    <method displayName="Track.search" id="66" name="GET">
+                        <doc>Search a song in our music database</doc>
+                        <request>
+                            <param name="fHasLyrics" required="true" style="query" type="xsd:integer">
+                                <doc>filter only song with an available lyrics</doc>
+                            </param>
+                            <param name="page" required="true" style="query" type="xsd:integer">
+                                <doc>number of page for pagination</doc>
+                            </param>
+                            <param name="pageSize" required="true" style="query" type="xsd:string">
+                                <doc>number of elements per page</doc>
+                            </param>
+                            <param name="q" required="true" style="query" type="xsd:string">
+                                <doc>search this parameter within song title artist name and lyrics body</doc>
+                            </param>
+                            <param name="qArtist" required="true" style="query" type="xsd:string">
+                                <doc>search this parameter within the artist name</doc>
+                            </param>
+                            <param name="qLyrics" required="true" style="query" type="xsd:string">
+                                <doc>search this parameter within the lyrics body</doc>
+                            </param>
+                            <param name="qTrack" required="true" style="query" type="xsd:string">
+                                <doc>search this parameter within the song title</doc>
+                            </param>
+                            <param name="qTrackArtist" required="true" style="query" type="xsd:string">
+                                <doc>search this parameter within artist name and or song title</doc>
+                            </param>
+                            <param name="sTrackRating" required="true" style="query" type="xsd:string">
+                                <doc>sort result by rating desc or asc</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f66:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="track.lyrics.get/">
+                    <method displayName="Track.Lyrics" id="65" name="GET">
+                        <doc>Get the lyrics for a track</doc>
+                        <request>
+                            <param name="trackId" required="true" style="query" type="xsd:integer">
+                                <doc>musixmatch track id</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f65:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="track.get/">
+                    <method displayName="Track" id="64" name="GET">
+                        <doc>Get a track from musixmatch</doc>
+                        <request>
+                            <param name="trackId" required="true" style="query" type="xsd:integer">
+                                <doc>musixmatch track id</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f64:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="matcher.track.get/">
+                    <method displayName="Matcher.track" id="63" name="GET">
+                        <doc>Starting from your track title and artist name, find our correspondent track</doc>
+                        <request>
+                            <param name="fHasLyrics" required="true" style="query" type="xsd:integer">
+                                <doc>only return tracks with available lyrics</doc>
+                            </param>
+                            <param name="qArtist" required="true" style="query" type="xsd:string">
+                                <doc>artist name</doc>
+                            </param>
+                            <param name="qTrack" required="true" style="query" type="xsd:string">
+                                <doc>track title</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f63:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="matcher.subtitle.get/">
+                    <method displayName="Matcher.subtitle.get" id="62" name="GET">
+                        <request>
+                            <param name="fSubtitleLength" required="true" style="query" type="xsd:integer">
+                                <doc>the desired duration in seconds</doc>
+                            </param>
+                            <param name="fSubtitleLengthMaxDeviation" required="true" style="query" type="xsd:integer">
+                                <doc>in this case also allow duration of and seconds</doc>
+                            </param>
+                            <param name="qArtist" required="true" style="query" type="xsd:string">
+                                <doc>the Artist Name</doc>
+                            </param>
+                            <param name="qTrack" required="true" style="query" type="xsd:string">
+                                <doc>the Song Title</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f62:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="matcher.lyrics.get/">
+                    <method displayName="Matcher.lyrics" id="61" name="GET">
+                        <doc>Get the lyrics for a song starting by title and artist</doc>
+                        <request>
+                            <param name="qArtist" required="true" style="query" type="xsd:string">
+                                <doc>the artist name</doc>
+                            </param>
+                            <param name="qTrack" required="true" style="query" type="xsd:string">
+                                <doc>the song title</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f61:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="artist.search/">
+                    <method displayName="Artist.search" id="60" name="GET">
+                        <request>
+                            <param name="page" required="true" style="query" type="xsd:string">
+                                <doc>page number for pagination</doc>
+                            </param>
+                            <param name="pageSize" required="true" style="query" type="xsd:string">
+                                <doc>number of elements per page</doc>
+                            </param>
+                            <param name="qArtist" required="true" style="query" type="xsd:string">
+                                <doc>search this parameter within the artist name</doc>
+                            </param>
+                            <param name="sArtistRating" required="true" style="query" type="xsd:string">
+                                <doc>sort by rating desc asc</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f60:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="artist.related.get/">
+                    <method displayName="Artist.related" id="59" name="GET">
+                        <request>
+                            <param name="artistId" required="true" style="query" type="xsd:integer">
+                                <doc>musixmatch artist id</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f59:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="artist.get/">
+                    <method displayName="Artist" id="58" name="GET">
+                        <doc>Get the artist object</doc>
+                        <request>
+                            <param name="artistId" required="true" style="query" type="xsd:string">
+                                <doc>musiXmatch artist id</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f58:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="album.track.get/">
+                    <method displayName="Album.tracks" id="57" name="GET">
+                        <doc>Get the list of song within an album</doc>
+                        <request>
+                            <param name="albumId" required="true" style="query" type="xsd:string">
+                                <doc>musixmatch album id</doc>
+                            </param>
+                            <param name="page" required="true" style="query" type="xsd:string">
+                                <doc>page number for pagination default</doc>
+                            </param>
+                            <param name="pageSize" required="true" style="query" type="xsd:string">
+                                <doc>number of elements for pagination default</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f57:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="album.get/">
+                    <method displayName="Album" id="56" name="GET">
+                        <doc>Get the album object</doc>
+                        <request>
+                            <param name="albumId" required="true" style="query" type="xsd:integer">
+                                <doc>musiXmatch album id</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f56:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

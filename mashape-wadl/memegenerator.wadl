@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>a simple meme generator that generates memes by choosing a preloaded images and short top and bottom text sentences Memes are served in the JPEG image file format</doc>
+    <resources base="https://ronreiter-meme-generator.p.mashape.com/">
+        <resource uri="images/">
+            <method displayName="Get images" id="76" name="GET">
+                <request/>
+            </method>
+            <method displayName="Upload image" id="78" name="POST">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="fonts/">
+            <method displayName="Get fonts" id="75" name="GET">
+                <request/>
+            </method>
+            <method displayName="Upload font" id="77" name="POST">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="meme/">
+            <method displayName="Generate meme" id="74" name="GET">
+                <doc>Simple meme generator that uses a predefined set of images.</doc>
+                <request>
+                    <param name="bottom" required="true" style="query" type="xsd:string">
+                        <doc>the text to write at the bottom of the image</doc>
+                    </param>
+                    <param name="font" required="true" style="query" type="xsd:string">
+                        <doc>the font used to generate the text</doc>
+                    </param>
+                    <param name="fontSize" required="true" style="query" type="xsd:string">
+                        <doc>override the font size used instead of trying to fit the text into a line</doc>
+                    </param>
+                    <param name="meme" required="true" style="query" type="xsd:string">
+                        <doc>indicates which image to use</doc>
+                    </param>
+                    <param name="top" required="true" style="query" type="xsd:string">
+                        <doc>the text to write at the top of the image</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

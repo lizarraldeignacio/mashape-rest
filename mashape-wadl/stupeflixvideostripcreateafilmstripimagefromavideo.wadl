@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>create a film strip image showing stitched frames of a video Useful to display a video preview a video trimmer interface or a Video Tooltip Thumbnail in a web view Full API specs at https stupeflix tasks api readthedocs org en v tasks html video strip</doc>
+    <resources base="https://stupeflixvideostrip.p.mashape.com/">
+        <resource uri="create_file/">
+            <method displayName="video.strip create_file" id="4763" name="POST">
+                <doc>Create and queue a video.strip Task, block until finished and redirect to output image file. Full API specs at https://stupeflix-tasks-api.readthedocs.org/en/latest/tasks.html#video-strip</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

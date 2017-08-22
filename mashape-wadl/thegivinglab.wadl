@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3764="urn:function:f3764" xmlns:f3765="urn:function:f3765" xmlns:f3766="urn:function:f3766" xmlns:f3767="urn:function:f3767" xmlns:f3768="urn:function:f3768" xmlns:f3769="urn:function:f3769" xmlns:f3770="urn:function:f3770" xmlns:f3771="urn:function:f3771" xmlns:f3772="urn:function:f3772" xmlns:f3775="urn:function:f3775" xmlns:f3777="urn:function:f3777" xmlns:f3778="urn:function:f3778" xmlns:f3779="urn:function:f3779" xmlns:f3780="urn:function:f3780" xmlns:f3781="urn:function:f3781" xmlns:f3782="urn:function:f3782">
+    <grammars>
+        <include href="Function3778.xsd"/>
+        <include href="Function3772.xsd"/>
+        <include href="Function3775.xsd"/>
+        <include href="Function3777.xsd"/>
+        <include href="Function3770.xsd"/>
+        <include href="Function3771.xsd"/>
+        <include href="Function3769.xsd"/>
+        <include href="Function3767.xsd"/>
+        <include href="Function3766.xsd"/>
+        <include href="Function3765.xsd"/>
+        <include href="Function3782.xsd"/>
+        <include href="Function3780.xsd"/>
+        <include href="Function3781.xsd"/>
+        <include href="Function3779.xsd"/>
+        <include href="Function3768.xsd"/>
+        <include href="Function3764.xsd"/>
+    </grammars>
+    <doc>theGivingLab org helps charities companies and developers develop launch and scale new fundraising ideas and products services and games which benefit UK charities Our APIs make it easy to collect donations take payments reclaim gift aid organ</doc>
+    <resources base="https://the-giving-lab-thegivinglab.p.mashape.com/">
+        <resource uri="groups/">
+            <resource uri="{name or filter}/">
+                <param name="name or filter" style="template" type="xsd:string"/>
+                <method displayName="Groups" id="3778" name="GET">
+                    <doc>Groups</doc>
+                    <request>
+                        <param name="nameOrFilter" required="true" style="query" type="xsd:string">
+                            <doc>name or filter</doc>
+                        </param>
+                        <param name="nameOrFilter" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3778:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="groupmember/">
+                <resource uri="{Group Member ID}/">
+                    <param name="Group Member ID" style="template" type="xsd:string"/>
+                    <method displayName="groupmember-remove" id="3776" name="DELETE">
+                        <doc>remove groupmember</doc>
+                        <request>
+                            <param name="groupMemberId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="group/">
+                <method displayName="Group" id="3772" name="GET">
+                    <doc>group</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>iD</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3772:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Group-Add" id="3773" name="POST">
+                    <doc>add group</doc>
+                    <request/>
+                </method>
+                <method displayName="Group-Update" id="3774" name="PUT">
+                    <doc>update group</doc>
+                    <request/>
+                </method>
+                <method displayName="GroupActivity" id="3775" name="GET">
+                    <doc>To get an aggregated feed of all activity across a group (donations, new events, completed events etc.) call the method below.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>iD</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3775:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Groupmembers" id="3777" name="GET">
+                    <doc>groupmembers</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3777:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="events/">
+            <resource uri="event/">
+                <method displayName="Events-create" id="3770" name="POST">
+                    <doc>create Events</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3770:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Events-update" id="3771" name="PUT">
+                    <request/>
+                    <response>
+                        <representation element="f3771:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="api/">
+            <resource uri="events/">
+                <resource uri="event/">
+                    <resource uri="{ID}/">
+                        <param name="ID" style="template" type="xsd:string"/>
+                        <method displayName="Events" id="3769" name="GET">
+                            <doc>To get details of an event that is owned by a user or group, call the following method.</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f3769:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="charities/">
+            <resource uri="charity/">
+                <resource uri="{ID or Charity Reference Number}/">
+                    <param name="ID or Charity Reference Number" style="template" type="xsd:string"/>
+                    <method displayName="Charity" id="3767" name="GET">
+                        <doc>charity</doc>
+                        <request>
+                            <param name="idOrCharityReferenceNumber" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="idOrCharityReferenceNumber" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f3767:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="{name or filter}/">
+                <param name="name or filter" style="template" type="xsd:string"/>
+                <method displayName="Charities" id="3766" name="GET">
+                    <doc>Charities</doc>
+                    <request>
+                        <param name="nameOrFilter" required="true" style="query" type="xsd:string">
+                            <doc>name or filter</doc>
+                        </param>
+                        <param name="nameOrFilter" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3766:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="campaign/">
+                <resource uri="{ID}/">
+                    <param name="ID" style="template" type="xsd:string"/>
+                    <method displayName="Campaign" id="3765" name="GET">
+                        <doc>campaign</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>iD</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f3765:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="users/">
+            <resource uri="{name or filter}/">
+                <param name="name or filter" style="template" type="xsd:string"/>
+                <method displayName="Users" id="3782" name="GET">
+                    <doc>To search for a user you simply need to call the following API method:</doc>
+                    <request>
+                        <param name="nameOrFilter" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="nameOrFilter" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3782:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="user/">
+                <resource uri="{ID}/">
+                    <param name="ID" style="template" type="xsd:string"/>
+                    <method displayName="User" id="3780" name="GET">
+                        <doc>If you know the ID for a user you can get the profile by calling the following method:</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f3780:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="UserActivity" id="3781" name="GET">
+                        <doc>To get an aggregated feed of all activity for a user (donations, new events, completed events etc.) call the method below.</doc>
+                        <request>
+                            <param name="datefrom" required="true" style="query" type="xsd:string">
+                                <doc>dateFrom</doc>
+                            </param>
+                            <param name="dateto" required="true" style="query" type="xsd:string">
+                                <doc>dateTo</doc>
+                            </param>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f3781:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="registeruser/">
+                <method displayName="RegisterUser" id="3779" name="POST">
+                    <doc>registeruser</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3779:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="createuser/">
+                <method displayName="CreateUser" id="3768" name="POST">
+                    <doc>you can call the following method to create the profile on TheGivingLab.org</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3768:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="authenticate/">
+                <method displayName="Authenticate" id="3764" name="POST">
+                    <doc>authenticate</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3764:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

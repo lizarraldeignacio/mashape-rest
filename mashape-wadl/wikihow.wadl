@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3197="urn:function:f3197" xmlns:f3198="urn:function:f3198">
+    <grammars>
+        <include href="Function3198.xsd"/>
+        <include href="Function3197.xsd"/>
+    </grammars>
+    <doc>retrieves random out of context snippets from WikiHow articles currently the first sentence of instructional steps and step images Fun to mix and match</doc>
+    <resources base="https://hargrimm-wikihow-v1.p.mashape.com/">
+        <resource uri="steps/">
+            <method displayName="Steps" id="3198" name="GET">
+                <doc>Gets a random selection of WikiHow steps.</doc>
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:integer">
+                        <doc>the number of step strings to retrieve maximum</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3198:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="images/">
+            <method displayName="Images" id="3197" name="GET">
+                <doc>Gets the src URL for random WikiHow images</doc>
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:integer">
+                        <doc>the number of image URLs to retrieve maximum</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3197:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

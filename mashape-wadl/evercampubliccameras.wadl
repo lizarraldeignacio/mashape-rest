@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1097="urn:function:f1097" xmlns:f1098="urn:function:f1098" xmlns:f1100="urn:function:f1100">
+    <grammars>
+        <include href="Function1100.xsd"/>
+        <include href="Function1098.xsd"/>
+        <include href="Function1097.xsd"/>
+    </grammars>
+    <doc>returns a list of publicly discoverable cameras from within the Evercam system</doc>
+    <resources base="https://marcoherbst-evercam-public-cameras.p.mashape.com/">
+        <resource uri="public/">
+            <resource uri="cameras.json/">
+                <method displayName="Public Cameras" id="1100" name="GET">
+                    <doc>Fetch a list of publicly discoverable cameras from within the Evercam system.</doc>
+                    <request>
+                        <param name="caseSensitive" required="true" style="query" type="xsd:boolean">
+                            <doc>whether search terms are case sensitive</doc>
+                        </param>
+                        <param name="idContains" required="true" style="query" type="xsd:string">
+                            <doc>search for cameras whose id contain the given value</doc>
+                        </param>
+                        <param name="idEndsWith" required="true" style="query" type="xsd:string">
+                            <doc>search for cameras whose id ends with the given value</doc>
+                        </param>
+                        <param name="idStartsWith" required="true" style="query" type="xsd:string">
+                            <doc>search for cameras whose id starts with the given value</doc>
+                        </param>
+                        <param name="isNearTo" required="true" style="query" type="xsd:string">
+                            <doc>search for cameras within meters of a given address or longitude latitiude point</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of results Defaults to can t be more than</doc>
+                        </param>
+                        <param name="offset" required="true" style="query" type="xsd:integer">
+                            <doc>offset into the search results Defaults to</doc>
+                        </param>
+                        <param name="withinDistance" required="true" style="query" type="xsd:integer">
+                            <doc>search for cameras within a greater range of the specified is near to point in meters</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1100:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="cameras/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <resource uri="snapshot.jpg/">
+                    <method displayName="Live jpg image" id="1099" name="GET">
+                        <doc>Returns live jpg from the camera.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>camera id to get the live image for</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="live.json/">
+                    <method displayName="Live base64 jpg image" id="1098" name="GET">
+                        <doc>Returns live, base64 encoded, jpg from the camera.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>camera id to get the live image for</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1098:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="{id}.json/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Camera information" id="1097" name="GET">
+                    <doc>Returns all data for a given camera.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>camera id to get data for</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1097:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

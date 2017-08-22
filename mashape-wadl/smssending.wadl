@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>send bulk SMS all around the world countries covered and more than operators are available See http www allmysms com en api sms for more details and documentation</doc>
+    <resources base="https://allmysms-v9.p.mashape.com/">
+        <resource uri="simulateCampaign/">
+            <method displayName="simulateCampaign" id="4760" name="POST">
+                <doc>Simulate a SMS campaign before really sending it</doc>
+                <request>
+                    <param name="smsdata" required="true" style="query" type="xsd:string">
+                        <doc>xML or JSON containing message and mobile phone numbers</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="sendSms/">
+            <method displayName="sendSms" id="4759" name="POST">
+                <doc>Send SMS</doc>
+                <request>
+                    <param name="smsdata" required="true" style="query" type="xsd:string">
+                        <doc>contains message and mobile phone numbers</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="populateList/">
+            <method displayName="populateList" id="4758" name="POST">
+                <doc>Use this method to populate data into your contacts list</doc>
+                <request>
+                    <param name="populatedata" required="true" style="query" type="xsd:string">
+                        <doc>contacts list data download documentation for details at http www allmysms com en api sms</doc>
+                    </param>
+                    <param name="returnFormat" required="true" style="query" type="xsd:string">
+                        <doc>response format xml or json</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="getSubAccounts/">
+            <method displayName="getSubAccounts" id="4757" name="GET">
+                <doc>Get all the accounts attached to a master account</doc>
+                <request>
+                    <param name="returnformat" required="true" style="query" type="xsd:string">
+                        <doc>response format xml or json</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="getPull/">
+            <method displayName="getPull" id="4756" name="GET">
+                <doc>Recover all the answers (SMS-MO) related to a SMS campaign</doc>
+                <request>
+                    <param name="campid" required="true" style="query" type="xsd:string">
+                        <doc>sMS campaign identifier</doc>
+                    </param>
+                    <param name="returnformat" required="true" style="query" type="xsd:string">
+                        <doc>response format xml or json</doc>
+                    </param>
+                    <param name="subaccount" required="true" style="query" type="xsd:string">
+                        <doc>subaccount concerned by the request</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="getLists/">
+            <method displayName="getLists" id="4755" name="GET">
+                <doc>Get the full list of the account's contacts list</doc>
+                <request>
+                    <param name="returnformat" required="true" style="query" type="xsd:string">
+                        <doc>response format xml or json</doc>
+                    </param>
+                    <param name="subaccount" required="true" style="query" type="xsd:string">
+                        <doc>subaccount concerned by the request</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="getInfo/">
+            <method displayName="getInfo" id="4754" name="GET">
+                <doc>Get information on an account</doc>
+                <request>
+                    <param name="returnformat" required="true" style="query" type="xsd:string">
+                        <doc>return type</doc>
+                    </param>
+                    <param name="subaccount" required="true" style="query" type="xsd:string">
+                        <doc>subaccount to get info for</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="getContacts/">
+            <method displayName="getContacts" id="4753" name="GET">
+                <doc>Recover all the contacts stored in a contacts list</doc>
+                <request>
+                    <param name="listname" required="true" style="query" type="xsd:string">
+                        <doc>contacts list name</doc>
+                    </param>
+                    <param name="returnformat" required="true" style="query" type="xsd:string">
+                        <doc>response format xml or json</doc>
+                    </param>
+                    <param name="subaccount" required="true" style="query" type="xsd:string">
+                        <doc>subaccount concerned by the request</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="getBlacklist/">
+            <method displayName="getBlacklist" id="4752" name="GET">
+                <doc>get all your blacklisted mobile phone numbers</doc>
+                <request>
+                    <param name="returnformat" required="true" style="query" type="xsd:string">
+                        <doc>response format xml or json</doc>
+                    </param>
+                    <param name="subaccount" required="true" style="query" type="xsd:string">
+                        <doc>subaccount to get blacklist for</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="getAcks/">
+            <method displayName="getAcks" id="4751" name="GET">
+                <doc>recover all operators acknowledgments</doc>
+                <request>
+                    <param name="campid" required="true" style="query" type="xsd:string">
+                        <doc>campaign identifier</doc>
+                    </param>
+                    <param name="returnformat" required="true" style="query" type="xsd:string">
+                        <doc>response format xml or json</doc>
+                    </param>
+                    <param name="subaccount" required="true" style="query" type="xsd:string">
+                        <doc>subaccount concerned by the request</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="deleteSubAccount/">
+            <method displayName="deleteSubAccount" id="4750" name="DELETE">
+                <doc>Delete a subaccount</doc>
+                <request>
+                    <param name="logintodelete" required="true" style="query" type="xsd:string">
+                        <doc>login to delete</doc>
+                    </param>
+                    <param name="returnformat" required="true" style="query" type="xsd:string">
+                        <doc>return format xml or json</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="deleteList/">
+            <method displayName="deleteList" id="4749" name="DELETE">
+                <doc>To delete a list of contacts</doc>
+                <request>
+                    <param name="listname" required="true" style="query" type="xsd:string">
+                        <doc>contacts list name</doc>
+                    </param>
+                    <param name="returnformat" required="true" style="query" type="xsd:string">
+                        <doc>return format xml or json</doc>
+                    </param>
+                    <param name="subaccount" required="true" style="query" type="xsd:string">
+                        <doc>subAccount owner of the list</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="deleteContacts/">
+            <method displayName="deleteContacts" id="4748" name="DELETE">
+                <doc>To delete contacts in a list</doc>
+                <request>
+                    <param name="deletedata" required="true" style="query" type="xsd:string">
+                        <doc>data to delete download documentation for details at http www allmysms com en api sms</doc>
+                    </param>
+                    <param name="returnformat" required="true" style="query" type="xsd:string">
+                        <doc>return format xml or json</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="deleteCampaign/">
+            <method displayName="deleteCampaign" id="4747" name="DELETE">
+                <doc>delete a programmed SMS campaign</doc>
+                <request>
+                    <param name="campid" required="true" style="query" type="xsd:string">
+                        <doc>campaign identifier</doc>
+                    </param>
+                    <param name="returnformat" required="true" style="query" type="xsd:string">
+                        <doc>return format xml or json</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="createSubAccount/">
+            <method displayName="createSubAccount" id="4746" name="POST">
+                <doc>To create a subaccount to your master account</doc>
+                <request>
+                    <param name="accountdata" required="true" style="query" type="xsd:string">
+                        <doc>account data download documentation for details at http www allmysms com en api sms</doc>
+                    </param>
+                    <param name="returnformat" required="true" style="query" type="xsd:string">
+                        <doc>return format xml or json</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="createList/">
+            <method displayName="createList" id="4745" name="POST">
+                <doc>Create a list that will be available on your allmysms.com manager</doc>
+                <request>
+                    <param name="listdata" required="true" style="query" type="xsd:string">
+                        <doc>list information download documentation for details at http www allmysms com en api sms</doc>
+                    </param>
+                    <param name="returnformat" required="true" style="query" type="xsd:string">
+                        <doc>return format xml or json</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

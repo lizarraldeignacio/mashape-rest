@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6234="urn:function:f6234">
+    <grammars>
+        <include href="Function6234.xsd"/>
+    </grammars>
+    <doc>pacer API Public Access to Court Electronic Records is an API for US Court Case Search This API requires Pacer account You can register it for free at http www pacer gov register html</doc>
+    <resources base="https://enclout-Pacer-Case-Search-v1.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="pacer/">
+                <method displayName="Pacer" id="6234" name="GET">
+                    <doc>Pacer API (US Court Case Search)</doc>
+                    <request>
+                        <param name="party" required="true" style="query" type="xsd:string">
+                            <doc>name of the party involved</doc>
+                        </param>
+                        <param name="selCourt" required="true" style="query" type="xsd:string">
+                            <doc>court type such as bankrupt bk Civil ci Criminal cr and etc</doc>
+                        </param>
+                        <param name="selRegion" required="true" style="query" type="xsd:string">
+                            <doc>region of the case</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6234:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2509="urn:function:f2509" xmlns:f2510="urn:function:f2510">
+    <grammars>
+        <include href="Function2510.xsd"/>
+        <include href="Function2509.xsd"/>
+    </grammars>
+    <doc>deprecated Use Rewards as a Service at https www mashape com tangocard rewards as a service</doc>
+    <resources base="https://tangocard-tangocardapi.p.mashape.com/">
+        <resource uri="Version2/">
+            <resource uri="PurchaseCard/">
+                <method displayName="PurchaseCard" id="2510" name="POST">
+                    <doc>Purchases a gift card against your Tango Card account</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2510:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="GetAvailableBalance/">
+                <method displayName="GetAvailableBalance" id="2509" name="POST">
+                    <doc>Gets the available balance in a Tango Card account</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2509:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2181="urn:function:f2181" xmlns:f2182="urn:function:f2182" xmlns:f2183="urn:function:f2183">
+    <grammars>
+        <include href="Function2183.xsd"/>
+        <include href="Function2182.xsd"/>
+        <include href="Function2181.xsd"/>
+    </grammars>
+    <doc>the API lets you create trackable QR Codes and retrieve statistics about where when and which device the QR Code scanned You can attach optional geo information like address longitude or latitude to set a fixed position for a QR Code</doc>
+    <resources base="https://qrd.p.mashape.com/">
+        <resource uri="stat/">
+            <method displayName="stat" id="2183" name="GET">
+                <doc>This method returns the statistics for a QR Code. The response includes basic statistical data like the original URL, shortened URL, link to the QR Code, address and geo coordinates, followed by: when was the shortened URL first accessed, how much time elapsed between the first and the last call, how often the URL is called by day, the URL's age in days, the number of uniqe visitors and the total number of requests. For every request, detailed information about the request date, the country, the region, which browser &amp; version, which OS and which model or brand (if the QR Code was scanned with a mobile device) is saved. If the user sends his location after scanning the QR Code, his position is encoded as lng &amp; lat.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>the id of the QR Code</doc>
+                    </param>
+                    <param name="key" required="true" style="query" type="xsd:string">
+                        <doc>the API Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2183:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="short/">
+            <method displayName="short" id="2182" name="GET">
+                <doc>The method shortens a given URL and returns the shortended URL as well the QR Code URL. You may attach optional geo information to set a location of where the QR Code will be placed. This may be your company address or any location where you want to stick your QR Code. The parameter address is a human readable address string. The parameter lat (Latitude) and lng (Longitude) are used for further machine processing, e.g. to show the location on a map. The note parameter is used to add a detailed description about the location (e.g. 2nd floor, left door).</doc>
+                <request>
+                    <param name="address" required="true" style="query" type="xsd:string">
+                        <doc>an optional human readable address string where the QR Code will be attached</doc>
+                    </param>
+                    <param name="key" required="true" style="query" type="xsd:string">
+                        <doc>the API Key</doc>
+                    </param>
+                    <param name="lat" required="true" style="query" type="xsd:string">
+                        <doc>an optional latitude of where the QR Code will be attached</doc>
+                    </param>
+                    <param name="lng" required="true" style="query" type="xsd:string">
+                        <doc>an optional longitude of where the QR Code will be attached</doc>
+                    </param>
+                    <param name="note" required="true" style="query" type="xsd:string">
+                        <doc>an optional note</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>the URL to shorten</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2182:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="geotags/">
+            <method displayName="geotags" id="2181" name="GET">
+                <doc>This method retrieves a list of all created QR Codes</doc>
+                <request>
+                    <param name="key" required="true" style="query" type="xsd:string">
+                        <doc>the API Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2181:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1644="urn:function:f1644">
+    <grammars>
+        <include href="Function1644.xsd"/>
+    </grammars>
+    <doc>calculates the geometry of the Sun such as the direction of the sunlight on the panel such as solar panel</doc>
+    <resources base="https://tadatoshi-solar-geometry.p.mashape.com/">
+        <resource uri="solar_positions/">
+            <method displayName="solar_position" id="1644" name="POST">
+                <doc>A sample POST method</doc>
+                <request/>
+                <response>
+                    <representation element="f1644:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

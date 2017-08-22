@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2096="urn:function:f2096" xmlns:f2097="urn:function:f2097">
+    <grammars>
+        <include href="Function2097.xsd"/>
+        <include href="Function2096.xsd"/>
+    </grammars>
+    <doc>the best little image analysis API out there</doc>
+    <resources base="https://jbckmn-Aislin-v1.p.mashape.com/">
+        <resource uri="id/">
+            <method displayName="Identification" id="2097" name="GET">
+                <doc>Return all available data about the image</doc>
+                <request>
+                    <param name="i" required="true" style="query" type="xsd:string">
+                        <doc>image to identify</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2097:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="cc/">
+            <method displayName="Color Count" id="2096" name="GET">
+                <doc>Return color palette information about the image</doc>
+                <request>
+                    <param name="i" required="true" style="query" type="xsd:string">
+                        <doc>image to use for analysis</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2096:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

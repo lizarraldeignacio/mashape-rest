@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f579="urn:function:f579" xmlns:f580="urn:function:f580">
+    <grammars>
+        <include href="Function580.xsd"/>
+        <include href="Function579.xsd"/>
+    </grammars>
+    <doc>listen to free music online on Gaana com Search and Play Free Music Online Listen music songs online Listen to any song online for free at Gaana com</doc>
+    <resources base="https://community-gaana.p.mashape.com/">
+        <resource uri="user.php/">
+            <method displayName="User Data" id="580" name="GET">
+                <doc>Consists of Login Management, My Favorites, Recent Action, Playlist Action, and Friend Management.  Please refer to http://developer.gaana.com/resources/user-data-api/ for parameter keys and values</doc>
+                <request>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f580:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="index.php/">
+            <method displayName="Meta Data" id="579" name="GET">
+                <doc>Consists of Tracks, Albums, Artists, Genre, Playlist, Search, and Miscellaneous.  Please refer to http://developer.gaana.com/resources/meta-data-api/ for parameter keys and values</doc>
+                <request>
+                    <param name="subtype" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f579:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

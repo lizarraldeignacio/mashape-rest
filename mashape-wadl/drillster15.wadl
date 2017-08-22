@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4077="urn:function:f4077" xmlns:f4078="urn:function:f4078" xmlns:f4079="urn:function:f4079" xmlns:f4080="urn:function:f4080" xmlns:f4081="urn:function:f4081" xmlns:f4083="urn:function:f4083" xmlns:f4084="urn:function:f4084" xmlns:f4085="urn:function:f4085" xmlns:f4086="urn:function:f4086" xmlns:f4087="urn:function:f4087" xmlns:f4088="urn:function:f4088" xmlns:f4089="urn:function:f4089" xmlns:f4090="urn:function:f4090" xmlns:f4091="urn:function:f4091" xmlns:f4092="urn:function:f4092" xmlns:f4093="urn:function:f4093" xmlns:f4094="urn:function:f4094" xmlns:f4095="urn:function:f4095" xmlns:f4096="urn:function:f4096" xmlns:f4097="urn:function:f4097" xmlns:f4098="urn:function:f4098" xmlns:f4099="urn:function:f4099" xmlns:f4100="urn:function:f4100" xmlns:f4101="urn:function:f4101" xmlns:f4102="urn:function:f4102" xmlns:f4103="urn:function:f4103" xmlns:f4104="urn:function:f4104" xmlns:f4105="urn:function:f4105" xmlns:f4106="urn:function:f4106" xmlns:f4107="urn:function:f4107" xmlns:f4108="urn:function:f4108" xmlns:f4109="urn:function:f4109" xmlns:f4110="urn:function:f4110" xmlns:f4111="urn:function:f4111" xmlns:f4112="urn:function:f4112" xmlns:f4113="urn:function:f4113" xmlns:f4114="urn:function:f4114" xmlns:f4115="urn:function:f4115" xmlns:f4116="urn:function:f4116">
+    <grammars>
+        <include href="Function4114.xsd"/>
+        <include href="Function4113.xsd"/>
+        <include href="Function4111.xsd"/>
+        <include href="Function4108.xsd"/>
+        <include href="Function4107.xsd"/>
+        <include href="Function4104.xsd"/>
+        <include href="Function4109.xsd"/>
+        <include href="Function4103.xsd"/>
+        <include href="Function4097.xsd"/>
+        <include href="Function4115.xsd"/>
+        <include href="Function4096.xsd"/>
+        <include href="Function4090.xsd"/>
+        <include href="Function4105.xsd"/>
+        <include href="Function4110.xsd"/>
+        <include href="Function4116.xsd"/>
+        <include href="Function4089.xsd"/>
+        <include href="Function4088.xsd"/>
+        <include href="Function4106.xsd"/>
+        <include href="Function4085.xsd"/>
+        <include href="Function4083.xsd"/>
+        <include href="Function4102.xsd"/>
+        <include href="Function4081.xsd"/>
+        <include href="Function4080.xsd"/>
+        <include href="Function4079.xsd"/>
+        <include href="Function4093.xsd"/>
+        <include href="Function4112.xsd"/>
+        <include href="Function4101.xsd"/>
+        <include href="Function4086.xsd"/>
+        <include href="Function4087.xsd"/>
+        <include href="Function4094.xsd"/>
+        <include href="Function4095.xsd"/>
+        <include href="Function4099.xsd"/>
+        <include href="Function4084.xsd"/>
+        <include href="Function4100.xsd"/>
+        <include href="Function4078.xsd"/>
+        <include href="Function4092.xsd"/>
+        <include href="Function4098.xsd"/>
+        <include href="Function4077.xsd"/>
+        <include href="Function4091.xsd"/>
+    </grammars>
+    <doc>drillster is an open cloud based memorization platform that helps users learn more in less time Use our API to integrate with Drillster or to create your own memorization solution For detailed information about this API please refer to http www drillster com info api</doc>
+    <resources base="https://drillster2.p.mashape.com/">
+        <resource uri="test-answer/">
+            <resource uri="{reference}/">
+                <param name="reference" style="template" type="xsd:string"/>
+                <method displayName="Submit test answer" id="4114" name="GET">
+                    <doc>Submits the answer to a question, as part of a predefined test.</doc>
+                    <request>
+                        <param name="reference" required="true" style="query" type="xsd:string">
+                            <doc>the unique identifier of the answered question</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4114:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="answer/">
+            <resource uri="{reference}/">
+                <param name="reference" style="template" type="xsd:string"/>
+                <method displayName="Submit practice answer" id="4113" name="POST">
+                    <doc>Submits the answer to a drill question, and receives the evaluation of the answer.</doc>
+                    <request>
+                        <param name="reference" required="true" style="query" type="xsd:string">
+                            <doc>the reference issued when retrieving the associated question</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4113:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="store/">
+            <resource uri="{query}/">
+                <param name="query" style="template" type="xsd:string"/>
+                <method displayName="Search in Drill Store" id="4111" name="GET">
+                    <doc>Search the Drill Store for available drills and courses.</doc>
+                    <request>
+                        <param name="query" required="true" style="query" type="xsd:string">
+                            <doc>the search query</doc>
+                        </param>
+                        <param name="resultsize" required="true" style="query" type="xsd:string">
+                            <doc>the maximum number of drills or courses to include in the result If not specified the results for all remaining drills are returned</doc>
+                        </param>
+                        <param name="resultstart" required="true" style="query" type="xsd:string">
+                            <doc>the index number zero based of the first drill or course to include in the result Use this parameter in combination with resultSize to apply pagination of the result it will limit the number of drills included in the result Defaults to</doc>
+                        </param>
+                        <param name="searchfield" required="true" style="query" type="xsd:string">
+                            <doc>specifies which fields will be searched Can be included multiple times to specify multiple search fields If not specified all available fields will be searched</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4111:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="test-question/">
+            <resource uri="{test_id}/">
+                <param name="test_id" style="template" type="xsd:string"/>
+                <method displayName="Retrieve test question" id="4108" name="GET">
+                    <doc>Returns the next question for a predefined test.</doc>
+                    <request>
+                        <param name="testId" required="true" style="query" type="xsd:string">
+                            <doc>the unique ID for the predefined test</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4108:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="question/">
+            <resource uri="{drill_id}/">
+                <param name="drill_id" style="template" type="xsd:string"/>
+                <method displayName="Retrieve practice question" id="4107" name="GET">
+                    <doc>Retrieves the next question for the specified drill or collection of drills.</doc>
+                    <request>
+                        <param name="drillId" required="true" style="query" type="xsd:string">
+                            <doc>the unique ID of the drill</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4107:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="test-result/">
+            <resource uri="{test_id}/">
+                <param name="test_id" style="template" type="xsd:string"/>
+                <method displayName="Retrieve own test result" id="4104" name="GET">
+                    <doc>Retrieves an individual test result for a specific test instance for the calling user.</doc>
+                    <request>
+                        <param name="testId" required="true" style="query" type="xsd:string">
+                            <doc>the unique ID of the test definition</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4104:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Retrieve test result" id="4109" name="GET">
+                    <doc>Retrieves an individual test result for a specific test instance.</doc>
+                    <request>
+                        <param name="testId" required="true" style="query" type="xsd:string">
+                            <doc>the unique ID for the test definition</doc>
+                        </param>
+                        <param name="userIdOrTicket" required="true" style="query" type="xsd:string">
+                            <doc>the user ID to retrieve the test results for or in the case of an anonymous test the test ticket</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4109:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="objectives/">
+            <method displayName="Retrieve objectives" id="4103" name="GET">
+                <doc>Retrieves the objectives that have been defined for the calling user.</doc>
+                <request/>
+                <response>
+                    <representation element="f4103:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="drill/">
+            <resource uri="{drill_id}/">
+                <param name="drill_id" style="template" type="xsd:string"/>
+                <method displayName="Retrieve drill details" id="4097" name="GET">
+                    <doc>Retrieves drill or course details</doc>
+                    <request>
+                        <param name="drillId" required="true" style="query" type="xsd:string">
+                            <doc>the drill or course ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4097:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Update drill details" id="4115" name="POST">
+                    <doc>Updates specific drill details.</doc>
+                    <request>
+                        <param name="drillId" required="true" style="query" type="xsd:string">
+                            <doc>the unique ID of the drill</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4115:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="test/">
+            <resource uri="{test_id}/">
+                <param name="test_id" style="template" type="xsd:string"/>
+                <method displayName="Request test ticket" id="4096" name="POST">
+                    <doc>Requests a new ticket for an anonymous test.</doc>
+                    <request>
+                        <param name="testId" required="true" style="query" type="xsd:string">
+                            <doc>the unique identifier for a previously defined test</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4096:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="user/">
+            <method displayName="Obtain password reset email" id="4090" name="POST">
+                <doc>Sends a change password email to a user.</doc>
+                <request>
+                    <param name="emailAddress" required="true" style="query" type="xsd:string">
+                        <doc>the user s email address</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4090:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Retrieve own user" id="4105" name="GET">
+                <doc>Requests (own) user details.</doc>
+                <request/>
+                <response>
+                    <representation element="f4105:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Retrieve user" id="4110" name="GET">
+                <doc>Retrieves (other) user details.</doc>
+                <request>
+                    <param name="userId" required="true" style="query" type="xsd:string">
+                        <doc>user ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4110:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update user" id="4116" name="POST">
+                <doc>Updates specific user details. Users can only update their own user account, not the account of others.</doc>
+                <request/>
+                <response>
+                    <representation element="f4116:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="upgrade/">
+            <method displayName="Obtain account upgrade" id="4089" name="POST">
+                <doc>Upgrades a basic user account to a premium account.</doc>
+                <request/>
+                <response>
+                    <representation element="f4089:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="practice-preferences/">
+            <resource uri="{drill_id}/">
+                <param name="drill_id" style="template" type="xsd:string"/>
+                <method displayName="Modify practice preferences" id="4088" name="POST">
+                    <doc>Modifies the user's practice preferences for the specified drill.</doc>
+                    <request>
+                        <param name="drillId" required="true" style="query" type="xsd:string">
+                            <doc>the unique ID of the drill</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4088:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Retrieve practice preferences" id="4106" name="GET">
+                    <doc>Retrieves the user's practice preferences for a given drill.</doc>
+                    <request>
+                        <param name="drillId" required="true" style="query" type="xsd:string">
+                            <doc>the unique ID of the drill</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4106:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="access/">
+            <resource uri="{user_id}/">
+                <param name="user_id" style="template" type="xsd:string"/>
+                <method displayName="Get account access" id="4085" name="GET">
+                    <doc>Requests an organization login.</doc>
+                    <request>
+                        <param name="userId" required="true" style="query" type="xsd:string">
+                            <doc>user ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4085:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="groups/">
+            <method displayName="Create new group" id="4083" name="POST">
+                <doc>Creates a new group. The group is created empty – it will have no drills or members.</doc>
+                <request/>
+                <response>
+                    <representation element="f4083:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Retrieve list of groups" id="4102" name="GET">
+                <doc>Retrieves a list of all groups the calling user has access to.</doc>
+                <request/>
+                <response>
+                    <representation element="f4102:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="drills/">
+            <method displayName="Create new drill" id="4082" name="POST">
+                <doc>Creates a new and empty drill.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="courses/">
+            <method displayName="Create course" id="4081" name="POST">
+                <doc>Creates a new and empty course</doc>
+                <request/>
+                <response>
+                    <representation element="f4081:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="users/">
+            <method displayName="Create basic user account" id="4080" name="POST">
+                <doc>Creates a new (basic) user account.</doc>
+                <request/>
+                <response>
+                    <representation element="f4080:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="repertoire/">
+            <method displayName="Add drill to repertoire" id="4079" name="PUT">
+                <doc>Adds a public drill or course from the Drill Store to the user's repertoire.</doc>
+                <request>
+                    <param name="drillId" required="true" style="query" type="xsd:string">
+                        <doc>the unique ID of the drill to be added</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4079:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Remove drill from repertoire" id="4093" name="DELETE">
+                <doc>Removes a drill or course from the user's repertoire. Removing it will discard all drill progress and statistics the user has for it.</doc>
+                <request>
+                    <param name="drillId" required="true" style="query" type="xsd:string">
+                        <doc>the unique ID of the drill to be removed</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4093:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Search in repertoire" id="4112" name="GET">
+                <doc>Retrieves the user's repertoire, or searches in it using a search query.</doc>
+                <request>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>the text to search for It can be a single word or multiple words separated with a space The search is case insensitive If multiple words are specified the default search behavior is to search for any of the words The AND operator can be used to search for all words e g milk AND butter Note that the AND operator must be in capitals</doc>
+                    </param>
+                    <param name="resultsize" required="true" style="query" type="xsd:string">
+                        <doc>the maximum number of drills or courses to include in the result If not specified the results for all remaining drills are returned</doc>
+                    </param>
+                    <param name="resultstart" required="true" style="query" type="xsd:string">
+                        <doc>the index number zero based of the first drill or course to include in the result Use this parameter in combination with resultSize to apply pagination of the result it will limit the number of drills included in the result Defaults to</doc>
+                    </param>
+                    <param name="searchfield" required="true" style="query" type="xsd:string">
+                        <doc>specifies which fields will be searched Can be included multiple times to specify multiple search fields If not specified all available fields will be searched Possible values are NAME DESCRIPTION SUBJECT TAGS CONTENTS</doc>
+                    </param>
+                    <param name="sortdirection" required="true" style="query" type="xsd:string">
+                        <doc>the sort direction ascending or descending if a sortField has been specified If omitted a default sort direction is used which depends on the sortField Possible values are ASC DESC</doc>
+                    </param>
+                    <param name="sortfield" required="true" style="query" type="xsd:string">
+                        <doc>the field to sort the result by</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4112:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="group/">
+            <resource uri="{group_id}/">
+                <param name="group_id" style="template" type="xsd:string"/>
+                <resource uri="results/">
+                    <method displayName="Retrieve group results" id="4101" name="GET">
+                        <doc>Retrieves the up-to-date results for a group.</doc>
+                        <request>
+                            <param name="groupId" required="true" style="query" type="xsd:string">
+                                <doc>the unique ID for the group</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4101:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="members/">
+                    <method displayName="Invite group member by email" id="4086" name="PUT">
+                        <doc>Invites a user to a group by email address</doc>
+                        <request>
+                            <param name="groupId" required="true" style="query" type="xsd:string">
+                                <doc>kIpT yh l dF w EWkRYaB wzeHAJzM vlL te wI</doc>
+                            </param>
+                            <param name="userEmail" required="true" style="query" type="xsd:string">
+                                <doc>the email address of the new user</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4086:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Invite group member by ID" id="4087" name="PUT">
+                        <doc>Adds or invites a new member to a group using a reference to a user ID.</doc>
+                        <request>
+                            <param name="groupId" required="true" style="query" type="xsd:string">
+                                <doc>unique ID for the group</doc>
+                            </param>
+                            <param name="userId" required="true" style="query" type="xsd:string">
+                                <doc>unique ID of the user</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4087:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Remove group member by email" id="4094" name="DELETE">
+                        <doc>Removes a group member</doc>
+                        <request>
+                            <param name="groupId" required="true" style="query" type="xsd:string">
+                                <doc>nYrK udUc UGvRS kxaPtaB wzeHAJzM vlL te wI</doc>
+                            </param>
+                            <param name="userEmail" required="true" style="query" type="xsd:string">
+                                <doc>john doe example com</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4094:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Remove group member by user ID" id="4095" name="DELETE">
+                        <doc>Removes a group member.</doc>
+                        <request>
+                            <param name="groupId" required="true" style="query" type="xsd:string">
+                                <doc>nYrK udUc UGvRS kxaPtaB wzeHAJzM vlL te wI</doc>
+                            </param>
+                            <param name="userId" required="true" style="query" type="xsd:string">
+                                <doc>OuHq RcQO snGWR TnBw</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4095:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Retrieve group members" id="4099" name="GET">
+                        <doc>Retrieves all members of a specific group.</doc>
+                        <request>
+                            <param name="groupId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4099:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="objectives/">
+                    <method displayName="Define group objective" id="4084" name="POST">
+                        <doc>Defines a new practice objective for a group.</doc>
+                        <request>
+                            <param name="groupId" required="true" style="query" type="xsd:string">
+                                <doc>the unique ID for the group</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4084:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Retrieve group objectives" id="4100" name="GET">
+                        <doc>Retrieves all objectives that have been defined for a group.</doc>
+                        <request>
+                            <param name="groupId" required="true" style="query" type="xsd:string">
+                                <doc>the unique ID for the group</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4100:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="drills/">
+                    <method displayName="Add drill to group" id="4078" name="PUT">
+                        <doc>Adds a drill or course to a given group.</doc>
+                        <request>
+                            <param name="drillId" required="true" style="query" type="xsd:string">
+                                <doc>the unique ID for the drill or course to add</doc>
+                            </param>
+                            <param name="groupId" required="true" style="query" type="xsd:string">
+                                <doc>the unique ID for the group</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4078:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Remove drill from group" id="4092" name="DELETE">
+                        <doc>Removes a given drill or course from a group.</doc>
+                        <request>
+                            <param name="drillId" required="true" style="query" type="xsd:string">
+                                <doc>the unique ID for the drill or course</doc>
+                            </param>
+                            <param name="groupId" required="true" style="query" type="xsd:string">
+                                <doc>the unique ID for the group</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4092:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Retrieve group drills" id="4098" name="GET">
+                        <doc>Retrieves all drills of a specific group. These can be regular drills, and courses. A course is a collection of (regular) drills.</doc>
+                        <request>
+                            <param name="groupId" required="true" style="query" type="xsd:string">
+                                <doc>the unique ID of the group</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4098:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="course/">
+            <resource uri="{course_id}/">
+                <param name="course_id" style="template" type="xsd:string"/>
+                <resource uri="{drill_id}/">
+                    <param name="drill_id" style="template" type="xsd:string"/>
+                    <method displayName="Add drill to course" id="4077" name="PUT">
+                        <doc>Adds a drill to an existing course.</doc>
+                        <request>
+                            <param name="courseId" required="true" style="query" type="xsd:string">
+                                <doc>the unique ID of the course</doc>
+                            </param>
+                            <param name="drillId" required="true" style="query" type="xsd:string">
+                                <doc>the unique ID of the drill</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4077:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Remove drill from course" id="4091" name="DELETE">
+                        <doc>Removes a drill from a course.</doc>
+                        <request>
+                            <param name="courseId" required="true" style="query" type="xsd:string">
+                                <doc>the unique ID of the course</doc>
+                            </param>
+                            <param name="drillId" required="true" style="query" type="xsd:string">
+                                <doc>the unique ID of the drill</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4091:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

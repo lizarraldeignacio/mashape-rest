@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1218="urn:function:f1218" xmlns:f1219="urn:function:f1219" xmlns:f1220="urn:function:f1220" xmlns:f1221="urn:function:f1221" xmlns:f1222="urn:function:f1222">
+    <grammars>
+        <include href="Function1221.xsd"/>
+        <include href="Function1222.xsd"/>
+        <include href="Function1220.xsd"/>
+        <include href="Function1218.xsd"/>
+        <include href="Function1219.xsd"/>
+    </grammars>
+    <doc>using Sentity API you can analyze sentiments of short messages or comments determine their language and parts of speech of individual words in a sentence</doc>
+    <resources base="https://sentity-v1.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="sentiment/">
+                <method displayName="Sentiments" id="1221" name="GET">
+                    <doc>Extract sentiments from provided text</doc>
+                    <request>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1221:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Sentiments Bulk" id="1222" name="POST">
+                    <doc>Get sentiments of text sent in JSON array. Every item will be processed separately and returned in exactly the same order it was sent.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1222:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="tag/">
+                <method displayName="POS Tagging" id="1220" name="POST">
+                    <doc>Returns all words of text with corresponding POST tags.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1220:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="language/">
+                <method displayName="Language" id="1218" name="GET">
+                    <doc>Detect language of text sent in url. If a language cannot be detected, "unknown" string will be returned as language code and "unknown" string as language name.</doc>
+                    <request>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>some text that you d like to extract language information from</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1218:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Language Bulk" id="1219" name="POST">
+                    <doc>Detect language of text sent as JSON array. Every item will be processed separately and returned in exactly the same order it was sent. If a language cannot be detected, "unknown" string will be returned as language code and "unknown" string as language name.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1219:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

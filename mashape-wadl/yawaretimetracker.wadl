@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2572="urn:function:f2572" xmlns:f2573="urn:function:f2573" xmlns:f2574="urn:function:f2574" xmlns:f2575="urn:function:f2575" xmlns:f2576="urn:function:f2576" xmlns:f2577="urn:function:f2577" xmlns:f2578="urn:function:f2578" xmlns:f2579="urn:function:f2579" xmlns:f2580="urn:function:f2580" xmlns:f2582="urn:function:f2582" xmlns:f2583="urn:function:f2583" xmlns:f2584="urn:function:f2584" xmlns:f2585="urn:function:f2585" xmlns:f2586="urn:function:f2586" xmlns:f2587="urn:function:f2587" xmlns:f2589="urn:function:f2589" xmlns:f2590="urn:function:f2590" xmlns:f2591="urn:function:f2591" xmlns:f2592="urn:function:f2592" xmlns:f2593="urn:function:f2593" xmlns:f2595="urn:function:f2595" xmlns:f2596="urn:function:f2596" xmlns:f2597="urn:function:f2597" xmlns:f2598="urn:function:f2598" xmlns:f2599="urn:function:f2599" xmlns:f2600="urn:function:f2600" xmlns:f2601="urn:function:f2601" xmlns:f2602="urn:function:f2602" xmlns:f2603="urn:function:f2603" xmlns:f2604="urn:function:f2604" xmlns:f2606="urn:function:f2606">
+    <grammars>
+        <include href="Function2606.xsd"/>
+        <include href="Function2604.xsd"/>
+        <include href="Function2603.xsd"/>
+        <include href="Function2602.xsd"/>
+        <include href="Function2601.xsd"/>
+        <include href="Function2600.xsd"/>
+        <include href="Function2599.xsd"/>
+        <include href="Function2598.xsd"/>
+        <include href="Function2596.xsd"/>
+        <include href="Function2595.xsd"/>
+        <include href="Function2592.xsd"/>
+        <include href="Function2591.xsd"/>
+        <include href="Function2576.xsd"/>
+        <include href="Function2573.xsd"/>
+        <include href="Function2597.xsd"/>
+        <include href="Function2593.xsd"/>
+        <include href="Function2590.xsd"/>
+        <include href="Function2589.xsd"/>
+        <include href="Function2587.xsd"/>
+        <include href="Function2586.xsd"/>
+        <include href="Function2585.xsd"/>
+        <include href="Function2584.xsd"/>
+        <include href="Function2583.xsd"/>
+        <include href="Function2582.xsd"/>
+        <include href="Function2580.xsd"/>
+        <include href="Function2579.xsd"/>
+        <include href="Function2578.xsd"/>
+        <include href="Function2577.xsd"/>
+        <include href="Function2575.xsd"/>
+        <include href="Function2574.xsd"/>
+        <include href="Function2572.xsd"/>
+    </grammars>
+    <doc>yaware TimeTracker is an automatic time tracking app that helps you and your team manage their time be productive and achieve more Yaware TimeTracker allows you to track time spent on projects websites software usage manage resources evaluate productivity and increase performance All this without the need to start and stop a timer The software allows to track software and Internet use control overtime and flexitime evaluate and reward achievements take screenshots and snapshots Available for Mac OS Linux Windows IOS and Android</doc>
+    <resources base="https://api4yaware-yaware-data.p.mashape.com/">
+        <resource uri="account/">
+            <resource uri="json/">
+                <resource uri="v1/">
+                    <resource uri="getUserStatus/">
+                        <method displayName="getUserStatus" id="2607" name="POST">
+                            <doc>Returns users status by email</doc>
+                            <request>
+                                <param name="email" required="true" style="query" type="xsd:string">
+                                    <doc>email of user</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                    <resource uri="getUsers/">
+                        <method displayName="getUsers" id="2606" name="POST">
+                            <doc>Get users by passed params</doc>
+                            <request>
+                                <param name="searchdataEmail" required="true" style="query" type="xsd:string">
+                                    <doc>email of user</doc>
+                                </param>
+                                <param name="searchdataFirstname" required="true" style="query" type="xsd:string">
+                                    <doc>first name of user</doc>
+                                </param>
+                                <param name="searchdataLastname" required="true" style="query" type="xsd:string">
+                                    <doc>last name of user</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2606:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getUserLastActivity/">
+                        <method displayName="getUserLastActivity" id="2605" name="POST">
+                            <doc>Returns users last activity by email</doc>
+                            <request>
+                                <param name="email" required="true" style="query" type="xsd:string">
+                                    <doc>email of User</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                    <resource uri="getUser/">
+                        <method displayName="getUser" id="2604" name="POST">
+                            <doc>Get user by email</doc>
+                            <request>
+                                <param name="email" required="true" style="query" type="xsd:string">
+                                    <doc>email of User</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2604:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getSummaryByPeriod/">
+                        <method displayName="getSummaryByPeriod" id="2603" name="POST">
+                            <doc>Returns summary by period</doc>
+                            <request>
+                                <param name="datefrom" required="true" style="query" type="xsd:string">
+                                    <doc>start date</doc>
+                                </param>
+                                <param name="dateto" required="true" style="query" type="xsd:string">
+                                    <doc>end time</doc>
+                                </param>
+                                <param name="groupedby" required="true" style="query" type="xsd:string">
+                                    <doc>group result by day week month</doc>
+                                </param>
+                                <param name="user" required="true" style="query" type="xsd:string">
+                                    <doc>user ID</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2603:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getSummaryByDay/">
+                        <method displayName="getSummaryByDay" id="2602" name="POST">
+                            <doc>Returns summary by day</doc>
+                            <request>
+                                <param name="date" required="true" style="query" type="xsd:string">
+                                    <doc>date to get report for</doc>
+                                </param>
+                                <param name="group" required="true" style="query" type="xsd:string">
+                                    <doc>group ID</doc>
+                                </param>
+                                <param name="groupedby" required="true" style="query" type="xsd:string">
+                                    <doc>group result by day week month</doc>
+                                </param>
+                                <param name="user" required="true" style="query" type="xsd:string">
+                                    <doc>user ID</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2602:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getSubscriptionInfo/">
+                        <method displayName="getSubscriptionInfo" id="2601" name="POST">
+                            <doc>Returns information about account's subscription</doc>
+                            <request/>
+                            <response>
+                                <representation element="f2601:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getReportByPeriod/">
+                        <method displayName="getReportByPeriod" id="2600" name="POST">
+                            <doc>Generate report by given period</doc>
+                            <request>
+                                <param name="datefrom" required="true" style="query" type="xsd:string">
+                                    <doc>start date</doc>
+                                </param>
+                                <param name="dateto" required="true" style="query" type="xsd:string">
+                                    <doc>end date</doc>
+                                </param>
+                                <param name="group" required="true" style="query" type="xsd:string">
+                                    <doc>group ID</doc>
+                                </param>
+                                <param name="groupedby" required="true" style="query" type="xsd:string">
+                                    <doc>group result by day week month</doc>
+                                </param>
+                                <param name="limit" required="true" style="query" type="xsd:string">
+                                    <doc>number of users to be retrieved</doc>
+                                </param>
+                                <param name="user" required="true" style="query" type="xsd:string">
+                                    <doc>user ID</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2600:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getReportByDay/">
+                        <method displayName="getReportByDay" id="2599" name="POST">
+                            <doc>Generate report by given date</doc>
+                            <request>
+                                <param name="date" required="true" style="query" type="xsd:string">
+                                    <doc>date to get report for</doc>
+                                </param>
+                                <param name="group" required="true" style="query" type="xsd:string">
+                                    <doc>group ID</doc>
+                                </param>
+                                <param name="user" required="true" style="query" type="xsd:string">
+                                    <doc>user ID</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2599:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getPresentUsers/">
+                        <method displayName="getPresentUsers" id="2598" name="POST">
+                            <doc>Returns users being active today</doc>
+                            <request/>
+                            <response>
+                                <representation element="f2598:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getManagers/">
+                        <method displayName="getManagers" id="2596" name="POST">
+                            <doc>Returns managers by email</doc>
+                            <request>
+                                <param name="searchdataEmail" required="true" style="query" type="xsd:string">
+                                    <doc>email of mananger to search</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2596:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getManager/">
+                        <method displayName="getManager" id="2595" name="POST">
+                            <doc>Returns manager by email</doc>
+                            <request>
+                                <param name="email" required="true" style="query" type="xsd:string">
+                                    <doc>email of manager to search</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2595:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getLatecomersInfo/">
+                        <method displayName="getLatecomersInfo" id="2594" name="POST">
+                            <doc>Returns information about latecomers</doc>
+                            <request>
+                                <param name="datefrom" required="true" style="query" type="xsd:string">
+                                    <doc>start date</doc>
+                                </param>
+                                <param name="dateto" required="true" style="query" type="xsd:string">
+                                    <doc>end date</doc>
+                                </param>
+                                <param name="group" required="true" style="query" type="xsd:string">
+                                    <doc>iD of group to get stats data for</doc>
+                                </param>
+                                <param name="groupedby" required="true" style="query" type="xsd:string">
+                                    <doc>group result by day week month</doc>
+                                </param>
+                                <param name="user" required="true" style="query" type="xsd:string">
+                                    <doc>iD of user to get stats data for</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                    <resource uri="getGroups/">
+                        <method displayName="getGroups" id="2592" name="POST">
+                            <doc>Returns groups by passed parameters</doc>
+                            <request>
+                                <param name="searchdataCreated" required="true" style="query" type="xsd:string">
+                                    <doc>group creation date</doc>
+                                </param>
+                                <param name="searchdataManagerEmail" required="true" style="query" type="xsd:string">
+                                    <doc>email of manager of group</doc>
+                                </param>
+                                <param name="searchdataName" required="true" style="query" type="xsd:string">
+                                    <doc>name of group</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2592:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getGroup/">
+                        <method displayName="getGroup" id="2591" name="POST">
+                            <doc>Returns group by name</doc>
+                            <request>
+                                <param name="name" required="true" style="query" type="xsd:string">
+                                    <doc>name of group</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2591:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getDetailedReportByDay/">
+                        <method displayName="getDetailedReportByDay" id="2576" name="POST">
+                            <doc>Get detailed report for users by day</doc>
+                            <request>
+                                <param name="date" required="true" style="query" type="xsd:string">
+                                    <doc>date for which report will be generated</doc>
+                                </param>
+                                <param name="group" required="true" style="query" type="xsd:string">
+                                    <doc>iD of group to get data for</doc>
+                                </param>
+                                <param name="part" required="true" style="query" type="xsd:integer">
+                                    <doc/>
+                                </param>
+                                <param name="user" required="true" style="query" type="xsd:string">
+                                    <doc>iD of user to get stats data for</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2576:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getAbsentUsers/">
+                        <method displayName="getAbsentUsers" id="2573" name="POST">
+                            <doc>Returns users not being active today</doc>
+                            <request/>
+                            <response>
+                                <representation element="f2573:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="v2/">
+                    <resource uri="getPresentEmployees/">
+                        <method displayName="getPresentEmployees" id="2597" name="POST">
+                            <doc>Returns employees being active today</doc>
+                            <request/>
+                            <response>
+                                <representation element="f2597:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getGroupWorkedHours/">
+                        <method displayName="getGroupWorkedHours" id="2593" name="POST">
+                            <doc>Returns group worked time in seconds</doc>
+                            <request>
+                                <param name="datefrom" required="true" style="query" type="xsd:string">
+                                    <doc>start date</doc>
+                                </param>
+                                <param name="dateto" required="true" style="query" type="xsd:string">
+                                    <doc>end date</doc>
+                                </param>
+                                <param name="groupid" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2593:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getEmployeesWorkedHoursWithPreviousPeriod/">
+                        <method displayName="getEmployeesWorkedHoursWithPreviousPeriod" id="2590" name="POST">
+                            <doc>Returns the employee's total working hours over some period with previous period</doc>
+                            <request>
+                                <param name="datefrom" required="true" style="query" type="xsd:string">
+                                    <doc>start date</doc>
+                                </param>
+                                <param name="dateto" required="true" style="query" type="xsd:string">
+                                    <doc>end date</doc>
+                                </param>
+                                <param name="employeeid" required="true" style="query" type="xsd:string">
+                                    <doc>iD of employee to get stats data for</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2590:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getEmployeesWorkedHours/">
+                        <method displayName="getEmployeesWorkedHours" id="2589" name="POST">
+                            <doc>Returns the employee's total working hours over some period</doc>
+                            <request>
+                                <param name="datefrom" required="true" style="query" type="xsd:string">
+                                    <doc>start date</doc>
+                                </param>
+                                <param name="dateto" required="true" style="query" type="xsd:string">
+                                    <doc>end date</doc>
+                                </param>
+                                <param name="employeeid" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2589:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getEmployeeStatus/">
+                        <method displayName="getEmployeeStatus" id="2588" name="POST">
+                            <doc>Returns employees status by email</doc>
+                            <request>
+                                <param name="email" required="true" style="query" type="xsd:string">
+                                    <doc>employee s Email</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                    <resource uri="getEmployeesProductivityTime/">
+                        <method displayName="getEmployeesProductivityTime" id="2587" name="POST">
+                            <doc>Returns productivity time for user over some period</doc>
+                            <request>
+                                <param name="datefrom" required="true" style="query" type="xsd:string">
+                                    <doc>start date</doc>
+                                </param>
+                                <param name="dateto" required="true" style="query" type="xsd:string">
+                                    <doc>end date</doc>
+                                </param>
+                                <param name="limit" required="true" style="query" type="xsd:string">
+                                    <doc>numbers of users to be retrived</doc>
+                                </param>
+                                <param name="productivity" required="true" style="query" type="xsd:string">
+                                    <doc>type of productivity productive uncategorized distracting</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2587:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getEmployeesByLeftBeforeTimeYesterday/">
+                        <method displayName="getEmployeesByLeftBeforeTimeYesterday" id="2586" name="POST">
+                            <doc>Returns employees who left work earlier yesterday</doc>
+                            <request>
+                                <param name="limit" required="true" style="query" type="xsd:string">
+                                    <doc>number of user to be retrived</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2586:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getEmployeesByLeftBeforeTimeByPeriod/">
+                        <method displayName="getEmployeesByLeftBeforeTimeByPeriod" id="2585" name="POST">
+                            <doc>Returns employees who left work earlier and the number of violations over some period</doc>
+                            <request>
+                                <param name="datefrom" required="true" style="query" type="xsd:string">
+                                    <doc>start date</doc>
+                                </param>
+                                <param name="dateto" required="true" style="query" type="xsd:string">
+                                    <doc>end date</doc>
+                                </param>
+                                <param name="limit" required="true" style="query" type="xsd:string">
+                                    <doc>number of user to be retrived</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2585:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getEmployeesByLatenessToday/">
+                        <method displayName="getEmployeesByLatenessToday" id="2584" name="POST">
+                            <doc>Returns employees that were late today</doc>
+                            <request>
+                                <param name="limit" required="true" style="query" type="xsd:string">
+                                    <doc>number of employees to be retrieved</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2584:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getEmployeesByLatenessByPeriod/">
+                        <method displayName="getEmployeesByLatenessByPeriod" id="2583" name="POST">
+                            <doc>Get users that were late over some period</doc>
+                            <request>
+                                <param name="datefrom" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="dateto" required="true" style="query" type="xsd:string">
+                                    <doc>end date</doc>
+                                </param>
+                                <param name="limit" required="true" style="query" type="xsd:string">
+                                    <doc>number of employees to be retrieved</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2583:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getEmployees/">
+                        <method displayName="getEmployees" id="2582" name="POST">
+                            <doc>Returns employees by passed parameters</doc>
+                            <request>
+                                <param name="searchdataEmail" required="true" style="query" type="xsd:string">
+                                    <doc>email of employee</doc>
+                                </param>
+                                <param name="searchdataFirstname" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="searchdataLastname" required="true" style="query" type="xsd:string">
+                                    <doc>employess s lastname to search</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2582:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getEmployeeLastActivity/">
+                        <method displayName="getEmployeeLastActivity" id="2581" name="POST">
+                            <doc>Returns employees last activity date</doc>
+                            <request>
+                                <param name="email" required="true" style="query" type="xsd:string">
+                                    <doc>employee s Email</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                    <resource uri="getEmployee/">
+                        <method displayName="getEmployee" id="2580" name="POST">
+                            <doc>Returns employees by email</doc>
+                            <request>
+                                <param name="email" required="true" style="query" type="xsd:string">
+                                    <doc>employee s Email</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2580:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getDynamicByGroups/">
+                        <method displayName="getDynamicByGroups" id="2579" name="POST">
+                            <doc>Get dynamics of groups time over some period</doc>
+                            <request>
+                                <param name="considerweekends" required="true" style="query" type="xsd:string">
+                                    <doc>consider weekends when generating report</doc>
+                                </param>
+                                <param name="datefrom" required="true" style="query" type="xsd:string">
+                                    <doc>start date</doc>
+                                </param>
+                                <param name="dateto" required="true" style="query" type="xsd:string">
+                                    <doc>end date</doc>
+                                </param>
+                                <param name="groupedby" required="true" style="query" type="xsd:string">
+                                    <doc>group result by day week month</doc>
+                                </param>
+                                <param name="groups" required="true" style="query" type="xsd:string">
+                                    <doc>groups ID s to get stats data for</doc>
+                                </param>
+                                <param name="productivity" required="true" style="query" type="xsd:string">
+                                    <doc>type of productivity productive uncategorized distracting</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2579:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getDynamicByEmployees/">
+                        <method displayName="getDynamicByEmployees" id="2578" name="POST">
+                            <doc>Get dynamics of employees time over some period</doc>
+                            <request>
+                                <param name="considerweekends" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="datefrom" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="dateto" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="employees" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="groupedby" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="groups" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="productivity" required="true" style="query" type="xsd:string">
+                                    <doc>type of productivity productive uncategorized distarting</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2578:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getDynamicByCompany/">
+                        <method displayName="getDynamicByCompany" id="2577" name="POST">
+                            <doc>Get dynamics of company time over some period</doc>
+                            <request>
+                                <param name="considerweekends" required="true" style="query" type="xsd:boolean">
+                                    <doc>consider weekends when generating report</doc>
+                                </param>
+                                <param name="datefrom" required="true" style="query" type="xsd:string">
+                                    <doc>start date</doc>
+                                </param>
+                                <param name="dateto" required="true" style="query" type="xsd:string">
+                                    <doc>end date</doc>
+                                </param>
+                                <param name="groupedby" required="true" style="query" type="xsd:string">
+                                    <doc>group result by day week month</doc>
+                                </param>
+                                <param name="productivity" required="true" style="query" type="xsd:string">
+                                    <doc>type of productivity productive uncategorized distarting</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2577:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getCompanyWorkedHours/">
+                        <method displayName="getCompanyWorkedHours" id="2575" name="POST">
+                            <doc>Returns the company's worked hours over some period in seconds</doc>
+                            <request>
+                                <param name="datefrom" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="dateto" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2575:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getApplicationsProductivityTime/">
+                        <method displayName="getApplicationsProductivityTime" id="2574" name="POST">
+                            <doc>Returns applications name and total time use by productivity over some period sorted in descending order</doc>
+                            <request>
+                                <param name="datefrom" required="true" style="query" type="xsd:string">
+                                    <doc>start date</doc>
+                                </param>
+                                <param name="dateto" required="true" style="query" type="xsd:string">
+                                    <doc>end date</doc>
+                                </param>
+                                <param name="limit" required="true" style="query" type="xsd:string">
+                                    <doc>limit of applicationd that will be returned</doc>
+                                </param>
+                                <param name="productivity" required="true" style="query" type="xsd:string">
+                                    <doc>productivity of applications that will be returning Valid values productive uncategorized distracting</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2574:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="getAbsentEmployees/">
+                        <method displayName="getAbsentEmployees" id="2572" name="POST">
+                            <doc>Returns employees not being active today</doc>
+                            <request/>
+                            <response>
+                                <representation element="f2572:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

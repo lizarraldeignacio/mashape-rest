@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7036="urn:function:f7036" xmlns:f7037="urn:function:f7037" xmlns:f7038="urn:function:f7038" xmlns:f7039="urn:function:f7039" xmlns:f7040="urn:function:f7040" xmlns:f7041="urn:function:f7041" xmlns:f7042="urn:function:f7042" xmlns:f7043="urn:function:f7043" xmlns:f7044="urn:function:f7044" xmlns:f7045="urn:function:f7045" xmlns:f7046="urn:function:f7046" xmlns:f7047="urn:function:f7047" xmlns:f7049="urn:function:f7049" xmlns:f7050="urn:function:f7050" xmlns:f7051="urn:function:f7051" xmlns:f7052="urn:function:f7052" xmlns:f7053="urn:function:f7053" xmlns:f7054="urn:function:f7054" xmlns:f7055="urn:function:f7055" xmlns:f7056="urn:function:f7056" xmlns:f7057="urn:function:f7057" xmlns:f7058="urn:function:f7058" xmlns:f7059="urn:function:f7059" xmlns:f7060="urn:function:f7060" xmlns:f7061="urn:function:f7061" xmlns:f7062="urn:function:f7062" xmlns:f7063="urn:function:f7063" xmlns:f7064="urn:function:f7064" xmlns:f7065="urn:function:f7065" xmlns:f7066="urn:function:f7066" xmlns:f7067="urn:function:f7067" xmlns:f7068="urn:function:f7068" xmlns:f7069="urn:function:f7069" xmlns:f7070="urn:function:f7070" xmlns:f7071="urn:function:f7071" xmlns:f7072="urn:function:f7072" xmlns:f7073="urn:function:f7073" xmlns:f7074="urn:function:f7074" xmlns:f7075="urn:function:f7075" xmlns:f7076="urn:function:f7076" xmlns:f7077="urn:function:f7077" xmlns:f7078="urn:function:f7078" xmlns:f7079="urn:function:f7079" xmlns:f7080="urn:function:f7080" xmlns:f7081="urn:function:f7081" xmlns:f7082="urn:function:f7082" xmlns:f7083="urn:function:f7083" xmlns:f7084="urn:function:f7084" xmlns:f7085="urn:function:f7085" xmlns:f7087="urn:function:f7087" xmlns:f7088="urn:function:f7088" xmlns:f7089="urn:function:f7089" xmlns:f7090="urn:function:f7090" xmlns:f7091="urn:function:f7091" xmlns:f7092="urn:function:f7092" xmlns:f7093="urn:function:f7093" xmlns:f7094="urn:function:f7094">
+    <grammars>
+        <include href="Function7075.xsd"/>
+        <include href="Function7070.xsd"/>
+        <include href="Function7087.xsd"/>
+        <include href="Function7078.xsd"/>
+        <include href="Function7068.xsd"/>
+        <include href="Function7067.xsd"/>
+        <include href="Function7062.xsd"/>
+        <include href="Function7055.xsd"/>
+        <include href="Function7089.xsd"/>
+        <include href="Function7049.xsd"/>
+        <include href="Function7042.xsd"/>
+        <include href="Function7043.xsd"/>
+        <include href="Function7050.xsd"/>
+        <include href="Function7054.xsd"/>
+        <include href="Function7060.xsd"/>
+        <include href="Function7066.xsd"/>
+        <include href="Function7069.xsd"/>
+        <include href="Function7073.xsd"/>
+        <include href="Function7074.xsd"/>
+        <include href="Function7076.xsd"/>
+        <include href="Function7090.xsd"/>
+        <include href="Function7091.xsd"/>
+        <include href="Function7092.xsd"/>
+        <include href="Function7093.xsd"/>
+        <include href="Function7094.xsd"/>
+        <include href="Function7036.xsd"/>
+        <include href="Function7037.xsd"/>
+        <include href="Function7038.xsd"/>
+        <include href="Function7039.xsd"/>
+        <include href="Function7040.xsd"/>
+        <include href="Function7041.xsd"/>
+        <include href="Function7044.xsd"/>
+        <include href="Function7045.xsd"/>
+        <include href="Function7046.xsd"/>
+        <include href="Function7047.xsd"/>
+        <include href="Function7051.xsd"/>
+        <include href="Function7052.xsd"/>
+        <include href="Function7053.xsd"/>
+        <include href="Function7056.xsd"/>
+        <include href="Function7057.xsd"/>
+        <include href="Function7058.xsd"/>
+        <include href="Function7059.xsd"/>
+        <include href="Function7061.xsd"/>
+        <include href="Function7063.xsd"/>
+        <include href="Function7064.xsd"/>
+        <include href="Function7065.xsd"/>
+        <include href="Function7071.xsd"/>
+        <include href="Function7072.xsd"/>
+        <include href="Function7077.xsd"/>
+        <include href="Function7079.xsd"/>
+        <include href="Function7080.xsd"/>
+        <include href="Function7081.xsd"/>
+        <include href="Function7082.xsd"/>
+        <include href="Function7083.xsd"/>
+        <include href="Function7084.xsd"/>
+        <include href="Function7085.xsd"/>
+        <include href="Function7088.xsd"/>
+    </grammars>
+    <doc>moxtra delivers a mobile first collaboration platform that can be embedded within existing applications allowing developers to deploy a powerful mobile solution quickly and affordably without long development cycles We transform innovative mobile apps and legacy software solutions alike into tools for social business keeping distributed teams engaged and productive inside their existing workflow</doc>
+    <resources base="https://moxtra.p.mashape.com/">
+        <resource uri="search?query={query_string}/">
+            <param name="query_string" style="template" type="xsd:string"/>
+            <method displayName="Global Search in Moxtra" id="7075" name="GET">
+                <doc>Search by {query_string}, the query string can be separated by space for OR operations</doc>
+                <request>
+                    <param name="queryString" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7075:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="notes/">
+            <resource uri="recordings/">
+                <resource uri="{session_key}/">
+                    <param name="session_key" style="template" type="xsd:string"/>
+                    <method displayName="Get Note Recording" id="7070" name="GET">
+                        <doc>Get the note recording details after the note is saved, use this to download the note recording identified by {session_key}. Note: Note recording will only be available if it is recorded and it will be available for download approximately 15 mins after the Note is finished. For longer recording it might take more time before the recording is available for download. This API can only be used through the user who started the note.</doc>
+                        <request>
+                            <param name="sessionKey" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f7070:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="meets/">
+            <resource uri="schedule/">
+                <method displayName="Schedule Meet" id="7087" name="POST">
+                    <doc>Schedule a meet for future time</doc>
+                    <request/>
+                    <response>
+                        <representation element="f7087:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="inviteuser/">
+                <method displayName="Invite users to Meet" id="7078" name="POST">
+                    <doc>Invite users to join meet via email or unique_id</doc>
+                    <request/>
+                    <response>
+                        <representation element="f7078:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="status/">
+                <resource uri="{session_key}/">
+                    <param name="session_key" style="template" type="xsd:string"/>
+                    <method displayName="Get Meet Status" id="7068" name="GET">
+                        <doc>Get the meet status identified by {session_key}. The status values are SESSION_STARTED, SESSION_SCHEDULED, SESSION_ENDED, or SESSION_DELETED</doc>
+                        <request>
+                            <param name="sessionKey" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f7068:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="recordings/">
+                <resource uri="{session_key}/">
+                    <param name="session_key" style="template" type="xsd:string"/>
+                    <method displayName="Get Meet Recording" id="7067" name="GET">
+                        <doc>Get the meet recording details after the meet is ended, use this to download the meet recording identified by {session_key}. Note: Meet recording will only be available if it is recorded and it will be available for download approximately 15 mins after the meeting is ended. For longer meetings it might take more time before the recording is available for download. This API can only be used through the user who hosted the meet.</doc>
+                        <request>
+                            <param name="sessionKey" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f7067:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="downloadICS/">
+                <resource uri="{session_key}/">
+                    <param name="session_key" style="template" type="xsd:string"/>
+                    <method displayName="Download Meet Calendar ICS file" id="7062" name="GET">
+                        <doc>Download the Calendar ICS file for scheduled meeting identified by {session_key}</doc>
+                        <request>
+                            <param name="sessionKey" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f7062:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="{session_key}/">
+                <param name="session_key" style="template" type="xsd:string"/>
+                <method displayName="Delete Meet" id="7055" name="DELETE">
+                    <doc>Delete a meet identified by {session_key}</doc>
+                    <request>
+                        <param name="sessionKey" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f7055:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Update Meet" id="7089" name="POST">
+                    <doc>Update a scheduled meet identified by {session_key}</doc>
+                    <request>
+                        <param name="sessionKey" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f7089:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="me/">
+            <resource uri="binders/">
+                <method displayName="Create Binder" id="7049" name="POST">
+                    <doc>Create a binder identified by {user_id}</doc>
+                    <request/>
+                    <response>
+                        <representation element="f7049:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="{user_id}/">
+            <param name="user_id" style="template" type="xsd:string"/>
+            <method displayName="Assign Binders to a Category" id="7042" name="POST">
+                <doc>Assign binders to a category identified by {user_id} and {category_id}</doc>
+                <request>
+                    <param name="categoryId" required="true" style="query" type="xsd:string"/>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>binder Id</doc>
+                    </param>
+                    <param name="userId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7042:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Binder List" id="7043" name="GET">
+                <doc>Get binder list identified by {user_id}</doc>
+                <request>
+                    <param name="userId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7043:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Create Category" id="7050" name="POST">
+                <doc>Create category identified by {user_id}</doc>
+                <request>
+                    <param name="userId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7050:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete Category" id="7054" name="DELETE">
+                <doc>Delete a category identified by {user_id} and {category_id}</doc>
+                <request>
+                    <param name="categoryId" required="true" style="query" type="xsd:string"/>
+                    <param name="userId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7054:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete User picture" id="7060" name="DELETE">
+                <doc>Delete a user's propfile picture identified by {user_id}.</doc>
+                <request>
+                    <param name="userId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7060:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Categories" id="7066" name="GET">
+                <doc>Get all categories identified by {user_id}</doc>
+                <request>
+                    <param name="userId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7066:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Meets List" id="7069" name="GET">
+                <doc>Get meets list identified by {user_id}</doc>
+                <request>
+                    <param name="userId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7069:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get User" id="7073" name="GET">
+                <doc>Get the contents of a user object identified by {user_id}</doc>
+                <request>
+                    <param name="userId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7073:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get User Contacts" id="7074" name="GET">
+                <doc>Get a user's contact list by {user_id}</doc>
+                <request>
+                    <param name="userId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7074:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Invite Contacts via Email" id="7076" name="POST">
+                <doc>Invite users to become contacts of the user identified by {user_id} via email.</doc>
+                <request>
+                    <param name="userId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7076:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Rename Category" id="7086" name="POST">
+                <doc>Rename a category name identified by {user_id} and {category_id}</doc>
+                <request>
+                    <param name="userId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Update user profile" id="7090" name="POST">
+                <doc>Update a user identified by {user_id} with input new value(s).</doc>
+                <request>
+                    <param name="userId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7090:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Upload User Picture" id="7091" name="POST">
+                <doc>Upload a user's propfile picture identified by {user_id} via multipart/form-data.</doc>
+                <request>
+                    <param name="userId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7091:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="User Picture" id="7092" name="GET">
+                <doc>Get a user's profile picture identified by {user_id}</doc>
+                <request>
+                    <param name="userId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7092:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="User timeline" id="7093" name="GET">
+                <doc>Get a user's timeline for all activities in Moxtra identified by {user_id}. The feed result is in an Activity Stream format.</doc>
+                <request>
+                    <param name="userId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7093:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="User unread feeds" id="7094" name="GET">
+                <doc>Get the number of a user's unread feeds identified by {user_id}</doc>
+                <request>
+                    <param name="userId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7094:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="{binder_id}/">
+            <param name="binder_id" style="template" type="xsd:string"/>
+            <method displayName="Add a Todo item" id="7036" name="POST">
+                <doc>Add a todo item in the binder identified by {binder_id}</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7036:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Add Annotation" id="7037" name="POST">
+                <doc>Add annotation to a page identified by {page_id} and {binder_id}</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                    <param name="pageId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7037:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Add Message to Binder Chat" id="7038" name="POST">
+                <doc>Add a message to a binder chat identified by {binder_id}</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7038:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Add Page Comment" id="7039" name="POST">
+                <doc>Add a comment to the page identified by {page_id} and {binder_id}</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                    <param name="pageId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7039:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Add team users to a binder" id="7040" name="POST">
+                <doc>Add users from the same team into the binder identified by {binder_id}</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7040:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Add Web Link Page" id="7041" name="POST">
+                <doc>Add a web link kpage into the binder identified by {binder_id}</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7041:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Binder View Only Link" id="7044" name="GET">
+                <doc>Get a view only link for the binder identified by {binder_id}</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                    <param name="filter" required="true" style="query" type="xsd:string">
+                        <doc>page IDs separated by comma</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f7044:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Clone binder" id="7045" name="POST">
+                <doc>Duplicate/Clone the binder identified by {binder_id}</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7045:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Copy Pages to Binder" id="7046" name="POST">
+                <doc>Copy all pages from one binder to another binder identified by {binder_id}</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7046:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Copy Some Pages to Binder" id="7047" name="POST">
+                <doc>Copy some pages from one binder to another binder identified by {binder_id}</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7047:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Cover Upload" id="7048" name="POST">
+                <doc>Upload binder cover image to the binder identified by {binder_id} via multipart/form-data</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Delete a binder" id="7051" name="DELETE">
+                <doc>Delete a binder identified by {binder_id}</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7051:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete a Todo item" id="7052" name="DELETE">
+                <doc>Delete a todo item in the binder identified by {binder_id} &amp; {todo_id}</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                    <param name="todoId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7052:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete Annotation" id="7053" name="DELETE">
+                <doc>Delete annotation on the page identified by {client_uuid}, {page_id} and {binder_id}</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                    <param name="clientUuid" required="true" style="query" type="xsd:string"/>
+                    <param name="pageId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7053:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete Message in Binder Chat" id="7056" name="DELETE">
+                <doc>Delete a message in binder chat identified by {binder_id} &amp; {comment_id}</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                    <param name="commentId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7056:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete Page" id="7057" name="DELETE">
+                <doc>Delete a page identified by {binder_id} and {page_id}</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                    <param name="pageId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7057:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete Page Comment" id="7058" name="DELETE">
+                <doc>Delete a comment on the page identified by {comment_id}, {page_id} and {binder_id}</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                    <param name="commentId" required="true" style="query" type="xsd:string"/>
+                    <param name="pageId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7058:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete Some Pages" id="7059" name="DELETE">
+                <doc>Delete some pages in a binder identified by {binder_id}</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                    <param name="filter" required="true" style="query" type="xsd:string">
+                        <doc>page IDs separated by comma</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f7059:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Download binder pages" id="7061" name="GET">
+                <doc>Download binder pages</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                    <param name="filter" required="true" style="query" type="xsd:string">
+                        <doc>page IDs separated by comma</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f7061:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get All Pages" id="7063" name="GET">
+                <doc>Get the details of all the pages in a binder identified by {binder_id}</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7063:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Binder Conversations" id="7064" name="GET">
+                <doc>Get the conversations ins a binder identified by {binder_id}. The feed result is in Activity Stream format.</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                    <param name="count" required="true" style="query" type="xsd:integer">
+                        <doc>maximum number of feeds</doc>
+                    </param>
+                    <param name="timestamp" required="true" style="query" type="xsd:integer">
+                        <doc>feeds after the specified time in milliseconds since</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f7064:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Binder details" id="7065" name="GET">
+                <doc>Get binder details identified by {binder_id}</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7065:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Page Comments" id="7071" name="GET">
+                <doc>Get the comments on a page identified by {page_id} and {binder_id}</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                    <param name="pageId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7071:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Some Pages" id="7072" name="GET">
+                <doc>Get the details of some pages in a binder identified by {binder_id}</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                    <param name="filter" required="true" style="query" type="xsd:string">
+                        <doc>page IDs separated by comma</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f7072:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Invite user to a binder" id="7077" name="POST">
+                <doc>Invite users to join the binder identified by {binder_id} via email or unique_id</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7077:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List Todo items in the binder" id="7079" name="GET">
+                <doc>Get all todo items in the binder identified by {binder_id}</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7079:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Move Some Pages to Binder" id="7080" name="POST">
+                <doc>Move some pages from one binder to another binder identified by {binder_id}</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7080:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Page Download" id="7081" name="GET">
+                <doc>Download a page identified by {binder_id} and {page_id}</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                    <param name="pageId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7081:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Page Upload" id="7082" name="POST">
+                <doc>Upload pages to the binder identified by {binder_id} via multipart / form-data</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7082:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Remove user from binder with email" id="7083" name="POST">
+                <doc>Remove an user from a binder identified by {binder_id} with email</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7083:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Remove user from binder with unique id" id="7084" name="POST">
+                <doc>Remove user from binder with unique id</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7084:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Rename a binder" id="7085" name="POST">
+                <doc>Rename a binder name identified by {binder_id}</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7085:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update a Todo item" id="7088" name="POST">
+                <doc>Update a todo item in the binder identified by {binder_id} &amp; {todo_id</doc>
+                <request>
+                    <param name="binderId" required="true" style="query" type="xsd:string"/>
+                    <param name="todoId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7088:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

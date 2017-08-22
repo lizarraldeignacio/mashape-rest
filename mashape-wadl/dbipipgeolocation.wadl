@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1495="urn:function:f1495" xmlns:f1496="urn:function:f1496">
+    <grammars>
+        <include href="Function1496.xsd"/>
+        <include href="Function1495.xsd"/>
+    </grammars>
+    <doc>lookup geographical location data like country code state and city by IPv or IPv address</doc>
+    <resources base="https://dbip.p.mashape.com/">
+        <resource uri="addrinfo/">
+            <method displayName="Lookup IP Address" id="1496" name="GET">
+                <request>
+                    <param name="addr" required="true" style="query" type="xsd:string">
+                        <doc>iP address to look up</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1496:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="keyinfo/">
+            <method displayName="Key Information" id="1495" name="GET">
+                <request/>
+                <response>
+                    <representation element="f1495:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

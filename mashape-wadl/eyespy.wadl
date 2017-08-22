@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6806="urn:function:f6806">
+    <grammars>
+        <include href="Function6806.xsd"/>
+    </grammars>
+    <doc>eyeSpy is the world s best object recognition technology The EyeSpy API powers this technology and allows developers the ability to incorporate the EyeSpy object recognition technology into their own apps and web applications</doc>
+    <resources base="https://eyespy-eyespy-v1.p.mashape.com/">
+        <resource uri="identify/">
+            <method displayName="Identify an object in an image" id="6806" name="POST">
+                <doc>This endpoint allows you to upload an image so EyeSpy's technology can identify the object in the image. To ensure better results, you should crop the image and select the exact object that you want to identify.</doc>
+                <request/>
+                <response>
+                    <representation element="f6806:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

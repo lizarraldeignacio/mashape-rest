@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4770="urn:function:f4770" xmlns:f4771="urn:function:f4771" xmlns:f4772="urn:function:f4772">
+    <grammars>
+        <include href="Function4772.xsd"/>
+        <include href="Function4770.xsd"/>
+        <include href="Function4771.xsd"/>
+    </grammars>
+    <doc>namSor Parse API detects the likely structure of international names it will determine the most likely order and splitting of a personal name as first name and last name It takes into account culture language and origin</doc>
+    <resources base="https://namsor-parse-names-v1.p.mashape.com/">
+        <resource uri="json/">
+            <resource uri="parseList/">
+                <method displayName="parseNamesList" id="4772" name="POST">
+                    <doc>Determine the likely structure of up to 1000 names at a time. When a large list of names is processed (100-1000 names), you can specify how the list of names should be handled using nameFormatTip. Possible values:  •	ORDER_FNLN, // firstName first •	ORDER_LNFN, // lastName first •	ORDER_FNLN_OR_LNFN, // make best guess, individually name by name •	ORDER_FNLN_OR_LNFN_ALLSAME // make best guess and apply to ALL the names (if most names are FNLN, then ALL names will be considered FNLN)</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4772:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="parse/">
+                <resource uri="{fullname}/">
+                    <param name="fullname" style="template" type="xsd:string"/>
+                    <method displayName="parseName" id="4770" name="GET">
+                        <doc>Parse a name into its likely firstName, lastName components.</doc>
+                        <request>
+                            <param name="fullname" required="true" style="query" type="xsd:string">
+                                <doc>a full name excluding title information ex John H Smith or SMITH John</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4770:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="parseNameGeo" id="4771" name="GET">
+                        <doc>Parse a name, knowing a local context (country ISO2 code), into its likely first name, last name components.</doc>
+                        <request>
+                            <param name="countryiso" required="true" style="query" type="xsd:string">
+                                <doc>the locale context if known as Country ISO Code ex US FR DE etc</doc>
+                            </param>
+                            <param name="fullname" required="true" style="query" type="xsd:string">
+                                <doc>a full name excluding title information ex John H Smith or SMITH John</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4771:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

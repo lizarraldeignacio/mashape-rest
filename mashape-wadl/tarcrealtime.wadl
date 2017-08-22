@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6502="urn:function:f6502">
+    <grammars>
+        <include href="Function6502.xsd"/>
+    </grammars>
+    <doc>real time GPS location of Louisville TARC transportation system busses from GTFS feed Easy to consume JSON format updated every minute Not affiliated with TARC</doc>
+    <resources base="https://tarc.p.mashape.com/">
+        <resource uri="routestops/">
+            <method displayName="RouteStops" id="6504" name="GET">
+                <doc>KML of next stops along a route</doc>
+                <request>
+                    <param name="color" required="true" style="query" type="xsd:string">
+                        <doc>digit hex color of the route</doc>
+                    </param>
+                    <param name="trip" required="true" style="query" type="xsd:string">
+                        <doc>trip ID to show</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="route/">
+            <method displayName="Route" id="6503" name="GET">
+                <doc>KML overlay of a specific bus route.</doc>
+                <request>
+                    <param name="color" required="true" style="query" type="xsd:string">
+                        <doc>digit hex color of the route</doc>
+                    </param>
+                    <param name="trip" required="true" style="query" type="xsd:string">
+                        <doc>trip ID to show</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="busses/">
+            <method displayName="Busses" id="6502" name="GET">
+                <doc>Location of all busses from most recent GPS check-ins</doc>
+                <request/>
+                <response>
+                    <representation element="f6502:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

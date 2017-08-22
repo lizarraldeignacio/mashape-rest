@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f753="urn:function:f753">
+    <grammars>
+        <include href="Function753.xsd"/>
+    </grammars>
+    <doc>the Have I been pwned service allows you to search for accounts usernames and email addresses that have appeared in data breaches that the attackers have made public</doc>
+    <resources base="https://troyhunt-have-i-been-pwned.p.mashape.com/">
+        <resource uri="v2/">
+            <resource uri="breachedaccount/">
+                <resource uri="{account}/">
+                    <param name="account" style="template" type="xsd:string"/>
+                    <method displayName="Get breached sites for account" id="753" name="GET">
+                        <doc>The most common use of the API is to return a list of all breaches a particular account has been involved in. The API takes a single parameter which is the account to be searched for. The account is not case sensitive and will be trimmed of leading or trailing white spaces. The account should always be URL encoded.</doc>
+                        <request>
+                            <param name="account" required="true" style="query" type="xsd:string">
+                                <doc>the username or email to be tested</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f753:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

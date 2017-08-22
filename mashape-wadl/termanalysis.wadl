@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2848="urn:function:f2848">
+    <grammars>
+        <include href="Function2848.xsd"/>
+    </grammars>
+    <doc>given a text this API returns the lemmatized text</doc>
+    <resources base="https://enclout-term-analysis.p.mashape.com/">
+        <resource uri="show.json/">
+            <method displayName="Term" id="2848" name="GET">
+                <doc>Given a text, this API returns lemma text</doc>
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>text that needs to be lemmatized</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2848:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

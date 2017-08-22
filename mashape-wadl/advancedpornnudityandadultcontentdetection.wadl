@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f143="urn:function:f143">
+    <grammars>
+        <include href="Function143.xsd"/>
+    </grammars>
+    <doc>advanced porn and Nudity detection from submitted image Urls Find if the skin tone present in the image is high than a normal level Also detect if the url contains a bad keyword in it Keywords nude nudity detection nudity recognition nudity filter porn detection porn filter image protection image analysis image detection adult filter bad image kids protection</doc>
+    <resources base="https://sphirelabs-advanced-porn-nudity-and-adult-content-detection.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="get/">
+                <resource uri="index.php/">
+                    <method displayName="Nudity Check" id="143" name="GET">
+                        <doc>Find the nudity rate by analysing the skin tone and bad words.</doc>
+                        <request>
+                            <param name="url" required="true" style="query" type="xsd:string">
+                                <doc>the url to anaylse</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f143:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

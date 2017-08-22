@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f320="urn:function:f320">
+    <grammars>
+        <include href="Function320.xsd"/>
+    </grammars>
+    <doc>check any BSNL Prepaid Mobile number s account information like current balance expiry date using this api</doc>
+    <resources base="https://bsnlaccountinfo.p.mashape.com/">
+        <resource uri="index.php/">
+            <method displayName="BSNL Account Info" id="320" name="GET">
+                <doc>Check any BSNL (Prepaid) Mobile Number's Account Information.</doc>
+                <request>
+                    <param name="mobileno" required="true" style="query" type="xsd:integer">
+                        <doc>digit mobile number</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f320:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

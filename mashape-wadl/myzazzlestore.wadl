@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>with MYZazzleStore SERVICE it s really simple to add a gift shop to your web application for your users With a simple call internet link you can give your users the opportunity to purchase T shirts personalized mugs iphone ipad covers and other types of gifts It also allows you to increase financial gains and increase the popularity of your products</doc>
+    <resources base="https://myzazzlestore.p.mashape.com/">
+        <resource uri="myzazzlestore.aspx/">
+            <method displayName="MyZazzleStore" id="3943" name="GET">
+                <request>
+                    <param name="a" required="true" style="query" type="xsd:string">
+                        <doc>your Zazzle ID</doc>
+                    </param>
+                    <param name="i" required="true" style="query" type="xsd:string">
+                        <doc>image URL</doc>
+                    </param>
+                    <param name="p" required="true" style="query" type="xsd:string">
+                        <doc>product ID</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

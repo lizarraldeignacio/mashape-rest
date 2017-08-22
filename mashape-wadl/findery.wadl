@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4928="urn:function:f4928" xmlns:f4929="urn:function:f4929" xmlns:f4930="urn:function:f4930" xmlns:f4931="urn:function:f4931" xmlns:f4932="urn:function:f4932" xmlns:f4933="urn:function:f4933" xmlns:f4934="urn:function:f4934" xmlns:f4935="urn:function:f4935" xmlns:f4936="urn:function:f4936" xmlns:f4937="urn:function:f4937" xmlns:f4938="urn:function:f4938" xmlns:f4939="urn:function:f4939" xmlns:f4940="urn:function:f4940" xmlns:f4941="urn:function:f4941" xmlns:f4942="urn:function:f4942" xmlns:f4943="urn:function:f4943" xmlns:f4944="urn:function:f4944" xmlns:f4945="urn:function:f4945" xmlns:f4946="urn:function:f4946" xmlns:f4947="urn:function:f4947" xmlns:f4948="urn:function:f4948" xmlns:f4949="urn:function:f4949" xmlns:f4950="urn:function:f4950" xmlns:f4951="urn:function:f4951" xmlns:f4952="urn:function:f4952" xmlns:f4953="urn:function:f4953" xmlns:f4954="urn:function:f4954" xmlns:f4955="urn:function:f4955" xmlns:f4956="urn:function:f4956" xmlns:f4957="urn:function:f4957" xmlns:f4958="urn:function:f4958" xmlns:f4959="urn:function:f4959" xmlns:f4960="urn:function:f4960" xmlns:f4961="urn:function:f4961" xmlns:f4962="urn:function:f4962" xmlns:f4963="urn:function:f4963" xmlns:f4964="urn:function:f4964" xmlns:f4965="urn:function:f4965">
+    <grammars>
+        <include href="Function4954.xsd"/>
+        <include href="Function4947.xsd"/>
+        <include href="Function4946.xsd"/>
+        <include href="Function4958.xsd"/>
+        <include href="Function4953.xsd"/>
+        <include href="Function4950.xsd"/>
+        <include href="Function4949.xsd"/>
+        <include href="Function4948.xsd"/>
+        <include href="Function4940.xsd"/>
+        <include href="Function4959.xsd"/>
+        <include href="Function4965.xsd"/>
+        <include href="Function4929.xsd"/>
+        <include href="Function4930.xsd"/>
+        <include href="Function4932.xsd"/>
+        <include href="Function4933.xsd"/>
+        <include href="Function4935.xsd"/>
+        <include href="Function4936.xsd"/>
+        <include href="Function4938.xsd"/>
+        <include href="Function4941.xsd"/>
+        <include href="Function4942.xsd"/>
+        <include href="Function4943.xsd"/>
+        <include href="Function4944.xsd"/>
+        <include href="Function4945.xsd"/>
+        <include href="Function4960.xsd"/>
+        <include href="Function4961.xsd"/>
+        <include href="Function4963.xsd"/>
+        <include href="Function4928.xsd"/>
+        <include href="Function4931.xsd"/>
+        <include href="Function4934.xsd"/>
+        <include href="Function4937.xsd"/>
+        <include href="Function4939.xsd"/>
+        <include href="Function4951.xsd"/>
+        <include href="Function4952.xsd"/>
+        <include href="Function4955.xsd"/>
+        <include href="Function4956.xsd"/>
+        <include href="Function4957.xsd"/>
+        <include href="Function4962.xsd"/>
+        <include href="Function4964.xsd"/>
+    </grammars>
+    <doc>at Findery we love sharing interesting stories about places around the world Up until now the only way to join the party was through Findery com or our apps Now there s a backstage pass with the Findery API Using the Findery API developers can integrate with Findery Create Findery notes for any location gather notes into collections we call them notemaps and discover interesting places nearby The Findery API is free and includes endpoints for notes notemaps comments users following and more What can I do with the API With the Findery API you can take advantage of our great content near and far Get nearby notes for local discovery tourism or the awesome tidbits you won t find in history books Display notes about your business to show how much customers love you Create a notemap full of hidden treasures to visit We look forward to finding new uses for Findery How do I get started The Findery API is free and easy If you have experience with APIs you should feel right at home The Findery API implements the OAuth standard for secure authentication and authorization and uses SSL for communication Get started by registering your app It only takes a few minutes Feel free to ask us questions on Stack Overflow</doc>
+    <resources base="https://findery-findery-v1.p.mashape.com/">
+        <resource uri="tags/">
+            <resource uri="{tag_name}/">
+                <param name="tag_name" style="template" type="xsd:string"/>
+                <resource uri="notes/">
+                    <method displayName="Get notes by tag" id="4954" name="GET">
+                        <doc>Get notes by tag</doc>
+                        <request>
+                            <param name="tagName" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4954:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="users/">
+            <resource uri="by_username/">
+                <resource uri="{username}/">
+                    <param name="username" style="template" type="xsd:string"/>
+                    <method displayName="Get a user by username" id="4947" name="GET">
+                        <doc>Get a user by username</doc>
+                        <request>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4947:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Get a user" id="4946" name="GET">
+                    <doc>Get a user</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4946:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="{user_id}/">
+                <param name="user_id" style="template" type="xsd:string"/>
+                <resource uri="following/">
+                    <method displayName="Get users a user is following." id="4958" name="GET">
+                        <doc>Get users a user is following.</doc>
+                        <request>
+                            <param name="userId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4958:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="followed_maps/">
+                    <method displayName="Get notemaps a user follows" id="4953" name="GET">
+                        <doc>Get notemaps a user follows</doc>
+                        <request>
+                            <param name="userId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4953:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="notes/">
+                    <method displayName="Get a user's notes." id="4950" name="GET">
+                        <doc>Get a user's notes.</doc>
+                        <request>
+                            <param name="userId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4950:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="notemaps/">
+                    <method displayName="Get a user's notemaps." id="4949" name="GET">
+                        <doc>Get a user's notemaps.</doc>
+                        <request>
+                            <param name="userId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4949:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="favorites/">
+                    <method displayName="Get a user's favorite notes." id="4948" name="GET">
+                        <doc>Get a user's favorite notes.</doc>
+                        <request>
+                            <param name="userId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4948:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="followers/">
+                    <method displayName="Follow a user" id="4940" name="POST">
+                        <doc>Follow a user</doc>
+                        <request>
+                            <param name="userId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4940:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Get users that follow user" id="4959" name="GET">
+                        <doc>Get users that follow user</doc>
+                        <request>
+                            <param name="userId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4959:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Unfollow a user" id="4965" name="DELETE">
+                        <doc>Unfollow a user</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                            <param name="userId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4965:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="notes/">
+            <method displayName="Create a comment" id="4929" name="POST">
+                <doc>Create a comment</doc>
+                <request>
+                    <param name="noteId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4929:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Create a note" id="4930" name="POST">
+                <doc>Create a note</doc>
+                <request/>
+                <response>
+                    <representation element="f4930:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete a comment" id="4932" name="DELETE">
+                <doc>Delete a comment</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                    <param name="noteId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4932:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete a note." id="4933" name="DELETE">
+                <doc>Delete a note.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4933:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Edit a comment" id="4935" name="PUT">
+                <doc>Edit a comment</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                    <param name="noteId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4935:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Edit a note." id="4936" name="PUT">
+                <doc>Edit a note.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4936:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Favorite a note" id="4938" name="POST">
+                <doc>Favorite a note</doc>
+                <request>
+                    <param name="noteId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4938:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get a comment" id="4941" name="GET">
+                <doc>Get a comment</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                    <param name="noteId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4941:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get a list of comments for a note" id="4942" name="GET">
+                <doc>Get a list of comments for a note</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4942:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get a list of notes" id="4943" name="GET">
+                <doc>Get a list of notes Method &amp; URL</doc>
+                <request/>
+                <response>
+                    <representation element="f4943:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get a list of tags for a note" id="4944" name="GET">
+                <doc>Get a list of tags for a note</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4944:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get a note" id="4945" name="GET">
+                <doc>Get a note</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4945:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get users that have found a note" id="4960" name="GET">
+                <doc>Get users that have found a note</doc>
+                <request>
+                    <param name="noteId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4960:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get users who've favorited a note" id="4961" name="GET">
+                <doc>Get users who've favorited a note</doc>
+                <request>
+                    <param name="noteId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4961:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Unfavorite a note" id="4963" name="DELETE">
+                <doc>Unfavorite a note</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                    <param name="noteId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4963:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="notemaps/">
+            <method displayName="Add a note to a notemap" id="4928" name="POST">
+                <doc>Add a note to a notemap</doc>
+                <request>
+                    <param name="notemapId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4928:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Create a notemap" id="4931" name="POST">
+                <doc>Create a notemap</doc>
+                <request/>
+                <response>
+                    <representation element="f4931:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete a notemap" id="4934" name="DELETE">
+                <doc>Delete a notemap</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4934:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Edit a notemap" id="4937" name="PUT">
+                <doc>Edit a notemap</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4937:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Follow a notemap" id="4939" name="POST">
+                <doc>Follow a notemap</doc>
+                <request>
+                    <param name="notemapId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4939:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get notemap" id="4951" name="GET">
+                <doc>Get notemap</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4951:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get notemaps" id="4952" name="GET">
+                <doc>Get notemaps</doc>
+                <request>
+                    <param name="bounds" required="true" style="query" type="xsd:string">
+                        <doc>a coordinate box created by the northwest X Y and southeast X Y coordinates of the box in the format X Y X Y</doc>
+                    </param>
+                    <param name="latitude" required="true" style="query" type="xsd:string">
+                        <doc>latitude of a geopoint Notes near this geopoint will be returned</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>defaults to</doc>
+                    </param>
+                    <param name="longitude" required="true" style="query" type="xsd:string">
+                        <doc>longitude of a geopoint Notes near this geopoint will be returned</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4952:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get notes from a notemap" id="4955" name="GET">
+                <doc>Get notes from a notemap</doc>
+                <request>
+                    <param name="notemapId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4955:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get tags used in the notes in the notemap" id="4956" name="GET">
+                <doc>Get tags used in the notes in the notemap</doc>
+                <request>
+                    <param name="notemapId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4956:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get the followers for a notemap" id="4957" name="GET">
+                <doc>Get the followers for a notemap</doc>
+                <request>
+                    <param name="notemapId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4957:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Remove a note from a notemap" id="4962" name="DELETE">
+                <doc>Remove a note from a notemap</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                    <param name="notemapId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4962:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Unfollow a notemap" id="4964" name="DELETE">
+                <doc>Unfollow a notemap</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                    <param name="notemapId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4964:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

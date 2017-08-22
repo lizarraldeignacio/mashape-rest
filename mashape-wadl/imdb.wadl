@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f321="urn:function:f321">
+    <grammars>
+        <include href="Function321.xsd"/>
+    </grammars>
+    <doc>an Unofficial API for IMDb com Use it to collect data from IMDb</doc>
+    <resources base="https://imdb.p.mashape.com/">
+        <resource uri="movie/">
+            <method displayName="movie" id="321" name="POST">
+                <doc>Query for a movie/TV show</doc>
+                <request/>
+                <response>
+                    <representation element="f321:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4027="urn:function:f4027">
+    <grammars>
+        <include href="Function4027.xsd"/>
+    </grammars>
+    <doc>extract direct links to videos for many popular video hosting sites e g Youku Tudou Sohu Iqiyi Letv YouTube Vimeo etc</doc>
+    <resources base="https://flvgo.p.mashape.com/">
+        <resource uri="download/">
+            <method displayName="Download" id="4027" name="POST">
+                <request/>
+                <response>
+                    <representation element="f4027:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

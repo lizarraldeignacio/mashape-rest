@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1103="urn:function:f1103" xmlns:f1104="urn:function:f1104" xmlns:f1105="urn:function:f1105" xmlns:f1106="urn:function:f1106" xmlns:f1107="urn:function:f1107" xmlns:f1108="urn:function:f1108" xmlns:f1109="urn:function:f1109" xmlns:f1110="urn:function:f1110" xmlns:f1111="urn:function:f1111" xmlns:f1112="urn:function:f1112" xmlns:f1113="urn:function:f1113" xmlns:f1114="urn:function:f1114" xmlns:f1115="urn:function:f1115" xmlns:f1116="urn:function:f1116" xmlns:f1117="urn:function:f1117" xmlns:f1118="urn:function:f1118" xmlns:f1119="urn:function:f1119" xmlns:f1120="urn:function:f1120">
+    <grammars>
+        <include href="Function1120.xsd"/>
+        <include href="Function1119.xsd"/>
+        <include href="Function1118.xsd"/>
+        <include href="Function1117.xsd"/>
+        <include href="Function1116.xsd"/>
+        <include href="Function1115.xsd"/>
+        <include href="Function1114.xsd"/>
+        <include href="Function1113.xsd"/>
+        <include href="Function1112.xsd"/>
+        <include href="Function1111.xsd"/>
+        <include href="Function1110.xsd"/>
+        <include href="Function1109.xsd"/>
+        <include href="Function1108.xsd"/>
+        <include href="Function1107.xsd"/>
+        <include href="Function1106.xsd"/>
+        <include href="Function1105.xsd"/>
+        <include href="Function1104.xsd"/>
+        <include href="Function1103.xsd"/>
+    </grammars>
+    <doc>stockTwits provides a social communications platform and social graph for anyone interested in the markets and investing</doc>
+    <resources base="https://stocktwits.p.mashape.com/">
+        <resource uri="watchlists/">
+            <resource uri="show/">
+                <resource uri="{id}.json/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="watchlists/show" id="1120" name="GET">
+                        <doc>Returns the the list of ticker symbols in a specified watch list for the authenticating user. Required parameter is the ID of the watch list, not the name of the watch list.</doc>
+                        <request>
+                            <param name="callback" required="true" style="query" type="xsd:string">
+                                <doc>define your own callback function name add this parameter as the value</doc>
+                            </param>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the watch list to be shown</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1120:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="watchlists.json/">
+            <method displayName="watchlists/index" id="1119" name="GET">
+                <doc>Returns a list of private watch lists for the authenticating user.</doc>
+                <request>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>define your own callback function name add this parameter as the value</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1119:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="streams/">
+            <resource uri="watchlist/">
+                <resource uri="{id}.json/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="streams/watchlist" id="1118" name="GET">
+                        <doc>Returns the most recent 30 messages for the specified watch list for the authenticating user. The watch list is a private list of all the symbols a user is watching.</doc>
+                        <request>
+                            <param name="callback" required="true" style="query" type="xsd:string">
+                                <doc>define your own callback function name add this parameter as the value</doc>
+                            </param>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>iD of the watch list you want to show from the authenticating user</doc>
+                            </param>
+                            <param name="limit" required="true" style="query" type="xsd:integer">
+                                <doc>default and max limit is This limit must be a number under</doc>
+                            </param>
+                            <param name="max" required="true" style="query" type="xsd:integer">
+                                <doc>returns results with an ID less than older than or equal to the specified ID</doc>
+                            </param>
+                            <param name="since" required="true" style="query" type="xsd:integer">
+                                <doc>returns results with an ID greater than more recent than the specified ID</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1118:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="user/">
+                <resource uri="{id}.json/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="streams/user" id="1117" name="GET">
+                        <doc>Returns the most recent 30 messages for the specified user. Includes user object in response.</doc>
+                        <request>
+                            <param name="callback" required="true" style="query" type="xsd:string">
+                                <doc>define your own callback function name add this parameter as the value</doc>
+                            </param>
+                            <param name="filter" required="true" style="query" type="xsd:string">
+                                <doc>filter messages by links charts or videos</doc>
+                            </param>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>user ID or Username of the stream s user you want to show</doc>
+                            </param>
+                            <param name="limit" required="true" style="query" type="xsd:integer">
+                                <doc>default and max limit is This limit must be a number under</doc>
+                            </param>
+                            <param name="max" required="true" style="query" type="xsd:integer">
+                                <doc>returns results with an ID less than older than or equal to the specified ID</doc>
+                            </param>
+                            <param name="since" required="true" style="query" type="xsd:integer">
+                                <doc>returns results with an ID greater than more recent than the specified ID</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1117:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="symbol/">
+                <resource uri="{id}.json/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="streams/symbol" id="1116" name="GET">
+                        <doc>Returns the most recent 30 messages for the specified symbol.</doc>
+                        <request>
+                            <param name="callback" required="true" style="query" type="xsd:string">
+                                <doc>define your own callback function name add this parameter as the value</doc>
+                            </param>
+                            <param name="filter" required="true" style="query" type="xsd:string">
+                                <doc>filter messages by links charts videos or top</doc>
+                            </param>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>ticker symbol Stock ID or RIC code of the symbol</doc>
+                            </param>
+                            <param name="limit" required="true" style="query" type="xsd:integer">
+                                <doc>default and max limit is This limit must be a number under</doc>
+                            </param>
+                            <param name="max" required="true" style="query" type="xsd:integer">
+                                <doc>returns results with an ID less than older than or equal to the specified ID</doc>
+                            </param>
+                            <param name="since" required="true" style="query" type="xsd:integer">
+                                <doc>returns results with an ID greater than more recent than the specified ID</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1116:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="mentions.json/">
+                <method displayName="streams/mentions" id="1115" name="GET">
+                    <doc>Returns the most recent 30 messages containing mentions of the authenticating user's handle. These are considered public replies</doc>
+                    <request>
+                        <param name="callback" required="true" style="query" type="xsd:string">
+                            <doc>define your own callback function name add this parameter as the value</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:integer">
+                            <doc>default and max limit is This limit must be a number under</doc>
+                        </param>
+                        <param name="max" required="true" style="query" type="xsd:integer">
+                            <doc>returns results with an ID less than older than or equal to the specified ID</doc>
+                        </param>
+                        <param name="since" required="true" style="query" type="xsd:integer">
+                            <doc>returns results with an ID greater than more recent than the specified ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1115:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="investor_relations.json/">
+                <method displayName="streams/investor_relations" id="1114" name="GET">
+                    <doc>Returns the most recent 30 messages posted by verified Investor Relations customers.</doc>
+                    <request>
+                        <param name="callback" required="true" style="query" type="xsd:string">
+                            <doc>define your own callback function name add this parameter as the value</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:string">
+                            <doc>default and max limit is This limit must be a number under</doc>
+                        </param>
+                        <param name="max" required="true" style="query" type="xsd:integer">
+                            <doc>returns results with an ID less than older than or equal to the specified ID</doc>
+                        </param>
+                        <param name="since" required="true" style="query" type="xsd:integer">
+                            <doc>returns results with an ID greater than more recent than the specified ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1114:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="home.json/">
+                <method displayName="streams/home" id="1113" name="GET">
+                    <doc>Returns the most recent 30 messages posted to the authenticating user's home stream, which is made up of the users and stocks they follow.</doc>
+                    <request>
+                        <param name="callback" required="true" style="query" type="xsd:string">
+                            <doc>define your own callback function name add this parameter as the value</doc>
+                        </param>
+                        <param name="filter" required="true" style="query" type="xsd:string">
+                            <doc>filter messages by links charts videos or top</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:integer">
+                            <doc>default and max limit is This limit must be a number under</doc>
+                        </param>
+                        <param name="max" required="true" style="query" type="xsd:integer">
+                            <doc>returns results with an ID less than older than or equal to the specified ID</doc>
+                        </param>
+                        <param name="since" required="true" style="query" type="xsd:integer">
+                            <doc>returns results with an ID greater than more recent than the specified ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1113:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="friends.json/">
+                <method displayName="streams/friends" id="1112" name="GET">
+                    <doc>Returns the most recent 30 messages posted to the authenticating user's people stream of the users they follow.</doc>
+                    <request>
+                        <param name="callback" required="true" style="query" type="xsd:string">
+                            <doc>define your own callback function name add this parameter as the value</doc>
+                        </param>
+                        <param name="filter" required="true" style="query" type="xsd:string">
+                            <doc>filter messages by links charts videos or top</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:integer">
+                            <doc>default and max limit is This limit must be a number under</doc>
+                        </param>
+                        <param name="max" required="true" style="query" type="xsd:integer">
+                            <doc>returns results with an ID less than older than or equal to the specified ID</doc>
+                        </param>
+                        <param name="since" required="true" style="query" type="xsd:integer">
+                            <doc>returns results with an ID greater than more recent than the specified ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1112:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="direct.json/">
+                <method displayName="streams/direct" id="1111" name="GET">
+                    <doc>Returns the most recent 30 direct messages sent to the authenticating user. These area all private messages sent and recieved.</doc>
+                    <request>
+                        <param name="callback" required="true" style="query" type="xsd:string">
+                            <doc>define your own callback function name add this parameter as the value</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:integer">
+                            <doc>default and max limit is This limit must be a number under</doc>
+                        </param>
+                        <param name="max" required="true" style="query" type="xsd:integer">
+                            <doc>returns results with an ID less than older than or equal to the specified ID</doc>
+                        </param>
+                        <param name="since" required="true" style="query" type="xsd:integer">
+                            <doc>returns results with an ID greater than more recent than the specified ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1111:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="messages/">
+            <resource uri="unlike.json/">
+                <method displayName="messages/unlike" id="1110" name="GET">
+                    <doc>Unlike a message on StockTwits as the authenticating user.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>iD of the message you want to unlike for the authenticating user</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1110:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="show/">
+                <resource uri="{id}.json/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="messages/show" id="1109" name="GET">
+                        <doc>This shows the specified message details. This is used in a stand alone display. View the display guidelines</doc>
+                        <request>
+                            <param name="callback" required="true" style="query" type="xsd:string">
+                                <doc>define your own callback function name add this parameter as the value</doc>
+                            </param>
+                            <param name="conversation" required="true" style="query" type="xsd:boolean">
+                                <doc>set to true to retrieve all meesages of the associated conversation</doc>
+                            </param>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f1109:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="like.json/">
+                <method displayName="messages/like" id="1108" name="GET">
+                    <doc>Like a message on StockTwits as the authenticating user.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>iD of the message you want to like for the authenticating user</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1108:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="create.json/">
+                <method displayName="messages/create" id="1107" name="POST">
+                    <doc>Create a StockTwits message. To upload a chart to accompany the message, pass a file using the chart parameter. The API will check that the character count is under 140, will shorten all links, and prevent duplicate message postings. Learn more about parameters and character counting The reposonse returned on creating a message is a great way to use StockTwits context with content sent to another non-finacially focused social network such as Facebook, LinkedIn or Twitter. By using the body content that is returned you will receive the complete message compiled with any shortened links. Because these other platforms aren't as investor-focused as StockTwits they may lack the context like price, chart or video. Sending the response's body will allow the user of those other networks access to the finacial context of the message with a link back to the appropriate page.  The Message ID can be used to create your own link to the message as a landing page. This comes in handy in the case of a Chart or Video where you might not want to create your own webpage or integrate the chart or video into your application.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1107:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="blocks/">
+            <resource uri="destroy/">
+                <resource uri="{id}.json/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="blocks/destroy" id="1106" name="POST">
+                        <doc>This unblocks a user so the authenticating user can reveive messages from the specified user. required parameter is the User ID of the user to unblock, not the username.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the user you want to unblock</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1106:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="create/">
+                <resource uri="{id}.json/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="blocks/create" id="1105" name="POST">
+                        <doc>This blocks a user so the authenticating user will not receive message from the specified user. Required parameter is the User ID of the user to block, not the username.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the user you want to block</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1105:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="account/">
+            <resource uri="verify.json/">
+                <method displayName="account/verify" id="1104" name="GET">
+                    <doc>This verifies the credentials of a user. Useful for checking if authentication method is correct.</doc>
+                    <request>
+                        <param name="callback" required="true" style="query" type="xsd:string">
+                            <doc>define your own callback function name add this parameter as the value</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1104:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="update.json/">
+                <method displayName="account/update" id="1103" name="GET">
+                    <doc>This updates the properties of the authenticating user's account.</doc>
+                    <request>
+                        <param name="email" required="true" style="query" type="xsd:string">
+                            <doc>the email address for the account holder</doc>
+                        </param>
+                        <param name="name" required="true" style="query" type="xsd:string">
+                            <doc>the full name of the account holder</doc>
+                        </param>
+                        <param name="username" required="true" style="query" type="xsd:string">
+                            <doc>the username for the account holder</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1103:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

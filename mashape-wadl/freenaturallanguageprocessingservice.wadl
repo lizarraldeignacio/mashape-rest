@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3="urn:function:f3" xmlns:f4="urn:function:f4">
+    <grammars>
+        <include href="Function4.xsd"/>
+        <include href="Function3.xsd"/>
+    </grammars>
+    <doc>free service including sentiment analysis content extraction and language detection Enjoy</doc>
+    <resources base="https://loudelement-free-natural-language-processing-service.p.mashape.com/">
+        <resource uri="nlp-url/">
+            <method displayName="nlp-url" id="4" name="GET">
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="nlp-text/">
+            <method displayName="nlp-text" id="3" name="GET">
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

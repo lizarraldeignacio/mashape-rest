@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7505="urn:function:f7505" xmlns:f7506="urn:function:f7506">
+    <grammars>
+        <include href="Function7506.xsd"/>
+        <include href="Function7505.xsd"/>
+    </grammars>
+    <doc>get the price of World of Warcraft Tokens</doc>
+    <resources base="https://wow-tokens.p.mashape.com/">
+        <resource uri="{region_code}/">
+            <param name="region_code" style="template" type="xsd:string"/>
+            <method displayName="show one" id="7506" name="GET">
+                <doc>Get data for specific region</doc>
+                <request>
+                    <param name="regionCode" required="true" style="query" type="xsd:string">
+                        <doc>region codes eu na kr tw cn</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f7506:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="">
+            <method displayName="show all" id="7505" name="GET">
+                <doc>Get for all regions</doc>
+                <request/>
+                <response>
+                    <representation element="f7505:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

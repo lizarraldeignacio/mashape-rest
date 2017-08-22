@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>tHE SHUFFLER FM API ALLOWS ANYONE TO BUILD THEIR OWN PROGRAMS USING SHUFFLER FM DATA BESIDES ACCESSING PUBLIC DATA THE LATEST API V ENABLES YOU TO CREATE PERSONALIZED APPS IT S REST AND SPEAKS JSON OVER HTTPS</doc>
+    <resources base="https://marcelcorso-shufflerfm.p.mashape.com/">
+        <resource uri="tracks/">
+            <method displayName="GET TRACK" id="4234" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>fetch a single track by ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="GET TRACK LOCATION" id="4235" name="GET">
+                <doc>Get a redirect to the track's streaming URL. This is only possible if the track is an MP3 and you have streaming access.  For more info on getting streaming access, see Streaming URLs</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="GET TRACKS" id="4236" name="GET">
+                <doc>List tracks on Shuffler.fm.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="sites/">
+            <method displayName="GET SITE" id="4229" name="GET">
+                <doc>get individual site</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>the ID of the site on Shuffler fm</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="GET SITES" id="4230" name="GET">
+                <request>
+                    <param name="filter" required="true" style="query" type="xsd:string">
+                        <doc>featured</doc>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>query</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="genres/">
+            <method displayName="GET GENRE" id="4228" name="GET">
+                <doc>Get info about a genre.</doc>
+                <request>
+                    <param name="genre" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="GET SITES FOR GENRE" id="4231" name="GET">
+                <request>
+                    <param name="genre" required="true" style="query" type="xsd:string">
+                        <doc>the key of the genre you want to request</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="LIST OF GENRES" id="4239" name="GET">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="charts/">
+            <resource uri="popular/">
+                <method displayName="POPULAR TRACKS" id="4240" name="GET">
+                    <doc>returns a list of track objects with chart_data.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="new/">
+                <method displayName="FASTEST RISING TRACKS" id="4225" name="GET">
+                    <doc>This request gives you the tracks that were recently added to the popular list.</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="users/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="CREATE FAVORITES" id="4222" name="POST">
+                    <doc>Create a favorite.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the user s ID on Shuffler fm</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="CREATE SUBSCRIPTION" id="4223" name="POST">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the user s ID on Shuffler fm</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="DELETE FAVORITES" id="4224" name="DELETE">
+                    <doc>Delete a favorite on Shuffler.fm</doc>
+                    <request>
+                        <param name="favoriteId" required="true" style="query" type="xsd:string">
+                            <doc>the ID of the favorite</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the user s ID on Shuffler fm</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="GET FAVORITE" id="4226" name="GET">
+                    <doc>You can use this request to check if a track is a user's favorite yet. If so, we tell you the favorite's ID, if not you get an empty list.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the user s ID on Shuffler fm</doc>
+                        </param>
+                        <param name="trackId" required="true" style="query" type="xsd:string">
+                            <doc>the ID of the track on Shuffler fm for which you want to check the favorite</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="GET FAVORITES BY ID" id="4227" name="GET">
+                    <request>
+                        <param name="favoriteId" required="true" style="query" type="xsd:string">
+                            <doc>the ID of the favorite</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the user s ID on Shuffler fm</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="GET SUBSCRIPTION" id="4232" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the user s ID on Shuffler fm</doc>
+                        </param>
+                        <param name="subscriptionId" required="true" style="query" type="xsd:string">
+                            <doc>the ID of the subscription</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="GET SUBSCRIPTIONS" id="4233" name="GET">
+                    <request>
+                        <param name="entity" required="true" style="query" type="xsd:string">
+                            <doc>the entity type currently site user and artist are supported</doc>
+                        </param>
+                        <param name="entityId" required="true" style="query" type="xsd:string">
+                            <doc>iD of the entity on Shuffler fm If this field is set entity must also be set</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the user s ID on Shuffler fm</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="GET USER" id="4237" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the user s ID on Shuffler fm</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="REMOVE SUBSCRIPTION" id="4241" name="DELETE">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the user s ID on Shuffler fm</doc>
+                        </param>
+                        <param name="subscriptionId" required="true" style="query" type="xsd:string">
+                            <doc>the ID of the subscription</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="artists/">
+            <method displayName="ARTIST'S SITES" id="4221" name="GET">
+                <doc>Get the top sites for an artist.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>id</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="LIST OF ARTISTS" id="4238" name="GET">
+                <doc>List all artists on Shuffler.fm.</doc>
+                <request>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>query</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="SINGLE ARTIST" id="4242" name="GET">
+                <doc>Fetch a single artist by ID on Shuffler.fm.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>id</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="channels/">
+            <resource uri="{channel-key}/">
+                <param name="channel-key" style="template" type="xsd:string"/>
+                <method displayName="ACTIVITY STREAM" id="4220" name="GET">
+                    <doc>Channel responses follow the Activity Streams JSON specification (http://activitystrea.ms/specs/json/1.0/).  In its simplest form, an activity consists of an actor, a verb, an object and a target.  on genre channels the actor is “site”, the verb is “post”, the object is “track” and the target is implicit. on site channels, the actor will always be the same. List of channel keys Genre channels /channels/idm /channels/uk+garage Media channels MP3 tracks: /channels/media:mp3 YouTube tracks: /channels/media:youtube Vimeo tracks: /channels/media:vimeo SoundCloud tracks: /channels/media:soundcloud Official.fm tracks: /channels/media:officialfm Site channels /channels/site:37 Artist channels /channels/artist:419</doc>
+                    <request>
+                        <param name="channelKey" required="true" style="query" type="xsd:string">
+                            <doc>channel key</doc>
+                        </param>
+                        <param name="position" required="true" style="query" type="xsd:string">
+                            <doc>position</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="activities/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="ACTIVITIES" id="4219" name="GET">
+                    <doc>Using this request you can fetch single activities by ID. This ID is the one that is given in the responses.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the activity s ID</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

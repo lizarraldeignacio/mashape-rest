@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>dino Ipsum is a lorem ipsum for dinosaur lovers and anyone who needs meaningless filler text for prototyping web pages</doc>
+    <resources base="https://alexnormand-dino-ipsum.p.mashape.com/">
+        <resource uri="">
+            <method displayName="dinos list" id="1792" name="GET">
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>json html text output format defaults to html</doc>
+                    </param>
+                    <param name="paragraphs" required="true" style="query" type="xsd:integer">
+                        <doc>the number of paragraphs defaults to</doc>
+                    </param>
+                    <param name="words" required="true" style="query" type="xsd:integer">
+                        <doc>the number of words per paragraph defaults to</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

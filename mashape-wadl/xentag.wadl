@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5166="urn:function:f5166" xmlns:f5167="urn:function:f5167">
+    <grammars>
+        <include href="Function5167.xsd"/>
+        <include href="Function5166.xsd"/>
+    </grammars>
+    <doc>xenTag s image recognition engine will auto tag your media images using a collection of standard and custom models Media Model Tag Use a sample of our standard models Library Multi class Concept for free When you re ready for a subscription we ll create a custom variation of one or more of those models or others to complete your workfow Try use out for practical accurate state of the art flexible and cost effective image recognition</doc>
+    <resources base="https://xentag.p.mashape.com/">
+        <resource uri="joburls/">
+            <method displayName="Job Data Urls" id="5167" name="GET">
+                <doc>Input CSV list of urls for job source locations.</doc>
+                <request>
+                    <param name="model" required="true" style="query" type="xsd:string">
+                        <doc>classifier Model Number e g ilsvrc nc catvdog sports See Documentaion for full model list</doc>
+                    </param>
+                    <param name="urlsrc" required="true" style="query" type="xsd:string">
+                        <doc>upload list of URL strings seperated by commas</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5167:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="jobstrm/">
+            <method displayName="Job Data Streams" id="5166" name="POST">
+                <doc>Upload multi-part job stream (files, media, code, data, etc.). Possibly compressed.</doc>
+                <request>
+                    <param name="model" required="true" style="query" type="xsd:string">
+                        <doc>classifier Model Number e g ilsvrc nc catvdog sports See Documentaion for full model list</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5166:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

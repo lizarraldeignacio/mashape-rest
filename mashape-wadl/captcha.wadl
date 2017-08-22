@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f396="urn:function:f396">
+    <grammars>
+        <include href="Function396.xsd"/>
+    </grammars>
+    <doc>metropolis can solve any Captcha for you Just pass the Captcha Image and the API will return the text Plain and Simple</doc>
+    <resources base="https://metropolis-api-captcha.p.mashape.com/">
+        <resource uri="solve/">
+            <method displayName="solve" id="396" name="GET">
+                <doc>Solve a Captcha given an image URL</doc>
+                <request>
+                    <param name="image" required="true" style="query" type="xsd:string">
+                        <doc>hTTP Path URL of the Captcha Image</doc>
+                    </param>
+                    <param name="timeout" required="true" style="query" type="xsd:string">
+                        <doc>timeout in seconds Default seconds</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f396:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

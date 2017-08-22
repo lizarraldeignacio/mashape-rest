@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6761="urn:function:f6761" xmlns:f6762="urn:function:f6762" xmlns:f6763="urn:function:f6763" xmlns:f6764="urn:function:f6764" xmlns:f6765="urn:function:f6765" xmlns:f6766="urn:function:f6766" xmlns:f6767="urn:function:f6767" xmlns:f6768="urn:function:f6768" xmlns:f6769="urn:function:f6769" xmlns:f6770="urn:function:f6770" xmlns:f6772="urn:function:f6772" xmlns:f6773="urn:function:f6773" xmlns:f6775="urn:function:f6775" xmlns:f6778="urn:function:f6778" xmlns:f6779="urn:function:f6779" xmlns:f6782="urn:function:f6782" xmlns:f6784="urn:function:f6784">
+    <grammars>
+        <include href="Function6784.xsd"/>
+        <include href="Function6782.xsd"/>
+        <include href="Function6779.xsd"/>
+        <include href="Function6778.xsd"/>
+        <include href="Function6775.xsd"/>
+        <include href="Function6773.xsd"/>
+        <include href="Function6772.xsd"/>
+        <include href="Function6770.xsd"/>
+        <include href="Function6769.xsd"/>
+        <include href="Function6768.xsd"/>
+        <include href="Function6767.xsd"/>
+        <include href="Function6766.xsd"/>
+        <include href="Function6765.xsd"/>
+        <include href="Function6764.xsd"/>
+        <include href="Function6763.xsd"/>
+        <include href="Function6762.xsd"/>
+        <include href="Function6761.xsd"/>
+    </grammars>
+    <doc>find all the text tools in one place Case conversions counting platform conversions encoding conversionts etc Fun to functional</doc>
+    <resources base="https://text.p.mashape.com/">
+        <resource uri="uuencode/">
+            <method displayName="uuencode" id="6784" name="POST">
+                <doc>uuencode a given string</doc>
+                <request/>
+                <response>
+                    <representation element="f6784:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="upsidedown/">
+            <method displayName="upsidedown" id="6783" name="POST">
+                <doc>Make the characters upside down</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="unix2dos/">
+            <method displayName="unix2dos" id="6782" name="POST">
+                <request/>
+                <response>
+                    <representation element="f6782:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="toupper/">
+            <method displayName="toupper" id="6781" name="POST">
+                <doc>Convert the given string to upper case</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="tolower/">
+            <method displayName="tolower" id="6780" name="POST">
+                <doc>Convert the given string to lower case</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="to_utf8/">
+            <method displayName="to_utf8" id="6779" name="POST">
+                <doc>utf8 encode a given string</doc>
+                <request/>
+                <response>
+                    <representation element="f6779:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="to_ascii/">
+            <method displayName="to_ascii" id="6778" name="POST">
+                <doc>Convert the given string to ascii</doc>
+                <request/>
+                <response>
+                    <representation element="f6778:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="title_case/">
+            <method displayName="title_case" id="6777" name="POST">
+                <doc>Captilize the first character of every word in the given string</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="sentence_case/">
+            <method displayName="sentence_case" id="6776" name="POST">
+                <doc>converts first character of every sentence in the given string to upper case</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="reverse/">
+            <method displayName="reverse" id="6775" name="POST">
+                <doc>Reverse the given text</doc>
+                <request/>
+                <response>
+                    <representation element="f6775:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="remove_line_breaks/">
+            <method displayName="remove_line_breaks" id="6774" name="POST">
+                <doc>Remove the line breaks from the given string</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="remove_extra_whitespaces/">
+            <method displayName="remove_extra_whitespaces" id="6773" name="POST">
+                <doc>Remove excess white spaces from the given data</doc>
+                <request/>
+                <response>
+                    <representation element="f6773:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="remove_duplicate_lines/">
+            <method displayName="remove_duplicate_lines" id="6772" name="POST">
+                <doc>Remove duplicate lines from the given data</doc>
+                <request/>
+                <response>
+                    <representation element="f6772:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="list_encodings/">
+            <method displayName="list_encodings" id="6771" name="GET">
+                <doc>List encodings supported for encoding conversion</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="find_longest_line/">
+            <method displayName="find_longest_line" id="6770" name="POST">
+                <doc>Find the longest line in the given data</doc>
+                <request/>
+                <response>
+                    <representation element="f6770:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="dos2unix/">
+            <method displayName="dos2unix" id="6769" name="POST">
+                <request/>
+                <response>
+                    <representation element="f6769:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="count_words/">
+            <method displayName="count_words" id="6768" name="POST">
+                <doc>Count the frequency of each word in the data</doc>
+                <request/>
+                <response>
+                    <representation element="f6768:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="count_chars/">
+            <method displayName="count_chars" id="6767" name="POST">
+                <doc>Count the number of occurances of each character in a given string</doc>
+                <request/>
+                <response>
+                    <representation element="f6767:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="count/">
+            <method displayName="count" id="6766" name="POST">
+                <doc>Count number of characters, words, sentences and lines in the given string</doc>
+                <request/>
+                <response>
+                    <representation element="f6766:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="convert_encoding/">
+            <method displayName="convert_encoding" id="6765" name="POST">
+                <doc>Convert the given string/data from one encoding to the other.</doc>
+                <request/>
+                <response>
+                    <representation element="f6765:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="base64/">
+            <method displayName="base64" id="6764" name="POST">
+                <doc>base64 encode the given string</doc>
+                <request/>
+                <response>
+                    <representation element="f6764:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="add_suffix/">
+            <method displayName="add_suffix" id="6763" name="POST">
+                <doc>Add a suffix to each line</doc>
+                <request/>
+                <response>
+                    <representation element="f6763:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="add_prefix/">
+            <method displayName="add_prefix" id="6762" name="POST">
+                <doc>Add a prefix to each line</doc>
+                <request/>
+                <response>
+                    <representation element="f6762:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="add_line_numbers/">
+            <method displayName="add_line_numbers" id="6761" name="POST">
+                <doc>Add line numbers to the given data</doc>
+                <request/>
+                <response>
+                    <representation element="f6761:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

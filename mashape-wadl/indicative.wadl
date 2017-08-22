@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>indicative API is the easiest and most intuitive way to visualize web and mobile businesses The goal of the product is to empower everyone in an organization to participate in driving product and marketing decisions with data All of Indicative s event tracking is handled through our REST API which allows you to send us events using simple HTTP requests</doc>
+    <resources base="https://baskarm28-indicative-v1.p.mashape.com/">
+        <resource uri="service/">
+            <resource uri="event/">
+                <method displayName="Batched events" id="6306" name="POST">
+                    <doc>To send multiple events at once,</doc>
+                    <request>
+                        <param name="apikey" required="true" style="query" type="xsd:string">
+                            <doc>the API Key for this project If the key you provide is invalid we ll return a Bad Request error</doc>
+                        </param>
+                        <param name="events" required="true" style="query" type="xsd:string">
+                            <doc>the events to be recorded in an array Each object in this array should adhere to the format used to send up a single event indicated above The apiKey field used in the single event is unnecessary here and will be disregarded if included</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Single event" id="6307" name="POST">
+                    <doc>Submitting one event at a time.</doc>
+                    <request>
+                        <param name="apikey" required="true" style="query" type="xsd:string">
+                            <doc>the API Key for this project If the key you provide is invalid we ll return a Bad Request error</doc>
+                        </param>
+                        <param name="eventname" required="true" style="query" type="xsd:string">
+                            <doc>the name of the event Must be between and characters in length and cannot be null</doc>
+                        </param>
+                        <param name="eventtime" required="true" style="query" type="xsd:integer">
+                            <doc>the time that the event occurred in milliseconds This field is optional and will default to the current time if not set Events with negative timestamps i e dates before UTC will be rejected</doc>
+                        </param>
+                        <param name="eventuniqueid" required="true" style="query" type="xsd:string">
+                            <doc>the unique identifier for the user triggering the event Must be between and characters in length and cannot be null</doc>
+                        </param>
+                        <param name="properties" required="true" style="query" type="xsd:string">
+                            <doc>an internal JSON Object listing property names and values as Strings Values have a maximum length of characters</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>urban Dictionary is the dictionary you write This is the unofficial secret API</doc>
+    <resources base="https://mashape-community-urban-dictionary.p.mashape.com/">
+        <resource uri="define/">
+            <method displayName="Define" id="274" name="GET">
+                <request>
+                    <param name="term" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

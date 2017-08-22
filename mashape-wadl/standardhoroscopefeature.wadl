@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7021="urn:function:f7021" xmlns:f7022="urn:function:f7022" xmlns:f7023="urn:function:f7023" xmlns:f7025="urn:function:f7025" xmlns:f7026="urn:function:f7026" xmlns:f7027="urn:function:f7027" xmlns:f7028="urn:function:f7028" xmlns:f7029="urn:function:f7029" xmlns:f7030="urn:function:f7030" xmlns:f7032="urn:function:f7032" xmlns:f7033="urn:function:f7033">
+    <grammars>
+        <include href="Function7032.xsd"/>
+        <include href="Function7033.xsd"/>
+        <include href="Function7030.xsd"/>
+        <include href="Function7029.xsd"/>
+        <include href="Function7028.xsd"/>
+        <include href="Function7027.xsd"/>
+        <include href="Function7026.xsd"/>
+        <include href="Function7025.xsd"/>
+        <include href="Function7023.xsd"/>
+        <include href="Function7022.xsd"/>
+        <include href="Function7021.xsd"/>
+    </grammars>
+    <doc>standard horoscope APIs allow you to create a full featured horoscope websites or mobile applications which has kundli or horoscope detailed calculations remedial measures such as gemstone suggestions mantra and rudraksha suggestions dosha analysis which includes Manglik and Kal Sarpa dosha report predictions such as planet rashi and planet house reports and much more This also covers all the divisional charts of Vedic Astrology and planetary positions as per Vedic Indian Astrology Start consuming these APIs today</doc>
+    <resources base="https://vedicrishi-standard-horoscope-plan-v1.p.mashape.com/">
+        <resource uri="planets/">
+            <method displayName="Planetary details" id="7032" name="POST">
+                <doc>Get planets details like,planet house,sign,degree,nakshatra etc.</doc>
+                <request/>
+                <response>
+                    <representation element="f7032:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="planet_panchang/">
+            <method displayName="Planet panchang details at the time of sunrise." id="7031" name="POST">
+                <doc>Provides panchang planetary degrees and retrograde positions of panchang at the time of given day sunrise</doc>
+                <request/>
+            </method>
+            <method displayName="Planetary Panchang  Details" id="7033" name="POST">
+                <doc>Provides panchang planetary degrees and retrograde positions</doc>
+                <request/>
+                <response>
+                    <representation element="f7033:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="numero_table/">
+            <method displayName="Numerology basic details" id="7030" name="POST">
+                <doc>Provides detailed Numerology report.</doc>
+                <request/>
+                <response>
+                    <representation element="f7030:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="manglik/">
+            <method displayName="Manglik Report" id="7029" name="POST">
+                <doc>Calculate if Manglik Dosha present or not .</doc>
+                <request/>
+                <response>
+                    <representation element="f7029:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="major_vdasha/">
+            <method displayName="Major vimshottari dasha details" id="7028" name="POST">
+                <doc>Major vimshottari dasha provides complete mahadasha detail.</doc>
+                <request/>
+                <response>
+                    <representation element="f7028:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="kalsarpa_details/">
+            <method displayName="Kalsarpa dosha report" id="7027" name="POST">
+                <doc>Calculate Kal Sarpa Dosha report.</doc>
+                <request/>
+                <response>
+                    <representation element="f7027:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="horo_chart/">
+            <resource uri="{chart_id}/">
+                <param name="chart_id" style="template" type="xsd:string"/>
+                <method displayName="Horoscope Charts" id="7026" name="POST">
+                    <doc>chart_id is based on chart type(all D-charts) - The data points include various planetary positions along with ascendant and their respective house positions to draw horoscope charts.</doc>
+                    <request>
+                        <param name="chartId" required="true" style="query" type="xsd:string">
+                            <doc>d as chart id provides birth chart or ascendant chart or lagna chart Same way SUN For Sun Chart MOON For Moon Chart D For Hora Chart D For Dreshkan Chart D For Chathurthamasha Chart D For Panchmansha Chart D For Saptamansha Chart D For Ashtamansha Chart D For Navamansha Chart D For Dashamansha Chart D For Dwadashamsha chart D For Shodashamsha Chart D For Vishamansha Chart D For Chaturvimshamsha Chart D For Bhamsha Chart D For Trishamansha Chart D For Khavedamsha Chart D For Akshvedansha Chart D For Shashtymsha Chart</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7026:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="current_vdasha/">
+            <method displayName="Current vimshottari dasha" id="7025" name="POST">
+                <doc>Current vimshottari dasha gives currently undergoing dasha of your horoscope.</doc>
+                <request/>
+                <response>
+                    <representation element="f7025:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="basic_panchang/">
+            <method displayName="Basic panchang details" id="7023" name="POST">
+                <doc>Provides data points for panchang elements, and sunrise and set timings.</doc>
+                <request/>
+                <response>
+                    <representation element="f7023:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Basic panchang details at the time of sunrise" id="7024" name="POST">
+                <doc>Provides data points for panchang elements, chaugadiya and sunrise and set time at he time of  sunrise.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="basic_gem_suggestion/">
+            <method displayName="Basic gemstone suggestion" id="7022" name="POST">
+                <doc>This api suggest you your "Life Stone , Lucky Stone ,Benefic Stone" with their deity,wearing finger,date,time,weight of stone etc.</doc>
+                <request/>
+                <response>
+                    <representation element="f7022:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="astro_details/">
+            <method displayName="Basic Astrological Details" id="7021" name="POST">
+                <doc>Provides the complete avakahada details e.g. nakshtatra, charan, tithi, karan, yog ,varna, vashaya, yoni, etc</doc>
+                <request/>
+                <response>
+                    <representation element="f7021:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4634="urn:function:f4634" xmlns:f4635="urn:function:f4635" xmlns:f4636="urn:function:f4636" xmlns:f4637="urn:function:f4637" xmlns:f4638="urn:function:f4638" xmlns:f4639="urn:function:f4639" xmlns:f4640="urn:function:f4640" xmlns:f4641="urn:function:f4641">
+    <grammars>
+        <include href="Function4641.xsd"/>
+        <include href="Function4640.xsd"/>
+        <include href="Function4639.xsd"/>
+        <include href="Function4638.xsd"/>
+        <include href="Function4637.xsd"/>
+        <include href="Function4636.xsd"/>
+        <include href="Function4635.xsd"/>
+        <include href="Function4634.xsd"/>
+    </grammars>
+    <doc>the Branch SDK Less API under branch metrics is used to track events associated with user and tie back to referring source and generate URL for sharing referral purposes optional for tracking shareability invites referrals</doc>
+    <resources base="https://baskarm28-branch-sdkless-v1.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="open/">
+                <method displayName="Session start" id="4641" name="POST">
+                    <doc>Start up app.</doc>
+                    <request>
+                        <param name="appId" required="true" style="query" type="xsd:string">
+                            <doc>the id of the originating app</doc>
+                        </param>
+                        <param name="appVersion" required="true" style="query" type="xsd:string">
+                            <doc>current app version</doc>
+                        </param>
+                        <param name="bluetooth" required="true" style="query" type="xsd:string">
+                            <doc>set to none ble or classic</doc>
+                        </param>
+                        <param name="brand" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="carrier" required="true" style="query" type="xsd:string">
+                            <doc>wireless carrier of the device owner</doc>
+                        </param>
+                        <param name="hardwareId" required="true" style="query" type="xsd:string">
+                            <doc>iDFA ANDROID ID</doc>
+                        </param>
+                        <param name="hasNfc" required="true" style="query" type="xsd:string">
+                            <doc>has NFC</doc>
+                        </param>
+                        <param name="hasTelephone" required="true" style="query" type="xsd:string">
+                            <doc>set to true if this device has telephone functionality false if not</doc>
+                        </param>
+                        <param name="identity" required="true" style="query" type="xsd:string">
+                            <doc>set the identity of the user</doc>
+                        </param>
+                        <param name="ip" required="true" style="query" type="xsd:string">
+                            <doc>the IP address of the client mobile device</doc>
+                        </param>
+                        <param name="isReferrable" required="true" style="query" type="xsd:string">
+                            <doc>which dictates whether the user can be referred in on this call Does not overwrite previous referral association</doc>
+                        </param>
+                        <param name="linkIdentifier" required="true" style="query" type="xsd:string">
+                            <doc>append the identifier passed in to the deep link to this call</doc>
+                        </param>
+                        <param name="model" required="true" style="query" type="xsd:string">
+                            <doc>device model</doc>
+                        </param>
+                        <param name="os" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="osVersion" required="true" style="query" type="xsd:string">
+                            <doc>current Android version for this device</doc>
+                        </param>
+                        <param name="screenDpi" required="true" style="query" type="xsd:string">
+                            <doc>pixel density of the device screen</doc>
+                        </param>
+                        <param name="screenHeight" required="true" style="query" type="xsd:string">
+                            <doc>height in pixels of the device screen</doc>
+                        </param>
+                        <param name="screenWidth" required="true" style="query" type="xsd:string">
+                            <doc>width in pixels of the device screen</doc>
+                        </param>
+                        <param name="wifi" required="true" style="query" type="xsd:string">
+                            <doc>set to true is Wifi is connected false if not</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4641:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="close/">
+                <method displayName="Session end" id="4640" name="POST">
+                    <doc>Close app</doc>
+                    <request>
+                        <param name="appId" required="true" style="query" type="xsd:string">
+                            <doc>the id of the originating app</doc>
+                        </param>
+                        <param name="hardwareId" required="true" style="query" type="xsd:string">
+                            <doc>iDFA ANDROID ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4640:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="redeem/">
+                <method displayName="Redeeming credits" id="4639" name="POST">
+                    <request>
+                        <param name="amount" required="true" style="query" type="xsd:string">
+                            <doc>the amount of credit to redeem</doc>
+                        </param>
+                        <param name="appId" required="true" style="query" type="xsd:string">
+                            <doc>the id of the originating app</doc>
+                        </param>
+                        <param name="bucket" required="true" style="query" type="xsd:string">
+                            <doc>the name of the bucket to use If none is specified defaults to default</doc>
+                        </param>
+                        <param name="identity" required="true" style="query" type="xsd:string">
+                            <doc>the identity used to identify the user</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4639:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="logout/">
+                <method displayName="Idendity" id="4638" name="POST">
+                    <request>
+                        <param name="appId" required="true" style="query" type="xsd:string">
+                            <doc>the id of the originating app</doc>
+                        </param>
+                        <param name="hardwareId" required="true" style="query" type="xsd:string">
+                            <doc>iDFA ANDROID ID</doc>
+                        </param>
+                        <param name="identity" required="true" style="query" type="xsd:string">
+                            <doc>set the identity of the user</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4638:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="credits/">
+                <method displayName="Getting credit count" id="4637" name="GET">
+                    <request>
+                        <param name="appId" required="true" style="query" type="xsd:string">
+                            <doc>the id of the originating app</doc>
+                        </param>
+                        <param name="identity" required="true" style="query" type="xsd:string">
+                            <doc>the identity used to identify the user</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4637:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="url/">
+                <method displayName="Creating a deeplinking referral URL" id="4636" name="POST">
+                    <doc>Generate URL for sharing/referral purposes (optional for tracking shareability/invites/referrals)</doc>
+                    <request>
+                        <param name="appId" required="true" style="query" type="xsd:string">
+                            <doc>the id of the originating app</doc>
+                        </param>
+                        <param name="channel" required="true" style="query" type="xsd:string">
+                            <doc>the channel in which the link will be shared</doc>
+                        </param>
+                        <param name="data" required="true" style="query" type="xsd:string">
+                            <doc>the dictionary to embed with the link Accessed as session or install parameters from the SDK</doc>
+                        </param>
+                        <param name="feature" required="true" style="query" type="xsd:string">
+                            <doc>the feature in which the link will be used</doc>
+                        </param>
+                        <param name="identity" required="true" style="query" type="xsd:string">
+                            <doc>the identity used to identify the user</doc>
+                        </param>
+                        <param name="stage" required="true" style="query" type="xsd:string">
+                            <doc>a string value that represents the stage of the user in the app</doc>
+                        </param>
+                        <param name="tags" required="true" style="query" type="xsd:string">
+                            <doc>an array of strings which are custom tags in which to categorize the links by Recommended syntax tags t t t</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4636:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="profile/">
+                <method displayName="Changing the identity" id="4635" name="POST">
+                    <request>
+                        <param name="appId" required="true" style="query" type="xsd:string">
+                            <doc>the id of the originating app</doc>
+                        </param>
+                        <param name="hardwareId" required="true" style="query" type="xsd:string">
+                            <doc>iDFA ANDROID ID</doc>
+                        </param>
+                        <param name="identity" required="true" style="query" type="xsd:string">
+                            <doc>set the identity of the user</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4635:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="event/">
+                <method displayName="Action tracking" id="4634" name="POST">
+                    <doc>Track events associated with user and tie back to referring source</doc>
+                    <request>
+                        <param name="appId" required="true" style="query" type="xsd:string">
+                            <doc>the id of the originating app</doc>
+                        </param>
+                        <param name="event" required="true" style="query" type="xsd:string">
+                            <doc>the event to be tracked</doc>
+                        </param>
+                        <param name="hardwareId" required="true" style="query" type="xsd:string">
+                            <doc>iDFA ANDROID ID</doc>
+                        </param>
+                        <param name="metadata" required="true" style="query" type="xsd:string">
+                            <doc>any associated parameters to be stored with the event layer JSON object</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4634:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

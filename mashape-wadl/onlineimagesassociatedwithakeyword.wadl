@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1435="urn:function:f1435" xmlns:f1436="urn:function:f1436">
+    <grammars>
+        <include href="Function1435.xsd"/>
+        <include href="Function1436.xsd"/>
+    </grammars>
+    <doc>returns a collection of photo links associated with the keyword passed as a parameter Example http gobter org api imagelink bird</doc>
+    <resources base="https://gobter-image-links-v1.p.mashape.com/">
+        <resource uri="">
+            <method displayName="/" id="1435" name="GET">
+                <request/>
+                <response>
+                    <representation element="f1435:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="http://gobter.org/api/imagelink/keyword(s)" id="1436" name="GET">
+                <doc>for example 'wikipedia + commons'  will return the links to wikipedia commons  collection photos</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>a keyword or keywords</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1436:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

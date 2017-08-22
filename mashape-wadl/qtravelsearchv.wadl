@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>qtravel pl is a full text search engine of vacation packages provided by Polish tour operators The Qtravel API provides developer access to the site s search tools and booking functionality API features include the ability to filter and sort offers by various attributes and full text search of offer descriptions The API supports HTTP GET calls and returns XML formatted responses</doc>
+    <resources base="https://qtravel-qtravel.p.mashape.com/">
+        <resource uri="apis/">
+            <method displayName="Vacation Packages" id="1001" name="GET">
+                <request>
+                    <param name="qapikey" required="true" style="query" type="xsd:string">
+                        <doc>your Secret Key</doc>
+                    </param>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>query</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

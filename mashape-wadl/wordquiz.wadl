@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4608="urn:function:f4608">
+    <grammars>
+        <include href="Function4608.xsd"/>
+    </grammars>
+    <doc>vocabulary test with levels and exam specific words SAT GMAT etc Customized word association quiz for game and e learning software</doc>
+    <resources base="https://twinword-word-association-quiz.p.mashape.com/">
+        <resource uri="type1/">
+            <method displayName="Type 1" id="4608" name="GET">
+                <doc>Customized word association quiz for game and e-learning software.</doc>
+                <request>
+                    <param name="area" required="true" style="query" type="xsd:string">
+                        <doc>select a test to generate quiz questions and answers es ms hs ksat toeic toefl teps sat ielts gre gmat overall</doc>
+                    </param>
+                    <param name="level" required="true" style="query" type="xsd:integer">
+                        <doc>select the difficulty level of the test</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4608:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

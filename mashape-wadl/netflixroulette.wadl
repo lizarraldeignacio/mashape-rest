@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f330="urn:function:f330">
+    <grammars>
+        <include href="Function330.xsd"/>
+    </grammars>
+    <doc>from the beginning I ve planned on giving developers access to the Netflix Roulette Database simply because its so much useful information being used on such a simple web application With Netflixs official API no longer giving out new keys I ve decided to do away with all of that and make this an Open API You re free to query as much information as you d like Just be sure to mind our bandwith</doc>
+    <resources base="https://community-netflix-roulette.p.mashape.com/">
+        <resource uri="api.php/">
+            <method displayName="Roulette" id="330" name="GET">
+                <request>
+                    <param name="actor" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="director" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="title" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="year" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f330:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

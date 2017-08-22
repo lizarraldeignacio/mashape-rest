@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6365="urn:function:f6365">
+    <grammars>
+        <include href="Function6365.xsd"/>
+    </grammars>
+    <doc>search within a huge quantity of documents news blog posts websites rss feeds downloaded from thousands of web sources based on publishing date keywords and other parameters</doc>
+    <resources base="https://empirya-many2one-v1.p.mashape.com/">
+        <resource uri="search/">
+            <method displayName="/search" id="6365" name="POST">
+                <request/>
+                <response>
+                    <representation element="f6365:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

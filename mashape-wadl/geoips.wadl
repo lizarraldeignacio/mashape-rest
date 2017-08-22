@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4645="urn:function:f4645">
+    <grammars>
+        <include href="Function4645.xsd"/>
+    </grammars>
+    <doc>geoIPs IP Intelligence API provides IP related information and geographic location using a REST interface that returns the following data hostname owner continent country region city latitude longitude timezone</doc>
+    <resources base="https://bianet-geoipscom.p.mashape.com/">
+        <resource uri="ip/">
+            <resource uri="{ip}/">
+                <param name="ip" style="template" type="xsd:string"/>
+                <resource uri="timezone/">
+                    <resource uri="{timezone}/">
+                        <param name="timezone" style="template" type="xsd:string"/>
+                        <resource uri="hostname/">
+                            <resource uri="{hostname}/">
+                                <param name="hostname" style="template" type="xsd:string"/>
+                                <resource uri="language/">
+                                    <resource uri="{language}/">
+                                        <param name="language" style="template" type="xsd:string"/>
+                                        <resource uri="currency/">
+                                            <resource uri="{currency}/">
+                                                <param name="currency" style="template" type="xsd:string"/>
+                                                <method displayName="Find Location" id="4645" name="POST">
+                                                    <doc>Identify visitors geographical location, including hostname, owner,  continent, country, region, city, latitude, longitude, timezone.</doc>
+                                                    <request>
+                                                        <param name="currency" required="true" style="query" type="xsd:boolean">
+                                                            <doc>specifies the currency for responses true false</doc>
+                                                        </param>
+                                                        <param name="hostname" required="true" style="query" type="xsd:boolean">
+                                                            <doc>specifies the hostname for responses true false</doc>
+                                                        </param>
+                                                        <param name="ip" required="true" style="query" type="xsd:string">
+                                                            <doc>iP address</doc>
+                                                        </param>
+                                                        <param name="language" required="true" style="query" type="xsd:boolean">
+                                                            <doc>specifies the official language for responses true false</doc>
+                                                        </param>
+                                                        <param name="timezone" required="true" style="query" type="xsd:boolean">
+                                                            <doc>specifies the timezone for responses true false</doc>
+                                                        </param>
+                                                    </request>
+                                                    <response>
+                                                        <representation element="f4645:root" mediaType="application/json"/>
+                                                    </response>
+                                                </method>
+                                            </resource>
+                                        </resource>
+                                    </resource>
+                                </resource>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4524="urn:function:f4524" xmlns:f4525="urn:function:f4525" xmlns:f4528="urn:function:f4528" xmlns:f4529="urn:function:f4529" xmlns:f4530="urn:function:f4530" xmlns:f4531="urn:function:f4531" xmlns:f4532="urn:function:f4532" xmlns:f4533="urn:function:f4533" xmlns:f4534="urn:function:f4534" xmlns:f4535="urn:function:f4535" xmlns:f4536="urn:function:f4536" xmlns:f4537="urn:function:f4537" xmlns:f4538="urn:function:f4538" xmlns:f4539="urn:function:f4539" xmlns:f4540="urn:function:f4540" xmlns:f4542="urn:function:f4542">
+    <grammars>
+        <include href="Function4536.xsd"/>
+        <include href="Function4535.xsd"/>
+        <include href="Function4534.xsd"/>
+        <include href="Function4540.xsd"/>
+        <include href="Function4529.xsd"/>
+        <include href="Function4528.xsd"/>
+        <include href="Function4525.xsd"/>
+        <include href="Function4530.xsd"/>
+        <include href="Function4537.xsd"/>
+        <include href="Function4539.xsd"/>
+        <include href="Function4532.xsd"/>
+        <include href="Function4542.xsd"/>
+        <include href="Function4538.xsd"/>
+        <include href="Function4531.xsd"/>
+        <include href="Function4524.xsd"/>
+        <include href="Function4533.xsd"/>
+    </grammars>
+    <doc>shapeways com is the world s leading D Printing marketplace and community We harness D Printing to help everyone make and share designs with the world making product design more accessible personal and inspiring</doc>
+    <resources base="https://community-shapeways.p.mashape.com/">
+        <resource uri="price/">
+            <resource uri="v1/">
+                <method displayName="POST /price/v1" id="4541" name="POST">
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="printers/">
+            <resource uri="{printerId}/">
+                <param name="printerId" style="template" type="xsd:string"/>
+                <resource uri="v1/">
+                    <method displayName="GET /printers/{printerId}/v1" id="4536" name="GET">
+                        <request>
+                            <param name="printerid" required="true" style="query" type="xsd:string">
+                                <doc>printer id</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4536:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="v1/">
+                <method displayName="GET /printers/v1" id="4535" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f4535:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="orders/">
+            <resource uri="cart/">
+                <resource uri="v1/">
+                    <method displayName="GET /orders/cart/v1" id="4534" name="GET">
+                        <request/>
+                        <response>
+                            <representation element="f4534:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="POST /orders/cart/v1" id="4540" name="POST">
+                        <request/>
+                        <response>
+                            <representation element="f4540:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="materials/">
+            <resource uri="{materialId}/">
+                <param name="materialId" style="template" type="xsd:string"/>
+                <resource uri="v1/">
+                    <method displayName="GET /materials/{materialId}/v1" id="4529" name="GET">
+                        <request>
+                            <param name="materialid" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4529:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="v1/">
+                <method displayName="GET /materials/v1" id="4528" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f4528:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="categories/">
+            <resource uri="{categoryId}/">
+                <param name="categoryId" style="template" type="xsd:string"/>
+                <resource uri="v1/">
+                    <method displayName="GET /categories/{categoryId}/v1" id="4527" name="GET">
+                        <request>
+                            <param name="categoryid" required="true" style="query" type="xsd:string">
+                                <doc>category id</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="v1/">
+                <method displayName="GET /categories/v1" id="4526" name="GET">
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="api/">
+            <resource uri="v1/">
+                <method displayName="GET /api/v1/" id="4525" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f4525:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="models/">
+            <resource uri="v1/">
+                <method displayName="GET /models/v1" id="4530" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f4530:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="POST /models/v1" id="4537" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f4537:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="{modelId}/">
+                <param name="modelId" style="template" type="xsd:string"/>
+                <resource uri="photos/">
+                    <resource uri="v1/">
+                        <method displayName="POST /models/{modelId}/photos/v1" id="4539" name="POST">
+                            <request>
+                                <param name="modelid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f4539:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="info/">
+                    <resource uri="v1/">
+                        <method displayName="GET /models/{modelId}/info/v1" id="4532" name="GET">
+                            <request>
+                                <param name="modelid" required="true" style="query" type="xsd:string">
+                                    <doc>the existing D model id</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f4532:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="PUT /models/{modelId}/info/v1" id="4542" name="PUT">
+                            <request>
+                                <param name="modelid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f4542:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="files/">
+                    <resource uri="v1/">
+                        <method displayName="POST /models/{modelId}/files/v1" id="4538" name="POST">
+                            <request>
+                                <param name="modelid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f4538:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="{fileVersion}/">
+                        <param name="fileVersion" style="template" type="xsd:string"/>
+                        <resource uri="v1/">
+                            <method displayName="GET /models/{modelId}/files/{fileVersion}/v1" id="4531" name="GET">
+                                <request>
+                                    <param name="file" required="true" style="query" type="xsd:string">
+                                        <doc>include model data file in the response Default Do not include model file data Include model file data</doc>
+                                    </param>
+                                    <param name="fileversion" required="true" style="query" type="xsd:string">
+                                        <doc>model file version</doc>
+                                    </param>
+                                    <param name="modelid" required="true" style="query" type="xsd:string">
+                                        <doc>model id</doc>
+                                    </param>
+                                </request>
+                                <response>
+                                    <representation element="f4531:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="v1/">
+                    <method displayName="DELETE /models/{modelId}/v1" id="4524" name="DELETE">
+                        <request>
+                            <param name="modelid" required="true" style="query" type="xsd:string">
+                                <doc>iD of the model to delete</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4524:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="GET /models/{modelId}/v1" id="4533" name="GET">
+                        <request>
+                            <param name="modelid" required="true" style="query" type="xsd:string">
+                                <doc>model id</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4533:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

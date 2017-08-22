@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2189="urn:function:f2189" xmlns:f2190="urn:function:f2190" xmlns:f2191="urn:function:f2191" xmlns:f2192="urn:function:f2192">
+    <grammars>
+        <include href="Function2192.xsd"/>
+        <include href="Function2191.xsd"/>
+        <include href="Function2190.xsd"/>
+        <include href="Function2189.xsd"/>
+    </grammars>
+    <doc>a Mashape wrapper for indico s existing text APIs Current APIS Sentiment Analysis Political Alignment Detection Language Detection Text Tagging Our image APIs will be along shortly once the interface is cleaned up a bit These APIs also have explicit wrappers for a number of languages visible on our Github page https github com IndicoDataSolutions More documentation as well as docs specific to each of our language can be found here http indico readme io v docs</doc>
+    <resources base="https://indico-indico-v1.p.mashape.com/">
+        <resource uri="texttags/">
+            <method displayName="/texttags" id="2192" name="POST">
+                <doc>An endpoint that categorizes raw strings into a number of pre-built categories</doc>
+                <request/>
+                <response>
+                    <representation element="f2192:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="sentiment/">
+            <method displayName="/sentiment" id="2191" name="POST">
+                <doc>sentiment analysis endpoint</doc>
+                <request/>
+                <response>
+                    <representation element="f2191:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="political/">
+            <method displayName="/political" id="2190" name="POST">
+                <doc>A political alignment detection API</doc>
+                <request/>
+                <response>
+                    <representation element="f2190:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="language/">
+            <method displayName="/language" id="2189" name="POST">
+                <doc>A language detection endpoint</doc>
+                <request/>
+                <response>
+                    <representation element="f2189:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

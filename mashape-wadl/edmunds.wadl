@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2473="urn:function:f2473" xmlns:f2474="urn:function:f2474" xmlns:f2475="urn:function:f2475" xmlns:f2476="urn:function:f2476">
+    <grammars>
+        <include href="Function2476.xsd"/>
+        <include href="Function2475.xsd"/>
+        <include href="Function2474.xsd"/>
+        <include href="Function2473.xsd"/>
+    </grammars>
+    <doc>research new and used cars including car prices view incentives and dealer inventory listings compare vehicles get car buying advice and reviews at Edmunds com</doc>
+    <resources base="https://community-edmunds.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="vehiclereviews/">
+                <resource uri="v2/">
+                    <resource uri="styles/">
+                        <resource uri="{styleId}/">
+                            <param name="styleId" style="template" type="xsd:string"/>
+                            <method displayName="GET Get Consumer Ratings and Reviews by Car Style ID" id="2476" name="GET">
+                                <doc>Get vehicle ratings and reviews by providing vehicle make/model/year data</doc>
+                                <request>
+                                    <param name="callback" required="true" style="query" type="xsd:string">
+                                        <doc>the callback function that the JSON response will be wrapped in if desired</doc>
+                                    </param>
+                                    <param name="fmt" required="true" style="query" type="xsd:string"/>
+                                    <param name="pagenum" required="true" style="query" type="xsd:string">
+                                        <doc>the page number of the paginated result Default</doc>
+                                    </param>
+                                    <param name="pagesize" required="true" style="query" type="xsd:string">
+                                        <doc>the maximum number of returned reviews Default</doc>
+                                    </param>
+                                    <param name="sortby" required="true" style="query" type="xsd:string">
+                                        <doc>sort the reviews by any string of the format field or field direction where field created thumbsUp or avgRating and direction ASC ascending or DESC descending Default created DESC</doc>
+                                    </param>
+                                    <param name="styleid" required="true" style="query" type="xsd:string">
+                                        <doc>vehicle style ID</doc>
+                                    </param>
+                                </request>
+                                <response>
+                                    <representation element="f2476:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                    <resource uri="{makeNiceName}/">
+                        <param name="makeNiceName" style="template" type="xsd:string"/>
+                        <resource uri="{modelNiceName}/">
+                            <param name="modelNiceName" style="template" type="xsd:string"/>
+                            <resource uri="{year}/">
+                                <param name="year" style="template" type="xsd:string"/>
+                                <method displayName="Get Consumer Ratings and Reviews by Car Make/Model/Year" id="2475" name="GET">
+                                    <doc>Get vehicle ratings and reviews by providing vehicle make/model/year data</doc>
+                                    <request>
+                                        <param name="callback" required="true" style="query" type="xsd:string">
+                                            <doc>the callback function that the JSON response will be wrapped in if desired</doc>
+                                        </param>
+                                        <param name="fmt" required="true" style="query" type="xsd:string"/>
+                                        <param name="makenicename" required="true" style="query" type="xsd:string">
+                                            <doc>vehicle make niceName</doc>
+                                        </param>
+                                        <param name="modelnicename" required="true" style="query" type="xsd:string">
+                                            <doc>vehicle model niceName</doc>
+                                        </param>
+                                        <param name="pagenum" required="true" style="query" type="xsd:string">
+                                            <doc>the page number of the paginated result Default</doc>
+                                        </param>
+                                        <param name="pagesize" required="true" style="query" type="xsd:string">
+                                            <doc>the maximum number of returned reviews Default</doc>
+                                        </param>
+                                        <param name="sortby" required="true" style="query" type="xsd:string">
+                                            <doc>sort the reviews by any string of the format field or field direction where field created thumbsUp or avgRating and direction ASC ascending or DESC descending Default created DESC</doc>
+                                        </param>
+                                        <param name="year" required="true" style="query" type="xsd:string">
+                                            <doc>vehicle four digit year</doc>
+                                        </param>
+                                    </request>
+                                    <response>
+                                        <representation element="f2475:root" mediaType="application/json"/>
+                                    </response>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="vehicle/">
+                <resource uri="v2/">
+                    <resource uri="grade/">
+                        <resource uri="{makeNiceName}/">
+                            <param name="makeNiceName" style="template" type="xsd:string"/>
+                            <resource uri="{modelNiceName}/">
+                                <param name="modelNiceName" style="template" type="xsd:string"/>
+                                <resource uri="{year}/">
+                                    <param name="year" style="template" type="xsd:string"/>
+                                    <method displayName="Get Car Ratings by Make/Model/Year" id="2474" name="GET">
+                                        <doc>Get vehicle ratings grade by make/model/year</doc>
+                                        <request>
+                                            <param name="callback" required="true" style="query" type="xsd:string">
+                                                <doc>the callback function that the JSON response will be wrapped in if desired</doc>
+                                            </param>
+                                            <param name="fmt" required="true" style="query" type="xsd:string"/>
+                                            <param name="makenicename" required="true" style="query" type="xsd:string">
+                                                <doc>vehicle make niceName</doc>
+                                            </param>
+                                            <param name="modelnicename" required="true" style="query" type="xsd:string">
+                                                <doc>vehicle model niceName</doc>
+                                            </param>
+                                            <param name="submodel" required="true" style="query" type="xsd:string">
+                                                <doc>vehicle submodel i e sedan suv etc</doc>
+                                            </param>
+                                            <param name="year" required="true" style="query" type="xsd:string">
+                                                <doc>vehicle four digit year</doc>
+                                            </param>
+                                        </request>
+                                        <response>
+                                            <representation element="f2474:root" mediaType="application/json"/>
+                                        </response>
+                                    </method>
+                                </resource>
+                            </resource>
+                        </resource>
+                        <resource uri="{styleid}/">
+                            <param name="styleid" style="template" type="xsd:string"/>
+                            <method displayName="Get Car Rating by Vehicle Style ID" id="2473" name="GET">
+                                <doc>Get vehicle ratings grade by vehicle style ID</doc>
+                                <request>
+                                    <param name="callback" required="true" style="query" type="xsd:string">
+                                        <doc>the callback function that the JSON response will be wrapped in if desired</doc>
+                                    </param>
+                                    <param name="fmt" required="true" style="query" type="xsd:string"/>
+                                    <param name="styleid" required="true" style="query" type="xsd:string">
+                                        <doc>vehicle Style ID</doc>
+                                    </param>
+                                </request>
+                                <response>
+                                    <representation element="f2473:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

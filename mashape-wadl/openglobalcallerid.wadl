@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>the Open Global Caller ID helps to find the owner information by querying mobile number and country code This is only an experimental version</doc>
+    <resources base="https://datayuge-open-global-caller-id-v1.p.mashape.com/">
+        <resource uri="index.php/">
+            <method displayName="WhoIsIt" id="1508" name="GET">
+                <doc>Fetch caller Info</doc>
+                <request>
+                    <param name="cc" required="true" style="query" type="xsd:integer">
+                        <doc>country Code Without or</doc>
+                    </param>
+                    <param name="number" required="true" style="query" type="xsd:string">
+                        <doc>mobile number Without any prefix</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

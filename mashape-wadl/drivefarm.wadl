@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4400="urn:function:f4400" xmlns:f4401="urn:function:f4401" xmlns:f4402="urn:function:f4402" xmlns:f4403="urn:function:f4403" xmlns:f4404="urn:function:f4404" xmlns:f4406="urn:function:f4406" xmlns:f4407="urn:function:f4407" xmlns:f4408="urn:function:f4408" xmlns:f4409="urn:function:f4409" xmlns:f4410="urn:function:f4410" xmlns:f4411="urn:function:f4411" xmlns:f4412="urn:function:f4412" xmlns:f4413="urn:function:f4413" xmlns:f4414="urn:function:f4414" xmlns:f4415="urn:function:f4415" xmlns:f4416="urn:function:f4416" xmlns:f4417="urn:function:f4417" xmlns:f4418="urn:function:f4418" xmlns:f4419="urn:function:f4419" xmlns:f4420="urn:function:f4420">
+    <grammars>
+        <include href="Function4420.xsd"/>
+        <include href="Function4419.xsd"/>
+        <include href="Function4418.xsd"/>
+        <include href="Function4417.xsd"/>
+        <include href="Function4416.xsd"/>
+        <include href="Function4414.xsd"/>
+        <include href="Function4413.xsd"/>
+        <include href="Function4412.xsd"/>
+        <include href="Function4411.xsd"/>
+        <include href="Function4410.xsd"/>
+        <include href="Function4415.xsd"/>
+        <include href="Function4409.xsd"/>
+        <include href="Function4408.xsd"/>
+        <include href="Function4407.xsd"/>
+        <include href="Function4406.xsd"/>
+        <include href="Function4404.xsd"/>
+        <include href="Function4403.xsd"/>
+        <include href="Function4402.xsd"/>
+        <include href="Function4401.xsd"/>
+        <include href="Function4400.xsd"/>
+    </grammars>
+    <doc>dRIVEFARM is a new cloud file manager projected and developed to help little and medium companies in their daily maintenance of their documents assets With DRIVEFARM you can optimize your company procedures sharing projects contracts and catalogues with your work team DRIVEFARM allows the management and personalization of every single employee profile and correlated privileges Every company member can share his her files and documents with other inner or outer colleagues directly from Web or Mobile App DRIVEFARM tracks files sharing and sending activities respecting privacy rules The company manager can verify members usage of documents assets and identify any company policies not compliant activity</doc>
+    <resources base="https://drivefarm.p.mashape.com/">
+        <resource uri="userStats/">
+            <method displayName="User Stats" id="4420" name="GET">
+                <doc>Return the statistics of the user profile connected to the access token</doc>
+                <request>
+                    <param name="accesstoken" required="true" style="query" type="xsd:string">
+                        <doc>token for OAuth authentication</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4420:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="Returns the list of user log. This method is only available for business users administrators./">
+            <method displayName="User Log" id="4419" name="GET">
+                <request>
+                    <param name="accesstoken" required="true" style="query" type="xsd:string">
+                        <doc>token for OAuth authentication</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4419:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="shareRequests/">
+            <method displayName="Sharing Requests" id="4418" name="GET">
+                <doc>Returns all sharing requests, including requests for sending files.</doc>
+                <request>
+                    <param name="accesstoken" required="true" style="query" type="xsd:string">
+                        <doc>token for OAuth authentication</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4418:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="shareFolders/">
+            <method displayName="Sharing Folder" id="4417" name="POST">
+                <doc>Share one or more folders with other users.</doc>
+                <request/>
+                <response>
+                    <representation element="f4417:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="acceptShare/">
+            <method displayName="Sharing Agree" id="4416" name="POST">
+                <doc>Accepts a share folder or sending a file by another user.</doc>
+                <request/>
+                <response>
+                    <representation element="f4416:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="sendFiles/">
+            <method displayName="Send File" id="4414" name="POST">
+                <request/>
+                <response>
+                    <representation element="f4414:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="rejectShare/">
+            <method displayName="Reject Sharing" id="4413" name="POST">
+                <request/>
+                <response>
+                    <representation element="f4413:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="moveFolder/">
+            <method displayName="Move Folder" id="4412" name="POST">
+                <request/>
+                <response>
+                    <representation element="f4412:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="moveFile/">
+            <method displayName="Move File" id="4411" name="POST">
+                <doc>Move File</doc>
+                <request/>
+                <response>
+                    <representation element="f4411:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="mobilePosition/">
+            <method displayName="GPS Position" id="4410" name="GET">
+                <doc>Returns the last setted position. If it has never been set to 0, both coordinates are returned equal to 0.</doc>
+                <request>
+                    <param name="accesstoken" required="true" style="query" type="xsd:string">
+                        <doc>token for OAuth authentication</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4410:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Set GPS Position" id="4415" name="POST">
+                <doc>Set your GPS location.</doc>
+                <request/>
+                <response>
+                    <representation element="f4415:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="folderContent/">
+            <method displayName="Folder Content" id="4409" name="GET">
+                <doc>List the content of a folder</doc>
+                <request>
+                    <param name="accesstoken" required="true" style="query" type="xsd:string">
+                        <doc>token for OAuth authentication path</doc>
+                    </param>
+                    <param name="deep" required="true" style="query" type="xsd:boolean">
+                        <doc>boolean that indicates whether the list of files should be deep If not specified is considered false</doc>
+                    </param>
+                    <param name="path" required="true" style="query" type="xsd:string">
+                        <doc>absolute folder path</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4409:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="fileUpload/">
+            <method displayName="File Upload" id="4408" name="POST">
+                <doc>Upload file into Server</doc>
+                <request/>
+                <response>
+                    <representation element="f4408:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="fileStats/">
+            <method displayName="File Statistics" id="4407" name="GET">
+                <doc>Returns file statistics</doc>
+                <request>
+                    <param name="accesstoken" required="true" style="query" type="xsd:string">
+                        <doc>token for OAuth authentication</doc>
+                    </param>
+                    <param name="path" required="true" style="query" type="xsd:string">
+                        <doc>the absolute path of the file</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4407:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="emptyTrash/">
+            <method displayName="Empty Trash" id="4406" name="GET">
+                <request>
+                    <param name="accesstoken" required="true" style="query" type="xsd:string">
+                        <doc>token for OAuth authentication</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4406:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="fileContent/">
+            <method displayName="Download File" id="4405" name="GET">
+                <request>
+                    <param name="accesstoken" required="true" style="query" type="xsd:string">
+                        <doc>token for OAuth authentication</doc>
+                    </param>
+                    <param name="path" required="true" style="query" type="xsd:string">
+                        <doc>the absolute path of the file</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="createFolder/">
+            <method displayName="Create Folder" id="4404" name="POST">
+                <doc>Create folder</doc>
+                <request/>
+                <response>
+                    <representation element="f4404:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="copyFolder/">
+            <method displayName="Copy Folder" id="4403" name="POST">
+                <doc>Copy folder into clipboard</doc>
+                <request/>
+                <response>
+                    <representation element="f4403:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="copyFile/">
+            <method displayName="Copy File" id="4402" name="POST">
+                <doc>Copy file into clipboard</doc>
+                <request/>
+                <response>
+                    <representation element="f4402:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="nearUsers/">
+            <method displayName="Close Users" id="4401" name="GET">
+                <doc>Returns the list of users in range. The GPS coordinates present in the system are valid for 2 minutes.</doc>
+                <request>
+                    <param name="accesstoken" required="true" style="query" type="xsd:string">
+                        <doc>token for OAuth authentication</doc>
+                    </param>
+                    <param name="latitude" required="true" style="query" type="xsd:string">
+                        <doc>own latitude</doc>
+                    </param>
+                    <param name="longitude" required="true" style="query" type="xsd:string">
+                        <doc>own longitude</doc>
+                    </param>
+                    <param name="proximity" required="true" style="query" type="xsd:string">
+                        <doc>the degree of proximity in the range max distance km</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4401:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="clerkUsers/">
+            <method displayName="Clerk User" id="4400" name="GET">
+                <doc>Returns the list of users in your organization. This call can not be used by private users.</doc>
+                <request>
+                    <param name="accesstoken" required="true" style="query" type="xsd:string">
+                        <doc>token for OAuth authentication</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4400:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>jSLogger logs Javascript errors and events in the cloud This API describes the client part of JSLogger where you can query the existent data from your account and build applications on top of it The tracking API will be available soon</doc>
+    <resources base="https://jslogger-jslogger.p.mashape.com/">
+        <resource uri="manage/">
+            <resource uri="profile.json/">
+                <method displayName="Profile Info" id="4346" name="GET">
+                    <doc>Get information about user's profile.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="summaries.json/">
+                <method displayName="Log Summaries" id="4345" name="GET">
+                    <doc>Get log or event summaries.</doc>
+                    <request>
+                        <param name="hidden" required="true" style="query" type="xsd:string">
+                            <doc>true false show hide hidden logs</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:string">
+                            <doc>limit the number of returned results per page i e</doc>
+                        </param>
+                        <param name="order" required="true" style="query" type="xsd:string">
+                            <doc>asc desc order ascending or descending</doc>
+                        </param>
+                        <param name="orderBy" required="true" style="query" type="xsd:string">
+                            <doc>order by this field i e updated</doc>
+                        </param>
+                        <param name="page" required="true" style="query" type="xsd:string">
+                            <doc>page number if limit is used i e zero based</doc>
+                        </param>
+                        <param name="q" required="true" style="query" type="xsd:string">
+                            <doc>search terms to filter the results by i e script error</doc>
+                        </param>
+                        <param name="type" required="true" style="query" type="xsd:string">
+                            <doc>log event get summaries for logs or events</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="stats.json/">
+                <method displayName="Log Stats" id="4344" name="GET">
+                    <doc>Get logs and events count for a project.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="projects.json/">
+                <method displayName="List Projects" id="4343" name="GET">
+                    <doc>Get user's projects.</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

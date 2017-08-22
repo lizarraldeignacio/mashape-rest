@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2393="urn:function:f2393" xmlns:f2394="urn:function:f2394" xmlns:f2395="urn:function:f2395" xmlns:f2396="urn:function:f2396" xmlns:f2397="urn:function:f2397" xmlns:f2398="urn:function:f2398" xmlns:f2399="urn:function:f2399" xmlns:f2400="urn:function:f2400" xmlns:f2401="urn:function:f2401" xmlns:f2402="urn:function:f2402">
+    <grammars>
+        <include href="Function2402.xsd"/>
+        <include href="Function2401.xsd"/>
+        <include href="Function2400.xsd"/>
+        <include href="Function2399.xsd"/>
+        <include href="Function2398.xsd"/>
+        <include href="Function2397.xsd"/>
+        <include href="Function2396.xsd"/>
+        <include href="Function2395.xsd"/>
+        <include href="Function2394.xsd"/>
+        <include href="Function2393.xsd"/>
+    </grammars>
+    <doc>crunchBase is the definitive database of the startup ecosystem The Business Graph connects companies people products events to provide data that you</doc>
+    <resources base="https://ideas2it-CrunchBase-v1.p.mashape.com/">
+        <resource uri="product/">
+            <resource uri="{permalink}/">
+                <param name="permalink" style="template" type="xsd:string"/>
+                <method displayName="Properties of Product" id="2402" name="GET">
+                    <doc>This operation returns the properties and relationships of the Product for the given permalink</doc>
+                    <request>
+                        <param name="permalink" required="true" style="query" type="xsd:string"/>
+                        <param name="userKey" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2402:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="person/">
+            <resource uri="{permalink}/">
+                <param name="permalink" style="template" type="xsd:string"/>
+                <method displayName="Properties of Person" id="2401" name="GET">
+                    <doc>This operation returns the properties and relationships of the Person for the given permalink</doc>
+                    <request>
+                        <param name="permalink" required="true" style="query" type="xsd:string"/>
+                        <param name="userKey" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2401:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="organization/">
+            <resource uri="{permalink}/">
+                <param name="permalink" style="template" type="xsd:string"/>
+                <method displayName="Properties of Organization" id="2400" name="GET">
+                    <request>
+                        <param name="permalink" required="true" style="query" type="xsd:string"/>
+                        <param name="userKey" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2400:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="products/">
+            <method displayName="Products" id="2399" name="GET">
+                <doc>This operation returns a paginated list of all Products in CrunchBase</doc>
+                <request>
+                    <param name="order" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="userKey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2399:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="people/">
+            <method displayName="People in CrunchBase" id="2398" name="GET">
+                <doc>This operation returns a paginated list of all People in CrunchBase</doc>
+                <request>
+                    <param name="order" required="true" style="query" type="xsd:string"/>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="userKey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2398:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="organizations/">
+            <method displayName="Organiations in CrunchBase" id="2397" name="GET">
+                <doc>This operation returns a paginated list of all Organizations in CrunchBase</doc>
+                <request>
+                    <param name="order" required="true" style="query" type="xsd:string"/>
+                    <param name="page" required="true" style="query" type="xsd:string"/>
+                    <param name="userKey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2397:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="ipo/">
+            <resource uri="{uuid}/">
+                <param name="uuid" style="template" type="xsd:string"/>
+                <method displayName="IPO" id="2396" name="GET">
+                    <doc>This operation returns the properties and relationships of the IPO for the given uuid</doc>
+                    <request>
+                        <param name="userKey" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="uuid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f2396:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="fund-raise/">
+            <resource uri="{uuid}/">
+                <param name="uuid" style="template" type="xsd:string"/>
+                <method displayName="FundRaise" id="2395" name="GET">
+                    <doc>This operation returns the properties and relationships of the Fund Raise for the given uuid</doc>
+                    <request>
+                        <param name="userKey" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="uuid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f2395:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="funding-round/">
+            <resource uri="{uuid}/">
+                <param name="uuid" style="template" type="xsd:string"/>
+                <method displayName="Funding Round" id="2394" name="GET">
+                    <doc>This operation returns the properties and relationships of the Funding Round for the given uuid</doc>
+                    <request>
+                        <param name="userKey" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="uuid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f2394:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="acquisition/">
+            <resource uri="{uuid}/">
+                <param name="uuid" style="template" type="xsd:string"/>
+                <method displayName="Acquisition" id="2393" name="GET">
+                    <doc>This operation returns the properties and relationships of the Acquisition for the given uuid</doc>
+                    <request>
+                        <param name="userKey" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="uuid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f2393:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3678="urn:function:f3678" xmlns:f3679="urn:function:f3679">
+    <grammars>
+        <include href="Function3679.xsd"/>
+        <include href="Function3678.xsd"/>
+    </grammars>
+    <doc>the epguides REST API allows developers to access and integrate information about TV episodes for many TV shows Some example API methods include retrieving all of the episodes of a TV show retrieving the last episode of a TV show and retrieving the first episode of a TV show epguides was built and is provided by Fredrik Carlsen</doc>
+    <resources base="https://frecar-epguides-api-v1.p.mashape.com/">
+        <resource uri="bigbangtheory/">
+            <method displayName="/bigbangtheory/" id="3679" name="GET">
+                <doc>Example of querying The Big Bang Theory</doc>
+                <request/>
+                <response>
+                    <representation element="f3679:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="">
+            <method displayName="/" id="3678" name="GET">
+                <doc>Discover TV shows</doc>
+                <request/>
+                <response>
+                    <representation element="f3678:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

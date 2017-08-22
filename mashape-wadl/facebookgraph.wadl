@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f767="urn:function:f767" xmlns:f768="urn:function:f768">
+    <grammars>
+        <include href="Function767.xsd"/>
+        <include href="Function768.xsd"/>
+    </grammars>
+    <doc>facebook Graph API For demo purposes only You can also use FQL using the fql parameter You need to create an app in https developers facebook com apps to get this to work check the Readme section</doc>
+    <resources base="https://mashape-community-facebook-graph.p.mashape.com/">
+        <resource uri="me/">
+            <method displayName="Friends" id="767" name="GET">
+                <request/>
+                <response>
+                    <representation element="f767:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Me" id="768" name="GET">
+                <request/>
+                <response>
+                    <representation element="f768:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="fql/">
+            <method displayName="fql" id="766" name="GET">
+                <request>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>fQL query See docs in http developers facebook com docs reference fql</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

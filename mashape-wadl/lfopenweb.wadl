@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4167="urn:function:f4167" xmlns:f4168="urn:function:f4168" xmlns:f4169="urn:function:f4169" xmlns:f4170="urn:function:f4170" xmlns:f4171="urn:function:f4171" xmlns:f4172="urn:function:f4172" xmlns:f4173="urn:function:f4173" xmlns:f4174="urn:function:f4174" xmlns:f4177="urn:function:f4177" xmlns:f4178="urn:function:f4178" xmlns:f4179="urn:function:f4179" xmlns:f4181="urn:function:f4181">
+    <grammars>
+        <include href="Function4171.xsd"/>
+        <include href="Function4181.xsd"/>
+        <include href="Function4179.xsd"/>
+        <include href="Function4178.xsd"/>
+        <include href="Function4177.xsd"/>
+        <include href="Function4174.xsd"/>
+        <include href="Function4173.xsd"/>
+        <include href="Function4172.xsd"/>
+        <include href="Function4170.xsd"/>
+        <include href="Function4169.xsd"/>
+        <include href="Function4168.xsd"/>
+        <include href="Function4167.xsd"/>
+    </grammars>
+    <doc>at Life Fitness we commit to providing the best exercising experience by empowering others With LFopen developers and fitness facility owners can access the Life Fitness Application Programming Interfaces API to be able to extend the functionali</doc>
+    <resources base="https://life-fitness-lfconnect-website1.p.mashape.com/">
+        <resource uri="user/">
+            <method displayName="Get Photo" id="4171" name="GET">
+                <doc>Returns the Profile photo of the LFConnect User related to the Access Token passed.</doc>
+                <request/>
+                <response>
+                    <representation element="f4171:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get user account details" id="4175" name="GET">
+                <doc>Retrieves the user account details based on the User access token passed.</doc>
+                <request/>
+            </method>
+            <method displayName="Save Photo" id="4180" name="POST">
+                <request/>
+            </method>
+            <method displayName="Update user" id="4181" name="POST">
+                <request/>
+                <response>
+                    <representation element="f4181:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="workoutresults/">
+            <resource uri="poststrength/">
+                <method displayName="poststrength" id="4179" name="POST">
+                    <doc>Store Manual Strength Workout information.i.e, Strength workout posted manually rather than through equipment.  This service saves the Manual Strength workout information and posts to Facebook if the User has authorized Facebook sharing in his profile with the message specified in facebookShareMsg and the workout information.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4179:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="postgps/">
+                <method displayName="postgps" id="4178" name="POST">
+                    <doc>Saves the GPS workout information.  This service saves the GPS information and posts to Facebook if the User has authorized Facebook sharing in his profile, with the message specified in facebookShareMsg and the workout information.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4178:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="postcardio/">
+                <method displayName="postcardio" id="4177" name="POST">
+                    <doc>Store Manual Cardio Workout information i.e, Cardio workout posted manually rather than through equipment.  This service saves the Manual Cardio workout information and posts to Facebook if the User has authorized Facebook sharing in his profile with the message specified in facebookShareMsg and the workout information.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4177:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="get_summary_results/">
+                <method displayName="Get Summary Results" id="4174" name="GET">
+                    <doc>Read current progress information.  This service provides the progress information like calories,duration,workout span days and weights lifted per Day,Week,Month and Year. The currDate parameter value passed is considered as the current day till which the progress information is seeked.</doc>
+                    <request>
+                        <param name="fromdate" required="true" style="query" type="xsd:string">
+                            <doc>format MM dd YYYY</doc>
+                        </param>
+                        <param name="timezone" required="true" style="query" type="xsd:string">
+                            <doc>format GMT Sign Hours Minutes e g GMT or GMT Sign Hours Minutes e g GMT or GMT Sign Hours e g GMT</doc>
+                        </param>
+                        <param name="todate" required="true" style="query" type="xsd:string">
+                            <doc>format MM dd YYYY</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4174:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="get_results_workout/">
+                <method displayName="Get Results Workout" id="4173" name="GET">
+                    <doc>Retrieves workout progress of User between the specified dates</doc>
+                    <request>
+                        <param name="fromdate" required="true" style="query" type="xsd:string">
+                            <doc>format MM dd YYYY</doc>
+                        </param>
+                        <param name="timezone" required="true" style="query" type="xsd:string">
+                            <doc>format GMT Sign Hours Minutes e g GMT or GMT Sign Hours Minutes e g GMT or GMT Sign Hours e g GMT</doc>
+                        </param>
+                        <param name="todate" required="true" style="query" type="xsd:string">
+                            <doc>format MM dd YYYY</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4173:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="get_results_daily/">
+                <method displayName="Get Results Daily" id="4172" name="GET">
+                    <doc>Retrieves Daily Progress of User between the specified dates</doc>
+                    <request>
+                        <param name="fromdate" required="true" style="query" type="xsd:string">
+                            <doc>format MM dd YYYY</doc>
+                        </param>
+                        <param name="timezone" required="true" style="query" type="xsd:string">
+                            <doc>format GMT Sign Hours Minutes e g GMT or GMT Sign Hours Minutes e g GMT or GMT Sign Hours e g GMT</doc>
+                        </param>
+                        <param name="todate" required="true" style="query" type="xsd:string">
+                            <doc>format MM dd YYYY</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4172:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="get_manualstrength_results/">
+                <method displayName="Get Manualstrength Results" id="4170" name="GET">
+                    <doc>Retrieves Manual Strength workout results of User between the specifieddates</doc>
+                    <request>
+                        <param name="fromdate" required="true" style="query" type="xsd:string">
+                            <doc>format MM dd YYYY</doc>
+                        </param>
+                        <param name="timezone" required="true" style="query" type="xsd:string">
+                            <doc>format GMT Sign Hours Minutes e g GMT or GMT Sign Hours Minutes e g GMT or GMT Sign Hours e g GMT</doc>
+                        </param>
+                        <param name="todate" required="true" style="query" type="xsd:string">
+                            <doc>format MM dd YYYY</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4170:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="get_manualcardio_results/">
+                <method displayName="Get Manual Cardio Results" id="4169" name="GET">
+                    <doc>Retrieves Manual Cardio workout results of User between the specified dates</doc>
+                    <request>
+                        <param name="fromdate" required="true" style="query" type="xsd:string">
+                            <doc>format MM dd YYYY</doc>
+                        </param>
+                        <param name="timezone" required="true" style="query" type="xsd:string">
+                            <doc>format GMT Sign Hours Minutes e g GMT or GMT Sign Hours Minutes e g GMT or GMT Sign Hours e g GMT</doc>
+                        </param>
+                        <param name="todate" required="true" style="query" type="xsd:string">
+                            <doc>format MM dd YYYY</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4169:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="get_lifefitness_results/">
+                <method displayName="Get Lifefitness Results" id="4168" name="GET">
+                    <request>
+                        <param name="fromdate" required="true" style="query" type="xsd:string">
+                            <doc>format MM dd YYYY</doc>
+                        </param>
+                        <param name="timezone" required="true" style="query" type="xsd:string">
+                            <doc>format GMT Sign Hours Minutes e g GMT or GMT Sign Hours Minutes e g GMT or GMT Sign Hours e g GMT</doc>
+                        </param>
+                        <param name="todate" required="true" style="query" type="xsd:string">
+                            <doc>format MM dd YYYY</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4168:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="get_gps_results/">
+                <method displayName="Get GPS Results" id="4167" name="GET">
+                    <doc>Retrieves Workout results posted by User through GPS between the specified dates</doc>
+                    <request>
+                        <param name="fromdate" required="true" style="query" type="xsd:string">
+                            <doc>format MM dd YYYY</doc>
+                        </param>
+                        <param name="timezone" required="true" style="query" type="xsd:string">
+                            <doc>format GMT Sign Hours Minutes e g GMT or GMT Sign Hours Minutes e g GMT or GMT Sign Hours e g GMT</doc>
+                        </param>
+                        <param name="todate" required="true" style="query" type="xsd:string">
+                            <doc>format MM dd YYYY</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4167:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="workoutpreset/">
+            <resource uri="get_workoutlist/">
+                <method displayName="Get Workoutlist" id="4176" name="GET">
+                    <doc>The user creates custom workouts giving specific goals and parameters such as time/calories/distance. This service returns all the workout presets created by the user. The user selects any one of the preset in the Lifefitness equipment before starting a workout  If the equipmentIds are not mentioned, then this returns all the workouts available. This details provides the users preference of workouts and might help in suggesting similar workout regimens.  To provide the value for equipmentIds input, the service xx can be used to get the list of predefined equipmentIds and the desired value can be provided.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="get_equipment_list/">
+                <method displayName="Get Equipment list" id="4166" name="GET">
+                    <doc>Retreives all the equipments available.  This service retrieves the static values of equipment Ids and equipments. These values can be provided as an input to get the User workouts using /get_workoutlist service.  The workout results retrieval services holds these values to identify the equipment that the workout has been completed</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4890="urn:function:f4890" xmlns:f4891="urn:function:f4891" xmlns:f4892="urn:function:f4892" xmlns:f4893="urn:function:f4893" xmlns:f4898="urn:function:f4898" xmlns:f4905="urn:function:f4905" xmlns:f4909="urn:function:f4909" xmlns:f4910="urn:function:f4910" xmlns:f4912="urn:function:f4912" xmlns:f4914="urn:function:f4914" xmlns:f4916="urn:function:f4916" xmlns:f4922="urn:function:f4922" xmlns:f4923="urn:function:f4923">
+    <grammars>
+        <include href="Function4916.xsd"/>
+        <include href="Function4912.xsd"/>
+        <include href="Function4922.xsd"/>
+        <include href="Function4910.xsd"/>
+        <include href="Function4909.xsd"/>
+        <include href="Function4898.xsd"/>
+        <include href="Function4893.xsd"/>
+        <include href="Function4892.xsd"/>
+        <include href="Function4923.xsd"/>
+        <include href="Function4914.xsd"/>
+        <include href="Function4891.xsd"/>
+        <include href="Function4905.xsd"/>
+        <include href="Function4890.xsd"/>
+    </grammars>
+    <doc>a face recognition API complete with detection analysis and identification features</doc>
+    <resources base="https://divit-divit-face-v1.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="Person/">
+                <resource uri="InsertPerson/">
+                    <method displayName="InsertPerson" id="4921" name="POST">
+                        <doc>Add person to users list.</doc>
+                        <request>
+                            <param name="personid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="userid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="InsertInformation/">
+                    <method displayName="InsertInformation" id="4918" name="POST">
+                        <request>
+                            <param name="info" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="personid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="InsertFace/">
+                    <method displayName="InsertFace" id="4916" name="POST">
+                        <request>
+                            <param name="faceid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="personid" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4916:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="GetAllPerson?userId={userid}/">
+                    <param name="userid" style="template" type="xsd:string"/>
+                    <method displayName="GetPersons" id="4912" name="GET">
+                        <doc>Get all persons of user.</doc>
+                        <request>
+                            <param name="userid" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4912:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="GetPerson/">
+                    <method displayName="GetPerson" id="4911" name="GET">
+                        <doc>Get one of person from list.</doc>
+                        <request>
+                            <param name="personid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="userid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="DeletePerson/">
+                    <method displayName="DeletePerson" id="4902" name="DELETE">
+                        <request>
+                            <param name="personid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="DeleteInformation/">
+                    <method displayName="DeleteInformation" id="4899" name="DELETE">
+                        <request>
+                            <param name="infoid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="DeleteFace/">
+                    <method displayName="DeleteFace" id="4895" name="DELETE">
+                        <request>
+                            <param name="faceid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="CreatePerson/">
+                    <method displayName="CreatePerson" id="4894" name="POST">
+                        <request>
+                            <param name="lastname" required="true" style="query" type="xsd:string"/>
+                            <param name="name" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="Group/">
+                <resource uri="InsertPerson/">
+                    <method displayName="InsertPersonToGroup" id="4922" name="POST">
+                        <request>
+                            <param name="groupid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="personid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4922:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="InsertInformation/">
+                    <method displayName="InsertInformationToGroup" id="4920" name="POST">
+                        <request>
+                            <param name="groupid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="info" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="GetPersons/">
+                    <method displayName="GetPersonsofGroup" id="4913" name="GET">
+                        <request>
+                            <param name="groupid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="GetAllGroup/">
+                    <method displayName="GetGroupList" id="4910" name="GET">
+                        <request>
+                            <param name="userid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4910:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="GetGroup/">
+                    <method displayName="GetGroup" id="4909" name="GET">
+                        <request>
+                            <param name="groupid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4909:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="DeletePerson/">
+                    <method displayName="DeletePersonFromGroup" id="4903" name="DELETE">
+                        <request>
+                            <param name="groupid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="personid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="DeleteInformation/">
+                    <method displayName="DeleteInformationFromGroup" id="4901" name="DELETE">
+                        <request>
+                            <param name="groupid" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="DeleteGroup/">
+                    <method displayName="DeleteGroup" id="4898" name="DELETE">
+                        <request>
+                            <param name="groupid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4898:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="CreateGroup/">
+                    <method displayName="CreateGroup" id="4893" name="POST">
+                        <request>
+                            <param name="groupname" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="userId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4893:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="Faceset/">
+                <resource uri="InsertInformation/">
+                    <method displayName="InsertInformationToFaceset" id="4919" name="POST">
+                        <request>
+                            <param name="facesetid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="info" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="InsertFace/">
+                    <method displayName="InsertFaceToFaceset" id="4917" name="POST">
+                        <request>
+                            <param name="faceid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="facesetid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="GetFaceSet/">
+                    <method displayName="GetFaceSet" id="4908" name="GET">
+                        <request>
+                            <param name="facesetid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="GetFaces/">
+                    <method displayName="GetFaces" id="4907" name="GET">
+                        <doc>Get all face from faceset</doc>
+                        <request>
+                            <param name="facesetid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="DeleteInformation/">
+                    <method displayName="DeleteInformationFromFaceset" id="4900" name="DELETE">
+                        <request>
+                            <param name="facesetid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="DeleteFaceSet/">
+                    <method displayName="DeleteFaceSet" id="4897" name="DELETE">
+                        <request>
+                            <param name="facesetid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="DeleteFaceFromFaceset/">
+                    <method displayName="DeleteFaceFromFaceset" id="4896" name="DELETE">
+                        <request>
+                            <param name="faceid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="facesetid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="CreateFaceSet/">
+                    <method displayName="CreateFaceset" id="4892" name="POST">
+                        <request>
+                            <param name="facesetname" required="true" style="query" type="xsd:string"/>
+                            <param name="userId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4892:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="User/">
+                <resource uri="adduser/">
+                    <method displayName="Register" id="4923" name="POST">
+                        <doc>adds User to Database</doc>
+                        <request>
+                            <param name="email" required="true" style="query" type="xsd:string"/>
+                            <param name="lastname" required="true" style="query" type="xsd:string"/>
+                            <param name="name" required="true" style="query" type="xsd:string"/>
+                            <param name="password" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4923:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="getuser/">
+                    <method displayName="GetUser" id="4914" name="GET">
+                        <doc>gets the User data from database</doc>
+                        <request>
+                            <param name="email" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4914:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="checkuser?email=/">
+                    <method displayName="CheckUser" id="4891" name="POST">
+                        <doc>returns information of whether there is a user registered on the system or not</doc>
+                        <request>
+                            <param name="email" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="password" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4891:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="Face/">
+                <resource uri="Verification/">
+                    <method displayName="Verification" id="4925" name="POST">
+                        <request>
+                            <param name="threshold" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="Search/">
+                    <method displayName="Search" id="4924" name="POST">
+                        <request>
+                            <param name="facesetId" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="userid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="Identification/">
+                    <method displayName="Identification" id="4915" name="POST">
+                        <request>
+                            <param name="facesetId" required="true" style="query" type="xsd:string"/>
+                            <param name="threshold" required="true" style="query" type="xsd:integer"/>
+                            <param name="userid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="FindGender?userId={userid}/">
+                    <param name="userid" style="template" type="xsd:string"/>
+                    <method displayName="FindGender" id="4906" name="POST">
+                        <request>
+                            <param name="userid" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="detect/">
+                    <method displayName="Detection" id="4904" name="POST">
+                        <request>
+                            <param name="userid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="DetectionWithURL" id="4905" name="GET">
+                        <doc>Get face location.</doc>
+                        <request>
+                            <param name="imageurl" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="userid" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4905:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="analyze/">
+                    <method displayName="Analysis" id="4889" name="POST">
+                        <request>
+                            <param name="userid" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="AnalysisWithURL" id="4890" name="GET">
+                        <doc>Find face properties.</doc>
+                        <request>
+                            <param name="imageurl" required="true" style="query" type="xsd:string"/>
+                            <param name="userid" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4890:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

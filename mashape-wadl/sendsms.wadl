@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>sMS Service Provider</doc>
+    <resources base="https://sendsms.p.mashape.com/">
+        <resource uri="json/">
+            <method displayName="message_send" id="673" name="GET">
+                <request>
+                    <param name="action" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="from" required="true" style="query" type="xsd:string">
+                        <doc>message Sender</doc>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc>your SensSMS Api Key</doc>
+                    </param>
+                    <param name="reportMask" required="true" style="query" type="xsd:integer">
+                        <doc>report Mask</doc>
+                    </param>
+                    <param name="reportUrl" required="true" style="query" type="xsd:string">
+                        <doc>http sendsms ro r r php mySmsId status d</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>sMS Content</doc>
+                    </param>
+                    <param name="to" required="true" style="query" type="xsd:integer">
+                        <doc>destination Phone Number</doc>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc>your SensSMS User Name</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

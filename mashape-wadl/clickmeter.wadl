@@ -1,0 +1,989 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2646="urn:function:f2646" xmlns:f2647="urn:function:f2647" xmlns:f2648="urn:function:f2648" xmlns:f2649="urn:function:f2649" xmlns:f2650="urn:function:f2650" xmlns:f2651="urn:function:f2651" xmlns:f2652="urn:function:f2652" xmlns:f2653="urn:function:f2653" xmlns:f2654="urn:function:f2654" xmlns:f2655="urn:function:f2655" xmlns:f2656="urn:function:f2656" xmlns:f2657="urn:function:f2657" xmlns:f2658="urn:function:f2658" xmlns:f2659="urn:function:f2659" xmlns:f2660="urn:function:f2660" xmlns:f2661="urn:function:f2661" xmlns:f2662="urn:function:f2662" xmlns:f2663="urn:function:f2663" xmlns:f2664="urn:function:f2664" xmlns:f2665="urn:function:f2665" xmlns:f2666="urn:function:f2666" xmlns:f2667="urn:function:f2667" xmlns:f2668="urn:function:f2668" xmlns:f2669="urn:function:f2669" xmlns:f2670="urn:function:f2670" xmlns:f2671="urn:function:f2671" xmlns:f2672="urn:function:f2672" xmlns:f2673="urn:function:f2673" xmlns:f2674="urn:function:f2674" xmlns:f2675="urn:function:f2675" xmlns:f2677="urn:function:f2677" xmlns:f2678="urn:function:f2678" xmlns:f2679="urn:function:f2679" xmlns:f2680="urn:function:f2680" xmlns:f2681="urn:function:f2681" xmlns:f2682="urn:function:f2682" xmlns:f2683="urn:function:f2683" xmlns:f2684="urn:function:f2684" xmlns:f2685="urn:function:f2685" xmlns:f2686="urn:function:f2686" xmlns:f2687="urn:function:f2687" xmlns:f2688="urn:function:f2688" xmlns:f2689="urn:function:f2689" xmlns:f2690="urn:function:f2690" xmlns:f2691="urn:function:f2691" xmlns:f2692="urn:function:f2692" xmlns:f2693="urn:function:f2693" xmlns:f2694="urn:function:f2694" xmlns:f2695="urn:function:f2695" xmlns:f2696="urn:function:f2696" xmlns:f2697="urn:function:f2697" xmlns:f2698="urn:function:f2698" xmlns:f2699="urn:function:f2699" xmlns:f2700="urn:function:f2700" xmlns:f2701="urn:function:f2701" xmlns:f2702="urn:function:f2702" xmlns:f2703="urn:function:f2703" xmlns:f2704="urn:function:f2704" xmlns:f2705="urn:function:f2705" xmlns:f2706="urn:function:f2706" xmlns:f2707="urn:function:f2707" xmlns:f2708="urn:function:f2708" xmlns:f2709="urn:function:f2709">
+    <grammars>
+        <include href="Function2693.xsd"/>
+        <include href="Function2677.xsd"/>
+        <include href="Function2678.xsd"/>
+        <include href="Function2679.xsd"/>
+        <include href="Function2680.xsd"/>
+        <include href="Function2681.xsd"/>
+        <include href="Function2658.xsd"/>
+        <include href="Function2675.xsd"/>
+        <include href="Function2684.xsd"/>
+        <include href="Function2697.xsd"/>
+        <include href="Function2707.xsd"/>
+        <include href="Function2657.xsd"/>
+        <include href="Function2659.xsd"/>
+        <include href="Function2667.xsd"/>
+        <include href="Function2673.xsd"/>
+        <include href="Function2685.xsd"/>
+        <include href="Function2688.xsd"/>
+        <include href="Function2689.xsd"/>
+        <include href="Function2699.xsd"/>
+        <include href="Function2708.xsd"/>
+        <include href="Function2656.xsd"/>
+        <include href="Function2660.xsd"/>
+        <include href="Function2662.xsd"/>
+        <include href="Function2663.xsd"/>
+        <include href="Function2664.xsd"/>
+        <include href="Function2668.xsd"/>
+        <include href="Function2672.xsd"/>
+        <include href="Function2683.xsd"/>
+        <include href="Function2696.xsd"/>
+        <include href="Function2700.xsd"/>
+        <include href="Function2706.xsd"/>
+        <include href="Function2709.xsd"/>
+        <include href="Function2652.xsd"/>
+        <include href="Function2651.xsd"/>
+        <include href="Function2653.xsd"/>
+        <include href="Function2654.xsd"/>
+        <include href="Function2655.xsd"/>
+        <include href="Function2666.xsd"/>
+        <include href="Function2671.xsd"/>
+        <include href="Function2682.xsd"/>
+        <include href="Function2694.xsd"/>
+        <include href="Function2705.xsd"/>
+        <include href="Function2649.xsd"/>
+        <include href="Function2650.xsd"/>
+        <include href="Function2661.xsd"/>
+        <include href="Function2665.xsd"/>
+        <include href="Function2674.xsd"/>
+        <include href="Function2686.xsd"/>
+        <include href="Function2687.xsd"/>
+        <include href="Function2701.xsd"/>
+        <include href="Function2704.xsd"/>
+        <include href="Function2646.xsd"/>
+        <include href="Function2647.xsd"/>
+        <include href="Function2648.xsd"/>
+        <include href="Function2669.xsd"/>
+        <include href="Function2670.xsd"/>
+        <include href="Function2690.xsd"/>
+        <include href="Function2691.xsd"/>
+        <include href="Function2692.xsd"/>
+        <include href="Function2695.xsd"/>
+        <include href="Function2698.xsd"/>
+        <include href="Function2702.xsd"/>
+        <include href="Function2703.xsd"/>
+    </grammars>
+    <doc>the easiest way to Manage your Marketing Links</doc>
+    <resources base="https://ideas2it-ClickMeter-v1.p.mashape.com/">
+        <resource uri="hits/">
+            <method displayName="Hit List" id="2693" name="GET">
+                <doc>A detailed hits list for the last 90 days maximum</doc>
+                <request>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc>fields to retrieve for the hit list Comma separated values</doc>
+                    </param>
+                    <param name="fromday" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>maximum elements to retrieve Defaults to if not specified</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>row key from which to start retrieve objects Use the lastKey in object response</doc>
+                    </param>
+                    <param name="today" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2693:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="aggregated/">
+            <method displayName="Get a full list of conversions with statistics" id="2677" name="GET">
+                <doc>Get a full list of conversions with statistics</doc>
+                <request>
+                    <param name="favourite" required="true" style="query" type="xsd:boolean">
+                        <doc>filter by favourites only</doc>
+                    </param>
+                    <param name="fromday" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>maximum elements to retrieve Defaults is</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>where to start when retrieving data if it s not specified</doc>
+                    </param>
+                    <param name="sortby" required="true" style="query" type="xsd:string">
+                        <doc>sort list by specified field count lasthitdate entityData name entityData value entityData creationdate</doc>
+                    </param>
+                    <param name="sortdirection" required="true" style="query" type="xsd:string">
+                        <doc>direction to sort with asc or desc</doc>
+                    </param>
+                    <param name="status" required="true" style="query" type="xsd:string">
+                        <doc>filter by status all active deleted</doc>
+                    </param>
+                    <param name="timeframe" required="true" style="query" type="xsd:string">
+                        <doc>timeframe can be today yesterday last last last beginning custom If custom use also fromDay toDay parameters</doc>
+                    </param>
+                    <param name="today" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2677:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get a full list of datapoints with statistics" id="2678" name="GET">
+                <doc>Get a full list of datapoints with statistics, based on filters</doc>
+                <request>
+                    <param name="favourite" required="true" style="query" type="xsd:boolean">
+                        <doc>filter by favourites only</doc>
+                    </param>
+                    <param name="fromday" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>maximum elements to retrieve Default is</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>where to start when retrieving data if it s not specified</doc>
+                    </param>
+                    <param name="sortby" required="true" style="query" type="xsd:string">
+                        <doc>sort list by specified field totalclicks totalviews uniqueclicks uniqueviews conversionsvalue convertedclicks spiderhitscount entityData datapointname entityData creationdate</doc>
+                    </param>
+                    <param name="sortdirection" required="true" style="query" type="xsd:string">
+                        <doc>direction to sort with asc or desc</doc>
+                    </param>
+                    <param name="status" required="true" style="query" type="xsd:string">
+                        <doc>by default all a filter by entity status deleted paused spam active</doc>
+                    </param>
+                    <param name="tag" required="true" style="query" type="xsd:string">
+                        <doc>name of tag to filter with</doc>
+                    </param>
+                    <param name="timeframe" required="true" style="query" type="xsd:string">
+                        <doc>timeframe can be today yesterday last last last beginning custom If custom use also fromDay toDay parameters</doc>
+                    </param>
+                    <param name="today" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>type of datapoint tl or tp</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2678:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get a full list of groups with statistics" id="2679" name="GET">
+                <doc>Get a full list of groups with statistics</doc>
+                <request>
+                    <param name="favourite" required="true" style="query" type="xsd:boolean">
+                        <doc>filter by favourites only</doc>
+                    </param>
+                    <param name="fromday" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>maximum elements to retrieve Defaults is</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>where to start when retrieving data if it s not specified</doc>
+                    </param>
+                    <param name="sortby" required="true" style="query" type="xsd:string">
+                        <doc>sort list by specified field totalclicks totalviews uniqueclicks uniqueviews conversionsvalue convertedclicks spiderhitscount entityData groupname entityData creationdate</doc>
+                    </param>
+                    <param name="sortdirection" required="true" style="query" type="xsd:string">
+                        <doc>direction to sort with asc or desc</doc>
+                    </param>
+                    <param name="status" required="true" style="query" type="xsd:string">
+                        <doc>by default all a filter by group status deleted active</doc>
+                    </param>
+                    <param name="tag" required="true" style="query" type="xsd:string">
+                        <doc>name of tag to filter with</doc>
+                    </param>
+                    <param name="timeframe" required="true" style="query" type="xsd:string">
+                        <doc>timeframe can be today yesterday last last last beginning custom If custom use also fromDay toDay parameters</doc>
+                    </param>
+                    <param name="today" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2679:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get aggregated counts on customer" id="2680" name="GET">
+                <doc>Get aggregated counts on customer</doc>
+                <request>
+                    <param name="fromday" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="hourly" required="true" style="query" type="xsd:boolean">
+                        <doc>hourly breakdown if selected only valid timeframe is today</doc>
+                    </param>
+                    <param name="timeframe" required="true" style="query" type="xsd:string">
+                        <doc>timeframe can be today yesterday last last last beginning custom If custom use also fromDay toDay parameters</doc>
+                    </param>
+                    <param name="today" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2680:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get aggregated counts with daily breakdown" id="2681" name="GET">
+                <doc>Get aggregated counts with daily breakdown</doc>
+                <request>
+                    <param name="fromday" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="groupby" required="true" style="query" type="xsd:string">
+                        <doc>can select the granularity of the list day week month BEWARE in beginning timeframe you must set this to month</doc>
+                    </param>
+                    <param name="timeframe" required="true" style="query" type="xsd:string">
+                        <doc>timeframe can be today yesterday last last last beginning custom If custom use also fromDay toDay parameters</doc>
+                    </param>
+                    <param name="today" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2681:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="domains/">
+            <method displayName="Create Domain" id="2658" name="POST">
+                <doc>Create a new personal domain to use in your datapoints</doc>
+                <request/>
+                <response>
+                    <representation element="f2658:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Domain Count" id="2675" name="GET">
+                <doc>Get a count of domains available</doc>
+                <request>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>a pattern name expression Example twit</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>a pattern expression for type It can be system dedicated go personal Default system Example system</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2675:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Domain by Id" id="2684" name="GET">
+                <doc>Get the detail about a domain</doc>
+                <request>
+                    <param name="domainId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2684:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List Domains" id="2697" name="GET">
+                <doc>List domains to which is possible to register a datapoint</doc>
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>maximum elements to retrieve if not specified</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>a pattern name expression Example twit</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>where to start when retrieving domains Zero if not specified</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>a pattern expression for type It can be system dedicated go personal Default system Example system</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2697:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update Domain" id="2707" name="POST">
+                <doc>Update a domain object</doc>
+                <request>
+                    <param name="domainId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2707:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="groups/">
+            <method displayName="Create datapoint inside group" id="2657" name="POST">
+                <doc>Create datapoint inside given group</doc>
+                <request>
+                    <param name="groupId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2657:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Create group" id="2659" name="POST">
+                <doc>Create group</doc>
+                <request/>
+                <response>
+                    <representation element="f2659:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Datapoints by group" id="2667" name="GET">
+                <doc>Datapoints by group</doc>
+                <request>
+                    <param name="createdafter" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="createdbefore" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="groupId" required="true" style="query" type="xsd:string"/>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>maximum elements to retrieve if not specified</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>where to start when retrieving domains Zero if not specified</doc>
+                    </param>
+                    <param name="status" required="true" style="query" type="xsd:string">
+                        <doc>filter by datapoint status It can be active deleted spam paused all Default is all</doc>
+                    </param>
+                    <param name="tags" required="true" style="query" type="xsd:string">
+                        <doc>a comma separated list oftags you want to filter with</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>the type of datapoint to retrieve Possible types TL TP TD</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2667:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete group" id="2673" name="DELETE">
+                <doc>Delete group</doc>
+                <request>
+                    <param name="groupId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2673:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get group by id" id="2685" name="GET">
+                <doc>Get group by id</doc>
+                <request>
+                    <param name="groupId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2685:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Groups count" id="2688" name="GET">
+                <doc>Groups count</doc>
+                <request>
+                    <param name="createdafter" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="createdbefore" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="status" required="true" style="query" type="xsd:string">
+                        <doc>filter by group status It can be active deleted all Default is all</doc>
+                    </param>
+                    <param name="tags" required="true" style="query" type="xsd:string">
+                        <doc>a comma separated list oftags you want to filter with</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2688:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Groups Hits" id="2689" name="GET">
+                <doc>Groups Hits</doc>
+                <request>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc>fields to retrieve for the hit list Comma separated values</doc>
+                    </param>
+                    <param name="fromday" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="groupId" required="true" style="query" type="xsd:string"/>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>maximum elements to retrieve Defaults to if not specified</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>row key from which to start retrieve objects Use the lastKey in object response</doc>
+                    </param>
+                    <param name="today" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2689:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List groups" id="2699" name="GET">
+                <doc>List groups</doc>
+                <request>
+                    <param name="createdafter" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="createdbefore" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>maximum elements to retrieve if not specified</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>where to start when retrieving domains Zero if not specified</doc>
+                    </param>
+                    <param name="status" required="true" style="query" type="xsd:string">
+                        <doc>it can be deleted active or all Default is all</doc>
+                    </param>
+                    <param name="tags" required="true" style="query" type="xsd:string">
+                        <doc>a comma separated list oftags you want to filter with</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2699:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update group" id="2708" name="POST">
+                <doc>Update group</doc>
+                <request>
+                    <param name="groupId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2708:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="datapoints/">
+            <method displayName="Create Datapoint" id="2656" name="POST">
+                <doc>Create a new datapoint.</doc>
+                <request/>
+                <response>
+                    <representation element="f2656:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Create multiple datapoints at once" id="2660" name="PUT">
+                <doc>Create multiple datapoints at once</doc>
+                <request/>
+                <response>
+                    <representation element="f2660:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Datapoint health status by id" id="2662" name="GET">
+                <doc>Retrieve some informations about the status of the destination URL associated to a datapoint. Available info depends on the account plan</doc>
+                <request>
+                    <param name="datapointId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2662:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Datapoint health statuses Count" id="2663" name="GET">
+                <doc>Datapoint health statuses Count</doc>
+                <request>
+                    <param name="httpcode" required="true" style="query" type="xsd:string">
+                        <doc>count only statuses with the given HTTP response code It can be XX XX XX</doc>
+                    </param>
+                    <param name="isspam" required="true" style="query" type="xsd:string">
+                        <doc>count only statuses with the given isSpam value</doc>
+                    </param>
+                    <param name="latency" required="true" style="query" type="xsd:string">
+                        <doc>count only statuses with latency the given value</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2663:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Datapoint Hit List" id="2664" name="GET">
+                <doc>A detailed hits list for the last 90 days maximum by DataPoint</doc>
+                <request>
+                    <param name="datapointId" required="true" style="query" type="xsd:string"/>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc>fields to retrieve for the hit list Comma separated values</doc>
+                    </param>
+                    <param name="fromday" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>maximum elements to retrieve Defaults to if not specified</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>row key from which to start retrieve objects Use the last Key in object response</doc>
+                    </param>
+                    <param name="today" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2664:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Datapoints count" id="2668" name="GET">
+                <doc>Datapoints count</doc>
+                <request>
+                    <param name="createdafter" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="createdbefore" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="status" required="true" style="query" type="xsd:string">
+                        <doc>filter by datapoint status It can be active deleted spam paused all Default is all</doc>
+                    </param>
+                    <param name="tags" required="true" style="query" type="xsd:string">
+                        <doc>a comma separated list of tags you want to filter with</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>the type of datapoint to retrieve Possible types TL TP TD</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2668:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete datapoint" id="2672" name="DELETE">
+                <doc>Delete datapoint by id</doc>
+                <request>
+                    <param name="datapointId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2672:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get datapoint by id" id="2683" name="GET">
+                <doc>Datapoint details</doc>
+                <request>
+                    <param name="datapointId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2683:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List datapoints" id="2696" name="GET">
+                <doc>List of all the datapoints associated to the user</doc>
+                <request>
+                    <param name="createdafter" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="createdbefore" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>maximum elements to retrieve if not specified</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>where to start when retrieving datapoints Default to if not specified</doc>
+                    </param>
+                    <param name="status" required="true" style="query" type="xsd:string">
+                        <doc>filter by datapoint status It can be active deleted spam paused all Default is all</doc>
+                    </param>
+                    <param name="tags" required="true" style="query" type="xsd:string">
+                        <doc>a comma separated list of tags you want to filter with</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>the type of datapoint to retrieve Possible types TL TP TD</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2696:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List of datapoint health statuses" id="2700" name="GET">
+                <doc>Retrieve the list of the links which have some status information attached.</doc>
+                <request>
+                    <param name="httpcode" required="true" style="query" type="xsd:string">
+                        <doc>filter statuses by HTTP response code to a simple GET request It can be XX XX XX</doc>
+                    </param>
+                    <param name="isspam" required="true" style="query" type="xsd:boolean">
+                        <doc>if true it returns only the datapoints with a blacklisted destination URL</doc>
+                    </param>
+                    <param name="latency" required="true" style="query" type="xsd:string">
+                        <doc>retrieve all the datapoint with latency milliseconds the specified value Example latency which means latency seconds</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>maximum elements to retrieve if not specified</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>where to start when retrieving domains Zero if not specified</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2700:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update datapoint" id="2706" name="POST">
+                <doc>Update datapoint</doc>
+                <request>
+                    <param name="datapointId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2706:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update of multiple datapoints at once" id="2709" name="POST">
+                <doc>Update of multiple datapoints at once.</doc>
+                <request/>
+                <response>
+                    <representation element="f2709:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="clickstream/">
+            <method displayName="Click Stream" id="2652" name="GET">
+                <doc>Return the clickstream for the desired object.</doc>
+                <request>
+                    <param name="datapoint" required="true" style="query" type="xsd:string">
+                        <doc>id of the datapoint Mutually exclusive with group</doc>
+                    </param>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc>fields to retrieve for the clickstream Comma separated values</doc>
+                    </param>
+                    <param name="group" required="true" style="query" type="xsd:string">
+                        <doc>id of the group Mutually exclusive with datapoint</doc>
+                    </param>
+                    <param name="withconversion" required="true" style="query" type="xsd:string">
+                        <doc>add conversion data to clickstream</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2652:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="conversions/">
+            <method displayName="Attach/remove conversion to a datapoint" id="2651" name="PUT">
+                <doc>Patch a conversion to be assigned or removed from a datapoint</doc>
+                <request>
+                    <param name="conversionId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2651:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Conversions count" id="2653" name="GET">
+                <doc>Conversions count</doc>
+                <request>
+                    <param name="createdafter" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="createdbefore" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="status" required="true" style="query" type="xsd:string">
+                        <doc>filter by group status It can be active deleted all Default is all</doc>
+                    </param>
+                    <param name="textsearch" required="true" style="query" type="xsd:string">
+                        <doc>a pattern name expression Example twit will match with all the conversion names starting with twit</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2653:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Conversions hits" id="2654" name="GET">
+                <doc>A detailed hits list for the last 90 days maximum by conversion</doc>
+                <request>
+                    <param name="conversionId" required="true" style="query" type="xsd:string"/>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc>fields to retrieve for the hit list Comma separated values</doc>
+                    </param>
+                    <param name="fromday" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>maximum elements to retrieve Defaults to if not specified</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>row key from which to start retrieve objects Use the lastKey in object response</doc>
+                    </param>
+                    <param name="today" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2654:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Create conversion" id="2655" name="POST">
+                <doc>Create conversion</doc>
+                <request/>
+                <response>
+                    <representation element="f2655:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Datapoints associated to conversion" id="2666" name="GET">
+                <doc>List all datapoints associated to this conversion</doc>
+                <request>
+                    <param name="conversionId" required="true" style="query" type="xsd:string"/>
+                    <param name="createdafter" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="createdbefore" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>maximum elements to retrieve if not specified</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>where to start when retrieving domains Zero if not specified</doc>
+                    </param>
+                    <param name="status" required="true" style="query" type="xsd:string">
+                        <doc>filter by datapoint status It can be active deleted spam paused all Default is all</doc>
+                    </param>
+                    <param name="tags" required="true" style="query" type="xsd:string">
+                        <doc>a comma separated list oftags you want to filter with</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>the type of datapoint to retrieve Possible types TL TP TD</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2666:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete conversion" id="2671" name="DELETE">
+                <doc>Delete conversion</doc>
+                <request>
+                    <param name="conversionId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2671:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get conversion by id" id="2682" name="GET">
+                <doc>Get conversion by id</doc>
+                <request>
+                    <param name="conversionId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2682:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List conversions" id="2694" name="GET">
+                <doc>List conversions</doc>
+                <request>
+                    <param name="createdafter" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="createdbefore" required="true" style="query" type="xsd:string">
+                        <doc>a date in the format YYYYMMDDHHmm</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>maximum elements to retrieve if not specified</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>a pattern name expression Example twit</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>where to start when retrieving domains Zero if not specified</doc>
+                    </param>
+                    <param name="status" required="true" style="query" type="xsd:string">
+                        <doc>it can be deleted active or all Default is all</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2694:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update conversion" id="2705" name="POST">
+                <doc>Update conversion</doc>
+                <request>
+                    <param name="conversionId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2705:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="tags/">
+            <method displayName="Attach or remove a tag from a datapoint" id="2649" name="PUT">
+                <doc>Attach or remove a tag from a datapoint</doc>
+                <request>
+                    <param name="tagId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2649:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Attach or remove a tag from a group" id="2650" name="PUT">
+                <doc>Attach or remove a tag from a group</doc>
+                <request>
+                    <param name="tagId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2650:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Create Tag" id="2661" name="POST">
+                <doc>Create a tag associated to the current user.</doc>
+                <request/>
+                <response>
+                    <representation element="f2661:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Datapoints associated to a tag" id="2665" name="GET">
+                <doc>List of all the datapoints associated to the user and to the selected tag</doc>
+                <request>
+                    <param name="status" required="true" style="query" type="xsd:string">
+                        <doc>filter by datapoint status It can be active deleted spam paused all Default is all</doc>
+                    </param>
+                    <param name="tagId" required="true" style="query" type="xsd:string"/>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>it can be TL TP or TD</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2665:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete Tag" id="2674" name="DELETE">
+                <doc>Delete a tag</doc>
+                <request>
+                    <param name="tagId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2674:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Tag" id="2686" name="GET">
+                <doc>Get the specified tag.</doc>
+                <request>
+                    <param name="tagId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2686:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Groups associated to a tag" id="2687" name="GET">
+                <doc>List of all the groups associated to the user and to the selected tag</doc>
+                <request>
+                    <param name="status" required="true" style="query" type="xsd:string">
+                        <doc>filter by group status It can be active deleted all Default is all</doc>
+                    </param>
+                    <param name="tagId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2687:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List Tags" id="2701" name="GET">
+                <doc>List of all the tags associated to the user.</doc>
+                <request/>
+                <response>
+                    <representation element="f2701:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Tags Count" id="2704" name="GET">
+                <doc>Get a count of the tags. You can use the same filters of "/tags"</doc>
+                <request/>
+                <response>
+                    <representation element="f2704:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="account/">
+            <method displayName="Account Deail" id="2646" name="GET">
+                <doc>Get details of the current logged account.</doc>
+                <request/>
+                <response>
+                    <representation element="f2646:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Add a domain in whitelist" id="2647" name="POST">
+                <doc>Add a domain in whitelist</doc>
+                <request/>
+                <response>
+                    <representation element="f2647:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Add new IP into blacklist" id="2648" name="POST">
+                <doc>Add new IP into blacklist</doc>
+                <request/>
+                <response>
+                    <representation element="f2648:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete a domain from whitelist" id="2669" name="DELETE">
+                <doc>Delete a domain from whitelist</doc>
+                <request>
+                    <param name="domainHash" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2669:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete an IP from blacklist" id="2670" name="DELETE">
+                <doc>Delete an IP from blacklist</doc>
+                <request>
+                    <param name="ipblacklistHash" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2670:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Edit Account Detail" id="2676" name="POST">
+                <doc>Update your account data</doc>
+                <request/>
+            </method>
+            <method displayName="Guest Detail" id="2690" name="GET">
+                <doc>Guest detail. Access only for master key.</doc>
+                <request>
+                    <param name="guestid" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2690:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Guest Details" id="2691" name="GET">
+                <doc>Guest list account. Access only for master key.</doc>
+                <request/>
+                <response>
+                    <representation element="f2691:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Guest Permissions" id="2692" name="GET">
+                <doc>A list of permission that guest have</doc>
+                <request>
+                    <param name="guestid" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2692:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List custom blacklisted IPs" id="2695" name="GET">
+                <doc>List custom blacklisted IPs</doc>
+                <request/>
+                <response>
+                    <representation element="f2695:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List domains whitelist" id="2698" name="GET">
+                <doc>List domains whitelist</doc>
+                <request/>
+                <response>
+                    <representation element="f2698:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Plan Detail" id="2702" name="GET">
+                <doc>Get detail of the plan used by this account. Valid only for MASTER key.</doc>
+                <request/>
+                <response>
+                    <representation element="f2702:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Set guest permissions" id="2703" name="POST">
+                <doc>Add or remove guest permissions. Access only for master key.</doc>
+                <request>
+                    <param name="entitytype" required="true" style="query" type="xsd:string">
+                        <doc>it can be datapoint or group</doc>
+                    </param>
+                    <param name="guestid" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2703:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

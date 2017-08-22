@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>code highlight will take raw source code and convert into nicely formatted HTML with syntax and keyword highlighting Currently supports programming languages data formats and config files This API is ideal for websites that need to regularly maintain and update code examples</doc>
+    <resources base="https://neutrinoapi-code-highlight.p.mashape.com/">
+        <resource uri="code-highlight/">
+            <method displayName="Code Highlight" id="2171" name="GET">
+                <request>
+                    <param name="addKeywordLinks" required="true" style="query" type="xsd:boolean">
+                        <doc>add links on source code keywords to the relevant language documentation</doc>
+                    </param>
+                    <param name="content" required="true" style="query" type="xsd:string">
+                        <doc>the source content This can be either a URL to load from or an actual content string</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>data types and config files XML JSON GML APACHE NGINX EMAIL DIFF Code types HTML HTML SQL MYSQL BASH PERL PYTHON FORTRAN JAVA JAVASCRIPT JQUERY CPP TCL C ERLANG HASKELL GO RUBY CLOJURE ECMASCRIPT ACTIONSCRIPT DART COBOL ASM GROOVY OBJECTIVE C CSHARP PHP VB DELPHI LUA</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

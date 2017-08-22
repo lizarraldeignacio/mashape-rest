@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5897="urn:function:f5897">
+    <grammars>
+        <include href="Function5897.xsd"/>
+    </grammars>
+    <doc>workable recruit people by creating beautiful job posts through an API</doc>
+    <resources base="https://workable.p.mashape.com/">
+        <resource uri="{YOUR-API-KEY}/">
+            <param name="YOUR-API-KEY" style="template" type="xsd:string"/>
+            <resource uri="jobs/">
+                <resource uri="{shortcode}/">
+                    <param name="shortcode" style="template" type="xsd:string"/>
+                    <method displayName="/jobs/shortcode" id="5899" name="GET">
+                        <doc>Retrieve details for a specific job based on its unique shortcode</doc>
+                        <request>
+                            <param name="shortcode" required="true" style="query" type="xsd:string">
+                                <doc>retrieve detailed job information including the job description The shortcode is a unique identifier for each jobs and can be seen by invoking jobs</doc>
+                            </param>
+                            <param name="yourApiKey" required="true" style="query" type="xsd:string">
+                                <doc>your APIKey provided by Workable</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="/jobs/shortcode/candidates" id="5900" name="GET">
+                        <doc>Retrieve a list of information related to the applicants to a specified job (by the shortcode)</doc>
+                        <request>
+                            <param name="shortcode" required="true" style="query" type="xsd:string">
+                                <doc>retrieve detailed job information including the job description The shortcode is a unique identifier for each jobs and can be seen by invoking jobs</doc>
+                            </param>
+                            <param name="yourApiKey" required="true" style="query" type="xsd:string">
+                                <doc>your APIKey provided by Workable</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="{APIKEY}/">
+            <param name="APIKEY" style="template" type="xsd:string"/>
+            <resource uri="jobs/">
+                <method displayName="/jobs" id="5898" name="GET">
+                    <doc>Retrieve information about jobs</doc>
+                    <request>
+                        <param name="apikey" required="true" style="query" type="xsd:string">
+                            <doc>your APIKey as provided by Workable</doc>
+                        </param>
+                        <param name="phase" required="true" style="query" type="xsd:string">
+                            <doc>filter to list job items by status published draft closed archived</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="{API-KEY}/">
+            <param name="API-KEY" style="template" type="xsd:string"/>
+            <resource uri="jobs/">
+                <resource uri="{SHORTCODE}/">
+                    <param name="SHORTCODE" style="template" type="xsd:string"/>
+                    <resource uri="candidates/">
+                        <method displayName="/candidates" id="5897" name="POST">
+                            <doc>Creating a candidate</doc>
+                            <request>
+                                <param name="apiKey" required="true" style="query" type="xsd:string">
+                                    <doc>your APIKey provided by Workable</doc>
+                                </param>
+                                <param name="shortcode" required="true" style="query" type="xsd:string">
+                                    <doc>the shortcode is a unique identifier for each jobs and can be seen by invoking jobs</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f5897:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

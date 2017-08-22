@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1465="urn:function:f1465" xmlns:f1466="urn:function:f1466" xmlns:f1467="urn:function:f1467" xmlns:f1468="urn:function:f1468">
+    <grammars>
+        <include href="Function1468.xsd"/>
+        <include href="Function1467.xsd"/>
+        <include href="Function1466.xsd"/>
+        <include href="Function1465.xsd"/>
+    </grammars>
+    <doc>determine the geographical location of website visitors based on the IP addresses for applications such as fraud detection content localization geo targeted</doc>
+    <resources base="https://community-maxmind-geoip2.p.mashape.com/">
+        <resource uri="omni/">
+            <resource uri="{ip_address}/">
+                <param name="ip_address" style="template" type="xsd:string"/>
+                <method displayName="Omni (Precision)" id="1468" name="GET">
+                    <request>
+                        <param name="ipAddress" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f1468:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="country/">
+            <resource uri="{ip_address}/">
+                <param name="ip_address" style="template" type="xsd:string"/>
+                <method displayName="Country" id="1467" name="GET">
+                    <request>
+                        <param name="ipAddress" required="true" style="query" type="xsd:string">
+                            <doc>the IP address can be either an IPv or an IPv address IPv addresses should be passed in the standard dotted quad form for example IPv addresses should be passed as strings as well We recommend using the canonical form as described in RFC for example db but we will handle any valid IPv string representation You can also use the string me as the IP address In this case the record for the IP address you are querying from will be returned This is useful when your application does not have easy access to its public IP address e g when the system making the query is behind a NAT</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1467:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="city_isp_org/">
+            <resource uri="{ip_address}/">
+                <param name="ip_address" style="template" type="xsd:string"/>
+                <method displayName="City/ISP/Org (Precision)" id="1466" name="GET">
+                    <request>
+                        <param name="ipAddress" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f1466:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="city/">
+            <resource uri="{ip_address}/">
+                <param name="ip_address" style="template" type="xsd:string"/>
+                <method displayName="City (Precision)" id="1465" name="GET">
+                    <request>
+                        <param name="ipAddress" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f1465:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

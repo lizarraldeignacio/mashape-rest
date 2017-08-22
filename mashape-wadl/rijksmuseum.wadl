@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>the Rijksmuseum is a Dutch national museum dedicated to arts and history in Amsterdam in the Netherlands</doc>
+    <resources base="https://community-rijksmuseum.p.mashape.com/">
+        <resource uri="{culture}/">
+            <param name="culture" style="template" type="xsd:string"/>
+            <resource uri="collection/">
+                <method displayName="Collection" id="4153" name="GET">
+                    <doc>GET /api/[culture]/collection gives the full collection with brief information about each work. This results are split up in result pages. By using the p and ps parameters you can fetch more results. All of the other parameters are identical to the search page on the Rijksmuseum website. You can use that to find out what's the best query to use</doc>
+                    <request>
+                        <param name="culture" required="true" style="query" type="xsd:string">
+                            <doc>nl en The language to search in and of the results</doc>
+                        </param>
+                        <param name="q" required="true" style="query" type="xsd:string">
+                            <doc>the search terms that need to occur in one of the fields of the artwork data</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

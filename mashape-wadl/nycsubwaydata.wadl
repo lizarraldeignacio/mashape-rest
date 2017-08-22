@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4864="urn:function:f4864" xmlns:f4865="urn:function:f4865" xmlns:f4866="urn:function:f4866" xmlns:f4867="urn:function:f4867">
+    <grammars>
+        <include href="Function4867.xsd"/>
+        <include href="Function4866.xsd"/>
+        <include href="Function4865.xsd"/>
+        <include href="Function4864.xsd"/>
+    </grammars>
+    <doc>no description</doc>
+    <resources base="https://community-nyc-subway-data.p.mashape.com/">
+        <resource uri="times/">
+            <method displayName="Times" id="4867" name="GET">
+                <doc>This endpoint provides all subway stations where a train is stopping at the time specified</doc>
+                <request>
+                    <param name="hour" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                    <param name="minute" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4867:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="stop/">
+            <method displayName="Subway station data" id="4866" name="GET">
+                <doc>Given a station code (see above), get name and coordinates of every station.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4866:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="stations/">
+            <method displayName="Subway station codes" id="4865" name="GET">
+                <doc>The MTA uses a set of codes to refer to subway stations in New York. In order to use these codes for other requests in this API, make the request:</doc>
+                <request/>
+                <response>
+                    <representation element="f4865:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="api/">
+            <method displayName="Arrival times" id="4864" name="GET">
+                <doc>This endpoint provides all subway arrival times at a given station.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4864:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4347="urn:function:f4347" xmlns:f4348="urn:function:f4348" xmlns:f4349="urn:function:f4349" xmlns:f4350="urn:function:f4350">
+    <grammars>
+        <include href="Function4348.xsd"/>
+        <include href="Function4350.xsd"/>
+        <include href="Function4349.xsd"/>
+        <include href="Function4347.xsd"/>
+    </grammars>
+    <doc>use Great Circle Mapper to calculate the air distance and flight time between all airports worldwide</doc>
+    <resources base="https://greatcirclemapper.p.mashape.com/">
+        <resource uri="aircraft/">
+            <resource uri="read/">
+                <resource uri="{icao_iata}/">
+                    <param name="icao_iata" style="template" type="xsd:string"/>
+                    <method displayName="Aircraft Type Read" id="4348" name="GET">
+                        <doc>get aircraft type data by IATA or ICAO code</doc>
+                        <request>
+                            <param name="icaoIata" required="true" style="query" type="xsd:string">
+                                <doc>iCAO letter or IATA letter code</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4348:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="airports/">
+            <resource uri="search/">
+                <resource uri="{query}/">
+                    <param name="query" style="template" type="xsd:string"/>
+                    <method displayName="Airport Search" id="4350" name="GET">
+                        <doc>get a list of airport records</doc>
+                        <request>
+                            <param name="query" required="true" style="query" type="xsd:string">
+                                <doc>iCAO code IATA code town airport name</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4350:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="read/">
+                <resource uri="{icao_iata}/">
+                    <param name="icao_iata" style="template" type="xsd:string"/>
+                    <method displayName="Airport Read" id="4349" name="GET">
+                        <doc>get airport by IATA code or ICAO code</doc>
+                        <request>
+                            <param name="icaoIata" required="true" style="query" type="xsd:string">
+                                <doc>iCAO code or IATA code</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4349:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="route/">
+                <resource uri="{route}/">
+                    <param name="route" style="template" type="xsd:string"/>
+                    <resource uri="{speed}/">
+                        <param name="speed" style="template" type="xsd:string"/>
+                        <method displayName="Air Route Calculation" id="4347" name="GET">
+                            <doc>calculate distance and flight time for any airports and any speed</doc>
+                            <request>
+                                <param name="route" required="true" style="query" type="xsd:string">
+                                    <doc>iCAO airport cides separated by hyphens</doc>
+                                </param>
+                                <param name="speed" required="true" style="query" type="xsd:string">
+                                    <doc>speed in kts</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f4347:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

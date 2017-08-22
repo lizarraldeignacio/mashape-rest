@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1588="urn:function:f1588" xmlns:f1589="urn:function:f1589" xmlns:f1590="urn:function:f1590" xmlns:f1591="urn:function:f1591" xmlns:f1592="urn:function:f1592" xmlns:f1593="urn:function:f1593" xmlns:f1594="urn:function:f1594">
+    <grammars>
+        <include href="Function1594.xsd"/>
+        <include href="Function1593.xsd"/>
+        <include href="Function1592.xsd"/>
+        <include href="Function1590.xsd"/>
+        <include href="Function1591.xsd"/>
+        <include href="Function1589.xsd"/>
+        <include href="Function1588.xsd"/>
+    </grammars>
+    <doc>they Said So has more than million quotes in the database the largest such database in the world And Quotes API gives easy way to access the data Random quotes quote of the day and bible verses are all accessible from this simple REST API</doc>
+    <resources base="https://theysaidso.p.mashape.com/">
+        <resource uri="bible/">
+            <resource uri="vod/">
+                <method displayName="VOD" id="1594" name="GET">
+                    <doc>Bible Verse of the day</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1594:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="verse/">
+                <method displayName="Verse" id="1593" name="GET">
+                    <doc>Bible random verse</doc>
+                    <request>
+                        <param name="book" required="true" style="query" type="xsd:integer">
+                            <doc>which book you want the verse from</doc>
+                        </param>
+                        <param name="chapter" required="true" style="query" type="xsd:integer">
+                            <doc>which chapter of the book you need the random verse from</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1593:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="quote/">
+            <method displayName="Quote" id="1592" name="GET">
+                <doc>Random Quote</doc>
+                <request>
+                    <param name="author" required="true" style="query" type="xsd:string">
+                        <doc>random quote from the given author</doc>
+                    </param>
+                    <param name="category" required="true" style="query" type="xsd:string">
+                        <doc>category tag from which you want the resulting quote from</doc>
+                    </param>
+                    <param name="maxlength" required="true" style="query" type="xsd:integer">
+                        <doc>maximum length of resulting quote</doc>
+                    </param>
+                    <param name="minlength" required="true" style="query" type="xsd:integer">
+                        <doc>minimum required length of the resulting quote</doc>
+                    </param>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>query String to query These words will be searched in the quote and the matched quotes will be returned</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1592:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="qod/">
+            <method displayName="QOD" id="1590" name="GET">
+                <doc>Quote of the day</doc>
+                <request>
+                    <param name="category" required="true" style="query" type="xsd:string">
+                        <doc>category of the desired QOD</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1590:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="QOD Categories" id="1591" name="GET">
+                <doc>Get the categories for QOD</doc>
+                <request/>
+                <response>
+                    <representation element="f1591:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="categories/">
+            <method displayName="Categories" id="1589" name="GET">
+                <doc>List of Random Quote Categories Available in the system</doc>
+                <request/>
+                <response>
+                    <representation element="f1589:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="authors/">
+            <method displayName="Authors" id="1588" name="GET">
+                <doc>List of authors available in the system</doc>
+                <request/>
+                <response>
+                    <representation element="f1588:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

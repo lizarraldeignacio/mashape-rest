@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>use the Company Check Euro API platform to integrate company director financial and credit data in to your own software and bespoke applications Over million company and director records across countries</doc>
+    <resources base="https://companycheck-company-check-euro-v1.p.mashape.com/">
+        <resource uri="euroCompanySearch/">
+            <method displayName="Euro Company Search" id="7016" name="GET">
+                <request>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>the full or partial name of the company you want to look up</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>the page number of the results</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="euroCompanyBasic/">
+            <method displayName="Euro Company Basic" id="7015" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>this is the ID provided by the search endpoint of the company you want to look up</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="euroCompany/">
+            <method displayName="Euro Company" id="7014" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>this is the ID provided by the search endpoint of the company you want to look up</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

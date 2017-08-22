@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2486="urn:function:f2486" xmlns:f2487="urn:function:f2487" xmlns:f2488="urn:function:f2488" xmlns:f2489="urn:function:f2489" xmlns:f2490="urn:function:f2490" xmlns:f2491="urn:function:f2491" xmlns:f2492="urn:function:f2492" xmlns:f2493="urn:function:f2493" xmlns:f2494="urn:function:f2494" xmlns:f2495="urn:function:f2495">
+    <grammars>
+        <include href="Function2494.xsd"/>
+        <include href="Function2495.xsd"/>
+        <include href="Function2492.xsd"/>
+        <include href="Function2493.xsd"/>
+        <include href="Function2490.xsd"/>
+        <include href="Function2491.xsd"/>
+        <include href="Function2488.xsd"/>
+        <include href="Function2489.xsd"/>
+        <include href="Function2486.xsd"/>
+        <include href="Function2487.xsd"/>
+    </grammars>
+    <doc>league of Legends API to provide champion costs release dates and prices</doc>
+    <resources base="https://loltrivia.p.mashape.com/">
+        <resource uri="skin/">
+            <resource uri="sale/">
+                <method displayName="/skin/sale" id="2494" name="GET">
+                    <doc>Current skin sale if there is one</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2494:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="/skin/sale/{timestamp}" id="2495" name="GET">
+                    <doc>Skin sale for a given time interval</doc>
+                    <request>
+                        <param name="timestamp" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f2495:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="price/">
+                <method displayName="/skin/price" id="2492" name="GET">
+                    <doc>RP costs for all skins</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2492:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="/skin/price/{id}" id="2493" name="GET">
+                    <doc>RP cost for a skin identified by its ID</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f2493:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="champion/">
+            <resource uri="sale/">
+                <method displayName="/champion/sale" id="2490" name="GET">
+                    <doc>Current champion sales if there are any</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2490:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="/champion/sale/{timestamp}" id="2491" name="GET">
+                    <doc>champion sales for the given unix timestamp.</doc>
+                    <request>
+                        <param name="timestamp" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f2491:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="release/">
+                <method displayName="/champion/release" id="2488" name="GET">
+                    <doc>Release dates for all champions</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2488:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="/champion/release/{id}" id="2489" name="GET">
+                    <doc>Release date for a champion identified by ID</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f2489:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="price/">
+                <method displayName="/champion/price" id="2486" name="GET">
+                    <doc>List of IP and RP cost for all champions</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2486:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="/champion/price/{id}" id="2487" name="GET">
+                    <doc>RP and IP cost for a champion identified by its id</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f2487:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

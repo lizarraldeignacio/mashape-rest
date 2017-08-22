@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2632="urn:function:f2632">
+    <grammars>
+        <include href="Function2632.xsd"/>
+    </grammars>
+    <doc>dandelion API is a set of semantic APIs to extract meaning and insights from texts in several languages Italian English French German and Portuguese It s optimized to perform text mining and text analytics for short texts such as tweets and other social media Dandelion API extracts entities such as persons places and events categorizes and classifies documents in user defined categories augments the text with tags and links to external knowledge graphs and more Dandelion API easily scales to support billions of queries per day and can be adapted on demand to support custom and user defined vocabularies Additional languages are available on demand</doc>
+    <resources base="https://dandelion-datatxt.p.mashape.com/">
+        <resource uri="nex/">
+            <resource uri="v1/">
+                <method displayName="Entity Extraction API" id="2632" name="POST">
+                    <doc>The Entity Extraction API is a named entity extraction &amp; linking API that performs greatly even on short texts, something that many other similar services cannot do. With this API you will be able to automatically tag your texts, extract Wikipedia entities and enrich your data.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2632:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3522="urn:function:f3522">
+    <grammars>
+        <include href="Function3522.xsd"/>
+    </grammars>
+    <doc>check all coupon code information aggregated from a list of diverse sources on the Web One can use this API to build interesting applications offerings using coupons</doc>
+    <resources base="https://devru-coupon-codes-india-v1.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Get Coupen Codes" id="3522" name="GET">
+                <doc>Get Coupen Codes</doc>
+                <request>
+                    <param name="store" required="true" style="query" type="xsd:string">
+                        <doc>example FlipKart Jabong KhauGaliDeals GoodLife Snapdeal Naaptol Timesdeal Bestylish Inkfruit Happiness Sale Hoopos Myntra Babyoye Mirraw Zivame Zovi Star CJ Fashionara Yebhi FirstCry Indiaplaza Surat Diamond ZoomIn Infibeam SabkaDeal HomeShop Yepme Rediff Shopping High Street Labels All School Stuff Tradus Shopclues Brandmile Kaunsa SaleBaba Digaaz Timtara Medplus beauty Shoppers Stop Travelguru GreenDust Mirchi Mart Round One Godaam Indiatimes Shopping eBay India Seventy MM Ghadi Wala com Urthon Pepperfry Fetise Hushbabies Excluzy Mygreenkart Deals Five Bag it Today Expedia FernsNPetals Ebagsfull Koovs Freecultr Dominos Gadgets in IndiaTimesShopping Rediff IndiaRush Buyatbrands Indian Gifts Portal Yatra Diamonds Fab Furnish Lenskart WatchKart Goibibo Disha Publication BookMyShow Bags Kart High Store EzeeGo Wowkart Fabulloso HealthKart BuyThePrice MakeMyTrip MirchiMartFashion and YouRetailmart com LandmarkFood Panda Yaarikart Ferns N Petals Craftsvilla Groupon Zansaar Print Land Floral Mall Cleartrip Futurebazaar Luxure Yellow Fashion Jewels Kart Thayam Mydala Cromaretail Go Untucked Masticart GKB Optical Purplle Gadgets Station Seventymm Exciting Lives Jewelsouk in OfficeYes SnapGalaxy Globus Teesort Magickart com PrintBindaas Sunglasses India Dominos Pizza IBhejo Voylla Egully Yapaa Dekho Kharido Bruwink Fashos Magickart DealsInChennai KhauGali Deals ShoperskartKingsches t PlaymoreJewelskart NaturalMantra Teestanks Lenstrade Lenskart com PartyManao Goodbells Wannashop India emporium Saholic MaayinMiraiStore Jaipurvogue Sulekha Deals Print landKitchen Unamia BagsKart VTO Shop at Disney Gadgets Guru Monginis FabFurnish Maniac Store Basics Life Hotels AirbnbeBags Inkyponky Kidloo The Stiff Collar Imitu Healthgenie Fastrack Grabmore Koolkarti Stockphoto Printvenue Indian Myra Fabindia Kobster Live In art Shopllers Hopscotch UnWrapIndia Groupon India AmritasinghUtsavSarees Jet Airways India Rush Genxmart Talash Arzoo DealsAndYouDone by None Kashmir box Florists in India Cbazaar Redlily For You and Me Unleash HoursLoot Mart and You AaneriStore AddaTech Magnate</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3522:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

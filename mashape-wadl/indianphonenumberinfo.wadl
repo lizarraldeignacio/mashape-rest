@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f930="urn:function:f930">
+    <grammars>
+        <include href="Function930.xsd"/>
+    </grammars>
+    <doc>get the connection type circle name and operator name using this API Mobile number portability not supported as of now Please get in touch with me if you would like to improve this api in any way or would like some other feature added to it See you around</doc>
+    <resources base="https://avneesh-indian-phone-number-info-v1.p.mashape.com/">
+        <resource uri="getphoneinfo/">
+            <resource uri="?mobile_number={the-first-four-digits-of-the-mobile-number}/">
+                <param name="the-first-four-digits-of-the-mobile-number" style="template" type="xsd:string"/>
+                <method displayName="/getphoneinfo/?mobile_number={the-first-four-digits-of-the-mobile-number}" id="930" name="GET">
+                    <request>
+                        <param name="theFirstFourDigitsOfTheMobileNumber" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f930:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

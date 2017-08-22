@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1171="urn:function:f1171" xmlns:f1172="urn:function:f1172" xmlns:f1173="urn:function:f1173" xmlns:f1174="urn:function:f1174" xmlns:f1175="urn:function:f1175" xmlns:f1176="urn:function:f1176" xmlns:f1177="urn:function:f1177" xmlns:f1178="urn:function:f1178" xmlns:f1179="urn:function:f1179" xmlns:f1180="urn:function:f1180" xmlns:f1181="urn:function:f1181" xmlns:f1182="urn:function:f1182" xmlns:f1183="urn:function:f1183" xmlns:f1185="urn:function:f1185" xmlns:f1186="urn:function:f1186" xmlns:f1187="urn:function:f1187" xmlns:f1188="urn:function:f1188" xmlns:f1189="urn:function:f1189">
+    <grammars>
+        <include href="Function1189.xsd"/>
+        <include href="Function1188.xsd"/>
+        <include href="Function1187.xsd"/>
+        <include href="Function1186.xsd"/>
+        <include href="Function1185.xsd"/>
+        <include href="Function1183.xsd"/>
+        <include href="Function1182.xsd"/>
+        <include href="Function1181.xsd"/>
+        <include href="Function1180.xsd"/>
+        <include href="Function1179.xsd"/>
+        <include href="Function1177.xsd"/>
+        <include href="Function1178.xsd"/>
+        <include href="Function1176.xsd"/>
+        <include href="Function1175.xsd"/>
+        <include href="Function1174.xsd"/>
+        <include href="Function1173.xsd"/>
+        <include href="Function1172.xsd"/>
+        <include href="Function1171.xsd"/>
+    </grammars>
+    <doc>unofficial Metacritic API for getting metascores and other details for Games Movies and Music</doc>
+    <resources base="https://metacritic-2.p.mashape.com/">
+        <resource uri="search/">
+            <resource uri="tv/">
+                <method displayName="Search TV shows" id="1189" name="GET">
+                    <request>
+                        <param name="maxPages" required="true" style="query" type="xsd:integer">
+                            <doc>Optional How many pages you want to scrape more pages slower Valid range default</doc>
+                        </param>
+                        <param name="title" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="yearFrom" required="true" style="query" type="xsd:integer">
+                            <doc>Optional Released in year from or later</doc>
+                        </param>
+                        <param name="yearTo" required="true" style="query" type="xsd:integer">
+                            <doc>Optional Released in year to or earlier</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1189:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="album/">
+                <method displayName="Search music albums" id="1188" name="GET">
+                    <request>
+                        <param name="maxPages" required="true" style="query" type="xsd:integer">
+                            <doc>Optional How many pages you want to scrape more pages slower Valid range default</doc>
+                        </param>
+                        <param name="title" required="true" style="query" type="xsd:string">
+                            <doc>album title</doc>
+                        </param>
+                        <param name="yearFrom" required="true" style="query" type="xsd:integer">
+                            <doc>Optional Released in year from or later</doc>
+                        </param>
+                        <param name="yearTo" required="true" style="query" type="xsd:integer">
+                            <doc>Optional Released in year to or earlier</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1188:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="movie/">
+                <method displayName="Search movies" id="1187" name="GET">
+                    <request>
+                        <param name="maxPages" required="true" style="query" type="xsd:integer">
+                            <doc>Optional How many pages you want to scrape more pages slower Valid range default</doc>
+                        </param>
+                        <param name="title" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="yearFrom" required="true" style="query" type="xsd:integer">
+                            <doc>Optional Released in year from or later</doc>
+                        </param>
+                        <param name="yearTo" required="true" style="query" type="xsd:integer">
+                            <doc>Optional Released in year to or earlier</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1187:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="game/">
+                <method displayName="Search games" id="1186" name="GET">
+                    <request>
+                        <param name="maxPages" required="true" style="query" type="xsd:integer">
+                            <doc>Optional How many pages you want to scrape more pages slower Valid range default</doc>
+                        </param>
+                        <param name="platform" required="true" style="query" type="xsd:string">
+                            <doc>Optional Game platform</doc>
+                        </param>
+                        <param name="title" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="yearFrom" required="true" style="query" type="xsd:integer">
+                            <doc>Optional Released in year from or later</doc>
+                        </param>
+                        <param name="yearTo" required="true" style="query" type="xsd:integer">
+                            <doc>Optional Released in year to or earlier</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1186:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="type-description/">
+            <resource uri="{type}/">
+                <param name="type" style="template" type="xsd:string"/>
+                <method displayName="Media type description" id="1185" name="GET">
+                    <request>
+                        <param name="type" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f1185:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="user-reviews/">
+            <method displayName="Get user reviews" id="1184" name="GET">
+                <request>
+                    <param name="orderBy" required="true" style="query" type="xsd:string">
+                        <doc>possible values score most active date most helpful Default most helpful</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+        <resource uri="user/">
+            <resource uri="{username}/">
+                <param name="username" style="template" type="xsd:string"/>
+                <resource uri="review-list/">
+                    <resource uri="{type}/">
+                        <param name="type" style="template" type="xsd:string"/>
+                        <method displayName="Get user review list" id="1183" name="GET">
+                            <doc>Use this endpoint to get a paginated list of reviews contributed by the user. Only the first page of each type (game, movie...) includes score distribution and the score average.</doc>
+                            <request>
+                                <param name="orderBy" required="true" style="query" type="xsd:string">
+                                    <doc>order the list by either date helpful upvote count score metascore userscore avg user score</doc>
+                                </param>
+                                <param name="page" required="true" style="query" type="xsd:integer">
+                                    <doc>used for pagination Next page is hinted in the result object</doc>
+                                </param>
+                                <param name="type" required="true" style="query" type="xsd:string">
+                                    <doc>media type movie tv album game</doc>
+                                </param>
+                                <param name="username" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f1183:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="details/">
+                    <method displayName="Get user details" id="1182" name="GET">
+                        <request>
+                            <param name="username" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f1182:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="details/">
+            <method displayName="Get details by URL" id="1181" name="GET">
+                <doc>Extract details for any entity type, by an URL. To see what kind of details are extracted for each type, see the respective /find/ method, as they return the same format.</doc>
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1181:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="reviews/">
+            <method displayName="Get critic reviews" id="1180" name="GET">
+                <doc>Get a list of critic reviews with scores, links...</doc>
+                <request>
+                    <param name="orderBy" required="true" style="query" type="xsd:string">
+                        <doc>possible values critics score most active publication most clicked Default critics score</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>uRL of the entity you need to scrape</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1180:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="movie-list/">
+            <resource uri="new-releases/">
+                <method displayName="Get &quot;new releases&quot; movie list" id="1179" name="GET">
+                    <request>
+                        <param name="orderBy" required="true" style="query" type="xsd:string">
+                            <doc>list order by valid values date metascore name userscore Default date</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1179:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="coming-soon/">
+                <method displayName="Get &quot;coming soon&quot; movie list" id="1177" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f1177:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="album-list/">
+            <resource uri="new-releases/">
+                <method displayName="Get &quot;new releases&quot; album list" id="1178" name="GET">
+                    <request>
+                        <param name="orderBy" required="true" style="query" type="xsd:string">
+                            <doc>possible values date metascore name userscore Default date</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1178:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="coming-soon/">
+                <method displayName="Get &quot;coming soon&quot; album list" id="1176" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f1176:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="game-list/">
+            <resource uri="{platform}/">
+                <param name="platform" style="template" type="xsd:string"/>
+                <resource uri="{list_type}/">
+                    <param name="list_type" style="template" type="xsd:string"/>
+                    <method displayName="Game list" id="1175" name="GET">
+                        <doc>Provides a listing function for the browsable game section.</doc>
+                        <request>
+                            <param name="listType" required="true" style="query" type="xsd:string">
+                                <doc>list type currently supported coming soon new releases all</doc>
+                            </param>
+                            <param name="orderBy" required="true" style="query" type="xsd:string">
+                                <doc>optionally order the results by date metascore name userscore Note coming soon does not support sorting by userscore Default date</doc>
+                            </param>
+                            <param name="page" required="true" style="query" type="xsd:integer">
+                                <doc>results page number total pages and next page is hinted in the results</doc>
+                            </param>
+                            <param name="platform" required="true" style="query" type="xsd:string">
+                                <doc>game platform supported ps xboxone ps xbox pc wii u ds vita ios</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1175:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="find/">
+            <resource uri="tv/">
+                <method displayName="Find TV show" id="1174" name="GET">
+                    <doc>Find TV show by exact name match</doc>
+                    <request>
+                        <param name="title" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1174:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="album/">
+                <method displayName="Find music album" id="1173" name="GET">
+                    <doc>Get music album details by exact name and artist match</doc>
+                    <request>
+                        <param name="artist" required="true" style="query" type="xsd:string">
+                            <doc>album artist author</doc>
+                        </param>
+                        <param name="title" required="true" style="query" type="xsd:string">
+                            <doc>album name</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1173:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="movie/">
+                <method displayName="Find movie" id="1172" name="GET">
+                    <doc>Get movie detaily by exact name match</doc>
+                    <request>
+                        <param name="title" required="true" style="query" type="xsd:string">
+                            <doc>movie title</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1172:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="game/">
+                <method displayName="Find game" id="1171" name="GET">
+                    <doc>Get game details by exact name match</doc>
+                    <request>
+                        <param name="platform" required="true" style="query" type="xsd:string">
+                            <doc>game platform use type description game to get a list of possible values</doc>
+                        </param>
+                        <param name="title" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1171:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

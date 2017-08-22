@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1430="urn:function:f1430">
+    <grammars>
+        <include href="Function1430.xsd"/>
+    </grammars>
+    <doc>shortens urls</doc>
+    <resources base="https://ismaelc-bitly.p.mashape.com/">
+        <resource uri="v3/">
+            <resource uri="shorten/">
+                <method displayName="shorten" id="1430" name="GET">
+                    <doc>Given a long URL, returns a bitly short URL.</doc>
+                    <request>
+                        <param name="longurl" required="true" style="query" type="xsd:string">
+                            <doc>a long URL to be shortened example http betaworks com</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1430:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1258="urn:function:f1258" xmlns:f1260="urn:function:f1260" xmlns:f1261="urn:function:f1261" xmlns:f1262="urn:function:f1262" xmlns:f1264="urn:function:f1264" xmlns:f1265="urn:function:f1265" xmlns:f1266="urn:function:f1266">
+    <grammars>
+        <include href="Function1264.xsd"/>
+        <include href="Function1265.xsd"/>
+        <include href="Function1260.xsd"/>
+        <include href="Function1261.xsd"/>
+        <include href="Function1262.xsd"/>
+        <include href="Function1266.xsd"/>
+        <include href="Function1258.xsd"/>
+    </grammars>
+    <doc>aPIv is the old Hummingbird API that is already implemented in multiple applications its syntax and functionality will surely not change in the future so it is recommended to use this for any long running projects</doc>
+    <resources base="https://hbrd-v1.p.mashape.com/">
+        <resource uri="search/">
+            <resource uri="anime/">
+                <method displayName="Search" id="1264" name="GET">
+                    <doc>Search for an anime (supports fuzzy search)</doc>
+                    <request>
+                        <param name="query" required="true" style="query" type="xsd:string">
+                            <doc>your search term</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1264:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="libraries/">
+            <resource uri="{anime_id}/">
+                <param name="anime_id" style="template" type="xsd:string"/>
+                <method displayName="Remove" id="1263" name="POST">
+                    <doc>Remove an anime from a user's library</doc>
+                    <request>
+                        <param name="animeId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Update" id="1265" name="POST">
+                    <doc>Update an entry in a user's library</doc>
+                    <request>
+                        <param name="animeId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f1265:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="users/">
+            <resource uri="{name}/">
+                <param name="name" style="template" type="xsd:string"/>
+                <method displayName="Favourites" id="1260" name="GET">
+                    <doc>Get a user's favourite anime</doc>
+                    <request>
+                        <param name="name" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f1260:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Feed" id="1261" name="GET">
+                    <doc>Get the latest posts on a user's feed</doc>
+                    <request>
+                        <param name="name" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f1261:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Library" id="1262" name="GET">
+                    <doc>Get a user's anime library</doc>
+                    <request>
+                        <param name="name" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f1262:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="User" id="1266" name="GET">
+                    <doc>Get informations about a single user</doc>
+                    <request>
+                        <param name="name" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f1266:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="authenticate/">
+                <method displayName="Authenticate" id="1259" name="POST">
+                    <doc>Authenticate request to get a user's auth-token</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="anime/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Anime" id="1258" name="GET">
+                    <doc>Get information about a single anime</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the Anime ID eq Anime slug</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1258:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

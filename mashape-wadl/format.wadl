@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1206="urn:function:f1206" xmlns:f1207="urn:function:f1207" xmlns:f1208="urn:function:f1208" xmlns:f1209="urn:function:f1209" xmlns:f1210="urn:function:f1210">
+    <grammars>
+        <include href="Function1210.xsd"/>
+        <include href="Function1209.xsd"/>
+        <include href="Function1208.xsd"/>
+        <include href="Function1207.xsd"/>
+        <include href="Function1206.xsd"/>
+    </grammars>
+    <doc>easily format data and information through our platform agnostic api Allows formatting of various information types such as Phone Numbers to National International and E Format and returns type of number Dates to a large multitude of formats with validation UTC time ago Currency and Numeric formatting based on country codes or default US setting and Names Normalization Formatting</doc>
+    <resources base="https://parsify-format.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="format/">
+                <resource uri="trim/">
+                    <resource uri="spaces/">
+                        <method displayName="Trim Spaces" id="1211" name="GET">
+                            <doc>Trim whitespace from the beginning and end or only one side of a sentence or word. Does not deal with tabs.</doc>
+                            <request>
+                                <param name="side" required="true" style="query" type="xsd:string">
+                                    <doc>which side needs to be trimmed</doc>
+                                </param>
+                                <param name="value" required="true" style="query" type="xsd:string">
+                                    <doc>string to be trimmed</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="time/">
+                    <method displayName="Time" id="1210" name="GET">
+                        <doc>Format, Validate, and get extensive information and details about a date / time.</doc>
+                        <request>
+                            <param name="lang" required="true" style="query" type="xsd:string">
+                                <doc>supported Languages ar ma ar bg ca cs cv da de el en ca en gb eo es et eu fi fr ca fr gl he hi hu id is it ja ko lv ms my nb ne nl pl pt br pt ro ru sl sv th tr tzm la tzm uk zh cn zh tw</doc>
+                            </param>
+                            <param name="value" required="true" style="query" type="xsd:string">
+                                <doc>can be timestamp based or valid date as string</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1210:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="number/">
+                    <method displayName="Phone Number" id="1209" name="GET">
+                        <doc>Formats, validates, and returns the type of given number</doc>
+                        <request>
+                            <param name="country" required="true" style="query" type="xsd:string">
+                                <doc>country acronym of number given</doc>
+                            </param>
+                            <param name="number" required="true" style="query" type="xsd:string">
+                                <doc>phone number to be formatted validated and returns the type of number such as FAX LINE etc</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1209:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="numeric/">
+                    <method displayName="Numbers" id="1208" name="GET">
+                        <doc>Numeric formatting based on country code and input</doc>
+                        <request>
+                            <param name="decimal" required="true" style="query" type="xsd:boolean">
+                                <doc>should we format this as a decimal</doc>
+                            </param>
+                            <param name="percentage" required="true" style="query" type="xsd:boolean">
+                                <doc>should we format this as a percentage</doc>
+                            </param>
+                            <param name="places" required="true" style="query" type="xsd:integer">
+                                <doc>decimal places to show zero for none with rounding</doc>
+                            </param>
+                            <param name="value" required="true" style="query" type="xsd:integer">
+                                <doc>value to be formatted</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1208:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="name/">
+                    <method displayName="Name" id="1207" name="GET">
+                        <doc>Name normalization / formatting. Currently only English, and Japanese honorifics are supported, more coming soon.</doc>
+                        <request>
+                            <param name="name" required="true" style="query" type="xsd:string">
+                                <doc>name to be normalized formatted</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1207:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="currency/">
+                    <method displayName="Currency" id="1206" name="GET">
+                        <doc>Format currency amounts in multiple locales, default en-US</doc>
+                        <request>
+                            <param name="country" required="true" style="query" type="xsd:string">
+                                <doc>country codes there are a lot supported full list coming soon Popular cy da de en US en GB en CA el es fr ga gd gl gu ha he hu is it km ko kok ky kl ka ja iu ro ru se tr vi wo yi zh</doc>
+                            </param>
+                            <param name="value" required="true" style="query" type="xsd:string">
+                                <doc>value to be formatted as currency</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1206:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

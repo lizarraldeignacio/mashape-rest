@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5999="urn:function:f5999" xmlns:f6000="urn:function:f6000">
+    <grammars>
+        <include href="Function6000.xsd"/>
+        <include href="Function5999.xsd"/>
+    </grammars>
+    <doc>this API allows you to evaluate the risk of a message containing inappropriate content This risk rating can then be used as an indicator that moderation is required If you supply a user identifier a user profile will be maintained of key statistics Note this will only be kept for users that are active in the last months</doc>
+    <resources base="https://textchecker.p.mashape.com/">
+        <resource uri="textuserstat/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="textuserstat" id="6000" name="GET">
+                    <doc>Allows you to access the named users text message statistics</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>user identifier eg facebook id</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6000:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="textchecker/">
+            <method displayName="textchecker" id="5999" name="POST">
+                <doc>Evaluate the risk of a text message.</doc>
+                <request/>
+                <response>
+                    <representation element="f5999:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

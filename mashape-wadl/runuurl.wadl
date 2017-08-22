@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2472="urn:function:f2472">
+    <grammars>
+        <include href="Function2472.xsd"/>
+    </grammars>
+    <doc>ruGu Short Url API Set Custom Passwors Set Date to expire Set Max Clicks Set Custom Url etc with Metro Controls Easy to use Short URL API Presented by http sphirelabs com</doc>
+    <resources base="https://sphirelabs-rugu-ga-api.p.mashape.com/">
+        <resource uri="write/">
+            <resource uri="get/">
+                <method displayName="Get short Url" id="2472" name="GET">
+                    <doc>Get Short and Custom Urls</doc>
+                    <request>
+                        <param name="custom" required="true" style="query" type="xsd:string">
+                            <doc>set Custom Name e x fb for facebook gives url runu ga fb</doc>
+                        </param>
+                        <param name="expire" required="true" style="query" type="xsd:integer">
+                            <doc>set date in format MM DD YYYY to expire url</doc>
+                        </param>
+                        <param name="password" required="true" style="query" type="xsd:string">
+                            <doc>set a Custom Password to unlock the short url Note Maximum chars</doc>
+                        </param>
+                        <param name="uses" required="true" style="query" type="xsd:integer">
+                            <doc>set Number of uses for the url</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>url of the website to short url</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2472:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

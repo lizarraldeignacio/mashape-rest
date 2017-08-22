@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f273="urn:function:f273">
+    <grammars>
+        <include href="Function273.xsd"/>
+    </grammars>
+    <doc>uses IGN com to retrieve game rating It also retrieves platforms thumbnail and a short description</doc>
+    <resources base="https://videogamesrating.p.mashape.com/">
+        <resource uri="get.php/">
+            <method displayName="Retrieve game rating" id="273" name="GET">
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:integer">
+                        <doc>represents the number of ratings matching the game parameter Value between and</doc>
+                    </param>
+                    <param name="game" required="true" style="query" type="xsd:string">
+                        <doc>game name or partial game name</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f273:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

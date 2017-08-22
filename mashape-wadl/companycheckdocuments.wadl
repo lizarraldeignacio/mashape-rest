@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6339="urn:function:f6339" xmlns:f6340="urn:function:f6340">
+    <grammars>
+        <include href="Function6340.xsd"/>
+        <include href="Function6339.xsd"/>
+    </grammars>
+    <doc>instant access to official Companies House documents</doc>
+    <resources base="https://companycheck-docs.p.mashape.com/">
+        <resource uri="streamDocument/">
+            <method displayName="Steam PDF Document" id="6341" name="GET">
+                <doc>Provide the order details returned by Place Document Order in order to directly download the PDF</doc>
+                <request>
+                    <param name="docid" required="true" style="query" type="xsd:string">
+                        <doc>the docId field returned by Place Document Order will be the same as the ID you passed into that endpoint when ordering the document</doc>
+                    </param>
+                    <param name="expires" required="true" style="query" type="xsd:integer">
+                        <doc>the Unix timestamp of the expiry date time returned by Place Document Order Expiry date times are set to h ahead of the time that the document was ordered</doc>
+                    </param>
+                    <param name="orderid" required="true" style="query" type="xsd:string">
+                        <doc>the orderId field returned by Place Document Order</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="placeOrder/">
+            <method displayName="Place Document Order" id="6340" name="GET">
+                <doc>Place an order for a given document. (The quota incremented will depend on whether it is an AA accounts doc, or another type)</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>this is the document ID returned by the company document list endpoint</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6340:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="companyDocList/">
+            <method displayName="Company Document List" id="6339" name="GET">
+                <doc>See the documents which are available for a given company</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>this is the Companies House ID of the company you want to look up</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6339:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

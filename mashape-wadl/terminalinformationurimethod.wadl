@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>flightLookup Terminal Info Answer the most frequently asked question by frequent travelers what terminal do I go to Returns Terminal Information Flight Number Arrival Terminal Depart Terminal Operating Carrier</doc>
+    <resources base="https://flightlookup-terminalinfo-uri.p.mashape.com/">
+        <resource uri="TerminalInfo/">
+            <method displayName="TerminalInfo" id="6584" name="GET">
+                <doc>This method returns either the departure or arrival terminal information for a specified airline and flight number or a specified airport on a specified date.</doc>
+                <request>
+                    <param name="airline" required="true" style="query" type="xsd:string">
+                        <doc>required letter IATA airline code</doc>
+                    </param>
+                    <param name="date" required="true" style="query" type="xsd:string">
+                        <doc>required Departure date mm dd yyyy</doc>
+                    </param>
+                    <param name="flightnumber" required="true" style="query" type="xsd:string">
+                        <doc>required Flight Number identifier</doc>
+                    </param>
+                    <param name="from" required="true" style="query" type="xsd:string">
+                        <doc>required letter IATA code for the departure airport</doc>
+                    </param>
+                    <param name="to" required="true" style="query" type="xsd:string">
+                        <doc>required letter IATA code for the destination airport</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

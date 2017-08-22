@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4649="urn:function:f4649">
+    <grammars>
+        <include href="Function4649.xsd"/>
+    </grammars>
+    <doc>joomag is a FREE service for creating digital interactive content including digital magazines photo albums catalogs and e books</doc>
+    <resources base="https://community-joomag.p.mashape.com/">
+        <resource uri="restAPI.php/">
+            <method displayName="Action" id="4649" name="POST">
+                <doc>Joomag provides an API, which can be used to manage Joomag account by 3rd party applications. For instance, it may be used for creating magazines from PDF files. The API is based on HTTP protocol with JSON responses.  API method is determined by the "action" parameter.  Refer to http://www.joomag.com/en/api for more details.</doc>
+                <request/>
+                <response>
+                    <representation element="f4649:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

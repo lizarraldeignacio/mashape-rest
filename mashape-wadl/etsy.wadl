@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4456="urn:function:f4456" xmlns:f4457="urn:function:f4457" xmlns:f4459="urn:function:f4459">
+    <grammars>
+        <include href="Function4459.xsd"/>
+        <include href="Function4457.xsd"/>
+        <include href="Function4456.xsd"/>
+    </grammars>
+    <doc>buy and sell handmade or vintage items art and supplies on Etsy the world s most vibrant handmade marketplace</doc>
+    <resources base="https://community-etsy.p.mashape.com/">
+        <resource uri="listings/">
+            <resource uri="trending/">
+                <method displayName="getTrendingListings" id="4459" name="GET">
+                    <doc>Collects the list of listings used to generate the trending listing page</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4459:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="interesting/">
+                <method displayName="getInterestingListings" id="4458" name="GET">
+                    <doc>Collects the list of interesting listings</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="active/">
+                <method displayName="findAllListingActive" id="4457" name="GET">
+                    <doc>Finds all active Listings. (Note: the sort_on and sort_order options only work when combined with one of the search options: keywords, color, tags, location, etc.)</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4457:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="featured_treasuries/">
+            <resource uri="listings/">
+                <resource uri="homepage_current/">
+                    <method displayName="findAllCurrentFeaturedListings" id="4456" name="GET">
+                        <doc>Finds FeaturedTreasury listings that are currently displayed on a regional homepage.</doc>
+                        <request/>
+                        <response>
+                            <representation element="f4456:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

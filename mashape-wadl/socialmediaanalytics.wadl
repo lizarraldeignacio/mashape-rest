@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7247="urn:function:f7247" xmlns:f7248="urn:function:f7248" xmlns:f7249="urn:function:f7249">
+    <grammars>
+        <include href="Function7249.xsd"/>
+        <include href="Function7248.xsd"/>
+        <include href="Function7247.xsd"/>
+    </grammars>
+    <doc>twtrland is a social intelligence platform serving over M monthly visitors helping people and brands build their online identity Through analysis of billions of pieces of content we have formed one of the richest social insight graphs with proprietary cross platform information We have made this data visual simple and searchable through our social profiles influencers search engine and the business dashboard Our API allows you to empower your applications with our insight graph</doc>
+    <resources base="https://navigdor-influencers-lookup.p.mashape.com/">
+        <resource uri="twitter_lookup.php/">
+            <method displayName="Twitter Lookup" id="7249" name="GET">
+                <doc>Get a social footprint of an entity on Twitter. Covering influence metrics, user information, close network, skills, followers demographics (locations, skills, influence levels, age groups).</doc>
+                <request>
+                    <param name="screenName" required="true" style="query" type="xsd:string">
+                        <doc>the twitter screen name of the requested entity</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f7249:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="twitter_lookup_demographics.php/">
+            <method displayName="Twitter Demographics Lookup" id="7248" name="GET">
+                <doc>Location, Gender and Age of twitter screen name</doc>
+                <request>
+                    <param name="twitterScreenName" required="true" style="query" type="xsd:string">
+                        <doc>the twitter screen name</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f7248:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="influencers_lookup.php/">
+            <method displayName="Influencers Search" id="7247" name="GET">
+                <doc>Find social media influencers in a specific interest space</doc>
+                <request>
+                    <param name="location" required="true" style="query" type="xsd:string">
+                        <doc>a country state or city</doc>
+                    </param>
+                    <param name="skill" required="true" style="query" type="xsd:string">
+                        <doc>specify the specific interest space</doc>
+                    </param>
+                    <param name="typecastid" required="true" style="query" type="xsd:integer">
+                        <doc>filter for Celebs PowerUsers Casual Novice users</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f7247:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

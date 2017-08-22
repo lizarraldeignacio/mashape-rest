@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3551="urn:function:f3551" xmlns:f3552="urn:function:f3552">
+    <grammars>
+        <include href="Function3552.xsd"/>
+        <include href="Function3551.xsd"/>
+    </grammars>
+    <doc>flag es provides a visitor counting widget that shows the most recent visitors the flags of their countries and the names of their cities as determined by their IP addresses This widget can be embedded on the user s website by copying and pasting some JavaScript code This code can be edited to alter the counter s general appearance the information displayed and the number of seconds that must pass before an old visitor can be counted again The Flag es Flag Counter uses GeoLite data provided by MaxMind</doc>
+    <resources base="https://amidallasearchengine-flagses-flag-counter.p.mashape.com/">
+        <resource uri="http:/">
+            <resource uri="">
+                <resource uri="www.flags.es/">
+                    <method displayName="javascript code page" id="3552" name="POST">
+                        <doc>Javascript accessable Api at www.flags.es</doc>
+                        <request/>
+                        <response>
+                            <representation element="f3552:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="cgi-bin/">
+            <resource uri="geoip/">
+                <resource uri="amiip.pl/">
+                    <method displayName="/cgi-bin/geoip/amiip.pl" id="3551" name="GET">
+                        <doc>Access the flags.es API without Javascript</doc>
+                        <request>
+                            <param name="curl" required="true" style="query" type="xsd:string">
+                                <doc>url which is calling the Endpoint Example http www flags es</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f3551:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

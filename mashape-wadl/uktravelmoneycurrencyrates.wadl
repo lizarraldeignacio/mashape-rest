@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6614="urn:function:f6614" xmlns:f6615="urn:function:f6615">
+    <grammars>
+        <include href="Function6615.xsd"/>
+        <include href="Function6614.xsd"/>
+    </grammars>
+    <doc>comprehensive source of UK Travel Money Currency Data Continually updated rates information on Currency Merchants and up to currencies per merchant Ideal for Travel Money comparison and holiday websites</doc>
+    <resources base="https://touchtree-uktravelmoneycurrencyrates.p.mashape.com/">
+        <resource uri="GetRates/">
+            <method displayName="Get Rates" id="6615" name="GET">
+                <doc>Get rates data on a particular currency using it's ISO code. Rates are updated every 10 minutes. Some currencies may return 0 results because no merchants have rates for them.</doc>
+                <request>
+                    <param name="iso" required="true" style="query" type="xsd:string">
+                        <doc>iSO Currency Code</doc>
+                    </param>
+                    <param name="orderedby" required="true" style="query" type="xsd:string">
+                        <doc>method of ordering rates data Descending Ascending by value or Alpha A to Z Z to A by merchant name</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6615:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="GetInfo/">
+            <method displayName="Get Info" id="6614" name="GET">
+                <doc>Returns information on the currencies that are available and the merchants that currency data is available from.</doc>
+                <request>
+                    <param name="action" required="true" style="query" type="xsd:string">
+                        <doc>information on currencies available CUR merchant list MER or both ALL</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6614:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

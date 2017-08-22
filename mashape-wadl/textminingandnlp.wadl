@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1688="urn:function:f1688" xmlns:f1689="urn:function:f1689" xmlns:f1690="urn:function:f1690" xmlns:f1691="urn:function:f1691" xmlns:f1692="urn:function:f1692" xmlns:f1693="urn:function:f1693">
+    <grammars>
+        <include href="Function1693.xsd"/>
+        <include href="Function1692.xsd"/>
+        <include href="Function1691.xsd"/>
+        <include href="Function1690.xsd"/>
+        <include href="Function1689.xsd"/>
+        <include href="Function1688.xsd"/>
+    </grammars>
+    <doc>aPIs for Text Mining and Natural Language Processing Discover topics in large amounts of text Cluster sentences and tweets with meaningful labels Generate word counts and N grams and counts with frequency Extract text from HTML pages Compute Text Similarity using Jaccard Cosine and Dice Generate sentiment opinion summary from large amounts of text</doc>
+    <resources base="https://rxnlp-core.p.mashape.com/">
+        <resource uri="generateOpinosisSummaries/">
+            <method displayName="6. SentimentSummarizer" id="1693" name="POST">
+                <doc>Generate concise summaries of opinions from large amounts of text. Summarize Tweets, Blog comments, Foursquare tips, any opinion containing texts.</doc>
+                <request/>
+                <response>
+                    <representation element="f1693:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="generateTopics/">
+            <method displayName="5. DiscoverTopics" id="1692" name="POST">
+                <doc>Find topics in text. Extracted topics can be used to create navigable word clouds, automatic tagging of documents or for visualization of large amounts of text. You can extract topics from single documents or aggregated texts.</doc>
+                <request/>
+                <response>
+                    <representation element="f1692:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="generateClusters/">
+            <method displayName="4. ClusterSentences" id="1691" name="POST">
+                <doc>Cluster sentences and short micro-format texts (e.g. Tweets) into logical groups. Each cluster contains meaningful topic cues (labels). This clustering algorithm is much more effective than K-Means for clustering sentence level texts.</doc>
+                <request/>
+                <response>
+                    <representation element="f1691:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="generateNGramCounts/">
+            <method displayName="3. NGramCounter" id="1690" name="POST">
+                <doc>Generate counts words or n-grams in descending order. N represents the required n-gram size.</doc>
+                <request/>
+                <response>
+                    <representation element="f1690:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="computeSimilarity/">
+            <method displayName="2. TextSimilarity" id="1689" name="POST">
+                <doc>Compute similarity between two units of texts using Jaccard, Cosine and Dice similarity measures. Can be used to find similar queries, ads, Tweets, product listings, documents, etc. This endpoint is language neutral.</doc>
+                <request/>
+                <response>
+                    <representation element="f1689:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getTextFromHTML/">
+            <method displayName="1. HTML2Text" id="1688" name="POST">
+                <doc>Extract text contents from a HTML page or a URL directly. Can be used as a pre-step to any text processing task.</doc>
+                <request/>
+                <response>
+                    <representation element="f1688:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

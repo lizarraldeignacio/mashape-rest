@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f751="urn:function:f751" xmlns:f752="urn:function:f752">
+    <grammars>
+        <include href="Function752.xsd"/>
+        <include href="Function751.xsd"/>
+    </grammars>
+    <doc>we at Plivo make it easier for businesses and software developers to use cloud powered Voice and SMS communications We offer HTTP APIs that let you can build Voice and SMS applications or integrate such capabilities into your web or mobile application in any web standard language We simplify the notorious complexity of the telephony business into a simple infrastructure service for you we take care of everything from carriers contracts to call quality and messaging deliverability to technical support</doc>
+    <resources base="https://plivo-plivo.p.mashape.com/">
+        <resource uri="Account/">
+            <resource uri="{auth_id}/">
+                <param name="auth_id" style="template" type="xsd:string"/>
+                <resource uri="Call/">
+                    <method displayName="2. Make an Outbound Call" id="752" name="POST">
+                        <doc>The following API enables you to make a single call or bulk outbound calls to real phone(s) or SIP endpoint(s).  You can find out more at http://plivo.com/docs/api/call/</doc>
+                        <request>
+                            <param name="authId" required="true" style="query" type="xsd:string">
+                                <doc>you can get your Auth ID at https manage plivo com dashboard</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f752:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="Message/">
+                    <method displayName="1. Send a Message" id="751" name="POST">
+                        <doc>This API enables you to send messages via Plivo's SMS service. The API supports Unicode UTF-8 encoded texts, so you can send messages in any language. The API also handles long SMS automatically by splitting it into standard SMS sized chunks and sending them. Delivery reports are automatically supported in networks where they are provided by the operator.  You can read more at http://plivo.com/docs/api/message/</doc>
+                        <request>
+                            <param name="authId" required="true" style="query" type="xsd:string">
+                                <doc>you can get your Auth ID at https manage plivo com dashboard</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f751:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

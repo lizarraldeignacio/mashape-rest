@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f894="urn:function:f894">
+    <grammars>
+        <include href="Function894.xsd"/>
+    </grammars>
+    <doc>italian Ski Webcam Database API more at http skicams it api italian</doc>
+    <resources base="https://makevoid-skicams.p.mashape.com/">
+        <resource uri="cams.json/">
+            <method displayName="cams" id="894" name="GET">
+                <doc>A sample GET method</doc>
+                <request/>
+                <response>
+                    <representation element="f894:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

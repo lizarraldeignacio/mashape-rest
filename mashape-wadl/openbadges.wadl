@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6483="urn:function:f6483" xmlns:f6484="urn:function:f6484" xmlns:f6485="urn:function:f6485" xmlns:f6486="urn:function:f6486" xmlns:f6487="urn:function:f6487">
+    <grammars>
+        <include href="Function6487.xsd"/>
+        <include href="Function6486.xsd"/>
+        <include href="Function6485.xsd"/>
+        <include href="Function6484.xsd"/>
+        <include href="Function6483.xsd"/>
+    </grammars>
+    <doc>upload and Share a Openbadges</doc>
+    <resources base="https://tailot-openbadges-v1.p.mashape.com/">
+        <resource uri="filemanager/">
+            <resource uri="create/">
+                <method displayName="/filemanager/create/" id="6487" name="POST">
+                    <doc>Upload a openbadges</doc>
+                    <request>
+                        <param name="file" required="true" style="query" type="xsd:string">
+                            <doc>a file png</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6487:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="badge/">
+            <resource uri="twitter_card/">
+                <method displayName="/badge/twitter_card/" id="6486" name="GET">
+                    <doc>Return a twitter card</doc>
+                    <request>
+                        <param name="account" required="true" style="query" type="xsd:integer">
+                            <doc>twitter account id</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>badge id</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6486:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="oembed/">
+                <method displayName="/badge/oembed/" id="6485" name="GET">
+                    <doc>Get oembed badge</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>badge id</doc>
+                        </param>
+                        <param name="type" required="true" style="query" type="xsd:string">
+                            <doc>type of output accept value xml or json</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6485:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="find/">
+                <method displayName="/badge/find/" id="6484" name="GET">
+                    <doc>Find a Badges</doc>
+                    <request>
+                        <param name="q" required="true" style="query" type="xsd:string">
+                            <doc>a value to search</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6484:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="facebook_share/">
+                <method displayName="/badge/facebook_share/" id="6483" name="GET">
+                    <doc>Get a facebook card</doc>
+                    <request>
+                        <param name="appId" required="true" style="query" type="xsd:integer">
+                            <doc>a facebook app id</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>a badge id</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6483:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

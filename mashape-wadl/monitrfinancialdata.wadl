@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>the Monitr Financial REST API allows developers to access and integrate the functionality of Monitr with other applications Developers can capture and pull analytics on market sentiment economic data financial news and social media Public documentation is not available developers can request an API key here http www monitr com developers</doc>
+    <resources base="https://monitr-monitr-financial-data-v1.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="v1/">
+                <resource uri="portfolio/">
+                    <resource uri="news{startday}{endday}{max}{offset}{sentiment}{apikey}/">
+                        <param name="startday" style="template" type="xsd:string"/>
+                        <method displayName="Get portfolio news" id="6568" name="GET">
+                            <doc>Get portfolio news</doc>
+                            <request>
+                                <param name="apikey" required="true" style="query" type="xsd:string"/>
+                                <param name="endday" required="true" style="query" type="xsd:string"/>
+                                <param name="max" required="true" style="query" type="xsd:string"/>
+                                <param name="offset" required="true" style="query" type="xsd:string"/>
+                                <param name="sentiment" required="true" style="query" type="xsd:string"/>
+                                <param name="startday" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                    <resource uri="data{startday}{endday}{apikey}/">
+                        <param name="startday" style="template" type="xsd:string"/>
+                        <method displayName="Get portfolio data" id="6567" name="GET">
+                            <doc>Get portfolio data</doc>
+                            <request>
+                                <param name="apikey" required="true" style="query" type="xsd:string"/>
+                                <param name="endday" required="true" style="query" type="xsd:string"/>
+                                <param name="startday" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="market/">
+                    <resource uri="sectors{apikey}/">
+                        <param name="apikey" style="template" type="xsd:string"/>
+                        <method displayName="List market sectors" id="6571" name="GET">
+                            <doc>List market sectors</doc>
+                            <request>
+                                <param name="apikey" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                    <resource uri="industries{apikey}/">
+                        <param name="apikey" style="template" type="xsd:string"/>
+                        <method displayName="List industries" id="6570" name="GET">
+                            <doc>List industries</doc>
+                            <request>
+                                <param name="apikey" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                    <resource uri="news{startday}{endday}{max}{offset}{market}{apikey}/">
+                        <param name="startday" style="template" type="xsd:string"/>
+                        <method displayName="Get market news" id="6566" name="GET">
+                            <doc>Get market news</doc>
+                            <request>
+                                <param name="apikey" required="true" style="query" type="xsd:string"/>
+                                <param name="endday" required="true" style="query" type="xsd:string"/>
+                                <param name="market" required="true" style="query" type="xsd:string"/>
+                                <param name="max" required="true" style="query" type="xsd:string"/>
+                                <param name="offset" required="true" style="query" type="xsd:string"/>
+                                <param name="startday" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="link/">
+                    <resource uri="tags{link}{apikey}/">
+                        <param name="link" style="template" type="xsd:string"/>
+                        <method displayName="Get link tags" id="6564" name="GET">
+                            <doc>Get link tags</doc>
+                            <request>
+                                <param name="apikey" required="true" style="query" type="xsd:string"/>
+                                <param name="link" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                    <resource uri="sentiment{link}{apikey}/">
+                        <param name="link" style="template" type="xsd:string"/>
+                        <method displayName="Get link sentiment" id="6563" name="GET">
+                            <doc>Get link sentiment</doc>
+                            <request>
+                                <param name="apikey" required="true" style="query" type="xsd:string"/>
+                                <param name="link" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                    <resource uri="metadata{link}{apikey}/">
+                        <param name="link" style="template" type="xsd:string"/>
+                        <method displayName="Get link metadata" id="6562" name="GET">
+                            <doc>Get link metadata</doc>
+                            <request>
+                                <param name="apikey" required="true" style="query" type="xsd:string"/>
+                                <param name="link" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="competitors{symbol}{apikey}/">
+                    <param name="symbol" style="template" type="xsd:string"/>
+                    <method displayName="Get competitor list" id="6560" name="GET">
+                        <doc>Get competitor list</doc>
+                        <request>
+                            <param name="apikey" required="true" style="query" type="xsd:string"/>
+                            <param name="symbol" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="headlines{startday}{endday}{max}{offset}{symbol}{apikey}/">
+                    <param name="startday" style="template" type="xsd:string"/>
+                    <method displayName="Get company news" id="6559" name="GET">
+                        <doc>Get company news</doc>
+                        <request>
+                            <param name="apikey" required="true" style="query" type="xsd:string"/>
+                            <param name="endday" required="true" style="query" type="xsd:string"/>
+                            <param name="max" required="true" style="query" type="xsd:string"/>
+                            <param name="offset" required="true" style="query" type="xsd:string"/>
+                            <param name="startday" required="true" style="query" type="xsd:string"/>
+                            <param name="symbol" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="stream/">
+                    <resource uri="technology{limit}{since}{apikey}/">
+                        <param name="limit" style="template" type="xsd:string"/>
+                        <method displayName="All Technology news stream" id="6558" name="GET">
+                            <doc>All Technology news stream</doc>
+                            <request>
+                                <param name="apikey" required="true" style="query" type="xsd:string"/>
+                                <param name="limit" required="true" style="query" type="xsd:string"/>
+                                <param name="since" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                    <resource uri="business{limit}{since}{apikey}/">
+                        <param name="limit" style="template" type="xsd:string"/>
+                        <method displayName="All Business news stream" id="6557" name="GET">
+                            <doc>All Business news stream</doc>
+                            <request>
+                                <param name="apikey" required="true" style="query" type="xsd:string"/>
+                                <param name="limit" required="true" style="query" type="xsd:string"/>
+                                <param name="since" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="v2/">
+                <resource uri="symbol{symbol}{apikey}/">
+                    <param name="symbol" style="template" type="xsd:string"/>
+                    <method displayName="Get symbol details" id="6569" name="GET">
+                        <doc>Get symbol details</doc>
+                        <request>
+                            <param name="apikey" required="true" style="query" type="xsd:string"/>
+                            <param name="symbol" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="market/">
+                    <resource uri="data{days}{market}{apikey}/">
+                        <param name="days" style="template" type="xsd:string"/>
+                        <method displayName="Get market data" id="6565" name="GET">
+                            <doc>Get market data</doc>
+                            <request>
+                                <param name="apikey" required="true" style="query" type="xsd:string"/>
+                                <param name="days" required="true" style="query" type="xsd:string"/>
+                                <param name="market" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="symbol/">
+                    <resource uri="mentions{startday}{endday}{symbol}{apikey}/">
+                        <param name="startday" style="template" type="xsd:string"/>
+                        <method displayName="Get daily news data" id="6561" name="GET">
+                            <doc>Get daily news data</doc>
+                            <request>
+                                <param name="apikey" required="true" style="query" type="xsd:string"/>
+                                <param name="endday" required="true" style="query" type="xsd:string"/>
+                                <param name="startday" required="true" style="query" type="xsd:string"/>
+                                <param name="symbol" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="portfolio/">
+                    <resource uri="remove{symbol}{apikey}/">
+                        <param name="symbol" style="template" type="xsd:string"/>
+                        <method displayName="Remove symbol from portfolio" id="6572" name="GET">
+                            <doc>Remove symbol from portfolio</doc>
+                            <request>
+                                <param name="apikey" required="true" style="query" type="xsd:string"/>
+                                <param name="symbol" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                    <resource uri="add{symbol}{apikey}/">
+                        <param name="symbol" style="template" type="xsd:string"/>
+                        <method displayName="Add symbol to portfolio" id="6556" name="GET">
+                            <doc>Add symbol to portfolio</doc>
+                            <request>
+                                <param name="apikey" required="true" style="query" type="xsd:string"/>
+                                <param name="symbol" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

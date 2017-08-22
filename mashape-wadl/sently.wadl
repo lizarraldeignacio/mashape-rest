@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>sent ly is a service that allows you to add SMS send receive capability to your apps Sent ly uses an easy HTTP API in the cloud with an app on your Android phones With your dedicated phones and your own GSM connections you can set up your own unique identity for marketing notification purposes in multiple countries Because the Sent ly phone is always in the target GSM network already SMS send receive reliability is unmatched Sent ly works on a pay per use model freeing you from minimum use quotas or monthly subscription fees Get started with Sent ly in under minutes</doc>
+    <resources base="https://sently.p.mashape.com/">
+        <resource uri="command/">
+            <resource uri="sendsms/">
+                <method displayName="HTTPS" id="964" name="POST">
+                    <doc>HTTPS web call to access Sent.ly</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

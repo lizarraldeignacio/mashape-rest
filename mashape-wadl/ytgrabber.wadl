@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f535="urn:function:f535">
+    <grammars>
+        <include href="Function535.xsd"/>
+    </grammars>
+    <doc>a YouTube video download API which gives you the download links of video in all possible formats even the HD ones</doc>
+    <resources base="https://ytgrabber.p.mashape.com/">
+        <resource uri="app/">
+            <resource uri="get/">
+                <resource uri="{vid}/">
+                    <param name="vid" style="template" type="xsd:string"/>
+                    <method displayName="/app/get" id="535" name="GET">
+                        <doc>Download the video using vid</doc>
+                        <request>
+                            <param name="vid" required="true" style="query" type="xsd:string">
+                                <doc>youTube Video ID</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f535:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

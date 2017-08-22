@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3158="urn:function:f3158" xmlns:f3159="urn:function:f3159" xmlns:f3160="urn:function:f3160" xmlns:f3162="urn:function:f3162" xmlns:f3163="urn:function:f3163" xmlns:f3164="urn:function:f3164" xmlns:f3165="urn:function:f3165" xmlns:f3166="urn:function:f3166" xmlns:f3167="urn:function:f3167" xmlns:f3168="urn:function:f3168" xmlns:f3169="urn:function:f3169" xmlns:f3170="urn:function:f3170" xmlns:f3171="urn:function:f3171" xmlns:f3172="urn:function:f3172" xmlns:f3173="urn:function:f3173">
+    <grammars>
+        <include href="Function3173.xsd"/>
+        <include href="Function3172.xsd"/>
+        <include href="Function3171.xsd"/>
+        <include href="Function3170.xsd"/>
+        <include href="Function3169.xsd"/>
+        <include href="Function3168.xsd"/>
+        <include href="Function3167.xsd"/>
+        <include href="Function3166.xsd"/>
+        <include href="Function3165.xsd"/>
+        <include href="Function3164.xsd"/>
+        <include href="Function3163.xsd"/>
+        <include href="Function3162.xsd"/>
+        <include href="Function3160.xsd"/>
+        <include href="Function3159.xsd"/>
+        <include href="Function3158.xsd"/>
+    </grammars>
+    <doc>cricket Live Scores API provides invaluable data to develop cricket related apps The API accepts GET calls and returns JSON formatted content Cricket Live Scores API is able to deliver a list of available matches as well as cricket scores cricket scorecards Test scores ODI scores T scores BBL scores IPL scores World Cup scores</doc>
+    <resources base="https://dev132-cricket-live-scores-v1.p.mashape.com/">
+        <resource uri="teamplayers.php/">
+            <method displayName="Team Players" id="3173" name="GET">
+                <doc>This endpoint provides the detail of each player in the team.</doc>
+                <request>
+                    <param name="teamid" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3173:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="seriesteams.php/">
+            <method displayName="Series Teams" id="3172" name="GET">
+                <doc>This endpoint provides the detail of each Team in the series.</doc>
+                <request>
+                    <param name="seriesid" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3172:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="seriesstandings.php/">
+            <method displayName="Series Standings" id="3171" name="GET">
+                <doc>This gives detailed information on the scorecard of a match. In includes all innings, teams, batsmen and bowler details.</doc>
+                <request>
+                    <param name="seriesid" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3171:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="series.php/">
+            <method displayName="Series" id="3170" name="GET">
+                <doc>Returns a collection of series names, short names, images, start and end date, teams etc.</doc>
+                <request/>
+                <response>
+                    <representation element="f3170:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="scorecards.php/">
+            <method displayName="Scorecards" id="3169" name="GET">
+                <doc>This gives detailed information on the scorecard of a match. In includes all innings, teams, batsmen and bowler details.</doc>
+                <request>
+                    <param name="matchid" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                    <param name="seriesid" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3169:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="playersbyteam.php/">
+            <method displayName="Players By Team" id="3168" name="GET">
+                <doc>This endpoint provides the detail of each player in the team.</doc>
+                <request>
+                    <param name="teamid" required="true" style="query" type="xsd:integer">
+                        <doc>team ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3168:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="playersbymatch.php/">
+            <method displayName="Players By Match" id="3167" name="GET">
+                <doc>This endpoint provides the detail of each player in the team for a given match</doc>
+                <request>
+                    <param name="matchid" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                    <param name="seriesid" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3167:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="partnerships.php/">
+            <method displayName="Patnerships" id="3166" name="GET">
+                <doc>This intended to be used for display of a Partnership graph for a particular innings within a Match.</doc>
+                <request>
+                    <param name="innid" required="true" style="query" type="xsd:string">
+                        <doc>innings Id</doc>
+                    </param>
+                    <param name="matchid" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                    <param name="seriesid" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3166:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="matchdetail.php/">
+            <method displayName="Match Live &amp; HighLights" id="3165" name="GET">
+                <doc>This intended to be used primarily a Live or Completed match highlight view, as it provides the overall current state of a match with a live up- to-the-minute updates and optional media. It does not contain Commentary, Match Players, Ball or other MatchDetail information</doc>
+                <request>
+                    <param name="matchid" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                    <param name="seriesid" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3165:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="match.php/">
+            <method displayName="Match by Match ID" id="3164" name="GET">
+                <doc>Gets the detail of a match like scores, teams and venue.</doc>
+                <request>
+                    <param name="matchid" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                    <param name="seriesid" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3164:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="matchseries.php/">
+            <method displayName="Match By  Series ID" id="3163" name="GET">
+                <doc>Returns a list of matches for a specific series. The matches can be upcoming, in progress, or completed.</doc>
+                <request>
+                    <param name="seriesid" required="true" style="query" type="xsd:integer">
+                        <doc>the id of the series to search the match detail on</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3163:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="graph.php/">
+            <method displayName="Graph" id="3162" name="GET">
+                <doc>This can be used to draw the Manhattan chart, Total Runs chart and Run Rate Chart, re-drawn on a live basis as and when match progresses.</doc>
+                <request>
+                    <param name="matchid" required="true" style="query" type="xsd:integer">
+                        <doc>this is the match identifier eg for st Test</doc>
+                    </param>
+                    <param name="seriesid" required="true" style="query" type="xsd:integer">
+                        <doc>this is the series identifier eg for Ashes Test Series ENG v AUS</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3162:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="resource.php/">
+            <method displayName="GET Images" id="3161" name="GET">
+                <doc>Get Images</doc>
+                <request>
+                    <param name="imageurl" required="true" style="query" type="xsd:string">
+                        <doc>image Url</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="comments.php/">
+            <method displayName="Commemtary" id="3160" name="GET">
+                <doc>Get Detailed Commemtary for a given Match</doc>
+                <request>
+                    <param name="matchid" required="true" style="query" type="xsd:integer"/>
+                    <param name="seriesid" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3160:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="battingwheel.php/">
+            <method displayName="Batting Wheel" id="3159" name="GET">
+                <doc>This endpoint provides the detail of each shot scored by each batsman involved in an inning of a current match.</doc>
+                <request>
+                    <param name="innid" required="true" style="query" type="xsd:integer">
+                        <doc>this is the inning identifier eg</doc>
+                    </param>
+                    <param name="matchid" required="true" style="query" type="xsd:integer">
+                        <doc>this is the match identifier eg for st Test</doc>
+                    </param>
+                    <param name="seriesid" required="true" style="query" type="xsd:integer">
+                        <doc>this is the series identifier eg for Ashes Test Series ENG v AUS</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3159:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="matches.php/">
+            <method displayName="# Matches (LIST ALL MATCHES)" id="3158" name="GET">
+                <doc>Returns a list of matches for any series. The matches can be upcoming, in progress, or completed.</doc>
+                <request/>
+                <response>
+                    <representation element="f3158:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

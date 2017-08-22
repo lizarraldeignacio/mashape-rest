@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5919="urn:function:f5919" xmlns:f5920="urn:function:f5920" xmlns:f5922="urn:function:f5922" xmlns:f5923="urn:function:f5923" xmlns:f5924="urn:function:f5924" xmlns:f5925="urn:function:f5925" xmlns:f5926="urn:function:f5926" xmlns:f5928="urn:function:f5928">
+    <grammars>
+        <include href="Function5928.xsd"/>
+        <include href="Function5926.xsd"/>
+        <include href="Function5925.xsd"/>
+        <include href="Function5924.xsd"/>
+        <include href="Function5923.xsd"/>
+        <include href="Function5922.xsd"/>
+        <include href="Function5920.xsd"/>
+        <include href="Function5919.xsd"/>
+    </grammars>
+    <doc>timeneye Time Tracking is a time tracking and reporting web app meant to be extremely simple and usable even for the most recalcitrant user Timeneye can be used from the web http app timeneye com or from the Android mobile app An iOS version is currently in development Timeneye integrates with Basecamp allowing users to track time directly from Basecamp commenting on their to dos with the time spent on them</doc>
+    <resources base="https://dmdigital-timeneye-time-tracking.p.mashape.com/">
+        <resource uri="startTracking/">
+            <method displayName="startTracking" id="5929" name="POST">
+                <doc>Notifies Timeneye that the user has started working on a particular project (this information is reflected on the Status page).</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="saveEntry/">
+            <method displayName="saveEntry" id="5928" name="POST">
+                <doc>Stores an entry, inserting or editing it (set entryId = -1 for inserts).</doc>
+                <request/>
+                <response>
+                    <representation element="f5928:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="removeUserFromProject/">
+            <method displayName="removeUserFromProject" id="5927" name="POST">
+                <doc>Revokes project access permissions to the specified user (targetId). Works only for limited access projects</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="">
+            <method displayName="getUsers" id="5926" name="POST">
+                <doc>Returns the list of users linked to the account.</doc>
+                <request/>
+                <response>
+                    <representation element="f5926:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="Returns a list of projects. By default, it returns active projects only. fixedAmount and hourlyRate are returned only if user has permissions to see them./">
+            <method displayName="getProjects" id="5925" name="POST">
+                <request/>
+                <response>
+                    <representation element="f5925:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getProject/">
+            <method displayName="getProject" id="5924" name="POST">
+                <doc>Returns a project's details. fixedAmount and hourlyRate are returned only if user has permissions to see them. If the requester is a Project Manager or an Account Owner, access data is returned too (including access type - "public" or "private" - and the list of users that can access the project if this is private).</doc>
+                <request/>
+                <response>
+                    <representation element="f5924:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getEntry/">
+            <method displayName="getEntry" id="5923" name="POST">
+                <doc>Returns details for the requested entry. Only user's entries can be retrieved.</doc>
+                <request/>
+                <response>
+                    <representation element="f5923:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getEntries/">
+            <method displayName="getEntries" id="5922" name="POST">
+                <doc>Returns a list of the latest entries. You can filter it by projectId, dateFrom, dateTo or userId (the latter is only available for project managers or account owners to get another user's entries, or all users' entries using '-1'); you can use offset and limit to paginate the results.</doc>
+                <request/>
+                <response>
+                    <representation element="f5922:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="deleteEntry/">
+            <method displayName="deleteEntry" id="5921" name="POST">
+                <doc>Deletes an entry</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="deauthorizeUser/">
+            <method displayName="deauthorizeUser" id="5920" name="POST">
+                <doc>Invalidates the authToken, logging the user off from every device which was connected using the API.</doc>
+                <request/>
+                <response>
+                    <representation element="f5920:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="authorizeUser/">
+            <method displayName="authorizeUser" id="5919" name="POST">
+                <doc>Exchanges email and password with an authToken.</doc>
+                <request/>
+                <response>
+                    <representation element="f5919:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="addUserToProject/">
+            <method displayName="addUserToProject" id="5918" name="POST">
+                <doc>Gives project access permissions to the specified user (targetId). Works only for limited access projects</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

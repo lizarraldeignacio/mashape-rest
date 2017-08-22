@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>bliing mobi vam omogoca pridobitev podatka o aplikacijah torej njihovega stavila na podlagi katerega je izracunana cena za posamezno mobilno apliakcijo</doc>
+    <resources base="https://janhorvat-mobi.p.mashape.com/">
+        <resource uri="app/">
+            <resource uri="getAppInfos/">
+                <method displayName="App amount" id="6790" name="GET">
+                    <doc>get app amount</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1585="urn:function:f1585">
+    <grammars>
+        <include href="Function1585.xsd"/>
+    </grammars>
+    <doc>reverse Whois Registrant Search lets you perform the most comprehensive wild card search on all whois records Whether you know a name an email address or other identifying information now you can see all the domain names ever owned by any specific company or individual</doc>
+    <resources base="https://whoisapi-reverse-whois.p.mashape.com/">
+        <resource uri="search.php/">
+            <method displayName="Reverse Whois" id="1585" name="GET">
+                <request>
+                    <param name="mode" required="true" style="query" type="xsd:string">
+                        <doc>purchase preview or sample purchase defaults to preview optional quote only lists the size and retail price of the query purchase includes the complete list of domain names that match the query It costs you one reverse whois credit sample purchase a sample result is returned regardless of the input search terms It does not cost any reverse whois credit</doc>
+                    </param>
+                    <param name="term" required="true" style="query" type="xsd:string">
+                        <doc>term to search for</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1585:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

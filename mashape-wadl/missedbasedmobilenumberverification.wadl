@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2552="urn:function:f2552" xmlns:f2553="urn:function:f2553">
+    <grammars>
+        <include href="Function2553.xsd"/>
+        <include href="Function2552.xsd"/>
+    </grammars>
+    <doc>missed call based mobile number verification for all platforms</doc>
+    <resources base="https://cognalys.p.mashape.com/">
+        <resource uri="">
+            <method displayName="initiate call" id="2553" name="GET">
+                <request>
+                    <param name="accessToken" required="true" style="query" type="xsd:string">
+                        <doc>get this from Cognalys Dashboard OTP application Configuration Of an app</doc>
+                    </param>
+                    <param name="appId" required="true" style="query" type="xsd:string">
+                        <doc>get this from Cognalys Dashboard OTP application Configuration Of an app</doc>
+                    </param>
+                    <param name="mobile" required="true" style="query" type="xsd:string">
+                        <doc>country Code mobile number</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2553:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="confirm/">
+            <method displayName="/confirm/" id="2552" name="GET">
+                <doc>Confirmation api to check the entered OTP is correct</doc>
+                <request>
+                    <param name="accessToken" required="true" style="query" type="xsd:string">
+                        <doc>get this from Cognalys Dashboard OTP application Configuration Of an app</doc>
+                    </param>
+                    <param name="appId" required="true" style="query" type="xsd:string">
+                        <doc>get this from Cognalys Dashboard OTP application Configuration Of an app</doc>
+                    </param>
+                    <param name="keymatch" required="true" style="query" type="xsd:string">
+                        <doc>the keymatch value that you got from Initiate call ENDPOINT</doc>
+                    </param>
+                    <param name="otp" required="true" style="query" type="xsd:string">
+                        <doc>the missed call number eg XXXX that got from mobile phone</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2552:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

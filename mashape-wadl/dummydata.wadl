@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f323="urn:function:f323" xmlns:f324="urn:function:f324">
+    <grammars>
+        <include href="Function324.xsd"/>
+        <include href="Function323.xsd"/>
+    </grammars>
+    <doc>generates dummy data for filling up databases responsive web designs or whatever else you need filler text for</doc>
+    <resources base="https://montanaflynn-dummy-data.p.mashape.com/">
+        <resource uri="person/">
+            <method displayName="Person" id="324" name="GET">
+                <doc>Generate dummy contact information</doc>
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:integer">
+                        <doc>how many people to return</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f324:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="business/">
+            <method displayName="Business" id="323" name="GET">
+                <doc>Generate dummy business information</doc>
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:integer">
+                        <doc>how many business records to return</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f323:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

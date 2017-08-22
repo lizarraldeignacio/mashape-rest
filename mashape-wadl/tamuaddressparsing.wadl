@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>parse and normalize street address data Service will return a parsed street address with values normalized to USPS standard</doc>
+    <resources base="https://addressparsing.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Address Parser" id="4076" name="GET">
+                <request>
+                    <param name="addressformat" required="true" style="query" type="xsd:string">
+                        <doc>desired output format</doc>
+                    </param>
+                    <param name="apikey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Key</doc>
+                    </param>
+                    <param name="nonparsedcity" required="true" style="query" type="xsd:string">
+                        <doc>input city</doc>
+                    </param>
+                    <param name="nonparsedstate" required="true" style="query" type="xsd:string">
+                        <doc>input state</doc>
+                    </param>
+                    <param name="nonparsedstreetaddress" required="true" style="query" type="xsd:string">
+                        <doc>input street address</doc>
+                    </param>
+                    <param name="nonparsedzip" required="true" style="query" type="xsd:string">
+                        <doc>input zip</doc>
+                    </param>
+                    <param name="notstore" required="true" style="query" type="xsd:boolean">
+                        <doc>flag to indicate servers should not keep track of your data</doc>
+                    </param>
+                    <param name="responseformat" required="true" style="query" type="xsd:string">
+                        <doc>desired output response</doc>
+                    </param>
+                    <param name="version" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

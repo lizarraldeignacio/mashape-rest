@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f145="urn:function:f145">
+    <grammars>
+        <include href="Function145.xsd"/>
+    </grammars>
+    <doc>the FullContact Person API takes a piece of contact information such as an email address and adds information such as name job title and social profile data from more than different social networks including Facebook Twitter LinkedIn and more It then returns the enhanced information in XML JSON or vCard format You will need a FullContact API key in order to use this service It s free to try to sign up for a key please visit https www fullcontact com developer</doc>
+    <resources base="https://fullcontact.p.mashape.com/">
+        <resource uri="v2/">
+            <resource uri="person.json/">
+                <method displayName="/v2/person" id="145" name="GET">
+                    <doc>Find out more about a person</doc>
+                    <request>
+                        <param name="email" required="true" style="query" type="xsd:string">
+                            <doc>the email address you wish to query</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f145:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

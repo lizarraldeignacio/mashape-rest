@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2619="urn:function:f2619">
+    <grammars>
+        <include href="Function2619.xsd"/>
+    </grammars>
+    <doc>mDNDCheck is a simple open API that can help lookup whether a mobile phone number is in the NCPR s National Customer Preference Register DND Do Not Disturb list</doc>
+    <resources base="https://webaroo-ncpr-scrub-v1.p.mashape.com/">
+        <resource uri="ncprScrub/">
+            <method displayName="/ncprScrub" id="2619" name="GET">
+                <doc>NCPR Scrub</doc>
+                <request>
+                    <param name="phone" required="true" style="query" type="xsd:integer">
+                        <doc>indian Phone Number</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2619:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

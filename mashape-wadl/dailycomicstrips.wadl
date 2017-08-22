@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2817="urn:function:f2817">
+    <grammars>
+        <include href="Function2817.xsd"/>
+    </grammars>
+    <doc>an API that gets the links of the images of the most popular comicstrips Garfield Dilbert Peanuts More will be added soon Feel free to contribute</doc>
+    <resources base="https://pnpninja-daily-comicstrips-v1.p.mashape.com/">
+        <resource uri="getComicLinks/">
+            <method displayName="/getComicLinks" id="2817" name="GET">
+                <doc>Gets links to many comics</doc>
+                <request/>
+                <response>
+                    <representation element="f2817:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

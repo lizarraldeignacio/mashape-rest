@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1016="urn:function:f1016">
+    <grammars>
+        <include href="Function1016.xsd"/>
+    </grammars>
+    <doc>retrieve random messages based on your selected category You can use this API for text messaging applications Status updating applications and more</doc>
+    <resources base="https://ajith-messages.p.mashape.com/">
+        <resource uri="getMsgs/">
+            <method displayName="getMsgs" id="1016" name="GET">
+                <request>
+                    <param name="category" required="true" style="query" type="xsd:string">
+                        <doc>select a category to get unlimited messages Eg Love quotes friendship Good night Good morning funny Birthday Sad Sweet Random</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1016:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

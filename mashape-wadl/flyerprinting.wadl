@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3380="urn:function:f3380" xmlns:f3381="urn:function:f3381" xmlns:f3382="urn:function:f3382" xmlns:f3383="urn:function:f3383" xmlns:f3384="urn:function:f3384" xmlns:f3385="urn:function:f3385" xmlns:f3386="urn:function:f3386">
+    <grammars>
+        <include href="Function3385.xsd"/>
+        <include href="Function3384.xsd"/>
+        <include href="Function3383.xsd"/>
+        <include href="Function3382.xsd"/>
+        <include href="Function3386.xsd"/>
+        <include href="Function3381.xsd"/>
+        <include href="Function3380.xsd"/>
+    </grammars>
+    <doc>this API provides a flyer and brochure printing services for developers It enables you to price and order commercially printed flyers and brochures with different folds colors paper coating and with or without hold punches from within your web and mobile applications</doc>
+    <resources base="https://mimeoconnect-flyer-printing-api.p.mashape.com/">
+        <resource uri="placeorder/">
+            <method displayName="Place Order" id="3385" name="POST">
+                <doc>This method gets a full order quote for a flyer or brochure print order.&#13;
+&#13;
+URL: https://developer.mimeo.com/api/flyer/orderquote/</doc>
+                <request/>
+                <response>
+                    <representation element="f3385:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="shippingoptions/">
+            <method displayName="Get Shipping Options" id="3384" name="GET">
+                <doc>This method returns shipping / delivery options for a flyer or brochure print order.&#13;
+&#13;
+URL: https://developer.mimeo.com/api/flyer/shippingoptions/</doc>
+                <request>
+                    <param name="apartmentorsuite" required="true" style="query" type="xsd:string">
+                        <doc>apartment or suite where flyer or brochure will be delivered</doc>
+                    </param>
+                    <param name="backpdfurl" required="true" style="query" type="xsd:string">
+                        <doc>the URL of the PDF to be back of flyer or brochure</doc>
+                    </param>
+                    <param name="careof" required="true" style="query" type="xsd:string">
+                        <doc>alternate name for person to take care of flyer or brochure when delivered</doc>
+                    </param>
+                    <param name="city" required="true" style="query" type="xsd:string">
+                        <doc>city where flyer or brochure will be delivered</doc>
+                    </param>
+                    <param name="coating" required="true" style="query" type="xsd:string">
+                        <doc>none Lamination or Glossy</doc>
+                    </param>
+                    <param name="color" required="true" style="query" type="xsd:string">
+                        <doc>color Black White</doc>
+                    </param>
+                    <param name="companyname" required="true" style="query" type="xsd:string">
+                        <doc>the name of company where flyer or brochure will be delivered</doc>
+                    </param>
+                    <param name="email" required="true" style="query" type="xsd:string">
+                        <doc>email address of flyer or brochure recipient</doc>
+                    </param>
+                    <param name="environment" required="true" style="query" type="xsd:string">
+                        <doc>sandbox or Live Default is Sandbox</doc>
+                    </param>
+                    <param name="firstname" required="true" style="query" type="xsd:string">
+                        <doc>first name of person who flyer or brochure will be delivered to</doc>
+                    </param>
+                    <param name="fold" required="true" style="query" type="xsd:string">
+                        <doc>no Fold Panel Half Fold Panel Letter Folder Panel Z Fold</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>xML or JSON Default is XML</doc>
+                    </param>
+                    <param name="frontpdfurl" required="true" style="query" type="xsd:string">
+                        <doc>the URL of the PDF to be front of flyer or brochure</doc>
+                    </param>
+                    <param name="fullname" required="true" style="query" type="xsd:string">
+                        <doc>full name of person who flyer or brochure will be delivered to</doc>
+                    </param>
+                    <param name="holepunch" required="true" style="query" type="xsd:string">
+                        <doc>none or Hole Punch</doc>
+                    </param>
+                    <param name="isresidential" required="true" style="query" type="xsd:string">
+                        <doc>if flyer or brochure will be delivered to a residence True or False</doc>
+                    </param>
+                    <param name="lastname" required="true" style="query" type="xsd:string">
+                        <doc>last name of person who flyer or brochure will be delivered to</doc>
+                    </param>
+                    <param name="layout" required="true" style="query" type="xsd:string">
+                        <doc>portrait or Landscape Lanscape coming soon not available currently</doc>
+                    </param>
+                    <param name="mimeopass" required="true" style="query" type="xsd:string">
+                        <doc>mimeo com Password Optional</doc>
+                    </param>
+                    <param name="mimeouser" required="true" style="query" type="xsd:string">
+                        <doc>mimeo com User Optional</doc>
+                    </param>
+                    <param name="paper" required="true" style="query" type="xsd:string">
+                        <doc>white Paper lb Bright White Paper lb Premium White Paper lb Premium Recycled White Card Stock lb Regular White Card Stock lb Regular Recycled White Card Stock lb Glossy</doc>
+                    </param>
+                    <param name="phone" required="true" style="query" type="xsd:string">
+                        <doc>phone number of flyer or brochure recipient</doc>
+                    </param>
+                    <param name="postalcode" required="true" style="query" type="xsd:string">
+                        <doc>postal code where flyer or brochure will be delivered</doc>
+                    </param>
+                    <param name="quantity" required="true" style="query" type="xsd:string">
+                        <doc>quantity of flyer or brochures to be printed</doc>
+                    </param>
+                    <param name="state" required="true" style="query" type="xsd:string">
+                        <doc>state where flyer or brochure will be delivered</doc>
+                    </param>
+                    <param name="streetaddress" required="true" style="query" type="xsd:string">
+                        <doc>street address where flyer or brochure will be delivered</doc>
+                    </param>
+                    <param name="userid" required="true" style="query" type="xsd:string">
+                        <doc>your API User ID</doc>
+                    </param>
+                    <param name="userkey" required="true" style="query" type="xsd:string">
+                        <doc>your API User Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3384:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="quote/">
+            <method displayName="Get Quote" id="3383" name="GET">
+                <doc>This method pulls a quote for an single product. Returns current price for just printing of the product. Does not include shipping costs.&#13;
+&#13;
+URL: https://developer.mimeo.com/api/flyer/quote/</doc>
+                <request>
+                    <param name="backpdfurl" required="true" style="query" type="xsd:string">
+                        <doc>the URL of the PDF to be back of flyer or brochure</doc>
+                    </param>
+                    <param name="coating" required="true" style="query" type="xsd:string">
+                        <doc>none Lamination or Glossy</doc>
+                    </param>
+                    <param name="color" required="true" style="query" type="xsd:string">
+                        <doc>color Black White</doc>
+                    </param>
+                    <param name="environment" required="true" style="query" type="xsd:string">
+                        <doc>sandbox or Live Default is Sandbox</doc>
+                    </param>
+                    <param name="fold" required="true" style="query" type="xsd:string">
+                        <doc>no Fold Panel Half Fold Panel Letter Folder Panel Z Fold</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>xML or JSON Default is XML</doc>
+                    </param>
+                    <param name="frontpdfurl" required="true" style="query" type="xsd:string">
+                        <doc>the URL of the PDF to be front of flyer or brochure</doc>
+                    </param>
+                    <param name="holepunch" required="true" style="query" type="xsd:string">
+                        <doc>none or Hole Punch</doc>
+                    </param>
+                    <param name="layout" required="true" style="query" type="xsd:string">
+                        <doc>portrait or Landscape Lanscape coming soon not available currently</doc>
+                    </param>
+                    <param name="mimeopass" required="true" style="query" type="xsd:string">
+                        <doc>mimeo com Password Optional</doc>
+                    </param>
+                    <param name="mimeouser" required="true" style="query" type="xsd:string">
+                        <doc>mimeo com User Optional</doc>
+                    </param>
+                    <param name="paper" required="true" style="query" type="xsd:string">
+                        <doc>white Paper lb Bright White Paper lb Premium White Paper lb Premium Recycled White Card Stock lb Regular White Card Stock lb Regular Recycled White Card Stock lb Glossy</doc>
+                    </param>
+                    <param name="userid" required="true" style="query" type="xsd:string">
+                        <doc>your API User ID</doc>
+                    </param>
+                    <param name="userkey" required="true" style="query" type="xsd:string">
+                        <doc>your API User Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3383:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="proof/">
+            <method displayName="Get Proof" id="3382" name="GET">
+                <doc>The pulls a proof for a print file that has been posted.&#13;
+&#13;
+URL: https://developer.mimeo.com/api/flyer/proof/{proof id}</doc>
+                <request>
+                    <param name="environment" required="true" style="query" type="xsd:string">
+                        <doc>sandbox or Live Default is Sandbox</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>xML or JSON Default is XML</doc>
+                    </param>
+                    <param name="mimeopass" required="true" style="query" type="xsd:string">
+                        <doc>mimeo com Password Optional</doc>
+                    </param>
+                    <param name="mimeouser" required="true" style="query" type="xsd:string">
+                        <doc>mimeo com User Optional</doc>
+                    </param>
+                    <param name="proofid" required="true" style="query" type="xsd:string"/>
+                    <param name="userid" required="true" style="query" type="xsd:string">
+                        <doc>your API User ID</doc>
+                    </param>
+                    <param name="userkey" required="true" style="query" type="xsd:string">
+                        <doc>your API User Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3382:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Post Proof" id="3386" name="POST">
+                <doc>This method prepares a proof of a PDF print file. It will start the preparation of the PDF proof, depending on the size of document, it could take up to 30 or 60 seconds to prepare. Method will return if it was ripped or not. The you can run get Proof method.&#13;
+&#13;
+URL: https://developer.mimeo.com/api/flyer/proof/</doc>
+                <request/>
+                <response>
+                    <representation element="f3386:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="orderstatus/">
+            <method displayName="Get Order Status" id="3381" name="GET">
+                <doc>The method returns the submitted date and status of a print order.&#13;
+&#13;
+URL: https://developer.mimeo.com/api/flyer/orderstatus/</doc>
+                <request>
+                    <param name="environment" required="true" style="query" type="xsd:string">
+                        <doc>sandbox or Live Default is Sandbox</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>xML or JSON Default is XML</doc>
+                    </param>
+                    <param name="mimeopass" required="true" style="query" type="xsd:string">
+                        <doc>mimeo com Password Optional</doc>
+                    </param>
+                    <param name="mimeouser" required="true" style="query" type="xsd:string">
+                        <doc>mimeo com User Optional</doc>
+                    </param>
+                    <param name="orderid" required="true" style="query" type="xsd:string">
+                        <doc>a returned order id for an active order</doc>
+                    </param>
+                    <param name="userid" required="true" style="query" type="xsd:string">
+                        <doc>your API User ID</doc>
+                    </param>
+                    <param name="userkey" required="true" style="query" type="xsd:string">
+                        <doc>your API User Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3381:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="orderquote/">
+            <method displayName="Get Order Quote" id="3380" name="GET">
+                <doc>This method gets a full order quote for a flyer or brochure print order.&#13;
+&#13;
+URL: https://developer.mimeo.com/api/flyer/orderquote/</doc>
+                <request>
+                    <param name="apartmentorsuite" required="true" style="query" type="xsd:string">
+                        <doc>apartment or suite where flyer or brochure will be delivered</doc>
+                    </param>
+                    <param name="backpdfurl" required="true" style="query" type="xsd:string">
+                        <doc>the URL of the PDF to be back of flyer or brochure</doc>
+                    </param>
+                    <param name="careof" required="true" style="query" type="xsd:string">
+                        <doc>alternate name for person to take care of flyer or brochure when delivered</doc>
+                    </param>
+                    <param name="city" required="true" style="query" type="xsd:string">
+                        <doc>city where flyer or brochure will be delivered</doc>
+                    </param>
+                    <param name="coating" required="true" style="query" type="xsd:string">
+                        <doc>none Lamination or Glossy</doc>
+                    </param>
+                    <param name="color" required="true" style="query" type="xsd:string">
+                        <doc>color Black White</doc>
+                    </param>
+                    <param name="companyname" required="true" style="query" type="xsd:string">
+                        <doc>the name of company where flyer or brochure will be delivered</doc>
+                    </param>
+                    <param name="email" required="true" style="query" type="xsd:string">
+                        <doc>email address of flyer or brochure recipient</doc>
+                    </param>
+                    <param name="environment" required="true" style="query" type="xsd:string">
+                        <doc>sandbox or Live Default is Sandbox</doc>
+                    </param>
+                    <param name="firstname" required="true" style="query" type="xsd:string">
+                        <doc>first name of person who flyer or brochure will be delivered to</doc>
+                    </param>
+                    <param name="fold" required="true" style="query" type="xsd:string">
+                        <doc>no Fold Panel Half Fold Panel Letter Folder Panel Z Fold</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>xML or JSON Default is XML</doc>
+                    </param>
+                    <param name="frontpdfurl" required="true" style="query" type="xsd:string">
+                        <doc>the URL of the PDF to be front of flyer or brochure</doc>
+                    </param>
+                    <param name="fullname" required="true" style="query" type="xsd:string">
+                        <doc>full name of person who flyer or brochure will be delivered to</doc>
+                    </param>
+                    <param name="holepunch" required="true" style="query" type="xsd:string">
+                        <doc>none or Hole Punch</doc>
+                    </param>
+                    <param name="isresidential" required="true" style="query" type="xsd:boolean">
+                        <doc>if flyer or brochure will be delivered to a residence True or False</doc>
+                    </param>
+                    <param name="lastname" required="true" style="query" type="xsd:string">
+                        <doc>last name of person who flyer or brochure will be delivered to</doc>
+                    </param>
+                    <param name="layout" required="true" style="query" type="xsd:string">
+                        <doc>portrait or Landscape Lanscape coming soon not available currently</doc>
+                    </param>
+                    <param name="mimeopass" required="true" style="query" type="xsd:string">
+                        <doc>mimeo com Password Optional</doc>
+                    </param>
+                    <param name="mimeouser" required="true" style="query" type="xsd:string">
+                        <doc>mimeo com User Optional</doc>
+                    </param>
+                    <param name="paper" required="true" style="query" type="xsd:string">
+                        <doc>white Paper lb Bright White Paper lb Premium White Paper lb Premium Recycled White Card Stock lb Regular White Card Stock lb Regular Recycled White Card Stock lb Glossy</doc>
+                    </param>
+                    <param name="phone" required="true" style="query" type="xsd:string">
+                        <doc>phone number of flyer or brochure recipient</doc>
+                    </param>
+                    <param name="postalcode" required="true" style="query" type="xsd:string">
+                        <doc>postal code where flyer or brochure will be delivered</doc>
+                    </param>
+                    <param name="quantity" required="true" style="query" type="xsd:integer">
+                        <doc>quantity of flyer or brochures to be printed</doc>
+                    </param>
+                    <param name="state" required="true" style="query" type="xsd:string">
+                        <doc>state where flyer or brochure will be delivered</doc>
+                    </param>
+                    <param name="streetaddress" required="true" style="query" type="xsd:string">
+                        <doc>street address where flyer or brochure will be delivered</doc>
+                    </param>
+                    <param name="userid" required="true" style="query" type="xsd:string">
+                        <doc>your API User ID</doc>
+                    </param>
+                    <param name="userkey" required="true" style="query" type="xsd:string">
+                        <doc>your API User Key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3380:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

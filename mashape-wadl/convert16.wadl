@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4642="urn:function:f4642" xmlns:f4643="urn:function:f4643" xmlns:f4644="urn:function:f4644">
+    <grammars>
+        <include href="Function4644.xsd"/>
+        <include href="Function4643.xsd"/>
+        <include href="Function4642.xsd"/>
+    </grammars>
+    <doc>platform agnostic API to compile and convert markup styling and templating documents on the fly complete with caching and analytics premium feature Currently languages supported include markdown textile less sass jade hogan dust ejs handlebars jazz swig stylus and whiskers If you d like to talk about better pricing more features or ideas send us an email at support parsify co</doc>
+    <resources base="https://parsify.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="view/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <resource uri="info.json/">
+                        <method displayName="/api/view/:id/info.ext" id="4644" name="GET">
+                            <doc>View analytics and in-depth information regarding a conversion document. Extension determines response format; Supported: json, jsonp, xml</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>unique Identifier returned by parse response</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f4644:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="{id}.json/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="/api/view/:id.ext" id="4643" name="GET">
+                        <doc>View conversion document output. Extension determines response format; Supported: json, jsonp, and xml</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>unique Identifier returned by parse response</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4643:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="parse/">
+                <method displayName="/api/parse" id="4642" name="POST">
+                    <doc>Convert documents from source to output depending on language, results can be returned in XML or JSON depending on content-type header.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4642:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

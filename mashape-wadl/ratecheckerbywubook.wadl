@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2940="urn:function:f2940" xmlns:f2941="urn:function:f2941" xmlns:f2942="urn:function:f2942">
+    <grammars>
+        <include href="Function2942.xsd"/>
+        <include href="Function2941.xsd"/>
+        <include href="Function2940.xsd"/>
+    </grammars>
+    <doc>rate Checker compare the rates of your competitor hotels Compare prices and keep on eye on the availability of your competitor hotels Before choosing trade policies of your hotel or your bed and breakfast compare prices and availability at your competitor hotels The WuBook Rate Checker allows you to keep monitored the prices and availability of competitors in your market</doc>
+    <resources base="https://community-rate-checker-by-wubook.p.mashape.com/">
+        <resource uri="competitor/">
+            <method displayName="Stays from a given competitor" id="2942" name="GET">
+                <request>
+                    <param name="competitorId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2942:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="stay/">
+            <method displayName="Snapshots available from a given stay" id="2941" name="GET">
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="stayId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2941:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="user/">
+            <method displayName="Monitored competitors from a given user" id="2940" name="GET">
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="userId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2940:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>the API for converting web pages to PDF files Fully supports HTML and CSS tags including page breaks JavaScript and other html elements</doc>
+    <resources base="https://convertapi-web2pdf.p.mashape.com/">
+        <resource uri="json/">
+            <method displayName="Convert Url JSon" id="1138" name="POST">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="">
+            <method displayName="Convert Url" id="1137" name="POST">
+                <doc>Post url to server</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4812="urn:function:f4812" xmlns:f4823="urn:function:f4823">
+    <grammars>
+        <include href="Function4823.xsd"/>
+        <include href="Function4812.xsd"/>
+    </grammars>
+    <doc>coursmos is a micro education platform uniting both authors and students and hosting more than online courses Micro learning is not just shorter courses At Coursmos we re leading the way in defining what micro learning means and developing it to achieve its maximum potential for you It s not another web app with a firehose of information to knock you off your feet but a smooth flow of learning on tap personal contextual and most of all adapted to your life and schedule</doc>
+    <resources base="https://coursmos-v2.p.mashape.com/">
+        <resource uri="lessons/">
+            <method displayName="Get lessons." id="4835" name="GET">
+                <request>
+                    <param name="courseid" required="true" style="query" type="xsd:string">
+                        <doc>filter by course ID Id or multiple comma separated IDs</doc>
+                    </param>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc>one or multiple fields set for include in a response</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>id or multiple comma separated IDs</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>limit of rows in response</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>offset of first element in the selected rows</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="languages/">
+            <method displayName="Get languages list" id="4831" name="GET">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="cities/">
+            <method displayName="Get cities list" id="4823" name="GET">
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit of rows in response</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>offset of first element in the selected rows</doc>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>search string for search by city name</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4823:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="categories/">
+            <method displayName="Get categories list." id="4821" name="GET">
+                <request>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc>one or multiple fields set for include in a response</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit of rows in response</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get category by ID" id="4822" name="GET">
+                <request>
+                    <param name="categoryid" required="true" style="query" type="xsd:string"/>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc>one or multiple fields set for include in a response</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="courses/">
+            <method displayName="Create lesson for course." id="4813" name="POST">
+                <doc>Upload video before.</doc>
+                <request>
+                    <param name="courseid" required="true" style="query" type="xsd:string"/>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>name of lesson Must be unique for all lessons in service</doc>
+                    </param>
+                    <param name="order" required="true" style="query" type="xsd:integer">
+                        <doc>lesson order in course lessons list</doc>
+                    </param>
+                    <param name="uploadtoken" required="true" style="query" type="xsd:string">
+                        <doc>you must upload lesson video before After upload service return uploadToken</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Create new course" id="4814" name="POST">
+                <request/>
+            </method>
+            <method displayName="Delete the course" id="4818" name="DELETE">
+                <request>
+                    <param name="courseid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Export course to SCORM package." id="4819" name="POST">
+                <doc>This method can response HTTP status 202. See API overview about this status.</doc>
+                <request>
+                    <param name="courseid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get all available video URL-s for lesson." id="4820" name="GET">
+                <doc>Each lesson can have multiple video formats and sizes. This method return information about it.</doc>
+                <request>
+                    <param name="courseid" required="true" style="query" type="xsd:string"/>
+                    <param name="lessonid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get comments by course ID." id="4826" name="GET">
+                <request>
+                    <param name="courseid" required="true" style="query" type="xsd:string">
+                        <doc>course ID</doc>
+                    </param>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc>one or multiple fields set for include in a response</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit of rows in response</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>offset of first element in the selected rows</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get course by ID" id="4828" name="GET">
+                <request>
+                    <param name="courseid" required="true" style="query" type="xsd:string"/>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc>one or multiple fields set for include in a response</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get lessons by course ID." id="4832" name="GET">
+                <request>
+                    <param name="courseid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get RSS feed for courses" id="4839" name="GET">
+                <request/>
+            </method>
+            <method displayName="Get upload URL for lesson video." id="4840" name="GET">
+                <doc>Upload your video file to POST &lt;uploadUrl&gt; with field "fileData". Upload process return "uploadToken" in result. This token need for lesson create method.</doc>
+                <request>
+                    <param name="courseid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="List of courses" id="4843" name="GET">
+                <request>
+                    <param name="categoryid" required="true" style="query" type="xsd:string">
+                        <doc>filter by category ID or mupltiple comma separated IDs</doc>
+                    </param>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc>one or multiple fields set for include in a response</doc>
+                    </param>
+                    <param name="hasduration" required="true" style="query" type="xsd:boolean">
+                        <doc>filter courses by duration availability</doc>
+                    </param>
+                    <param name="haslessons" required="true" style="query" type="xsd:boolean">
+                        <doc>filter courses by lessons availability</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>filter by course ID or multiple comma separated IDs</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>limit of rows in response</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>offset of first element in the selected rows</doc>
+                    </param>
+                    <param name="ownerguid" required="true" style="query" type="xsd:string">
+                        <doc>filter by owner guid</doc>
+                    </param>
+                    <param name="paid" required="true" style="query" type="xsd:boolean">
+                        <doc>filter by paid attribute</doc>
+                    </param>
+                    <param name="published" required="true" style="query" type="xsd:boolean">
+                        <doc>filter by published status</doc>
+                    </param>
+                    <param name="schoolid" required="true" style="query" type="xsd:string">
+                        <doc>filter by school ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Next to watch courses" id="4844" name="GET">
+                <doc>Return recommended courses to next watch</doc>
+                <request>
+                    <param name="courseid" required="true" style="query" type="xsd:string">
+                        <doc>base course for relevance filter</doc>
+                    </param>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc>one or multiple fields set for include in a response</doc>
+                    </param>
+                    <param name="hasduration" required="true" style="query" type="xsd:boolean">
+                        <doc>filter courses by duration availability</doc>
+                    </param>
+                    <param name="haslessons" required="true" style="query" type="xsd:boolean">
+                        <doc>filter courses by lessons availability</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>filter by course ID or multiple comma separated IDs</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit of rows in response</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>offset of first element in the selected rows</doc>
+                    </param>
+                    <param name="paid" required="true" style="query" type="xsd:boolean">
+                        <doc>filter by paid attribute</doc>
+                    </param>
+                    <param name="published" required="true" style="query" type="xsd:boolean">
+                        <doc>filter by published status</doc>
+                    </param>
+                    <param name="schoolid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Publish the course" id="4845" name="PUT">
+                <request>
+                    <param name="courseid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Unpublish the course" id="4849" name="PUT">
+                <request>
+                    <param name="courseid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Update course" id="4850" name="PUT">
+                <request>
+                    <param name="categoryid" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                    <param name="cost" required="true" style="query" type="xsd:integer">
+                        <doc>cost in cents of course free</doc>
+                    </param>
+                    <param name="courseid" required="true" style="query" type="xsd:string"/>
+                    <param name="currency" required="true" style="query" type="xsd:string">
+                        <doc>currency of cost Support USD only at now</doc>
+                    </param>
+                    <param name="description" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="published" required="true" style="query" type="xsd:boolean">
+                        <doc>setup published flag</doc>
+                    </param>
+                    <param name="tags" required="true" style="query" type="xsd:string">
+                        <doc>one or multiple comma separated tags</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="comments/">
+            <method displayName="Create comment" id="4812" name="POST">
+                <request/>
+                <response>
+                    <representation element="f4812:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete comment" id="4816" name="DELETE">
+                <request>
+                    <param name="commentid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get comment by ID." id="4824" name="GET">
+                <request>
+                    <param name="commentid" required="true" style="query" type="xsd:string"/>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get comments" id="4825" name="GET">
+                <request>
+                    <param name="courseid" required="true" style="query" type="xsd:string">
+                        <doc>filter by course ID</doc>
+                    </param>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc>one or multiple fields set for include in a response</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>id or multiple comma separated IDs</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit of rows in response</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>offset of first element in the selected rows</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="users/">
+            <method displayName="Add course to watchlist" id="4809" name="POST">
+                <request>
+                    <param name="userid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Change password by token" id="4811" name="POST">
+                <request/>
+            </method>
+            <method displayName="Delete course from watchlist" id="4817" name="DELETE">
+                <request>
+                    <param name="courseid" required="true" style="query" type="xsd:string"/>
+                    <param name="userid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get course by course ID from user history" id="4827" name="GET">
+                <request>
+                    <param name="courseid" required="true" style="query" type="xsd:string"/>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="userid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get courses from user history." id="4829" name="GET">
+                <request>
+                    <param name="fields" required="true" style="query" type="xsd:string"/>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit of rows in response</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>offset of first element in the selected rows</doc>
+                    </param>
+                    <param name="userid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get courses list from user watchlist." id="4830" name="GET">
+                <request>
+                    <param name="courseid" required="true" style="query" type="xsd:string"/>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit of rows in response</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>offset of first element in the selected rows</doc>
+                    </param>
+                    <param name="userid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get lessons for course from user history." id="4833" name="GET">
+                <request>
+                    <param name="courseid" required="true" style="query" type="xsd:string"/>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit of rows in response</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>offset of first element in the selected rows</doc>
+                    </param>
+                    <param name="userid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get lessons from user history." id="4834" name="GET">
+                <request>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="lessonid" required="true" style="query" type="xsd:string"/>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit of rows in response</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>offset of first element in the selected rows</doc>
+                    </param>
+                    <param name="userid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get recommended courses" id="4836" name="GET">
+                <request>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="hasduration" required="true" style="query" type="xsd:boolean">
+                        <doc>filter courses by duration availability</doc>
+                    </param>
+                    <param name="haslessons" required="true" style="query" type="xsd:boolean">
+                        <doc>filter courses by lessons availability</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit of rows in response</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>offset of first element in the selected rows</doc>
+                    </param>
+                    <param name="published" required="true" style="query" type="xsd:integer">
+                        <doc>filter by published status</doc>
+                    </param>
+                    <param name="userid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get user by ID." id="4841" name="GET">
+                <request>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="userid" required="true" style="query" type="xsd:string">
+                        <doc>user ID You can use current for get signed in user</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get users list." id="4842" name="GET">
+                <request>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc>one or multiple fields set for include in a response</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>filter by user ID or multiple comma separated IDs</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit of rows in response</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>offset of first element in the selected rows</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Register new user" id="4846" name="POST">
+                <request/>
+            </method>
+            <method displayName="Send password restore token to email" id="4848" name="POST">
+                <request/>
+            </method>
+            <method displayName="Update user profile" id="4851" name="PATCH">
+                <request>
+                    <param name="userid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Upload new user avatar" id="4852" name="POST">
+                <request>
+                    <param name="userid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+        <resource uri="requests/">
+            <method displayName="Add &quot;like&quot; to request with current user" id="4808" name="POST">
+                <request>
+                    <param name="requestid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Bind course to request" id="4810" name="POST">
+                <request>
+                    <param name="requestid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Create request" id="4815" name="POST">
+                <request/>
+            </method>
+            <method displayName="Get request by ID" id="4837" name="GET">
+                <request>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc>one or multiple fields set for include in a response</doc>
+                    </param>
+                    <param name="requestid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get requests list" id="4838" name="GET">
+                <request>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc>one or multiple fields set for include in a response</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit of rows in response</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>offset of first element in the selected rows</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Remove &quot;like&quot; from request with current user" id="4847" name="POST">
+                <request>
+                    <param name="requestid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

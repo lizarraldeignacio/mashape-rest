@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>icon Creator API is a free web api for creating flat icon with custom dimensions padding background shape background color and color You can use this API for over icon</doc>
+    <resources base="https://community-icon-creator.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Create icon" id="1791" name="GET">
+                <doc>Check icon category and names here http://www.you-tracker.com/API/IconCreator/Client</doc>
+                <request>
+                    <param name="bgcolor" required="true" style="query" type="xsd:string">
+                        <doc>the background color of icon in hex Default is FFFFFF</doc>
+                    </param>
+                    <param name="bgshape" required="true" style="query" type="xsd:string">
+                        <doc>the background shape of icon Supported values TransparentCNT SquareBG CircleOlBG CircleBG Default is TransparentCNT</doc>
+                    </param>
+                    <param name="category" required="true" style="query" type="xsd:string">
+                        <doc>icon Category Name</doc>
+                    </param>
+                    <param name="color" required="true" style="query" type="xsd:string">
+                        <doc>the Icon Color in hex Default is FFFFFF</doc>
+                    </param>
+                    <param name="dimensions" required="true" style="query" type="xsd:string">
+                        <doc>the dimensions of Icon</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>icon Name</doc>
+                    </param>
+                    <param name="padding" required="true" style="query" type="xsd:string">
+                        <doc>the padding of Icon Default is dimensions</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

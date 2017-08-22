@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>turns text into an mp audio file with a nice female voice similar to Siri</doc>
+    <resources base="https://montanaflynn-text-to-speech.p.mashape.com/">
+        <resource uri="speak/">
+            <method displayName="Speak" id="55" name="GET">
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>english text up to characters</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1028="urn:function:f1028" xmlns:f1029="urn:function:f1029" xmlns:f1030="urn:function:f1030" xmlns:f1031="urn:function:f1031" xmlns:f1032="urn:function:f1032">
+    <grammars>
+        <include href="Function1032.xsd"/>
+        <include href="Function1031.xsd"/>
+        <include href="Function1030.xsd"/>
+        <include href="Function1029.xsd"/>
+        <include href="Function1028.xsd"/>
+    </grammars>
+    <doc>the Pok mon API Access all the information from the Pok mon games through this RESTful API</doc>
+    <resources base="https://phalt-pokeapi.p.mashape.com/">
+        <resource uri="type/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Type" id="1032" name="GET">
+                    <doc>A Pokemon Type</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the type ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1032:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="pokemon/">
+            <resource uri="{NAME}/">
+                <param name="NAME" style="template" type="xsd:string"/>
+                <method displayName="Pokemon name" id="1031" name="GET">
+                    <doc>A Pokemon resource via name</doc>
+                    <request>
+                        <param name="name" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f1031:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Pokemon ID" id="1030" name="GET">
+                    <doc>A Pokémon resource via ID</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the national pokedex id of the Pok mon</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1030:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="move/">
+            <resource uri="{ID}/">
+                <param name="ID" style="template" type="xsd:string"/>
+                <method displayName="Move" id="1029" name="GET">
+                    <doc>A move resource</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f1029:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="ability/">
+            <resource uri="{ID}/">
+                <param name="ID" style="template" type="xsd:string"/>
+                <method displayName="Ability" id="1028" name="GET">
+                    <doc>An Ability resource</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f1028:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

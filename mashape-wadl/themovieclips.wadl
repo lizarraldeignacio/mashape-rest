@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2642="urn:function:f2642" xmlns:f2643="urn:function:f2643" xmlns:f2644="urn:function:f2644" xmlns:f2645="urn:function:f2645">
+    <grammars>
+        <include href="Function2644.xsd"/>
+        <include href="Function2643.xsd"/>
+        <include href="Function2645.xsd"/>
+        <include href="Function2642.xsd"/>
+    </grammars>
+    <doc>theMovieClips Api was created to help developers to easily embed movie trailers or get movies informations into websites applications etc This is the first version of our public json api</doc>
+    <resources base="https://themovieclips.p.mashape.com/">
+        <resource uri="popular/">
+            <method displayName="Popular Trailers" id="2644" name="GET">
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>limit response items default is max is</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2644:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="trailers/">
+            <method displayName="Comming Soon Trailers" id="2643" name="GET">
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit results default is max is</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2643:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Trailers" id="2645" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>trailer id</doc>
+                    </param>
+                    <param name="imdb" required="true" style="query" type="xsd:integer">
+                        <doc>search by imdb id</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit reponse items default is max is</doc>
+                    </param>
+                    <param name="title" required="true" style="query" type="xsd:string">
+                        <doc>search trailer by movie name</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2645:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="boxoffice/">
+            <method displayName="Box Office Trailers" id="2642" name="GET">
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>limit request items default is max is</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2642:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

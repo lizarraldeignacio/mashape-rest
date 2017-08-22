@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>this API allows you to create QR code on the fly The API will return you an URL of the QR Code image that you can easily embed on to website or download it for your other needs You also try the online demo at http qrcode youlikeshare com</doc>
+    <resources base="https://pierre2106j-qrcode.p.mashape.com/">
+        <resource uri="api/">
+            <method displayName="QRCode" id="1020" name="GET">
+                <doc>API to create QR Code and get the image URL on the fly. You may also try the online demo at http://qrcode.youlikeshare.com.</doc>
+                <request>
+                    <param name="backcolor" required="true" style="query" type="xsd:string">
+                        <doc>background color in Hexadecimal value Note Please do not enter the prefix</doc>
+                    </param>
+                    <param name="ecl" required="true" style="query" type="xsd:string">
+                        <doc>qR Code Error Correction Level Default H</doc>
+                    </param>
+                    <param name="forecolor" required="true" style="query" type="xsd:string">
+                        <doc>foreground color in Hexadecimal value Note Please do not enter the prefix</doc>
+                    </param>
+                    <param name="pixel" required="true" style="query" type="xsd:string">
+                        <doc>qR Code pixel Default</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>qR Code content The string must be encoded for URL standard</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>qRCode data type</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

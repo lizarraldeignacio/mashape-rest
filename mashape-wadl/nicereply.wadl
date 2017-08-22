@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>nicereply is a web based analytic tool used to determine customer satisfaction with your agents products or services</doc>
+    <resources base="https://nicereply-nicereply.p.mashape.com/">
+        <resource uri="updateRating/">
+            <method displayName="updateRating" id="4142" name="POST">
+                <doc>update rating identified by id or ticket</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="setRating/">
+            <method displayName="setRating" id="4141" name="POST">
+                <doc>insert new rating of concrete agent within Company identified by API key</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getUserStats/">
+            <method displayName="getUserStats" id="4140" name="GET">
+                <doc>retrieve all public attributes of concrete agent within Company identified by API key.</doc>
+                <request>
+                    <param name="userid" required="true" style="query" type="xsd:string">
+                        <doc>unsigned int agent s ID use if username not provided</doc>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc>gent s username last piece of his link text use if userid not provided</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="getUserRatingsCountLastWeek/">
+            <method displayName="getUserRatingsCountLastWeek" id="4139" name="GET">
+                <doc>retrieve number of ratings arrived last week for concrete agent within given Company identified by API key.</doc>
+                <request>
+                    <param name="userid" required="true" style="query" type="xsd:string">
+                        <doc>unsigned int agent s ID use if username not provided</doc>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc>agent s username last piece of his link text use if userid not provided</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="getUserRatingsCountLastMonth/">
+            <method displayName="getUserRatingsCountLastMonth" id="4138" name="GET">
+                <doc>retrieve number of ratings arrived last month for concrete agent within given Company identified by API key.</doc>
+                <request>
+                    <param name="userid" required="true" style="query" type="xsd:string">
+                        <doc>unsigned int agent s ID use if username not provided</doc>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc>agent s username last piece of his link text use if userid not provided</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="getUserRatingsCount/">
+            <method displayName="getUserRatingsCount" id="4137" name="GET">
+                <doc>retrieve total number of all ratings of given agent for given Company identified by API key.</doc>
+                <request>
+                    <param name="userid" required="true" style="query" type="xsd:string">
+                        <doc>unsigned int agent s ID use if username not provided</doc>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc>agent s username last piece of his link text use if userid not provided</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="getUserRatings/">
+            <method displayName="getUserRatings" id="4136" name="GET">
+                <doc>retrieve pagged list of complete ratings of concrete agent for given Company identified by API key. In reverse time order.</doc>
+                <request>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>unsigned int page number of ratings list</doc>
+                    </param>
+                    <param name="pagesize" required="true" style="query" type="xsd:string">
+                        <doc>unsigned int number of items per page</doc>
+                    </param>
+                    <param name="userid" required="true" style="query" type="xsd:string">
+                        <doc>unsigned int agent s ID use if username not provided</doc>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc>agent s username last piece of his link text use if userid not provided</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="getUserList/">
+            <method displayName="getUserList" id="4135" name="GET">
+                <doc>retrieve list of agents for given Company identified by API key.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getUserDifference/">
+            <method displayName="getUserDifference" id="4134" name="GET">
+                <doc>retrieve percentage difference of average score of ratings arrived this and previous week for concrete agent within Company identified by API key.</doc>
+                <request>
+                    <param name="userid" required="true" style="query" type="xsd:string">
+                        <doc>unsigned int agent s ID use if username not provided</doc>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc>agent s username last piece of his link text use if userid not provided</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="getUserAverageLastWeek/">
+            <method displayName="getUserAverageLastWeek" id="4133" name="GET">
+                <doc>retrieve total number of all ratings of given agent for given Company identified by API key.</doc>
+                <request>
+                    <param name="userid" required="true" style="query" type="xsd:string">
+                        <doc>unsigned int agent s ID use if username not provided</doc>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc>agent s username last piece of his link text use if userid not provided</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="getUserAverageLastMonth/">
+            <method displayName="getUserAverageLastMonth" id="4132" name="GET">
+                <doc>retrieve total number of all ratings of given agent for given Company identified by API key.</doc>
+                <request>
+                    <param name="userid" required="true" style="query" type="xsd:string">
+                        <doc>unsigned int agent s ID use if username not provided</doc>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc>agent s username last piece of his link text use if userid not provided</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="getUserAverage/">
+            <method displayName="getUserAverage" id="4131" name="GET">
+                <doc>retrieve average score of all ratings of given agent for given Company identified by API key.</doc>
+                <request>
+                    <param name="userid" required="true" style="query" type="xsd:string">
+                        <doc>unsigned int agent s ID use if username not provided</doc>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc>agent s username last piece of his link text use if userid not provided</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="getPublicCompanyRatings/">
+            <method displayName="getPublicCompanyRatings" id="4130" name="GET">
+                <doc>retrieve public profile ratings for given Company identified by API key.</doc>
+                <request>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>unsigned int page number of ratings list</doc>
+                    </param>
+                    <param name="pagesize" required="true" style="query" type="xsd:string">
+                        <doc>unsigned int number of items per page</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="getCompanyStats/">
+            <method displayName="getCompanyStats" id="4129" name="GET">
+                <doc>retrieve all public attributes for given Company identified by API key</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getCompanyRatingsCountLastWeek/">
+            <method displayName="getCompanyRatingsCountLastWeek" id="4128" name="GET">
+                <doc>retrieve number of ratings arrived last week for given Company identified by API key</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getCompanyRatingsCountLastMonth/">
+            <method displayName="getCompanyRatingsCountLastMonth" id="4127" name="GET">
+                <doc>retrieve number of ratings arrived last month for given Company identified by API key</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getCompanyRatingsCount/">
+            <method displayName="getCompanyRatingsCount" id="4126" name="GET">
+                <doc>retrieve total number of all ratings for given Company identified by API key</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getCompanyRatings/">
+            <method displayName="getCompanyRatings" id="4125" name="GET">
+                <doc>retrieve pagged list of complete ratings of all agents for given Company identified by API key. In reverse time order.</doc>
+                <request>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>unsigned int page number of ratings list</doc>
+                    </param>
+                    <param name="pagesize" required="true" style="query" type="xsd:string">
+                        <doc>unsigned int number of items per page</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="getCompanyDifference/">
+            <method displayName="getCompanyDifference" id="4124" name="GET">
+                <doc>retrieve percentage difference of average score of ratings arrived this and previous week for given Company identified by API key</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getCompanyAverageLastWeek/">
+            <method displayName="getCompanyAverageLastWeek" id="4123" name="GET">
+                <doc>retrieve average score of ratings arrived last week for given Company identified by API key</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getCompanyAverageLastMonth/">
+            <method displayName="getCompanyAverageLastMonth" id="4122" name="GET">
+                <doc>retrieve average score of ratings arrived last month for given Company identified by API key</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getCompanyAverage/">
+            <method displayName="getCompanyAverage" id="4121" name="GET">
+                <doc>retrieve average score of all ratings for given Company identified by API key</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1307="urn:function:f1307">
+    <grammars>
+        <include href="Function1307.xsd"/>
+    </grammars>
+    <doc>research domain ownership with Whois Lookup</doc>
+    <resources base="https://mutationevent-whois.p.mashape.com/">
+        <resource uri="{method}/">
+            <param name="method" style="template" type="xsd:string"/>
+            <resource uri="{domain}/">
+                <param name="domain" style="template" type="xsd:string"/>
+                <method displayName="/{method}/{domain}" id="1307" name="GET">
+                    <request>
+                        <param name="domain" required="true" style="query" type="xsd:string">
+                            <doc>ex mutationevent com</doc>
+                        </param>
+                        <param name="method" required="true" style="query" type="xsd:string">
+                            <doc>liste of supported Method isValidDomain isDomainAvailable getWhoisServer getDomainTLD getDomainInfo getDomainHTMLInfo</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1307:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

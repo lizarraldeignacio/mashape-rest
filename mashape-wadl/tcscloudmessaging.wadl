@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7479="urn:function:f7479" xmlns:f7483="urn:function:f7483" xmlns:f7484="urn:function:f7484" xmlns:f7485="urn:function:f7485" xmlns:f7486="urn:function:f7486" xmlns:f7487="urn:function:f7487" xmlns:f7490="urn:function:f7490">
+    <grammars>
+        <include href="Function7490.xsd"/>
+        <include href="Function7486.xsd"/>
+        <include href="Function7485.xsd"/>
+        <include href="Function7484.xsd"/>
+        <include href="Function7483.xsd"/>
+        <include href="Function7479.xsd"/>
+        <include href="Function7487.xsd"/>
+    </grammars>
+    <doc>tCS Cloud Messaging Center REST API allows developers to easily integrate SMS Text messaging into their applications and web services We offer two way text messaging coverage for all US wireless carriers The Cloud Messaging Center CMC REST API provides a set of methods that are called using https or http to perform messaging SMS features such as Sending a message Getting delivery receipts Replying to a message Creating contacts and groups Scheduling messages</doc>
+    <resources base="https://sms.p.mashape.com/">
+        <resource uri="rest/">
+            <resource uri="v1/">
+                <resource uri="messages/">
+                    <method displayName="Send Message" id="7490" name="POST">
+                        <doc>Allows authorized users to send messages to handsets and mobile devices using SMS.</doc>
+                        <request/>
+                        <response>
+                            <representation element="f7490:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="replies/">
+                    <resource uri="{messageid}/">
+                        <param name="messageid" style="template" type="xsd:string"/>
+                        <method displayName="Replies" id="7486" name="GET">
+                            <doc>Replies are responses to a message sent using dynamic codes</doc>
+                            <request>
+                                <param name="messageid" required="true" style="query" type="xsd:string">
+                                    <doc>defines the message ID for which a delivery reply is requested</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f7486:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="programreplies/">
+                    <resource uri="{keyword}/">
+                        <param name="keyword" style="template" type="xsd:string"/>
+                        <method displayName="Program Replies with Keyword" id="7485" name="GET">
+                            <doc>Requesting of program replies allows the client to retrieve unsolicited Mobile Originated (MO) traffic sent to a CTIA short code or fixed code.</doc>
+                            <request>
+                                <param name="keyword" required="true" style="query" type="xsd:string">
+                                    <doc>defines the program requested</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f7485:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="receipts/">
+                    <resource uri="{messageid}/">
+                        <param name="messageid" style="template" type="xsd:string"/>
+                        <method displayName="Delivery Receipts" id="7484" name="GET">
+                            <doc>Delivery receipts allow you to determine the delivery status of a message. CMC reports two delivery receipts where applicable by the destination’s carrier. The first receipt is the confirmation that the message was sent to the cell network. The second is confirmation of delivery to the device, if that device’s carrier supports the functionality.</doc>
+                            <request>
+                                <param name="messageid" required="true" style="query" type="xsd:string">
+                                    <doc>defines to n message IDs for which a delivery receipt is requested Comma delimited</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f7484:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="notifications/">
+                    <resource uri="{jobtrackingid}/">
+                        <param name="jobtrackingid" style="template" type="xsd:string"/>
+                        <method displayName="Delivery Notification" id="7483" name="GET">
+                            <doc>Delivery notifications are provided in response to sending a message using the CMC REST API. A delivery notification provides a message delivery status and the unique message ID associated with each destination in the send request. The message ID is unique in the system, and is required in all future requests to determine the message delivery status.</doc>
+                            <request>
+                                <param name="jobtrackingid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f7483:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="schedules/">
+                    <method displayName="Delete all scheduled events" id="7478" name="DELETE">
+                        <doc>Delete all the scheduled events from the CMC system.</doc>
+                        <request>
+                            <param name="all" required="true" style="query" type="xsd:boolean">
+                                <doc>query parameter to be passed in to delete all the scheduled events</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Delete Scheduled event" id="7482" name="DELETE">
+                        <doc>Delete a scheduled event from the CMC system</doc>
+                        <request>
+                            <param name="msgids" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Schedule an event" id="7489" name="POST">
+                        <doc>Schedule a calendar event</doc>
+                        <request/>
+                    </method>
+                </resource>
+                <resource uri="groups/">
+                    <method displayName="Add group" id="7474" name="POST">
+                        <doc>Add groups into the CMC system</doc>
+                        <request>
+                            <param name="groupname" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Add group members" id="7475" name="POST">
+                        <doc>Add group member to existing groups into the CMC system</doc>
+                        <request>
+                            <param name="groupname" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Delete all groups" id="7477" name="DELETE">
+                        <doc>Delete all the groups provisioned in the CMC system.</doc>
+                        <request>
+                            <param name="all" required="true" style="query" type="xsd:boolean">
+                                <doc>query parameter to be passed in to delete all the groups</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Delete group" id="7480" name="DELETE">
+                        <doc>Delete the group provisioned in the CMC system.</doc>
+                        <request>
+                            <param name="groupnames" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Delete group members" id="7481" name="DELETE">
+                        <doc>Add group member from existing groups in the CMC system</doc>
+                        <request>
+                            <param name="groupname" required="true" style="query" type="xsd:string"/>
+                            <param name="members" required="true" style="query" type="xsd:string">
+                                <doc>members are list of mdns or contact names last name hyphen first name to be removed which are comma separated</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Retrieve group" id="7488" name="GET">
+                        <doc>Retrieve the group provisioned in the CMC system</doc>
+                        <request>
+                            <param name="groupname" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="contacts/">
+                    <method displayName="Add contact" id="7473" name="POST">
+                        <doc>Add contacts into the CMC system</doc>
+                        <request/>
+                    </method>
+                    <method displayName="Add multiple contacts" id="7476" name="POST">
+                        <doc>Add multiple contacts into the CMC system</doc>
+                        <request/>
+                    </method>
+                    <method displayName="Delete contact(s)" id="7479" name="DELETE">
+                        <doc>Delete the contact provisioned in the CMC system.</doc>
+                        <request>
+                            <param name="all" required="true" style="query" type="xsd:string">
+                                <doc>query parameter to be passed in to delete all the contacts If the all query parameter is specified then mdns should not be used</doc>
+                            </param>
+                            <param name="mdns" required="true" style="query" type="xsd:string">
+                                <doc>defines the contact s that is being deleted This could be a single number or a comma separated list</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f7479:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Retrieve contact(s)" id="7487" name="GET">
+                        <doc>Retrieve the contact provisioned in the CMC system. Contacts are used as message destination, and contacts can be added to a group for sending group messages.</doc>
+                        <request>
+                            <param name="all" required="true" style="query" type="xsd:string">
+                                <doc>query parameter to be passed in to retrieve all the contacts If the all query parameter is specified then mdns should not be used</doc>
+                            </param>
+                            <param name="mdns" required="true" style="query" type="xsd:string">
+                                <doc>defines the contact s that is being queried This could be a single number or a comma separated list</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f7487:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Update contact" id="7491" name="PUT">
+                        <doc>Update contacts into the CMC system</doc>
+                        <request/>
+                    </method>
+                    <method displayName="Update multiple contacts" id="7492" name="PUT">
+                        <doc>Update multiple contacts into the CMC system</doc>
+                        <request/>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

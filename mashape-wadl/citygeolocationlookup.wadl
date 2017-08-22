@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f618="urn:function:f618">
+    <grammars>
+        <include href="Function618.xsd"/>
+    </grammars>
+    <doc>this API gives you Latitude Longitude Time Zone of any city</doc>
+    <resources base="https://devru-latitude-longitude-find-v1.p.mashape.com/">
+        <resource uri="latlon.php/">
+            <method displayName="GET Results" id="618" name="GET">
+                <request>
+                    <param name="location" required="true" style="query" type="xsd:string">
+                        <doc>enter the city Name</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f618:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

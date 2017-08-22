@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1136="urn:function:f1136">
+    <grammars>
+        <include href="Function1136.xsd"/>
+    </grammars>
+    <doc>topics Extraction tags locations people companies dates and many other elements appearing in a text written in Spanish English French Italian Portuguese or Catalan This detection process is carried out by combining a number of complex natural language processing techniques that allow to obtain morphological syntactic and semantic analyses of a text and use them to identify different types of significant elements</doc>
+    <resources base="https://topics-extraction.p.mashape.com/">
+        <resource uri="topics-1.2.php/">
+            <method displayName="topics-1.2" id="1136" name="GET">
+                <doc>Identifies people names, locations, companies, dates, currency and many other expressions.</doc>
+                <request>
+                    <param name="cont" required="true" style="query" type="xsd:string">
+                        <doc>disambiguation context When several semantic tags are available this parameter allows limiting valid senses More info at https textalytics com core topics info</doc>
+                    </param>
+                    <param name="cs" required="true" style="query" type="xsd:string">
+                        <doc>indicates if the concept extraction must be case sensitive</doc>
+                    </param>
+                    <param name="dic" required="true" style="query" type="xsd:string">
+                        <doc>this parameter will specify the list of active dictionaries that will be used in the topic extraction More info at https textalytics com core topics info</doc>
+                    </param>
+                    <param name="dm" required="true" style="query" type="xsd:string">
+                        <doc>disambiguation level Desambiguation can use morphological and or semantic rules This parameters allows selection of them More info at https textalytics com core topics info</doc>
+                    </param>
+                    <param name="lang" required="true" style="query" type="xsd:string">
+                        <doc>input text language It can be es en it fr pt ca</doc>
+                    </param>
+                    <param name="of" required="true" style="query" type="xsd:string">
+                        <doc>output format xml or json</doc>
+                    </param>
+                    <param name="rt" required="true" style="query" type="xsd:string">
+                        <doc>overcomes typo errors Useful when named entities appearing in lowercase</doc>
+                    </param>
+                    <param name="st" required="true" style="query" type="xsd:string">
+                        <doc>detects subtopics i e topics that are part of another topic Ex London is a subtopic in Tower of London</doc>
+                    </param>
+                    <param name="timeref" required="true" style="query" type="xsd:string">
+                        <doc>time reference for time expressions detected</doc>
+                    </param>
+                    <param name="tt" required="true" style="query" type="xsd:string">
+                        <doc>the list of topic types to be extracted e ntities t ime expressions a ll More info at https textalytics com core topics info</doc>
+                    </param>
+                    <param name="txt" required="true" style="query" type="xsd:string">
+                        <doc>input text Required if doc and url are empty</doc>
+                    </param>
+                    <param name="txtf" required="true" style="query" type="xsd:string">
+                        <doc>specifies if the text included in the txt parameter uses markup language that needs to be interpreted Required only if txt is not empty</doc>
+                    </param>
+                    <param name="ud" required="true" style="query" type="xsd:string">
+                        <doc>the user dictionary allows to apply user defined terms in the topics extraction More info at https textalytics com core topics info</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>web page with the text to be analyzed Required if txt and doc are empty</doc>
+                    </param>
+                    <param name="uw" required="true" style="query" type="xsd:string">
+                        <doc>when unknown words appear in the text the API tries to find the more similar entity</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1136:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

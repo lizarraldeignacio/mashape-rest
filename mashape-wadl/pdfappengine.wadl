@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>multiple PDF APIs that will allow you to create modify and manipulate PDF files in your application Using the latest Adobe PDF libraries</doc>
+    <resources base="https://apiappengine-pdf-appengine-v1.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="v1/">
+                <resource uri="pdf/">
+                    <resource uri="transform/">
+                        <method displayName="Transform PDF Pages" id="6954" name="POST">
+                            <doc>Rotate or Scale different PDF pages</doc>
+                            <request/>
+                        </method>
+                    </resource>
+                    <resource uri="set/">
+                        <resource uri="info/">
+                            <method displayName="Set Info" id="6953" name="POST">
+                                <doc>JSON Map of properties to set in the pdf.  You can specify the Author, Subject, Title, and Keywords for the PDF output file.</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                    </resource>
+                    <resource uri="protect/">
+                        <method displayName="Secure PDF" id="6952" name="POST">
+                            <doc>Secure a PDF with a password</doc>
+                            <request/>
+                        </method>
+                    </resource>
+                    <resource uri="optimize/">
+                        <method displayName="Optimize" id="6948" name="POST">
+                            <doc>Reduce the quality of a PDF document</doc>
+                            <request/>
+                        </method>
+                    </resource>
+                    <resource uri="merge/">
+                        <method displayName="Merge PDF Files" id="6945" name="POST">
+                            <doc>Merge multiple PDF files into one</doc>
+                            <request/>
+                        </method>
+                    </resource>
+                    <resource uri="convert/">
+                        <resource uri="url/">
+                            <method displayName="URL to PDF" id="6955" name="POST">
+                                <doc>Convert public URLs to a PDF</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                        <resource uri="html/">
+                            <method displayName="HTML to PDF" id="6944" name="POST">
+                                <doc>Convert HTML to PDF</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                    </resource>
+                    <resource uri="get/">
+                        <resource uri="info/">
+                            <method displayName="Get Info" id="6943" name="POST">
+                                <doc>Get information about a PDF document</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                    </resource>
+                    <resource uri="thumbnails/">
+                        <method displayName="Generate Thumbnails" id="6942" name="POST">
+                            <doc>Generate thumbnail versions of each page</doc>
+                            <request/>
+                        </method>
+                    </resource>
+                    <resource uri="extract/">
+                        <resource uri="text/">
+                            <method displayName="Extract Text" id="6941" name="POST">
+                                <doc>Extract the text from a PDF file.</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                        <resource uri="image/">
+                            <method displayName="Extract Images" id="6940" name="POST">
+                                <doc>Extract all of the images in a PDF (as a single zip file)</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                    </resource>
+                    <resource uri="form/">
+                        <resource uri="populate/">
+                            <method displayName="Populate Form" id="6949" name="POST">
+                                <doc>Populate the embedded form fields in a PDF</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                        <resource uri="extract/">
+                            <method displayName="Extract Form" id="6939" name="POST">
+                                <doc>Extract form field values from a PDF</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                    </resource>
+                    <resource uri="modify/">
+                        <resource uri="headerfooter/">
+                            <resource uri="remove/">
+                                <method displayName="Remove Header &amp; Footer" id="6950" name="POST">
+                                    <doc>Remove Header &amp; Footer from pdf pages</doc>
+                                    <request/>
+                                </method>
+                            </resource>
+                        </resource>
+                        <resource uri="header/">
+                            <method displayName="Modify Header" id="6947" name="POST">
+                                <doc>Add or change the Header on your PDF pages</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                        <resource uri="footer/">
+                            <method displayName="Modify Footer" id="6946" name="POST">
+                                <doc>Add or change the Footer on your PDF pages</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                        <resource uri="pages/">
+                            <resource uri="delete/">
+                                <method displayName="Delete Pages" id="6938" name="POST">
+                                    <doc>Delete one or more pages from a pdf</doc>
+                                    <request/>
+                                </method>
+                            </resource>
+                        </resource>
+                        <resource uri="watermark/">
+                            <method displayName="Add Watermark" id="6937" name="POST">
+                                <doc>Add Watermark to PDF pages</doc>
+                                <request/>
+                            </method>
+                            <method displayName="Remove Watermark" id="6951" name="POST">
+                                <doc>Remove a watermark for PDF pages</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

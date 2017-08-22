@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>lOVE aas Love As A Service provides a modern RESTful scalable solution to the common problem spreading the love Love As A Service was build out of love as an answer to the Fuck Off As A Service Project</doc>
+    <resources base="https://community-love-as-a-service.p.mashape.com/">
+        <resource uri="thanksgiving/">
+            <resource uri="{to}/">
+                <param name="to" style="template" type="xsd:string"/>
+                <resource uri="{from}/">
+                    <param name="from" style="template" type="xsd:string"/>
+                    <method displayName="/thanksgiving/:to/:from" id="550" name="GET">
+                        <doc>Will return content in the form Happy Thanksgiving, :to --:from</doc>
+                        <request>
+                            <param name="from" required="true" style="query" type="xsd:string"/>
+                            <param name="to" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="thank/">
+            <resource uri="{what}/">
+                <param name="what" style="template" type="xsd:string"/>
+                <resource uri="{from}/">
+                    <param name="from" style="template" type="xsd:string"/>
+                    <method displayName="/thank/:what/:from" id="549" name="GET">
+                        <doc>Will return content in the form Thank you for :what. --:from</doc>
+                        <request>
+                            <param name="from" required="true" style="query" type="xsd:string"/>
+                            <param name="what" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="snapchat/">
+            <resource uri="{to}/">
+                <param name="to" style="template" type="xsd:string"/>
+                <resource uri="{from}/">
+                    <param name="from" style="template" type="xsd:string"/>
+                    <method displayName="/snapchat/:to/:from" id="548" name="GET">
+                        <doc>Will return content in the form Hi :to, In the name of love, snapchat me! --:from</doc>
+                        <request>
+                            <param name="from" required="true" style="query" type="xsd:string"/>
+                            <param name="to" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="request/">
+            <resource uri="{to}/">
+                <param name="to" style="template" type="xsd:string"/>
+                <resource uri="{from}/">
+                    <param name="from" style="template" type="xsd:string"/>
+                    <method displayName="/request/:to/:from" id="547" name="GET">
+                        <doc>Will return content in the form Hey :to, do you love me!? --:from</doc>
+                        <request>
+                            <param name="from" required="true" style="query" type="xsd:string"/>
+                            <param name="to" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="reply/">
+            <resource uri="{to}/">
+                <param name="to" style="template" type="xsd:string"/>
+                <resource uri="{from}/">
+                    <param name="from" style="template" type="xsd:string"/>
+                    <method displayName="/reply/:to/:from" id="546" name="GET">
+                        <doc>Will return content in the form I love you too :to! --:from</doc>
+                        <request>
+                            <param name="from" required="true" style="query" type="xsd:string"/>
+                            <param name="to" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="miss/">
+            <resource uri="{to}/">
+                <param name="to" style="template" type="xsd:string"/>
+                <resource uri="{from}/">
+                    <param name="from" style="template" type="xsd:string"/>
+                    <method displayName="/miss/:to/:from" id="545" name="GET">
+                        <doc>Will return content in the form Hi :to, I miss you, so much. --:from</doc>
+                        <request>
+                            <param name="from" required="true" style="query" type="xsd:string"/>
+                            <param name="to" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="love/">
+            <resource uri="{to}/">
+                <param name="to" style="template" type="xsd:string"/>
+                <resource uri="{from}/">
+                    <param name="from" style="template" type="xsd:string"/>
+                    <method displayName="/love/:to/:from" id="544" name="GET">
+                        <doc>Will return content in the form Hi :to, I love you. --:from</doc>
+                        <request>
+                            <param name="from" required="true" style="query" type="xsd:string"/>
+                            <param name="to" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="like/">
+            <resource uri="{to}/">
+                <param name="to" style="template" type="xsd:string"/>
+                <resource uri="{from}/">
+                    <param name="from" style="template" type="xsd:string"/>
+                    <method displayName="/like/:to/:from" id="543" name="GET">
+                        <doc>Will return content in the form Hi :to, I like you, like a lot. --:from</doc>
+                        <request>
+                            <param name="from" required="true" style="query" type="xsd:string"/>
+                            <param name="to" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="kiss/">
+            <resource uri="{to}/">
+                <param name="to" style="template" type="xsd:string"/>
+                <resource uri="{from}/">
+                    <param name="from" style="template" type="xsd:string"/>
+                    <method displayName="/kiss/:to/:from" id="542" name="GET">
+                        <doc>Will return content in the form I want to kiss you all over! I'm so into smooching with you, :to --:from</doc>
+                        <request>
+                            <param name="from" required="true" style="query" type="xsd:string"/>
+                            <param name="to" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="everyone/">
+            <resource uri="{from}/">
+                <param name="from" style="template" type="xsd:string"/>
+                <method displayName="/everyone/:from" id="541" name="GET">
+                    <doc>Will return content in the form I love everyone! --:from</doc>
+                    <request>
+                        <param name="from" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="cuddle/">
+            <resource uri="{to}/">
+                <param name="to" style="template" type="xsd:string"/>
+                <resource uri="{from}/">
+                    <param name="from" style="template" type="xsd:string"/>
+                    <method displayName="/cuddle/:to/:from" id="540" name="GET">
+                        <doc>Will return content in the form I want to cuddle with you so bad, :to --:from</doc>
+                        <request>
+                            <param name="from" required="true" style="query" type="xsd:string"/>
+                            <param name="to" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="crush/">
+            <resource uri="{to}/">
+                <param name="to" style="template" type="xsd:string"/>
+                <resource uri="{from}/">
+                    <param name="from" style="template" type="xsd:string"/>
+                    <method displayName="/crush/:to/:from" id="539" name="GET">
+                        <doc>Will return content in the form I can't keep it in anymore, :to. I have a HUGE crush on you! --:from</doc>
+                        <request>
+                            <param name="from" required="true" style="query" type="xsd:string"/>
+                            <param name="to" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

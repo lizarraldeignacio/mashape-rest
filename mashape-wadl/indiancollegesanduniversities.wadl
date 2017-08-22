@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1569="urn:function:f1569">
+    <grammars>
+        <include href="Function1569.xsd"/>
+    </grammars>
+    <doc>aPI endpoint for colleges and universities in India Get access to information like name ph number city state address</doc>
+    <resources base="https://indian-colleges.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="colleges/">
+                <method displayName="/v1/colleges" id="1569" name="GET">
+                    <doc>gets  name, ph number, city, state, address and email  of colleges/universities located in India</doc>
+                    <request>
+                        <param name="city" required="true" style="query" type="xsd:string">
+                            <doc>filter by city</doc>
+                        </param>
+                        <param name="name" required="true" style="query" type="xsd:string">
+                            <doc>filter by college names that contain a given word</doc>
+                        </param>
+                        <param name="page" required="true" style="query" type="xsd:integer">
+                            <doc>set page number default is</doc>
+                        </param>
+                        <param name="state" required="true" style="query" type="xsd:string">
+                            <doc>filter by state</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1569:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

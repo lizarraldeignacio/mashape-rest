@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7215="urn:function:f7215">
+    <grammars>
+        <include href="Function7215.xsd"/>
+    </grammars>
+    <doc>we are a India based startup Establishment involved in creating remarkable demo videos for other newly established organizations We call ourselves brandlovevideos Our objective is to enable businesses small and large to create effective demo videos reasonable price</doc>
+    <resources base="https://brandlovevideos-brandlovevideos-v1.p.mashape.com/">
+        <resource uri="">
+            <resource uri="videos/">
+                <method displayName="brandlovevideos" id="7215" name="GET">
+                    <doc>Explain Engage Everyone Entrepreneurs</doc>
+                    <request/>
+                    <response>
+                        <representation element="f7215:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

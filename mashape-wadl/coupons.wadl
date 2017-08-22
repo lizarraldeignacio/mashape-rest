@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1139="urn:function:f1139" xmlns:f1140="urn:function:f1140" xmlns:f1141="urn:function:f1141">
+    <grammars>
+        <include href="Function1141.xsd"/>
+        <include href="Function1140.xsd"/>
+        <include href="Function1139.xsd"/>
+    </grammars>
+    <doc>coupons is one of the largest aggregators of coupons and deals data of India We have been successfully running our website www coupons com since July Our API framework offers access to data allowing developers to build upon and extend their applications in new and creative ways Our APIs are constantly evolving and developing as per the industry standards Our API framework is built upon REST architecture drawing inspiration from API frameworks of leading websites such as Twitter Facebook and Salesforce We support GET and POST methods of http for making API calls to our server Some methods require you to use POST methods only We are coming up with new version of API in May</doc>
+    <resources base="https://27coupons.p.mashape.com/">
+        <resource uri="coupons/">
+            <resource uri="trending/">
+                <method displayName="Trending Coupons" id="1141" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f1141:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="popular/">
+                <method displayName="Popular Coupons" id="1140" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f1140:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="latest/">
+                <method displayName="Latest Coupons" id="1139" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f1139:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

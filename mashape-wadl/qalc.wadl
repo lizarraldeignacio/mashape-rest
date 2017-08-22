@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7407="urn:function:f7407">
+    <grammars>
+        <include href="Function7407.xsd"/>
+    </grammars>
+    <doc>qalc takes in a mathematical expression and gives you a clean result An example could be with the response of or giving</doc>
+    <resources base="https://alanaktion-qalc-v1.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Calculate" id="7407" name="GET">
+                <doc>Every expression can be passed to this endpoint</doc>
+                <request>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>expression query string</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f7407:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

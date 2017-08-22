@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6697="urn:function:f6697">
+    <grammars>
+        <include href="Function6697.xsd"/>
+    </grammars>
+    <doc>sPoE is a service that discovers and retrieves care scenarios and their care prompts that are similar to a natural language description of a care note by matching content of a care note to descriptions and terms of care scenarios The best matched care scenario is returned to the user for further processing</doc>
+    <resources base="https://kzachos-spoe-v1.p.mashape.com/">
+        <resource uri="carescenarios/">
+            <resource uri="{query}/">
+                <param name="query" style="template" type="xsd:string"/>
+                <method displayName="GetScenarios" id="6697" name="GET">
+                    <doc>Returns one or more care scenarios based on the query</doc>
+                    <request>
+                        <param name="query" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f6697:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

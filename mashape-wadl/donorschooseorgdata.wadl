@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>our simple JSON API allows developers to help classroom projects with their website or application It serves up project titles descriptions classroom photos geo tags full teacher written essays and more It can also be used to issue gift cards to your customers so they can support a classroom projects of their choosing The API has been used by Chevron SONIC Drive In NBC Universal Bing PayPal Starbucks and others to build customized cause marketing and community engagement experiences</doc>
+    <resources base="https://donorschooseorg-donorchoose-us.p.mashape.com/">
+        <resource uri="json-teacher.html/">
+            <method displayName="Teacher Pages" id="3149" name="GET">
+                <request>
+                    <param name="apikey" required="true" style="query" type="xsd:string">
+                        <doc>you may also use DONORSCHOOSE for testing purposes If you don t have a unique API key school photos will be omitted to protect school privacy</doc>
+                    </param>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>if you wish to wrap your response in a callback function include the name here You should make your callback static as it will improve caching and in turn performance Many AJAX frameworks will make the callback a random string unless otherwise specified so you ll be overriding that default behavior Also be sure to enable any caching options eg set the cache param to True in jQuery or else some frameworks will append a timestamp to each JSON request to prevent caching</doc>
+                    </param>
+                    <param name="hasproposalphotos" required="true" style="query" type="xsd:string">
+                        <doc>pass as true to only load proposals with DTY Digital Thank You photos posted This will necessarily only load completed projects</doc>
+                    </param>
+                    <param name="historical" required="true" style="query" type="xsd:boolean">
+                        <doc>pass as true to only load completed proposals and false to only load active proposals The default behavior is to load both completed and active proposals</doc>
+                    </param>
+                    <param name="index" required="true" style="query" type="xsd:string">
+                        <doc>index into the result set of proposals for pagination</doc>
+                    </param>
+                    <param name="max" required="true" style="query" type="xsd:string">
+                        <doc>the number of proposals to load Default none limit of</doc>
+                    </param>
+                    <param name="teacher" required="true" style="query" type="xsd:string">
+                        <doc>the ID number of teacher you want information about</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="json_feed.html/">
+            <method displayName="Search" id="3148" name="GET">
+                <doc>Search based on criteria</doc>
+                <request>
+                    <param name="apikey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Key use DONORSCHOOSE for testing</doc>
+                    </param>
+                    <param name="centerlat" required="true" style="query" type="xsd:string">
+                        <doc>project Near Me Search your location Latitude</doc>
+                    </param>
+                    <param name="centerlng" required="true" style="query" type="xsd:string">
+                        <doc>project Near Me Search your location Longitude</doc>
+                    </param>
+                    <param name="challengeid" required="true" style="query" type="xsd:string">
+                        <doc>please note that in contrast to the challenge page http www donorschoose org donors viewChallenge html id only projects that still need funding will be included in the JSON feed</doc>
+                    </param>
+                    <param name="community" required="true" style="query" type="xsd:string">
+                        <doc>refer http developer donorschoose org documentation project listing json feeds json requests</doc>
+                    </param>
+                    <param name="concise" required="true" style="query" type="xsd:boolean">
+                        <doc>his feature reduces the amount of per project info returned in the JSON response to only fields which greatly accelerates the speed with which we can return you large result sets</doc>
+                    </param>
+                    <param name="costtocomplete" required="true" style="query" type="xsd:string">
+                        <doc>refer http developer donorschoose org documentation project listing json feeds json requests</doc>
+                    </param>
+                    <param name="gradetype" required="true" style="query" type="xsd:string">
+                        <doc>refer http developer donorschoose org documentation project listing json feeds json requests</doc>
+                    </param>
+                    <param name="historical" required="true" style="query" type="xsd:string">
+                        <doc>refer http developer donorschoose org documentation project listing json feeds json requests</doc>
+                    </param>
+                    <param name="keywords" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="nwlat" required="true" style="query" type="xsd:string">
+                        <doc>latitude</doc>
+                    </param>
+                    <param name="nwlng" required="true" style="query" type="xsd:string">
+                        <doc>longitude</doc>
+                    </param>
+                    <param name="partiallyfunded" required="true" style="query" type="xsd:string">
+                        <doc>yes no</doc>
+                    </param>
+                    <param name="proposaltype" required="true" style="query" type="xsd:string">
+                        <doc>refer http developer donorschoose org documentation project listing json feeds json requests</doc>
+                    </param>
+                    <param name="proposaltypecombo" required="true" style="query" type="xsd:string">
+                        <doc>refer http developer donorschoose org documentation project listing json feeds json requests</doc>
+                    </param>
+                    <param name="resourceusage" required="true" style="query" type="xsd:string">
+                        <doc>refer http developer donorschoose org documentation project listing json feeds json requests</doc>
+                    </param>
+                    <param name="schooltype" required="true" style="query" type="xsd:string">
+                        <doc>refer http developer donorschoose org documentation project listing json feeds json requests</doc>
+                    </param>
+                    <param name="sortby" required="true" style="query" type="xsd:string">
+                        <doc>refer http developer donorschoose org documentation project listing json feeds json requests</doc>
+                    </param>
+                    <param name="subject" required="true" style="query" type="xsd:string">
+                        <doc>refer http developer donorschoose org documentation project listing json feeds json requests</doc>
+                    </param>
+                    <param name="subject" required="true" style="query" type="xsd:string">
+                        <doc>refer http developer donorschoose org documentation project listing json feeds json requests</doc>
+                    </param>
+                    <param name="subject" required="true" style="query" type="xsd:string">
+                        <doc>refer http developer donorschoose org documentation project listing json feeds json requests</doc>
+                    </param>
+                    <param name="subject" required="true" style="query" type="xsd:string">
+                        <doc>refer http developer donorschoose org documentation project listing json feeds json requests</doc>
+                    </param>
+                    <param name="subject" required="true" style="query" type="xsd:string">
+                        <doc>refer http developer donorschoose org documentation project listing json feeds json requests</doc>
+                    </param>
+                    <param name="subject" required="true" style="query" type="xsd:string">
+                        <doc>refer http developer donorschoose org documentation project listing json feeds json requests</doc>
+                    </param>
+                    <param name="subject" required="true" style="query" type="xsd:string">
+                        <doc>refer http developer donorschoose org documentation project listing json feeds json requests</doc>
+                    </param>
+                    <param name="teachertype" required="true" style="query" type="xsd:string">
+                        <doc>refer http developer donorschoose org documentation project listing json feeds json requests</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="json_challenge.html/">
+            <method displayName="Giving Pages" id="3147" name="GET">
+                <request>
+                    <param name="apikey" required="true" style="query" type="xsd:string">
+                        <doc>you may also use DONORSCHOOSE for testing purposes If you don t have a unique API key school photos will be omitted to protect school privacy</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>giving Page ID</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="json-donor.html/">
+            <method displayName="Donor Pages" id="3146" name="GET">
+                <request>
+                    <param name="apikey" required="true" style="query" type="xsd:string">
+                        <doc>you may also use DONORSCHOOSE for testing purposes If you don t have a unique API key location information or school photos may be omitted to protect school privacy</doc>
+                    </param>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>if you wish to wrap your response in a callback function include the name here You should make your callback static as it will improve caching and in turn performance Many AJAX frameworks will make the callback a random string unless otherwise specified so you ll be overriding that default behavior lso be sure to enable any caching options eg set the cache param to True in jQuery or else some frameworks will append a timestamp to each JSON request to prevent caching</doc>
+                    </param>
+                    <param name="donorid" required="true" style="query" type="xsd:string">
+                        <doc>the ID number of donor you want information about</doc>
+                    </param>
+                    <param name="favoritesindex" required="true" style="query" type="xsd:string">
+                        <doc>index into favorites</doc>
+                    </param>
+                    <param name="favoritesmax" required="true" style="query" type="xsd:string">
+                        <doc>the number of favorites starred proposals to load Default is none limit is</doc>
+                    </param>
+                    <param name="messagesindex" required="true" style="query" type="xsd:string">
+                        <doc>index into messages</doc>
+                    </param>
+                    <param name="messagesmax" required="true" style="query" type="xsd:string">
+                        <doc>the max number of proposal messages to display default none limit</doc>
+                    </param>
+                    <param name="messagesverbose" required="true" style="query" type="xsd:boolean">
+                        <doc>set to true to return the text of teacher messages still truncated at chars By default this is false which means we provide a link to project page were the message was posted</doc>
+                    </param>
+                    <param name="photosonly" required="true" style="query" type="xsd:boolean">
+                        <doc>set to true to only load proposals that have associated thank you photos This can be useful if your design depends heavily on that visual element</doc>
+                    </param>
+                    <param name="proposalsindex" required="true" style="query" type="xsd:string">
+                        <doc>index into the result set of proposals for pagination</doc>
+                    </param>
+                    <param name="proposalsmax" required="true" style="query" type="xsd:string">
+                        <doc>the number of proposals to load Default none limit of</doc>
+                    </param>
+                    <param name="showbasicinfo" required="true" style="query" type="xsd:boolean">
+                        <doc>whether we should display basic donor info Set this to false if you re retrieving paginated info e g lists of proposals and don t need to reload basic donor info Default is true</doc>
+                    </param>
+                    <param name="showgivingpages" required="true" style="query" type="xsd:boolean">
+                        <doc>pass as true to retrieve giving pages and member giving pages Default is false</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

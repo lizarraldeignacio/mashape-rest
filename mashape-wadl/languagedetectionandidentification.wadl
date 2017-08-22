@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6829="urn:function:f6829" xmlns:f6830="urn:function:f6830">
+    <grammars>
+        <include href="Function6829.xsd"/>
+        <include href="Function6830.xsd"/>
+    </grammars>
+    <doc>need to detect text s language language identification api makes this task simple fast reliable send the text get back the language languages supported</doc>
+    <resources base="https://bestapi-language-detection-v1.p.mashape.com/">
+        <resource uri="detect/">
+            <method displayName="detect language (GET)" id="6829" name="GET">
+                <doc>send GET request with the text in the URL param and get back the language</doc>
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>the text needed to be detected</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6829:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="detect language (POST)" id="6830" name="POST">
+                <doc>send text in POST body and get back its lanuage</doc>
+                <request/>
+                <response>
+                    <representation element="f6830:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

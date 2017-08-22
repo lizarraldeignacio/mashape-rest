@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2485="urn:function:f2485">
+    <grammars>
+        <include href="Function2485.xsd"/>
+    </grammars>
+    <doc>say hello to your visitors in their native language</doc>
+    <resources base="https://fourtonfish-hellosalut.p.mashape.com/">
+        <resource uri="">
+            <method displayName="HelloSalut" id="2485" name="GET">
+                <request>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>an IPv IP address</doc>
+                    </param>
+                    <param name="lang" required="true" style="query" type="xsd:string">
+                        <doc>language code note currently supported only cs de en gb en us es fr is ja and sk</doc>
+                    </param>
+                    <param name="mode" required="true" style="query" type="xsd:string">
+                        <doc>use built in IP and language detection</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2485:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

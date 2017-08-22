@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1192="urn:function:f1192" xmlns:f1193="urn:function:f1193" xmlns:f1194="urn:function:f1194" xmlns:f1195="urn:function:f1195" xmlns:f1196="urn:function:f1196">
+    <grammars>
+        <include href="Function1196.xsd"/>
+        <include href="Function1195.xsd"/>
+        <include href="Function1194.xsd"/>
+        <include href="Function1193.xsd"/>
+        <include href="Function1192.xsd"/>
+    </grammars>
+    <doc>free version of Waze Route Calculation API same functionality but slower response time for better SLA move to the freemium api https www mashape com bestapi waze route calculation</doc>
+    <resources base="https://bestapi-waze-free-v1.p.mashape.com/">
+        <resource uri="routesXYwithDirections/">
+            <method displayName="Routes Directions (coordinates)" id="1196" name="GET">
+                <doc>get routes with directions by latitude and longitude coordinates</doc>
+                <request>
+                    <param name="endlat" required="true" style="query" type="xsd:string">
+                        <doc>end point latitude</doc>
+                    </param>
+                    <param name="endlon" required="true" style="query" type="xsd:string">
+                        <doc>end point longitude</doc>
+                    </param>
+                    <param name="startlat" required="true" style="query" type="xsd:string">
+                        <doc>start point latitude</doc>
+                    </param>
+                    <param name="startlon" required="true" style="query" type="xsd:string">
+                        <doc>start point longitude</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1196:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="routesWithDirections/">
+            <method displayName="Routes Directions" id="1195" name="GET">
+                <doc>Send start&amp;end point (use "address list" call for more fine grained input) and get routes with directions</doc>
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:string">
+                        <doc>end point address</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>start point address</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1195:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="routes/">
+            <method displayName="Routes Calculation (free text)" id="1194" name="GET">
+                <doc>Send start&amp;end point (use "address list" call for more fine grained input) and get routes time &amp; cordinates</doc>
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:string">
+                        <doc>end point address</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>start point address</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1194:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="routesXY/">
+            <method displayName="Routes Calculation (coordinates)" id="1193" name="GET">
+                <doc>get routes by latitude and longitude coordinates</doc>
+                <request>
+                    <param name="endlat" required="true" style="query" type="xsd:string">
+                        <doc>end point latitude</doc>
+                    </param>
+                    <param name="endlon" required="true" style="query" type="xsd:string">
+                        <doc>end point longitude</doc>
+                    </param>
+                    <param name="startlat" required="true" style="query" type="xsd:string">
+                        <doc>start point latitude</doc>
+                    </param>
+                    <param name="startlon" required="true" style="query" type="xsd:string">
+                        <doc>start point longitude</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1193:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="addressList/">
+            <method displayName="Address List" id="1192" name="GET">
+                <doc>returns a list of address options from the user input free text, use this to give the users several options to choose from</doc>
+                <request>
+                    <param name="address" required="true" style="query" type="xsd:string">
+                        <doc>user free text address input</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1192:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

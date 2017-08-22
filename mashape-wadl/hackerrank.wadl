@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1777="urn:function:f1777">
+    <grammars>
+        <include href="Function1777.xsd"/>
+    </grammars>
+    <doc>with HackerRank s API you can run codes in many different languages</doc>
+    <resources base="https://hackerrank-hackerrank.p.mashape.com/">
+        <resource uri="https:/">
+            <resource uri="">
+                <resource uri="api.hackerrank.com/">
+                    <resource uri="checker/">
+                        <resource uri="languages.json/">
+                            <method displayName="Languages" id="1778" name="GET">
+                                <doc>This method provides you with information regarding the language codes which our code checker supports</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                        <resource uri="submission.json/">
+                            <method displayName="Code checker" id="1777" name="POST">
+                                <doc>Allows users to use the HackerRank code checker for their own purposes. Submit source code, which is compiled and run against a list of provided test cases.</doc>
+                                <request/>
+                                <response>
+                                    <representation element="f1777:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

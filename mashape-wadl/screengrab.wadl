@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>a web service to grab and serve webpage screenshots</doc>
+    <resources base="https://skeang-screengrab-v1.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Grab screen" id="6696" name="GET">
+                <doc>Takes a screenshot, (with option to customize viewport) and serve the resulting png from the same link.</doc>
+                <request>
+                    <param name="address" required="true" style="query" type="xsd:string">
+                        <doc>the address of the page to be grabbed</doc>
+                    </param>
+                    <param name="size" required="true" style="query" type="xsd:string">
+                        <doc>the viewport size when visiting the page in the form of WIDTH HEIGHT eg px will grab full page px px in in cm cm</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

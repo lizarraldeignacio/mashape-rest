@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6335="urn:function:f6335">
+    <grammars>
+        <include href="Function6335.xsd"/>
+    </grammars>
+    <doc>openaid se is an open API that provides access to information about Swedish development assistance operations All sums are based solely on the available data The data comes from a variety of sources mainly from Sida and the Ministry for Foreign Affairs</doc>
+    <resources base="https://openaidse-openaid.p.mashape.com/">
+        <resource uri="sector/">
+            <method displayName="Search Sector" id="6338" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>iD of sector</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>name of Sector</doc>
+                    </param>
+                    <param name="year" required="true" style="query" type="xsd:string">
+                        <doc>year to search</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="document/">
+            <method displayName="Search Document" id="6337" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>iD of document</doc>
+                    </param>
+                    <param name="title" required="true" style="query" type="xsd:string">
+                        <doc>titles of documents follow the original case title or the title in a document In cases where an actual title has not been available a decision number Sida or case number UD has been used for this field</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="delivery_channel/">
+            <method displayName="Search Delivery-Channel" id="6336" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>id of channel</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>name of channel</doc>
+                    </param>
+                    <param name="year" required="true" style="query" type="xsd:string">
+                        <doc>year to search</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="country/">
+            <method displayName="Search Country" id="6335" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>iD of Country</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>name of Country</doc>
+                    </param>
+                    <param name="year" required="true" style="query" type="xsd:string">
+                        <doc>year to Search</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6335:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="contribution/">
+            <method displayName="Search Contribution" id="6334" name="GET">
+                <request>
+                    <param name="country" required="true" style="query" type="xsd:string">
+                        <doc>this is a simple reference to the country that the contribution concerns The value is the country ID in the API and is used to extract the country itself from another call For more information on this second call see the special section below on the country objects and attributes of the API</doc>
+                    </param>
+                    <param name="deliveryChannel" required="true" style="query" type="xsd:string">
+                        <doc>this field contains the delivery channel of the contribution indicated according to the DAC code system and a range of overreaching categories used in OpenAid seven including Other and Unspecified From the Plus database the GENOMF ORG is translated into an equivalent DAC code corresponding to the overall category of delivery channels such as public sector private sector or multilateral organization</doc>
+                    </param>
+                    <param name="extendingAgency" required="true" style="query" type="xsd:string">
+                        <doc>the name of the Swedish disbursement authority that has handled the contribution</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>iD of contribution</doc>
+                    </param>
+                    <param name="partnerOrganization" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="plus" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="sector" required="true" style="query" type="xsd:string">
+                        <doc>this field refers to the contribution s sector which follows the sectors in Sida The value is the current sub sector s internal ID in the API see list below Each contribution belongs to a sub sector which is mapped to these sectors The listing for what sub sectors belong to each sector follows Sida s statistics handbook and guide from DAC the OECD s aid commission In addition some sub sectors are added to the main codes that are statistically classified for contributions but do not exist in the manuals</doc>
+                    </param>
+                    <param name="subSector" required="true" style="query" type="xsd:string">
+                        <doc>the field sub sector includes the CRS code i e follows the logic of DAC for the sub sector that the contribution belongs to The CRS code can then be looked up via the API sub sector calls see below</doc>
+                    </param>
+                    <param name="title" required="true" style="query" type="xsd:string">
+                        <doc>title of Contribution</doc>
+                    </param>
+                    <param name="year" required="true" style="query" type="xsd:string">
+                        <doc>year of Contribution</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

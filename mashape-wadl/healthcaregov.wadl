@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1314="urn:function:f1314">
+    <grammars>
+        <include href="Function1314.xsd"/>
+    </grammars>
+    <doc>healthCare gov for Developers We re making our source code freely available on GitHub All of our educational content about the Health Insurance Marketplace is available in machine readable formats so that innovators entrepreneurs and partners can turn it into new products and services</doc>
+    <resources base="https://community-healthcaregov.p.mashape.com/">
+        <resource uri="{post-title}.json/">
+            <param name="post-title" style="template" type="xsd:string"/>
+            <method displayName="Content objects" id="1314" name="GET">
+                <doc>Content objects: the body content and metadata for each post on this website</doc>
+                <request>
+                    <param name="postTitle" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1314:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="api/">
+            <resource uri="index.json/">
+                <method displayName="Content index" id="1313" name="GET">
+                    <doc>The index is an abridged list of metadata for all posts on this website. Use it to get an aggregate view of content and to generate additional queries of post objects.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="{content-type}.json/">
+                <param name="content-type" style="template" type="xsd:string"/>
+                <method displayName="Content collections" id="1312" name="GET">
+                    <doc>Collections are a list of post objects by content type. The following content types are available: articles, blog, questions, glossary, states, and topics.</doc>
+                    <request>
+                        <param name="contentType" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3940="urn:function:f3940" xmlns:f3941="urn:function:f3941" xmlns:f3942="urn:function:f3942">
+    <grammars>
+        <include href="Function3942.xsd"/>
+        <include href="Function3941.xsd"/>
+        <include href="Function3940.xsd"/>
+    </grammars>
+    <doc>m ui finds key concepts and entities in text M ui links words and phrases that appear in text to the semantically related concept in Wikipedia or a specific vocabulary and ranks them in order of their importance The API published on MashApe is the commercial pro version of the open source M ui Please contact Entopix if the published plans don t suit or you require a custom taxonomy</doc>
+    <resources base="https://maui-v1.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="synonyms/">
+                <method displayName="Synonym Finder" id="3942" name="POST">
+                    <doc>This endpoint takes a noun and finds synonyms</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3942:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="keywords_from_url/">
+                <method displayName="Keywords From URL" id="3941" name="POST">
+                    <doc>Extract keywords from a given URL. We attempt to determine the main body of text held at the URL provided and use this as input to the extraction</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3941:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="keywords/">
+                <method displayName="Keywords From Text" id="3940" name="POST">
+                    <doc>Extract keywords from text. The text must be JSON encoded (i.e. newlines represented as \n) The possible parameters for Thesaurus are AGROVOC, MESH, LCSH, German Wikipedia and English Wikipedia.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3940:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

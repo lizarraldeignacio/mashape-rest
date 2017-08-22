@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5693="urn:function:f5693">
+    <grammars>
+        <include href="Function5693.xsd"/>
+    </grammars>
+    <doc>find location software and response time of a server</doc>
+    <resources base="https://marcinpraski-locate-v1.p.mashape.com/">
+        <resource uri="locate/">
+            <resource uri="{host}/">
+                <param name="host" style="template" type="xsd:string"/>
+                <method displayName="Locate" id="5693" name="GET">
+                    <doc>Find approximate location, software and response time of the server.</doc>
+                    <request>
+                        <param name="host" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5693:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

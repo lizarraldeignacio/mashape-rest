@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2026="urn:function:f2026">
+    <grammars>
+        <include href="Function2026.xsd"/>
+    </grammars>
+    <doc>this Price Comparison api India find and compare product prices from various eCommerce sites The developer can add his her own affiliate id to the returned URL This can be used to ecommerce price comparison websites or apps Note This is a basic version of our API for full version visit http www datayuge in Keywords online price comparison price comparison india price comparison sites india price comparison Price check india compare prices price compare compare price price comparison sites compare prices online price comparison websites price comparison website price comparison api india price checker</doc>
+    <resources base="https://datayuge-price-comparison-india-v1.p.mashape.com/">
+        <resource uri="search.php/">
+            <method displayName="Get comparison URL" id="2026" name="GET">
+                <doc>Gives the URL containing compared prices of various sites. Note: More stores can be found in our home website. http://www.datayuge.in/</doc>
+                <request>
+                    <param name="product" required="true" style="query" type="xsd:string">
+                        <doc>enter the Product UPC of the product</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2026:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

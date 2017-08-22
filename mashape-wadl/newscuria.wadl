@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6807="urn:function:f6807" xmlns:f6808="urn:function:f6808" xmlns:f6809="urn:function:f6809" xmlns:f6810="urn:function:f6810" xmlns:f6811="urn:function:f6811" xmlns:f6812="urn:function:f6812" xmlns:f6813="urn:function:f6813" xmlns:f6814="urn:function:f6814" xmlns:f6815="urn:function:f6815">
+    <grammars>
+        <include href="Function6807.xsd"/>
+        <include href="Function6808.xsd"/>
+        <include href="Function6809.xsd"/>
+        <include href="Function6810.xsd"/>
+        <include href="Function6811.xsd"/>
+        <include href="Function6812.xsd"/>
+        <include href="Function6813.xsd"/>
+        <include href="Function6814.xsd"/>
+        <include href="Function6815.xsd"/>
+    </grammars>
+    <doc>submit a url of a news article Get back stuff Potentially useful stuff</doc>
+    <resources base="https://saidimu-newscuria-v1.p.mashape.com/">
+        <resource uri="url/">
+            <method displayName="url companies" id="6807" name="POST">
+                <request/>
+                <response>
+                    <representation element="f6807:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="url events" id="6808" name="POST">
+                <request/>
+                <response>
+                    <representation element="f6808:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="url instances" id="6809" name="POST">
+                <doc>url to instances</doc>
+                <request/>
+                <response>
+                    <representation element="f6809:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="url people" id="6810" name="POST">
+                <request/>
+                <response>
+                    <representation element="f6810:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="url places" id="6811" name="POST">
+                <request/>
+                <response>
+                    <representation element="f6811:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="url relations" id="6812" name="POST">
+                <request/>
+                <response>
+                    <representation element="f6812:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="url summary" id="6813" name="POST">
+                <doc>url to all metadata</doc>
+                <request/>
+                <response>
+                    <representation element="f6813:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="url tags" id="6814" name="POST">
+                <doc>url to tags</doc>
+                <request/>
+                <response>
+                    <representation element="f6814:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="url things" id="6815" name="POST">
+                <request/>
+                <response>
+                    <representation element="f6815:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

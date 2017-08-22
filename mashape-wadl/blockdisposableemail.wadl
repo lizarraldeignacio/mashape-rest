@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f891="urn:function:f891">
+    <grammars>
+        <include href="Function891.xsd"/>
+    </grammars>
+    <doc>the bdea cc api helps to detect domains of disposable email address services such as mailinator com spamgourmet In other words if you need to keep your userbase clean you should avoid throw away one time instant temporary email addresses That s what this api is designed for BTW no false positives</doc>
+    <resources base="https://bdeacc-block-disposable-e-mail.p.mashape.com/">
+        <resource uri="{domain2check}/">
+            <param name="domain2check" style="template" type="xsd:string"/>
+            <method displayName="check_dea" id="891" name="GET">
+                <request>
+                    <param name="domainCheck" required="true" style="query" type="xsd:string">
+                        <doc>domain that should be checked</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f891:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1407="urn:function:f1407" xmlns:f1408="urn:function:f1408" xmlns:f1409="urn:function:f1409" xmlns:f1410="urn:function:f1410" xmlns:f1411="urn:function:f1411" xmlns:f1413="urn:function:f1413">
+    <grammars>
+        <include href="Function1413.xsd"/>
+        <include href="Function1411.xsd"/>
+        <include href="Function1410.xsd"/>
+        <include href="Function1409.xsd"/>
+        <include href="Function1408.xsd"/>
+        <include href="Function1407.xsd"/>
+    </grammars>
+    <doc>cloud based diabetes management platform Calculates doses and tracks insulin on board just like an insulin pump would Predicts blood sugars up to eight hours ahead and provides historical data like a Continuous Glucose Monitor Real time coach provides real time dose adjustment advice and warnings of pending low blood sugars Live sharing with parents teachers healthcare providers and other care givers Accepts data from different meters pumps and CGMS devices RESTful API default formats are XML JSON RSS and Atom Prediction the game changer in diabetes analytics</doc>
+    <resources base="https://managebgl-managebgl.p.mashape.com/">
+        <resource uri="ping/">
+            <method displayName="Ping" id="1413" name="GET">
+                <doc>Check if the endpoint is operating</doc>
+                <request/>
+                <response>
+                    <representation element="f1413:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="get_token/">
+            <method displayName="Login-OAuth style" id="1412" name="POST">
+                <doc>You can also obtain an API Token via a POST request to an OAuth-style interface</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="login/">
+            <method displayName="Login" id="1411" name="GET">
+                <doc>Login and obtain an access token for future API calls</doc>
+                <request>
+                    <param name="email" required="true" style="query" type="xsd:string">
+                        <doc>the user s email address</doc>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc>the user s password</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1411:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="log_range/">
+            <method displayName="Log_Range" id="1410" name="GET">
+                <doc>Get date range for user's data</doc>
+                <request>
+                    <param name="token" required="true" style="query" type="xsd:string">
+                        <doc>access token</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1410:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="units/">
+            <method displayName="Get User's Units" id="1409" name="GET">
+                <doc>Get the units that the user has for BGLs, height, weight etc</doc>
+                <request>
+                    <param name="token" required="true" style="query" type="xsd:string">
+                        <doc>access token</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1409:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="extract/">
+            <method displayName="Extract data" id="1408" name="GET">
+                <doc>Extract data</doc>
+                <request>
+                    <param name="endDate" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                    <param name="startDate" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="token" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1408:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="add/">
+            <method displayName="Add log" id="1407" name="GET">
+                <doc>Add a log entry</doc>
+                <request>
+                    <param name="logType" required="true" style="query" type="xsd:integer">
+                        <doc>if omitted a BGL log is assumed See below for values of log type</doc>
+                    </param>
+                    <param name="notes" required="true" style="query" type="xsd:string">
+                        <doc>notes associated with this entry up to characters</doc>
+                    </param>
+                    <param name="other" required="true" style="query" type="xsd:integer">
+                        <doc>optional required depends on log type see below</doc>
+                    </param>
+                    <param name="time" required="true" style="query" type="xsd:string">
+                        <doc>if blank the current time is used</doc>
+                    </param>
+                    <param name="token" required="true" style="query" type="xsd:string">
+                        <doc>the request token obtained via login</doc>
+                    </param>
+                    <param name="value" required="true" style="query" type="xsd:string">
+                        <doc>the value being added</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1407:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4374="urn:function:f4374" xmlns:f4376="urn:function:f4376" xmlns:f4377="urn:function:f4377">
+    <grammars>
+        <include href="Function4377.xsd"/>
+        <include href="Function4376.xsd"/>
+        <include href="Function4374.xsd"/>
+    </grammars>
+    <doc>a REST based dynamic pricing API that maximizes profit in real time https ventata com</doc>
+    <resources base="https://ventata-ventata-dynamic-pricing.p.mashape.com/">
+        <resource uri="order/">
+            <method displayName="Post an Order" id="4377" name="POST">
+                <request/>
+                <response>
+                    <representation element="f4377:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="product/">
+            <method displayName="Get New Price" id="4375" name="GET">
+                <doc>The next step is to call for a new price on the product, just like the stock market:  Option 1 (default), you get a price from ventata to update the product in your database. Option 2 (add autoupdate = 0 to the querystring), you get a price that ventata thinks you should charge, but we only record it as a suggestion, which means you should not update your store price.</doc>
+                <request>
+                    <param name="productId" required="true" style="query" type="xsd:string">
+                        <doc>product id</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Post (Create) Your Product" id="4376" name="POST">
+                <doc>Pick Between Unlimited Supply and Limited Supply.  Unlimited Supply: You can get as many items as you can sell. For example, digital items (movies, mp3s) or physical items that are virtually unlimited (e.g., t-shirts are virtually unlimited). You provide: cost and start price  Limited Supply: You only have a certian number of items to sell. For example, tickets: movies, sports events, concerts, etc or a flash sale offering where you need to sell 10 shirts in 1 week. You provide: cost, start price, how many you started with, how many you currently have, a start date and an expiration date</doc>
+                <request/>
+                <response>
+                    <representation element="f4376:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="store/">
+            <method displayName="Create a Store" id="4374" name="POST">
+                <request/>
+                <response>
+                    <representation element="f4374:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

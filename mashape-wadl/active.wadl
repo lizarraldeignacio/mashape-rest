@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5692="urn:function:f5692">
+    <grammars>
+        <include href="Function5692.xsd"/>
+    </grammars>
+    <doc>active com is the leading online community for people who want to discover learn about share register for and ultimately participate in activities about which they are passionate Millions of active individuals visit Active com each month to search and register online for races team sports and recreational activities interact with others who have similar interests start online training programs and access nutrition fitness and training tips</doc>
+    <resources base="https://community-active.p.mashape.com/">
+        <resource uri="search/">
+            <method displayName="Search v2" id="5692" name="GET">
+                <request>
+                    <param name="currentPage" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="excludeChildren" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="perPage" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5692:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

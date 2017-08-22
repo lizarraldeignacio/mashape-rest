@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2542="urn:function:f2542" xmlns:f2543="urn:function:f2543" xmlns:f2544="urn:function:f2544" xmlns:f2545="urn:function:f2545" xmlns:f2547="urn:function:f2547">
+    <grammars>
+        <include href="Function2543.xsd"/>
+        <include href="Function2545.xsd"/>
+        <include href="Function2542.xsd"/>
+        <include href="Function2544.xsd"/>
+        <include href="Function2547.xsd"/>
+    </grammars>
+    <doc>the DeckBrew Magic The Gathering API is open source Please report any issues or bugs you encounter This API wouldn t have been possible without the amazing mtgjson and mtgimage resources</doc>
+    <resources base="https://community-deckbrew.p.mashape.com/">
+        <resource uri="mtg/">
+            <resource uri="types/">
+                <method displayName="List all types" id="2546" name="GET">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="sets/">
+                <method displayName="Get a single set" id="2543" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f2543:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="List all sets" id="2545" name="GET">
+                    <doc>List all sets</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2545:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="cards/">
+                <method displayName="Get a single card" id="2542" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f2542:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="List all cards" id="2544" name="GET">
+                    <doc>Return a list of all Magic cards. Can be filtered using query string parameters to narrow the search.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2544:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Typeahead autocomplete for card search" id="2547" name="GET">
+                    <doc>This endpoint returns a list of 10 cards (the same format as the /mtg/cards endpoint) that match the beginning of the search term. This endpoint is great for building interactive autocomplete search for Magic cards.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2547:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

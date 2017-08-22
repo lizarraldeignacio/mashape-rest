@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f140="urn:function:f140">
+    <grammars>
+        <include href="Function140.xsd"/>
+    </grammars>
+    <doc>enter your name and the name of your partner lover crush to find Love compatibility chances of successful love relationship</doc>
+    <resources base="https://love-calculator.p.mashape.com/">
+        <resource uri="getPercentage/">
+            <method displayName="getPercentage" id="140" name="GET">
+                <request>
+                    <param name="fname" required="true" style="query" type="xsd:string">
+                        <doc>enter first name</doc>
+                    </param>
+                    <param name="sname" required="true" style="query" type="xsd:string">
+                        <doc>enter second name</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f140:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

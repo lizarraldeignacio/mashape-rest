@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2730="urn:function:f2730" xmlns:f2731="urn:function:f2731" xmlns:f2733="urn:function:f2733" xmlns:f2734="urn:function:f2734" xmlns:f2735="urn:function:f2735" xmlns:f2736="urn:function:f2736" xmlns:f2737="urn:function:f2737">
+    <grammars>
+        <include href="Function2737.xsd"/>
+        <include href="Function2736.xsd"/>
+        <include href="Function2735.xsd"/>
+        <include href="Function2734.xsd"/>
+        <include href="Function2733.xsd"/>
+        <include href="Function2731.xsd"/>
+        <include href="Function2730.xsd"/>
+    </grammars>
+    <doc>nOTE You need an API Key to use this API See README for more details The Cancer Imaging Archive TCIA is a public repository of cancer images and related clinical data for the express purpose of enabling open science research Currently over million radiologic images of cancer are contained in this repository The API allows you to query metadata and download images from the various public collections available on TCIA</doc>
+    <resources base="https://tcia.p.mashape.com/">
+        <resource uri="getSeries/">
+            <method displayName="getSeries" id="2737" name="GET">
+                <doc>Returns a set of series objects filtered by query keys</doc>
+                <request>
+                    <param name="collection" required="true" style="query" type="xsd:string">
+                        <doc>a label used to name a set of images collected for a specific trial or other reason Assigned during the process of curating the data</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>specify output type Allowed values CSV HTML XML JSON</doc>
+                    </param>
+                    <param name="modality" required="true" style="query" type="xsd:string">
+                        <doc>standard DICOM definition x</doc>
+                    </param>
+                    <param name="patientid" required="true" style="query" type="xsd:string">
+                        <doc>has been de identified as part of submission process DICOM Tag x</doc>
+                    </param>
+                    <param name="studyinstanceuid" required="true" style="query" type="xsd:string">
+                        <doc>has been de identified as part of submission process DICOM Tag x D</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2737:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getPatientStudy/">
+            <method displayName="getPatientStudy" id="2736" name="GET">
+                <doc>Returns a set of patient/study objects filtered by query keys</doc>
+                <request>
+                    <param name="collection" required="true" style="query" type="xsd:string">
+                        <doc>a label used to name a set of images collected for a specific trial or other reason Assigned during the process of curating the data</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>specify output type Allowed values CSV HTML XML JSON</doc>
+                    </param>
+                    <param name="patientid" required="true" style="query" type="xsd:string">
+                        <doc>has been de identified as part of submission process DICOM Tag x</doc>
+                    </param>
+                    <param name="studyinstanceuid" required="true" style="query" type="xsd:string">
+                        <doc>has been de identified as part of submission process DICOM Tag x D</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2736:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getPatient/">
+            <method displayName="getPatient" id="2735" name="GET">
+                <doc>Returns a set of patient objects filtered by query keys</doc>
+                <request>
+                    <param name="collection" required="true" style="query" type="xsd:string">
+                        <doc>a label used to name a set of images collected for a specific trial or other reason Assigned during the process of curating the data</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>specify output type Allowed values CSV HTML XML JSON</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2735:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getModalityValues/">
+            <method displayName="getModalityValues" id="2734" name="GET">
+                <doc>getModalityValues</doc>
+                <request>
+                    <param name="bodypartexamined" required="true" style="query" type="xsd:string">
+                        <doc>entered on a per collection basis using relevant SNOMED terms DICOM Tag x</doc>
+                    </param>
+                    <param name="collection" required="true" style="query" type="xsd:string">
+                        <doc>a label used to name a set of images collected for a specific trial or other reason Assigned during the process of curating the data</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>specify output type Allowed values CSV HTML XML JSON</doc>
+                    </param>
+                    <param name="modality" required="true" style="query" type="xsd:string">
+                        <doc>standard DICOM definition DICOM Tag x</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2734:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getManufacturerValues/">
+            <method displayName="getManufacturerValues" id="2733" name="GET">
+                <doc>Returns a set of all manufacturer names filtered by query keys</doc>
+                <request>
+                    <param name="bodypartexamined" required="true" style="query" type="xsd:string">
+                        <doc>standard DICOM definition x</doc>
+                    </param>
+                    <param name="collection" required="true" style="query" type="xsd:string">
+                        <doc>a label used to name a set of images collected for a specific trial or other reason Assigned during the process of curating the data</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>specify output type Allowed values CSV HTML XML JSON</doc>
+                    </param>
+                    <param name="modality" required="true" style="query" type="xsd:string">
+                        <doc>standard DICOM definition x</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2733:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getImage/">
+            <method displayName="getImage" id="2732" name="GET">
+                <doc>Set of images in a zip file. NOTE: The resulting zip files can become very large. We strongly advise not testing  this endpoint via Mashape. Instead, consider using curl with the -o option set to output.zip</doc>
+                <request>
+                    <param name="seriesinstanceuid" required="true" style="query" type="xsd:string">
+                        <doc>has been de identified as part of submission process DICOM Tag x E</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="getCollectionValues/">
+            <method displayName="getCollectionValues" id="2731" name="GET">
+                <doc>Set of all TCIA collection names</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>specify output type Allowed values CSV HTML XML JSON</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2731:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getBodyPartValues/">
+            <method displayName="getBodyPartValues" id="2730" name="GET">
+                <doc>Set of all body part names filtered by query keys</doc>
+                <request>
+                    <param name="bodypartexamined" required="true" style="query" type="xsd:string">
+                        <doc>standard DICOM definition x</doc>
+                    </param>
+                    <param name="collection" required="true" style="query" type="xsd:string">
+                        <doc>a label used to name a set of images collected for a specific trial or other reason Assigned during the process of curating the data</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>specify output type Allowed values CSV HTML XML JSON</doc>
+                    </param>
+                    <param name="modality" required="true" style="query" type="xsd:string">
+                        <doc>standard DICOM definition x</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2730:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

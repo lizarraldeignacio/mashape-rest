@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4299="urn:function:f4299" xmlns:f4300="urn:function:f4300" xmlns:f4301="urn:function:f4301">
+    <grammars>
+        <include href="Function4301.xsd"/>
+        <include href="Function4300.xsd"/>
+        <include href="Function4299.xsd"/>
+    </grammars>
+    <doc>this API can convert documents into another document format You can convert documents into images too or you can simply fill the merge fields inside your docx or doc document and convert it into whatever format you want</doc>
+    <resources base="https://gybra-swissknifedocs.p.mashape.com/">
+        <resource uri="images/">
+            <method displayName="Images" id="4301" name="POST">
+                <doc>Convert documents into images</doc>
+                <request/>
+                <response>
+                    <representation element="f4301:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="download/">
+            <resource uri="{file}/">
+                <param name="file" style="template" type="xsd:string"/>
+                <method displayName="Download" id="4300" name="GET">
+                    <doc>Download the converted documents</doc>
+                    <request>
+                        <param name="file" required="true" style="query" type="xsd:string">
+                            <doc>the name of the file to download</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4300:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="docs/">
+            <method displayName="Docs" id="4299" name="POST">
+                <doc>Allows to convert a document to another document</doc>
+                <request/>
+                <response>
+                    <representation element="f4299:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

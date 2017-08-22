@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f965="urn:function:f965" xmlns:f966="urn:function:f966" xmlns:f967="urn:function:f967" xmlns:f968="urn:function:f968" xmlns:f972="urn:function:f972" xmlns:f973="urn:function:f973" xmlns:f975="urn:function:f975" xmlns:f976="urn:function:f976" xmlns:f982="urn:function:f982" xmlns:f983="urn:function:f983">
+    <grammars>
+        <include href="Function976.xsd"/>
+        <include href="Function975.xsd"/>
+        <include href="Function973.xsd"/>
+        <include href="Function972.xsd"/>
+        <include href="Function968.xsd"/>
+        <include href="Function967.xsd"/>
+        <include href="Function982.xsd"/>
+        <include href="Function983.xsd"/>
+        <include href="Function966.xsd"/>
+        <include href="Function965.xsd"/>
+    </grammars>
+    <doc>passKit Create Distribute and Manage Apple Passbook Passes PassKit is a set of tool and methods that allow businesses and developers quickly easily and affordably design create distribute update analyse and manage content for Apple Passbook PassKit helps you and your business at every step of the Passbook Pass Lifecycle API to access PassKit Create passkit API account Goto https api passkit com v mashape mashape username Authenticate with API KEY and SECRET pairs mashape with PassKit account</doc>
+    <resources base="https://passkit-passkit.p.mashape.com/">
+        <resource uri="template/">
+            <resource uri="update/">
+                <resource uri="{templateName}/">
+                    <param name="templateName" style="template" type="xsd:string"/>
+                    <resource uri="{push}/">
+                        <param name="push" style="template" type="xsd:string"/>
+                        <method displayName="Update Template" id="981" name="PUT">
+                            <doc>This method allows for static fields of default values of dynamic fields of templates to be changed (and potentially pushed) to all passes. More info at: https://code.google.com/p/passkit/wiki/UpdateTemplate</doc>
+                            <request>
+                                <param name="push" required="true" style="query" type="xsd:string">
+                                    <doc>add push if the updated values should be pushed to all devices holding this pass</doc>
+                                </param>
+                                <param name="templatename" required="true" style="query" type="xsd:string">
+                                    <doc>the name of the template to be updated</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="list/">
+                <method displayName="List Templates" id="977" name="GET">
+                    <doc>This method returns all the templates for the user account (API key &amp; secret). More info at: https://code.google.com/p/passkit/wiki/ListTemplates</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="{templateName}/">
+                <param name="templateName" style="template" type="xsd:string"/>
+                <resource uri="reset/">
+                    <resource uri="push/">
+                        <method displayName="Reset Template" id="978" name="POST">
+                            <doc>This method resets each pass record to the default values. This only affects values that the user cannot edit. The method also removes all data-fields from each pass record. More info at: https://code.google.com/p/passkit/wiki/ResetTemplate</doc>
+                            <request>
+                                <param name="templatename" required="true" style="query" type="xsd:string">
+                                    <doc>the name of the template to be reset</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="fieldnames/">
+                    <method displayName="Get Template Field Names" id="970" name="GET">
+                        <doc>This method returns the field names that can be used with the Issue Pass and Update Pass methods for a particular template. More info: https://code.google.com/p/passkit/wiki/GetTemplateDetails</doc>
+                        <request>
+                            <param name="templatename" required="true" style="query" type="xsd:string">
+                                <doc>the name of the template that you wish to retrieve the field names for</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Get Template Field Names (full)" id="971" name="GET">
+                        <doc>This method returns the full field names that can be used with the Issue Pass and Update Pass methods for a particular template. More info: https://code.google.com/p/passkit/wiki/GetTemplateDetails</doc>
+                        <request>
+                            <param name="templatename" required="true" style="query" type="xsd:string">
+                                <doc>the name of the template that you wish to retrieve the fieldnames for</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="passes/">
+                    <method displayName="Get Passes For Template" id="969" name="GET">
+                        <doc>This method returns some basic template information and all the passes for the template (pass meta -and field data). More information at: https://code.google.com/p/passkit/wiki/GetPassesForTemplate</doc>
+                        <request>
+                            <param name="nexttoken" required="true" style="query" type="xsd:string">
+                                <doc>if the number of passes are to many to returned in one request a nextToken will be returned in the response If an optional nextToken parameter is supplied then the records returned will be from that point</doc>
+                            </param>
+                            <param name="templatename" required="true" style="query" type="xsd:string">
+                                <doc>the name of the template that you wish to retrieve the passes for</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="pass/">
+            <resource uri="update/">
+                <resource uri="template/">
+                    <resource uri="{templateName}/">
+                        <param name="templateName" style="template" type="xsd:string"/>
+                        <resource uri="serial/">
+                            <resource uri="{serialNumber}/">
+                                <param name="serialNumber" style="template" type="xsd:string"/>
+                                <resource uri="{push}/">
+                                    <param name="push" style="template" type="xsd:string"/>
+                                    <method displayName="Update Pass (by template name &amp; serial)" id="980" name="PUT">
+                                        <doc>This method is used for updating a pass by template name &amp; serial. It accepts the parameters returned by the Get Template Field Names method, plus relevance fields for date and for up to 10 locations. More info at: https://code.google.com/p/passkit/wiki/UpdatePass</doc>
+                                        <request>
+                                            <param name="push" required="true" style="query" type="xsd:string">
+                                                <doc>add push to push the update to the pass If push is omitted the record will be updated and the pass will only update on the next manual refresh</doc>
+                                            </param>
+                                            <param name="serialnumber" required="true" style="query" type="xsd:string">
+                                                <doc>the serial number of the pass to be updated</doc>
+                                            </param>
+                                            <param name="templatename" required="true" style="query" type="xsd:string">
+                                                <doc>the template name of the pass to be updated</doc>
+                                            </param>
+                                        </request>
+                                    </method>
+                                </resource>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="passid/">
+                    <resource uri="{passID}/">
+                        <param name="passID" style="template" type="xsd:string"/>
+                        <resource uri="{push}/">
+                            <param name="push" style="template" type="xsd:string"/>
+                            <method displayName="Update pass (by pass id)" id="979" name="PUT">
+                                <doc>This method is used for updating a pass by pass id. It accepts the parameters returned by the Get Template Field Names method, plus relevance fields for date and for up to 10 locations. More info at: https://api.passkit.com/v1/pass/update/passid/{passId}</doc>
+                                <request>
+                                    <param name="passid" required="true" style="query" type="xsd:string">
+                                        <doc>the Unique Pass ID</doc>
+                                    </param>
+                                    <param name="push" required="true" style="query" type="xsd:string">
+                                        <doc>add push to push the update to the pass If push is omitted the record will be updated and the pass will only update on the next manual refresh</doc>
+                                    </param>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="issue/">
+                <resource uri="batch/">
+                    <resource uri="template/">
+                        <resource uri="{templateName}/">
+                            <param name="templateName" style="template" type="xsd:string"/>
+                            <method displayName="Issue Pass (Batch)" id="976" name="PUT">
+                                <doc>This method is used for creating batches of up to 100 passes. More info at: https://code.google.com/p/passkit/wiki/BatchIssuePass</doc>
+                                <request>
+                                    <param name="templatename" required="true" style="query" type="xsd:string">
+                                        <doc>the template name</doc>
+                                    </param>
+                                </request>
+                                <response>
+                                    <representation element="f976:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="template/">
+                    <resource uri="{templateName}/">
+                        <param name="templateName" style="template" type="xsd:string"/>
+                        <method displayName="Issue Pass" id="975" name="PUT">
+                            <doc>This method is used for creating passes.  If all fields are fixed, or not updatable by the user, then it is not necessary to post any JSON, otherwise requires a data dictionary using a {"key":"value", "key2":"value2"} format using the keys returned by the "Get Template Field Names" call</doc>
+                            <request>
+                                <param name="templatename" required="true" style="query" type="xsd:string">
+                                    <doc>the name of the template of the pass to be issued</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f975:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="invalidate/">
+                <resource uri="template/">
+                    <resource uri="{templateName}/">
+                        <param name="templateName" style="template" type="xsd:string"/>
+                        <resource uri="serial/">
+                            <resource uri="{serialNumber}/">
+                                <param name="serialNumber" style="template" type="xsd:string"/>
+                                <method displayName="Invalidate Pass (by template name and serial)" id="974" name="POST">
+                                    <request>
+                                        <param name="serialnumber" required="true" style="query" type="xsd:string">
+                                            <doc>the serial number of the pass to be invalidated</doc>
+                                        </param>
+                                        <param name="templatename" required="true" style="query" type="xsd:string">
+                                            <doc>the template name of the pass to be invalidated</doc>
+                                        </param>
+                                    </request>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="passid/">
+                    <resource uri="{passId}/">
+                        <param name="passId" style="template" type="xsd:string"/>
+                        <method displayName="Invalidate Pass (by pass id)" id="973" name="POST">
+                            <request>
+                                <param name="passid" required="true" style="query" type="xsd:string">
+                                    <doc>the pass id</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f973:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="shareid/">
+                <resource uri="{shareID}/">
+                    <param name="shareID" style="template" type="xsd:string"/>
+                    <method displayName="Get Unique Pass Id (by share id)" id="972" name="GET">
+                        <request>
+                            <param name="shareid" required="true" style="query" type="xsd:string">
+                                <doc>the PassKit ShareID that you wish to get the Unique Pass ID for</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f972:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="get/">
+                <resource uri="template/">
+                    <resource uri="{templateName}/">
+                        <param name="templateName" style="template" type="xsd:string"/>
+                        <resource uri="serial/">
+                            <resource uri="{serialNumber}/">
+                                <param name="serialNumber" style="template" type="xsd:string"/>
+                                <method displayName="Get Pass Details (by template and serial)" id="968" name="GET">
+                                    <request>
+                                        <param name="serialnumber" required="true" style="query" type="xsd:string">
+                                            <doc>the serial number</doc>
+                                        </param>
+                                        <param name="templatename" required="true" style="query" type="xsd:string">
+                                            <doc>the template name</doc>
+                                        </param>
+                                    </request>
+                                    <response>
+                                        <representation element="f968:root" mediaType="application/json"/>
+                                    </response>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="passid/">
+                    <resource uri="{passid}/">
+                        <param name="passid" style="template" type="xsd:string"/>
+                        <method displayName="Get Pass Details (by pass id)" id="967" name="GET">
+                            <doc>Retrieves the pass details by Pass ID</doc>
+                            <request>
+                                <param name="passid" required="true" style="query" type="xsd:string">
+                                    <doc>the Unique Pass ID</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f967:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="image/">
+            <resource uri="add/">
+                <resource uri="{imageType}/">
+                    <param name="imageType" style="template" type="xsd:string"/>
+                    <method displayName="Upload Image" id="982" name="POST">
+                        <doc>This method allows you to upload images for use with other methods such as template methods and pass methods. More info at: https://code.google.com/p/passkit/wiki/UploadImage</doc>
+                        <request>
+                            <param name="imagetype" required="true" style="query" type="xsd:string">
+                                <doc>the Image Type strip icon logo thumbnail background footer</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f982:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Upload Image (by URL)" id="983" name="GET">
+                        <doc>Same as Upload Image method, only instead of uploading image, you can use an image URL.</doc>
+                        <request>
+                            <param name="imagetype" required="true" style="query" type="xsd:string">
+                                <doc>the Image Type strip icon logo thumbnail background footer</doc>
+                            </param>
+                            <param name="url" required="true" style="query" type="xsd:string">
+                                <doc>the URL to the image you wish to add</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f983:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="{imageID}/">
+                <param name="imageID" style="template" type="xsd:string"/>
+                <method displayName="Get Image Data" id="966" name="GET">
+                    <doc>This method returns data about a particular imageID, specifically te useage types that it has been processed for. More info at: https://code.google.com/p/passkit/wiki/GetImageData</doc>
+                    <request>
+                        <param name="imageid" required="true" style="query" type="xsd:string">
+                            <doc>the image ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f966:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="authenticate/">
+            <method displayName="Authenticate" id="965" name="GET">
+                <doc>Authenticates access to the API. IMPORTANT: You will need to pair your PassKit API Key and Secret with your Mashape username BEFORE you can use this or any other method via mashape.  To do this, use a browser to visit https://api.passkit.com/v1/mashape/{mashape username} (replace {mashape username} with your username); 2. Authenticate with your PassKit API KEY and API SECRET; if you are successful then you will receive a JSON response in your browser window, then you can test everything is working by clicking the "Test Endpoint" button for this method.  For more info: https://code.google.com/p/passkit/wiki/Authenticate</doc>
+                <request/>
+                <response>
+                    <representation element="f965:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

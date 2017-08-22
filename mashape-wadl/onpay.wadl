@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6259="urn:function:f6259" xmlns:f6260="urn:function:f6260" xmlns:f6261="urn:function:f6261" xmlns:f6262="urn:function:f6262" xmlns:f6263="urn:function:f6263" xmlns:f6264="urn:function:f6264" xmlns:f6265="urn:function:f6265" xmlns:f6266="urn:function:f6266" xmlns:f6267="urn:function:f6267" xmlns:f6268="urn:function:f6268" xmlns:f6269="urn:function:f6269" xmlns:f6270="urn:function:f6270" xmlns:f6271="urn:function:f6271" xmlns:f6272="urn:function:f6272" xmlns:f6274="urn:function:f6274">
+    <grammars>
+        <include href="Function6263.xsd"/>
+        <include href="Function6264.xsd"/>
+        <include href="Function6265.xsd"/>
+        <include href="Function6266.xsd"/>
+        <include href="Function6267.xsd"/>
+        <include href="Function6269.xsd"/>
+        <include href="Function6271.xsd"/>
+        <include href="Function6272.xsd"/>
+        <include href="Function6274.xsd"/>
+        <include href="Function6268.xsd"/>
+        <include href="Function6261.xsd"/>
+        <include href="Function6260.xsd"/>
+        <include href="Function6262.xsd"/>
+        <include href="Function6270.xsd"/>
+        <include href="Function6259.xsd"/>
+    </grammars>
+    <doc>iN DEVELOPMENT</doc>
+    <resources base="https://onpay-api-v4.p.mashape.com/">
+        <resource uri="app/">
+            <resource uri="api/">
+                <resource uri="v4.0.1/">
+                    <resource uri="user/">
+                        <method displayName="UserInfo" id="6273" name="GET">
+                            <doc>Get userInfo model - OpenID Connect</doc>
+                            <request/>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="api/">
+            <resource uri="v4.0.1/">
+                <resource uri="employees/">
+                    <resource uri="{id}/">
+                        <param name="id" style="template" type="xsd:string"/>
+                        <method displayName="Employee" id="6263" name="GET">
+                            <doc>Get employee information</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>employee id empid</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f6263:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Employee Child Support" id="6264" name="GET">
+                            <doc>Retrieve employee child support garnishments</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f6264:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Employee Deductions" id="6265" name="GET">
+                            <doc>Retrieve employee deductions model</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f6265:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Employee Garnishments" id="6266" name="GET">
+                            <doc>Retrieve garnishments for an employee</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f6266:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Employee Taxes" id="6267" name="GET">
+                            <doc>Retrieve employee tax model</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f6267:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Modify an Employee" id="6269" name="PATCH">
+                            <doc>Partial update of an Employee model</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f6269:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Modify Employee Deduction Batch" id="6271" name="PATCH">
+                            <doc>Partial update of the batch model of a deduction for an employee</doc>
+                            <request>
+                                <param name="ded" required="true" style="query" type="xsd:string"/>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f6271:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Modify Employee Tax" id="6272" name="PATCH">
+                            <doc>Partial update of the employee tax model</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f6272:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="company/">
+                    <resource uri="states/">
+                        <resource uri="work/">
+                            <resource uri="{fips}/">
+                                <param name="fips" style="template" type="xsd:string"/>
+                                <method displayName="Work State Model" id="6274" name="GET">
+                                    <doc>Retrieve state model.  Contains available work state tax options by state FIPS code.</doc>
+                                    <request>
+                                        <param name="fips" required="true" style="query" type="xsd:string"/>
+                                    </request>
+                                    <response>
+                                        <representation element="f6274:root" mediaType="application/json"/>
+                                    </response>
+                                </method>
+                            </resource>
+                        </resource>
+                        <resource uri="home/">
+                            <resource uri="{fips}/">
+                                <param name="fips" style="template" type="xsd:string"/>
+                                <method displayName="Home State Model" id="6268" name="GET">
+                                    <doc>Retrieve home state model. Contains available work state tax options by state FIPS code. --  Used along with Work State Model if employee home state and work state are different.</doc>
+                                    <request>
+                                        <param name="fips" required="true" style="query" type="xsd:string"/>
+                                    </request>
+                                    <response>
+                                        <representation element="f6268:root" mediaType="application/json"/>
+                                    </response>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                    <resource uri="stores/">
+                        <method displayName="Data Stores" id="6261" name="GET">
+                            <doc>Data stores - location, positions, managers, departments, worksites, etc.</doc>
+                            <request/>
+                            <response>
+                                <representation element="f6261:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="deductions/">
+                        <method displayName="Create Deduction/Benefit" id="6260" name="POST">
+                            <doc>Create a company-wide deduction and/or benefit</doc>
+                            <request/>
+                            <response>
+                                <representation element="f6260:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Deductions" id="6262" name="GET">
+                            <doc>Get all deductions / benefits for company</doc>
+                            <request/>
+                            <response>
+                                <representation element="f6262:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Modify Deduction" id="6270" name="PATCH">
+                            <doc>Modify a single param of deduction / benefit</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f6270:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="employees/">
+                        <method displayName="All Employees" id="6259" name="GET">
+                            <doc>Get all employees - limit 50 -- not all employee data is returned.  Use the Employee, Employee Deductions, Employee Taxes, etc. endpoints to retrieve additional information.</doc>
+                            <request>
+                                <param name="activeStatus" required="true" style="query" type="xsd:string">
+                                    <doc>active or Inactive</doc>
+                                </param>
+                                <param name="limit" required="true" style="query" type="xsd:integer">
+                                    <doc>pagination</doc>
+                                </param>
+                                <param name="start" required="true" style="query" type="xsd:integer">
+                                    <doc>pagination</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f6259:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

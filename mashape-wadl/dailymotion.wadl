@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>this is a test of using Dailymotion in Mashape I don t represent Dailymotion and I don t work with them There was the first idea of API that I had that s why</doc>
+    <resources base="https://yrezgui-Dailymotion-v1.p.mashape.com/">
+        <resource uri="user/">
+            <resource uri="{user_id}/">
+                <param name="user_id" style="template" type="xsd:string"/>
+                <method displayName="User details" id="3550" name="GET">
+                    <doc>Get user informations</doc>
+                    <request>
+                        <param name="fields" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="userId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

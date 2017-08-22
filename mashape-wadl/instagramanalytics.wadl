@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1394="urn:function:f1394" xmlns:f1395="urn:function:f1395" xmlns:f1396="urn:function:f1396" xmlns:f1397="urn:function:f1397" xmlns:f1406="urn:function:f1406">
+    <grammars>
+        <include href="Function1406.xsd"/>
+        <include href="Function1394.xsd"/>
+        <include href="Function1395.xsd"/>
+        <include href="Function1396.xsd"/>
+        <include href="Function1397.xsd"/>
+    </grammars>
+    <doc>the most complete Instagram Analytics</doc>
+    <resources base="https://minter-v1.p.mashape.com/">
+        <resource uri="users/">
+            <resource uri="self/">
+                <method displayName="User (get)" id="1406" name="GET">
+                    <doc>Get information about current user (self).</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1406:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="report/">
+            <resource uri="{report_id}/">
+                <param name="report_id" style="template" type="xsd:string"/>
+                <method displayName="Report (delete)" id="1394" name="DELETE">
+                    <doc>Remove a report.</doc>
+                    <request>
+                        <param name="reportId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f1394:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="reports/">
+            <method displayName="Best Time to post" id="1380" name="GET">
+                <doc>Shows the times of day and the days of the week when your audience has been interacting during a selected time range. The darkest blue is the best time for you to post. (Timezone: GMT+0)</doc>
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string">
+                        <doc>the beginning of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="reportId" required="true" style="query" type="xsd:string"/>
+                    <param name="toDate" required="true" style="query" type="xsd:string">
+                        <doc>the end of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="unit" required="true" style="query" type="xsd:string">
+                        <doc>this can be day week or month It determines the level of granularity of the data you get back</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Cities of Followers" id="1381" name="GET">
+                <doc>The distribution of cities of Followers during a selected time range.</doc>
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string">
+                        <doc>the beginning of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="reportId" required="true" style="query" type="xsd:string"/>
+                    <param name="toDate" required="true" style="query" type="xsd:string">
+                        <doc>the end of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="unit" required="true" style="query" type="xsd:string">
+                        <doc>this can be day week or month It determines the level of granularity of the data you get back</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Countries of Followers" id="1382" name="GET">
+                <doc>The distribution of countries of Followers during a selected time range.</doc>
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string">
+                        <doc>the beginning of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="reportId" required="true" style="query" type="xsd:string"/>
+                    <param name="toDate" required="true" style="query" type="xsd:string">
+                        <doc>the end of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="unit" required="true" style="query" type="xsd:string">
+                        <doc>this can be day week or month It determines the level of granularity of the data you get back</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Gained and Lost Followers" id="1383" name="GET">
+                <doc>The number of Followers gained and lost during a selected time range.</doc>
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string">
+                        <doc>the beginning of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="reportId" required="true" style="query" type="xsd:string"/>
+                    <param name="toDate" required="true" style="query" type="xsd:string">
+                        <doc>the end of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="unit" required="true" style="query" type="xsd:string">
+                        <doc>this can be day week or month It determines the level of granularity of the data you get back</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Gender of Followers" id="1384" name="GET">
+                <doc>The distribution of gender of Followers during a selected time range.</doc>
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string">
+                        <doc>the beginning of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="reportId" required="true" style="query" type="xsd:string"/>
+                    <param name="toDate" required="true" style="query" type="xsd:string">
+                        <doc>the end of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="unit" required="true" style="query" type="xsd:string">
+                        <doc>this can be day week or month It determines the level of granularity of the data you get back</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Growth total followers" id="1385" name="GET">
+                <doc>The absolute increase or decrease in Followers during a selected time range.</doc>
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string">
+                        <doc>the beginning of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="reportId" required="true" style="query" type="xsd:string"/>
+                    <param name="toDate" required="true" style="query" type="xsd:string">
+                        <doc>the end of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="unit" required="true" style="query" type="xsd:string">
+                        <doc>this can be day week or month It determines the level of granularity of the data you get back</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Interactions" id="1386" name="GET">
+                <doc>The total number of Likes and Comments divided by their type during a selected time range.</doc>
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string">
+                        <doc>the beginning of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="reportId" required="true" style="query" type="xsd:string"/>
+                    <param name="toDate" required="true" style="query" type="xsd:string">
+                        <doc>the end of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="unit" required="true" style="query" type="xsd:string">
+                        <doc>this can be day week or month It determines the level of granularity of the data you get back</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Most Engaging Photo Filters" id="1387" name="GET">
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string">
+                        <doc>the beginning of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="reportId" required="true" style="query" type="xsd:string"/>
+                    <param name="toDate" required="true" style="query" type="xsd:string">
+                        <doc>the end of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="unit" required="true" style="query" type="xsd:string">
+                        <doc>this can be day week or month It determines the level of granularity of the data you get back</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Most Engaging Post Types" id="1388" name="GET">
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string">
+                        <doc>the beginning of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="reportId" required="true" style="query" type="xsd:string"/>
+                    <param name="toDate" required="true" style="query" type="xsd:string">
+                        <doc>the end of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="unit" required="true" style="query" type="xsd:string">
+                        <doc>this can be day week or month It determines the level of granularity of the data you get back</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Most Engaging Video Filters" id="1389" name="GET">
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string">
+                        <doc>the beginning of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="reportId" required="true" style="query" type="xsd:string"/>
+                    <param name="toDate" required="true" style="query" type="xsd:string">
+                        <doc>the end of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="unit" required="true" style="query" type="xsd:string">
+                        <doc>this can be day week or month It determines the level of granularity of the data you get back</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Number of Posts" id="1390" name="GET">
+                <doc>The total number of Posts published during a selected time range.</doc>
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string">
+                        <doc>the beginning of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="reportId" required="true" style="query" type="xsd:string"/>
+                    <param name="toDate" required="true" style="query" type="xsd:string">
+                        <doc>the end of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="unit" required="true" style="query" type="xsd:string">
+                        <doc>this can be day week or month It determines the level of granularity of the data you get back</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Post Engagement Rate" id="1391" name="GET">
+                <doc>Calculated as the sum of all Likes and Comments divided by number of Posts, divided by number of Followers during a selected time range.</doc>
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string">
+                        <doc>the beginning of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="reportId" required="true" style="query" type="xsd:string"/>
+                    <param name="toDate" required="true" style="query" type="xsd:string">
+                        <doc>the end of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="unit" required="true" style="query" type="xsd:string">
+                        <doc>this can be day week or month It determines the level of granularity of the data you get back</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Post Types" id="1392" name="GET">
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string">
+                        <doc>the beginning of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="reportId" required="true" style="query" type="xsd:string"/>
+                    <param name="toDate" required="true" style="query" type="xsd:string">
+                        <doc>the end of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="unit" required="true" style="query" type="xsd:string">
+                        <doc>this can be day week or month It determines the level of granularity of the data you get back</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Profile Engagement Rate" id="1393" name="GET">
+                <doc>Calculated as the sum of all Likes and Comments divided by number of Followers during a selected time range.</doc>
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string">
+                        <doc>the beginning of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="reportId" required="true" style="query" type="xsd:string"/>
+                    <param name="toDate" required="true" style="query" type="xsd:string">
+                        <doc>the end of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="unit" required="true" style="query" type="xsd:string">
+                        <doc>this can be day week or month It determines the level of granularity of the data you get back</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Report (get)" id="1395" name="GET">
+                <doc>Get information about report.</doc>
+                <request>
+                    <param name="reportId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1395:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Reports (get)" id="1396" name="GET">
+                <doc>Get list of all available reports.</doc>
+                <request/>
+                <response>
+                    <representation element="f1396:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Reports (post)" id="1397" name="POST">
+                <doc>Add report for Instagram user.</doc>
+                <request>
+                    <param name="userId" required="true" style="query" type="xsd:string">
+                        <doc>instagram user id</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1397:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Source of Engagement" id="1398" name="GET">
+                <doc>The distribution of all Likes and Comments from Followers and not from Followers during a selected time range.</doc>
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string">
+                        <doc>the beginning of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="reportId" required="true" style="query" type="xsd:string"/>
+                    <param name="toDate" required="true" style="query" type="xsd:string">
+                        <doc>the end of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="unit" required="true" style="query" type="xsd:string">
+                        <doc>this can be day week or month It determines the level of granularity of the data you get back</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Top Gained Followers" id="1399" name="GET">
+                <doc>Top Gained Followers by the number of their Followers.</doc>
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string">
+                        <doc>the beginning of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="reportId" required="true" style="query" type="xsd:string"/>
+                    <param name="skip" required="true" style="query" type="xsd:integer">
+                        <doc>page number</doc>
+                    </param>
+                    <param name="toDate" required="true" style="query" type="xsd:string">
+                        <doc>the end of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="unit" required="true" style="query" type="xsd:string">
+                        <doc>this can be day week or month It determines the level of granularity of the data you get back</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Top Lost Followers" id="1400" name="GET">
+                <doc>Top lost Followers by the number of their Followers.</doc>
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string">
+                        <doc>the beginning of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="reportId" required="true" style="query" type="xsd:string"/>
+                    <param name="skip" required="true" style="query" type="xsd:integer">
+                        <doc>page number</doc>
+                    </param>
+                    <param name="toDate" required="true" style="query" type="xsd:string">
+                        <doc>the end of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="unit" required="true" style="query" type="xsd:string">
+                        <doc>this can be day week or month It determines the level of granularity of the data you get back</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Top Photo Filters" id="1401" name="GET">
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string">
+                        <doc>the beginning of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="reportId" required="true" style="query" type="xsd:string"/>
+                    <param name="toDate" required="true" style="query" type="xsd:string">
+                        <doc>the end of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="unit" required="true" style="query" type="xsd:string">
+                        <doc>this can be day week or month It determines the level of granularity of the data you get back</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Top Posts" id="1402" name="GET">
+                <doc>Top Posts by Engagement Rate</doc>
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string">
+                        <doc>the beginning of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="reportId" required="true" style="query" type="xsd:string"/>
+                    <param name="skip" required="true" style="query" type="xsd:integer">
+                        <doc>page number</doc>
+                    </param>
+                    <param name="toDate" required="true" style="query" type="xsd:string">
+                        <doc>the end of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="unit" required="true" style="query" type="xsd:string">
+                        <doc>this can be day week or month It determines the level of granularity of the data you get back</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Top Tags by Interactions" id="1403" name="GET">
+                <doc>Top tags used by the number of interactions received during a selected time range.</doc>
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string">
+                        <doc>the beginning of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="reportId" required="true" style="query" type="xsd:string"/>
+                    <param name="toDate" required="true" style="query" type="xsd:string">
+                        <doc>the end of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="unit" required="true" style="query" type="xsd:string">
+                        <doc>this can be day week or month It determines the level of granularity of the data you get back</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Top Video Filters" id="1404" name="GET">
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string">
+                        <doc>the beginning of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="reportId" required="true" style="query" type="xsd:string"/>
+                    <param name="toDate" required="true" style="query" type="xsd:string">
+                        <doc>the end of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="unit" required="true" style="query" type="xsd:string">
+                        <doc>this can be day week or month It determines the level of granularity of the data you get back</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Total followers" id="1405" name="GET">
+                <doc>The number of profile's Followers during a selected time range.</doc>
+                <request>
+                    <param name="dateFrom" required="true" style="query" type="xsd:string">
+                        <doc>the beginning of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="reportId" required="true" style="query" type="xsd:string"/>
+                    <param name="toDate" required="true" style="query" type="xsd:string">
+                        <doc>the end of the date range to get data for in yyyy mm dd format This date is inclusive</doc>
+                    </param>
+                    <param name="unit" required="true" style="query" type="xsd:string">
+                        <doc>this can be day week or month It determines the level of granularity of the data you get back</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

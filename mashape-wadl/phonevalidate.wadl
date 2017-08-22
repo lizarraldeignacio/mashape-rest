@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f144="urn:function:f144">
+    <grammars>
+        <include href="Function144.xsd"/>
+    </grammars>
+    <doc>parse validate and get location information about a phone number Use this API to validate local and international phone numbers You can determine what kind of number this is e g fixed line or mobile the location of the number and also reformat the number into local and international dialing formats</doc>
+    <resources base="https://neutrinoapi-phone-validate.p.mashape.com/">
+        <resource uri="phone-validate/">
+            <method displayName="Phone Validate" id="144" name="POST">
+                <request/>
+                <response>
+                    <representation element="f144:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

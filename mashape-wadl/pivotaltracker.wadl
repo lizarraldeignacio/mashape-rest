@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>pivotal Tracker API</doc>
+    <resources base="https://pivotal.p.mashape.com/">
+        <resource uri="stories/">
+            <resource uri="{STORY_ID}/">
+                <param name="STORY_ID" style="template" type="xsd:string"/>
+                <method displayName="GetStory" id="3378" name="GET">
+                    <request>
+                        <param name="storyId" required="true" style="query" type="xsd:string">
+                            <doc>story ID</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="GetStoryActivity" id="3379" name="GET">
+                    <request>
+                        <param name="storyId" required="true" style="query" type="xsd:string">
+                            <doc>story ID</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="projects/">
+            <method displayName="GetAllTask" id="3365" name="GET">
+                <request>
+                    <param name="projectId" required="true" style="query" type="xsd:string">
+                        <doc>project ID</doc>
+                    </param>
+                    <param name="storyId" required="true" style="query" type="xsd:string">
+                        <doc>story ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="GetComments" id="3366" name="GET">
+                <request>
+                    <param name="projectId" required="true" style="query" type="xsd:string">
+                        <doc>project ID</doc>
+                    </param>
+                    <param name="storyId" required="true" style="query" type="xsd:string">
+                        <doc>story ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="GetProjectActivity" id="3367" name="GET">
+                <doc>Allow you to get Project Activity</doc>
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>limit of display up to</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>page Number</doc>
+                    </param>
+                    <param name="projectId" required="true" style="query" type="xsd:string">
+                        <doc>project ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="GetProjectIterationCategory" id="3368" name="GET">
+                <request>
+                    <param name="category" required="true" style="query" type="xsd:string">
+                        <doc>done current backlog or current backlog</doc>
+                    </param>
+                    <param name="projectId" required="true" style="query" type="xsd:string">
+                        <doc>project ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="GetProjectIterations" id="3369" name="GET">
+                <request>
+                    <param name="projectId" required="true" style="query" type="xsd:string">
+                        <doc>project ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="GetProjectMemberships" id="3370" name="GET">
+                <request>
+                    <param name="projectId" required="true" style="query" type="xsd:string">
+                        <doc>project ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="GetProjects" id="3371" name="GET">
+                <doc>Get List of Projects</doc>
+                <request/>
+            </method>
+            <method displayName="GetProjectStories" id="3372" name="GET">
+                <request>
+                    <param name="filter" required="true" style="query" type="xsd:string">
+                        <doc>sample includedone true type bug use space for separator</doc>
+                    </param>
+                    <param name="projectId" required="true" style="query" type="xsd:string">
+                        <doc>project ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="GetProjectStoryActivity" id="3373" name="GET">
+                <doc>Allows you to retrieve the activity of a specific story.</doc>
+                <request>
+                    <param name="projectId" required="true" style="query" type="xsd:string">
+                        <doc>project ID</doc>
+                    </param>
+                    <param name="storyId" required="true" style="query" type="xsd:string">
+                        <doc>story ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="GetSingleComment" id="3374" name="GET">
+                <request>
+                    <param name="commentId" required="true" style="query" type="xsd:string">
+                        <doc>comment ID</doc>
+                    </param>
+                    <param name="projectId" required="true" style="query" type="xsd:string">
+                        <doc>project ID</doc>
+                    </param>
+                    <param name="storyId" required="true" style="query" type="xsd:string">
+                        <doc>story ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="GetSingleProject" id="3375" name="GET">
+                <request>
+                    <param name="projectId" required="true" style="query" type="xsd:string">
+                        <doc>project ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="GetSingleProjectMemberships" id="3376" name="GET">
+                <request>
+                    <param name="membershipId" required="true" style="query" type="xsd:string">
+                        <doc>membership ID</doc>
+                    </param>
+                    <param name="projectId" required="true" style="query" type="xsd:string">
+                        <doc>project ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="GetSingleTask" id="3377" name="GET">
+                <request>
+                    <param name="projectId" required="true" style="query" type="xsd:string">
+                        <doc>project ID</doc>
+                    </param>
+                    <param name="storyId" required="true" style="query" type="xsd:string">
+                        <doc>story ID</doc>
+                    </param>
+                    <param name="taskId" required="true" style="query" type="xsd:string">
+                        <doc>task ID</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="activities/">
+            <method displayName="GetAllActivities" id="3364" name="GET">
+                <doc>Allows you to retrieve the recent activity of all your projects.</doc>
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>you can limit the number of activity feed items to a desired number Note the default value is and there is a upper cap of</doc>
+                    </param>
+                    <param name="occurredSinceDate" required="true" style="query" type="xsd:string">
+                        <doc>allows restricting the activity feed to only those items that occurred after a supplied date example format UTC</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

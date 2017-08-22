@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>zUMATA is a new approach in B B travel API s In a few simple steps you can be getting real time travel pricing availability and booking worldwide via simple API calls</doc>
+    <resources base="https://community-zumata.p.mashape.com/">
+        <resource uri="pa_enroll/">
+            <method displayName="/pa_enroll" id="2037" name="POST">
+                <request/>
+            </method>
+            <method displayName="/pa_enroll/acs/term_url" id="2038" name="POST">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="hotels_minimal/">
+            <method displayName="/hotels_minimal" id="2036" name="GET">
+                <request>
+                    <param name="adultcount" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="checkindatetime" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="checkoutdatetime" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="city" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="countrycode" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="destinationid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="gzip" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="hotelid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="lang" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="production" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="roomcount" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="sessionid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="stateorprovincecode" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="hotels_dynamic/">
+            <method displayName="/hotels_dynamic" id="2035" name="GET">
+                <request>
+                    <param name="adultcount" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="checkindatetime" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="checkoutdatetime" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="city" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="countrycode" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="destinationId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="gzip" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="hotelid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="lang" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="maxWait" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="production" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="requestedCurrency" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="roomcount" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="sessionid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="stateorprovincecode" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="hotels/">
+            <method displayName="/hotels" id="2034" name="GET">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="healthchekc/">
+            <method displayName="/healthcheck" id="2033" name="GET">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="cancel/">
+            <method displayName="/cancel" id="2032" name="POST">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="booking/">
+            <method displayName="/booking" id="2030" name="POST">
+                <request/>
+            </method>
+            <method displayName="/booking/cancellation_policy" id="2031" name="POST">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="book/">
+            <method displayName="/book" id="2028" name="POST">
+                <request/>
+            </method>
+            <method displayName="/book/:id/cancel" id="2029" name="PUT">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

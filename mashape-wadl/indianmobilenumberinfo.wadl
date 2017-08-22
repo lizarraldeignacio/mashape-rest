@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f89="urn:function:f89">
+    <grammars>
+        <include href="Function89.xsd"/>
+    </grammars>
+    <doc>just give any indian digit mobile number and get its information easily via this api Currently not supported now also supports mnp status checking in few major networks</doc>
+    <resources base="https://indianmobilenumberinfo.p.mashape.com/">
+        <resource uri="index.php/">
+            <method displayName="Indian Mobile Number Info" id="89" name="GET">
+                <doc>Check any Indian Mobile Number's Information.</doc>
+                <request>
+                    <param name="mobilenos" required="true" style="query" type="xsd:string">
+                        <doc>digit mobile number s each separated by a comma</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f89:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

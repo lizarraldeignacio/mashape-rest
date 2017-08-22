@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>the kimonolabs World Cup API provides easy access to up to date player team and match data for the World Cup as well as historical player performance across their respective club teams The API is RESTful and uses standard HTTP response codes to indicate errors JSON will be returned in all responses from the API</doc>
+    <resources base="https://community-unofficial-world-cup.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="teams/">
+                <method displayName="List all teams" id="1753" name="GET">
+                    <doc>Returns a JSON array containing team objects matching the arguments provided.</doc>
+                    <request>
+                        <param name="fields" required="true" style="query" type="xsd:string">
+                            <doc>display only certain fields comma separated</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:string">
+                            <doc>maximum number of objects returned default</doc>
+                        </param>
+                        <param name="offset" required="true" style="query" type="xsd:string">
+                            <doc>starting index of first returned object offset</doc>
+                        </param>
+                        <param name="sort" required="true" style="query" type="xsd:string">
+                            <doc>sort by any field ascending or descending ascending descending</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Retrieve a Team" id="1758" name="GET">
+                    <doc>Returns a JSON object for the Team that matches the specified id.</doc>
+                    <request>
+                        <param name="fields" required="true" style="query" type="xsd:string">
+                            <doc>display only certain fields comma separated</doc>
+                        </param>
+                        <param name="teamId" required="true" style="query" type="xsd:string">
+                            <doc>unique id for team</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="players/">
+                <method displayName="List all players" id="1752" name="GET">
+                    <doc>Returns a JSON array containing player objects matching the arguments provided.</doc>
+                    <request>
+                        <param name="fields" required="true" style="query" type="xsd:string">
+                            <doc>display only certain fields comma separated</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:string">
+                            <doc>maximum number of objects returned default</doc>
+                        </param>
+                        <param name="offset" required="true" style="query" type="xsd:string">
+                            <doc>starting index of first returned object offset</doc>
+                        </param>
+                        <param name="sort" required="true" style="query" type="xsd:string">
+                            <doc>sort by any field ascending or descending ascending descending</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Retrieve a player" id="1756" name="GET">
+                    <doc>Returns a JSON object for the player that matches the specified id.</doc>
+                    <request>
+                        <param name="fields" required="true" style="query" type="xsd:string">
+                            <doc>display only certain fields comma separated</doc>
+                        </param>
+                        <param name="playerId" required="true" style="query" type="xsd:string">
+                            <doc>unique id for player</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="player_season_stats/">
+                <method displayName="List all Player Season Stats" id="1751" name="GET">
+                    <doc>Returns a JSON array containing PlayerSeasonStat objects matching the arguments provided.</doc>
+                    <request>
+                        <param name="fields" required="true" style="query" type="xsd:string">
+                            <doc>display only certain fields comma separated</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:string">
+                            <doc>maximum number of objects returned default</doc>
+                        </param>
+                        <param name="offset" required="true" style="query" type="xsd:string">
+                            <doc>starting index of first returned object offset</doc>
+                        </param>
+                        <param name="sort" required="true" style="query" type="xsd:string">
+                            <doc>sort by any field ascending or descending ascending descending</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Retrieve a Player Season Stat" id="1757" name="GET">
+                    <doc>Returns a JSON object for the PlayerSeasonStat that matches the specified id.</doc>
+                    <request>
+                        <param name="fields" required="true" style="query" type="xsd:string">
+                            <doc>display only certain fields comma separated</doc>
+                        </param>
+                        <param name="playerSeasonStatId" required="true" style="query" type="xsd:string">
+                            <doc>unique id for PlayerSeasonStat</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="matches/">
+                <method displayName="List all matches" id="1750" name="GET">
+                    <doc>Returns a JSON array containing team objects matching the arguments provided.</doc>
+                    <request>
+                        <param name="fields" required="true" style="query" type="xsd:string">
+                            <doc>display only certain fields comma separated</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:string">
+                            <doc>maximum number of objects returned default</doc>
+                        </param>
+                        <param name="offset" required="true" style="query" type="xsd:string">
+                            <doc>starting index of first returned object offset</doc>
+                        </param>
+                        <param name="sort" required="true" style="query" type="xsd:string">
+                            <doc>sort by any field ascending or descending ascending descending</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Retrieve a Match" id="1755" name="GET">
+                    <doc>Returns a JSON object for the team that matches the specified id.</doc>
+                    <request>
+                        <param name="fields" required="true" style="query" type="xsd:string">
+                            <doc>display only certain fields comma separated</doc>
+                        </param>
+                        <param name="matchId" required="true" style="query" type="xsd:string">
+                            <doc>unique id for match</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="clubs/">
+                <method displayName="List all clubs" id="1749" name="GET">
+                    <doc>Returns a JSON array containing club objects matching the arguments provided.</doc>
+                    <request>
+                        <param name="limit" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of clubs returned</doc>
+                        </param>
+                        <param name="offset" required="true" style="query" type="xsd:string">
+                            <doc>starting index of first club</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Retrieve a club" id="1754" name="GET">
+                    <doc>Returns a JSON object for the club that matches the specified id.</doc>
+                    <request>
+                        <param name="clubId" required="true" style="query" type="xsd:string">
+                            <doc>unique id for club</doc>
+                        </param>
+                        <param name="fields" required="true" style="query" type="xsd:string">
+                            <doc>display only certain fields comma separated</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

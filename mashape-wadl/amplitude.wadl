@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4460="urn:function:f4460" xmlns:f4461="urn:function:f4461" xmlns:f4463="urn:function:f4463" xmlns:f4464="urn:function:f4464" xmlns:f4465="urn:function:f4465">
+    <grammars>
+        <include href="Function4465.xsd"/>
+        <include href="Function4464.xsd"/>
+        <include href="Function4463.xsd"/>
+        <include href="Function4461.xsd"/>
+        <include href="Function4460.xsd"/>
+    </grammars>
+    <doc>mobile Analytics for decision makers COME WITH QUESTIONS LEAVE WITH ANSWERS</doc>
+    <resources base="https://community-amplitude.p.mashape.com/">
+        <resource uri="sessionsperuser/">
+            <method displayName="Sessions per user" id="4465" name="GET">
+                <doc>Get the average number of sessions per user on each each day in the specified date range</doc>
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:string">
+                        <doc>last date included in data series formatted YYYYMMDD e g</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>first date included in data series formatted YYYYMMDD e g</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4465:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="sessiondistribution/">
+            <method displayName="Session Length Distribution" id="4464" name="GET">
+                <doc>Get the number of sessions for each pre-defined length ("bucket") period, during a specified date range.</doc>
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:string">
+                        <doc>last date included in data series formatted YYYYMMDD e g</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>first date included in data series formatted YYYYMMDD e g</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4464:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="usage/">
+            <method displayName="Getting Dashboard Data Series" id="4463" name="GET">
+                <doc>Any data that can be displyed on the dashboard graphs can also be obtained via the commands below. The results are returned as JSON.</doc>
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:string">
+                        <doc>last date included in data series formatted YYYYMMDD e g</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>first date included in data series formatted YYYYMMDD e g</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4463:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="events/">
+            <method displayName="Exporting events data" id="4462" name="GET">
+                <doc>Export all events data for a given app that occured within a specified range of dates. The results are returned as a zipped archive of JSON files, one file per day.</doc>
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:string">
+                        <doc>last date included in data series formatted YYYYMMDD e g</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>first date included in data series formatted YYYYMMDD e g</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="userproperties/">
+            <method displayName="Composition of User Properties" id="4461" name="GET">
+                <request>
+                    <param name="group" required="true" style="query" type="xsd:string">
+                        <doc>name of the user property desired For pre defined by Amplitude user properties group values are version country language platform os device start version paying For custom defined user global properties group value is formatted gp name</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4461:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="sessionsavglength/">
+            <method displayName="Average session length" id="4460" name="GET">
+                <doc>Get the average session length (in seconds) for each day in the specified date range</doc>
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:string">
+                        <doc>last date included in data series formatted YYYYMMDD e g</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>first date included in data series formatted YYYYMMDD e g</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4460:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

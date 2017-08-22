@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f26="urn:function:f26" xmlns:f27="urn:function:f27" xmlns:f28="urn:function:f28" xmlns:f29="urn:function:f29" xmlns:f30="urn:function:f30" xmlns:f31="urn:function:f31" xmlns:f32="urn:function:f32" xmlns:f33="urn:function:f33" xmlns:f35="urn:function:f35" xmlns:f36="urn:function:f36" xmlns:f37="urn:function:f37" xmlns:f38="urn:function:f38" xmlns:f39="urn:function:f39">
+    <grammars>
+        <include href="Function39.xsd"/>
+        <include href="Function38.xsd"/>
+        <include href="Function37.xsd"/>
+        <include href="Function36.xsd"/>
+        <include href="Function33.xsd"/>
+        <include href="Function35.xsd"/>
+        <include href="Function32.xsd"/>
+        <include href="Function31.xsd"/>
+        <include href="Function30.xsd"/>
+        <include href="Function29.xsd"/>
+        <include href="Function28.xsd"/>
+        <include href="Function27.xsd"/>
+        <include href="Function26.xsd"/>
+    </grammars>
+    <doc>deprecated see https www mashape com byroredux metacritic v instead</doc>
+    <resources base="https://byroredux-metacritic.p.mashape.com/">
+        <resource uri="search/">
+            <resource uri="album/">
+                <method displayName="Search music albums" id="39" name="POST">
+                    <doc>Perform a search for the specified keywords</doc>
+                    <request/>
+                    <response>
+                        <representation element="f39:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="movie/">
+                <method displayName="Search movies" id="38" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f38:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="game/">
+                <method displayName="Search games" id="37" name="POST">
+                    <request>
+                        <param name="maxPages" required="true" style="query" type="xsd:integer">
+                            <doc>maximum result page count to scrape valid range to default</doc>
+                        </param>
+                        <param name="platform" required="true" style="query" type="xsd:string">
+                            <doc>narrow the search by game platform</doc>
+                        </param>
+                        <param name="title" required="true" style="query" type="xsd:string">
+                            <doc>game title</doc>
+                        </param>
+                        <param name="yearFrom" required="true" style="query" type="xsd:string">
+                            <doc>released in year from or later</doc>
+                        </param>
+                        <param name="yearTo" required="true" style="query" type="xsd:string">
+                            <doc>released in year to or earlier</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f37:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="user-reviews/">
+            <method displayName="Get user reviews" id="36" name="GET">
+                <doc>Fetch up to 500 user reviews</doc>
+                <request>
+                    <param name="pageCount" required="true" style="query" type="xsd:integer">
+                        <doc>set the maximum page count default all get all Each page has reviews except the last could have less With all after pages the API will use a second pause between requests so a media with pages could take seconds to parse</doc>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:string">
+                        <doc>sorting option default Most helpful available options score most active date</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>the entity URL</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f36:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="details/">
+            <method displayName="Get details by URL" id="34" name="GET">
+                <doc>Extract details for any entity type, by an URL. To see what kind of details are extracted for each type, see the respective /find/ method, as they return the same format.</doc>
+                <request>
+                    <param name="retry" required="true" style="query" type="xsd:integer">
+                        <doc>max retry count max default disable</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>uRL of the entity</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="reviews/">
+            <method displayName="Get critic reviews" id="33" name="GET">
+                <doc>Get a list of critic reviews with scores, links...</doc>
+                <request>
+                    <param name="sort" required="true" style="query" type="xsd:string">
+                        <doc>the default no parameter is Critics score available options most active publication most clicked</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>uRL of the entity you need to scrape</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f33:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="movie-list/">
+            <resource uri="new-releases/">
+                <resource uri="{order_by}/">
+                    <param name="order_by" style="template" type="xsd:string"/>
+                    <method displayName="Get new movie releases" id="35" name="GET">
+                        <request>
+                            <param name="orderBy" required="true" style="query" type="xsd:string">
+                                <doc>list order by valid values date metascore name userscore Default date</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f35:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="coming-soon/">
+                <method displayName="Get coming soon movie list" id="32" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f32:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="album-list/">
+            <resource uri="new-releases/">
+                <resource uri="{order_by}/">
+                    <param name="order_by" style="template" type="xsd:string"/>
+                    <method displayName="Get a list of new releases" id="31" name="GET">
+                        <doc>This is scraping the "Music -&gt; New releases" page on metacritic.com</doc>
+                        <request>
+                            <param name="orderBy" required="true" style="query" type="xsd:string">
+                                <doc>possible values date metascore name userscore Default date</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f31:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="coming-soon/">
+                <method displayName="Get &quot;coming soon&quot; music albums" id="30" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f30:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="game-list/">
+            <resource uri="{platform}/">
+                <param name="platform" style="template" type="xsd:string"/>
+                <resource uri="{list_type}/">
+                    <param name="list_type" style="template" type="xsd:string"/>
+                    <method displayName="Game list" id="29" name="GET">
+                        <doc>Provides a listing function for the browsable game section.</doc>
+                        <request>
+                            <param name="listType" required="true" style="query" type="xsd:string">
+                                <doc>list type currently supported coming soon new releases</doc>
+                            </param>
+                            <param name="platform" required="true" style="query" type="xsd:string">
+                                <doc>game platform supported ps xboxone ps xbox pc wii u ds vita ios</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f29:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="find/">
+            <resource uri="movie/">
+                <method displayName="Find movie" id="28" name="POST">
+                    <doc>Get movie details by exact name match</doc>
+                    <request/>
+                    <response>
+                        <representation element="f28:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="game/">
+                <method displayName="Find game" id="27" name="POST">
+                    <doc>Get game details by exact name match</doc>
+                    <request/>
+                    <response>
+                        <representation element="f27:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="type-description/">
+            <resource uri="{type}/">
+                <param name="type" style="template" type="xsd:string"/>
+                <method displayName="Entity type description" id="26" name="GET">
+                    <doc>Specification of type options</doc>
+                    <request>
+                        <param name="retry" required="true" style="query" type="xsd:integer">
+                            <doc>max retry count max default disable</doc>
+                        </param>
+                        <param name="type" required="true" style="query" type="xsd:string">
+                            <doc>entity type Available values game movie album Default game</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f26:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

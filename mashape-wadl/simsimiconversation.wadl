@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2381="urn:function:f2381">
+    <grammars>
+        <include href="Function2381.xsd"/>
+    </grammars>
+    <doc>simSimi database consists of simple Request Response set When you request Hi SimSimi API send response by similarity with request sentence Conversation API enables you to get SimSimi s response data</doc>
+    <resources base="https://simsimi.p.mashape.com/">
+        <resource uri="request.p/">
+            <method displayName="request" id="2381" name="GET">
+                <request>
+                    <param name="ft" required="true" style="query" type="xsd:integer">
+                        <doc>sexual Contents</doc>
+                    </param>
+                    <param name="lc" required="true" style="query" type="xsd:string">
+                        <doc>language code</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>query message</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2381:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

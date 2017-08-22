@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>worldwide forward and reverse address geocoding Uses multiple geocoders based on open data</doc>
+    <resources base="https://mtmail-opencage-geocoder-v1.p.mashape.com/">
+        <resource uri="geocode/">
+            <resource uri="v1/">
+                <resource uri="json?q={q}/">
+                    <param name="q" style="template" type="xsd:string"/>
+                    <method displayName="geocode" id="2205" name="GET">
+                        <doc>geocode an address</doc>
+                        <request>
+                            <param name="key" required="true" style="query" type="xsd:string">
+                                <doc>the API key you got when registering on http geocoder opencagedata com</doc>
+                            </param>
+                            <param name="language" required="true" style="query" type="xsd:string">
+                                <doc>an IETF format language code such as es for Spanish or pt BR for Brazilian Portuguese if this is omitted a code of en English will be assumed</doc>
+                            </param>
+                            <param name="q" required="true" style="query" type="xsd:string">
+                                <doc>address</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

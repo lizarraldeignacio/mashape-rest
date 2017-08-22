@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6086="urn:function:f6086" xmlns:f6087="urn:function:f6087" xmlns:f6088="urn:function:f6088">
+    <grammars>
+        <include href="Function6088.xsd"/>
+        <include href="Function6087.xsd"/>
+        <include href="Function6086.xsd"/>
+    </grammars>
+    <doc>private API for sending reloads getting recharge vouchers and logging in merchants</doc>
+    <resources base="https://smartpay.p.mashape.com/">
+        <resource uri="voucher/">
+            <method displayName="Voucher" id="6088" name="GET">
+                <doc>Get a recharge voucher.</doc>
+                <request>
+                    <param name="merchantKey" required="true" style="query" type="xsd:string">
+                        <doc>merchant Key from merchant login</doc>
+                    </param>
+                    <param name="provider" required="true" style="query" type="xsd:string">
+                        <doc>voucher Provider ID Sample test value</doc>
+                    </param>
+                    <param name="value" required="true" style="query" type="xsd:string">
+                        <doc>voucher value Sample test value</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6088:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="reload/">
+            <method displayName="Reload" id="6087" name="GET">
+                <doc>Send a reload</doc>
+                <request>
+                    <param name="merchantKey" required="true" style="query" type="xsd:string">
+                        <doc>merchant Key from merchant login</doc>
+                    </param>
+                    <param name="mobileNumber" required="true" style="query" type="xsd:integer">
+                        <doc>number of the mobile phone that the reload should be sent to Sample test value</doc>
+                    </param>
+                    <param name="provider" required="true" style="query" type="xsd:integer">
+                        <doc>reload provider ID Sample test value</doc>
+                    </param>
+                    <param name="value" required="true" style="query" type="xsd:integer">
+                        <doc>reload value Sample test value</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6087:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="merchant/">
+            <method displayName="Merchant" id="6086" name="GET">
+                <doc>Merchant login</doc>
+                <request>
+                    <param name="merchantId" required="true" style="query" type="xsd:integer">
+                        <doc>merchant ID Sample test value</doc>
+                    </param>
+                    <param name="merchantPassword" required="true" style="query" type="xsd:string">
+                        <doc>password of the merchant Sample test value</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6086:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

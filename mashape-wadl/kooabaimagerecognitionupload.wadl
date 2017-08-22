@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1803="urn:function:f1803" xmlns:f1804="urn:function:f1804" xmlns:f1805="urn:function:f1805" xmlns:f1806="urn:function:f1806" xmlns:f1807="urn:function:f1807" xmlns:f1808="urn:function:f1808" xmlns:f1809="urn:function:f1809" xmlns:f1810="urn:function:f1810">
+    <grammars>
+        <include href="Function1804.xsd"/>
+        <include href="Function1808.xsd"/>
+        <include href="Function1809.xsd"/>
+        <include href="Function1803.xsd"/>
+        <include href="Function1805.xsd"/>
+        <include href="Function1806.xsd"/>
+        <include href="Function1807.xsd"/>
+        <include href="Function1810.xsd"/>
+    </grammars>
+    <doc>this API allows you to upload your own data for recognition It is usually used together with the Query API to make recognition requests for the uploaded database</doc>
+    <resources base="https://community-kooaba-image-recognition-upload.p.mashape.com/">
+        <resource uri="buckets/">
+            <method displayName="Create an item" id="1804" name="POST">
+                <request>
+                    <param name="bucketuuid" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1804:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Index" id="1808" name="GET">
+                <doc>Returns a list of buckets the API user has access to.</doc>
+                <request/>
+                <response>
+                    <representation element="f1808:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List items" id="1809" name="GET">
+                <doc>List the items in a bucket. Up to 100 items are returned for each page.</doc>
+                <request>
+                    <param name="bucketuuid" required="true" style="query" type="xsd:string"/>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>number The page number for the items to list The first page is page e g api v buckets bucketUUID items page</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1809:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="items/">
+            <resource uri="{itemUUID}/">
+                <param name="itemUUID" style="template" type="xsd:string"/>
+                <method displayName="Add additional images to an item" id="1803" name="POST">
+                    <request>
+                        <param name="itemuuid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f1803:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Delete an item" id="1805" name="DELETE">
+                    <request>
+                        <param name="itemuuid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f1805:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get an item" id="1806" name="GET">
+                    <request>
+                        <param name="images" required="true" style="query" type="xsd:boolean">
+                            <doc/>
+                        </param>
+                        <param name="itemuuid" required="true" style="query" type="xsd:string"/>
+                        <param name="metadata" required="true" style="query" type="xsd:boolean">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1806:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get the status of an item" id="1807" name="GET">
+                    <request>
+                        <param name="itemuuid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f1807:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Update an item" id="1810" name="PUT">
+                    <request>
+                        <param name="itemuuid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f1810:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

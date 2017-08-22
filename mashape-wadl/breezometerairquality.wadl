@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4356="urn:function:f4356" xmlns:f4357="urn:function:f4357">
+    <grammars>
+        <include href="Function4357.xsd"/>
+        <include href="Function4356.xsd"/>
+    </grammars>
+    <doc>meet the world s most advanced Air Quality Data This API provides you with a street level air quality data including health recommendations on what you should do As developers we built it in the most fun and simple way to integrate in every platform Examples on how to use the data At weather apps websites Fitness Sport planning the cleanest running route of finding the healthiest place Health providing users with more data and health recommendations Real estate Let your users know in what environment they are going to live in and much more Contact us for more details info breezometer com</doc>
+    <resources base="https://breezometer.p.mashape.com/">
+        <resource uri="location/">
+            <method displayName="Get AQI by location" id="4357" name="GET">
+                <doc>BreezoMeter’s API also works great with location-based queries.</doc>
+                <request>
+                    <param name="lang" required="true" style="query" type="xsd:string">
+                        <doc>at the moment we support English en and Hebrew he More languages are coming soon</doc>
+                    </param>
+                    <param name="location" required="true" style="query" type="xsd:string">
+                        <doc>the location that you are looking for street city country etc</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4357:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="spot/">
+            <method displayName="Get API by Lat-Lon" id="4356" name="GET">
+                <doc>You can search locations by Latitude and Longitude.  Go on, give it a go :)</doc>
+                <request>
+                    <param name="lat" required="true" style="query" type="xsd:integer"/>
+                    <param name="lon" required="true" style="query" type="xsd:integer"/>
+                </request>
+                <response>
+                    <representation element="f4356:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

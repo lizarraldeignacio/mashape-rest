@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2154="urn:function:f2154" xmlns:f2155="urn:function:f2155">
+    <grammars>
+        <include href="Function2154.xsd"/>
+        <include href="Function2155.xsd"/>
+    </grammars>
+    <doc>automatically generate topics and keywords for articles and blogs</doc>
+    <resources base="https://twinword-topic-tagging.p.mashape.com/">
+        <resource uri="generate/">
+            <method displayName="Generate (get)" id="2154" name="GET">
+                <doc>Detect and generate human like topics to the given text.</doc>
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>enter some text to generate topics maximum words or characters</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2154:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Generate (post)" id="2155" name="POST">
+                <doc>Detect and generate human like topics to the given text.</doc>
+                <request/>
+                <response>
+                    <representation element="f2155:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

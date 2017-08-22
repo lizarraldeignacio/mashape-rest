@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1379="urn:function:f1379">
+    <grammars>
+        <include href="Function1379.xsd"/>
+    </grammars>
+    <doc>we ve enabled JSON access to the database that powers the Code org local school search Our goal is to enable third parties to take advantage of our database in order to build local search engines or other applications beyond the simple local search we provide All information that is publicly available via our search engine is exposed via JSON public contact info is listed but private contact info is not The data behind the Code org school database is licensed via the Creative Commons attribution license you can use the data as you wish but please give Code org attribution</doc>
+    <resources base="https://community-local-school-database.p.mashape.com/">
+        <resource uri="schools.json/">
+            <method displayName="Local School Database" id="1379" name="GET">
+                <doc>This endpoint allows you to access the whole database. This endpoint requires no parameters.</doc>
+                <request/>
+                <response>
+                    <representation element="f1379:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

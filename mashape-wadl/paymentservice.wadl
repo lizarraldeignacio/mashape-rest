@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6146="urn:function:f6146" xmlns:f6147="urn:function:f6147">
+    <grammars>
+        <include href="Function6147.xsd"/>
+        <include href="Function6146.xsd"/>
+    </grammars>
+    <doc>get the payment related info</doc>
+    <resources base="https://shiweihang-getsea-v1.p.mashape.com/">
+        <resource uri="payment/">
+            <method displayName="payment" id="6148" name="GET">
+                <doc>get the price of the order</doc>
+                <request>
+                    <param name="orderid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="price/">
+            <method displayName="/price" id="6147" name="GET">
+                <request>
+                    <param name="a" required="true" style="query" type="xsd:string">
+                        <doc>c</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6147:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="brand/">
+            <method displayName="/brand" id="6146" name="GET">
+                <request>
+                    <param name="letter" required="true" style="query" type="xsd:string">
+                        <doc>the first letter of the brand</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6146:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

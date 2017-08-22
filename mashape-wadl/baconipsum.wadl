@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>a meatier lorem ipsum generator Does your lorem ipsum text long for something a little meatier Give our generator a try it s tasty</doc>
+    <resources base="https://baconator-bacon-ipsum.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Baconized Ipsum" id="3108" name="GET">
+                <request>
+                    <param name="paras" required="true" style="query" type="xsd:string">
+                        <doc>number of paragraphs defaults to</doc>
+                    </param>
+                    <param name="sentences" required="true" style="query" type="xsd:string">
+                        <doc>number of sentences this overrides paragraphs</doc>
+                    </param>
+                    <param name="startWithLorem" required="true" style="query" type="xsd:string">
+                        <doc>pass to start the first paragraph with Bacon ipsum dolor sit amet</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>all meat for meat only or meat and filler for meat mixed with miscellaneous lorem ipsum filler</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

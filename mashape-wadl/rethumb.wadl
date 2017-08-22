@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>this API creates and host thumbnails from images Resize by width height and crop to create squares</doc>
+    <resources base="https://rethumb.p.mashape.com/">
+        <resource uri="width/">
+            <resource uri="{pixels}/">
+                <param name="pixels" style="template" type="xsd:string"/>
+                <resource uri="{image}/">
+                    <param name="image" style="template" type="xsd:string"/>
+                    <method displayName="Width" id="1696" name="GET">
+                        <doc>Resize the image based on the specified width.</doc>
+                        <request>
+                            <param name="image" required="true" style="query" type="xsd:string">
+                                <doc>uRL of the image to process</doc>
+                            </param>
+                            <param name="pixels" required="true" style="query" type="xsd:integer">
+                                <doc>width of the thumbnail in pixels</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="square/">
+            <resource uri="{pixels}/">
+                <param name="pixels" style="template" type="xsd:string"/>
+                <resource uri="{image}/">
+                    <param name="image" style="template" type="xsd:string"/>
+                    <method displayName="Square" id="1695" name="GET">
+                        <doc>Create a square image based on the specified size.</doc>
+                        <request>
+                            <param name="image" required="true" style="query" type="xsd:string">
+                                <doc>uRL of the image to process</doc>
+                            </param>
+                            <param name="pixels" required="true" style="query" type="xsd:string">
+                                <doc>size of the thumbnail square</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="height/">
+            <resource uri="{pixels}/">
+                <param name="pixels" style="template" type="xsd:string"/>
+                <resource uri="{image}/">
+                    <param name="image" style="template" type="xsd:string"/>
+                    <method displayName="Height" id="1694" name="GET">
+                        <doc>Resize the image based on the specified height.</doc>
+                        <request>
+                            <param name="image" required="true" style="query" type="xsd:string">
+                                <doc>uRL of the image to process</doc>
+                            </param>
+                            <param name="pixels" required="true" style="query" type="xsd:string">
+                                <doc>height of the thumbnail in pixels</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

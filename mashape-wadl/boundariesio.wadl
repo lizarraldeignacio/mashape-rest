@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f849="urn:function:f849">
+    <grammars>
+        <include href="Function849.xsd"/>
+    </grammars>
+    <doc>uS Zip Code County City and State Boundaries API A simple very fast API that will allow you to integrate multiple GeoJson US boundaries results into your apps and systems This API is designed to be used programatically for optimal performance When using the MashApe UI for queries expect significant latency issues on large result sets</doc>
+    <resources base="https://vanitysoft-boundaries-io-v1.p.mashape.com/">
+        <resource uri="reaperfire/">
+            <resource uri="rest/">
+                <resource uri="v1/">
+                    <resource uri="public/">
+                        <resource uri="boundary/">
+                            <method displayName="Retrieve US Zipcode Boundaries" id="849" name="GET">
+                                <doc>Get US State,Zipcode, or City boundaries in GeoJson Formats.  The MashAPI UI cannot handle large results(we default to 30 zipcode limit), this API is meant to be used programatically.  Thanks.  Copy &amp; paste results: http://geojsonlint.com for a quick view.</doc>
+                                <request>
+                                    <param name="and" required="true" style="query" type="xsd:boolean">
+                                        <doc>perform and AND true OR false query on request parameters DEFAULT IS FALSE</doc>
+                                    </param>
+                                    <param name="city" required="true" style="query" type="xsd:string">
+                                        <doc>query by city for example Richmond</doc>
+                                    </param>
+                                    <param name="county" required="true" style="query" type="xsd:string">
+                                        <doc>query by county for example Worcester County use Worcester</doc>
+                                    </param>
+                                    <param name="includepostal" required="true" style="query" type="xsd:boolean">
+                                        <doc>include postal or unique zipcode Points in the geoJson response</doc>
+                                    </param>
+                                    <param name="limit" required="true" style="query" type="xsd:string">
+                                        <doc>list number of zipcode results This is an optional parameter</doc>
+                                    </param>
+                                    <param name="state" required="true" style="query" type="xsd:string">
+                                        <doc>query by state for example DC If it is a large State please execute programmatically the Mashape UI cannot handle the amount of zipcodes returned and will hang</doc>
+                                    </param>
+                                    <param name="zipcode" required="true" style="query" type="xsd:integer">
+                                        <doc>query by zipcode</doc>
+                                    </param>
+                                </request>
+                                <response>
+                                    <representation element="f849:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

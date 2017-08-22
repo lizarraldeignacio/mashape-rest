@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1148="urn:function:f1148">
+    <grammars>
+        <include href="Function1148.xsd"/>
+    </grammars>
+    <doc>a simple But powerful DND Stats Checker This API will lookup in NCPR National Customer Preference Register and return value as JSON response Keywords Dnd checker Dnd check api Dnd check online dnd check india</doc>
+    <resources base="https://sphirelabs-dnd-stats-checker-india.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="get/">
+                <resource uri="dndstats.php/">
+                    <method displayName="DND Stats" id="1148" name="GET">
+                        <doc>Check the dnd status online</doc>
+                        <request>
+                            <param name="number" required="true" style="query" type="xsd:integer">
+                                <doc>digit mobile number to check DND stats</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1148:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

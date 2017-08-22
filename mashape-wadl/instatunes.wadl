@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f439="urn:function:f439">
+    <grammars>
+        <include href="Function439.xsd"/>
+    </grammars>
+    <doc>love music This API will search for tracks songs in mp formate and gets direct download stream links to you You can then either stream the track directly or download it it can search for all indian english and other local music download wont cost you anything</doc>
+    <resources base="https://instatunes.p.mashape.com/">
+        <resource uri="search/">
+            <method displayName="search" id="439" name="POST">
+                <doc>searches for mp3 files around the world</doc>
+                <request/>
+                <response>
+                    <representation element="f439:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

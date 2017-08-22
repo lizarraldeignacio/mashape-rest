@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1811="urn:function:f1811" xmlns:f1812="urn:function:f1812">
+    <grammars>
+        <include href="Function1812.xsd"/>
+        <include href="Function1811.xsd"/>
+    </grammars>
+    <doc>convert dates and times into common formats such as ISO mysql relative etc</doc>
+    <resources base="https://montanaflynn-timekeeper---format-dates-and-times.p.mashape.com/">
+        <resource uri="format/">
+            <resource uri="time/">
+                <method displayName="Time" id="1812" name="GET">
+                    <doc>Format Time</doc>
+                    <request>
+                        <param name="time" required="true" style="query" type="xsd:string">
+                            <doc>anything that resembles a time</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1812:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="date/">
+                <method displayName="Date" id="1811" name="GET">
+                    <request>
+                        <param name="date" required="true" style="query" type="xsd:string">
+                            <doc>anything that resembles a date</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1811:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

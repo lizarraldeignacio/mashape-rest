@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2776="urn:function:f2776">
+    <grammars>
+        <include href="Function2776.xsd"/>
+    </grammars>
+    <doc>we have developed a simple solution that allows you to read large xls files and save data to the database mysql NoXLS can read huge excel files more than rows NoXLS can read excel files since Excel NoXLS can work even on shared hosting Good solution for PHP developers</doc>
+    <resources base="https://karpovigorok-noxls.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="v1/">
+                <resource uri="parser/">
+                    <method displayName="/api/v1/parser" id="2776" name="POST">
+                        <doc>Create new request for parsing XLS file.</doc>
+                        <request/>
+                        <response>
+                            <representation element="f2776:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

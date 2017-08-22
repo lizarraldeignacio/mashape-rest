@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>screenshotlayer is a lighweight REST API built to deliver high quality PNG JPEG GIF website screenshots at unparalleled speeds and through a simple interface Its architecture is focused on ease of use and integration making for a high level of compatibility with any application framework and programming language</doc>
+    <resources base="https://apilayer-screenshotlayer-v1.p.mashape.com/">
+        <resource uri="capture/">
+            <method displayName="Main Endpoint - Capture Screenshot" id="6318" name="GET">
+                <request>
+                    <param name="acceptLang" required="true" style="query" type="xsd:string">
+                        <doc>specify HTTP accept language header</doc>
+                    </param>
+                    <param name="cssUrl" required="true" style="query" type="xsd:string">
+                        <doc>append a CSS stylesheet URL in order to inject it into the target website</doc>
+                    </param>
+                    <param name="delay" required="true" style="query" type="xsd:string">
+                        <doc>specify delay time in seconds e g</doc>
+                    </param>
+                    <param name="export" required="true" style="query" type="xsd:string">
+                        <doc>append either S Bucket path format API KEY API SECRET bucket or FTP path format ftp user password server</doc>
+                    </param>
+                    <param name="force" required="true" style="query" type="xsd:integer">
+                        <doc>set to in order to force the API to capture fresh screenshot</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>output formats PNG JPEG and GIF</doc>
+                    </param>
+                    <param name="fullpage" required="true" style="query" type="xsd:integer">
+                        <doc>set to in order to capture the full height of the page</doc>
+                    </param>
+                    <param name="placeholder" required="true" style="query" type="xsd:string">
+                        <doc>set to in order to use default placeholder image or set to any image URL in order to use a custom placeholder</doc>
+                    </param>
+                    <param name="secretKey" required="true" style="query" type="xsd:string">
+                        <doc>specify Secret Key read more at https screenshotlayer com documentation url encryption</doc>
+                    </param>
+                    <param name="ttl" required="true" style="query" type="xsd:integer">
+                        <doc>specify caching time time to live for your screenshot default seconds days</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>the website URL you want to take a screenshot of</doc>
+                    </param>
+                    <param name="userAgent" required="true" style="query" type="xsd:string">
+                        <doc>specify HTTP user agent header</doc>
+                    </param>
+                    <param name="viewport" required="true" style="query" type="xsd:string">
+                        <doc>viewport size format width x height e g x for iPhone</doc>
+                    </param>
+                    <param name="width" required="true" style="query" type="xsd:string">
+                        <doc>define thumbnail width in pixels e g</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

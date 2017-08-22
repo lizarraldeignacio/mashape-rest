@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5310="urn:function:f5310" xmlns:f5311="urn:function:f5311" xmlns:f5312="urn:function:f5312" xmlns:f5313="urn:function:f5313" xmlns:f5314="urn:function:f5314" xmlns:f5315="urn:function:f5315" xmlns:f5316="urn:function:f5316" xmlns:f5317="urn:function:f5317" xmlns:f5318="urn:function:f5318" xmlns:f5319="urn:function:f5319" xmlns:f5320="urn:function:f5320" xmlns:f5321="urn:function:f5321" xmlns:f5322="urn:function:f5322">
+    <grammars>
+        <include href="Function5322.xsd"/>
+        <include href="Function5321.xsd"/>
+        <include href="Function5316.xsd"/>
+        <include href="Function5317.xsd"/>
+        <include href="Function5319.xsd"/>
+        <include href="Function5320.xsd"/>
+        <include href="Function5314.xsd"/>
+        <include href="Function5315.xsd"/>
+        <include href="Function5318.xsd"/>
+        <include href="Function5310.xsd"/>
+        <include href="Function5311.xsd"/>
+        <include href="Function5312.xsd"/>
+        <include href="Function5313.xsd"/>
+    </grammars>
+    <doc>the Lob API formerly Infraprint is a printing API organized around REST Our API is designed to have predictable resource oriented URLs and uses HTTP response codes to indicate any API errors To send a print job you need to Create an address Create an object an object is the content you will be printing Once you have done this you can send this a job to the printer</doc>
+    <resources base="https://lob.p.mashape.com/">
+        <resource uri="settings/">
+            <method displayName="settings" id="5322" name="GET">
+                <doc>Returns a list of all currently supported settings</doc>
+                <request/>
+                <response>
+                    <representation element="f5322:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="packagings/">
+            <method displayName="packagings" id="5321" name="GET">
+                <doc>Returns a list of all currently supported packagings. You can use the IDs for jobs to specify the packaging of which your print job will be put into</doc>
+                <request/>
+                <response>
+                    <representation element="f5321:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="objects/">
+            <method displayName="get-object" id="5316" name="GET">
+                <doc>Retrieves the details of an existing object. You need only supply the unique object identifier that was returned upon object creation.</doc>
+                <request>
+                    <param name="objectId" required="true" style="query" type="xsd:string">
+                        <doc>object id</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5316:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="get-objects" id="5317" name="GET">
+                <doc>Returns a list of objects. The objects are returned sorted by creation date, with the most recently created objects appearing first.</doc>
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:string">
+                        <doc>count</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>offset</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5317:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="object-delete" id="5319" name="DELETE">
+                <doc>Permanently deletes an object. It cannot be undone.</doc>
+                <request>
+                    <param name="objectId" required="true" style="query" type="xsd:string">
+                        <doc>object id</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5319:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="objects" id="5320" name="POST">
+                <doc>Objects allow you to store documents and print settings associated with the document. The API allows you to create and delete your objects. You can retrieve individual objects as well as a list of all your objects.</doc>
+                <request/>
+                <response>
+                    <representation element="f5320:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="jobs/">
+            <method displayName="get-job" id="5314" name="GET">
+                <doc>Retrieves the details of an existing job. You need only supply the unique job identifier that was returned upon job creation.</doc>
+                <request>
+                    <param name="jobId" required="true" style="query" type="xsd:string">
+                        <doc>job id</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5314:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="get-jobs" id="5315" name="GET">
+                <doc>Returns a list of jobs. The jobs are returned sorted by creation date, with the most recently created jobs appearing first.</doc>
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:string">
+                        <doc>count</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>offset</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5315:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="jobs" id="5318" name="POST">
+                <doc>To submit a print job to Infraprint, you create a new job object.</doc>
+                <request/>
+                <response>
+                    <representation element="f5318:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="addresses/">
+            <method displayName="address" id="5310" name="GET">
+                <doc>Retrieves the details of an existing address. You need only supply the unique address identifier that was returned upon address creation.</doc>
+                <request>
+                    <param name="addressId" required="true" style="query" type="xsd:string">
+                        <doc>address id</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5310:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="address-delete" id="5311" name="DELETE">
+                <doc>Permanently deletes an address based on the address ID in the url. It cannot be undone.</doc>
+                <request>
+                    <param name="addressId" required="true" style="query" type="xsd:string">
+                        <doc>address id</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5311:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="addresses" id="5312" name="POST">
+                <doc>To create a new address, you create a new address object. All of the fields except for address_line2 are required parameters.</doc>
+                <request/>
+                <response>
+                    <representation element="f5312:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="get-addresses" id="5313" name="GET">
+                <doc>Returns a list of addresses. The objects are returned sorted by creation date, with the most recently created addresses appearing first.</doc>
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:string">
+                        <doc>how many results to return default max must be an integer</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>return requested of items starting the value default must be an integer</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5313:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

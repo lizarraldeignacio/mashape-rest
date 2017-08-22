@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4391="urn:function:f4391" xmlns:f4392="urn:function:f4392">
+    <grammars>
+        <include href="Function4392.xsd"/>
+        <include href="Function4391.xsd"/>
+    </grammars>
+    <doc>a text analysis service to find out what any text is about by extracting the most relevant Wikipedia s categories through a patented NLP technology</doc>
+    <resources base="https://proxem-thematization.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="wikiAnnotator/">
+                <resource uri="GetCategoriesForCorpus/">
+                    <method displayName="Get corpus categories" id="4392" name="POST">
+                        <doc>First gets the categories associated to the whole corpus. Then returns categories for each document keeping only doc categories that are also corpus categories.</doc>
+                        <request>
+                            <param name="edges" required="true" style="query" type="xsd:boolean">
+                                <doc>set to true to receive parent child relations between categories</doc>
+                            </param>
+                            <param name="nbtopcat" required="true" style="query" type="xsd:integer">
+                                <doc>the max numbers of expected categories max</doc>
+                            </param>
+                            <param name="srclang" required="true" style="query" type="xsd:string">
+                                <doc>the lang of the corpus</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4392:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="GetCategories/">
+                    <method displayName="Get categories" id="4391" name="POST">
+                        <doc>Returns the top themes associated to the given text</doc>
+                        <request>
+                            <param name="cleanup" required="true" style="query" type="xsd:boolean">
+                                <doc>try to remove the less useful categories default to true</doc>
+                            </param>
+                            <param name="edges" required="true" style="query" type="xsd:boolean">
+                                <doc>set to true to receive parent child relations between categories</doc>
+                            </param>
+                            <param name="nbtopcat" required="true" style="query" type="xsd:integer">
+                                <doc>the max numbers of expected categories max</doc>
+                            </param>
+                            <param name="srclang" required="true" style="query" type="xsd:string">
+                                <doc>set the language of the given document prevent the auto detection</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4391:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

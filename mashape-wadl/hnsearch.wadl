@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3176="urn:function:f3176" xmlns:f3177="urn:function:f3177" xmlns:f3178="urn:function:f3178" xmlns:f3179="urn:function:f3179">
+    <grammars>
+        <include href="Function3179.xsd"/>
+        <include href="Function3178.xsd"/>
+        <include href="Function3177.xsd"/>
+        <include href="Function3176.xsd"/>
+    </grammars>
+    <doc>this API is built on top of Algolia Search s API It enables developers to access HN Hacker News data programmatically using a REST API This documentation describes how to request data from the API and how to interpret the response</doc>
+    <resources base="https://community-hn-search.p.mashape.com/">
+        <resource uri="users/">
+            <resource uri="{username}/">
+                <param name="username" style="template" type="xsd:string"/>
+                <method displayName="Users" id="3179" name="GET">
+                    <request>
+                        <param name="username" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3179:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="search_by_date/">
+            <method displayName="Search by Date" id="3178" name="GET">
+                <request>
+                    <param name="numericfilters" required="true" style="query" type="xsd:string">
+                        <doc>filter on a specific numerical condition or Available numerical fields created at i points num comments</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>page number</doc>
+                    </param>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>full text query</doc>
+                    </param>
+                    <param name="tags" required="true" style="query" type="xsd:string">
+                        <doc>ilter on a specific tag Available tags story comment poll pollop show hn ask hn author USERNAME story ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3178:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="search/">
+            <method displayName="Search" id="3177" name="GET">
+                <request>
+                    <param name="numericfilters" required="true" style="query" type="xsd:string">
+                        <doc>filter on a specific numerical condition or Available numerical fields created at i points num comments</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>page number</doc>
+                    </param>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>full text query</doc>
+                    </param>
+                    <param name="tags" required="true" style="query" type="xsd:string">
+                        <doc>filter on a specific tag Available tags story comment poll pollop show hn ask hn author USERNAME story ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3177:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="items/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Items" id="3176" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3176:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

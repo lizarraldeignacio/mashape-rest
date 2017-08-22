@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>aPI for Hummingbird the easiest way to track share and discover new anime Free for non commercial use Note that this is not stable at the moment</doc>
+    <resources base="https://vikhyat-hummingbird-v2.p.mashape.com/">
+        <resource uri="anime/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Anime Details" id="683" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

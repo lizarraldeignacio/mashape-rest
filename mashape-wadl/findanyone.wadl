@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>find anyone given his email address built for Augusto</doc>
+    <resources base="https://orliesaurus-Find-Anyone-v1.p.mashape.com/">
+        <resource uri="initial_data/">
+            <method displayName="Email address" id="5168" name="GET">
+                <doc>Find anyone by email address</doc>
+                <request>
+                    <param name="email" required="true" style="query" type="xsd:string">
+                        <doc>a valid email address</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

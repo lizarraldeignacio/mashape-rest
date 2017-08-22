@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>flightLookup Airport Timetable Find all the flights to or from an airport Ideal service if you are an airport or providing a timetable for airports Want to know to get to a airport or from an airport you will need this service All flights into and out of Airport Worldwide passenger airline flight schedules Single Day day and Multi day lookups</doc>
+    <resources base="https://flightlookup-airporttimetable-rest.p.mashape.com/">
+        <resource uri="AirportTimeTable/">
+            <resource uri="{Airport}/">
+                <param name="Airport" style="template" type="xsd:string"/>
+                <resource uri="{Direction}/">
+                    <param name="Direction" style="template" type="xsd:string"/>
+                    <resource uri="{Month}/">
+                        <param name="Month" style="template" type="xsd:string"/>
+                        <resource uri="{Day}/">
+                            <param name="Day" style="template" type="xsd:string"/>
+                            <resource uri="{Year}/">
+                                <param name="Year" style="template" type="xsd:string"/>
+                                <method displayName="AirportTimeTable" id="2439" name="GET">
+                                    <doc>This method returns timetable data based on a single airport/city code for either arrivals or departures.</doc>
+                                    <request>
+                                        <param name="airline" required="true" style="query" type="xsd:string">
+                                            <doc>optional letter IATA airline code Restricts results to routes flown by a certain carrier</doc>
+                                        </param>
+                                        <param name="airport" required="true" style="query" type="xsd:string">
+                                            <doc>required letter IATA code for desired airport</doc>
+                                        </param>
+                                        <param name="count" required="true" style="query" type="xsd:integer">
+                                            <doc>optional Number of routes to return Default</doc>
+                                        </param>
+                                        <param name="day" required="true" style="query" type="xsd:integer">
+                                            <doc>required Departure or Arrival Day dd</doc>
+                                        </param>
+                                        <param name="direction" required="true" style="query" type="xsd:string">
+                                            <doc>required depart or arrive</doc>
+                                        </param>
+                                        <param name="hops" required="true" style="query" type="xsd:string">
+                                            <doc>optional NONSTOP DIRECT STOP MORE</doc>
+                                        </param>
+                                        <param name="month" required="true" style="query" type="xsd:integer">
+                                            <doc>required Departure or Arrival Month mm</doc>
+                                        </param>
+                                        <param name="sortorder" required="true" style="query" type="xsd:integer">
+                                            <doc>optional Arrival Time Departure Time Duration Flight Type Nonstop Direct Connection Via Connections Flights Prefer Metal metal only flights will show up first</doc>
+                                        </param>
+                                        <param name="year" required="true" style="query" type="xsd:integer">
+                                            <doc>required Departure or Arrival Year yyyy</doc>
+                                        </param>
+                                    </request>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

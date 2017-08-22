@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6410="urn:function:f6410" xmlns:f6411="urn:function:f6411">
+    <grammars>
+        <include href="Function6411.xsd"/>
+        <include href="Function6410.xsd"/>
+    </grammars>
+    <doc>this API For resalty net website with this API You Can Send SMS And Get your Balance you need to have an account on resalty website to use this API</doc>
+    <resources base="https://mob4me.p.mashape.com/">
+        <resource uri="getBalance.php/">
+            <method displayName="Get Your Account Balance" id="6411" name="GET">
+                <request>
+                    <param name="password" required="true" style="query" type="xsd:string"/>
+                    <param name="userid" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f6411:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="sendSMS.php/">
+            <method displayName="/sendSMS.php" id="6410" name="GET">
+                <request>
+                    <param name="encoding" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="msg" required="true" style="query" type="xsd:string"/>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="sender" required="true" style="query" type="xsd:string">
+                        <doc>phone number registered on your profile</doc>
+                    </param>
+                    <param name="to" required="true" style="query" type="xsd:integer">
+                        <doc>add phone Number no need to add or in country code</doc>
+                    </param>
+                    <param name="userid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6410:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

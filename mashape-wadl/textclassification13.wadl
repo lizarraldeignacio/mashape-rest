@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2927="urn:function:f2927" xmlns:f2928="urn:function:f2928">
+    <grammars>
+        <include href="Function2927.xsd"/>
+        <include href="Function2928.xsd"/>
+    </grammars>
+    <doc>suggest related categories for each blog article or post</doc>
+    <resources base="https://twinword-text-classification.p.mashape.com/">
+        <resource uri="classify/">
+            <method displayName="Classify (get)" id="2927" name="GET">
+                <doc>Classify and recommend highly related categories for e-commerce and other uses.</doc>
+                <request>
+                    <param name="set" required="true" style="query" type="xsd:string">
+                        <doc>enter custom taxonomy set ID optional Invalid ID will default to default taxonomy set Contact us at feedback twinword com to set up custom taxonomy set</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>enter some text to find related categories</doc>
+                    </param>
+                    <param name="title" required="true" style="query" type="xsd:string">
+                        <doc>enter title of text optional</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2927:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Classify (post)" id="2928" name="POST">
+                <doc>Classify and recommend highly related categories for e-commerce and other uses.</doc>
+                <request/>
+                <response>
+                    <representation element="f2928:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

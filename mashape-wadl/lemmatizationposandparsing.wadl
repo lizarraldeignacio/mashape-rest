@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>this service provides detailed linguistic information for a given text in English Spanish French Italian Portuguese and Catalan There are three operating modes that cover different aspects of the morphosyntactic and semantic analysis Lemmatization which provides the lemmas of the different words in a text PoS tagging which provides not only the grammatical category of a word including semantic information about that word Syntactic analysis that provides a thorough syntactic analysis giving a complete syntactic tree where the leaves represent the most basic elements and their morphological and semantic analyses</doc>
+    <resources base="https://lemmatization-pos-parsing.p.mashape.com/">
+        <resource uri="parser-1.2.php/">
+            <method displayName="parser-1.2" id="2273" name="GET">
+                <doc>Lemmatization, POS and parsing of texts</doc>
+                <request>
+                    <param name="cont" required="true" style="query" type="xsd:string">
+                        <doc>context prioritization for entity semantic disambiguation More info at https textalytics com core parser info</doc>
+                    </param>
+                    <param name="cs" required="true" style="query" type="xsd:string">
+                        <doc>sets if concept extraction must be case sensitive Valid only if tt is set to allow concept detection</doc>
+                    </param>
+                    <param name="dic" required="true" style="query" type="xsd:string">
+                        <doc>this parameter will specify the list of active dictionaries that will be used in the topic extraction More info at https textalytics com core parser info</doc>
+                    </param>
+                    <param name="lang" required="true" style="query" type="xsd:string">
+                        <doc>it specifies the language in which the text must be analyzed The current supported values are es en pt it fr ca</doc>
+                    </param>
+                    <param name="mode" required="true" style="query" type="xsd:string">
+                        <doc>operating mode Possible values are l lemmatization returns the lemma of each word in the input text ma PoS tagging provides Part of Speech tagging for the text default sa syntactic analysis provides a complete morphosyntactic analysis of the text The output in this mode also contains the information provided by the PoS tagging mode so the output will be compatible More info at https textalytics com core parser info</doc>
+                    </param>
+                    <param name="of" required="true" style="query" type="xsd:string">
+                        <doc>output format xml or json</doc>
+                    </param>
+                    <param name="rs" required="true" style="query" type="xsd:string">
+                        <doc>removes stop words from the input text</doc>
+                    </param>
+                    <param name="rt" required="true" style="query" type="xsd:string">
+                        <doc>this parameter indicates how reliable the text to analyze is as far as spelling typography etc are concerned</doc>
+                    </param>
+                    <param name="timeref" required="true" style="query" type="xsd:string">
+                        <doc>time reference for time expressions detected</doc>
+                    </param>
+                    <param name="tt" required="true" style="query" type="xsd:string">
+                        <doc>the list of topic types to extract is specified through a string with the letters assigned to each one of the topic types that are to be extracted Letters assigned are e for named entities c for concepts t for time expressions m for money expressions u for URI p for phone number expressions o for other expressions q for quotations r for relations and a for all types default</doc>
+                    </param>
+                    <param name="txt" required="true" style="query" type="xsd:string">
+                        <doc>input text It can be plain text HTML or XML always using UTF encoding Required if doc and url are empty</doc>
+                    </param>
+                    <param name="txtf" required="true" style="query" type="xsd:string">
+                        <doc>specifies if the text included in the txt parameter uses markup language that needs to be interpreted Required only if txt is not empty</doc>
+                    </param>
+                    <param name="ud" required="true" style="query" type="xsd:string">
+                        <doc>the user dictionary allows to apply user defined terms in the topics extraction More info at https textalytics com core parser info</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>web page with the text to be analyzed Required if txt and doc are empty</doc>
+                    </param>
+                    <param name="uw" required="true" style="query" type="xsd:string">
+                        <doc>when activated the engine tries to find a suitable analysis to the unknown words resulted from the initial analysis assignment Useful to decrease the impact typos have in text analyses More info at https textalytics com core parser info</doc>
+                    </param>
+                    <param name="verbose" required="true" style="query" type="xsd:string">
+                        <doc>enables the verbose output which implies that morphosyntactic tags will be explicitly explained More information at https textalytics com core parser info</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

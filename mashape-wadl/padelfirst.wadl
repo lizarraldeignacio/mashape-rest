@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7403="urn:function:f7403">
+    <grammars>
+        <include href="Function7403.xsd"/>
+    </grammars>
+    <doc>an API to setup and manage activity of a Tenis and Padel club create courts make bookings add players and teams define tournamentes keep track of results and provide Rankings</doc>
+    <resources base="https://padelfirst.p.mashape.com/">
+        <resource uri="leages/">
+            <method displayName="Leages" id="7403" name="GET">
+                <doc>Retrieve existing leagues</doc>
+                <request/>
+                <response>
+                    <representation element="f7403:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

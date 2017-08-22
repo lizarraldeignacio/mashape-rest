@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f670="urn:function:f670" xmlns:f671="urn:function:f671" xmlns:f672="urn:function:f672">
+    <grammars>
+        <include href="Function672.xsd"/>
+        <include href="Function671.xsd"/>
+        <include href="Function670.xsd"/>
+    </grammars>
+    <doc>jailBase provides mugshots and arrest information to the public for free We have an easy to use web api so your website or application can access our extensive county jail inmate data Using the API you can search for arrested and booked individuals in county jails The web service uses a REST interface to make calls and returns results in JSON JSONP is also supported Calls to the webservice do not require a developer key however they are rate limited see terms of use If you have questions or comments please contact us Use our api to search for county jail mugshots today</doc>
+    <resources base="https://jailbase-jailbase.p.mashape.com/">
+        <resource uri="sources/">
+            <method displayName="Sources" id="672" name="GET">
+                <doc>All the organizations we collect information for</doc>
+                <request>
+                    <param name="jsonCallback" required="true" style="query" type="xsd:string">
+                        <doc>if using JSONP specify the function name here</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f672:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="search/">
+            <method displayName="Search" id="671" name="GET">
+                <doc>Search for individuals by name</doc>
+                <request>
+                    <param name="firstName" required="true" style="query" type="xsd:string">
+                        <doc>the first name to search for partial names accepted</doc>
+                    </param>
+                    <param name="jsonCallback" required="true" style="query" type="xsd:string">
+                        <doc>if using JSONP specify the function name here</doc>
+                    </param>
+                    <param name="lastName" required="true" style="query" type="xsd:string">
+                        <doc>the last name to search for partial names accepted</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>the page number to return Only records are returned per page See total records current page and next page values in the results Default</doc>
+                    </param>
+                    <param name="sourceId" required="true" style="query" type="xsd:string">
+                        <doc>the id of a specific organization to search Full list at http www jailbase com api sources list</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f671:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="recent/">
+            <method displayName="Recent" id="670" name="GET">
+                <doc>Get recent arrests</doc>
+                <request>
+                    <param name="jsonCallback" required="true" style="query" type="xsd:string">
+                        <doc>if using JSONP specify the function name here</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>the page number to return Only records are returned per page See total records current page and next page values in the results</doc>
+                    </param>
+                    <param name="sourceId" required="true" style="query" type="xsd:string">
+                        <doc>the id of a specific organization to search use az mcso for test Full list at http www jailbase com api sources list</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f670:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

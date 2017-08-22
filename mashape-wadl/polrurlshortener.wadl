@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>polr is a free URL Shortener API You may include our API in any application that supports HTTP GET</doc>
+    <resources base="https://cydrobolt-polr-url-shortener.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Polr API" id="4927" name="GET">
+                <doc>The Polr API can be used to shorten URLs or lookup URLs shortened with Polr.</doc>
+                <request>
+                    <param name="action" required="true" style="query" type="xsd:string">
+                        <doc>the action to perform e g shorten lookup</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>the URL to perform the action on If shortening a URL then prefix the URL with http If looking up a URL include the value after the slash e g v</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

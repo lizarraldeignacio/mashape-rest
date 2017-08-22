@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1069="urn:function:f1069" xmlns:f1070="urn:function:f1070" xmlns:f1071="urn:function:f1071" xmlns:f1072="urn:function:f1072" xmlns:f1073="urn:function:f1073" xmlns:f1074="urn:function:f1074" xmlns:f1075="urn:function:f1075">
+    <grammars>
+        <include href="Function1075.xsd"/>
+        <include href="Function1074.xsd"/>
+        <include href="Function1073.xsd"/>
+        <include href="Function1072.xsd"/>
+        <include href="Function1071.xsd"/>
+        <include href="Function1070.xsd"/>
+        <include href="Function1069.xsd"/>
+    </grammars>
+    <doc>the local food and farmers market REST API Search by food items get details on a farmers market or on a local business This is our contribution to the local food and farmers market developer community From this data we can build many applications</doc>
+    <resources base="https://mytweetmark-homecook.p.mashape.com/">
+        <resource uri="userMarket/">
+            <method displayName="Serch Local Farmer Market by UserID" id="1075" name="GET">
+                <request>
+                    <param name="userid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1075:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="userProduct/">
+            <method displayName="Search Product by User" id="1074" name="GET">
+                <request>
+                    <param name="userid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1074:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="product/">
+            <method displayName="Search Product by Item" id="1073" name="GET">
+                <doc>Search for local farmers' markets product (item)</doc>
+                <request>
+                    <param name="productid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1073:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="market/">
+            <method displayName="Search Local Market" id="1072" name="GET">
+                <doc>Search for local farmers' market by id.</doc>
+                <request>
+                    <param name="marketid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1072:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="markets/">
+            <method displayName="Search Local Farmer Markets" id="1071" name="GET">
+                <request>
+                    <param name="searchmarket" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1071:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="biz/">
+            <method displayName="Search Business" id="1070" name="GET">
+                <doc>Search for local business by name</doc>
+                <request>
+                    <param name="biz" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1070:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="search/">
+            <method displayName="Search" id="1069" name="GET">
+                <doc>Search based on term contains in profile fields</doc>
+                <request>
+                    <param name="search" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1069:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

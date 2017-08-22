@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3470="urn:function:f3470" xmlns:f3471="urn:function:f3471">
+    <grammars>
+        <include href="Function3470.xsd"/>
+        <include href="Function3471.xsd"/>
+    </grammars>
+    <doc>build a graph with words connected to other words Diagram information for visualizing concepts or mind maps</doc>
+    <resources base="https://twinword-visual-context-graph.p.mashape.com/">
+        <resource uri="visualize/">
+            <method displayName="Visualize (get)" id="3470" name="GET">
+                <doc>Diagram information for visualizing concepts or mind maps.</doc>
+                <request>
+                    <param name="entry" required="true" style="query" type="xsd:string">
+                        <doc>type a word to see the words connected to it</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3470:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Visualize (post)" id="3471" name="POST">
+                <doc>Diagram information for visualizing concepts or mind maps.</doc>
+                <request>
+                    <param name="entry" required="true" style="query" type="xsd:string">
+                        <doc>type a word to see the words connected to it</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3471:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

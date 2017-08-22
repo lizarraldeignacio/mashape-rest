@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3944="urn:function:f3944" xmlns:f3945="urn:function:f3945" xmlns:f3946="urn:function:f3946" xmlns:f3947="urn:function:f3947" xmlns:f3948="urn:function:f3948" xmlns:f3949="urn:function:f3949" xmlns:f3950="urn:function:f3950" xmlns:f3951="urn:function:f3951" xmlns:f3952="urn:function:f3952" xmlns:f3953="urn:function:f3953" xmlns:f3954="urn:function:f3954" xmlns:f3955="urn:function:f3955" xmlns:f3956="urn:function:f3956" xmlns:f3957="urn:function:f3957">
+    <grammars>
+        <include href="Function3957.xsd"/>
+        <include href="Function3956.xsd"/>
+        <include href="Function3955.xsd"/>
+        <include href="Function3954.xsd"/>
+        <include href="Function3953.xsd"/>
+        <include href="Function3952.xsd"/>
+        <include href="Function3951.xsd"/>
+        <include href="Function3950.xsd"/>
+        <include href="Function3949.xsd"/>
+        <include href="Function3948.xsd"/>
+        <include href="Function3947.xsd"/>
+        <include href="Function3946.xsd"/>
+        <include href="Function3945.xsd"/>
+        <include href="Function3944.xsd"/>
+    </grammars>
+    <doc>chartbeat collects various metrics about each visitor on your site Some of this is reported basically raw like number of readers on an article and some data is mashed up and modified before being reported like understanding that a visitor that c</doc>
+    <resources base="https://mashape-community-chartbeat.p.mashape.com/">
+        <resource uri="live/">
+            <resource uri="toppages/">
+                <resource uri="v3/">
+                    <method displayName="Live Top Pages v3" id="3957" name="GET">
+                        <doc>Returns a list of pages, ordered by which ones have most visitors right now. This call returns real-time data.</doc>
+                        <request>
+                            <param name="host" required="true" style="query" type="xsd:string">
+                                <doc>the domain of the site you would like to query represented as a string</doc>
+                            </param>
+                            <param name="jsonp" required="true" style="query" type="xsd:string">
+                                <doc>the name of a function to wrap the return data in</doc>
+                            </param>
+                            <param name="limit" required="true" style="query" type="xsd:string">
+                                <doc>limit The max number of pages to return Default</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f3957:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="summary/">
+                <resource uri="v3/">
+                    <method displayName="Live Summary v3" id="3956" name="GET">
+                        <doc>Returns either numeric or categorical summaries of event fields given a host and optional path. Numeric summaries include min, max, sum, nonzero observations, observations and sum of squares. Categorical summaries include field keys with associated counts. This call return real-time data.</doc>
+                        <request>
+                            <param name="host" required="true" style="query" type="xsd:string">
+                                <doc>the domain of the site you would like to query represented as a string</doc>
+                            </param>
+                            <param name="jsonp" required="true" style="query" type="xsd:string">
+                                <doc>the name of a function to wrap the return data in</doc>
+                            </param>
+                            <param name="keys" required="true" style="query" type="xsd:string">
+                                <doc>the keys represent what data to return To save on space short names are used for values in several of the real time API calls One or a comma separated list of pagetimer Time to finish loading the dom time spent Number of seconds on the page domain The domain name of the document what s in the browser bar uid The chartbeat account host The reported domain the dashboard the data goes to title Page title new First time visitor for the site in the last days path Path of the page from location pathname referrer Referrer from document referrer token Temporary uuidevent s page session regenerated when moving to another page user User token window height window innerHeight or document body offsetHeight scroll top window pageYOffset or document body scrollTop or document documentElement scrollTop page height document body scrollHeight read The number of people reading write The number of people writing idle The number of people idle</doc>
+                            </param>
+                            <param name="path" required="true" style="query" type="xsd:string">
+                                <doc>a specific path If not given data is from all paths e g the path of http chartbeat com signup is signup</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f3956:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="referrers/">
+                <resource uri="v3/">
+                    <method displayName="Live Referrers v3" id="3955" name="GET">
+                        <doc>Returns a list of referrers for the domain.</doc>
+                        <request>
+                            <param name="host" required="true" style="query" type="xsd:string">
+                                <doc>the domain of the site you would like to query represented as a string</doc>
+                            </param>
+                            <param name="jsonp" required="true" style="query" type="xsd:string">
+                                <doc>the name of a function to wrap the return data in</doc>
+                            </param>
+                            <param name="limit" required="true" style="query" type="xsd:string">
+                                <doc>the max number of referrers to return Default</doc>
+                            </param>
+                            <param name="path" required="true" style="query" type="xsd:string">
+                                <doc>a specific path If not given data is from all paths e g the path of http chartbeat com signup is signup</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f3955:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="recent/">
+                <resource uri="v3/">
+                    <method displayName="Live Recent v3" id="3954" name="GET">
+                        <doc>Returns information about the most recent visitors to a given host. This call returns real-time data.</doc>
+                        <request>
+                            <param name="host" required="true" style="query" type="xsd:string">
+                                <doc>the domain of the site you would like to query represented as a string</doc>
+                            </param>
+                            <param name="jsonp" required="true" style="query" type="xsd:string">
+                                <doc>the name of a function to wrap the return data in</doc>
+                            </param>
+                            <param name="limit" required="true" style="query" type="xsd:string">
+                                <doc>the max number of recent visitors to return Default</doc>
+                            </param>
+                            <param name="path" required="true" style="query" type="xsd:string">
+                                <doc>a specific path If not given data is from all paths e g the path of http chartbeat com signup is signup</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f3954:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="quickstats/">
+                <resource uri="v3/">
+                    <method displayName="Live Quick Stats v3" id="3953" name="GET">
+                        <doc>Returns an overview summary of the people on your domain right now. The number of people on a page, reading, writing, idle, etc... This call returns real-time data.</doc>
+                        <request>
+                            <param name="host" required="true" style="query" type="xsd:string">
+                                <doc>the domain of the site you would like to query represented as a string</doc>
+                            </param>
+                            <param name="jsonp" required="true" style="query" type="xsd:string">
+                                <doc>the name of a function to wrap the return data in</doc>
+                            </param>
+                            <param name="path" required="true" style="query" type="xsd:string">
+                                <doc>a specific path If not given data is from all paths e g the path of http chartbeat com signup is signup</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f3953:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="pathsummary/">
+                <resource uri="v3/">
+                    <method displayName="Live Path Summary v3" id="3952" name="GET">
+                        <doc>Returns summary data (refer to the summary API call), but for top paths of given a host. This call returns real-time data.</doc>
+                        <request>
+                            <param name="host" required="true" style="query" type="xsd:string">
+                                <doc>the domain of the site you would like to query represented as a string</doc>
+                            </param>
+                            <param name="jsonp" required="true" style="query" type="xsd:string">
+                                <doc>the name of a function to wrap the return data in</doc>
+                            </param>
+                            <param name="keys" required="true" style="query" type="xsd:string">
+                                <doc>the keys represent what data to return To save on space short names are used for values in several of the real time API calls One or a comma separated list of pagetimer Time to finish loading the dom time spent Number of seconds on the page domain The domain name of the document what s in the browser bar uid The chartbeat account host The reported domain the dashboard the data goes to title Page title new First time visitor for the site in the last days path Path of the page from location pathname referrer Referrer from document referrer token Temporary uuidevent s page session regenerated when moving to another page user User token window height window innerHeight or document body offsetHeight scroll top window pageYOffset or document body scrollTop or document documentElement scrollTop page height document body scrollHeight read The number of people reading write The number of people writing idle The number of people idle</doc>
+                            </param>
+                            <param name="types" required="true" style="query" type="xsd:string">
+                                <doc>how to return the key data either n or s numeric or string Default n</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f3952:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="histogram/">
+                <resource uri="v3/">
+                    <method displayName="Live Histogram v3" id="3951" name="GET">
+                        <doc>Returns a histogram where field values are summarized within ranges, as specified by breaks. The resulting histogram is returned as a list with one more element than the number of breaks. This call returns real-time data.</doc>
+                        <request>
+                            <param name="breaks" required="true" style="query" type="xsd:string">
+                                <doc>how to break the histogram data e g would return values from This function only works with numeric field values</doc>
+                            </param>
+                            <param name="host" required="true" style="query" type="xsd:string">
+                                <doc>the domain of the site you would like to query represented as a string</doc>
+                            </param>
+                            <param name="jsonp" required="true" style="query" type="xsd:string">
+                                <doc>the name of a function to wrap the return data in</doc>
+                            </param>
+                            <param name="keys" required="true" style="query" type="xsd:string">
+                                <doc>the keys represent what data to return To save on space short names are used for values in several of the real time API calls One or a comma separated list of pagetimer Time to finish loading the dom time spent Number of seconds on the page domain The domain name of the document what s in the browser bar uid The chartbeat account host The reported domain the dashboard the data goes to title Page title new First time visitor for the site in the last days path Path of the page from location pathname referrer Referrer from document referrer token Temporary uuidevent s page session regenerated when moving to another page user User token window height window innerHeight or document body offsetHeight scroll top window pageYOffset or document body scrollTop or document documentElement scrollTop page height document body scrollHeight read The number of people reading write The number of people writing idle The number of people idle</doc>
+                            </param>
+                            <param name="path" required="true" style="query" type="xsd:string">
+                                <doc>a specific path If not given data is from all paths e g the path of http chartbeat com signup is signup</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f3951:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="geo/">
+                <resource uri="v3/">
+                    <method displayName="Live Geo v3" id="3950" name="GET">
+                        <doc>Returns geographical information about the most recent visitors. This call returns sampled data.</doc>
+                        <request>
+                            <param name="host" required="true" style="query" type="xsd:string">
+                                <doc>the domain of the site you would like to query represented as a string</doc>
+                            </param>
+                            <param name="jsonp" required="true" style="query" type="xsd:string">
+                                <doc>the name of a function to wrap the return data in</doc>
+                            </param>
+                            <param name="limit" required="true" style="query" type="xsd:string">
+                                <doc>the max number of recent data to return Default</doc>
+                            </param>
+                            <param name="path" required="true" style="query" type="xsd:string">
+                                <doc>a specific path If not given data is from all paths e g the path of http chartbeat com signup is signup</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f3950:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="historical/">
+            <resource uri="traffic/">
+                <resource uri="stats/">
+                    <method displayName="Historical Traffic Stats" id="3949" name="GET">
+                        <doc>Returns traffic sources and/or page load time summarized over the given timespan. You should use this call if you want to discover broad information about your data where we already did the work providing the max or min.</doc>
+                        <request>
+                            <param name="end" required="true" style="query" type="xsd:string">
+                                <doc>a string in the form of a unix timestamp YYYY mm dd YY mm dd HH MM SS NOTE end is only accepted in EST Default The end of today</doc>
+                            </param>
+                            <param name="fields" required="true" style="query" type="xsd:string">
+                                <doc>one or a comma separated list of return the number of returning visitors new the number of new visitors people the number of people on the domain read the number of people reading on the domain domload the DOM load time engaged time avg the average enagaged time write the number of people writing on the domain idle the number of people idle on the domain internal the number of people coming from an internal referrer social the number of people coming from social services Default people</doc>
+                            </param>
+                            <param name="host" required="true" style="query" type="xsd:string"/>
+                            <param name="human" required="true" style="query" type="xsd:string">
+                                <doc>a boolean that tells the api call to return human readable start and end time in the form YYYY mm dd HH MM SS as opposed to the unix timestamp Default false</doc>
+                            </param>
+                            <param name="jsonp" required="true" style="query" type="xsd:string">
+                                <doc>the name of a function to wrap the return data in</doc>
+                            </param>
+                            <param name="properties" required="true" style="query" type="xsd:string">
+                                <doc>the stat to apply to the data Can be one or a comma separated list of max min Default max</doc>
+                            </param>
+                            <param name="start" required="true" style="query" type="xsd:string">
+                                <doc>a string in the form of a unix timestamp YYYY mm dd YY mm dd HH MM SS or a time delta where the time delta specified is start time prior to now NOTE start is only accepted in EST Default days ago</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f3949:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="series/">
+                    <method displayName="Historical Traffic Series" id="3948" name="GET">
+                        <doc>Returns series of the traffic sources and/or page load time where the default time span of each data point is 5 minutes. You should use this call if you want to see a more granular picture of your data.</doc>
+                        <request>
+                            <param name="end" required="true" style="query" type="xsd:string">
+                                <doc>a string in the form of a unix timestamp YYYY mm dd YY mm dd HH MM SS NOTE end is only accepted in EST Default The end of today</doc>
+                            </param>
+                            <param name="fields" required="true" style="query" type="xsd:string">
+                                <doc>one or a comma separated list of return the number of returning visitors new the number of new visitors people the number of people on the domain read the number of people reading on the domain domload the DOM load time engaged time avg the average enagaged time write the number of people writing on the domain idle the number of people idle on the domain internal the number of people coming from an internal referrer social the number of people coming from social services Default people</doc>
+                            </param>
+                            <param name="host" required="true" style="query" type="xsd:string">
+                                <doc>the domain of the site you would like to query represented as a string</doc>
+                            </param>
+                            <param name="human" required="true" style="query" type="xsd:string">
+                                <doc>a boolean that tells the api call to return human readable start and end time in the form YYYY mm dd HH MM SS as opposed to the unix timestamp Default false</doc>
+                            </param>
+                            <param name="jsonp" required="true" style="query" type="xsd:string">
+                                <doc>the name of a function to wrap the return data in</doc>
+                            </param>
+                            <param name="limit" required="true" style="query" type="xsd:string">
+                                <doc>an integer or string that specifies the number of snapshots to return e g or time span from start to return snapshots for e g minutes days respectively Default the entire time span between start and end</doc>
+                            </param>
+                            <param name="start" required="true" style="query" type="xsd:string">
+                                <doc>a string in the form of a unix timestamp YYYY mm dd YY mm dd HH MM SS or a time delta where the time delta specified is start time prior to now NOTE start is only accepted in EST Default The start of today</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f3948:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="social/">
+                <resource uri="stats/">
+                    <method displayName="Historical Social Stats" id="3947" name="GET">
+                        <doc>Returns social activity summarized over the given timespan. You should use this call if you want to discover broad information about your data where we already did the work providing the max, min, average or median.</doc>
+                        <request>
+                            <param name="end" required="true" style="query" type="xsd:string">
+                                <doc>a string in the form of a unix timestamp YYYY mm dd YY mm dd HH MM SS NOTE end is only accepted in EST Default The end of today</doc>
+                            </param>
+                            <param name="fields" required="true" style="query" type="xsd:string">
+                                <doc>one or a comma separated list of tw url mentions how many times your site s url is mentioned on Twitter in the given time span tw handle mentions the amount of times your Twitter handle is mentioned on Twitter in the given time span fb page likes the number of likes on your Facebook page in the given time span fb domain activity the number of times someone likes or shares a page on your website through the Facebook widget in the given time span Default tw url mentions fb domain activity</doc>
+                            </param>
+                            <param name="host" required="true" style="query" type="xsd:string">
+                                <doc>the domain of the site you would like to query represented as a string</doc>
+                            </param>
+                            <param name="human" required="true" style="query" type="xsd:string">
+                                <doc>a boolean that tells the api call to return human readable start and end time in the form YYYY mm dd HH MM SS as opposed to the unix timestamp Default false</doc>
+                            </param>
+                            <param name="jsonp" required="true" style="query" type="xsd:string">
+                                <doc>the name of a function to wrap the return data in</doc>
+                            </param>
+                            <param name="properties" required="true" style="query" type="xsd:string">
+                                <doc>the stat to apply to the data Can be one or a comma separated list of max min avg median Default max</doc>
+                            </param>
+                            <param name="start" required="true" style="query" type="xsd:string">
+                                <doc>a string in the form of a unix timestamp YYYY mm dd YY mm dd HH MM SS or a time delta where the time delta specified is start time prior to now NOTE start is only accepted in EST Default days ago</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f3947:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="series/">
+                    <method displayName="Historical Social Series" id="3946" name="GET">
+                        <doc>Returns series of the social activity where the default time span between each data point is 5 minutes. You should use this call if you want to see a more granular picture of your data.</doc>
+                        <request>
+                            <param name="end" required="true" style="query" type="xsd:string">
+                                <doc>a string in the form of a unix timestamp YYYY mm dd YY mm dd HH MM SS NOTE end is only accepted in EST Default The end of today</doc>
+                            </param>
+                            <param name="fields" required="true" style="query" type="xsd:string">
+                                <doc>one or a comma separated list of tw url mentions how many times your site s url is mentioned on Twitter in the given time span tw handle mentions the amount of times your Twitter handle is mentioned on Twitter in the given time span fb page likes the number of likes on your Facebook page in the given time span fb domain activity the number of times someone likes or shares a page on your website through the Facebook widget in the given time span Default tw url mentions fb domain activity</doc>
+                            </param>
+                            <param name="host" required="true" style="query" type="xsd:string"/>
+                            <param name="human" required="true" style="query" type="xsd:string">
+                                <doc>a boolean that tells the api call to return human readable start and end time in the form YYYY mm dd HH MM SS as opposed to the unix timestamp Default false</doc>
+                            </param>
+                            <param name="jsonp" required="true" style="query" type="xsd:string">
+                                <doc>the name of a function to wrap the return data in</doc>
+                            </param>
+                            <param name="limit" required="true" style="query" type="xsd:string">
+                                <doc>an integer or string that specifies the number of snapshots to return e g or time span from start to return snapshots for e g minutes days respectively Default the entire time span between start and end</doc>
+                            </param>
+                            <param name="start" required="true" style="query" type="xsd:string">
+                                <doc>a string in the form of a unix timestamp YYYY mm dd YY mm dd HH MM SS or a time delta where the time delta specified is start time prior to now NOTE start is only accepted in EST Default The start of today</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f3946:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="engagement/">
+                <resource uri="stats/">
+                    <method displayName="Historical Engagement Stats" id="3945" name="GET">
+                        <doc>Returns engaged seconds summarized over the given timespan. You should use this call if you want to discover broad information about your data where we already did the work providing the max or min.</doc>
+                        <request>
+                            <param name="end" required="true" style="query" type="xsd:string">
+                                <doc>a string in the form of a unix timestamp YYYY mm dd YY mm dd HH MM SS NOTE end is only accepted in EST Default The end of today</doc>
+                            </param>
+                            <param name="host" required="true" style="query" type="xsd:string"/>
+                            <param name="human" required="true" style="query" type="xsd:string">
+                                <doc>a boolean that tells the api call to return human readable start and end time in the form YYYY mm dd HH MM SS as opposed to the unix timestamp Default false</doc>
+                            </param>
+                            <param name="jsonp" required="true" style="query" type="xsd:string">
+                                <doc>the name of a function to wrap the return data in</doc>
+                            </param>
+                            <param name="properties" required="true" style="query" type="xsd:string">
+                                <doc>the stat to apply to the data Can be one or a comma separated list of max min Default max</doc>
+                            </param>
+                            <param name="start" required="true" style="query" type="xsd:string">
+                                <doc>a string in the form of a unix timestamp YYYY mm dd YY mm dd HH MM SS or a time delta where the time delta specified is start time prior to now NOTE start is only accepted in EST Default days ago</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f3945:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="series/">
+                    <method displayName="Historical Engagement Series" id="3944" name="GET">
+                        <doc>Returns series of the engaged seconds where the default time span of each data point is 5 minutes. You should use this call if you want to see a more granular picture of your data.</doc>
+                        <request>
+                            <param name="end" required="true" style="query" type="xsd:string">
+                                <doc>a string in the form of a unix timestamp YYYY mm dd YY mm dd HH MM SS NOTE end is only accepted in EST Default The end of today</doc>
+                            </param>
+                            <param name="host" required="true" style="query" type="xsd:string"/>
+                            <param name="human" required="true" style="query" type="xsd:string">
+                                <doc>a boolean that tells the api call to return human readable start and end time in the form YYYY mm dd HH MM SS as opposed to the unix timestamp Default false</doc>
+                            </param>
+                            <param name="jsonp" required="true" style="query" type="xsd:string">
+                                <doc>the name of a function to wrap the return data in</doc>
+                            </param>
+                            <param name="limit" required="true" style="query" type="xsd:string">
+                                <doc>an integer or string that specifies the number of snapshots to return e g or time span from start to return snapshots for e g minutes days respectively Default the entire time span between start and end</doc>
+                            </param>
+                            <param name="start" required="true" style="query" type="xsd:string">
+                                <doc>a string in the form of a unix timestamp YYYY mm dd YY mm dd HH MM SS or a time delta where the time delta specified is start time prior to now NOTE start is only accepted in EST Default The start of today</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f3944:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

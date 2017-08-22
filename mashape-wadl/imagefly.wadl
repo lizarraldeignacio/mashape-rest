@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>convert images on the fly</doc>
+    <resources base="https://imagefly.p.mashape.com/">
+        <resource uri="converts/">
+            <method displayName="/converts" id="7507" name="GET">
+                <request>
+                    <param name="thumb" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

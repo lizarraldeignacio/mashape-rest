@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4873="urn:function:f4873" xmlns:f4874="urn:function:f4874">
+    <grammars>
+        <include href="Function4874.xsd"/>
+        <include href="Function4873.xsd"/>
+    </grammars>
+    <doc>scrambles a progressive integer DB index into a unique string like Bitly TinyURL and Youtube do Example if you input you get YvfCww while inputing you get Ln kQ and so on You can also specify your own seed Use it for very custom short URL generation or anything you like it is free</doc>
+    <resources base="https://visup-unique-id.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="variable/">
+                <method displayName="Variable length" id="4874" name="GET">
+                    <doc>Generates an uid with the length depending on the supplied integer</doc>
+                    <request>
+                        <param name="copt" required="true" style="query" type="xsd:string">
+                            <doc>options to build the alphabet used n adds numbers c lowercase letters C uppercase letters n removes oO chars</doc>
+                        </param>
+                        <param name="int" required="true" style="query" type="xsd:string">
+                            <doc>the integer to generate the uid from</doc>
+                        </param>
+                        <param name="key" required="true" style="query" type="xsd:string">
+                            <doc>the scramble key used to apply an additional shuffling</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4874:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="fixed/">
+                <method displayName="Fixed length" id="4873" name="GET">
+                    <doc>Generates an uid based on the supplied int with fixed length</doc>
+                    <request>
+                        <param name="copt" required="true" style="query" type="xsd:string">
+                            <doc>options to build the alphabet used n adds numbers c lowercase letters C uppercase letters n removes oO chars</doc>
+                        </param>
+                        <param name="int" required="true" style="query" type="xsd:integer">
+                            <doc>the integer to generate the uid from Note that it must be included between and the maximum combinations number See max combinations field in the response JSON</doc>
+                        </param>
+                        <param name="key" required="true" style="query" type="xsd:string">
+                            <doc>the scramble key used to apply an additional shuffling</doc>
+                        </param>
+                        <param name="len" required="true" style="query" type="xsd:integer">
+                            <doc>the length of the resulting uid string Supported values are from to included</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4873:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

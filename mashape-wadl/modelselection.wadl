@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6717="urn:function:f6717">
+    <grammars>
+        <include href="Function6717.xsd"/>
+    </grammars>
+    <doc>the Model Portfolio Selection API returns the model portfolio that best matches a client s aggregate risk profile based on a set of models defined for the tenant and the model mapping criteria configured for the tenant If no modelSet is specified in the request then the default modelSet will be used The Model Portfolio Selection algorithm aggregates the riskScore in the request along with the goal timeHorizon and the percentage of the investableAssets allocated to the goal initialInvestment to determine an aggregate risk score that can then be mapped to a model portfolio</doc>
+    <resources base="https://achavar-model-selection-v1.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="model_selection/">
+                <method displayName="/v1/model_selection" id="6717" name="POST">
+                    <request>
+                        <param name="contributionamount" required="true" style="query" type="xsd:integer">
+                            <doc>amount of contribution per period</doc>
+                        </param>
+                        <param name="contributionfrequency" required="true" style="query" type="xsd:string">
+                            <doc>how often are you saving towards this goal</doc>
+                        </param>
+                        <param name="goalamount" required="true" style="query" type="xsd:integer">
+                            <doc>total amount of goal needed at end of time horizon</doc>
+                        </param>
+                        <param name="goalname" required="true" style="query" type="xsd:string">
+                            <doc>name of goal</doc>
+                        </param>
+                        <param name="initialinvestment" required="true" style="query" type="xsd:integer">
+                            <doc>amount to be invested in portfolio to start</doc>
+                        </param>
+                        <param name="investableassets" required="true" style="query" type="xsd:integer">
+                            <doc>total amount customer has to invest</doc>
+                        </param>
+                        <param name="modelset" required="true" style="query" type="xsd:string">
+                            <doc>unique identifier of the model portfolio set that the tenant wants to use for the request</doc>
+                        </param>
+                        <param name="riskscore" required="true" style="query" type="xsd:integer">
+                            <doc>risk tolerance score for the customer</doc>
+                        </param>
+                        <param name="timehorizon" required="true" style="query" type="xsd:integer">
+                            <doc>number of years until goal comes due</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6717:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

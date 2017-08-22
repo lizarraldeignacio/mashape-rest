@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6229="urn:function:f6229" xmlns:f6230="urn:function:f6230" xmlns:f6231="urn:function:f6231" xmlns:f6232="urn:function:f6232" xmlns:f6233="urn:function:f6233">
+    <grammars>
+        <include href="Function6233.xsd"/>
+        <include href="Function6232.xsd"/>
+        <include href="Function6231.xsd"/>
+        <include href="Function6230.xsd"/>
+        <include href="Function6229.xsd"/>
+    </grammars>
+    <doc>the FlySFO com API grants the web development community access to information about SFO airlines restaurants shops and more See more at http www flysfo com api sthash jcRJ zA dpuf</doc>
+    <resources base="https://community-flysfo.p.mashape.com/">
+        <resource uri="things-to-do.json/">
+            <method displayName="Things to do" id="6233" name="GET">
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6233:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="shopping.json/">
+            <method displayName="Shopping" id="6232" name="GET">
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6232:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="passenger-services.json/">
+            <method displayName="Passenger services" id="6231" name="GET">
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6231:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="dining.json/">
+            <method displayName="Dining" id="6230" name="GET">
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6230:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="airlines.json/">
+            <method displayName="Airlines" id="6229" name="GET">
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6229:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

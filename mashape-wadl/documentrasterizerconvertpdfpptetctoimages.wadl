@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6106="urn:function:f6106" xmlns:f6107="urn:function:f6107">
+    <grammars>
+        <include href="Function6107.xsd"/>
+        <include href="Function6106.xsd"/>
+    </grammars>
+    <doc>this API consumes documents in various formats and outputs PNG or TIFF images of the pages Input is via a multipart POST Images of the pages can be retrieved individually using a session token Options allow for specifying raster resolution and image quality</doc>
+    <resources base="https://mazira-rasterizer.p.mashape.com/">
+        <resource uri="{id}/">
+            <param name="id" style="template" type="xsd:string"/>
+            <method displayName="document metadata" id="6107" name="GET">
+                <doc>Used to retrieve information about document length and endpoints. Same information as returned from POST.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>the document ID returned from the POST</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6107:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="rastered image" id="6108" name="GET">
+                <doc>Used to generate an actual image of the specific page</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>the desired image file format Defaults to png</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>the document ID returned from POST</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>the document page number to rasterize</doc>
+                    </param>
+                    <param name="quality" required="true" style="query" type="xsd:integer">
+                        <doc>an integer indicating the rasterization quality images but longer processing time Defaults to</doc>
+                    </param>
+                    <param name="res" required="true" style="query" type="xsd:integer">
+                        <doc>the rasterization resolution in pixels per inch For example a PDF that is inches wide rasterized at PPI will produce an image pixels wide Default value is</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="">
+            <method displayName="document" id="6106" name="POST">
+                <doc>Uploads a document to the service for further processing</doc>
+                <request/>
+                <response>
+                    <representation element="f6106:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

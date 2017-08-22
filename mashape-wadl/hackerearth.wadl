@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1133="urn:function:f1133" xmlns:f1134="urn:function:f1134">
+    <grammars>
+        <include href="Function1134.xsd"/>
+        <include href="Function1133.xsd"/>
+    </grammars>
+    <doc>this API allows us to compile and run the source code programs This API supports multiple programming languages Possible values of lang argument are C CPP CPP CLOJURE CSHARP JAVA JAVASCRIPT HASKELL PERL PHP PYTHON RUBY The correspondi</doc>
+    <resources base="https://ideas2it-hackerearth.p.mashape.com/">
+        <resource uri="run/">
+            <method displayName="API to Run Program Code" id="1134" name="POST">
+                <request/>
+                <response>
+                    <representation element="f1134:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="compile/">
+            <method displayName="API to Compile Source Code" id="1133" name="POST">
+                <request/>
+                <response>
+                    <representation element="f1133:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

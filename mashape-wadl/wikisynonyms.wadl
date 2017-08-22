@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f375="urn:function:f375">
+    <grammars>
+        <include href="Function375.xsd"/>
+    </grammars>
+    <doc>this is a term synonym discovery service that exploits that structure of Wikipedia redirects to discover almost equivalent terms You can try terms like C or Hillary Clinton or Mihapjungguk to see some of the results</doc>
+    <resources base="https://wikisynonyms.p.mashape.com/">
+        <resource uri="{term}/">
+            <param name="term" style="template" type="xsd:string"/>
+            <method displayName="Synonyms" id="375" name="GET">
+                <doc>Search for synonyms for a given term or phrase</doc>
+                <request>
+                    <param name="term" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f375:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

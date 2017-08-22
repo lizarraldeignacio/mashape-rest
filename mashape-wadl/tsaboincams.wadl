@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4806="urn:function:f4806" xmlns:f4807="urn:function:f4807">
+    <grammars>
+        <include href="Function4807.xsd"/>
+        <include href="Function4806.xsd"/>
+    </grammars>
+    <doc>with our API you can extend your projects check terms and conditions for more details by connecting to our servers for traffic details around bus stops and for live traffic cams</doc>
+    <resources base="https://tsaboin-tsaboin-cams-v1.p.mashape.com/">
+        <resource uri="{camkey}/">
+            <param name="camkey" style="template" type="xsd:string"/>
+            <resource uri="show.json/">
+                <method displayName="viewcam" id="4807" name="GET">
+                    <doc>View a particular camera by its key</doc>
+                    <request>
+                        <param name="camkey" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4807:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="listall.json/">
+            <method displayName="camlist" id="4806" name="GET">
+                <doc>List all available traffic cameras</doc>
+                <request/>
+                <response>
+                    <representation element="f4806:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>our RESTful web service allows developers to access all of the transactional functionality that exists within the core engine provided by Loqate This includes processing for address validation one in one out geocoding and address suggestion or look up To use any everythinglocation com resource you must first sign up for an everythinglocation com account and obtain an API key Please visit everythinglocation com to get started now</doc>
+    <resources base="https://loqate-address.p.mashape.com/">
+        <resource uri="rest/">
+            <method displayName="Process Address" id="1248" name="GET">
+                <doc>This service accepts one address record per call and returns an Address Verihttps://www.mashape.com/loqate/address-verify-and-geocodefication Code (see Readme) along with both the standardized and verified address fields/values. To use this resource you must first sign up for an everythinglocation.com account and obtain an API key. Please visit everythinglocation.com to get started now.</doc>
+                <request>
+                    <param name="add" required="true" style="query" type="xsd:string">
+                        <doc>used to specify Address Line May be used with all other fields except addr above</doc>
+                    </param>
+                    <param name="add" required="true" style="query" type="xsd:string">
+                        <doc>used to specify Address Line May be used with all other fields except addr above</doc>
+                    </param>
+                    <param name="add" required="true" style="query" type="xsd:string">
+                        <doc>used to specify Address Line May be used with all other fields except addr above</doc>
+                    </param>
+                    <param name="add" required="true" style="query" type="xsd:string">
+                        <doc>used to specify Address Line May be used with all other fields except addr above</doc>
+                    </param>
+                    <param name="add" required="true" style="query" type="xsd:string">
+                        <doc>used to specify Address Line May be used with all other fields except addr above</doc>
+                    </param>
+                    <param name="add" required="true" style="query" type="xsd:string">
+                        <doc>used to specify Address Line May be used with all other fields except addr above</doc>
+                    </param>
+                    <param name="addr" required="true" style="query" type="xsd:string">
+                        <doc>single address field to provide either some or all parts on an address incl a Country The field is best used either by itself or with component fields</doc>
+                    </param>
+                    <param name="admn" required="true" style="query" type="xsd:string">
+                        <doc>input Administrative Area such as State County or Region Level validation</doc>
+                    </param>
+                    <param name="ctry" required="true" style="query" type="xsd:string">
+                        <doc>input Country supplied as a name or ISO classification ISO or ISO Please note that a country is required for all processes This field can be specified in other field types such as addr or be set using advanced server options e g DefaultCountry or ForceCountry</doc>
+                    </param>
+                    <param name="fs" required="true" style="query" type="xsd:string">
+                        <doc>using this parameter and setting it to yes will return a field status code with each output field The code reports on what happened to the field during the validation process Please see everythinglocation com for more information about what each field status code means Default no</doc>
+                    </param>
+                    <param name="lcty" required="true" style="query" type="xsd:string">
+                        <doc>input Locality such as Town City or Village Level validation</doc>
+                    </param>
+                    <param name="lqtkey" required="true" style="query" type="xsd:string">
+                        <doc>used to specify the supplied user key for authenticating the web service call API keys can be created on your everythinglocation com cloud account and used with an active credit plan</doc>
+                    </param>
+                    <param name="maxresults" required="true" style="query" type="xsd:integer">
+                        <doc>set the maximum number for returned address results Used primarily with Search p s call types which are designed to return a list of suggestions</doc>
+                    </param>
+                    <param name="opts" required="true" style="query" type="xsd:string">
+                        <doc>used for advanced server side settings that allow further customization to the web service call Syntax must follow opts option name value option name value etc Please see everythinglocation com for a full list of server settings</doc>
+                    </param>
+                    <param name="orgn" required="true" style="query" type="xsd:string">
+                        <doc>input Organization This value will be identified parsed only The service currently does not support Organization verification</doc>
+                    </param>
+                    <param name="outputfields" required="true" style="query" type="xsd:string">
+                        <doc>specify which output fields to return after processing Only functions with Search p s and Query p q requests Separate values with a comma no spaces Please see everythinglocation com for a full list of component and composite address fields</doc>
+                    </param>
+                    <param name="p" required="true" style="query" type="xsd:string">
+                        <doc>used to specify the desired processes to run on the input record Available values include v Verify s Search Suggest v g Verify Geocode s g Search Geocode</doc>
+                    </param>
+                    <param name="pcde" required="true" style="query" type="xsd:string">
+                        <doc>input Postal Code e g Postcode Zip PIN</doc>
+                    </param>
+                    <param name="prem" required="true" style="query" type="xsd:string">
+                        <doc>input Premise Number or Building Name Level validation</doc>
+                    </param>
+                    <param name="tfre" required="true" style="query" type="xsd:string">
+                        <doc>input Thoroughfare such as Kings Road Main Street or Mystic Avenue Level validation</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

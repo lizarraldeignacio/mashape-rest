@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6367="urn:function:f6367" xmlns:f6368="urn:function:f6368" xmlns:f6369="urn:function:f6369" xmlns:f6370="urn:function:f6370" xmlns:f6371="urn:function:f6371" xmlns:f6372="urn:function:f6372" xmlns:f6373="urn:function:f6373" xmlns:f6374="urn:function:f6374" xmlns:f6375="urn:function:f6375" xmlns:f6376="urn:function:f6376" xmlns:f6377="urn:function:f6377" xmlns:f6378="urn:function:f6378" xmlns:f6379="urn:function:f6379" xmlns:f6380="urn:function:f6380" xmlns:f6381="urn:function:f6381" xmlns:f6382="urn:function:f6382">
+    <grammars>
+        <include href="Function6382.xsd"/>
+        <include href="Function6381.xsd"/>
+        <include href="Function6380.xsd"/>
+        <include href="Function6379.xsd"/>
+        <include href="Function6378.xsd"/>
+        <include href="Function6377.xsd"/>
+        <include href="Function6376.xsd"/>
+        <include href="Function6375.xsd"/>
+        <include href="Function6374.xsd"/>
+        <include href="Function6373.xsd"/>
+        <include href="Function6372.xsd"/>
+        <include href="Function6371.xsd"/>
+        <include href="Function6370.xsd"/>
+        <include href="Function6369.xsd"/>
+        <include href="Function6368.xsd"/>
+        <include href="Function6367.xsd"/>
+    </grammars>
+    <doc>WARNING This version of the API is deprecated Please see https www gosquared com developer api for the latest documentation</doc>
+    <resources base="https://gosquared-gosquared.p.mashape.com/">
+        <resource uri="visitors/">
+            <method displayName="visitors" id="6382" name="GET">
+                <doc>The visitors function responds with detailed information about the current visitors on the site. They can be filtered by multiple parameters. It can also get information for a specific visitor ID by defining the visitorID parameter.</doc>
+                <request>
+                    <param name="campaign" required="true" style="query" type="xsd:string">
+                        <doc>a campaign to filter results by</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>the number of visitors to retrieve back with an offset if desired Defaults to</doc>
+                    </param>
+                    <param name="organic" required="true" style="query" type="xsd:string">
+                        <doc>an organic to filter results by</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>an MD hash of the page to filter by</doc>
+                    </param>
+                    <param name="presenter" required="true" style="query" type="xsd:string">
+                        <doc>the response presenter accepts old plain Defaults to plain</doc>
+                    </param>
+                    <param name="referrer" required="true" style="query" type="xsd:string">
+                        <doc>a referrer to filter results by</doc>
+                    </param>
+                    <param name="visitorid" required="true" style="query" type="xsd:string">
+                        <doc>the ID of the visitor to get data for</doc>
+                    </param>
+                    <param name="visitorsmode" required="true" style="query" type="xsd:string">
+                        <doc>what type of visitors to respond with Defaults to all</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6382:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="timeSeries/">
+            <method displayName="timeSeries" id="6381" name="GET">
+                <doc>The timeSeries function responds with the number of concurrent visitors over time, as the metric visitors.total.</doc>
+                <request>
+                    <param name="from" required="true" style="query" type="xsd:string">
+                        <doc>the date to start retreiving results from See https www gosquared com developer latest timeSeries for Accepted formats</doc>
+                    </param>
+                    <param name="interval" required="true" style="query" type="xsd:string">
+                        <doc>the interval to get figures for TimeSeries averages the number of visitors over the interval to give a more useful result Defaults to min</doc>
+                    </param>
+                    <param name="metrics" required="true" style="query" type="xsd:string">
+                        <doc>the metrics to receive in the response e g visitors total</doc>
+                    </param>
+                    <param name="timezone" required="true" style="query" type="xsd:string">
+                        <doc>the timezone Default UTC</doc>
+                    </param>
+                    <param name="to" required="true" style="query" type="xsd:string">
+                        <doc>the date to end retreiving results from</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>the response format Defaults to json CSV is also valid</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6381:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="time/">
+            <method displayName="time" id="6380" name="GET">
+                <doc>The time function responds with the current timestamp.</doc>
+                <request/>
+                <response>
+                    <representation element="f6380:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="sites/">
+            <method displayName="sites" id="6379" name="GET">
+                <doc>The sites function will respond with a list of all of the sites that the user's API Key has access, split by whether or not they are shared sites. If a site token is provided, it will provide the details of just that site.</doc>
+                <request>
+                    <param name="siteToken" required="true" style="query" type="xsd:string">
+                        <doc>the site token that you would like to retreive the details for</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6379:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="reportPreferences{route}/">
+            <param name="route" style="template" type="xsd:string"/>
+            <method displayName="reportPreferences" id="6378" name="GET">
+                <doc>This function is not stable, and is subject to change. Beware! Retrieve your site and user report preferences. Can be changed and deleted using other methods. Report Preferences for specific sites can be accessed, changes or deleted by using /reportPreferences/site_token. The object can also be expored using the URL route.</doc>
+                <request>
+                    <param name="route" required="true" style="query" type="xsd:string">
+                        <doc>the route of the response object to follow for example a site token to access site specific report preferences</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6378:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="referrers/">
+            <method displayName="referrers" id="6377" name="GET">
+                <doc>The referrers function responds with the websites that have referred users to the site along with the number of visitors currently active from that URL.</doc>
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>the maximum number of referrers to respond with Defaults to</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>an MD hash of the page to filter by</doc>
+                    </param>
+                    <param name="presenter" required="true" style="query" type="xsd:string">
+                        <doc>defaults to plain</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6377:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="pages/">
+            <method displayName="pages" id="6376" name="GET">
+                <doc>The pages function returns the pages currently active on the site, ordered by the number of visitors online.</doc>
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>the maximum number of pages in the response Defaults to Offsets can be specified e g</doc>
+                    </param>
+                    <param name="presenter" required="true" style="query" type="xsd:string">
+                        <doc>the format to respond with Defaults to pageList</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6376:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="overview/">
+            <method displayName="overview" id="6375" name="GET">
+                <doc>The overview function responds with summary data for the site, including people online, the number of active pages and more.</doc>
+                <request>
+                    <param name="from" required="true" style="query" type="xsd:string">
+                        <doc>the timestamp date to start the summary data from</doc>
+                    </param>
+                    <param name="presenter" required="true" style="query" type="xsd:string">
+                        <doc>the response presenter accepts old plain Defaults to plain</doc>
+                    </param>
+                    <param name="to" required="true" style="query" type="xsd:string">
+                        <doc>the timestamp date to retreive summary data until</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6375:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="organics/">
+            <method displayName="organics" id="6374" name="GET">
+                <doc>The organics function returns the search providers and queries that referred users to the site.</doc>
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>the maximum number of organics to respond with Defaults to An offset can be specified too e g will return the th to th organics</doc>
+                    </param>
+                    <param name="pagehash" required="true" style="query" type="xsd:string">
+                        <doc>an MD hash of the page to filter by</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6374:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="ignoredVisitors/">
+            <method displayName="ignoredVisitors" id="6373" name="GET">
+                <doc>Retrieves a list of ignored visitors. This list comprises numerical visitor IDs in an array. To add or remove visitors IDs to the list, use the POST and DELETE HTTP methods.</doc>
+                <request/>
+                <response>
+                    <representation element="f6373:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="geo/">
+            <method displayName="geo" id="6372" name="GET">
+                <doc>The geo function responds with the specified site's visitors' locations.</doc>
+                <request>
+                    <param name="campaign" required="true" style="query" type="xsd:string">
+                        <doc>this parameter allows you to specify what campaign you d like to filter results by</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>the maximum number of visitors to respond with</doc>
+                    </param>
+                    <param name="organic" required="true" style="query" type="xsd:string">
+                        <doc>specify organics</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>an MD hash of a page s URL to filter results by that specific page</doc>
+                    </param>
+                    <param name="presenter" required="true" style="query" type="xsd:string">
+                        <doc>the response presenter accepts old plain Defaults to plain</doc>
+                    </param>
+                    <param name="referer" required="true" style="query" type="xsd:string">
+                        <doc>specify referrer not a spelling mistake</doc>
+                    </param>
+                    <param name="visitorsmode" required="true" style="query" type="xsd:string">
+                        <doc>specify what type of visitors to get the data for all returning and tagged are valid Defaults to all</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6372:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="functions/">
+            <method displayName="functions" id="6371" name="GET">
+                <doc>Functions responds with a list of all available API functions and their URLs.</doc>
+                <request/>
+                <response>
+                    <representation element="f6371:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="engagement/">
+            <method displayName="engagement" id="6370" name="GET">
+                <doc>The engagement function lets you know how engaged users are on the website. For example whether they are active and their time on site.</doc>
+                <request/>
+                <response>
+                    <representation element="f6370:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="concurrents/">
+            <method displayName="concurrents" id="6369" name="GET">
+                <doc>The concurrents function is very similar to overview. It's designed to be quick and is the best way of getting the number of people on your site.</doc>
+                <request>
+                    <param name="presenter" required="true" style="query" type="xsd:string">
+                        <doc>the response presenter accepts old plain Defaults to plain</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6369:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="campaigns/">
+            <method displayName="campaigns" id="6368" name="GET">
+                <doc>The campaigns function shows how your sites campaigns are performing.</doc>
+                <request>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>an MD hash of a page s URL to filter results by that specific page</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6368:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="aggregateStats/">
+            <method displayName="aggregateStats" id="6367" name="GET">
+                <doc>The aggregateStats function provides a breakdown of the browsers, countries, languages, platforms and organisations and provides the number of visitors in each category.</doc>
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>seperated list of integers specifiying how much data to respond with ordered browsers countries languages organisations platforms Default</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6367:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

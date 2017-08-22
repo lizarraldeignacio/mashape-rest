@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2204="urn:function:f2204">
+    <grammars>
+        <include href="Function2204.xsd"/>
+    </grammars>
+    <doc>the Cyfe Push API allows you to push data into your business dashboards from your own applications</doc>
+    <resources base="https://cyfe-push.p.mashape.com/">
+        <resource uri="{cyfe-push-api-key}/">
+            <param name="cyfe-push-api-key" style="template" type="xsd:string"/>
+            <method displayName="Push" id="2204" name="POST">
+                <doc>Push your data into a Cyfe Push API widget.</doc>
+                <request>
+                    <param name="cyfePushApiKey" required="true" style="query" type="xsd:string">
+                        <doc>this is the endpoint you will use to push your data into a Cyfe Push API widget</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2204:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

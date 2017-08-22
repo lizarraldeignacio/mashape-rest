@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6199="urn:function:f6199" xmlns:f6203="urn:function:f6203" xmlns:f6204="urn:function:f6204">
+    <grammars>
+        <include href="Function6204.xsd"/>
+        <include href="Function6199.xsd"/>
+        <include href="Function6203.xsd"/>
+    </grammars>
+    <doc>recomio delivers recommendations with a few lines of code With Recomio you can build your own recommendation engine with simplicity both on the web and mobile All you need to do is use our free code which instantly enables star based ratings likes item relations and recommendations Recomio will then aggregate all the information real time basis provide recommendations and predict user behavior by analyzing user and item patterns and relationships</doc>
+    <resources base="https://recomio.p.mashape.com/">
+        <resource uri="recommendations/">
+            <resource uri="{fromType}/">
+                <param name="fromType" style="template" type="xsd:string"/>
+                <resource uri="{fromId}/">
+                    <param name="fromId" style="template" type="xsd:string"/>
+                    <resource uri="{toType}/">
+                        <param name="toType" style="template" type="xsd:string"/>
+                        <method displayName="Get recommendations" id="6205" name="GET">
+                            <doc>Get recommendations</doc>
+                            <request>
+                                <param name="fromid" required="true" style="query" type="xsd:string">
+                                    <doc>from Id</doc>
+                                </param>
+                                <param name="fromtype" required="true" style="query" type="xsd:string">
+                                    <doc>from type</doc>
+                                </param>
+                                <param name="fromuserid" required="true" style="query" type="xsd:string">
+                                    <doc>id of user whom want to personalize</doc>
+                                </param>
+                                <param name="limit" required="true" style="query" type="xsd:string">
+                                    <doc>limit of recommendations</doc>
+                                </param>
+                                <param name="totype" required="true" style="query" type="xsd:string">
+                                    <doc>to type</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="users/">
+            <resource uri="{userId}/">
+                <param name="userId" style="template" type="xsd:string"/>
+                <method displayName="Create or replace a user" id="6200" name="POST">
+                    <doc>Create or replace a user</doc>
+                    <request>
+                        <param name="userid" required="true" style="query" type="xsd:string">
+                            <doc>id of user that needs to be fetched</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Delete a user" id="6202" name="DELETE">
+                    <doc>Delete a user</doc>
+                    <request>
+                        <param name="userid" required="true" style="query" type="xsd:string">
+                            <doc>id of user that needs to be fetched</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Find a user by Id" id="6204" name="GET">
+                    <doc>Find a user by Id</doc>
+                    <request>
+                        <param name="userid" required="true" style="query" type="xsd:string">
+                            <doc>id of user that needs to be fetched</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6204:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="items/">
+            <resource uri="{itemId}/">
+                <param name="itemId" style="template" type="xsd:string"/>
+                <method displayName="Create or replace a item" id="6199" name="POST">
+                    <doc>Create or replace a item</doc>
+                    <request>
+                        <param name="itemid" required="true" style="query" type="xsd:string">
+                            <doc>id of item that needs to be fetched</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6199:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Delete a item" id="6201" name="DELETE">
+                    <doc>Delete a item</doc>
+                    <request>
+                        <param name="itemid" required="true" style="query" type="xsd:string">
+                            <doc>id of item that needs to be fetched</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Find a item by Id" id="6203" name="GET">
+                    <doc>Find a item by Id</doc>
+                    <request>
+                        <param name="itemid" required="true" style="query" type="xsd:string">
+                            <doc>id of item that needs to be fetched</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6203:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="relations/">
+            <resource uri="set/">
+                <resource uri="{fromType}/">
+                    <param name="fromType" style="template" type="xsd:string"/>
+                    <resource uri="{fromId}/">
+                        <param name="fromId" style="template" type="xsd:string"/>
+                        <resource uri="{relation}/">
+                            <param name="relation" style="template" type="xsd:string"/>
+                            <resource uri="{toType}/">
+                                <param name="toType" style="template" type="xsd:string"/>
+                                <resource uri="{toId}/">
+                                    <param name="toId" style="template" type="xsd:string"/>
+                                    <method displayName="Set a relation" id="6206" name="POST">
+                                        <doc>Set a relation</doc>
+                                        <request>
+                                            <param name="fromid" required="true" style="query" type="xsd:string">
+                                                <doc>from Id</doc>
+                                            </param>
+                                            <param name="fromtype" required="true" style="query" type="xsd:string">
+                                                <doc>from type</doc>
+                                            </param>
+                                            <param name="relation" required="true" style="query" type="xsd:string">
+                                                <doc>relation</doc>
+                                            </param>
+                                            <param name="toid" required="true" style="query" type="xsd:string">
+                                                <doc>to Id</doc>
+                                            </param>
+                                            <param name="totype" required="true" style="query" type="xsd:string">
+                                                <doc>to type</doc>
+                                            </param>
+                                        </request>
+                                    </method>
+                                </resource>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="score/">
+                <resource uri="set/">
+                    <resource uri="{fromType}/">
+                        <param name="fromType" style="template" type="xsd:string"/>
+                        <resource uri="{fromId}/">
+                            <param name="fromId" style="template" type="xsd:string"/>
+                            <resource uri="{score}/">
+                                <param name="score" style="template" type="xsd:string"/>
+                                <resource uri="{toType}/">
+                                    <param name="toType" style="template" type="xsd:string"/>
+                                    <resource uri="{toId}/">
+                                        <param name="toId" style="template" type="xsd:string"/>
+                                        <method displayName="Set a score" id="6207" name="POST">
+                                            <doc>Set a score</doc>
+                                            <request>
+                                                <param name="fromid" required="true" style="query" type="xsd:string">
+                                                    <doc>from Id</doc>
+                                                </param>
+                                                <param name="fromtype" required="true" style="query" type="xsd:string">
+                                                    <doc>from type</doc>
+                                                </param>
+                                                <param name="score" required="true" style="query" type="xsd:string">
+                                                    <doc>number of a score like Star rating score</doc>
+                                                </param>
+                                                <param name="toid" required="true" style="query" type="xsd:string">
+                                                    <doc>to Id</doc>
+                                                </param>
+                                                <param name="totype" required="true" style="query" type="xsd:string">
+                                                    <doc>to type</doc>
+                                                </param>
+                                            </request>
+                                        </method>
+                                    </resource>
+                                </resource>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="add/">
+                    <resource uri="{fromType}/">
+                        <param name="fromType" style="template" type="xsd:string"/>
+                        <resource uri="{fromId}/">
+                            <param name="fromId" style="template" type="xsd:string"/>
+                            <resource uri="{score}/">
+                                <param name="score" style="template" type="xsd:string"/>
+                                <resource uri="{toType}/">
+                                    <param name="toType" style="template" type="xsd:string"/>
+                                    <resource uri="{toId}/">
+                                        <param name="toId" style="template" type="xsd:string"/>
+                                        <method displayName="Add a score" id="6198" name="POST">
+                                            <doc>Add a score</doc>
+                                            <request>
+                                                <param name="fromid" required="true" style="query" type="xsd:string">
+                                                    <doc>from Id</doc>
+                                                </param>
+                                                <param name="fromtype" required="true" style="query" type="xsd:string">
+                                                    <doc>from type</doc>
+                                                </param>
+                                                <param name="score" required="true" style="query" type="xsd:string">
+                                                    <doc>number of a score like Star rating score</doc>
+                                                </param>
+                                                <param name="toid" required="true" style="query" type="xsd:string">
+                                                    <doc>to Id</doc>
+                                                </param>
+                                                <param name="totype" required="true" style="query" type="xsd:string">
+                                                    <doc>to type</doc>
+                                                </param>
+                                            </request>
+                                        </method>
+                                    </resource>
+                                </resource>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="add/">
+                <resource uri="{fromType}/">
+                    <param name="fromType" style="template" type="xsd:string"/>
+                    <resource uri="{fromId}/">
+                        <param name="fromId" style="template" type="xsd:string"/>
+                        <resource uri="{relation}/">
+                            <param name="relation" style="template" type="xsd:string"/>
+                            <resource uri="{toType}/">
+                                <param name="toType" style="template" type="xsd:string"/>
+                                <resource uri="{toId}/">
+                                    <param name="toId" style="template" type="xsd:string"/>
+                                    <method displayName="Add a relation" id="6197" name="POST">
+                                        <doc>Add a relation</doc>
+                                        <request>
+                                            <param name="fromid" required="true" style="query" type="xsd:string">
+                                                <doc>from Id</doc>
+                                            </param>
+                                            <param name="fromtype" required="true" style="query" type="xsd:string">
+                                                <doc>from type</doc>
+                                            </param>
+                                            <param name="relation" required="true" style="query" type="xsd:string">
+                                                <doc>relation</doc>
+                                            </param>
+                                            <param name="toid" required="true" style="query" type="xsd:string">
+                                                <doc>to Id</doc>
+                                            </param>
+                                            <param name="totype" required="true" style="query" type="xsd:string">
+                                                <doc>to type</doc>
+                                            </param>
+                                        </request>
+                                    </method>
+                                </resource>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

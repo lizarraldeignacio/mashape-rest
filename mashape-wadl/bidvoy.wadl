@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5244="urn:function:f5244" xmlns:f5245="urn:function:f5245" xmlns:f5246="urn:function:f5246" xmlns:f5247="urn:function:f5247" xmlns:f5248="urn:function:f5248">
+    <grammars>
+        <include href="Function5247.xsd"/>
+        <include href="Function5248.xsd"/>
+        <include href="Function5246.xsd"/>
+        <include href="Function5245.xsd"/>
+        <include href="Function5244.xsd"/>
+    </grammars>
+    <doc>bidvoy is a product value tracking service for eBay By examining eBay auction data Bidvoy tracks price trends for products over time allowing you to examine that products average price changes in value over time and price margin Use Bidvoy s information to decide when to buy or sell a product Bidvoy offer a simple API for developers</doc>
+    <resources base="https://baskarm28-bidvoy-v1.p.mashape.com/">
+        <resource uri="account/">
+            <resource uri="usage/">
+                <method displayName="No of calls" id="5247" name="GET">
+                    <doc>Each api token has a limited number of calls for each month. This method shows you the limit of your key and provides you with the number of calls you have done.</doc>
+                    <request>
+                        <param name="apikey" required="true" style="query" type="xsd:string">
+                            <doc>your api key for which you want to receive the usage statistics</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5247:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="category/">
+            <resource uri="get/">
+                <method displayName="Object category" id="5248" name="GET">
+                    <doc>Returns a category object specified by its unique id.</doc>
+                    <request>
+                        <param name="apikey" required="true" style="query" type="xsd:string">
+                            <doc>this is your api key</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the id of the category you want to get</doc>
+                        </param>
+                        <param name="language" required="true" style="query" type="xsd:string">
+                            <doc>this identifier sets the language of the API output</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5248:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="searchbykeyword/">
+                <method displayName="List category once" id="5246" name="GET">
+                    <doc>Returns a list of categories in which your product occures at least once.</doc>
+                    <request>
+                        <param name="apikey" required="true" style="query" type="xsd:string">
+                            <doc>this is your api key</doc>
+                        </param>
+                        <param name="keyword" required="true" style="query" type="xsd:string">
+                            <doc>this is the name of your product article</doc>
+                        </param>
+                        <param name="language" required="true" style="query" type="xsd:string">
+                            <doc>this identifier sets the language of the API output</doc>
+                        </param>
+                        <param name="pageid" required="true" style="query" type="xsd:string">
+                            <doc>this is the id of the page returned zero based Could be used for a pagination together with pagesize</doc>
+                        </param>
+                        <param name="pagesize" required="true" style="query" type="xsd:string">
+                            <doc>determines the quantity of returned entities Could be used for a pagination together with pageid Maximum is</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5246:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="searchbyname/">
+                <method displayName="Category list" id="5245" name="GET">
+                    <doc>This method returns a list of categories based on your category search attribute.</doc>
+                    <request>
+                        <param name="apikey" required="true" style="query" type="xsd:string">
+                            <doc>this is your api key</doc>
+                        </param>
+                        <param name="language" required="true" style="query" type="xsd:string">
+                            <doc>this identifier sets the language of the API output</doc>
+                        </param>
+                        <param name="name" required="true" style="query" type="xsd:string">
+                            <doc>the search term of the category you want to search for</doc>
+                        </param>
+                        <param name="pageid" required="true" style="query" type="xsd:string">
+                            <doc>this is the id of the page returned zero based Could be used for a pagination together with pagesize</doc>
+                        </param>
+                        <param name="pagesize" required="true" style="query" type="xsd:string">
+                            <doc>determines the quantity of returned entities Could be used for a pagination together with pageid Maximum is</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5245:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="article/">
+            <resource uri="analyse/">
+                <method displayName="Article analyse" id="5244" name="GET">
+                    <doc>The actual search routine. Provides you with statistical data based on your given product and category.</doc>
+                    <request>
+                        <param name="apikey" required="true" style="query" type="xsd:string">
+                            <doc>this is your api key</doc>
+                        </param>
+                        <param name="category" required="true" style="query" type="xsd:string">
+                            <doc>this is the category of your requested product that gets evaluated</doc>
+                        </param>
+                        <param name="enddate" required="true" style="query" type="xsd:string">
+                            <doc>sets the end date of the analysis period</doc>
+                        </param>
+                        <param name="keyword" required="true" style="query" type="xsd:string">
+                            <doc>this is the name of your product article</doc>
+                        </param>
+                        <param name="language" required="true" style="query" type="xsd:string">
+                            <doc>this identifier sets the language of the API output</doc>
+                        </param>
+                        <param name="listing" required="true" style="query" type="xsd:string">
+                            <doc>determines whether the calculation should be done with auction or buyitnow products</doc>
+                        </param>
+                        <param name="startdate" required="true" style="query" type="xsd:string">
+                            <doc>sets the start date of the analysis period Please note that you can only go days back in time</doc>
+                        </param>
+                        <param name="state" required="true" style="query" type="xsd:string">
+                            <doc>the state attribute determines whether the calculation should be done with used or new products</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5244:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

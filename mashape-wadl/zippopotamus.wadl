@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1497="urn:function:f1497" xmlns:f1498="urn:function:f1498">
+    <grammars>
+        <include href="Function1498.xsd"/>
+        <include href="Function1497.xsd"/>
+    </grammars>
+    <doc>zip Code Galore Zip po pot amus zip p t m s Postal Codes and Zip Codes made easy Free API with JSON Response Format Over Countries Supported Perfect for Form Autocompletion Open for Crowdsourcing and Contribution</doc>
+    <resources base="https://community-zippopotamus.p.mashape.com/">
+        <resource uri="{country}/">
+            <param name="country" style="template" type="xsd:string"/>
+            <resource uri="{postal_code}/">
+                <param name="postal_code" style="template" type="xsd:string"/>
+                <method displayName="Get Zip Code info" id="1498" name="GET">
+                    <request>
+                        <param name="country" required="true" style="query" type="xsd:string"/>
+                        <param name="postalCode" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f1498:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="{state}/">
+                <param name="state" style="template" type="xsd:string"/>
+                <resource uri="{city}/">
+                    <param name="city" style="template" type="xsd:string"/>
+                    <method displayName="Get info by city" id="1497" name="GET">
+                        <request>
+                            <param name="city" required="true" style="query" type="xsd:string"/>
+                            <param name="country" required="true" style="query" type="xsd:string"/>
+                            <param name="state" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f1497:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

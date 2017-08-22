@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5261="urn:function:f5261">
+    <grammars>
+        <include href="Function5261.xsd"/>
+    </grammars>
+    <doc>phone number parser using Google phonelib library</doc>
+    <resources base="https://enclout-phone-parser.p.mashape.com/">
+        <resource uri="show.json/">
+            <method displayName="phone" id="5261" name="GET">
+                <doc>Phone number parser</doc>
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>phone number to parse</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5261:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

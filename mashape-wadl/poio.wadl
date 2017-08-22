@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7363="urn:function:f7363" xmlns:f7364="urn:function:f7364">
+    <grammars>
+        <include href="Function7364.xsd"/>
+        <include href="Function7363.xsd"/>
+    </grammars>
+    <doc>text prediction to support text input in under resourced languages like Bavarian Sorbian and many others</doc>
+    <resources base="https://pbouda-poio.p.mashape.com/">
+        <resource uri="prediction/">
+            <method displayName="Text Prediction" id="7364" name="GET">
+                <doc>This funtion predicts a completion for a given string and a given language</doc>
+                <request>
+                    <param name="iso" required="true" style="query" type="xsd:string">
+                        <doc>the ISO code of the language</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>the text that the user already entered The text to predict a completion for</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f7364:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="languages/">
+            <method displayName="Supported Languages" id="7363" name="GET">
+                <doc>Get a list os supported languages.</doc>
+                <request/>
+                <response>
+                    <representation element="f7363:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

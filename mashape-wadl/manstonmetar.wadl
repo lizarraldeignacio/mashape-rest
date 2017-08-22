@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7509="urn:function:f7509">
+    <grammars>
+        <include href="Function7509.xsd"/>
+    </grammars>
+    <doc>providing a basic weather service for Manston Kent s International Airport EGMH to pilots airlines and operating authorities alike</doc>
+    <resources base="https://manstonmetar.p.mashape.com/">
+        <resource uri="json.php/">
+            <method displayName="EGMH JSON" id="7509" name="GET">
+                <request/>
+                <response>
+                    <representation element="f7509:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

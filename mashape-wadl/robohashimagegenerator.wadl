@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f370="urn:function:f370">
+    <grammars>
+        <include href="Function370.xsd"/>
+    </grammars>
+    <doc>generate a cool looking robot image for any text using this new api</doc>
+    <resources base="https://robohash.p.mashape.com/">
+        <resource uri="index.php/">
+            <method displayName="Robohash Image Generator" id="370" name="GET">
+                <doc>Generate a random and cool looking robot image for your text</doc>
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>text for which the image to be generated</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f370:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

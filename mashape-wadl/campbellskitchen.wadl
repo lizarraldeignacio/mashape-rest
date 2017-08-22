@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3150="urn:function:f3150" xmlns:f3151="urn:function:f3151" xmlns:f3152="urn:function:f3152" xmlns:f3153="urn:function:f3153" xmlns:f3154="urn:function:f3154">
+    <grammars>
+        <include href="Function3154.xsd"/>
+        <include href="Function3153.xsd"/>
+        <include href="Function3152.xsd"/>
+        <include href="Function3151.xsd"/>
+        <include href="Function3150.xsd"/>
+    </grammars>
+    <doc>campbell s Kitchen is all about sharing information In our case that information includes thousands of recipes using brands like Campbell s Swanson Pace Prego Pepperidge Farm brands people love and trust and use every day GET ACCESS T</doc>
+    <resources base="https://community-campbell.p.mashape.com/">
+        <resource uri="brandservice.svc/">
+            <resource uri="api/">
+                <resource uri="search/">
+                    <method displayName="Search Recipes" id="3154" name="GET">
+                        <request>
+                            <param name="category" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the category to return</doc>
+                            </param>
+                            <param name="format" required="true" style="query" type="xsd:string">
+                                <doc>xml or json default xml</doc>
+                            </param>
+                            <param name="ingredient" required="true" style="query" type="xsd:string">
+                                <doc>search single or multiple ingredients multiple ingredients separated by pipe</doc>
+                            </param>
+                            <param name="keyword" required="true" style="query" type="xsd:string">
+                                <doc>the search term</doc>
+                            </param>
+                            <param name="preptime" required="true" style="query" type="xsd:string">
+                                <doc>the prep time in minutes</doc>
+                            </param>
+                            <param name="product" required="true" style="query" type="xsd:string">
+                                <doc>the name of a Campbell product</doc>
+                            </param>
+                            <param name="start" required="true" style="query" type="xsd:string">
+                                <doc>start at record number default</doc>
+                            </param>
+                            <param name="total" required="true" style="query" type="xsd:string">
+                                <doc>the total number of results to return defaults</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f3154:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="recipeextended/">
+                    <resource uri="{recipeID}/">
+                        <param name="recipeID" style="template" type="xsd:string"/>
+                        <method displayName="Get Recipe Full Details" id="3153" name="GET">
+                            <request>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc>xml or json default xml</doc>
+                                </param>
+                                <param name="recipeid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f3153:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="recipe/">
+                    <resource uri="{recipeID}/">
+                        <param name="recipeID" style="template" type="xsd:string"/>
+                        <method displayName="Get Recipe" id="3152" name="GET">
+                            <request>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="recipeid" required="true" style="query" type="xsd:string">
+                                    <doc>multiple recipe IDs separated by pipe</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f3152:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="recipereviews/">
+                    <resource uri="{recipeID}/">
+                        <param name="recipeID" style="template" type="xsd:string"/>
+                        <method displayName="Get All Recipe Reviews" id="3151" name="GET">
+                            <request>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc>xml or json default xml</doc>
+                                </param>
+                                <param name="recipeid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f3151:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="recipenutrition/">
+                    <resource uri="{recipeID}/">
+                        <param name="recipeID" style="template" type="xsd:string"/>
+                        <method displayName="Get All Recipe Nutrition" id="3150" name="GET">
+                            <request>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc>xml or json default xml</doc>
+                                </param>
+                                <param name="recipeid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f3150:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

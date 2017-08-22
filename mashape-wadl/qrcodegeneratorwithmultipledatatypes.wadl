@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1597="urn:function:f1597">
+    <grammars>
+        <include href="Function1597.xsd"/>
+    </grammars>
+    <doc>qR code generator with text url tel sms and email datatypes</doc>
+    <resources base="https://codzz-qr-cods.p.mashape.com/">
+        <resource uri="getQrcode/">
+            <method displayName="getQrcode" id="1597" name="GET">
+                <doc>This API will return you an URL of the QR Code image that you can easily embed on to website or download it for your other needs.</doc>
+                <request>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>select one of the QR code formats to generate</doc>
+                    </param>
+                    <param name="value" required="true" style="query" type="xsd:string">
+                        <doc>enter value as per your QR code type</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1597:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>easily follow and track your favorite artists on SongMeanings Be the first to know about new lyrics song meanings more</doc>
+    <resources base="https://songmeanings.p.mashape.com/">
+        <resource uri="">
+            <method displayName="artists.search" id="2407" name="GET">
+                <doc>Search the SongMeanings database for artist names and aliases.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string"/>
+                    <param name="matchmode" required="true" style="query" type="xsd:string">
+                        <doc>configure how matching occurs see further parameter values</doc>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>starting page of comments</doc>
+                    </param>
+                    <param name="pageSize" required="true" style="query" type="xsd:string">
+                        <doc>set how many comments returned per page</doc>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>query string</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="comments.flag.put" id="2408" name="POST">
+                <doc>Allows for a specific comment to be flagged for moderation.</doc>
+                <request/>
+            </method>
+            <method displayName="comments.get" id="2409" name="GET">
+                <doc>Get comments from our database for a specific song.</doc>
+                <request>
+                    <param name="artistName" required="true" style="query" type="xsd:string">
+                        <doc>the artist name</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string"/>
+                    <param name="lyricTitle" required="true" style="query" type="xsd:string">
+                        <doc>the song track or lyric title</doc>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>starting page of comments</doc>
+                    </param>
+                    <param name="pageOrder" required="true" style="query" type="xsd:string">
+                        <doc>order by a specific field date or rating</doc>
+                    </param>
+                    <param name="pageSize" required="true" style="query" type="xsd:string">
+                        <doc>set how many comments returned per page</doc>
+                    </param>
+                    <param name="pageSort" required="true" style="query" type="xsd:string">
+                        <doc>sort by ascending or descending asc or desc</doc>
+                    </param>
+                    <param name="parentId" required="true" style="query" type="xsd:string">
+                        <doc>when specified method will return any replies for parent comment</doc>
+                    </param>
+                    <param name="smLid" required="true" style="query" type="xsd:string">
+                        <doc>if SM lyric id is known then this will bypass artist name and lyric title</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>set what type of comments to return</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="comments.rating.put" id="2410" name="POST">
+                <doc>Allows for a specific comment to be rated up or down by a logged in user.</doc>
+                <request/>
+            </method>
+            <method displayName="lyrics.get" id="2411" name="GET">
+                <doc>Retrieves lyrics and lyric related data for a specific song.</doc>
+                <request>
+                    <param name="artistName" required="true" style="query" type="xsd:string">
+                        <doc>artist name</doc>
+                    </param>
+                    <param name="count" required="true" style="query" type="xsd:string">
+                        <doc>this parameter is used to track and report any offline cached views of lyrics</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>decide the output type either xml or json xml is default</doc>
+                    </param>
+                    <param name="lyricTitle" required="true" style="query" type="xsd:string">
+                        <doc>song or track title</doc>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="smLid" required="true" style="query" type="xsd:string">
+                        <doc>songMeanings Lyric ID When specified this parameter will bypass any other lyric identification parameters</doc>
+                    </param>
+                    <param name="spotifyId" required="true" style="query" type="xsd:string">
+                        <doc>if specified a match will attempt to be made via spotify id Please note that if parameter is used the API will also require lyric title and artist name as a backup attempt</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="songs.search" id="2412" name="GET">
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string"/>
+                    <param name="index" required="true" style="query" type="xsd:string">
+                        <doc>additional indexes to search in addition to song titles see further parameter values</doc>
+                    </param>
+                    <param name="matchmode" required="true" style="query" type="xsd:string">
+                        <doc>configure how matching occurs see further parameter values</doc>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>starting page of comments</doc>
+                    </param>
+                    <param name="pageSize" required="true" style="query" type="xsd:string">
+                        <doc>set how many comments returned per page</doc>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>query string</doc>
+                    </param>
+                    <param name="qArtist" required="true" style="query" type="xsd:string">
+                        <doc>artist name When defined and Artist ID acquired engine will search query for any song titles found under the artist specified If both sm aid and q artist are defined sm aid will always supercede</doc>
+                    </param>
+                    <param name="smAid" required="true" style="query" type="xsd:string">
+                        <doc>songMeapings Artist ID When defined engine will search query for any song titles found under the artist specified</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="users.create.put" id="2413" name="POST">
+                <doc>Creates a new user account.</doc>
+                <request/>
+            </method>
+            <method displayName="users.favorite.get" id="2414" name="GET">
+                <doc>Get a user’s favorites by specified type.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string"/>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="smUid" required="true" style="query" type="xsd:string">
+                        <doc>user ID to grab favorites for</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>type of favorites to retrieve artists lyrics</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="users.favorites.put" id="2415" name="POST">
+                <doc>Allows for an artist to be followed or a lyric to be favorited by a logged in user.</doc>
+                <request/>
+            </method>
+            <method displayName="users.password.reset" id="2416" name="GET">
+                <doc>Allows for a user to reset their password. When initiated, method will send the user an email with a link to click. The link will bring the user to desktop SongMeanings where the user will complete the password reset.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string"/>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="smEmai" required="true" style="query" type="xsd:string">
+                        <doc>the user s email address on the account to be reset</doc>
+                    </param>
+                    <param name="smUid" required="true" style="query" type="xsd:string">
+                        <doc>sM User ID of the user initiating the password reset request</doc>
+                    </param>
+                    <param name="smUsername" required="true" style="query" type="xsd:string">
+                        <doc>sM Username of the user initiating the password reset request</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

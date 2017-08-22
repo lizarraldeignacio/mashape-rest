@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f534="urn:function:f534">
+    <grammars>
+        <include href="Function534.xsd"/>
+    </grammars>
+    <doc>with this API you can easily develop a poker texas holdem game just design the graphic</doc>
+    <resources base="https://poker.p.mashape.com/">
+        <resource uri="index.php/">
+            <method displayName="Play" id="534" name="GET">
+                <request>
+                    <param name="players" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f534:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

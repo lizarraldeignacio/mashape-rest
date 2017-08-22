@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2934="urn:function:f2934">
+    <grammars>
+        <include href="Function2934.xsd"/>
+    </grammars>
+    <doc>find out a persons interests based on an email address Find out what brands bands celebrities TV shows books and much more that a person likes Social Swoope analyzes social media activity in real time to give you up to date interests on an individual person</doc>
+    <resources base="https://hapidata-socialswoope-v1.p.mashape.com/">
+        <resource uri="?{type}={id}/">
+            <param name="type" style="template" type="xsd:string"/>
+            <method displayName="/?{type}={id}" id="2934" name="GET">
+                <doc>Social media accounts and interest data from an email address.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>value email address or twitter username</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>value email or twitter</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2934:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

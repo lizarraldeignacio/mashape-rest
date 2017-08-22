@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2530="urn:function:f2530" xmlns:f2531="urn:function:f2531">
+    <grammars>
+        <include href="Function2531.xsd"/>
+        <include href="Function2530.xsd"/>
+    </grammars>
+    <doc>bike Sharing Networks Around the World This project started in Barcelona when I was unable to get a decent client for the Android to work with the Bicing system We figured out the same problem would apply for the rest of the world thus solving it for us locally could also work globally Then we also found out how important was this data for everyone and that there s no reason for companies to keep it private Most of these bike sharing systems are built using public money we believe this data should be available to their own citizens The main reason for this project to be is for people to realize the benefits of providing free data</doc>
+    <resources base="https://community-citybikes.p.mashape.com/">
+        <resource uri="{system}.json/">
+            <param name="system" style="template" type="xsd:string"/>
+            <method displayName="System" id="2531" name="GET">
+                <doc>This call, given a system name id (see Networks endpoint), provides the list of stations and availability</doc>
+                <request>
+                    <param name="system" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2531:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="networks.json/">
+            <method displayName="Networks" id="2530" name="GET">
+                <doc>This call provides a list of the networks supported in CityBikes</doc>
+                <request/>
+                <response>
+                    <representation element="f2530:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

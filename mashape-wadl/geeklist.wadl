@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>the first social network for developers and the tech community</doc>
+    <resources base="https://geeklist.p.mashape.com/">
+        <resource uri="highfive/">
+            <method displayName="Highfive Item" id="4991" name="GET">
+                <request>
+                    <param name="gfk" required="true" style="query" type="xsd:string">
+                        <doc>the id of the item being highfived</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>the type of item being highfived</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="users/">
+            <resource uri="{user}/">
+                <param name="user" style="template" type="xsd:string"/>
+                <method displayName="Follow User" id="4971" name="PUT">
+                    <request>
+                        <param name="user" required="true" style="query" type="xsd:string">
+                            <doc>user</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Get Specified Users Activity" id="4983" name="GET">
+                    <request>
+                        <param name="user" required="true" style="query" type="xsd:string">
+                            <doc>user id</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Get Specified Users Cards" id="4984" name="GET">
+                    <request>
+                        <param name="featured" required="true" style="query" type="xsd:string">
+                            <doc>returns only featured cards for user only for cards and not contribs</doc>
+                        </param>
+                        <param name="user" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Get Specified Users Connections" id="4985" name="GET">
+                    <request>
+                        <param name="user" required="true" style="query" type="xsd:string">
+                            <doc>user</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Get Specified Users Contributions" id="4986" name="GET">
+                    <request>
+                        <param name="featured" required="true" style="query" type="xsd:string">
+                            <doc>returns only featured cards for user only for cards and not contribs</doc>
+                        </param>
+                        <param name="user" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Get Specified Users Followers" id="4987" name="GET">
+                    <request>
+                        <param name="user" required="true" style="query" type="xsd:string">
+                            <doc>user</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Get Specified Users Following" id="4988" name="GET">
+                    <request>
+                        <param name="user" required="true" style="query" type="xsd:string">
+                            <doc>user</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Get Specified Users Links" id="4989" name="GET">
+                    <request>
+                        <param name="user" required="true" style="query" type="xsd:string">
+                            <doc>specified user</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Get Specified Users Micros" id="4990" name="GET">
+                    <request>
+                        <param name="user" required="true" style="query" type="xsd:string">
+                            <doc>specified Users</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Specified Users Data" id="4993" name="GET">
+                    <request>
+                        <param name="user" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Unfollow User" id="4994" name="DELETE">
+                    <request>
+                        <param name="user" required="true" style="query" type="xsd:string">
+                            <doc>user</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="micros/">
+            <method displayName="Create Micro" id="4970" name="POST">
+                <request/>
+            </method>
+            <method displayName="Get Individual Micro" id="4981" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>micro id</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="links/">
+            <method displayName="Create Link" id="4969" name="POST">
+                <request/>
+            </method>
+            <method displayName="Get Individual Link" id="4980" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>link id</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get Popular Links" id="4982" name="GET">
+                <request>
+                    <param name="communities" required="true" style="query" type="xsd:string">
+                        <doc>the community you want to see the popular links from</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Vote for Link" id="4995" name="PUT">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+        <resource uri="cards/">
+            <method displayName="Create Card" id="4968" name="GET">
+                <request>
+                    <param name="headline" required="true" style="query" type="xsd:string">
+                        <doc>the content of the card</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="user/">
+            <method displayName="Authenticated Users Data" id="4967" name="GET">
+                <request/>
+            </method>
+            <method displayName="Get Authenticated Users Activity" id="4972" name="GET">
+                <request/>
+            </method>
+            <method displayName="Get Authenticated Users Cards" id="4973" name="GET">
+                <request>
+                    <param name="featured" required="true" style="query" type="xsd:string">
+                        <doc>returns only featured cards for user only for cards and not contribs</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get Authenticated Users Connections" id="4974" name="GET">
+                <request/>
+            </method>
+            <method displayName="Get Authenticated Users Contributions" id="4975" name="GET">
+                <request>
+                    <param name="featured" required="true" style="query" type="xsd:string">
+                        <doc>returns only featured cards for user only for cards and not contribs</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get Authenticated Users Followers" id="4976" name="GET">
+                <request/>
+            </method>
+            <method displayName="Get Authenticated Users Following" id="4977" name="GET">
+                <request/>
+            </method>
+            <method displayName="Get Authenticated Users Links" id="4978" name="GET">
+                <request/>
+            </method>
+            <method displayName="Get Authenticated Users Micros" id="4979" name="GET">
+                <request/>
+            </method>
+            <method displayName="Old Follow/Unfollow User" id="4992" name="POST">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="activity/">
+            <method displayName="All Activity" id="4966" name="GET">
+                <request>
+                    <param name="feed" required="true" style="query" type="xsd:string">
+                        <doc>specifies which feed to pull data from By default it uses the authenticated users personal feed Options include discovery at community</doc>
+                    </param>
+                    <param name="filter" required="true" style="query" type="xsd:string">
+                        <doc>allows filtering of personal and discovery feeds by activity types Options include micro card link highfive follow vote commit</doc>
+                    </param>
+                    <param name="hash" required="true" style="query" type="xsd:string">
+                        <doc>hash will give you only micros that contain the hash gklst from the discovery feed</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>since the activity feeds are sorted descending by date you can specify a starting activity id and fetch any activities older than that id with the limit you set</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

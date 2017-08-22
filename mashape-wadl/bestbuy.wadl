@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f936="urn:function:f936" xmlns:f937="urn:function:f937" xmlns:f938="urn:function:f938" xmlns:f940="urn:function:f940" xmlns:f941="urn:function:f941" xmlns:f942="urn:function:f942" xmlns:f943="urn:function:f943" xmlns:f944="urn:function:f944" xmlns:f947="urn:function:f947" xmlns:f948="urn:function:f948" xmlns:f949="urn:function:f949" xmlns:f950="urn:function:f950" xmlns:f951="urn:function:f951" xmlns:f952="urn:function:f952" xmlns:f954="urn:function:f954" xmlns:f955="urn:function:f955" xmlns:f956="urn:function:f956" xmlns:f957="urn:function:f957" xmlns:f958="urn:function:f958" xmlns:f959="urn:function:f959" xmlns:f960="urn:function:f960" xmlns:f961="urn:function:f961" xmlns:f962="urn:function:f962" xmlns:f963="urn:function:f963">
+    <grammars>
+        <include href="Function962.xsd"/>
+        <include href="Function961.xsd"/>
+        <include href="Function959.xsd"/>
+        <include href="Function958.xsd"/>
+        <include href="Function957.xsd"/>
+        <include href="Function960.xsd"/>
+        <include href="Function956.xsd"/>
+        <include href="Function954.xsd"/>
+        <include href="Function952.xsd"/>
+        <include href="Function951.xsd"/>
+        <include href="Function950.xsd"/>
+        <include href="Function949.xsd"/>
+        <include href="Function947.xsd"/>
+        <include href="Function944.xsd"/>
+        <include href="Function943.xsd"/>
+        <include href="Function963.xsd"/>
+        <include href="Function955.xsd"/>
+        <include href="Function948.xsd"/>
+        <include href="Function942.xsd"/>
+        <include href="Function941.xsd"/>
+        <include href="Function940.xsd"/>
+        <include href="Function938.xsd"/>
+        <include href="Function937.xsd"/>
+        <include href="Function936.xsd"/>
+    </grammars>
+    <doc>the Best Buy API puts a Best Buy store in your pocket Browse our entire catalog read reviews compare specs track your My Best Buy rewards points and more You can even make purchases right from your phone for home delivery or in store pickup</doc>
+    <resources base="https://baskarm28-bestbuy-v1.p.mashape.com/">
+        <resource uri="stores(area(71.3,-156.8,1000))/">
+            <method displayName="Stores within a radius from a specific location" id="962" name="GET">
+                <doc>Returns stores within 10 miles of Barrow, Alaska (71.3 N, 156.8 W)</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f962:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="stores/">
+            <method displayName="stores" id="961" name="GET">
+                <doc>Return store information for all stores.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f961:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="products(sku=1221963)+stores/">
+            <method displayName="Store availability" id="959" name="GET">
+                <doc>Store availability queries will return only those stores that have a given product in stock. Stores not returned do not have that product in stock.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f959:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="reviews(sku=1780275)/">
+            <method displayName="Specific product review" id="958" name="GET">
+                <doc>Retrieves all the reviews submitted for the product specified in the input.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>the ID attribute provides a unique review identifier for each review submitted</doc>
+                    </param>
+                    <param name="sku" required="true" style="query" type="xsd:string">
+                        <doc>provides the SKU identifier for the product of a review</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f958:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="stores(storeId=1118)/">
+            <method displayName="Single store hour" id="957" name="GET">
+                <doc>Return store hour for single store.</doc>
+                <request>
+                    <param name="detailedhoursClose" required="true" style="query" type="xsd:string">
+                        <doc>returns as part of a collection and identifying the time a Best Buy store will close Format is using a hour clock</doc>
+                    </param>
+                    <param name="detailedhoursDate" required="true" style="query" type="xsd:string">
+                        <doc>returns as part of a collection and identifying the day of the week Sunday a specific Best Buy store will be open</doc>
+                    </param>
+                    <param name="detailedhoursOpen" required="true" style="query" type="xsd:string">
+                        <doc>returns as part of a collection and identifing the time a Best Buy store will open Format is using a hour clock</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="gmtoffset" required="true" style="query" type="xsd:string">
+                        <doc>identifies the time zone difference from GMT based on the time zone of Best Buy store s location</doc>
+                    </param>
+                    <param name="hours" required="true" style="query" type="xsd:string">
+                        <doc>provides the regular Best Buy store hours from Monday through Friday for the entire calendar year</doc>
+                    </param>
+                    <param name="hoursampm" required="true" style="query" type="xsd:string">
+                        <doc>the hoursAmPm attribute provides the regular Best Buy store hours from Monday through Friday for the entire calendar year with the inclusion of am and pm identification</doc>
+                    </param>
+                    <param name="storeid" required="true" style="query" type="xsd:integer">
+                        <doc>provides the Best Buy unique Identifier of each Best Buy store being returned</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f957:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Store service" id="960" name="GET">
+                <doc>Return all the services offered at the store</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="servicesService" required="true" style="query" type="xsd:string">
+                        <doc>it is a collection that includes the different services offered at each Best Buy store Each service is a value for the services service attribute</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f960:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="stores(storeId=281)/">
+            <method displayName="Single store" id="956" name="GET">
+                <doc>Return store information of a store with the storeId attribute specified in the input.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="storeid" required="true" style="query" type="xsd:integer">
+                        <doc>provides the Best Buy unique Identifier of each Best Buy store being returned</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f956:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="reviews(submissionTime=2014-04-29)/">
+            <method displayName="Reviews submitted on a specific date" id="954" name="GET">
+                <doc>Retrieves all the reviews submitted on a specific date</doc>
+                <request>
+                    <param name="submissiontime" required="true" style="query" type="xsd:string">
+                        <doc>provides the date and time the review was submitted</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f954:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="reviews(sku%20in(1722009,1751791,1722018,1752291,1729354))/">
+            <method displayName="Reviews for a list of products" id="953" name="GET">
+                <doc>Retrieves all the reviews submitted for a list of the SKUs specified in the input.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>the ID attribute provides a unique review identifier for each review submitted</doc>
+                    </param>
+                    <param name="sku" required="true" style="query" type="xsd:string">
+                        <doc>provides the SKU identifier for the product of a review</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="reviews(rating%3E4.0)/">
+            <method displayName="Products with a rating higher then 4.0" id="952" name="GET">
+                <doc>Retrieves all the reviews with ratings &gt; 4.0.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="rating" required="true" style="query" type="xsd:string">
+                        <doc>provides an average of all the ratings submitted for a product by reviewers The ratings that can be submitted using a range from zero to five where five is the best rating that can be given Ratings may be returned using decimals</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f952:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="products(customerReviewAverage%3E4&amp;customerReviewCount=411)/">
+            <method displayName="Products based on review criteria" id="951" name="GET">
+                <doc>To search based on review criteria you can specify the customerReviewAverage "customerReviewAverage=4" or the "customerReviewCount&gt;400</doc>
+                <request>
+                    <param name="customerreviewaverage" required="true" style="query" type="xsd:string">
+                        <doc>the customerReviewAverage attribute provides an average of all the ratings submitted for a product by reviewers The customer can rate the product on a scale of where is the highest Ratings may be returned using decimals</doc>
+                    </param>
+                    <param name="customerreviewcount" required="true" style="query" type="xsd:string">
+                        <doc>the total number of reviews collected</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>the name of a product</doc>
+                    </param>
+                    <param name="sku" required="true" style="query" type="xsd:string">
+                        <doc>a unique identifier for products sold by Best Buy</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f951:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="products(description=modem*)/">
+            <method displayName="Product information based on description" id="950" name="GET">
+                <doc>To search based on description you can use "description=iPhone*"" or by using "sku=123456".</doc>
+                <request>
+                    <param name="depth" required="true" style="query" type="xsd:string">
+                        <doc>the depth of a product using inches</doc>
+                    </param>
+                    <param name="description" required="true" style="query" type="xsd:string">
+                        <doc>a description of a product</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="height" required="true" style="query" type="xsd:string">
+                        <doc>the height of a product in inches</doc>
+                    </param>
+                    <param name="longdescription" required="true" style="query" type="xsd:string">
+                        <doc>detailed product description</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>the name of a product</doc>
+                    </param>
+                    <param name="shortdescription" required="true" style="query" type="xsd:string">
+                        <doc>a brief description of a product</doc>
+                    </param>
+                    <param name="weight" required="true" style="query" type="xsd:string">
+                        <doc>the weight of a product</doc>
+                    </param>
+                    <param name="width" required="true" style="query" type="xsd:string">
+                        <doc>the width of a product in inches</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f950:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="products(modelNumber=DX-TVM112)/">
+            <method displayName="Product based on model number" id="949" name="GET">
+                <doc>To search based on manufacturer model number you can use modelNumber "modelNumer=DX-TVM112".</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string"/>
+                    <param name="manufacturer" required="true" style="query" type="xsd:string">
+                        <doc>the manufacturer of a product</doc>
+                    </param>
+                    <param name="modelnumber" required="true" style="query" type="xsd:string">
+                        <doc>the model identifier for a product as identified by the Manufacturer</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>the name of a product</doc>
+                    </param>
+                    <param name="shortdescription" required="true" style="query" type="xsd:string">
+                        <doc>provides a brief description of a product</doc>
+                    </param>
+                    <param name="sku" required="true" style="query" type="xsd:string">
+                        <doc>a unique identifier for products sold by Best Buy</doc>
+                    </param>
+                    <param name="upc" required="true" style="query" type="xsd:string">
+                        <doc>the universal product code that is widely used by manufacturers to identify their products</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f949:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="stores(area(location,distance))/">
+            <method displayName="Closest stores" id="947" name="GET">
+                <doc>To locate stores near a specified location.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f947:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="categories(name=Sony%20DSLR%20Camera*)/">
+            <method displayName="Category path of specific category" id="946" name="GET">
+                <doc>Return the category path for the category name specified in the input.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="pathId" required="true" style="query" type="xsd:string">
+                        <doc>the path id attribute is returned as part of a collection and provides category ID for each of the categories in the path</doc>
+                    </param>
+                    <param name="pathName" required="true" style="query" type="xsd:string">
+                        <doc>the path name attribute is returned as part of a collection and provides category names for each of the categories in the path</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="categories(name=Leisure%20Gifts)/">
+            <method displayName="Category information using category name" id="945" name="GET">
+                <doc>Return the category details for the category name specified in the input.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>provides the name of the category</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="categories(id=abcat0011000)/">
+            <method displayName="Category info for specific id" id="944" name="GET">
+                <doc>Return all the category details for the category id specified in the input along with the associated subcategories if any.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>provides the Best Buy category identifier</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f944:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="products(sku=1752378)/">
+            <method displayName="Based on Product sku" id="943" name="GET">
+                <doc>To search based on product you can use sku "sku=1752378".</doc>
+                <request>
+                    <param name="accessoriesSku" required="true" style="query" type="xsd:string">
+                        <doc>a collection of SKUs that could be an accessory to the originating SKU</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string"/>
+                    <param name="includeditemlistIncludeditem" required="true" style="query" type="xsd:string">
+                        <doc>a collection of items included with purchase of a product</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>the name of a product</doc>
+                    </param>
+                    <param name="relatedproductsSku" required="true" style="query" type="xsd:string">
+                        <doc>a collection of SKUs that are similar to the original product</doc>
+                    </param>
+                    <param name="sku" required="true" style="query" type="xsd:string">
+                        <doc>a unique identifier for products sold by Best Buy</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f943:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="beta/">
+            <resource uri="products/">
+                <resource uri="trendingViewed/">
+                    <method displayName="Trending Products" id="963" name="GET">
+                        <doc>The Trending Products endpoint returns top ten products, by rank, based on customer views of the BESTBUY.COM product detail page over a rolling three hour time period. Trending growth is based on a comparison against the previous three hour time period.</doc>
+                        <request>
+                            <param name="productlink" required="true" style="query" type="xsd:string">
+                                <doc>the productLink attribute returns a Product Link that if followed will provide a full hydrated product information result from the Product API</doc>
+                            </param>
+                            <param name="rank" required="true" style="query" type="xsd:integer">
+                                <doc>the rank attribute returns the rank of a product as compared to the velocity of other trending products The number rank identifies the most highly trending product while a number rank would identify the th trending product</doc>
+                            </param>
+                            <param name="sku" required="true" style="query" type="xsd:integer">
+                                <doc>the SKU attribute provides a unique identifier for products sold by Best Buy Also the same identifier as used by the Products API</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f963:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="1741029/">
+                    <resource uri="similar/">
+                        <method displayName="Similar products" id="955" name="GET">
+                            <doc>The Similar Products endpoint can be used to identify similar SKUs to an originating SKU. The algorithm used to identify similar SKUs uses attributes like brand, size, price, etc.</doc>
+                            <request>
+                                <param name="productlink" required="true" style="query" type="xsd:string">
+                                    <doc>the productLink attribute returns a Product Link that if followed will provide a full hydrated product information result from the Product API</doc>
+                                </param>
+                                <param name="rank" required="true" style="query" type="xsd:integer">
+                                    <doc>the rank attribute returns the rank of the product based on how closely the return product matches the attributes of the original product</doc>
+                                </param>
+                                <param name="sku" required="true" style="query" type="xsd:integer">
+                                    <doc>the SKU attribute provides a unique identifier for products sold by Best Buy Also the same identifier as used by the Products API</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f955:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="mostViewed/">
+                    <method displayName="Most popular viewed" id="948" name="GET">
+                        <doc>The Most Popular Viewed endpoint returns the top ten products, by rank, of the most frequently viewed products on BESTBUY.com. This data is refreshed every two hours with a maximum accumulation time of forty-eight hours when determining the top ten products.</doc>
+                        <request>
+                            <param name="productlink" required="true" style="query" type="xsd:string">
+                                <doc>the productLink attribute returns a Product Link that if followed will provide a full hydrated product information result from the Product API</doc>
+                            </param>
+                            <param name="rank" required="true" style="query" type="xsd:integer">
+                                <doc>the rank attribute returns the rank of a product based on how frequently it is viewed on BESTBUY COM product detailed page</doc>
+                            </param>
+                            <param name="sku" required="true" style="query" type="xsd:integer">
+                                <doc>the SKU attribute provides a unique identifier for products sold by Best Buy Also the same identifier as used by the Products API</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f948:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="8880044/">
+                    <resource uri="alsoViewed/">
+                        <method displayName="Also viewed" id="942" name="GET">
+                            <doc>The Also Viewed Products endpoint can be used to identify top ten SKUs that were viewed along with the originating SKU based on aggregated customer browsing behavior over the past thirty days on BESTBUY.COM.</doc>
+                            <request>
+                                <param name="productlink" required="true" style="query" type="xsd:string">
+                                    <doc>the productLink attribute returns a Product Link that if followed will provide a full hydrated product information result from the Product API</doc>
+                                </param>
+                                <param name="rank" required="true" style="query" type="xsd:integer">
+                                    <doc>the rank attribute returns the rank of the product based on how many views a product received after starting with originating SKU The number rank identifies the highest number of page views an associated product received while looking at originating SKU while the number rank identifies the product with the th highest page views while look at same originating product</doc>
+                                </param>
+                                <param name="sku" required="true" style="query" type="xsd:integer">
+                                    <doc>the SKU attribute provides a unique identifier for products sold by Best Buy Also the same identifier as used by the Products API</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f942:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="categories(id=abcat0010000)/">
+            <method displayName="All the subcategories" id="941" name="GET">
+                <doc>Return all the subcategories that have the input category id as their parent category.</doc>
+                <request/>
+                <response>
+                    <representation element="f941:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="categories(subCategories.id=pcmcat140000050035)/">
+            <method displayName="All the categories with this subcategory" id="940" name="GET">
+                <doc>eturn all the categories that have the input subCategories.id as their subcategory.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="subcategoriesId" required="true" style="query" type="xsd:string">
+                        <doc>the subCategories id attribute is returned as part of a collection and provides subcategory ids for each of the subcategories in the path</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f940:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="stores(city={city})/">
+            <param name="city" style="template" type="xsd:string"/>
+            <method displayName="All stores within city" id="939" name="GET">
+                <doc>Returns stores information for all the stores in the city specified as the input.</doc>
+                <request>
+                    <param name="city" required="true" style="query" type="xsd:string"/>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="stores(postalCode={postalcode})/">
+            <param name="postalcode" style="template" type="xsd:string"/>
+            <method displayName="All stores within a zipcode" id="938" name="GET">
+                <doc>Retrieves stores information for all the stores at the postalCode specified as the input.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="postalcode" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f938:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="reviews/">
+            <method displayName="All reviews" id="937" name="GET">
+                <doc>Retrieves all the reviews submitted for the products we sell on BESTBUY.COM Return to Description.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f937:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="categories/">
+            <method displayName="All categories" id="936" name="GET">
+                <doc>Return all the Best Buy product categories.Query is filtered to show only ids.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>provides the Best Buy category identifier</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f936:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

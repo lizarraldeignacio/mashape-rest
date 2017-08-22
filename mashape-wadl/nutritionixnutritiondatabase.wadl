@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f361="urn:function:f361" xmlns:f362="urn:function:f362">
+    <grammars>
+        <include href="Function362.xsd"/>
+        <include href="Function361.xsd"/>
+    </grammars>
+    <doc>global API of nutrition data for restaurants food manufacturers and USDA common foods Includes over K UPCs barcodes K restaurant foods and common foods from the USDA</doc>
+    <resources base="https://nutritionix-api.p.mashape.com/">
+        <resource uri="v1_1/">
+            <resource uri="item/">
+                <method displayName="UPC Scan" id="362" name="GET">
+                    <request>
+                        <param name="upc" required="true" style="query" type="xsd:string">
+                            <doc>enter the UPC from a package Usually or digits long</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f362:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="search/">
+                <resource uri="{phrase}/">
+                    <param name="phrase" style="template" type="xsd:string"/>
+                    <method displayName="Food Search" id="361" name="GET">
+                        <request>
+                            <param name="fields" required="true" style="query" type="xsd:string">
+                                <doc>define the fields you want to return</doc>
+                            </param>
+                            <param name="phrase" required="true" style="query" type="xsd:string">
+                                <doc>search for a food or brand name</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f361:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

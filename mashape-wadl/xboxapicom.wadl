@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f297="urn:function:f297" xmlns:f298="urn:function:f298" xmlns:f299="urn:function:f299" xmlns:f300="urn:function:f300">
+    <grammars>
+        <include href="Function300.xsd"/>
+        <include href="Function299.xsd"/>
+        <include href="Function298.xsd"/>
+        <include href="Function297.xsd"/>
+    </grammars>
+    <doc>this is an UNOFFICIAL Xbox LIVE API You can use this API to collect data about gamertags such as profile played games game achievement data Please visit https xboxapi com for more information</doc>
+    <resources base="https://xboxapi.p.mashape.com/">
+        <resource uri="json/">
+            <resource uri="profile/">
+                <resource uri="{gamertag}/">
+                    <param name="gamertag" style="template" type="xsd:string"/>
+                    <method displayName="Profile" id="300" name="GET">
+                        <doc>This is used to fetch a users profile data</doc>
+                        <request>
+                            <param name="gamertag" required="true" style="query" type="xsd:string">
+                                <doc>this is the users gamertag</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f300:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="games/">
+                <resource uri="{gamertag}/">
+                    <param name="gamertag" style="template" type="xsd:string"/>
+                    <method displayName="Games" id="299" name="GET">
+                        <doc>This is used to fetch a users played games data</doc>
+                        <request>
+                            <param name="gamertag" required="true" style="query" type="xsd:string">
+                                <doc>this is the users gamertag</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f299:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="friends/">
+                <resource uri="{gamertag}/">
+                    <param name="gamertag" style="template" type="xsd:string"/>
+                    <method displayName="Friends" id="298" name="GET">
+                        <doc>This is used to fetch a users friend data</doc>
+                        <request>
+                            <param name="gamertag" required="true" style="query" type="xsd:string">
+                                <doc>this is the users gamertag</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f298:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="achievements/">
+                <resource uri="{game_id}/">
+                    <param name="game_id" style="template" type="xsd:string"/>
+                    <resource uri="{gamertag}/">
+                        <param name="gamertag" style="template" type="xsd:string"/>
+                        <method displayName="Achievements" id="297" name="GET">
+                            <doc>This is used to fetch a users game achievement data</doc>
+                            <request>
+                                <param name="gameId" required="true" style="query" type="xsd:string">
+                                    <doc>this is the game id Battlefield</doc>
+                                </param>
+                                <param name="gamertag" required="true" style="query" type="xsd:string">
+                                    <doc>this is the users gamertag</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f297:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

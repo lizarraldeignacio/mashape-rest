@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f404="urn:function:f404" xmlns:f405="urn:function:f405">
+    <grammars>
+        <include href="Function405.xsd"/>
+        <include href="Function404.xsd"/>
+    </grammars>
+    <doc>prayer times for around the world by MuslimSalat com</doc>
+    <resources base="https://muslimsalat.p.mashape.com/">
+        <resource uri="{location}.json/">
+            <param name="location" style="template" type="xsd:string"/>
+            <method displayName="Prayer Times for a location" id="405" name="GET">
+                <request>
+                    <param name="location" required="true" style="query" type="xsd:string">
+                        <doc>name of the location where user is at or his state name or his country name or with his latitude and longitude</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f405:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="(location)/">
+            <resource uri="(times)/">
+                <resource uri="(date)/">
+                    <resource uri="(daylight)/">
+                        <resource uri="(method).json/">
+                            <method displayName="Prayer Times" id="404" name="GET">
+                                <doc>This will fetch the prayer time based on the location you request for with the given parameters. All following parameters are optional, you can set as you wish. If you wish to set two or more parameters, then you have to set url in the order the parameter is given below.</doc>
+                                <request>
+                                    <param name="date" required="true" style="query" type="xsd:string">
+                                        <doc>get the prayer times for the given date please make sure the date is further head or current date Heads up Previous dates will be deprecated from the api</doc>
+                                    </param>
+                                    <param name="daylight" required="true" style="query" type="xsd:boolean">
+                                        <doc>daylight saving for the user if true then hours are incremented by</doc>
+                                    </param>
+                                    <param name="location" required="true" style="query" type="xsd:string">
+                                        <doc>name of the location where user is at or his state name or his country name or with his latitude and longitude</doc>
+                                    </param>
+                                    <param name="method" required="true" style="query" type="xsd:string">
+                                        <doc>method to use for calculation of the timing If method is provided invalid based on the country it will give incorrect timing Egyptian General Authority of Survey University Of Islamic Sciences Karachi Shafi University Of Islamic Sciences Karachi Hanafi Islamic Circle of North America Muslim World League Umm Al Qura Fixed Isha</doc>
+                                    </param>
+                                    <param name="times" required="true" style="query" type="xsd:string">
+                                        <doc>limit the prayer times by the value Daily weekly monthly or yearly</doc>
+                                    </param>
+                                </request>
+                                <response>
+                                    <representation element="f404:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4302="urn:function:f4302" xmlns:f4303="urn:function:f4303" xmlns:f4304="urn:function:f4304" xmlns:f4305="urn:function:f4305" xmlns:f4306="urn:function:f4306" xmlns:f4307="urn:function:f4307" xmlns:f4308="urn:function:f4308" xmlns:f4309="urn:function:f4309" xmlns:f4311="urn:function:f4311" xmlns:f4313="urn:function:f4313" xmlns:f4315="urn:function:f4315" xmlns:f4316="urn:function:f4316" xmlns:f4317="urn:function:f4317" xmlns:f4320="urn:function:f4320" xmlns:f4321="urn:function:f4321">
+    <grammars>
+        <include href="Function4302.xsd"/>
+        <include href="Function4303.xsd"/>
+        <include href="Function4304.xsd"/>
+        <include href="Function4305.xsd"/>
+        <include href="Function4306.xsd"/>
+        <include href="Function4307.xsd"/>
+        <include href="Function4308.xsd"/>
+        <include href="Function4309.xsd"/>
+        <include href="Function4311.xsd"/>
+        <include href="Function4313.xsd"/>
+        <include href="Function4315.xsd"/>
+        <include href="Function4316.xsd"/>
+        <include href="Function4317.xsd"/>
+        <include href="Function4320.xsd"/>
+        <include href="Function4321.xsd"/>
+    </grammars>
+    <doc>ironWifi offers a powerful Application Program Interface API that can be used to integrate IronWifi RADIUS authentication services with user and guest management systems The API framework allows your platform to interact with the network access control infrastructure provided by IronWifi With the IronWifi API user management systems can dynamically update the RADIUS server to instantly create or delete users in the IronWifi database and you can set or modify access rights When a user attempts to access the network IronWifi uses the updated credentials as the basis for permitting activities on the network When a user attempts to access a WiFi network the Access Point can send a RADIUS request to IronWifi RADIUS IronWifi authenticates the user based on the updated credentials To receive technical assistance with your IronWifi API project or to discuss any advanced requirements that you may have please contact us at hello ironwifi com or</doc>
+    <resources base="https://ironwifi.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="{token}/">
+                <param name="token" style="template" type="xsd:string"/>
+                <resource uri="users/">
+                    <method displayName="Users" id="4323" name="GET">
+                        <request>
+                            <param name="token" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="accounts/">
+                <method displayName="Account - Change Contact" id="4302" name="PUT">
+                    <doc>Change account's primary contact</doc>
+                    <request>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4302:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Account - Change Email" id="4303" name="PUT">
+                    <doc>Change account's email address</doc>
+                    <request>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4303:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Account - Details" id="4304" name="GET">
+                    <doc>Retrieve account's details</doc>
+                    <request>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4304:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Account - Password" id="4305" name="POST">
+                    <doc>Change account password</doc>
+                    <request>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4305:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Login" id="4306" name="POST">
+                    <doc>Logs in the user and generates Token</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4306:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Reports" id="4307" name="GET">
+                    <doc>List available reports</doc>
+                    <request>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4307:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Router - Create" id="4308" name="POST">
+                    <doc>Define new router</doc>
+                    <request>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4308:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Router - Delete" id="4309" name="DELETE">
+                    <doc>Delete a router</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4309:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Router - Details" id="4310" name="GET">
+                    <doc>View router's details</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Router - Update" id="4311" name="PUT">
+                    <doc>Change router's parameters</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4311:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Routers" id="4312" name="GET">
+                    <request>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Status" id="4313" name="GET">
+                    <doc>Retrieves current configuration status</doc>
+                    <request>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4313:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Usage" id="4314" name="GET">
+                    <request>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="User - Change Status" id="4315" name="PUT">
+                    <doc>Enables/Disables user</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4315:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="User - Create" id="4316" name="POST">
+                    <doc>Creates a new user</doc>
+                    <request>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4316:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="User - Create Key" id="4317" name="GET">
+                    <doc>Creates new user password</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4317:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="User - Delete Key" id="4318" name="DELETE">
+                    <doc>Deletes users password</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="User - Details" id="4319" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="User - Expiration" id="4320" name="PUT">
+                    <doc>Set user's expiration date and time</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4320:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="User - Login Time" id="4321" name="POST">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4321:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="User - Login Time delete" id="4322" name="DELETE">
+                    <doc>Delete defined user's login time</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                        <param name="time" required="true" style="query" type="xsd:string"/>
+                        <param name="token" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

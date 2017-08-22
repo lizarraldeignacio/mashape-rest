@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5706="urn:function:f5706" xmlns:f5707="urn:function:f5707" xmlns:f5708="urn:function:f5708" xmlns:f5709="urn:function:f5709" xmlns:f5710="urn:function:f5710" xmlns:f5711="urn:function:f5711" xmlns:f5712="urn:function:f5712" xmlns:f5713="urn:function:f5713" xmlns:f5714="urn:function:f5714" xmlns:f5715="urn:function:f5715" xmlns:f5716="urn:function:f5716" xmlns:f5717="urn:function:f5717" xmlns:f5718="urn:function:f5718" xmlns:f5719="urn:function:f5719">
+    <grammars>
+        <include href="Function5719.xsd"/>
+        <include href="Function5718.xsd"/>
+        <include href="Function5717.xsd"/>
+        <include href="Function5716.xsd"/>
+        <include href="Function5715.xsd"/>
+        <include href="Function5714.xsd"/>
+        <include href="Function5711.xsd"/>
+        <include href="Function5713.xsd"/>
+        <include href="Function5710.xsd"/>
+        <include href="Function5712.xsd"/>
+        <include href="Function5709.xsd"/>
+        <include href="Function5708.xsd"/>
+        <include href="Function5707.xsd"/>
+        <include href="Function5706.xsd"/>
+    </grammars>
+    <doc>perform semantic searches on a hierarchy of million concepts and categories from concrete to abstract in our knowledge graph with concept popularity and ranking Data Ninja Services which focus on natural language understanding are developed by Docomo Innovations</doc>
+    <resources base="https://smartdata.dataiq.io/">
+        <resource uri="smartgraph/">
+            <resource uri="find_parent_category_list/">
+                <method displayName="find_parent_category_list" id="5719" name="GET">
+                    <request>
+                        <param name="categoryId" required="true" style="query" type="xsd:integer">
+                            <doc/>
+                        </param>
+                        <param name="maxSize" required="true" style="query" type="xsd:integer">
+                            <doc>maximun number of returned categories</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5719:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="find_concept_list/">
+                <method displayName="find_concept_list" id="5718" name="GET">
+                    <request>
+                        <param name="categoryId" required="true" style="query" type="xsd:integer">
+                            <doc/>
+                        </param>
+                        <param name="maxSize" required="true" style="query" type="xsd:integer">
+                            <doc>maximun number of returned concepts</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5718:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="find_child_category_list/">
+                <method displayName="find_child_category_list" id="5717" name="GET">
+                    <request>
+                        <param name="categoryId" required="true" style="query" type="xsd:integer"/>
+                        <param name="maxSize" required="true" style="query" type="xsd:integer">
+                            <doc>maximun number of returned categories</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5717:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="find_category_list/">
+                <method displayName="find_category_list" id="5716" name="GET">
+                    <request>
+                        <param name="conceptId" required="true" style="query" type="xsd:integer"/>
+                        <param name="maxSize" required="true" style="query" type="xsd:integer">
+                            <doc>maximun number of returned categories</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5716:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="smartdata/">
+            <resource uri="conceptordering/">
+                <resource uri="find_by_concept_id_list/">
+                    <method displayName="find_by_concept_id_list" id="5715" name="GET">
+                        <request>
+                            <param name="conceptIdList" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f5715:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="relatedconcept/">
+                <resource uri="find_by_concept_id/">
+                    <method displayName="find_by_concept_id(related concept)" id="5714" name="GET">
+                        <request>
+                            <param name="conceptId" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f5714:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="find_by_concept/">
+                    <method displayName="find_by_concept (related concept)" id="5711" name="GET">
+                        <request>
+                            <param name="concept" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f5711:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="conceptpopularity/">
+                <resource uri="find_by_concept_id/">
+                    <method displayName="find_by_concept_id(concept popularity)" id="5713" name="GET">
+                        <request>
+                            <param name="conceptId" required="true" style="query" type="xsd:integer"/>
+                            <param name="period" required="true" style="query" type="xsd:string">
+                                <doc>day week month</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f5713:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="find_by_concept/">
+                    <method displayName="find_by_concept (concept popularity)" id="5710" name="GET">
+                        <request>
+                            <param name="concept" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="period" required="true" style="query" type="xsd:string">
+                                <doc>day or week or month</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f5710:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="concept/">
+                <resource uri="find_by_concept_id/">
+                    <method displayName="find_by_concept_id" id="5712" name="GET">
+                        <request>
+                            <param name="conceptId" required="true" style="query" type="xsd:integer"/>
+                        </request>
+                        <response>
+                            <representation element="f5712:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="find_by_concept/">
+                    <method displayName="find_by_concept" id="5709" name="GET">
+                        <request>
+                            <param name="concept" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f5709:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="category/">
+                <resource uri="find_by_category_id/">
+                    <method displayName="find_by_category_id" id="5708" name="GET">
+                        <request>
+                            <param name="categoryId" required="true" style="query" type="xsd:integer"/>
+                        </request>
+                        <response>
+                            <representation element="f5708:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="find_by_category/">
+                    <method displayName="find_by_category" id="5707" name="GET">
+                        <request>
+                            <param name="category" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f5707:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="smartinduction/">
+            <resource uri="categorize/">
+                <method displayName="categorize" id="5706" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f5706:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

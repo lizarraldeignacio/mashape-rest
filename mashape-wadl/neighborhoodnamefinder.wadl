@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2339="urn:function:f2339">
+    <grammars>
+        <include href="Function2339.xsd"/>
+    </grammars>
+    <doc>gET A NEIGHBORHOOD BY LAT LONG We are an api that translates a lat long point to a neighborhood in the US</doc>
+    <resources base="https://tommytcchan-neighborhood-name-finder.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="neighborhoods.json/">
+                <method displayName="neighborhoods" id="2339" name="GET">
+                    <request>
+                        <param name="lat" required="true" style="query" type="xsd:string">
+                            <doc>latitude</doc>
+                        </param>
+                        <param name="lng" required="true" style="query" type="xsd:string">
+                            <doc>lontitude</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2339:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

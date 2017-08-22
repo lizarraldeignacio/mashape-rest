@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f605="urn:function:f605" xmlns:f606="urn:function:f606" xmlns:f607="urn:function:f607" xmlns:f608="urn:function:f608" xmlns:f609="urn:function:f609" xmlns:f610="urn:function:f610" xmlns:f611="urn:function:f611" xmlns:f612="urn:function:f612" xmlns:f613="urn:function:f613" xmlns:f614="urn:function:f614">
+    <grammars>
+        <include href="Function614.xsd"/>
+        <include href="Function613.xsd"/>
+        <include href="Function612.xsd"/>
+        <include href="Function611.xsd"/>
+        <include href="Function610.xsd"/>
+        <include href="Function608.xsd"/>
+        <include href="Function609.xsd"/>
+        <include href="Function607.xsd"/>
+        <include href="Function606.xsd"/>
+        <include href="Function605.xsd"/>
+    </grammars>
+    <doc>get information about countries via a RESTful API</doc>
+    <resources base="https://restcountries.p.mashape.com/">
+        <resource uri="subregion/">
+            <resource uri="{subregion}/">
+                <param name="subregion" style="template" type="xsd:string"/>
+                <method displayName="Search By Subregion" id="614" name="GET">
+                    <request>
+                        <param name="subregion" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f614:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="region/">
+            <resource uri="{region}/">
+                <param name="region" style="template" type="xsd:string"/>
+                <method displayName="Search by Region" id="613" name="GET">
+                    <request>
+                        <param name="region" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f613:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="name/">
+            <resource uri="{name}/">
+                <param name="name" style="template" type="xsd:string"/>
+                <method displayName="Search by Name" id="612" name="GET">
+                    <request>
+                        <param name="name" required="true" style="query" type="xsd:string">
+                            <doc>english or alternative name</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f612:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="lang/">
+            <resource uri="{language}/">
+                <param name="language" style="template" type="xsd:string"/>
+                <method displayName="Search by Language" id="611" name="GET">
+                    <doc>Search by ISO 639-1 Language Code</doc>
+                    <request>
+                        <param name="language" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f611:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="currency/">
+            <resource uri="{currency}/">
+                <param name="currency" style="template" type="xsd:string"/>
+                <method displayName="Search by Currency" id="610" name="GET">
+                    <request>
+                        <param name="currency" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f610:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="alpha/">
+            <method displayName="Search by Country Code" id="608" name="GET">
+                <request>
+                    <param name="countryCode" required="true" style="query" type="xsd:string">
+                        <doc>letter or letter country code</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f608:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Search by Country Codes" id="609" name="GET">
+                <request>
+                    <param name="codes" required="true" style="query" type="xsd:string">
+                        <doc>list of country codes alpha or alpha separated by semicolon</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f609:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="capital/">
+            <resource uri="{capital}/">
+                <param name="capital" style="template" type="xsd:string"/>
+                <method displayName="Search by Capital City" id="607" name="GET">
+                    <request>
+                        <param name="capital" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f607:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="callingcode/">
+            <resource uri="{code}/">
+                <param name="code" style="template" type="xsd:string"/>
+                <method displayName="Search by Calling Code" id="606" name="GET">
+                    <request>
+                        <param name="code" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f606:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="all/">
+            <method displayName="Get all countries" id="605" name="GET">
+                <request/>
+                <response>
+                    <representation element="f605:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

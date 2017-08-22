@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>flightLookup Codeshare Need to know who is operating a flight to let your customers where to check in or if they can upgrade this is a quick lookup service Operating carrier information based on Marketing Flight Number Operating Carrier IATA code Operating Carrier Flight Number</doc>
+    <resources base="https://flightlookup-codeshare-uri.p.mashape.com/">
+        <resource uri="CodeShare/">
+            <method displayName="CodeShare" id="5694" name="GET">
+                <doc>This method returns Codeshare information for a single flight on a single airline on a specified date.</doc>
+                <request>
+                    <param name="airline" required="true" style="query" type="xsd:string">
+                        <doc>required letter IATA airline code</doc>
+                    </param>
+                    <param name="date" required="true" style="query" type="xsd:string">
+                        <doc>required Departure or Arrival date mm dd yyyy</doc>
+                    </param>
+                    <param name="flightnumber" required="true" style="query" type="xsd:string">
+                        <doc>required Flight Number identifier</doc>
+                    </param>
+                    <param name="from" required="true" style="query" type="xsd:string">
+                        <doc>required letter IATA code for the departure airport</doc>
+                    </param>
+                    <param name="to" required="true" style="query" type="xsd:string">
+                        <doc>required letter IATA code for the destination airport</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

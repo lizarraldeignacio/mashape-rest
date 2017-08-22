@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f374="urn:function:f374">
+    <grammars>
+        <include href="Function374.xsd"/>
+    </grammars>
+    <doc>nOTE This is version of our API Please use the latest version instead</doc>
+    <resources base="https://rome2rio10.p.mashape.com/">
+        <resource uri="GetRoutes/">
+            <method displayName="GetRoutes" id="374" name="GET">
+                <doc>provide routes options from one point to another</doc>
+                <request>
+                    <param name="dname" required="true" style="query" type="xsd:string">
+                        <doc>destination display name</doc>
+                    </param>
+                    <param name="dpos" required="true" style="query" type="xsd:string">
+                        <doc>destination latitude longitude comma separated</doc>
+                    </param>
+                    <param name="oname" required="true" style="query" type="xsd:string">
+                        <doc>origin display name</doc>
+                    </param>
+                    <param name="opos" required="true" style="query" type="xsd:string">
+                        <doc>origin latitude longitude comma separated</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f374:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

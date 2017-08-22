@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2962="urn:function:f2962">
+    <grammars>
+        <include href="Function2962.xsd"/>
+    </grammars>
+    <doc>a free public proxy aggregator providing painless access to working open proxies from around the world We scour the internet for free public proxies on the regular We test to find those that work then provide such to you how you like to consume them via download API email and web Provided by The Prox Is Right</doc>
+    <resources base="https://proxies.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="proxy/">
+                <resource uri="getbyipaddress/">
+                    <method displayName="Query by IP Address" id="2962" name="GET">
+                        <doc>If we have seen mutiple ports in use by same IP Address, multiple records will be returned</doc>
+                        <request>
+                            <param name="ipaddress" required="true" style="query" type="xsd:string">
+                                <doc>iPv Address</doc>
+                            </param>
+                            <param name="onlyactive" required="true" style="query" type="xsd:boolean">
+                                <doc>was it active last time we checked</doc>
+                            </param>
+                            <param name="port" required="true" style="query" type="xsd:integer">
+                                <doc>optionally restrict query by port</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2962:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="get/">
+                    <method displayName="Get Proxies" id="2961" name="GET">
+                        <doc>Query all free open proxies w/ any combination of the available flags</doc>
+                        <request>
+                            <param name="countrycodes" required="true" style="query" type="xsd:string">
+                                <doc>comma separated list of ISO two letter country codes http en wikipedia org wiki ISO alpha Officially assigned code elements</doc>
+                            </param>
+                            <param name="format" required="true" style="query" type="xsd:string">
+                                <doc>jSON is default TEXT will return just ip port in string format ideal for injestion into FoxyProxy</doc>
+                            </param>
+                            <param name="ipaddress" required="true" style="query" type="xsd:string">
+                                <doc>iPv Address ie</doc>
+                            </param>
+                            <param name="maxresults" required="true" style="query" type="xsd:integer">
+                                <doc>default if you only seek certain number of results the page size</doc>
+                            </param>
+                            <param name="minimumuptimepercentage" required="true" style="query" type="xsd:integer">
+                                <doc>only proxies that have aggregate uptime greater than or equal to this value Could include those currently down unless explcicity also set to only presenty active</doc>
+                            </param>
+                            <param name="onlyactive" required="true" style="query" type="xsd:boolean">
+                                <doc>was it active last time we checked</doc>
+                            </param>
+                            <param name="onlyhighanonymity" required="true" style="query" type="xsd:boolean">
+                                <doc>only proxies that do not pass along information to the destination server that advertise the request is being proxied can include one s public IP and other telling headers</doc>
+                            </param>
+                            <param name="onlyhighavaillowlatency" required="true" style="query" type="xsd:boolean">
+                                <doc>only proxies with uptime and second latency</doc>
+                            </param>
+                            <param name="onlyhttp" required="true" style="query" type="xsd:boolean">
+                                <doc>only HTTP proxies includes those that suport HTTPS</doc>
+                            </param>
+                            <param name="onlyhttps" required="true" style="query" type="xsd:boolean">
+                                <doc>only HTTPS proxies only those that support both HTTP and HTTPS</doc>
+                            </param>
+                            <param name="onlysocks" required="true" style="query" type="xsd:boolean">
+                                <doc>only socks socks or socks proxies</doc>
+                            </param>
+                            <param name="onlysupportsamazon" required="true" style="query" type="xsd:boolean">
+                                <doc>only proxies not blocked by Amazon</doc>
+                            </param>
+                            <param name="onlysupportsbrowsing" required="true" style="query" type="xsd:boolean">
+                                <doc>only proxies that allow use w a browser user agents These will work regardless of user agent based on last test We found that some proxies filter by user agent hence we added this</doc>
+                            </param>
+                            <param name="onlysupportscraigslist" required="true" style="query" type="xsd:boolean">
+                                <doc>only proxies not blocked by Craigslist</doc>
+                            </param>
+                            <param name="onlysupportsgoogle" required="true" style="query" type="xsd:boolean">
+                                <doc>only proxies not blocked by google</doc>
+                            </param>
+                            <param name="onlysupportskayak" required="true" style="query" type="xsd:boolean">
+                                <doc>only proxies not blocked by Kayak</doc>
+                            </param>
+                            <param name="onlysupportsticketmaster" required="true" style="query" type="xsd:boolean">
+                                <doc>only proxies not blocked by Ticketmaster</doc>
+                            </param>
+                            <param name="onlysupportstripadvisor" required="true" style="query" type="xsd:boolean">
+                                <doc>only proxies not blocked by TripAdvisor</doc>
+                            </param>
+                            <param name="page" required="true" style="query" type="xsd:integer">
+                                <doc>page of results page size is results are sorted by last updated desc X</doc>
+                            </param>
+                            <param name="port" required="true" style="query" type="xsd:integer">
+                                <doc>refine query down to port as many proxy servers host services on multiple ports we test each IP Port combination separately</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

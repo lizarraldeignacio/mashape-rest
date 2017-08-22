@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>your personal document and media hub Simplify your file management View organize share your files instantly in a single place</doc>
+    <resources base="https://doctape-doctape.p.mashape.com/">
+        <resource uri="account/">
+            <method displayName="Retrieve user avatar" id="4597" name="GET">
+                <request>
+                    <param name="size" required="true" style="query" type="xsd:string">
+                        <doc>supported pixel sizes</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Retrieve user data" id="4598" name="GET">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="tape/">
+            <method displayName="List tapes" id="4585" name="GET">
+                <request/>
+            </method>
+            <method displayName="Retrieve tape info" id="4596" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>tape id</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Update tape info" id="4601" name="POST">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>tape id</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="doc/">
+            <method displayName="(Un-)publish file" id="4580" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                    <param name="public" required="true" style="query" type="xsd:boolean">
+                        <doc>true or false</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Clone file" id="4581" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>file id</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Delete file" id="4582" name="DELETE">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>file id</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Extract archive (zip)" id="4583" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>file id</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="List files" id="4584" name="GET">
+                <request>
+                    <param name="includeMeta" required="true" style="query" type="xsd:string">
+                        <doc>include meta data for each file</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Retrieve audio (mp3)" id="4586" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>file id</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Retrieve document (pdf)" id="4587" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>file id</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Retrieve file (original)" id="4588" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>file id</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Retrieve file info" id="4589" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>file id</doc>
+                    </param>
+                    <param name="item" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Retrieve file thumbnail (jpg)" id="4590" name="GET">
+                <request>
+                    <param name="docid" required="true" style="query" type="xsd:string">
+                        <doc>doc id</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Retrieve file thumbnail large (jpg)" id="4591" name="GET">
+                <request>
+                    <param name="docid" required="true" style="query" type="xsd:string">
+                        <doc>doc id</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Retrieve HD poster (jpg)" id="4592" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>file id</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Retrieve HD video (mp4)" id="4593" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>file id</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Retrieve image (jpg)" id="4594" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>file id</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Retrieve poster (jpg)" id="4595" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>file id</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Retrieve video (mp4)" id="4599" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>file id</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Update file info" id="4600" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>file id</doc>
+                    </param>
+                    <param name="item" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Upload file(s)" id="4602" name="POST">
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

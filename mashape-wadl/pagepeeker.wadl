@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>automate website screenshots creation Generate screenshots in a matter of seconds Never busy so there s no waiting in line Rendering starts immediately and is finished quickly</doc>
+    <resources base="https://pagepeeker-pagepeeker.p.mashape.com/">
+        <resource uri="thumbs_ready.php/">
+            <method displayName="2. Thumbnail ready" id="750" name="GET">
+                <doc>Poll this API until it returns that the image is available.  If available, you can download through endpoint 1.  Rendering an image depends largely on how fast a particular web page is loaded (and if it contains Flash).  Average waiting time is around 20 - 60 seconds</doc>
+                <request>
+                    <param name="size" required="true" style="query" type="xsd:string">
+                        <doc>t Tiny x pixels s Small x pixels m Medium x pixels l Large x pixels x Extra large x pixels</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>the URL to generate the thumbnail from</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="thumbs.php/">
+            <method displayName="1. Shoot thumbnail" id="749" name="GET">
+                <doc>Issues a reset API call if refresh is set to 1. Else it will download if the image is ready (see endpoint 2.)</doc>
+                <request>
+                    <param name="refresh" required="true" style="query" type="xsd:string">
+                        <doc>this parameter forces the currently generate d thumbnail to be regenerated It is optional and will be ignored unless it contains the value</doc>
+                    </param>
+                    <param name="size" required="true" style="query" type="xsd:string">
+                        <doc>t Tiny x pixels s Small x pixels m Medium x pixels l Large x pixels x Extra large x pixels</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>the URL to generate the thumbnail from</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

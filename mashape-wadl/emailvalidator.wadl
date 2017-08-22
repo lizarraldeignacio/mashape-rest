@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f8="urn:function:f8">
+    <grammars>
+        <include href="Function8.xsd"/>
+    </grammars>
+    <doc>checks for fake DNS as well as uses regex functions to check the email for the right length and accepted characters For example it will mark as valid an email like john gmail com but it will recognize as a fake john gmaill com because of the not existing domain</doc>
+    <resources base="https://pozzad-email-validator.p.mashape.com/">
+        <resource uri="emailvalidator/">
+            <resource uri="validateEmail/">
+                <resource uri="{email}/">
+                    <param name="email" style="template" type="xsd:string"/>
+                    <method displayName="validateEmail" id="8" name="GET">
+                        <doc>Checks for fake DNS as well as uses regex functions to check the email for the right length and accepted characters.</doc>
+                        <request>
+                            <param name="email" required="true" style="query" type="xsd:string">
+                                <doc>the email address to check</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f8:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

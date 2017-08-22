@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4006="urn:function:f4006" xmlns:f4007="urn:function:f4007" xmlns:f4008="urn:function:f4008" xmlns:f4009="urn:function:f4009" xmlns:f4010="urn:function:f4010" xmlns:f4011="urn:function:f4011" xmlns:f4012="urn:function:f4012" xmlns:f4013="urn:function:f4013" xmlns:f4014="urn:function:f4014" xmlns:f4015="urn:function:f4015" xmlns:f4016="urn:function:f4016" xmlns:f4017="urn:function:f4017" xmlns:f4018="urn:function:f4018" xmlns:f4019="urn:function:f4019" xmlns:f4020="urn:function:f4020" xmlns:f4021="urn:function:f4021" xmlns:f4022="urn:function:f4022" xmlns:f4023="urn:function:f4023" xmlns:f4025="urn:function:f4025" xmlns:f4026="urn:function:f4026">
+    <grammars>
+        <include href="Function4026.xsd"/>
+        <include href="Function4025.xsd"/>
+        <include href="Function4023.xsd"/>
+        <include href="Function4014.xsd"/>
+        <include href="Function4012.xsd"/>
+        <include href="Function4011.xsd"/>
+        <include href="Function4021.xsd"/>
+        <include href="Function4007.xsd"/>
+        <include href="Function4022.xsd"/>
+        <include href="Function4020.xsd"/>
+        <include href="Function4019.xsd"/>
+        <include href="Function4018.xsd"/>
+        <include href="Function4017.xsd"/>
+        <include href="Function4016.xsd"/>
+        <include href="Function4015.xsd"/>
+        <include href="Function4013.xsd"/>
+        <include href="Function4010.xsd"/>
+        <include href="Function4009.xsd"/>
+        <include href="Function4008.xsd"/>
+        <include href="Function4006.xsd"/>
+    </grammars>
+    <doc>access data news and analytics for stocks etfs and indices in the National Stock Exchange NSE of India</doc>
+    <resources base="https://stockviz.p.mashape.com/">
+        <resource uri="fundamental/">
+            <resource uri="quarterlyEps/">
+                <method displayName="Quarterly EPS" id="4026" name="GET">
+                    <doc>Get a list of Quarterly Earnings Per Share for a given stock</doc>
+                    <request>
+                        <param name="symbol" required="true" style="query" type="xsd:string">
+                            <doc>the stock ticker that you want to retrieve information for</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4026:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="account/">
+            <resource uri="OrderOptions/">
+                <method displayName="Portfolio - Options" id="4025" name="GET">
+                    <doc>Trade your options portfolio on StockViz</doc>
+                    <request>
+                        <param name="asof" required="true" style="query" type="xsd:string">
+                            <doc>trade date</doc>
+                        </param>
+                        <param name="bs" required="true" style="query" type="xsd:string">
+                            <doc>buy or sell</doc>
+                        </param>
+                        <param name="expiry" required="true" style="query" type="xsd:string">
+                            <doc>options expiry</doc>
+                        </param>
+                        <param name="otype" required="true" style="query" type="xsd:string">
+                            <doc>CE for Calls and PE for Puts</doc>
+                        </param>
+                        <param name="px" required="true" style="query" type="xsd:string">
+                            <doc>price</doc>
+                        </param>
+                        <param name="qty" required="true" style="query" type="xsd:string">
+                            <doc>number of option contracts you want to buy or sell</doc>
+                        </param>
+                        <param name="strike" required="true" style="query" type="xsd:integer">
+                            <doc>option strike</doc>
+                        </param>
+                        <param name="symbol" required="true" style="query" type="xsd:string">
+                            <doc>the stock ticker that you want to trade</doc>
+                        </param>
+                        <param name="t" required="true" style="query" type="xsd:string">
+                            <doc>regular or stop loss</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4025:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="OrderFutures/">
+                <method displayName="Portfolio - Futures" id="4024" name="GET">
+                    <doc>Trade your futures portfolio on StockViz</doc>
+                    <request>
+                        <param name="asof" required="true" style="query" type="xsd:string">
+                            <doc>trade date</doc>
+                        </param>
+                        <param name="bs" required="true" style="query" type="xsd:string">
+                            <doc>buy or sell</doc>
+                        </param>
+                        <param name="expiry" required="true" style="query" type="xsd:string">
+                            <doc>futures expiry</doc>
+                        </param>
+                        <param name="px" required="true" style="query" type="xsd:integer">
+                            <doc>price</doc>
+                        </param>
+                        <param name="qty" required="true" style="query" type="xsd:integer">
+                            <doc>number of futures contracts you want to buy or sell</doc>
+                        </param>
+                        <param name="symbol" required="true" style="query" type="xsd:string">
+                            <doc>the stock ticker that you want to trade</doc>
+                        </param>
+                        <param name="t" required="true" style="query" type="xsd:string">
+                            <doc>regular or stop loss</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="OrderEquity/">
+                <method displayName="Portfolio - Equity" id="4023" name="GET">
+                    <doc>Trade your equity portfolio on StockViz</doc>
+                    <request>
+                        <param name="asof" required="true" style="query" type="xsd:string">
+                            <doc>trade date</doc>
+                        </param>
+                        <param name="bs" required="true" style="query" type="xsd:string">
+                            <doc>buy or sell</doc>
+                        </param>
+                        <param name="px" required="true" style="query" type="xsd:integer">
+                            <doc>price</doc>
+                        </param>
+                        <param name="qty" required="true" style="query" type="xsd:integer">
+                            <doc>number of shares you want to buy or sell</doc>
+                        </param>
+                        <param name="symbol" required="true" style="query" type="xsd:string">
+                            <doc>the stock ticker that you want to trade</doc>
+                        </param>
+                        <param name="t" required="true" style="query" type="xsd:string">
+                            <doc>regular or stop loss</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4023:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="technicaldata/">
+            <resource uri="optionGreeksIndex/">
+                <method displayName="Index Option Greeks" id="4014" name="GET">
+                    <doc>Greeks for Index Options</doc>
+                    <request>
+                        <param name="asof" required="true" style="query" type="xsd:string">
+                            <doc>as of date</doc>
+                        </param>
+                        <param name="expiry" required="true" style="query" type="xsd:string">
+                            <doc>option expiry</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>first call Listed Indices to get the if for each index Then pass the appropriate id to get the greeks for that index</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4014:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="technicalsEquity/">
+                <method displayName="Equity Technicals" id="4012" name="GET">
+                    <doc>End of the day technicals for equities</doc>
+                    <request>
+                        <param name="enddate" required="true" style="query" type="xsd:string">
+                            <doc>the date till which to retrieve the items</doc>
+                        </param>
+                        <param name="startdate" required="true" style="query" type="xsd:string">
+                            <doc>the date from which to retrieve the items</doc>
+                        </param>
+                        <param name="symbol" required="true" style="query" type="xsd:string">
+                            <doc>the stock ticker that you want to retrieve information for</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4012:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="optionGreeksEquity/">
+                <method displayName="Equity Option Greeks" id="4011" name="GET">
+                    <doc>Greeks for Equity Options</doc>
+                    <request>
+                        <param name="asof" required="true" style="query" type="xsd:string">
+                            <doc>as of date</doc>
+                        </param>
+                        <param name="expiry" required="true" style="query" type="xsd:string">
+                            <doc>option expiry</doc>
+                        </param>
+                        <param name="symbol" required="true" style="query" type="xsd:string">
+                            <doc>the stock ticker that you want to retrieve information for</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4011:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="news/">
+            <resource uri="news/">
+                <method displayName="News" id="4021" name="GET">
+                    <doc>Summarized news along with the source and technical snapshot at the time of posting.</doc>
+                    <request>
+                        <param name="enddate" required="true" style="query" type="xsd:string">
+                            <doc>the date till which to retrieve the news items</doc>
+                        </param>
+                        <param name="startdate" required="true" style="query" type="xsd:string">
+                            <doc>the date from which to retrieve the news items</doc>
+                        </param>
+                        <param name="symbol" required="true" style="query" type="xsd:string">
+                            <doc>the stock ticker that you want to retrieve information for</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4021:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="corporateActions/">
+                <method displayName="Corporate Actions" id="4007" name="GET">
+                    <doc>Get a list of all corporate actions for a particular stock</doc>
+                    <request>
+                        <param name="enddate" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="startdate" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="symbol" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4007:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="marketdata/">
+            <resource uri="eodHlocOptions/">
+                <method displayName="Options Bhav" id="4022" name="GET">
+                    <doc>End of the day options HLOC and turnover data</doc>
+                    <request>
+                        <param name="asof" required="true" style="query" type="xsd:string">
+                            <doc>as of date to fetch the bhav</doc>
+                        </param>
+                        <param name="expiry" required="true" style="query" type="xsd:string">
+                            <doc>options expiry</doc>
+                        </param>
+                        <param name="symbol" required="true" style="query" type="xsd:string">
+                            <doc>the stock ticker that you want to retrieve information for</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4022:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="livePriceOptions/">
+                <method displayName="Live Price - Options" id="4020" name="GET">
+                    <doc>Get the latest price of a particular option contract</doc>
+                    <request>
+                        <param name="expiry" required="true" style="query" type="xsd:string">
+                            <doc>option expiry</doc>
+                        </param>
+                        <param name="optiontype" required="true" style="query" type="xsd:string">
+                            <doc>cE for Calls and PE for Puts</doc>
+                        </param>
+                        <param name="strike" required="true" style="query" type="xsd:integer">
+                            <doc>option strike</doc>
+                        </param>
+                        <param name="symbol" required="true" style="query" type="xsd:string">
+                            <doc>the stock ticker that you want to retrieve information for</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4020:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="livePriceIndex/">
+                <method displayName="Live Price - Index" id="4019" name="GET">
+                    <doc>Get the latest price of a particular index</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>first call Listed Indices to get the if for each index Then pass the appropriate id to get its live price</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4019:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="livePriceFutures/">
+                <method displayName="Live Price - Futures" id="4018" name="GET">
+                    <doc>Get the latest price of a particular futures contract</doc>
+                    <request>
+                        <param name="expiry" required="true" style="query" type="xsd:string">
+                            <doc>futures expiry</doc>
+                        </param>
+                        <param name="symbol" required="true" style="query" type="xsd:string">
+                            <doc>the stock ticker that you want to retrieve information for</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4018:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="livePriceEquity/">
+                <method displayName="Live Price - Equity" id="4017" name="GET">
+                    <doc>Get the latest price of a particular stock</doc>
+                    <request>
+                        <param name="symbol" required="true" style="query" type="xsd:string">
+                            <doc>the stock ticker that you want to retrieve information for</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4017:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="indexlist/">
+                <method displayName="Listed Indices" id="4016" name="GET">
+                    <doc>The latest list of indices listed in the NSE</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4016:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="equitylist/">
+                <method displayName="Listed Equities" id="4015" name="GET">
+                    <doc>The latest list of equities listed in the NSE</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4015:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="eodHlocFutures/">
+                <method displayName="Futures Bhav" id="4013" name="GET">
+                    <doc>End of the day futures HLOC and turnover data</doc>
+                    <request>
+                        <param name="enddate" required="true" style="query" type="xsd:string">
+                            <doc>the date till which to retrieve the items</doc>
+                        </param>
+                        <param name="expiry" required="true" style="query" type="xsd:string">
+                            <doc>futures expiry</doc>
+                        </param>
+                        <param name="startdate" required="true" style="query" type="xsd:string">
+                            <doc>the date from which to retrieve the items</doc>
+                        </param>
+                        <param name="symbol" required="true" style="query" type="xsd:string">
+                            <doc>the stock ticker that you want to retrieve information for</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4013:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="eodHlocEquity/">
+                <method displayName="Equity Bhav" id="4010" name="GET">
+                    <doc>End of the day equity HLOC and turnover data</doc>
+                    <request>
+                        <param name="enddate" required="true" style="query" type="xsd:string">
+                            <doc>the date till which to retrieve the items</doc>
+                        </param>
+                        <param name="startdate" required="true" style="query" type="xsd:string">
+                            <doc>the date from which to retrieve the items</doc>
+                        </param>
+                        <param name="symbol" required="true" style="query" type="xsd:string">
+                            <doc>the stock ticker that you want to retrieve information for</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4010:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="symbolsOfSector/">
+                <method displayName="Equity - Sector Mapping" id="4009" name="GET">
+                    <doc>List of equities within the specified sector</doc>
+                    <request>
+                        <param name="sector" required="true" style="query" type="xsd:string">
+                            <doc>first call Classified Sectors to get a list of sectors Then pass the appropriate sector name to get all the stocks within that sector</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4009:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="symbolsOfIndex/">
+                <method displayName="Equity - Index Mapping" id="4008" name="GET">
+                    <doc>List of equities and their weights within the specified index</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>first call Listed Indices to get the if for each index Then pass the appropriate id to get all the stocks within that index</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4008:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="sectorlist/">
+                <method displayName="Classified Sectors" id="4006" name="GET">
+                    <doc>List of sector names that equities are grouped into</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4006:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

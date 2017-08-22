@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2113="urn:function:f2113">
+    <grammars>
+        <include href="Function2113.xsd"/>
+    </grammars>
+    <doc>single best guess with audio and site preview using the askquickly org platform</doc>
+    <resources base="https://jamie8763-askquickly-search.p.mashape.com/">
+        <resource uri="api.php/">
+            <method displayName="AskQuickly" id="2113" name="GET">
+                <doc>One hit result with audio</doc>
+                <request>
+                    <param name="adult" required="true" style="query" type="xsd:string">
+                        <doc>off strict moderate</doc>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>query</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2113:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

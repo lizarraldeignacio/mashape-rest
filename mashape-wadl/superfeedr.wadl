@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5860="urn:function:f5860" xmlns:f5862="urn:function:f5862">
+    <grammars>
+        <include href="Function5860.xsd"/>
+        <include href="Function5862.xsd"/>
+    </grammars>
+    <doc>superfeedr allows you to subscribe to content on the web and receive push notifications in real time when new content is published It also allows you to retrieve past content and we ve also got a range of normalization options that make for easier consumption</doc>
+    <resources base="https://superfeedr-superfeedr-v1.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Listing subscriptions" id="5860" name="GET">
+                <doc>This call will allow you to retrieve subscriptions on your account. This call allows you to retrieve subscriptions on your account. You can also use the search parameter to find subscriptions to specific feeds.</doc>
+                <request>
+                    <param name="byPage" required="true" style="query" type="xsd:integer">
+                        <doc>number of items per page Max is Min is</doc>
+                    </param>
+                    <param name="detailed" required="true" style="query" type="xsd:string">
+                        <doc>get feed details along with the subscriptions Check the Schema section for more details</doc>
+                    </param>
+                    <param name="hubMode" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>if there are more than matching subscriptions you may want to paginate over them First page default is</doc>
+                    </param>
+                    <param name="search" required="true" style="query" type="xsd:string">
+                        <doc>a search query Please see superfeedr docus for the various fields and values to use</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5860:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Retrieving Past Content" id="5861" name="GET">
+                <doc>This call allows you to retrieve past entries from one or more feeds. Note that you need to be subscribed to the feed(s) in order to do this.</doc>
+                <request>
+                    <param name="after" required="true" style="query" type="xsd:string">
+                        <doc>the id of an entry in the feed The response will only include entries published after this one</doc>
+                    </param>
+                    <param name="before" required="true" style="query" type="xsd:string">
+                        <doc>the id of an entry in the feed The response will only include entries published before this one</doc>
+                    </param>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>this will render the entries as a JSONP</doc>
+                    </param>
+                    <param name="count" required="true" style="query" type="xsd:integer">
+                        <doc>optional number of items you want to retrieve Current max is and default is</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>json if you want to retrieve entries in json format for feeds only</doc>
+                    </param>
+                    <param name="hubCallback" required="true" style="query" type="xsd:string">
+                        <doc>the value can either be a callback with which you are subscribed to one or more feeds or a search query that should match one or more callback urls used to subscribed to several feeds Please use the query syntax used to search for subscriptions In both cases make sure there are less than matching feeds</doc>
+                    </param>
+                    <param name="hubMode" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="hubTopic" required="true" style="query" type="xsd:string">
+                        <doc>the URL of the HTTP resource for which you want the past entries</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Subscribe to HTTP resource" id="5862" name="POST">
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>json if you want to receive notifications as json format for feeds only atom if you explicitly want to receive notification as Atom This is used by default for any resource that s either Atom or RSS If you don t specify any we will send you the data pulled from the HTTP resource excluding feeds</doc>
+                    </param>
+                    <param name="hubCallback" required="true" style="query" type="xsd:string">
+                        <doc>the webhook it s the URL to which notifications will be sent Make sure you it s web accessible ie not behind a firewall</doc>
+                    </param>
+                    <param name="hubMode" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="hubSecret" required="true" style="query" type="xsd:string">
+                        <doc>a unique secret string which will be used by us to compute a signature You should check this signature when getting notifications</doc>
+                    </param>
+                    <param name="hubTopic" required="true" style="query" type="xsd:string">
+                        <doc>the URL of the HTTP resource to which you want to subscribe</doc>
+                    </param>
+                    <param name="hubVerify" required="true" style="query" type="xsd:string">
+                        <doc>sync or async will perform a PubSubHubbub verification of intent synschronously or asynschronously</doc>
+                    </param>
+                    <param name="retrieve" required="true" style="query" type="xsd:string">
+                        <doc>if set to true the response will include the current representation of the feed as stored in Superfeedr in the format desired Please check our Schema for more details</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5862:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Unsubscribe from HTTP resource" id="5863" name="POST">
+                <request>
+                    <param name="hubCallback" required="true" style="query" type="xsd:string">
+                        <doc>the URL to which notifications will be sent It is optional if you are only subscribed to the feed once with a single hub callback If you have multiple subscriptions you will need to supply the hub callback parameter It is also required if you use the hub verify param</doc>
+                    </param>
+                    <param name="hubMode" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="hubTopic" required="true" style="query" type="xsd:string">
+                        <doc>the URL of the HTTP resource to which you want to subscribe</doc>
+                    </param>
+                    <param name="hubVerify" required="true" style="query" type="xsd:string">
+                        <doc>sync or async We will perform a PubSubHubbub verification of intent synschronously or asynschronously</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

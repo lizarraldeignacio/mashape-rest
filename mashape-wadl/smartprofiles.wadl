@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>ontology based text analysis service which creates a comprehensive weighted profile As an input for profiling you can use any text or link to a document like PDF or a web page</doc>
+    <resources base="https://leiki-analyse-v1.p.mashape.com/">
+        <resource uri="focus/">
+            <resource uri="api/">
+                <method displayName="/focus/api" id="6753" name="GET">
+                    <request>
+                        <param name="classification" required="true" style="query" type="xsd:string">
+                            <doc>select classification used Possible values include focus k iabtier iabtier iabtier plus Default focus k</doc>
+                        </param>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>output format Possible values include xml default json jsonp</doc>
+                        </param>
+                        <param name="jsonp" required="true" style="query" type="xsd:string">
+                            <doc>jSONP callback Optional parameter requires jsonp as output format</doc>
+                        </param>
+                        <param name="lang" required="true" style="query" type="xsd:string">
+                            <doc>language of the profiled text Possible values are en for English fi for Finnish sv for Swedish and de for German Default en Value auto attempts to detect the language automatically</doc>
+                        </param>
+                        <param name="method" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="target" required="true" style="query" type="xsd:string">
+                            <doc>text to be profiled Can also be an URL in which case text on the page or document PDF doc in the page is profiled</doc>
+                        </param>
+                        <param name="targettype" required="true" style="query" type="xsd:string">
+                            <doc>determines whether the target is text or a link to a page or a document Possible values are text for text mode url for link mode pdf for PDF mode or auto for detecting the type of target automatically Default auto</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3100="urn:function:f3100">
+    <grammars>
+        <include href="Function3100.xsd"/>
+    </grammars>
+    <doc>it is eRepublik unofficial API which gives you many missing features and allows create your own tools easy</doc>
+    <resources base="https://erpk.p.mashape.com/">
+        <resource uri="citizen/">
+            <resource uri="profile/">
+                <resource uri="{id}.{format}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Citizen Profile" id="3100" name="GET">
+                        <request>
+                            <param name="format" required="true" style="query" type="xsd:string">
+                                <doc>response format</doc>
+                            </param>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>citizen ID</doc>
+                            </param>
+                            <param name="idFormat" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f3100:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

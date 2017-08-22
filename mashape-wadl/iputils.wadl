@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>a simple component helping with IP functionalities</doc>
+    <resources base="https://mark-sutuer-ip-utils.p.mashape.com/">
+        <resource uri="api.php/">
+            <method displayName="getMyIp" id="9" name="GET">
+                <doc>Get the client's Ip address</doc>
+                <request>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="resolveIp" id="10" name="GET">
+                <doc>Resolve an ip address</doc>
+                <request>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="address" required="true" style="query" type="xsd:string">
+                        <doc>ip address to resolve</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

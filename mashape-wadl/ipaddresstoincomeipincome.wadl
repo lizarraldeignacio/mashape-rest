@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f329="urn:function:f329">
+    <grammars>
+        <include href="Function329.xsd"/>
+    </grammars>
+    <doc>returns average income level of surrounding areas of an ip address data is based on census one of a kind</doc>
+    <resources base="https://loudelement-ip-address-to-income---ip2income.p.mashape.com/">
+        <resource uri="ip2income/">
+            <method displayName="ip2income" id="329" name="GET">
+                <doc>returns average income level of surrounding areas of an ip address. data is based on 2012 census</doc>
+                <request>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>ip address</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f329:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

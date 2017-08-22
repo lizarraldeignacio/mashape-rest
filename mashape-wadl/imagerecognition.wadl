@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f81="urn:function:f81">
+    <grammars>
+        <include href="Function81.xsd"/>
+    </grammars>
+    <doc>viscovery API is the image recognition and matching service Unlike fuzzy search Viscovery API promise to bring you the most accurate result Assisting Web based content management allows developer to add and to edit images for searching which enrich Apps to interact with target user with much fun</doc>
+    <resources base="https://viscovery-image-recognition-web-service.p.mashape.com/">
+        <resource uri="image_requests/">
+            <method displayName="image_requests" id="81" name="POST">
+                <request/>
+                <response>
+                    <representation element="f81:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

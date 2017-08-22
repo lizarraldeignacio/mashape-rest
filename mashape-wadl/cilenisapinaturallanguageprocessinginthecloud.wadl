@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f589="urn:function:f589">
+    <grammars>
+        <include href="Function589.xsd"/>
+    </grammars>
+    <doc>cilenisAPI helps you to analyze and extract information from texts Add language technology to your software in a few minutes using our cloud solution We offer you technology based on years of research in Natural Language Processing in a very easy and scalable SaaS model trough a RESTful API</doc>
+    <resources base="https://cilenisapi.p.mashape.com/">
+        <resource uri="web_text_extractor/">
+            <method displayName="Web Text Extractor" id="593" name="GET">
+                <doc>It extracts from a url the relevant text of the web. In a newspaper, it extract the article.</doc>
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>website to extract the main text</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="conjugator/">
+            <method displayName="Verb Conjugator" id="592" name="GET">
+                <doc>Returns the inflection of a verb, even verbs that don't exist, using the rules to conjugate it. For Galician, Spanish and Portuguese.</doc>
+                <request>
+                    <param name="langInput" required="true" style="query" type="xsd:string">
+                        <doc>language in wich the text is written Codes en english es spanish pt portuguese and gl galician Use en es pt or gl</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>verb infinitive Examples tener spanish fazer portuguese facer galician</doc>
+                    </param>
+                    <param name="variety" required="true" style="query" type="xsd:string">
+                        <doc>only applies for portuguese Language variety pt pt Eropeu com acordo ortogr fico pt br Brasileiro com Acordo Ortogr fico pt pt sao Europeu sem Acordo Ortogr fico e pt br sao Brasileiro sem Acordo Ortogr fico</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="tokenizer/">
+            <method displayName="Tokenizer" id="591" name="GET">
+                <doc>Splits a text into words and phrases, including ambiguous separators like dots and colons.</doc>
+                <request>
+                    <param name="langInput" required="true" style="query" type="xsd:string">
+                        <doc>language in wich the text is written Codes en english es spanish pt portuguese and gl galician Use en es pt or gl</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>the input text for the module This module will process the text you introduce in this field</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="syntactic_analyzer/">
+            <method displayName="Syntactic analyzer" id="590" name="GET">
+                <doc>Gives the syntactic struture of a text using a dependency-based parser: DepPattern. All words of a text are structured in binary relations (dependencies). For Spanish, English, Galician, and Portuguese.</doc>
+                <request>
+                    <param name="langInput" required="true" style="query" type="xsd:string">
+                        <doc>language in wich the text is written Code en english es spanish pt portuguese and gl galician</doc>
+                    </param>
+                    <param name="outputType" required="true" style="query" type="xsd:string">
+                        <doc>type of output Code a Analyser fa Analyser with full representation c Corrector conll CoNLL</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>language in wich the text is written Codes en english es spanish pt portuguese and gl galician Use en es pt or gl</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="summarizer/">
+            <method displayName="Summarizer" id="589" name="GET">
+                <doc>Create a summary or abstract from a text. You chouse the percentage of the summary: 10% abstract or 50% long summary.</doc>
+                <request>
+                    <param name="langInput" required="true" style="query" type="xsd:string">
+                        <doc>language in wich the text is written Codes en english es spanish pt portuguese and gl galician Use en es pt or gl</doc>
+                    </param>
+                    <param name="outputSize" required="true" style="query" type="xsd:integer">
+                        <doc>the percentage of the output text means the summary will be composed by of the sentences of the original text</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>the input text of the module</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f589:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="sentiment_analyzer/">
+            <method displayName="Sentiment Analyzer" id="588" name="GET">
+                <doc>It tells you whether it thinks the text you enter expresses positive sentiment, negative sentiment, or if it's neutral. It also gives you a quantitative weight of how intense is the sentiment. For Spanish, English, and Portuguese.</doc>
+                <request>
+                    <param name="langInput" required="true" style="query" type="xsd:string">
+                        <doc>language in wich the text is written Codes en english es spanish pt portuguese and gl galician Use en es pt or gl</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>the input text for the module This module will process the text you introduce in this field</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="pos_tagger/">
+            <method displayName="Part of Speech Tagger" id="587" name="GET">
+                <doc>I analyzes a text with by providing words with Part of Speech tags (e.g., noun, verb, preposition...), morphological features (singular, masculine...), and their lemmas (canonical form). For Spanish, English, Galician, and Portuguese.</doc>
+                <request>
+                    <param name="langInput" required="true" style="query" type="xsd:string">
+                        <doc>language in wich the text is written Codes en english es spanish pt portuguese and gl galician Use en es pt or gl</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>the input text for the module This module will process the text you introduce in this field</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="named_entity_recognizer/">
+            <method displayName="Named Entity Recognizer" id="586" name="GET">
+                <doc>It extracts from a text Named Entities and classify them as persons, places, organizations, and miscelaneous.</doc>
+                <request>
+                    <param name="langInput" required="true" style="query" type="xsd:string">
+                        <doc>language in wich the text is written Codes en english es spanish pt portuguese and gl galician Use en es pt or gl</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>the input text for the module This module will process the text you introduce in this field</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>if the input text is inside a website like an article in a blog you can insert the url in this field instead the input text above</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="multiword_extractor/">
+            <method displayName="Multiword extractor" id="585" name="GET">
+                <doc>It extracts the most relevant multiword terms from a text and ranked according to their degree of internal cohesion, for example: “mortgage rates”, “house price”, “building societies”, “price war”. For Spanish, English, Galician, and Portuguese.</doc>
+                <request>
+                    <param name="langInput" required="true" style="query" type="xsd:string">
+                        <doc>language in wich the text is written Codes en english es spanish pt portuguese and gl galician Use en es pt or gl</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>the input text for the module This module will process the text you introduce in this field</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="language_identifier/">
+            <method displayName="Language Identifier" id="584" name="GET">
+                <doc>Recognizes the language in which a text is written. This module can distinguish several languages using language models and morphological structures.</doc>
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>the input text for the module This module will process the text you introduce in this field</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="keyword_extractor/">
+            <method displayName="Keyword Extractor" id="583" name="GET">
+                <doc>It extracts the most relevant words from a text and ranks them according to their degree of relevance. For Spanish, English, Galician, and Portuguese.</doc>
+                <request>
+                    <param name="langInput" required="true" style="query" type="xsd:string">
+                        <doc>language in wich the text is written Codes en english es spanish pt portuguese and gl galician Use en es pt or gl</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>the input text for the module This module will process the text you introduce in this field</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

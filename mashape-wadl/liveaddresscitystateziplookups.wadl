@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1900="urn:function:f1900">
+    <grammars>
+        <include href="Function1900.xsd"/>
+    </grammars>
+    <doc>look up US cities states and ZIP codes using this LiveAddress endpoint Get ZIP codes for a city state and get cities states for a ZIP code Batch lookups supported</doc>
+    <resources base="https://liveaddresszip.p.mashape.com/">
+        <resource uri="zipcode/">
+            <method displayName="City/state/zip lookups" id="1900" name="GET">
+                <doc>Look up and verify city/state/zip data</doc>
+                <request>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>the name of the function in which to wrap the JSON response Typically only used for cross domain JSONP requests with Javascript</doc>
+                    </param>
+                    <param name="city" required="true" style="query" type="xsd:string">
+                        <doc>the city name</doc>
+                    </param>
+                    <param name="state" required="true" style="query" type="xsd:string">
+                        <doc>the state name or abbreviation</doc>
+                    </param>
+                    <param name="zipcode" required="true" style="query" type="xsd:string">
+                        <doc>the digit ZIP code</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1900:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

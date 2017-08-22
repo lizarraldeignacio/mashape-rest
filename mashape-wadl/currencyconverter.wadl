@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f23="urn:function:f23" xmlns:f24="urn:function:f24">
+    <grammars>
+        <include href="Function24.xsd"/>
+        <include href="Function23.xsd"/>
+    </grammars>
+    <doc>simple and free currency converter Insert an amount what currency to convert from and what currency to convert to This API is free to use</doc>
+    <resources base="https://currencyconverter.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Convert" id="24" name="GET">
+                <request>
+                    <param name="from" required="true" style="query" type="xsd:string">
+                        <doc>original currency</doc>
+                    </param>
+                    <param name="fromAmount" required="true" style="query" type="xsd:integer">
+                        <doc>the amount to convert</doc>
+                    </param>
+                    <param name="to" required="true" style="query" type="xsd:string">
+                        <doc>currency to convert to</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f24:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="availablecurrencies/">
+            <method displayName="availablecurrencies" id="23" name="GET">
+                <request/>
+                <response>
+                    <representation element="f23:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

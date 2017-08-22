@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1247="urn:function:f1247">
+    <grammars>
+        <include href="Function1247.xsd"/>
+    </grammars>
+    <doc>download facebook videos</doc>
+    <resources base="https://ajith-facebook-video-downloader-v1.p.mashape.com/">
+        <resource uri="url/">
+            <method displayName="/url" id="1247" name="POST">
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>facebook video url</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1247:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

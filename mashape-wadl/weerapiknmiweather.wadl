@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1066="urn:function:f1066">
+    <grammars>
+        <include href="Function1066.xsd"/>
+    </grammars>
+    <doc>this is a very basic JSON API for very basic weather data from the Royal Netherlands Meteorological Institute http www knmi nl index en html The KNMI offers no simple API for simple data so this one exists which scrapes their website Currently it only offers a single API call for the latest weather observations http www knmi nl actueel at monitoring stations</doc>
+    <resources base="https://crazygentleman-knmi-weather.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Latest weather observations" id="1066" name="GET">
+                <request/>
+                <response>
+                    <representation element="f1066:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

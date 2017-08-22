@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f765="urn:function:f765">
+    <grammars>
+        <include href="Function765.xsd"/>
+    </grammars>
+    <doc>some useful stuff for eCommerce shipping work in progress</doc>
+    <resources base="https://bondarewicz-shipping-gear.p.mashape.com/">
+        <resource uri="totalweight/">
+            <resource uri="{weight}/">
+                <param name="weight" style="template" type="xsd:string"/>
+                <resource uri="{length}/">
+                    <param name="length" style="template" type="xsd:string"/>
+                    <resource uri="{width}/">
+                        <param name="width" style="template" type="xsd:string"/>
+                        <resource uri="{height}/">
+                            <param name="height" style="template" type="xsd:string"/>
+                            <method displayName="TotalWeight" id="765" name="GET">
+                                <doc>Calculates the result of package physical weight and volume comparison for given dimensions which represents the total chargeable weight for specific carrier.&#13;
+&#13;
+Carriers Supported: DHL, TNT, Parcelforce, FedEx, UPS</doc>
+                                <request>
+                                    <param name="height" required="true" style="query" type="xsd:integer">
+                                        <doc>package height in CM</doc>
+                                    </param>
+                                    <param name="length" required="true" style="query" type="xsd:integer">
+                                        <doc>package length in CM</doc>
+                                    </param>
+                                    <param name="weight" required="true" style="query" type="xsd:integer">
+                                        <doc>package weight in CM</doc>
+                                    </param>
+                                    <param name="width" required="true" style="query" type="xsd:integer">
+                                        <doc>package width in CM</doc>
+                                    </param>
+                                </request>
+                                <response>
+                                    <representation element="f765:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

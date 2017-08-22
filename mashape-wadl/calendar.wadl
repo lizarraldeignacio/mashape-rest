@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f454="urn:function:f454" xmlns:f455="urn:function:f455" xmlns:f456="urn:function:f456" xmlns:f457="urn:function:f457">
+    <grammars>
+        <include href="Function457.xsd"/>
+        <include href="Function456.xsd"/>
+        <include href="Function455.xsd"/>
+        <include href="Function454.xsd"/>
+    </grammars>
+    <doc>calendar API supplies an accurate and reliable information about holidays all over the world Metropolis also provides an useful date calculator and a week day indicator This API is deprecated</doc>
+    <resources base="https://metropolis-api-calendar.p.mashape.com/">
+        <resource uri="week/">
+            <method displayName="week" id="457" name="GET">
+                <doc>This endpoint provides the weekname and week-number information from a given input date.</doc>
+                <request>
+                    <param name="date" required="true" style="query" type="xsd:string">
+                        <doc>reference date Format yyyy mm dd</doc>
+                    </param>
+                    <param name="idiom" required="true" style="query" type="xsd:string">
+                        <doc>default is English ISO Translation service by querying google translation API Caution Using this on the fly translation service can be time consuming</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f457:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="holidays/">
+            <method displayName="holidays" id="456" name="GET">
+                <doc>Information about the holidays around the world. This endpoint provides a list of holidays observed throughout year 2014, including the date, weekname and description of the holiday.</doc>
+                <request>
+                    <param name="country" required="true" style="query" type="xsd:string">
+                        <doc>ISO letter country code or Name of the Country in English</doc>
+                    </param>
+                    <param name="idiom" required="true" style="query" type="xsd:string">
+                        <doc>default is English ISO Translation service by querying google translation API Caution Using this on the fly translation service can be time consuming</doc>
+                    </param>
+                    <param name="year" required="true" style="query" type="xsd:string">
+                        <doc>year yyyy Caution we are sorry but just the year is implemented at this time More to come</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f456:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="holiday-check/">
+            <method displayName="holiday-check" id="455" name="GET">
+                <doc>Check if a provided date is holiday, given a desired country location.</doc>
+                <request>
+                    <param name="country" required="true" style="query" type="xsd:string">
+                        <doc>ISO letter country code or Name of the Country in English</doc>
+                    </param>
+                    <param name="date" required="true" style="query" type="xsd:string">
+                        <doc>reference date Format yyyy mm dd Caution we are sorry but just the year is implemented at this time More to come</doc>
+                    </param>
+                    <param name="idiom" required="true" style="query" type="xsd:string">
+                        <doc>default is English ISO Translation service by querying google translation API Caution Using this on the fly translation service can be time consuming</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f455:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="date-calculator/">
+            <method displayName="date-calculator" id="454" name="GET">
+                <doc>Use this endpoint to add or subtract any number of days given a specific date. Add or subtract days to a given date (for example: ignoring weekends) to calculate a past or future event. Usage sample: What date will it be in 30 workdays ?</doc>
+                <request>
+                    <param name="country" required="true" style="query" type="xsd:string">
+                        <doc>ISO letter country code or Name of the Country in English</doc>
+                    </param>
+                    <param name="date" required="true" style="query" type="xsd:string">
+                        <doc>start date Format yyyy mm dd</doc>
+                    </param>
+                    <param name="days" required="true" style="query" type="xsd:string">
+                        <doc>days to be added or subtracted given the start date</doc>
+                    </param>
+                    <param name="justWorkdays" required="true" style="query" type="xsd:string">
+                        <doc>True Days in result will include just work days Weekends will not be considered during the calculation False Days in result will include all days including Weekends Caution We are sorry but holidays are not considered at this time</doc>
+                    </param>
+                    <param name="operation" required="true" style="query" type="xsd:string">
+                        <doc>date operation type add subtract or days</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f454:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

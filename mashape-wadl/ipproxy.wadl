@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4853="urn:function:f4853">
+    <grammars>
+        <include href="Function4853.xsd"/>
+    </grammars>
+    <doc>the IP Proxy Proxy Detection Web Service allows instant detection of anonymous proxy by IP address The IP Proxy Proxy Detection Web Service enables you to check proxy servers for anonymity Sign up for free license key at http www fraudlabs com freelicense aspx PackageID which allows up to queries a month</doc>
+    <resources base="https://fraudlabs-ip2proxy-v1.p.mashape.com/">
+        <resource uri="ip2proxywebservice.asmx/">
+            <method displayName="IP2Proxy API" id="4853" name="GET">
+                <doc>Proxy Detection API</doc>
+                <request>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>iP address to query</doc>
+                    </param>
+                    <param name="license" required="true" style="query" type="xsd:string">
+                        <doc>aPI license key</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4853:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

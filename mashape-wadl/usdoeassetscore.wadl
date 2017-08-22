@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5853="urn:function:f5853">
+    <grammars>
+        <include href="Function5853.xsd"/>
+    </grammars>
+    <doc>the Office of Energy Efficiency and Renewable Energy of the United States Department of Energy provides this API to help rate commercial buildings on energy efficiency according to its national standards Using a variety of physical characteristics and likely usage the tool can rate a building s energy efficiency including evaluating its systems and identifying areas for possible upgrades Documentation can be found at https assetscoreapi pnnl gov api NOTE The API is currently in BETA and the buildings created may disappear when it moves to public release</doc>
+    <resources base="https://gunda01-commercial-building-energy-asset-scoring-tool.p.mashape.com/">
+        <resource uri="users/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="View user info" id="5853" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>user ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5853:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

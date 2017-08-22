@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2914="urn:function:f2914" xmlns:f2915="urn:function:f2915" xmlns:f2917="urn:function:f2917" xmlns:f2920="urn:function:f2920">
+    <grammars>
+        <include href="Function2914.xsd"/>
+        <include href="Function2915.xsd"/>
+        <include href="Function2917.xsd"/>
+        <include href="Function2920.xsd"/>
+    </grammars>
+    <doc>docPlanner com enables patients to find great local physicians online and book an appointment Choosing a specialist has never been more comfortable This API enables to integrate your clinic software with our online booking service</doc>
+    <resources base="https://znanylekarz.p.mashape.com/">
+        <resource uri="">
+            <method displayName="calendar.set-hours" id="2913" name="POST">
+                <request/>
+            </method>
+            <method displayName="doctor.calendars" id="2914" name="GET">
+                <request>
+                    <param name="doctorId" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2914:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="doctor.categories" id="2915" name="GET">
+                <request>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2915:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="doctor.search" id="2916" name="GET">
+                <request>
+                    <param name="categoryId" required="true" style="query" type="xsd:integer">
+                        <doc>specialization ID</doc>
+                    </param>
+                    <param name="location" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="phrase" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+            <method displayName="user.related-doctors" id="2917" name="GET">
+                <request>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2917:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="visit.book" id="2918" name="GET">
+                <request>
+                    <param name="comment" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="createUser" required="true" style="query" type="xsd:boolean">
+                        <doc>use data from name surname and phone</doc>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="phone" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="surname" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="verifyPhone" required="true" style="query" type="xsd:boolean">
+                        <doc>validate phone field and send notifications to the user</doc>
+                    </param>
+                    <param name="visitId" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+            <method displayName="visit.cancel" id="2919" name="GET">
+                <request>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="visitId" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+            <method displayName="visit.details" id="2920" name="GET">
+                <request>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="visitId" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2920:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

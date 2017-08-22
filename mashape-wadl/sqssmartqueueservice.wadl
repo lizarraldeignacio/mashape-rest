@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6979="urn:function:f6979" xmlns:f6980="urn:function:f6980" xmlns:f6981="urn:function:f6981" xmlns:f6982="urn:function:f6982" xmlns:f6983="urn:function:f6983" xmlns:f6984="urn:function:f6984" xmlns:f6985="urn:function:f6985" xmlns:f6986="urn:function:f6986" xmlns:f6987="urn:function:f6987" xmlns:f6988="urn:function:f6988" xmlns:f6989="urn:function:f6989">
+    <grammars>
+        <include href="Function6989.xsd"/>
+        <include href="Function6988.xsd"/>
+        <include href="Function6987.xsd"/>
+        <include href="Function6986.xsd"/>
+        <include href="Function6985.xsd"/>
+        <include href="Function6984.xsd"/>
+        <include href="Function6983.xsd"/>
+        <include href="Function6982.xsd"/>
+        <include href="Function6981.xsd"/>
+        <include href="Function6980.xsd"/>
+        <include href="Function6979.xsd"/>
+    </grammars>
+    <doc>sQS Smart Queue Service is a job queue service that handles communication between other components in a system</doc>
+    <resources base="https://petadata-sqs-smart-queue-service-v1.p.mashape.com/">
+        <resource uri="UpdateItemByItemId/">
+            <method displayName="UpdateItemByItemId" id="6989" name="POST">
+                <doc>Used to update item's timeout properties and value by using item id</doc>
+                <request/>
+                <response>
+                    <representation element="f6989:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="UpdateItemByDeliveryToken/">
+            <method displayName="UpdateItemByDeliveryToken" id="6988" name="POST">
+                <doc>Used to update item's timeout properties and value by using delivery token</doc>
+                <request>
+                    <param name="deliverytoken" required="true" style="query" type="xsd:string">
+                        <doc>delivery token of item to update</doc>
+                    </param>
+                    <param name="itemdata" required="true" style="query" type="xsd:string">
+                        <doc>item content in a format that may be encoded with UTF</doc>
+                    </param>
+                    <param name="itemtimeoutinseconds" required="true" style="query" type="xsd:integer">
+                        <doc>the item timeout parameter is expressed in seconds Maximum item timeout value is seconds</doc>
+                    </param>
+                    <param name="queuename" required="true" style="query" type="xsd:string">
+                        <doc>name of the queue to update item</doc>
+                    </param>
+                    <param name="visibilitytimeoutinseconds" required="true" style="query" type="xsd:integer">
+                        <doc>specifies the visibility timeout value in seconds relative to server time</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6988:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="ListQueues/">
+            <method displayName="ListQueues" id="6987" name="GET">
+                <doc>Lists all queue names under your account.</doc>
+                <request/>
+                <response>
+                    <representation element="f6987:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="GetNextItem/">
+            <method displayName="GetNextItem" id="6986" name="GET">
+                <doc>Retrieves an item from the queue and makes it invisible to other consumers.</doc>
+                <request>
+                    <param name="itemtimeoutinseconds" required="true" style="query" type="xsd:integer">
+                        <doc>the item timeout parameter is expressed in seconds Maximum item timeout value is seconds</doc>
+                    </param>
+                    <param name="queuename" required="true" style="query" type="xsd:string">
+                        <doc>name of the queue to get item</doc>
+                    </param>
+                    <param name="visibilitytimeoutinseconds" required="true" style="query" type="xsd:integer">
+                        <doc>specifies the visibility timeout value in seconds relative to server time Default</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6986:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="GetItemsCount/">
+            <method displayName="GetItemsCount" id="6985" name="GET">
+                <doc>Provides number of items in queue.</doc>
+                <request>
+                    <param name="queuename" required="true" style="query" type="xsd:string">
+                        <doc>name of the queue to retrieve item s count</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6985:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="DeleteQueue/">
+            <method displayName="DeleteQueue" id="6984" name="DELETE">
+                <doc>Deletes a queue.</doc>
+                <request>
+                    <param name="queuename" required="true" style="query" type="xsd:string">
+                        <doc>name of the queue that you want to delete</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6984:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="DeleteItemById/">
+            <method displayName="DeleteItemById" id="6983" name="DELETE">
+                <doc>Deletes an item from the queue by using specified item id.</doc>
+                <request>
+                    <param name="itemid" required="true" style="query" type="xsd:string">
+                        <doc>id of item to delete</doc>
+                    </param>
+                    <param name="queuename" required="true" style="query" type="xsd:string">
+                        <doc>name of the queue to delete item</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6983:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="DeleteItemByDeliveryToken/">
+            <method displayName="DeleteItemByDeliveryToken" id="6982" name="DELETE">
+                <doc>Deletes an item from the queue by using specified delivery token.</doc>
+                <request>
+                    <param name="deliverytoken" required="true" style="query" type="xsd:string">
+                        <doc>delivery token of item to delete</doc>
+                    </param>
+                    <param name="queuename" required="true" style="query" type="xsd:string">
+                        <doc>name of the queue to delete item</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6982:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="CreateQueue/">
+            <method displayName="CreateQueue" id="6981" name="PUT">
+                <doc>Creates a new queue under your account.</doc>
+                <request>
+                    <param name="queuename" required="true" style="query" type="xsd:string">
+                        <doc>name of the queue to create</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6981:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="ClearItems/">
+            <method displayName="ClearItems" id="6980" name="DELETE">
+                <doc>Clears all items from the queue.</doc>
+                <request>
+                    <param name="queuename" required="true" style="query" type="xsd:string">
+                        <doc>name of the queue to clear it s items</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6980:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="AddItem/">
+            <method displayName="AddItem" id="6979" name="PUT">
+                <doc>Adds an item to the queue and optionally sets a visibility timeout for the item.</doc>
+                <request/>
+                <response>
+                    <representation element="f6979:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

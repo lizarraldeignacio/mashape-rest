@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2725="urn:function:f2725">
+    <grammars>
+        <include href="Function2725.xsd"/>
+    </grammars>
+    <doc>welcome to The AOL On Network s API developer documentation It enables you to integrate our video content display and functionality into your website</doc>
+    <resources base="https://community-aol-on-network.p.mashape.com/">
+        <resource uri="video/">
+            <resource uri="{VIDEO_ID}/">
+                <param name="VIDEO_ID" style="template" type="xsd:string"/>
+                <resource uri="info.{FORMAT}/">
+                    <param name="FORMAT" style="template" type="xsd:string"/>
+                    <method displayName="Single/Multiple Video" id="2725" name="GET">
+                        <doc>To access the data for a specific video, you simply request a URL from Aol On Network's API with the specific video ID you want.</doc>
+                        <request>
+                            <param name="addOns" required="true" style="query" type="xsd:string">
+                                <doc>include exclude add ons for video</doc>
+                            </param>
+                            <param name="autoStart" required="true" style="query" type="xsd:string">
+                                <doc>the video starts playing automatically</doc>
+                            </param>
+                            <param name="externalData" required="true" style="query" type="xsd:string">
+                                <doc>get external video identification</doc>
+                            </param>
+                            <param name="format" required="true" style="query" type="xsd:string">
+                                <doc>xml or Json Not all json calls are supported</doc>
+                            </param>
+                            <param name="height" required="true" style="query" type="xsd:string">
+                                <doc>embed height value</doc>
+                            </param>
+                            <param name="multipleThumbnails" required="true" style="query" type="xsd:string">
+                                <doc>include exclude all thumbnails for video</doc>
+                            </param>
+                            <param name="numRelatedReturn" required="true" style="query" type="xsd:string">
+                                <doc>number of related videos to return per video</doc>
+                            </param>
+                            <param name="page" required="true" style="query" type="xsd:string">
+                                <doc>which page of results to display</doc>
+                            </param>
+                            <param name="returnCategoryId" required="true" style="query" type="xsd:string">
+                                <doc>add ID of category per video</doc>
+                            </param>
+                            <param name="showRenditions" required="true" style="query" type="xsd:string">
+                                <doc>show all available renditions for the video</doc>
+                            </param>
+                            <param name="sid" required="true" style="query" type="xsd:string">
+                                <doc>account associated syndicator ID</doc>
+                            </param>
+                            <param name="thirdLayer" required="true" style="query" type="xsd:string">
+                                <doc>include third layer metadata</doc>
+                            </param>
+                            <param name="thumbnailSizes" required="true" style="query" type="xsd:string">
+                                <doc>include exclude thumbnails sizes extracted for video</doc>
+                            </param>
+                            <param name="transcript" required="true" style="query" type="xsd:string">
+                                <doc>include exclude transcript for video</doc>
+                            </param>
+                            <param name="videoGroupId" required="true" style="query" type="xsd:string">
+                                <doc>id of video group you want to get</doc>
+                            </param>
+                            <param name="videoId" required="true" style="query" type="xsd:string">
+                                <doc>can be retrieved from the end of the video URL</doc>
+                            </param>
+                            <param name="videoIds" required="true" style="query" type="xsd:string">
+                                <doc>comma separated video IDs</doc>
+                            </param>
+                            <param name="width" required="true" style="query" type="xsd:string">
+                                <doc>embed width value</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2725:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="search/">
+            <resource uri="{SEARCH_TERM}/">
+                <param name="SEARCH_TERM" style="template" type="xsd:string"/>
+                <resource uri="videos.xml/">
+                    <method displayName="Searching for videos" id="2724" name="GET">
+                        <doc>You can search our library using this request:</doc>
+                        <request>
+                            <param name="searchTerm" required="true" style="query" type="xsd:string">
+                                <doc>the search term can either be free text or words separated by spaces for density search</doc>
+                            </param>
+                            <param name="sort" required="true" style="query" type="xsd:string">
+                                <doc>most viewed top rated most discussed most favorited most recent featured relevance approval date</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6758="urn:function:f6758">
+    <grammars>
+        <include href="Function6758.xsd"/>
+    </grammars>
+    <doc>just a test api to demonstrate brad about mashape</doc>
+    <resources base="https://mkawserm-gfacebook-v1.p.mashape.com/">
+        <resource uri="{username}/">
+            <param name="username" style="template" type="xsd:string"/>
+            <method displayName="/{username}" id="6758" name="GET">
+                <doc>Get information of a user from facebook using graph api</doc>
+                <request>
+                    <param name="username" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f6758:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

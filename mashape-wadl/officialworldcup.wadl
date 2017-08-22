@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2184="urn:function:f2184">
+    <grammars>
+        <include href="Function2184.xsd"/>
+    </grammars>
+    <doc>the Official Match Schedule for the FIFA World Cup Brazil</doc>
+    <resources base="https://community-official-world-cup.p.mashape.com/">
+        <resource uri="wc/">
+            <resource uri="matches/">
+                <method displayName="Matches" id="2184" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f2184:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

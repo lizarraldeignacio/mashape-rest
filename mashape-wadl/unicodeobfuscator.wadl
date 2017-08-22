@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3761="urn:function:f3761">
+    <grammars>
+        <include href="Function3761.xsd"/>
+    </grammars>
+    <doc>obfuscate words with this simple Unicode Codex It is very simple to use and works with words and sentences We hope you enjoy it let us know where you put it to use</doc>
+    <resources base="https://bheithaus-unicode-obfuscator.p.mashape.com/">
+        <resource uri="chop/">
+            <resource uri="bop/">
+                <method displayName="sdf" id="3762" name="POST">
+                    <doc>sdfsdf</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="obfuscate/">
+            <method displayName="Obfuscate" id="3761" name="GET">
+                <doc>Takes a word as parameter obfuscates it using a proprietary Unicode Character codex</doc>
+                <request>
+                    <param name="level" required="true" style="query" type="xsd:integer">
+                        <doc>being most obfuscated</doc>
+                    </param>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>the word to be obfuscated</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3761:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

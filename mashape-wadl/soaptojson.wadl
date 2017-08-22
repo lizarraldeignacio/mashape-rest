@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4205="urn:function:f4205" xmlns:f4206="urn:function:f4206">
+    <grammars>
+        <include href="Function4206.xsd"/>
+        <include href="Function4205.xsd"/>
+    </grammars>
+    <doc>soap to JSON online proxy gateway API enables calling SOAP web services with JSON format</doc>
+    <resources base="https://neurospeech-soap-to-json.p.mashape.com/">
+        <resource uri="soap/">
+            <resource uri="invoke/">
+                <method displayName="Invoke" id="4206" name="POST">
+                    <doc>Invokes (executes) specified method for given WSDL url. Please note, if SOAP Proxy does not exist, it will be created. If WSDL url starts with "https" you will be billed for "Invoke-Secure".</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4206:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="generate-proxy/">
+                <method displayName="Generate Proxy" id="4205" name="GET">
+                    <doc>You can generate proxy code to invoke methods target web service, this method will return generated code that you can analyze.</doc>
+                    <request>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>please give your Web Service WSDL URL here</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4205:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>randomly generated profiles of users for quick and efficient database testing Ideal for social networks dating websites online forums and other people oriented projects Includes random address name date of birth bank info credit card number weight height occupation etc</doc>
+    <resources base="https://randomprofile.p.mashape.com/">
+        <resource uri="api.php/">
+            <method displayName="getProfile" id="1201" name="POST">
+                <doc>Get two randomly generated user profiles</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

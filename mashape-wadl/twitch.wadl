@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1533="urn:function:f1533">
+    <grammars>
+        <include href="Function1533.xsd"/>
+    </grammars>
+    <doc>retrieve or update Twitch content via REST API char</doc>
+    <resources base="https://mpoon-twitch.p.mashape.com/">
+        <resource uri="games/">
+            <resource uri="top/">
+                <method displayName="Get top games" id="1533" name="GET">
+                    <doc>Returns an array of top games on Twitch by current viewers.</doc>
+                    <request>
+                        <param name="limit" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of games to return up to</doc>
+                        </param>
+                        <param name="offset" required="true" style="query" type="xsd:integer">
+                            <doc>offset to begin listing games defaults to</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1533:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

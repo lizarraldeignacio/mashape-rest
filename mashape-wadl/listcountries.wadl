@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1720="urn:function:f1720">
+    <grammars>
+        <include href="Function1720.xsd"/>
+    </grammars>
+    <doc>it will list all countries</doc>
+    <resources base="https://jayeshtharani-listcountries-v1.p.mashape.com/">
+        <resource uri="listallcountries/">
+            <method displayName="/listallcountries" id="1720" name="GET">
+                <doc>get list of all countries description</doc>
+                <request/>
+                <response>
+                    <representation element="f1720:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6457="urn:function:f6457">
+    <grammars>
+        <include href="Function6457.xsd"/>
+    </grammars>
+    <doc>this is an API to check a website to determine if it s an online ecommerce store We do this in a few ways first we check to see if it matches common e commerce store platforms ie Shopify Magento etc Next we check the page text to see if we can determine it has characteristics of an online store Finally we parse the DOM looking for clues to see if it links to the server that has a e commerce backend</doc>
+    <resources base="https://tommytcchan-ecommerce-checker-v1.p.mashape.com/">
+        <resource uri="is_ecommerce_store.json/">
+            <method displayName="Is Ecommerce store" id="6457" name="GET">
+                <doc>Determines if the site is an e-commerce site. An e-commerce site is a site that some underlying feature about it.</doc>
+                <request>
+                    <param name="customIdentifiers" required="true" style="query" type="xsd:string">
+                        <doc>optional The regex to test instead of the standard ecommerce identifiers Useful for e commerce stores in other languages than English</doc>
+                    </param>
+                    <param name="website" required="true" style="query" type="xsd:string">
+                        <doc>the website that you are trying to see if it s an e commerce store for ie wwww gilt com</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6457:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

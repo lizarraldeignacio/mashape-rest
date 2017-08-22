@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>a RESTful API implementing state of the art image processing and computer vision tools</doc>
+    <resources base="https://m4c.p.mashape.com/">
+        <resource uri="redeye/">
+            <method displayName="Red Eye Correction" id="6099" name="POST">
+                <doc>It has never been so easy to remove red-eye from digital images. The focus of this function is to provide painless and error free results each and every time.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="miniature/">
+            <method displayName="Miniature Maker" id="6098" name="POST">
+                <doc>A filter that will make your real-world picture look like a miniature.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="enhance/">
+            <method displayName="Image Enhancement" id="6097" name="POST">
+                <doc>Implementing state-of-the-art algorithms to enhance color, contrast and dynamic range, this is an easy-to-use image processing tool that will automatically improve digital images.</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

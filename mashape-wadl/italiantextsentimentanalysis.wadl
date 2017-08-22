@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7225="urn:function:f7225">
+    <grammars>
+        <include href="Function7225.xsd"/>
+    </grammars>
+    <doc>this tool extract sentiment for text in Italian You can determine if a text has a positive negative or neutral opinion polarity Result range from very negative to very positive</doc>
+    <resources base="https://shackra-italian-sentiment-analysis-v1.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="ita/">
+                <method displayName="/api/ita/" id="7225" name="POST">
+                    <doc>analyzer endpoint</doc>
+                    <request/>
+                    <response>
+                        <representation element="f7225:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

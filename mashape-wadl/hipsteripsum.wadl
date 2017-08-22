@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4366="urn:function:f4366">
+    <grammars>
+        <include href="Function4366.xsd"/>
+    </grammars>
+    <doc>oh You need a little dummy text for your mockup How quaint</doc>
+    <resources base="https://hipster-ipsum.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Hipster Ipsum" id="4366" name="GET">
+                <request>
+                    <param name="html" required="true" style="query" type="xsd:string">
+                        <doc>true false default true</doc>
+                    </param>
+                    <param name="paras" required="true" style="query" type="xsd:integer">
+                        <doc>default</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>hipster latin hipster centric default hipster latin</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4366:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7232="urn:function:f7232">
+    <grammars>
+        <include href="Function7232.xsd"/>
+    </grammars>
+    <doc>virtually every activity in the FundAmerica platform revolves around offerings Escrow payments background checks and documents all require an offering to be attached to</doc>
+    <resources base="https://amilcar_fundamerica-offerings-v1.p.mashape.com/">
+        <resource uri="test_mode/">
+            <resource uri="offerings/">
+                <resource uri="{offering_id}/">
+                    <param name="offering_id" style="template" type="xsd:string"/>
+                    <method displayName="/test_mode/offerings/{offering_id}" id="7232" name="PATCH">
+                        <doc>Offering ID</doc>
+                        <request>
+                            <param name="acceptInvestments" required="true" style="query" type="xsd:string">
+                                <doc>open Offering</doc>
+                            </param>
+                            <param name="offeringId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f7232:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="offerings/">
+            <method displayName="/offerings" id="7230" name="POST">
+                <doc>Create an offering</doc>
+                <request>
+                    <param name="amount" required="true" style="query" type="xsd:string">
+                        <doc>offering Amount</doc>
+                    </param>
+                    <param name="description" required="true" style="query" type="xsd:string">
+                        <doc>offering Description</doc>
+                    </param>
+                    <param name="maxAmount" required="true" style="query" type="xsd:string">
+                        <doc>maximum Amount</doc>
+                    </param>
+                    <param name="minAmount" required="true" style="query" type="xsd:string">
+                        <doc>minimum amount needed to close escrow</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>offering name</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="/offerings/{id}" id="7231" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

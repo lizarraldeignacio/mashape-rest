@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6574="urn:function:f6574" xmlns:f6575="urn:function:f6575" xmlns:f6576="urn:function:f6576" xmlns:f6577="urn:function:f6577" xmlns:f6578="urn:function:f6578" xmlns:f6579="urn:function:f6579" xmlns:f6580="urn:function:f6580">
+    <grammars>
+        <include href="Function6580.xsd"/>
+        <include href="Function6579.xsd"/>
+        <include href="Function6578.xsd"/>
+        <include href="Function6577.xsd"/>
+        <include href="Function6576.xsd"/>
+        <include href="Function6575.xsd"/>
+        <include href="Function6574.xsd"/>
+    </grammars>
+    <doc>the Location By IP API allows you to find geographic information such as Country Country Code Region Region Code City Zip code Latitude Longitude Timezone ISP and Organization of any given IP address The API can also return results in many different formats such as JSON XML CSV YAML PHP Serialized PHP and Text</doc>
+    <resources base="https://loc2ip.p.mashape.com/">
+        <resource uri="yaml/">
+            <method displayName="YAML" id="6580" name="GET">
+                <doc>To receive the response in YAML format</doc>
+                <request>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>iP address you wish to gather information</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6580:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="xml/">
+            <method displayName="XML" id="6579" name="GET">
+                <doc>To receive the response in XML format</doc>
+                <request>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>iP address you wish to gather information</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6579:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="serialize/">
+            <method displayName="Serialized" id="6578" name="GET">
+                <doc>To receive the response in Serialized PHP serialize() format</doc>
+                <request>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>iP address you wish to gather information</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6578:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="php/">
+            <method displayName="PHP" id="6577" name="GET">
+                <doc>To receive the response as PHP code.</doc>
+                <request>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>iP address you wish to gather information</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6577:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="line/">
+            <method displayName="New Line" id="6576" name="GET">
+                <doc>To receive the response in Newline (\n) separated values format</doc>
+                <request>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>iP address you wish to gather information</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6576:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="json/">
+            <method displayName="JSON" id="6575" name="GET">
+                <doc>To receive the response in JSON format</doc>
+                <request>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>optional callback function name</doc>
+                    </param>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>iP address you wish to gather information</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6575:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="csv/">
+            <method displayName="CSV" id="6574" name="GET">
+                <doc>To receive the response in CSV (Comma-separated values) format</doc>
+                <request>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>iP address you wish to gather information</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6574:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

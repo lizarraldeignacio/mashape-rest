@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4790="urn:function:f4790" xmlns:f4791="urn:function:f4791">
+    <grammars>
+        <include href="Function4790.xsd"/>
+        <include href="Function4791.xsd"/>
+    </grammars>
+    <doc>finds UK postal addresses by postcode</doc>
+    <resources base="https://getaddress.p.mashape.com/">
+        <resource uri="">
+            <resource uri="api.getAddress.io/">
+                <resource uri="uk/">
+                    <resource uri="{postcode}/">
+                        <param name="postcode" style="template" type="xsd:string"/>
+                        <method displayName="AddressesByPostCode" id="4790" name="GET">
+                            <doc>Finds UK postal addresses by postcode</doc>
+                            <request>
+                                <param name="postcode" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f4790:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="FindByPostcodeAndHouse" id="4791" name="GET">
+                            <doc>Finds UK postal addresses by postcode and house name</doc>
+                            <request>
+                                <param name="house" required="true" style="query" type="xsd:string"/>
+                                <param name="postcode" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f4791:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

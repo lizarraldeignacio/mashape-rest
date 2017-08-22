@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6293="urn:function:f6293" xmlns:f6294="urn:function:f6294" xmlns:f6295="urn:function:f6295" xmlns:f6296="urn:function:f6296" xmlns:f6297="urn:function:f6297" xmlns:f6298="urn:function:f6298" xmlns:f6299="urn:function:f6299" xmlns:f6300="urn:function:f6300">
+    <grammars>
+        <include href="Function6297.xsd"/>
+        <include href="Function6298.xsd"/>
+        <include href="Function6296.xsd"/>
+        <include href="Function6299.xsd"/>
+        <include href="Function6295.xsd"/>
+        <include href="Function6300.xsd"/>
+        <include href="Function6294.xsd"/>
+        <include href="Function6293.xsd"/>
+    </grammars>
+    <doc>app net is a subscription based ad free social network and API a home for meaningful interactions and a platform developers can trust We rely on our developers and our developers can rely on us for a robust responsive and transparent platform</doc>
+    <resources base="https://appdotnet-appnet.p.mashape.com/">
+        <resource uri="stream/">
+            <resource uri="0/">
+                <resource uri="places/">
+                    <resource uri="search/">
+                        <method displayName="Search for a Place" id="6297" name="GET">
+                            <doc>Performs a search for nearest places from given latitude and longitude. Optionally takes a q string to restrict matches on name (like autocomplete for Place names).  Returns a list of Places sorted by distance or distance/string match if q is provided. These are the same Place objects as returned by the previous endpoint but will also include a distance property which gives, in meters, the distance from the search centroid to the Place.</doc>
+                            <request>
+                                <param name="altitude" required="true" style="query" type="xsd:string">
+                                    <doc>decimal Altitude of search location in meters Not presently used to generate search results but may be later</doc>
+                                </param>
+                                <param name="count" required="true" style="query" type="xsd:string">
+                                    <doc>integer Number of results to return Defaults to ranges between and</doc>
+                                </param>
+                                <param name="horizontalAccuracy" required="true" style="query" type="xsd:string">
+                                    <doc>decimal Accuracy of latitude longitude parameters in meters Not presently used to generate search results but may be later</doc>
+                                </param>
+                                <param name="latitude" required="true" style="query" type="xsd:string">
+                                    <doc>decimal Latitude of search location Combined with longitude to create central point of search results</doc>
+                                </param>
+                                <param name="longitude" required="true" style="query" type="xsd:string">
+                                    <doc>decimal Longitude of search location Combined with latitude to create central point of search results</doc>
+                                </param>
+                                <param name="q" required="true" style="query" type="xsd:string">
+                                    <doc>string The name based search query Can be a partial string for example cre will find any local creameries and ice cream locations</doc>
+                                </param>
+                                <param name="radius" required="true" style="query" type="xsd:string">
+                                    <doc>decimal Approximate radius in meters of bounding circle on results For example supplying radius will limit all locations to be within meters Defaults to ranges between and</doc>
+                                </param>
+                                <param name="removeClosed" required="true" style="query" type="xsd:string">
+                                    <doc>int or Set to if you would like the result to include entities which are closed is closed or if you would only prefer to see results for entities that are open Defaults to</doc>
+                                </param>
+                                <param name="verticalAccuracy" required="true" style="query" type="xsd:string">
+                                    <doc>decimal Accuracy of altitude parameter in meters Not presently used to generate search results but may be later</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f6297:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="channels/">
+                    <resource uri="search/">
+                        <method displayName="Search for Channels" id="6298" name="GET">
+                            <doc>Returns Channel objects which match a given search query. Because channels have no inherent notion of description or name, we take textual data from common channel annotations which contain such fields, e.g. net.patter-app.settings. We also allow filtering on specific channel properties, such as channel type. No matter what query data is supplied, the search results will respect channel ACLs, and results are limited to non-private channels if the requesting access token does not have the messages scope.</doc>
+                            <request>
+                                <param name="order" required="true" style="query" type="xsd:string">
+                                    <doc>one of popularity default id or activity Searches of ordering popularity are returned in an order that roughly matches the popularity of the channels activity searches will order results roughly by time of last message precise sorting of very recent messages is not guaranteed</doc>
+                                </param>
+                                <param name="q" required="true" style="query" type="xsd:string">
+                                    <doc>searches any textual fields extracted from channel annotations We may tweak which annotations and fields are included by this search over time</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f6298:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="{channel_id}/">
+                        <param name="channel_id" style="template" type="xsd:string"/>
+                        <resource uri="messages/">
+                            <method displayName="Retrieve the Messages in a Channel" id="6296" name="GET">
+                                <doc>Retrieve a stream of the Messages in a channel.</doc>
+                                <request>
+                                    <param name="channelId" required="true" style="query" type="xsd:string">
+                                        <doc>the id of the Channel to retrieve Messages from</doc>
+                                    </param>
+                                </request>
+                                <response>
+                                    <representation element="f6296:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="posts/">
+                    <resource uri="search/">
+                        <method displayName="Search for Posts" id="6299" name="GET">
+                            <doc>Returns Post objects which match a given search query. Searches ordered by id require at least one query or filter to be specified; searches ordered by score require at least one query and zero or more filters to be specified. Searches require an ordering and at least one search query to be specified, and allow for zero or more filters to be added. All parameters should be passed in the query string.</doc>
+                            <request>
+                                <param name="order" required="true" style="query" type="xsd:string">
+                                    <doc>one of id default score Searches of ordering id are returned in roughly the same order as other streams and support pagination Searches of ordering score are returned by a relevance score Currently the only ordering that supports pagination is id and we are working on improving relevance scores</doc>
+                                </param>
+                                <param name="query" required="true" style="query" type="xsd:string">
+                                    <doc>type of index to use The default and currently the only index is complete which searches all posts We may add additional index types later e g an index only of recent posts for speed</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f6299:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="stream/">
+                        <resource uri="explore/">
+                            <method displayName="Retrieve all Explore Streams" id="6295" name="GET">
+                                <doc>Retrieve a list of all Explore Streams. The list of Explore Streams are dynamic and will sometimes change. Please cache them for 24 hours in your app. Also, please note that this endpoint is not paginated.</doc>
+                                <request/>
+                                <response>
+                                    <representation element="f6295:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="users/">
+                    <resource uri="search/">
+                        <method displayName="Search for Users" id="6300" name="GET">
+                            <doc>Search the App.net userbase.</doc>
+                            <request>
+                                <param name="count" required="true" style="query" type="xsd:string">
+                                    <doc>the number of Users to return up to a maximum of Defaults to if not specified</doc>
+                                </param>
+                                <param name="q" required="true" style="query" type="xsd:string">
+                                    <doc>the search query Supports username or tag searches as well as normal search terms Searches username display name bio information Does not search posts</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f6300:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="me/">
+                        <resource uri="interactions/">
+                            <method displayName="List User interactions with me" id="6294" name="GET">
+                                <doc>List all the Interactions other users have had with me.</doc>
+                                <request/>
+                                <response>
+                                    <representation element="f6294:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="streams/">
+                    <method displayName="Get current token’s Streams" id="6293" name="GET">
+                        <doc>Return the Streams for the current token.</doc>
+                        <request>
+                            <param name="key" required="true" style="query" type="xsd:string">
+                                <doc>Optional Only retrieve the stream that matches the given key</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6293:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

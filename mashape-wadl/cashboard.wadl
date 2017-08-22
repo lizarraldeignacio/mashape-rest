@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2772="urn:function:f2772" xmlns:f2773="urn:function:f2773" xmlns:f2774="urn:function:f2774" xmlns:f2775="urn:function:f2775">
+    <grammars>
+        <include href="Function2773.xsd"/>
+        <include href="Function2772.xsd"/>
+        <include href="Function2774.xsd"/>
+        <include href="Function2775.xsd"/>
+    </grammars>
+    <doc>the Cashboard REST API allows you to connect to our service and manage Time tracking Expense tracking Invoicing Project proposals estimates Invoicing Project management Contacts and Payments Our RESTful API returns JSON JSONP and XML</doc>
+    <resources base="https://cashboard.p.mashape.com/">
+        <resource uri="accounts/">
+            <method displayName="Account create" id="2773" name="POST">
+                <doc>Create new Cashboard account</doc>
+                <request/>
+                <response>
+                    <representation element="f2773:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="account/">
+            <method displayName="Account" id="2772" name="GET">
+                <doc>Information about your Cashboard account</doc>
+                <request/>
+                <response>
+                    <representation element="f2772:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Account update" id="2774" name="PUT">
+                <doc>Update an existing Cashboard account</doc>
+                <request/>
+                <response>
+                    <representation element="f2774:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="New Account Info" id="2775" name="GET">
+                <doc>Returns the fields necessary to create a new account</doc>
+                <request/>
+                <response>
+                    <representation element="f2775:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>want to sound like a hacker Translate text to and from l t sp k eleven</doc>
+    <resources base="https://montanaflynn-l33t-sp34k.p.mashape.com/">
+        <resource uri="encode/">
+            <method displayName="Encode" id="319" name="GET">
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="decode/">
+            <method displayName="Decode" id="318" name="GET">
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

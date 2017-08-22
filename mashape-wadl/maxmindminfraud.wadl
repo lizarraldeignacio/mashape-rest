@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>determine the geographical location of website visitors based on the IP addresses for applications such as fraud detection content localization geo targeted</doc>
+    <resources base="https://community-maxmind.p.mashape.com/">
+        <resource uri="app/">
+            <resource uri="ipauth_http/">
+                <method displayName="Proxy Detection web service" id="4365" name="POST">
+                    <doc>how likely is an IP address to be a proxy?</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="ccv2r/">
+                <method displayName="minFraud" id="4364" name="POST">
+                    <doc>transaction fraud detection</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

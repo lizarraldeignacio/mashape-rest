@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2981="urn:function:f2981">
+    <grammars>
+        <include href="Function2981.xsd"/>
+    </grammars>
+    <doc>io allows users to shorten share and track links URLs Reducing the URL length makes sharing easier</doc>
+    <resources base="https://zengzhy-189io.p.mashape.com/">
+        <resource uri="EMP/">
+            <resource uri="shorturl/">
+                <resource uri="short2long/">
+                    <method displayName="short2long" id="2982" name="GET">
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="appId" required="true" style="query" type="xsd:string"/>
+                            <param name="shorturl" required="true" style="query" type="xsd:string">
+                                <doc>http io lPhrnn to long URL</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="long2short/">
+                    <method displayName="long2short" id="2981" name="GET">
+                        <doc>It shortens an URL.</doc>
+                        <request>
+                            <param name="accessToken" required="true" style="query" type="xsd:string"/>
+                            <param name="appId" required="true" style="query" type="xsd:string"/>
+                            <param name="longurl" required="true" style="query" type="xsd:string">
+                                <doc>the URL to shorten</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2981:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

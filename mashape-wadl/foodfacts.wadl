@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3732="urn:function:f3732" xmlns:f3733="urn:function:f3733" xmlns:f3734="urn:function:f3734" xmlns:f3735="urn:function:f3735" xmlns:f3737="urn:function:f3737" xmlns:f3738="urn:function:f3738">
+    <grammars>
+        <include href="Function3737.xsd"/>
+        <include href="Function3738.xsd"/>
+        <include href="Function3735.xsd"/>
+        <include href="Function3734.xsd"/>
+        <include href="Function3732.xsd"/>
+        <include href="Function3733.xsd"/>
+    </grammars>
+    <doc>an API for facts about food It contains detailed information for over food items The database contains over data points This API Also contains a full text search of food descriptions scientific names and manufacturers making searches like Coca cola company and latin names for herbs possible The API is fast returning long search results in pages where you decide page size up to items per page You can also convert to gram measurements from common house hold measurements like cups tablespoons and cans</doc>
+    <resources base="https://glennbech-foodfacts.p.mashape.com/">
+        <resource uri="nutrient/">
+            <method displayName="nutrient" id="3737" name="GET">
+                <doc>Returns a list off all nutrients available in the dataset</doc>
+                <request/>
+                <response>
+                    <representation element="f3737:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="nutrient/top/" id="3738" name="GET">
+                <doc>Returns the foods with the highest value for the given nutrient</doc>
+                <request>
+                    <param name="nutrientNo" required="true" style="query" type="xsd:string">
+                        <doc>the nutrient number to get food items for</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>the page number to get</doc>
+                    </param>
+                    <param name="pagesize" required="true" style="query" type="xsd:string">
+                        <doc>max defaults to</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3738:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="fooditem/">
+            <resource uri="search/">
+                <resource uri="{criteria}/">
+                    <param name="criteria" style="template" type="xsd:string"/>
+                    <method displayName="fooditem/search" id="3735" name="GET">
+                        <doc>Returns the result of a keyword search. The database is full text searchable.  The index is on Short description, Long description, Scientific Name, Common Name and Manufacturer</doc>
+                        <request>
+                            <param name="criteria" required="true" style="query" type="xsd:string">
+                                <doc>what to search for Searches descriptions scientific name and manufacturer of the food item</doc>
+                            </param>
+                            <param name="foodgroup" required="true" style="query" type="xsd:string">
+                                <doc>a The food group number Only food items that belong to this food group are returned</doc>
+                            </param>
+                            <param name="page" required="true" style="query" type="xsd:integer">
+                                <doc>the page number to get zero based</doc>
+                            </param>
+                            <param name="pagesize" required="true" style="query" type="xsd:integer">
+                                <doc>the number of items to fetch at once Defaults to max</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f3735:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="{ndbNumber}/">
+                <param name="ndbNumber" style="template" type="xsd:string"/>
+                <method displayName="fooditem" id="3734" name="GET">
+                    <doc>Returns information about a food item. The default behaviour returns just basic info. Can return detailed weight- and nutrient information.</doc>
+                    <request>
+                        <param name="ndbnumber" required="true" style="query" type="xsd:string">
+                            <doc>burger king Whopper no cheese</doc>
+                        </param>
+                        <param name="nutrients" required="true" style="query" type="xsd:string">
+                            <doc>retrieve detailed nutrient information for the food item</doc>
+                        </param>
+                        <param name="weight" required="true" style="query" type="xsd:string">
+                            <doc>retrieve weight information for the food item</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3734:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="fooditem/{ndbNumber}/similar_key_vitamin_minerals" id="3736" name="GET">
+                    <doc>Experimental feature! This will return food items that have similar values for the most important vitamins and minerals.  The similarities are computed by taking the distance in n-dimentional space between products. N is a vitamin or mineral.</doc>
+                    <request>
+                        <param name="ndbnumber" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="foodgroup/">
+            <method displayName="foodgroup" id="3732" name="GET">
+                <doc>Returns all food groups. Food groups can be "Baked products", "Beef Products" etc. Food groups have unique identifiers that can be passed to the foodgroup/{foodGroupNumber} end point.</doc>
+                <request/>
+                <response>
+                    <representation element="f3732:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="foodgroup/foodgroupnumber" id="3733" name="GET">
+                <doc>Returns the food items for the given food group</doc>
+                <request>
+                    <param name="foodgroupnumber" required="true" style="query" type="xsd:string">
+                        <doc>the digit food code number</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>the page to get</doc>
+                    </param>
+                    <param name="pagesize" required="true" style="query" type="xsd:string">
+                        <doc>the page size Max</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3733:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

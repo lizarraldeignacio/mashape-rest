@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1244="urn:function:f1244">
+    <grammars>
+        <include href="Function1244.xsd"/>
+    </grammars>
+    <doc>this API retrieves DMOZ category for a given domain</doc>
+    <resources base="https://enclout-dmoz.p.mashape.com/">
+        <resource uri="show.json/">
+            <method displayName="dmoz" id="1244" name="GET">
+                <doc>dmoz</doc>
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>uRL or domain</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1244:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

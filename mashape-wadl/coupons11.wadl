@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1469="urn:function:f1469" xmlns:f1470="urn:function:f1470" xmlns:f1471="urn:function:f1471" xmlns:f1472="urn:function:f1472" xmlns:f1473="urn:function:f1473" xmlns:f1474="urn:function:f1474" xmlns:f1475="urn:function:f1475" xmlns:f1476="urn:function:f1476" xmlns:f1477="urn:function:f1477" xmlns:f1478="urn:function:f1478" xmlns:f1479="urn:function:f1479">
+    <grammars>
+        <include href="Function1479.xsd"/>
+        <include href="Function1478.xsd"/>
+        <include href="Function1477.xsd"/>
+        <include href="Function1476.xsd"/>
+        <include href="Function1475.xsd"/>
+        <include href="Function1474.xsd"/>
+        <include href="Function1473.xsd"/>
+        <include href="Function1472.xsd"/>
+        <include href="Function1471.xsd"/>
+        <include href="Function1470.xsd"/>
+        <include href="Function1469.xsd"/>
+    </grammars>
+    <doc>local Deals from all the deal daily deal sites except LivingSocial Groupon Local Deals Galore What we do coupons collects deals from over sources to bring you only the stuff you care about from your neighborhood restaurants bars salons and stores Our Mission To surprise you each day with the best deals around your neighborhood Our Hope That you discover a cool new place each day though coupons while helping local businesses get discovered in the process</doc>
+    <resources base="https://8coupons.p.mashape.com/">
+        <resource uri="getsubcategory/">
+            <method displayName="Get Store Subcategories" id="1479" name="GET">
+                <request/>
+                <response>
+                    <representation element="f1479:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getstoreinfo/">
+            <method displayName="Get Store Info by StoreID StoreName" id="1478" name="GET">
+                <request>
+                    <param name="storeid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="storename" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1478:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getcategory/">
+            <method displayName="Get Store Categories" id="1477" name="GET">
+                <request/>
+                <response>
+                    <representation element="f1477:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getrealtimeproductdeals/">
+            <method displayName="Get Realtime Product Deals" id="1476" name="GET">
+                <request/>
+                <response>
+                    <representation element="f1476:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getrealtimelocaldeals/">
+            <method displayName="Get Realtime Local Deals" id="1475" name="GET">
+                <request>
+                    <param name="categoryid" required="true" style="query" type="xsd:string">
+                        <doc>refers to Entertainment and Shopping deals</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="subcategoryid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1475:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getrealtimechaindeals/">
+            <method displayName="Get Realtime Chain Deals" id="1474" name="GET">
+                <request/>
+                <response>
+                    <representation element="f1474:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getdeals/">
+            <method displayName="Get Deals by Location" id="1473" name="GET">
+                <request>
+                    <param name="categoryid" required="true" style="query" type="xsd:string">
+                        <doc>get categoryID from Get Store Categories</doc>
+                    </param>
+                    <param name="dealtypeid" required="true" style="query" type="xsd:string">
+                        <doc>get ID from Get Deal Type</doc>
+                    </param>
+                    <param name="lat" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="lon" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="mileradius" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="optoutuserid" required="true" style="query" type="xsd:string">
+                        <doc>opt out certain userid s separate with comma</doc>
+                    </param>
+                    <param name="orderby" required="true" style="query" type="xsd:string">
+                        <doc>values radius popular date</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="search" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="subcategoryid" required="true" style="query" type="xsd:string">
+                        <doc>get subcategoryID from Get Store Subcategory</doc>
+                    </param>
+                    <param name="userid" required="true" style="query" type="xsd:string">
+                        <doc>refers to Deals of the Day</doc>
+                    </param>
+                    <param name="zip" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1473:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getdealtype/">
+            <method displayName="Get Deal Type" id="1472" name="GET">
+                <request/>
+                <response>
+                    <representation element="f1472:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getstoredeals/">
+            <method displayName="Get Deal by StoreID or ChainID" id="1471" name="GET">
+                <request>
+                    <param name="chainid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="storeid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1471:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getdealbyid/">
+            <method displayName="Get Deal by DealID" id="1470" name="GET">
+                <request>
+                    <param name="dealid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1470:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getchainstorelist/">
+            <method displayName="Get Chain Stores" id="1469" name="GET">
+                <request/>
+                <response>
+                    <representation element="f1469:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

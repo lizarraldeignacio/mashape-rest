@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6074="urn:function:f6074" xmlns:f6075="urn:function:f6075" xmlns:f6076="urn:function:f6076" xmlns:f6077="urn:function:f6077" xmlns:f6078="urn:function:f6078" xmlns:f6079="urn:function:f6079" xmlns:f6080="urn:function:f6080" xmlns:f6081="urn:function:f6081" xmlns:f6082="urn:function:f6082" xmlns:f6083="urn:function:f6083">
+    <grammars>
+        <include href="Function6083.xsd"/>
+        <include href="Function6081.xsd"/>
+        <include href="Function6077.xsd"/>
+        <include href="Function6080.xsd"/>
+        <include href="Function6082.xsd"/>
+        <include href="Function6079.xsd"/>
+        <include href="Function6078.xsd"/>
+        <include href="Function6076.xsd"/>
+        <include href="Function6075.xsd"/>
+        <include href="Function6074.xsd"/>
+    </grammars>
+    <doc>get the very latest ads and data with Adzuna s API Get job property and car ads for your own website Use Adzuna s up to the minute employment data to power your own website reporting and data visualisations</doc>
+    <resources base="https://baskarm28-adzuna-v1.p.mashape.com/">
+        <resource uri="property/">
+            <resource uri="{country}/">
+                <param name="country" style="template" type="xsd:string"/>
+                <resource uri="search/">
+                    <resource uri="{page}/">
+                        <param name="page" style="template" type="xsd:string"/>
+                        <method displayName="Search properties" id="6083" name="GET">
+                            <doc>Search Adzuna properties</doc>
+                            <request>
+                                <param name="appId" required="true" style="query" type="xsd:string">
+                                    <doc>application ID supplied by Adzuna</doc>
+                                </param>
+                                <param name="appKey" required="true" style="query" type="xsd:string">
+                                    <doc>application key supplied by Adzuna</doc>
+                                </param>
+                                <param name="beds" required="true" style="query" type="xsd:integer">
+                                    <doc>the number of beds to search for For values greater than five this is considered to be minimum value rather than the exact value to find</doc>
+                                </param>
+                                <param name="category" required="true" style="query" type="xsd:string">
+                                    <doc>the category tag as returned by the category endpoint</doc>
+                                </param>
+                                <param name="country" required="true" style="query" type="xsd:string">
+                                    <doc>iSO country code of the relevant country</doc>
+                                </param>
+                                <param name="distance" required="true" style="query" type="xsd:integer">
+                                    <doc>the distance in kilometres from the centre of the place described by the where parameter</doc>
+                                </param>
+                                <param name="isFurnished" required="true" style="query" type="xsd:string">
+                                    <doc>one of or to indicate no or yes If omitted both types of property are found</doc>
+                                </param>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>the locationN fields may be used to describe a location in a similar form to that returned in a Adzuna API Response Location object</doc>
+                                </param>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>see location</doc>
+                                </param>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>see location</doc>
+                                </param>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>see location</doc>
+                                </param>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>see location</doc>
+                                </param>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>see location</doc>
+                                </param>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>see location</doc>
+                                </param>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>see location</doc>
+                                </param>
+                                <param name="maxDaysOld" required="true" style="query" type="xsd:integer">
+                                    <doc>the age of the oldest advertisment in days that will be returned</doc>
+                                </param>
+                                <param name="page" required="true" style="query" type="xsd:integer">
+                                    <doc>page number</doc>
+                                </param>
+                                <param name="priceIncludeUnknown" required="true" style="query" type="xsd:string">
+                                    <doc>when using price min or price max set to to include properties with an unknown price in results</doc>
+                                </param>
+                                <param name="priceMax" required="true" style="query" type="xsd:integer">
+                                    <doc>the maximum price we wish to get results for for rental properties price is monthly</doc>
+                                </param>
+                                <param name="priceMin" required="true" style="query" type="xsd:integer">
+                                    <doc>the minimum price we wish to get results for for rental properties price is monthly</doc>
+                                </param>
+                                <param name="propertyType" required="true" style="query" type="xsd:string">
+                                    <doc>the type of property of interest</doc>
+                                </param>
+                                <param name="resultsPerPage" required="true" style="query" type="xsd:integer">
+                                    <doc>the number of results to include on each page of search results</doc>
+                                </param>
+                                <param name="sortBy" required="true" style="query" type="xsd:string">
+                                    <doc>the ordering of the search results</doc>
+                                </param>
+                                <param name="sortDirection" required="true" style="query" type="xsd:string">
+                                    <doc>the order of search results ascending or descending</doc>
+                                </param>
+                                <param name="titleOnly" required="true" style="query" type="xsd:string">
+                                    <doc>keywords to find but only in the title Use space or comma characters to separate multiple keywords</doc>
+                                </param>
+                                <param name="what" required="true" style="query" type="xsd:string">
+                                    <doc>the keywords to search for Use space or comma characters to separate multiple keywords</doc>
+                                </param>
+                                <param name="whatAnd" required="true" style="query" type="xsd:string">
+                                    <doc>the keywords to search for all keywords must be found</doc>
+                                </param>
+                                <param name="whatExclude" required="true" style="query" type="xsd:string">
+                                    <doc>keywords to exclude from the search Use space or comma characters to separate multiple keywords</doc>
+                                </param>
+                                <param name="whatOr" required="true" style="query" type="xsd:string">
+                                    <doc>keywords to search for Use space or comma characters to separate multiple keywords</doc>
+                                </param>
+                                <param name="whatPhrase" required="true" style="query" type="xsd:string">
+                                    <doc>an entire phrase which must be found in the description or title</doc>
+                                </param>
+                                <param name="where" required="true" style="query" type="xsd:string">
+                                    <doc>the geographic centre of the search Place names or postal codes may be used</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f6083:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="cars/">
+            <resource uri="{country}/">
+                <param name="country" style="template" type="xsd:string"/>
+                <resource uri="search/">
+                    <resource uri="{page}/">
+                        <param name="page" style="template" type="xsd:string"/>
+                        <method displayName="Search cars" id="6081" name="GET">
+                            <doc>Search Adzuna cars.</doc>
+                            <request>
+                                <param name="appId" required="true" style="query" type="xsd:string">
+                                    <doc>application ID supplied by Adzuna</doc>
+                                </param>
+                                <param name="appKey" required="true" style="query" type="xsd:string">
+                                    <doc>application key supplied by Adzuna</doc>
+                                </param>
+                                <param name="bodyType" required="true" style="query" type="xsd:string">
+                                    <doc>the type of body a vehicle has</doc>
+                                </param>
+                                <param name="category" required="true" style="query" type="xsd:string">
+                                    <doc>the category tag as returned by the category endpoint</doc>
+                                </param>
+                                <param name="colour" required="true" style="query" type="xsd:string">
+                                    <doc>the colour of the car</doc>
+                                </param>
+                                <param name="country" required="true" style="query" type="xsd:string">
+                                    <doc>iSO country code of the relevant country</doc>
+                                </param>
+                                <param name="distance" required="true" style="query" type="xsd:integer">
+                                    <doc>the distance in kilometres from the centre of the place described by the where parameter</doc>
+                                </param>
+                                <param name="engineMax" required="true" style="query" type="xsd:integer">
+                                    <doc>the maximum engine capacity in cubic centimetres</doc>
+                                </param>
+                                <param name="engineMin" required="true" style="query" type="xsd:integer">
+                                    <doc>the minimum engine capacity in cubic centimetres</doc>
+                                </param>
+                                <param name="fuelType" required="true" style="query" type="xsd:string">
+                                    <doc>the type of fuel the vehicle requires</doc>
+                                </param>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>the locationN fields may be used to describe a location in a similar form to that returned in a Adzuna API Response Location object</doc>
+                                </param>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>see location</doc>
+                                </param>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>see location</doc>
+                                </param>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>see location</doc>
+                                </param>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>see location</doc>
+                                </param>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>see location</doc>
+                                </param>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>see location</doc>
+                                </param>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>see location</doc>
+                                </param>
+                                <param name="maxDaysOld" required="true" style="query" type="xsd:integer">
+                                    <doc>the age of the oldest advertisment in days that will be returned</doc>
+                                </param>
+                                <param name="mileageMax" required="true" style="query" type="xsd:integer">
+                                    <doc>the maximum mileage of vehicles to be considered</doc>
+                                </param>
+                                <param name="mileageMin" required="true" style="query" type="xsd:integer">
+                                    <doc>the minimum mileage of vehicles to be considered</doc>
+                                </param>
+                                <param name="page" required="true" style="query" type="xsd:integer">
+                                    <doc>page number</doc>
+                                </param>
+                                <param name="priceIncludeUnknown" required="true" style="query" type="xsd:string">
+                                    <doc>when using price min and or price max set to to include cars with unknown price in results</doc>
+                                </param>
+                                <param name="priceMax" required="true" style="query" type="xsd:integer">
+                                    <doc>the maximum price we wish to get results for</doc>
+                                </param>
+                                <param name="priceMin" required="true" style="query" type="xsd:integer">
+                                    <doc>the minimum price we wish to get results for</doc>
+                                </param>
+                                <param name="resultsPerPage" required="true" style="query" type="xsd:integer">
+                                    <doc>the number of results to include on each page of search results</doc>
+                                </param>
+                                <param name="sellerType" required="true" style="query" type="xsd:string">
+                                    <doc>the type of seller</doc>
+                                </param>
+                                <param name="sortBy" required="true" style="query" type="xsd:string">
+                                    <doc>the ordering of the search results</doc>
+                                </param>
+                                <param name="sortDirection" required="true" style="query" type="xsd:string">
+                                    <doc>the order of search results ascending or descending</doc>
+                                </param>
+                                <param name="titleOnly" required="true" style="query" type="xsd:string">
+                                    <doc>keywords to find but only in the title Use space or comma characters to separate multiple keywords</doc>
+                                </param>
+                                <param name="transmission" required="true" style="query" type="xsd:string">
+                                    <doc>the type of transmission the vehicle has</doc>
+                                </param>
+                                <param name="what" required="true" style="query" type="xsd:string">
+                                    <doc>the keywords to search for Use space or comma characters to separate multiple keywords</doc>
+                                </param>
+                                <param name="whatAnd" required="true" style="query" type="xsd:string">
+                                    <doc>the keywords to search for all keywords must be found</doc>
+                                </param>
+                                <param name="whatExclude" required="true" style="query" type="xsd:string">
+                                    <doc>keywords to exclude from the search Use space or comma characters to separate multiple keywords</doc>
+                                </param>
+                                <param name="whatOr" required="true" style="query" type="xsd:string">
+                                    <doc>keywords to search for Use space or comma characters to separate multiple keywords</doc>
+                                </param>
+                                <param name="whatPhrase" required="true" style="query" type="xsd:string">
+                                    <doc>an entire phrase which must be found in the description or title</doc>
+                                </param>
+                                <param name="where" required="true" style="query" type="xsd:string">
+                                    <doc>the geographic centre of the search Place names or postal codes may be used</doc>
+                                </param>
+                                <param name="yearMax" required="true" style="query" type="xsd:integer">
+                                    <doc>the most recent year to be considered</doc>
+                                </param>
+                                <param name="yearMin" required="true" style="query" type="xsd:integer">
+                                    <doc>the earliest year to be considered</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f6081:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="{vertical}/">
+            <param name="vertical" style="template" type="xsd:string"/>
+            <resource uri="{country}/">
+                <param name="country" style="template" type="xsd:string"/>
+                <resource uri="categories/">
+                    <method displayName="List category" id="6077" name="GET">
+                        <doc>List available categories.</doc>
+                        <request>
+                            <param name="appId" required="true" style="query" type="xsd:string">
+                                <doc>application ID supplied by Adzuna</doc>
+                            </param>
+                            <param name="appKey" required="true" style="query" type="xsd:string">
+                                <doc>application key supplied by Adzuna</doc>
+                            </param>
+                            <param name="country" required="true" style="query" type="xsd:string">
+                                <doc>iSO country code of the relevant country</doc>
+                            </param>
+                            <param name="vertical" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f6077:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="jobs/">
+            <resource uri="gb/">
+                <resource uri="jobsworth/">
+                    <method displayName="Salary estimate" id="6080" name="GET">
+                        <doc>Returns an estimate of the salary of a job.</doc>
+                        <request>
+                            <param name="appId" required="true" style="query" type="xsd:string">
+                                <doc>application ID supplied by Adzuna</doc>
+                            </param>
+                            <param name="appKey" required="true" style="query" type="xsd:string">
+                                <doc>application key supplied by Adzuna</doc>
+                            </param>
+                            <param name="description" required="true" style="query" type="xsd:string">
+                                <doc>the job description</doc>
+                            </param>
+                            <param name="title" required="true" style="query" type="xsd:string">
+                                <doc>the title of the job advertisement</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6080:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="{country}/">
+                <param name="country" style="template" type="xsd:string"/>
+                <resource uri="search/">
+                    <resource uri="{page}/">
+                        <param name="page" style="template" type="xsd:string"/>
+                        <method displayName="Search jobs" id="6082" name="GET">
+                            <doc>Search the Adzuna jobs</doc>
+                            <request>
+                                <param name="appId" required="true" style="query" type="xsd:string">
+                                    <doc>application ID supplied by Adzuna</doc>
+                                </param>
+                                <param name="appKey" required="true" style="query" type="xsd:string">
+                                    <doc>application key supplied by Adzuna</doc>
+                                </param>
+                                <param name="category" required="true" style="query" type="xsd:string">
+                                    <doc>the category tag as returned by the category endpoint</doc>
+                                </param>
+                                <param name="company" required="true" style="query" type="xsd:string">
+                                    <doc>the canonical company name This may be returned in a Adzuna API Response Company object when a job is returned A full list of allowed terms in not available through the API</doc>
+                                </param>
+                                <param name="contract" required="true" style="query" type="xsd:string">
+                                    <doc>if set to only contract jobs will be returned</doc>
+                                </param>
+                                <param name="country" required="true" style="query" type="xsd:string">
+                                    <doc>iSO country code of the relevant country</doc>
+                                </param>
+                                <param name="distance" required="true" style="query" type="xsd:string">
+                                    <doc>the distance in kilometres from the centre of the place described by the where parameter Defaults to km</doc>
+                                </param>
+                                <param name="fullTime" required="true" style="query" type="xsd:string">
+                                    <doc>if set to only full time jobs will be returned</doc>
+                                </param>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>the locationN fields may be used to describe a location in a similar form to that returned in a Adzuna API Response Location object</doc>
+                                </param>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>see location</doc>
+                                </param>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>see location</doc>
+                                </param>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>see location</doc>
+                                </param>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>see location</doc>
+                                </param>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>see location</doc>
+                                </param>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>see location</doc>
+                                </param>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>see location</doc>
+                                </param>
+                                <param name="maxDaysOld" required="true" style="query" type="xsd:string">
+                                    <doc>the age of the oldest advertisment in days that will be returned</doc>
+                                </param>
+                                <param name="page" required="true" style="query" type="xsd:integer">
+                                    <doc>page number</doc>
+                                </param>
+                                <param name="partTime" required="true" style="query" type="xsd:string">
+                                    <doc>if set to only part time jobs will be returned</doc>
+                                </param>
+                                <param name="permanent" required="true" style="query" type="xsd:string">
+                                    <doc>if set to only permanent jobs will be returned</doc>
+                                </param>
+                                <param name="resultsPerPage" required="true" style="query" type="xsd:integer">
+                                    <doc>the number of results to include on each page of search results</doc>
+                                </param>
+                                <param name="salaryIncludeUnknown" required="true" style="query" type="xsd:string">
+                                    <doc>when using salary min and or salary max set this to to include jobs with unknown salaries in results</doc>
+                                </param>
+                                <param name="salaryMax" required="true" style="query" type="xsd:string">
+                                    <doc>the maximum salary we wish to get results for</doc>
+                                </param>
+                                <param name="salaryMin" required="true" style="query" type="xsd:string">
+                                    <doc>the minimum salary we wish to get results for</doc>
+                                </param>
+                                <param name="sortBy" required="true" style="query" type="xsd:string">
+                                    <doc>the ordering of the search results</doc>
+                                </param>
+                                <param name="sortDirection" required="true" style="query" type="xsd:string">
+                                    <doc>the order of search results ascending or descending</doc>
+                                </param>
+                                <param name="titleOnly" required="true" style="query" type="xsd:string">
+                                    <doc>keywords to find but only in the title Use space or comma characters to separate multiple keywords</doc>
+                                </param>
+                                <param name="what" required="true" style="query" type="xsd:string">
+                                    <doc>the keywords to search for Use space or comma characters to separate multiple keywords</doc>
+                                </param>
+                                <param name="whatAnd" required="true" style="query" type="xsd:string">
+                                    <doc>the keywords to search for all keywords must be found</doc>
+                                </param>
+                                <param name="whatExclude" required="true" style="query" type="xsd:string">
+                                    <doc>keywords to exclude from the search Use space or comma characters to separate multiple keywords</doc>
+                                </param>
+                                <param name="whatOr" required="true" style="query" type="xsd:string">
+                                    <doc>keywords to search for Use space or comma characters to separate multiple keywords</doc>
+                                </param>
+                                <param name="whatPhrase" required="true" style="query" type="xsd:string">
+                                    <doc>an entire phrase which must be found in the description or title</doc>
+                                </param>
+                                <param name="where" required="true" style="query" type="xsd:string">
+                                    <doc>the geographic centre of the search Place names or postal codes may be used</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f6082:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="geodata/">
+                    <method displayName="Salary data" id="6079" name="GET">
+                        <doc>Provides salary data for locations</doc>
+                        <request>
+                            <param name="appId" required="true" style="query" type="xsd:string">
+                                <doc>application ID supplied by Adzuna</doc>
+                            </param>
+                            <param name="appKey" required="true" style="query" type="xsd:string">
+                                <doc>application key supplied by Adzuna</doc>
+                            </param>
+                            <param name="category" required="true" style="query" type="xsd:string">
+                                <doc>the category tag as returned by the category endpoint</doc>
+                            </param>
+                            <param name="country" required="true" style="query" type="xsd:string">
+                                <doc>iSO country code of the relevant country</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>the locationN fields may be used to describe a location in a similar form to that returned in a Adzuna API Response Location object</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="what" required="true" style="query" type="xsd:string">
+                                <doc>the keywords to search for Use space or comma characters to separate multiple keywords</doc>
+                            </param>
+                            <param name="where" required="true" style="query" type="xsd:string">
+                                <doc>the geographic centre of the search Place names or postal codes may be used</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6079:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="top_companies/">
+                    <method displayName="List employers" id="6078" name="GET">
+                        <doc>List the employers with most jobs advertised.</doc>
+                        <request>
+                            <param name="appId" required="true" style="query" type="xsd:string">
+                                <doc>application ID supplied by Adzuna</doc>
+                            </param>
+                            <param name="appKey" required="true" style="query" type="xsd:string">
+                                <doc>application key supplied by Adzuna</doc>
+                            </param>
+                            <param name="category" required="true" style="query" type="xsd:string">
+                                <doc>the category tag as returned by the category endpoint</doc>
+                            </param>
+                            <param name="country" required="true" style="query" type="xsd:string">
+                                <doc>iSO country code of the relevant country</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>the locationN fields may be used to describe a location in a similar form to that returned in a Adzuna API Response Location object</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="what" required="true" style="query" type="xsd:string">
+                                <doc>the keywords to search for Use space or comma characters to separate multiple keywords</doc>
+                            </param>
+                            <param name="where" required="true" style="query" type="xsd:string">
+                                <doc>the geographic centre of the search Place names or postal codes may be used</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6078:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="histogram/">
+                    <method displayName="Histogram data" id="6076" name="GET">
+                        <doc>Provide histogram data of salary data</doc>
+                        <request>
+                            <param name="appId" required="true" style="query" type="xsd:string">
+                                <doc>application ID supplied by Adzuna</doc>
+                            </param>
+                            <param name="appKey" required="true" style="query" type="xsd:string">
+                                <doc>application key supplied by Adzuna</doc>
+                            </param>
+                            <param name="category" required="true" style="query" type="xsd:string">
+                                <doc>the category tag as returned by the category endpoint</doc>
+                            </param>
+                            <param name="country" required="true" style="query" type="xsd:string">
+                                <doc>iSO country code of the relevant country</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>the locationN fields may be used to describe a location in a similar form to that returned in a Adzuna API Response Location object</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="what" required="true" style="query" type="xsd:string">
+                                <doc>the keywords to search for Use space or comma characters to separate multiple keywords</doc>
+                            </param>
+                            <param name="where" required="true" style="query" type="xsd:string">
+                                <doc>the geographic centre of the search Place names or postal codes may be used</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6076:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="history/">
+                    <method displayName="Average salary" id="6075" name="GET">
+                        <doc>Provides historical average salaries</doc>
+                        <request>
+                            <param name="appId" required="true" style="query" type="xsd:string">
+                                <doc>application ID supplied by Adzuna</doc>
+                            </param>
+                            <param name="appKey" required="true" style="query" type="xsd:string">
+                                <doc>application key supplied by Adzuna</doc>
+                            </param>
+                            <param name="category" required="true" style="query" type="xsd:string">
+                                <doc>the category tag as returned by the category endpoint</doc>
+                            </param>
+                            <param name="country" required="true" style="query" type="xsd:string">
+                                <doc>iSO country code of the relevant country</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>the locationN fields may be used to describe a location in a similar form to that returned in a Adzuna API Response Location object</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>see location</doc>
+                            </param>
+                            <param name="months" required="true" style="query" type="xsd:string">
+                                <doc>the number of months back for which to retrieve data</doc>
+                            </param>
+                            <param name="what" required="true" style="query" type="xsd:string">
+                                <doc>the keywords to search for Use space or comma characters to separate multiple keywords</doc>
+                            </param>
+                            <param name="where" required="true" style="query" type="xsd:string">
+                                <doc>the geographic centre of the search Place names or postal codes may be used</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6075:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="version/">
+            <method displayName="API version" id="6074" name="GET">
+                <doc>Returns the current version of this API</doc>
+                <request>
+                    <param name="appId" required="true" style="query" type="xsd:string">
+                        <doc>application ID supplied by Adzuna</doc>
+                    </param>
+                    <param name="appKey" required="true" style="query" type="xsd:string">
+                        <doc>application key supplied by Adzuna</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6074:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

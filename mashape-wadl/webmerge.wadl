@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4727="urn:function:f4727" xmlns:f4728="urn:function:f4728" xmlns:f4729="urn:function:f4729" xmlns:f4730="urn:function:f4730" xmlns:f4731="urn:function:f4731" xmlns:f4732="urn:function:f4732">
+    <grammars>
+        <include href="Function4731.xsd"/>
+        <include href="Function4727.xsd"/>
+        <include href="Function4728.xsd"/>
+        <include href="Function4729.xsd"/>
+        <include href="Function4730.xsd"/>
+        <include href="Function4732.xsd"/>
+    </grammars>
+    <doc>webMerge automates document creation on the fly Simply setup a template using a fillable PDF Microsoft Word document or build one using our online editor and then you can generate a customized document with data from a rd party or upload your own After each document is merged into the customized document you can deliver it via email send it to a cloud storage service send it for esignature or use a webhook to send it to another API service</doc>
+    <resources base="https://webmerge-webmerge.p.mashape.com/">
+        <resource uri="www.webmerge.me/">
+            <resource uri="merge/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <resource uri="{key}/">
+                        <param name="key" style="template" type="xsd:string"/>
+                        <method displayName="Merge Document" id="4731" name="POST">
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>document ID</doc>
+                                </param>
+                                <param name="key" required="true" style="query" type="xsd:string">
+                                    <doc>document Key</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f4731:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="documents/">
+            <method displayName="Create Document" id="4727" name="POST">
+                <request/>
+                <response>
+                    <representation element="f4727:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete Document" id="4728" name="DELETE">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4728:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Document Fields" id="4729" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>document ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4729:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Document List" id="4730" name="GET">
+                <request/>
+                <response>
+                    <representation element="f4730:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update Document" id="4732" name="PUT">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>document ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4732:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

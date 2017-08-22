@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6084="urn:function:f6084">
+    <grammars>
+        <include href="Function6084.xsd"/>
+    </grammars>
+    <doc>this API provides a list of organisations licensed to sponsor workers under Tiers and UK for now</doc>
+    <resources base="https://vispox.p.mashape.com/">
+        <resource uri="sponsor/">
+            <method displayName="Get Company Sponsor List" id="6084" name="GET">
+                <request>
+                    <param name="ci" required="true" style="query" type="xsd:string">
+                        <doc>parameter for the company s city name</doc>
+                    </param>
+                    <param name="co" required="true" style="query" type="xsd:string">
+                        <doc>parameter for the company s county name</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>the returned list format The default supported is JSON</doc>
+                    </param>
+                    <param name="n" required="true" style="query" type="xsd:string">
+                        <doc>parameter for the company s name</doc>
+                    </param>
+                    <param name="s" required="true" style="query" type="xsd:string">
+                        <doc>generic search parameter It searches in every field of name city county tier and subtier If this s parameter is used parameter n ci co t st will be ignored</doc>
+                    </param>
+                    <param name="size" required="true" style="query" type="xsd:integer">
+                        <doc>size for the list result</doc>
+                    </param>
+                    <param name="st" required="true" style="query" type="xsd:string">
+                        <doc>parameter for the company s visa sub tier</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:integer">
+                        <doc>the start index for the sponsor company in the list</doc>
+                    </param>
+                    <param name="t" required="true" style="query" type="xsd:string">
+                        <doc>parameter for the company s visa tier Tier or Tier</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6084:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

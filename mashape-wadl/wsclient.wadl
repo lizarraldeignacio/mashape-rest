@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>android iPhone iPad Blackberry XML SOAP Web Service Client Code Generator</doc>
+    <resources base="https://neurospeech-wsclient.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="jobs/">
+                <resource uri="status/">
+                    <resource uri="{id}/">
+                        <param name="id" style="template" type="xsd:string"/>
+                        <method displayName="Status" id="4363" name="GET">
+                            <doc>Retrieve Status and Thus result zip file</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>job ID</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="list/">
+                    <method displayName="List all Jobs" id="4362" name="GET">
+                        <doc>Retrieve all jobs along with status and Result URL, use start and size to configure paging.</doc>
+                        <request>
+                            <param name="size" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="start" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="create/">
+                    <method displayName="Create" id="4361" name="GET">
+                        <doc>Create new Code Generation Job and use "Status" End Point to retrieve status of given Job ID or simply click "List All Jobs" to retrieve recent queued jobs.</doc>
+                        <request>
+                            <param name="outputpackage" required="true" style="query" type="xsd:string">
+                                <doc>java Package Name for Java based code generator</doc>
+                            </param>
+                            <param name="outputprefix" required="true" style="query" type="xsd:string">
+                                <doc>cocoa does not have namespaces so you can prefix generated class names</doc>
+                            </param>
+                            <param name="outputtarget" required="true" style="query" type="xsd:string">
+                                <doc>android blackberry desktop for java and iphone mac for objc</doc>
+                            </param>
+                            <param name="outputtype" required="true" style="query" type="xsd:string">
+                                <doc>java or objc</doc>
+                            </param>
+                            <param name="triggerurl" required="true" style="query" type="xsd:string">
+                                <doc>hTTP HTTPS end point to receive JSON Status Response of this Job</doc>
+                            </param>
+                            <param name="wsdl" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

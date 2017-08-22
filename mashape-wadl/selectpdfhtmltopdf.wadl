@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>the Select Pdf online API is a professional solution that lets you create PDF from web pages and raw HTML code in your applications The API is easy to use and the integration takes only a few lines of code</doc>
+    <resources base="https://selectpdf-selectpdf-html-to-pdf-v1.p.mashape.com/">
+        <resource uri="">
+            <method displayName="/" id="4623" name="GET">
+                <doc>SelectPdf API Endpoint</doc>
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>the url that will be converted to pdf</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

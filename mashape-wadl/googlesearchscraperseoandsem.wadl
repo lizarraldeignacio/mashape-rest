@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7017="urn:function:f7017">
+    <grammars>
+        <include href="Function7017.xsd"/>
+    </grammars>
+    <doc>scrape SERPs without worrying about proxies or parsing HTML All you need in one useful JSON response Full search results including SEO and SEM with sitelinks extra info addresses position etc You can choose the keyword google domain country type of device etc Current G Domains available com co uk de fr es pt it Current countries Origin IPs United States UK Germany France Spain Portugal Italy Current types of devices desktop tablet mobile Do you need results from other countries or domains Open a support ticket and we will try to make it available as soon as possible sometimes in less than one day Our API usually answers requests in seconds but we suggest you to have a seconds timeout for avoiding errors and improving performance Do you think that something hasn t been parsed well Don t worry Open a support ticket with the details of the request and we will review it Sometimes the search engine changes their HTML structure and we have to update our scraper It usually takes us just a few minutes</doc>
+    <resources base="https://rubobaquero-google-search-scraper-seo-and-sem-v1.p.mashape.com/">
+        <resource uri="google/">
+            <method displayName="/google" id="7017" name="GET">
+                <doc>Google SERPs scraping. SEO, SEM and related results. Detects local, maps, news, sitelinks ...</doc>
+                <request>
+                    <param name="country" required="true" style="query" type="xsd:string">
+                        <doc>two letter country for the requesting IP us uk de es fr pt it Default country of the Google domain</doc>
+                    </param>
+                    <param name="device" required="true" style="query" type="xsd:string">
+                        <doc>device type Could be desktop mobile or tablet Default desktop</doc>
+                    </param>
+                    <param name="domain" required="true" style="query" type="xsd:string">
+                        <doc>google domain google com google es google co uk Default google com</doc>
+                    </param>
+                    <param name="num" required="true" style="query" type="xsd:integer">
+                        <doc>number of search results Could be or Final results could be different of the requested Default</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>pagination of the results Between and Default</doc>
+                    </param>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>keyword</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f7017:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

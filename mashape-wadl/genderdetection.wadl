@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3742="urn:function:f3742" xmlns:f3743="urn:function:f3743" xmlns:f3744="urn:function:f3744">
+    <grammars>
+        <include href="Function3742.xsd"/>
+        <include href="Function3743.xsd"/>
+        <include href="Function3744.xsd"/>
+    </grammars>
+    <doc>largest available database Keep your registration forms simple Optimize your conversions and let us determine the gender of your customers</doc>
+    <resources base="https://gender.p.mashape.com/">
+        <resource uri="get/">
+            <method displayName="Gender by E-Mail" id="3742" name="GET">
+                <request>
+                    <param name="country" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="email" required="true" style="query" type="xsd:string">
+                        <doc>e Mail Address</doc>
+                    </param>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>iP of the Customer If the value auto is given the request ip will be used</doc>
+                    </param>
+                    <param name="language" required="true" style="query" type="xsd:string">
+                        <doc>Browser Locale</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3742:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Gender by first name" id="3743" name="GET">
+                <request>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>first name</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3743:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Gender by localization and first name" id="3744" name="GET">
+                <request>
+                    <param name="country" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>iP of the Customer If the value auto is given the request ip will be used</doc>
+                    </param>
+                    <param name="language" required="true" style="query" type="xsd:string">
+                        <doc>Browser Locale</doc>
+                    </param>
+                    <param name="loc" required="true" style="query" type="xsd:string"/>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>first name</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3744:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

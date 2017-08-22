@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6540="urn:function:f6540" xmlns:f6541="urn:function:f6541" xmlns:f6542="urn:function:f6542" xmlns:f6543="urn:function:f6543">
+    <grammars>
+        <include href="Function6543.xsd"/>
+        <include href="Function6542.xsd"/>
+        <include href="Function6541.xsd"/>
+        <include href="Function6540.xsd"/>
+    </grammars>
+    <doc>the Knowtify API is designed to help you send smart emails</doc>
+    <resources base="https://baskarm28-knowtify-v1.p.mashape.com/">
+        <resource uri="data/">
+            <resource uri="edit/">
+                <method displayName="Edit global Data" id="6543" name="POST">
+                    <doc>Global data can be used in digest blocks by using double curly braces. {{users}}</doc>
+                    <request/>
+                    <response>
+                        <representation element="f6543:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="contacts/">
+            <resource uri="edit/">
+                <method displayName="Edit contacts" id="6542" name="POST">
+                    <doc>Batch edits are formatted exactly the same as batch adds. We will find the contact in our database associated with your API key and "email" then update the "name" and "data" attributes.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f6542:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="delete/">
+                <method displayName="Delete contacts" id="6541" name="POST">
+                    <doc>Batch deletes require the "contacts" array to be strings of emails to be deleted.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f6541:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="add/">
+                <method displayName="Add contacts" id="6540" name="POST">
+                    <doc>Your JSON object should have a single attribute named "contacts" which will contain an array of contact objects.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f6540:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

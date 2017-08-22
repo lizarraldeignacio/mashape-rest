@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1170="urn:function:f1170">
+    <grammars>
+        <include href="Function1170.xsd"/>
+    </grammars>
+    <doc>generador de RFC con homoclave en base al NOMBRE APELLIDO PATERNO APELLIDO MATERNO FECHA DE NACIMIENTO</doc>
+    <resources base="https://jfhe88-rfc-generator-mexico.p.mashape.com/">
+        <resource uri="rest1/">
+            <resource uri="rfc/">
+                <resource uri="get/">
+                    <method displayName="Get Rfc" id="1170" name="GET">
+                        <doc>Regresa el RFC con homoclave, o sólo la homoclave.</doc>
+                        <request>
+                            <param name="apellidoMaterno" required="true" style="query" type="xsd:string">
+                                <doc>el apellido materno de la persona f sica</doc>
+                            </param>
+                            <param name="apellidoPaterno" required="true" style="query" type="xsd:string">
+                                <doc>el apellido paterno de la persona f sica</doc>
+                            </param>
+                            <param name="fecha" required="true" style="query" type="xsd:string">
+                                <doc>la fecha de nacimiento de la persona f sica en formato aaaa mm dd yyyy mm dd</doc>
+                            </param>
+                            <param name="nombre" required="true" style="query" type="xsd:string">
+                                <doc>el nombre de la persona f sica</doc>
+                            </param>
+                            <param name="soloHomoclave" required="true" style="query" type="xsd:integer">
+                                <doc>si s lo quiere calcular la homoclave o todo el rfc Calc la s lo la homoclave LS Regresa todo el rfc HEGJ LS</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1170:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

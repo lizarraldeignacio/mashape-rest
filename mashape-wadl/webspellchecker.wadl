@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4342="urn:function:f4342">
+    <grammars>
+        <include href="Function4342.xsd"/>
+    </grammars>
+    <doc>webSpellchecker net web service provides suggestions for spelling corrections for specified text</doc>
+    <resources base="https://webspellchecker-webspellcheckernet.p.mashape.com/">
+        <resource uri="ssrv.cgi/">
+            <method displayName="SpellChecker" id="4342" name="GET">
+                <doc>Spell check functionality</doc>
+                <request>
+                    <param name="cmd" required="true" style="query" type="xsd:string">
+                        <doc>can be check spelling api version check spelling checks spelling api version returns version of current API</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string"/>
+                    <param name="outType" required="true" style="query" type="xsd:string">
+                        <doc>can be positions words words returns misspelled words and suggestions positions returns position in text of misspellings and suggestions default words</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>text to be checked</doc>
+                    </param>
+                    <param name="version" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4342:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

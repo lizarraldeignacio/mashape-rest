@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f294="urn:function:f294">
+    <grammars>
+        <include href="Function294.xsd"/>
+    </grammars>
+    <doc>insert an US phone number Digits only and retrieve details like approximate latitude and longitude city county and some other details about it Update Added OpenCNAM API www opencnam com</doc>
+    <resources base="https://cosmin-us-phone-number-lookup.p.mashape.com/">
+        <resource uri="get.php/">
+            <method displayName="Get phone number details" id="294" name="GET">
+                <request>
+                    <param name="opencnamAuthToken" required="true" style="query" type="xsd:string">
+                        <doc>auth token if you re using OpenCNAM Caller ID www opencnam com</doc>
+                    </param>
+                    <param name="opencnamSid" required="true" style="query" type="xsd:string">
+                        <doc>account SID if you re using OpenCNAM Caller ID www opencnam com</doc>
+                    </param>
+                    <param name="phone" required="true" style="query" type="xsd:string">
+                        <doc>the complete phone number to lookup Must contain only digits</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f294:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

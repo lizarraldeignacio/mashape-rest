@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3064="urn:function:f3064" xmlns:f3065="urn:function:f3065" xmlns:f3066="urn:function:f3066" xmlns:f3073="urn:function:f3073" xmlns:f3074="urn:function:f3074" xmlns:f3075="urn:function:f3075" xmlns:f3076="urn:function:f3076" xmlns:f3077="urn:function:f3077" xmlns:f3078="urn:function:f3078" xmlns:f3079="urn:function:f3079" xmlns:f3080="urn:function:f3080" xmlns:f3081="urn:function:f3081" xmlns:f3082="urn:function:f3082" xmlns:f3084="urn:function:f3084">
+    <grammars>
+        <include href="Function3078.xsd"/>
+        <include href="Function3084.xsd"/>
+        <include href="Function3073.xsd"/>
+        <include href="Function3077.xsd"/>
+        <include href="Function3082.xsd"/>
+        <include href="Function3074.xsd"/>
+        <include href="Function3079.xsd"/>
+        <include href="Function3066.xsd"/>
+        <include href="Function3076.xsd"/>
+        <include href="Function3065.xsd"/>
+        <include href="Function3081.xsd"/>
+        <include href="Function3064.xsd"/>
+        <include href="Function3075.xsd"/>
+        <include href="Function3080.xsd"/>
+    </grammars>
+    <doc>encode videos in the cloud with the HeyWatch Video Encoding API</doc>
+    <resources base="https://heywatch.p.mashape.com/">
+        <resource uri="download/">
+            <method displayName="GetDownload" id="3078" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3078:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="TransferVideo" id="3084" name="POST">
+                <doc>Transfer a video to your HeyWatch account for encoding</doc>
+                <request/>
+                <response>
+                    <representation element="f3084:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="account/">
+            <method displayName="GetAccount" id="3073" name="GET">
+                <doc>Get account information</doc>
+                <request/>
+                <response>
+                    <representation element="f3073:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="SetAccountEnv" id="3083" name="PUT">
+                <doc>Update Environment</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="video/">
+            <method displayName="DownloadVideo" id="3068" name="GET">
+                <doc>Download the source video</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="GenerateVideoThumbnailsAsync" id="3071" name="POST">
+                <doc>Generate a thumbnail in the background</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="GenerateVideoThumbnailSync" id="3072" name="GET">
+                <doc>Generate the thumbnail of the video (Sync)</doc>
+                <request>
+                    <param name="height" required="true" style="query" type="xsd:integer">
+                        <doc>image Height</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                    <param name="start" required="true" style="query" type="xsd:integer">
+                        <doc>offset in Second</doc>
+                    </param>
+                    <param name="width" required="true" style="query" type="xsd:integer">
+                        <doc>image Width</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="GetAllVideos" id="3077" name="GET">
+                <doc>List of all videos</doc>
+                <request/>
+                <response>
+                    <representation element="f3077:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="GetVideo" id="3082" name="GET">
+                <doc>Get Information about a specific video</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3082:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="encoded_video/">
+            <method displayName="DownloadEncodedVideo" id="3067" name="GET">
+                <doc>Download the encoded video file</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="GenerateEncodedVideoThumbnailsAsync" id="3069" name="POST">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="GenerateEncodedVideoThumbnailSync" id="3070" name="GET">
+                <request>
+                    <param name="height" required="true" style="query" type="xsd:integer">
+                        <doc>image Height</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>offset in second</doc>
+                    </param>
+                    <param name="width" required="true" style="query" type="xsd:integer">
+                        <doc>image Width</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="GetAllEncodedVideos" id="3074" name="GET">
+                <doc>Get all encoded videos of your account</doc>
+                <request/>
+                <response>
+                    <representation element="f3074:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="GetEncodedVideo" id="3079" name="GET">
+                <doc>Get specific info about an encoded video</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3079:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="UploadEncodedVideoToCDN" id="3085" name="POST">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+        <resource uri="job/">
+            <method displayName="CreateJob" id="3066" name="POST">
+                <doc>Encode the specified video</doc>
+                <request/>
+                <response>
+                    <representation element="f3066:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="GetAllJobs" id="3076" name="GET">
+                <request/>
+                <response>
+                    <representation element="f3076:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="hls/">
+            <resource uri="job/">
+                <method displayName="CreateHLSJob" id="3065" name="POST">
+                    <doc>Create m3u8 with multiple bitrate using HLS API</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3065:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="GetHLSJob" id="3081" name="GET">
+                    <doc>Get information of the specified HLS Job</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3081:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="format/">
+            <method displayName="CreateFormat" id="3064" name="POST">
+                <doc>Create a new format</doc>
+                <request/>
+                <response>
+                    <representation element="f3064:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="GetAllFormats" id="3075" name="GET">
+                <doc>Retrieve all the formats</doc>
+                <request/>
+                <response>
+                    <representation element="f3075:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="GetFormat" id="3080" name="GET">
+                <doc>Get a specific format</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3080:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1122="urn:function:f1122" xmlns:f1123="urn:function:f1123" xmlns:f1124="urn:function:f1124" xmlns:f1125="urn:function:f1125" xmlns:f1126="urn:function:f1126" xmlns:f1127="urn:function:f1127" xmlns:f1128="urn:function:f1128" xmlns:f1129="urn:function:f1129" xmlns:f1130="urn:function:f1130">
+    <grammars>
+        <include href="Function1130.xsd"/>
+        <include href="Function1129.xsd"/>
+        <include href="Function1128.xsd"/>
+        <include href="Function1127.xsd"/>
+        <include href="Function1126.xsd"/>
+        <include href="Function1125.xsd"/>
+        <include href="Function1124.xsd"/>
+        <include href="Function1123.xsd"/>
+        <include href="Function1122.xsd"/>
+    </grammars>
+    <doc>the Blip A Deal API allows you to utilise our database of over million daily deals and coupons annually from over countries around the globe We currently have a presence in Australia Canada Hong Kong India Indonesia Malaysia New Zealand Philippines Singapore Russia Taiwan Thailand United Kingdom and United States You can find deals based on free text keyword categorisation and location The Blip A Deal API will make it easy to find deals that are geographically close to where you are deals in a selected location and can even find deals that match certain free text criteria For countries that dont have english as their primary language translations are also provide for native and english languages There are different ways to invoke the API so to find out more information about the API and to gain access please visit http www blipadeal com dev api home If there are any bugs problems or any general feedback please feel free to let us know</doc>
+    <resources base="https://blipadeal-blipadeal-world-wide-deals.p.mashape.com/">
+        <resource uri="api_get_category_type_url/">
+            <method displayName="Get recommended category based on free txt" id="1130" name="GET">
+                <doc>This function will get the recommended category based on free text provided limited to 200 chars. So for example if you give it -buying an iPod- it will recommend the best category for that</doc>
+                <request>
+                    <param name="apiKeyToken" required="true" style="query" type="xsd:string">
+                        <doc>token Value For Authentication</doc>
+                    </param>
+                    <param name="apiSecretToken" required="true" style="query" type="xsd:string">
+                        <doc>secret Value For Authentication</doc>
+                    </param>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>jSONP callback function</doc>
+                    </param>
+                    <param name="freeText" required="true" style="query" type="xsd:string">
+                        <doc>example buying an iPod</doc>
+                    </param>
+                    <param name="messageStatus" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1130:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="api_keyword_search_url/">
+            <method displayName="Get deals based on location and keywords" id="1129" name="GET">
+                <doc>Get the full deals list given country and city denoted by /api_get_country_url and /api_get_location_url and keyword array</doc>
+                <request>
+                    <param name="apiKeyToken" required="true" style="query" type="xsd:string">
+                        <doc>token Value For Authentication</doc>
+                    </param>
+                    <param name="apiSecretToken" required="true" style="query" type="xsd:string">
+                        <doc>secret Value For Authentication</doc>
+                    </param>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="messageStatus" required="true" style="query" type="xsd:string"/>
+                    <param name="paramCity" required="true" style="query" type="xsd:string">
+                        <doc>example SYDNEY or list from api get location url</doc>
+                    </param>
+                    <param name="paramCountry" required="true" style="query" type="xsd:string">
+                        <doc>example AUSTRALIA or list from api get country url</doc>
+                    </param>
+                    <param name="paramKeywordList" required="true" style="query" type="xsd:string">
+                        <doc>stringified JSON array key key</doc>
+                    </param>
+                    <param name="paramSortMethod" required="true" style="query" type="xsd:string">
+                        <doc>bought or timestamp</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1129:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="api_get_deals_url/">
+            <method displayName="Get deals based on location" id="1128" name="GET">
+                <doc>Get all deals based given a country and a city. The list of countries and cities can be retrieved from /api_get_country_url and /api_get_location_url or from the geo functions</doc>
+                <request>
+                    <param name="apiKeyToken" required="true" style="query" type="xsd:string">
+                        <doc>token Value For Authentication</doc>
+                    </param>
+                    <param name="apiSecretToken" required="true" style="query" type="xsd:string">
+                        <doc>secret Value For Authentication</doc>
+                    </param>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>jSONP callback function</doc>
+                    </param>
+                    <param name="citySelect" required="true" style="query" type="xsd:string">
+                        <doc>example SYDNEY or list from api get location url</doc>
+                    </param>
+                    <param name="countrySelect" required="true" style="query" type="xsd:string">
+                        <doc>example AUSTRALIA or list from api get country url</doc>
+                    </param>
+                    <param name="messageStatus" required="true" style="query" type="xsd:string"/>
+                    <param name="sortMethod" required="true" style="query" type="xsd:string">
+                        <doc>timestamp or bought</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1128:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="api_get_category_deals_url/">
+            <method displayName="Get deals based on category and location" id="1127" name="GET">
+                <doc>Get the full set of deals given a category and location. Location can be retrieved by /api_get_country and /api_get_location or the geo functions to find the nearest location in country and city text</doc>
+                <request>
+                    <param name="apiKeyToken" required="true" style="query" type="xsd:string">
+                        <doc>token Value For Authentication</doc>
+                    </param>
+                    <param name="apiSecretToken" required="true" style="query" type="xsd:string">
+                        <doc>secret Value For Authentication</doc>
+                    </param>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="categoryList" required="true" style="query" type="xsd:string">
+                        <doc>example stringified JSON Array Example cat cat</doc>
+                    </param>
+                    <param name="citySelect" required="true" style="query" type="xsd:string">
+                        <doc>example SYDNEY or list from api get location url</doc>
+                    </param>
+                    <param name="countrySelect" required="true" style="query" type="xsd:string">
+                        <doc>example AUSTRALIA or list from api get country url</doc>
+                    </param>
+                    <param name="messageStatus" required="true" style="query" type="xsd:string"/>
+                    <param name="sortMethod" required="true" style="query" type="xsd:string">
+                        <doc>bought or timestamp</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1127:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="api_get_deal_location_near_by_geo_url/">
+            <method displayName="Get closets locations with deals by lng and lat" id="1126" name="GET">
+                <doc>Get the locations closest to a given long &amp; lat that contain deals</doc>
+                <request>
+                    <param name="apiKeyToken" required="true" style="query" type="xsd:string">
+                        <doc>token Value For Authentication</doc>
+                    </param>
+                    <param name="apiSecretToken" required="true" style="query" type="xsd:string">
+                        <doc>secret Value For Authentication</doc>
+                    </param>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>jSONP callback function name</doc>
+                    </param>
+                    <param name="messageStatus" required="true" style="query" type="xsd:string"/>
+                    <param name="paramDistance" required="true" style="query" type="xsd:string">
+                        <doc>radius Distance in KM Example</doc>
+                    </param>
+                    <param name="paramLat" required="true" style="query" type="xsd:string">
+                        <doc>latitude Example</doc>
+                    </param>
+                    <param name="paramLng" required="true" style="query" type="xsd:string">
+                        <doc>longitude Example</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1126:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="api_get_deal_location_near_by_text_url/">
+            <method displayName="Get closets locations with deals by country and city" id="1125" name="GET">
+                <doc>Get the locations closest to a given city and country name that have deals. City and country can be given by calling /api_get_location and /api_get_country respectively</doc>
+                <request>
+                    <param name="apiKeyToken" required="true" style="query" type="xsd:string">
+                        <doc>token Value For Authentication</doc>
+                    </param>
+                    <param name="apiSecretToken" required="true" style="query" type="xsd:string">
+                        <doc>secret Value For Authentication</doc>
+                    </param>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>jSONP Callback function name</doc>
+                    </param>
+                    <param name="messageStatus" required="true" style="query" type="xsd:string"/>
+                    <param name="paramCity" required="true" style="query" type="xsd:string">
+                        <doc>example SYDNEY or any location from api get location url</doc>
+                    </param>
+                    <param name="paramCountry" required="true" style="query" type="xsd:string">
+                        <doc>example AUSTRALIA or any country from api get country url</doc>
+                    </param>
+                    <param name="paramDistance" required="true" style="query" type="xsd:string">
+                        <doc>example radius distance in KM</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1125:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="api_get_country_url/">
+            <method displayName="Get all countries that have deals" id="1124" name="GET">
+                <doc>This function will retrieve all countries that have deals within BlipADeal</doc>
+                <request>
+                    <param name="apiKeyToken" required="true" style="query" type="xsd:string">
+                        <doc>token Value For Authentication</doc>
+                    </param>
+                    <param name="apiSecretToken" required="true" style="query" type="xsd:string">
+                        <doc>secret Value For Authentication</doc>
+                    </param>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>jSONP callback function you define</doc>
+                    </param>
+                    <param name="messageStatus" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1124:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="api_get_location_url/">
+            <method displayName="Get all cities with deals given a country" id="1123" name="GET">
+                <doc>This function will retrieve all the cities within a given country that have deals. You can retrieve the list of countries by invoking the function /api_get_country_url</doc>
+                <request>
+                    <param name="apiKeyToken" required="true" style="query" type="xsd:string">
+                        <doc>token Value For Authentication</doc>
+                    </param>
+                    <param name="apiSecretToken" required="true" style="query" type="xsd:string">
+                        <doc>secret Value For Authentication</doc>
+                    </param>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>jSONP callback function name</doc>
+                    </param>
+                    <param name="messageStatus" required="true" style="query" type="xsd:string"/>
+                    <param name="paramCountry" required="true" style="query" type="xsd:string">
+                        <doc>country Name Example AUSTRALIA</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1123:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="api_get_category_url/">
+            <method displayName="Get all categories given a city and country" id="1122" name="GET">
+                <doc>This function will get all the categories given a city and a country. The list of countries can be obtained from /api_get_country_url and the list of cities can be retrieved from /api_get_location_url</doc>
+                <request>
+                    <param name="apiKeyToken" required="true" style="query" type="xsd:string">
+                        <doc>token Value For Authentication</doc>
+                    </param>
+                    <param name="apiSecretToken" required="true" style="query" type="xsd:string">
+                        <doc>secret Value For Authentication</doc>
+                    </param>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>jSONP Callback function name</doc>
+                    </param>
+                    <param name="messageStatus" required="true" style="query" type="xsd:string"/>
+                    <param name="paramCity" required="true" style="query" type="xsd:string">
+                        <doc>city Location Example SYDNEY</doc>
+                    </param>
+                    <param name="paramCountry" required="true" style="query" type="xsd:string">
+                        <doc>country Location Example AUSTRALIA</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1122:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>ticket Evolution provides the most flexible and robust API to create your own unique ticket experience on your site while allowing you to maintain your brand We have aggregated inventory from over professional ticket sellers to create the ultimate customer experience for your customers</doc>
+    <resources base="https://ticket_evolution-ticket-evolution-v1.p.mashape.com/">
+        <resource uri="ticket_groups/">
+            <resource uri="{event_id}/">
+                <param name="event_id" style="template" type="xsd:string"/>
+                <method displayName="Ticket Groups / Index" id="6592" name="GET">
+                    <doc>Returns all ticket groups for the given event_id.</doc>
+                    <request>
+                        <param name="eventId" required="true" style="query" type="xsd:integer">
+                            <doc>iD of a specific event</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

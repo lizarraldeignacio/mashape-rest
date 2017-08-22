@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>hacker League is a hackathon planning and organization tool This API allows you to search hackathons and hacks from the Hacker League website If you want to find more APIs for your hacks check out https www mashape com explore</doc>
+    <resources base="https://ismaelc-hackerleague.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Hacks" id="989" name="GET">
+                <doc>Lets you search for specific hack projects in Hacker League</doc>
+                <request>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>enter query to find relevant hack projects</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

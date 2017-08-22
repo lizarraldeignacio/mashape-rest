@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f256="urn:function:f256" xmlns:f257="urn:function:f257">
+    <grammars>
+        <include href="Function256.xsd"/>
+        <include href="Function257.xsd"/>
+    </grammars>
+    <doc>is this comment positive or negative Find out the tone</doc>
+    <resources base="https://twinword-sentiment-analysis.p.mashape.com/">
+        <resource uri="analyze/">
+            <method displayName="Analyze (get)" id="256" name="GET">
+                <doc>Return sentiment analysis results with score for the given text.</doc>
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>enter some text to analyze maximum words or characters</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f256:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Analyze (post)" id="257" name="POST">
+                <doc>Return sentiment analysis results with score for the given text.</doc>
+                <request/>
+                <response>
+                    <representation element="f257:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

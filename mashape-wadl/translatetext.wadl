@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f401="urn:function:f401">
+    <grammars>
+        <include href="Function401.xsd"/>
+    </grammars>
+    <doc>this app translates words and phrases in multiple languages</doc>
+    <resources base="https://leonardoscorza-translate-text-v1.p.mashape.com/">
+        <resource uri="translate/">
+            <method displayName="/translate" id="401" name="GET">
+                <doc>translate text</doc>
+                <request>
+                    <param name="languageconverted" required="true" style="query" type="xsd:string">
+                        <doc>language that will be converted</doc>
+                    </param>
+                    <param name="languagetoconvert" required="true" style="query" type="xsd:string">
+                        <doc>language to convert</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>text that will be tranlated</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f401:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

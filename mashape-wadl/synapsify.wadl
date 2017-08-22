@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3548="urn:function:f3548" xmlns:f3549="urn:function:f3549">
+    <grammars>
+        <include href="Function3548.xsd"/>
+        <include href="Function3549.xsd"/>
+    </grammars>
+    <doc>synapsify s REST API is based on a core set of linguistic algorithms utilizing phonemics natural language processing NLP machine learning etc The API has been designed to be as flexible as possible and can be adapted to a very wide range of domains and fields of interest including Reading any type of written content based on several dimensions Revealing the quality balance credibility and quotablity of such content and its most important topics and phrases Indexing and matching against other written content or customized indexes Enhancing the ability to discover understand and segment actionable insights</doc>
+    <resources base="https://synapsify.p.mashape.com/">
+        <resource uri="indexing/">
+            <method displayName="1. Query and categorize text" id="3548" name="POST">
+                <doc>Query and categorize text under a named index.  This is the most important type of request within the Synapsify API, allowing for super-accurate querying and categorization of text under a named index. On success returns a UUID (universally unique identifier) which should be passed in any subsequent GET request to retrieve the analysis result.</doc>
+                <request/>
+                <response>
+                    <representation element="f3548:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="2. Get indexing result" id="3549" name="GET">
+                <doc>On success returns (as a JSON object) the result of an indexing analysis, otherwise a status message showing percentage done.</doc>
+                <request>
+                    <param name="indexId" required="true" style="query" type="xsd:string">
+                        <doc>the search index storing the verbatim text s metaphors</doc>
+                    </param>
+                    <param name="timestamp" required="true" style="query" type="xsd:string">
+                        <doc>date and time of the request If supplied must be in correct Timestamp format see documentation for details</doc>
+                    </param>
+                    <param name="uuid" required="true" style="query" type="xsd:string">
+                        <doc>uUID returned by a prior POST request to v indexing</doc>
+                    </param>
+                    <param name="verbatimAuthor" required="true" style="query" type="xsd:string">
+                        <doc>the author of the verbatim text</doc>
+                    </param>
+                    <param name="verbatimTitle" required="true" style="query" type="xsd:string">
+                        <doc>the title of the verbatim text</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3549:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

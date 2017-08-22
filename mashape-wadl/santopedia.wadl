@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5695="urn:function:f5695" xmlns:f5696="urn:function:f5696">
+    <grammars>
+        <include href="Function5696.xsd"/>
+        <include href="Function5695.xsd"/>
+    </grammars>
+    <doc>informaci n sobre Santoral</doc>
+    <resources base="https://santopedia.p.mashape.com/">
+        <resource uri="days/">
+            <resource uri="{day}/">
+                <param name="day" style="template" type="xsd:string"/>
+                <method displayName="Saints of the day" id="5696" name="GET">
+                    <doc>It returns the saints of a given day</doc>
+                    <request>
+                        <param name="day" required="true" style="query" type="xsd:string">
+                            <doc>optional if not included TODAY is default The date you want to know the saints from format MM DD If you only want to recieve relevant saints add important after the MM DD date like important</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5696:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="names/">
+            <resource uri="{name}/">
+                <param name="name" style="template" type="xsd:string"/>
+                <method displayName="Names" id="5695" name="GET">
+                    <doc>Get the saint related to the specified name</doc>
+                    <request>
+                        <param name="name" required="true" style="query" type="xsd:string">
+                            <doc>separated by commas the names you want to search for No default this field is mandatory</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5695:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

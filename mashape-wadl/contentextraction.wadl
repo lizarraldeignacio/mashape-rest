@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2378="urn:function:f2378">
+    <grammars>
+        <include href="Function2378.xsd"/>
+    </grammars>
+    <doc>this API extracts the key information from a web site including meta data language data http status and content text</doc>
+    <resources base="https://enclout-content-extraction.p.mashape.com/">
+        <resource uri="show.json/">
+            <method displayName="Extractor" id="2378" name="GET">
+                <doc>Content Extraction</doc>
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>url or domain</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2378:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

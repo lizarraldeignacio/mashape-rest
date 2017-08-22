@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7177="urn:function:f7177" xmlns:f7178="urn:function:f7178" xmlns:f7179="urn:function:f7179" xmlns:f7180="urn:function:f7180" xmlns:f7181="urn:function:f7181" xmlns:f7182="urn:function:f7182" xmlns:f7183="urn:function:f7183" xmlns:f7187="urn:function:f7187" xmlns:f7188="urn:function:f7188" xmlns:f7189="urn:function:f7189" xmlns:f7190="urn:function:f7190" xmlns:f7191="urn:function:f7191" xmlns:f7192="urn:function:f7192" xmlns:f7193="urn:function:f7193" xmlns:f7194="urn:function:f7194" xmlns:f7195="urn:function:f7195" xmlns:f7196="urn:function:f7196" xmlns:f7197="urn:function:f7197" xmlns:f7199="urn:function:f7199" xmlns:f7200="urn:function:f7200" xmlns:f7201="urn:function:f7201" xmlns:f7202="urn:function:f7202" xmlns:f7203="urn:function:f7203" xmlns:f7204="urn:function:f7204">
+    <grammars>
+        <include href="Function7204.xsd"/>
+        <include href="Function7203.xsd"/>
+        <include href="Function7202.xsd"/>
+        <include href="Function7201.xsd"/>
+        <include href="Function7200.xsd"/>
+        <include href="Function7199.xsd"/>
+        <include href="Function7197.xsd"/>
+        <include href="Function7196.xsd"/>
+        <include href="Function7195.xsd"/>
+        <include href="Function7194.xsd"/>
+        <include href="Function7193.xsd"/>
+        <include href="Function7192.xsd"/>
+        <include href="Function7191.xsd"/>
+        <include href="Function7190.xsd"/>
+        <include href="Function7189.xsd"/>
+        <include href="Function7188.xsd"/>
+        <include href="Function7187.xsd"/>
+        <include href="Function7183.xsd"/>
+        <include href="Function7182.xsd"/>
+        <include href="Function7181.xsd"/>
+        <include href="Function7180.xsd"/>
+        <include href="Function7179.xsd"/>
+        <include href="Function7178.xsd"/>
+        <include href="Function7177.xsd"/>
+    </grammars>
+    <doc>generate hashes using many popular hashing functions including md md md sha sha sha sha sha ripemd ripemd ripemd ripemd whirlpool tiger tiger tiger tiger tiger tiger snefru snefru gost adler crc crc b fnv fnv joaat</doc>
+    <resources base="https://hash.p.mashape.com/">
+        <resource uri="whirlpool/">
+            <method displayName="whirlpool" id="7204" name="POST">
+                <doc>Generate whirlpool hash of the given contents.</doc>
+                <request/>
+                <response>
+                    <representation element="f7204:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="tiger192,4/">
+            <method displayName="tiger192,4" id="7203" name="POST">
+                <doc>Generate tiger192,4 hash of the given contents.</doc>
+                <request/>
+                <response>
+                    <representation element="f7203:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="tiger192,3/">
+            <method displayName="tiger192,3" id="7202" name="POST">
+                <doc>Generate tiger192,3 hash of the given contents.</doc>
+                <request/>
+                <response>
+                    <representation element="f7202:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="tiger160,4/">
+            <method displayName="tiger160,4" id="7201" name="POST">
+                <doc>Generate tiger160,4 hash of the given contents.</doc>
+                <request/>
+                <response>
+                    <representation element="f7201:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="tiger160,3/">
+            <method displayName="tiger160,3" id="7200" name="POST">
+                <doc>Generate tiger160,3 hash of the given contents.</doc>
+                <request/>
+                <response>
+                    <representation element="f7200:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="tiger128,4/">
+            <method displayName="tiger128,4" id="7199" name="POST">
+                <doc>Generate tiger128,4 hash of the given contents.</doc>
+                <request/>
+                <response>
+                    <representation element="f7199:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="tiger128,3/">
+            <method displayName="tiger128,3" id="7198" name="POST">
+                <doc>Generate tiger128,3 hash of the given contents.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="snefru256/">
+            <method displayName="snefru256" id="7197" name="POST">
+                <doc>Generate snefru256 hash of the given contents.</doc>
+                <request/>
+                <response>
+                    <representation element="f7197:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="snefru/">
+            <method displayName="snefru" id="7196" name="POST">
+                <doc>Generate snefru hash of the given contents.</doc>
+                <request/>
+                <response>
+                    <representation element="f7196:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="sha512/">
+            <method displayName="sha512" id="7195" name="POST">
+                <doc>Generate sha512 hash of the given contents.</doc>
+                <request/>
+                <response>
+                    <representation element="f7195:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="sha384/">
+            <method displayName="sha384" id="7194" name="POST">
+                <request/>
+                <response>
+                    <representation element="f7194:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="sha256/">
+            <method displayName="sha256" id="7193" name="POST">
+                <doc>Generate sha256 hash of the given contents.</doc>
+                <request/>
+                <response>
+                    <representation element="f7193:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="sha224/">
+            <method displayName="sha224" id="7192" name="POST">
+                <doc>Generate sha224 hash of the given contents.</doc>
+                <request/>
+                <response>
+                    <representation element="f7192:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="sha1/">
+            <method displayName="sha1" id="7191" name="POST">
+                <doc>Generate sha1 hash of the given contents.</doc>
+                <request/>
+                <response>
+                    <representation element="f7191:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="ripemd320/">
+            <method displayName="ripemd320" id="7190" name="POST">
+                <doc>Generate ripemd320 hash of the given contents.</doc>
+                <request/>
+                <response>
+                    <representation element="f7190:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="ripemd256/">
+            <method displayName="ripemd256" id="7189" name="POST">
+                <doc>Generate ripemd256 hash of the given contents.</doc>
+                <request/>
+                <response>
+                    <representation element="f7189:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="ripemd160/">
+            <method displayName="ripemd160" id="7188" name="POST">
+                <doc>Generate ripemd160 hash of the given contents.</doc>
+                <request/>
+                <response>
+                    <representation element="f7188:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="ripemd128/">
+            <method displayName="ripemd128" id="7187" name="POST">
+                <doc>Generate ripemd128 hash of the given contents.</doc>
+                <request/>
+                <response>
+                    <representation element="f7187:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="md5/">
+            <method displayName="md5" id="7186" name="POST">
+                <doc>Generate md5 hash of the given contents.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="md4/">
+            <method displayName="md4" id="7185" name="POST">
+                <doc>Generate md4 hash of the given contents.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="md2/">
+            <method displayName="md2" id="7184" name="POST">
+                <doc>Generate md2 hash of the given contents.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="joaat/">
+            <method displayName="joaat" id="7183" name="POST">
+                <doc>Generate joaat hash of the given contents.</doc>
+                <request/>
+                <response>
+                    <representation element="f7183:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="gost/">
+            <method displayName="gost" id="7182" name="POST">
+                <doc>Generate gost hash of the given contents.</doc>
+                <request/>
+                <response>
+                    <representation element="f7182:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="fnv164/">
+            <method displayName="fnv164" id="7181" name="POST">
+                <doc>Generate fnv164 hash of the given contents.</doc>
+                <request/>
+                <response>
+                    <representation element="f7181:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="fnv132/">
+            <method displayName="fnv132" id="7180" name="POST">
+                <doc>Generate fnv132 hash of the given contents.</doc>
+                <request/>
+                <response>
+                    <representation element="f7180:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="crc32b/">
+            <method displayName="crc32b" id="7179" name="POST">
+                <doc>Generate crc32b hash of the given contents.</doc>
+                <request/>
+                <response>
+                    <representation element="f7179:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="crc32/">
+            <method displayName="crc32" id="7178" name="POST">
+                <doc>Generate sha1 hash of the given contents.</doc>
+                <request/>
+                <response>
+                    <representation element="f7178:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="adler32/">
+            <method displayName="adler32" id="7177" name="POST">
+                <doc>Generate adler32 hash of the given contents.</doc>
+                <request/>
+                <response>
+                    <representation element="f7177:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

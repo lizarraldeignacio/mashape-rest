@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1616="urn:function:f1616" xmlns:f1617="urn:function:f1617" xmlns:f1618="urn:function:f1618" xmlns:f1619="urn:function:f1619" xmlns:f1620="urn:function:f1620" xmlns:f1621="urn:function:f1621" xmlns:f1622="urn:function:f1622" xmlns:f1623="urn:function:f1623" xmlns:f1624="urn:function:f1624" xmlns:f1625="urn:function:f1625">
+    <grammars>
+        <include href="Function1625.xsd"/>
+        <include href="Function1624.xsd"/>
+        <include href="Function1623.xsd"/>
+        <include href="Function1622.xsd"/>
+        <include href="Function1621.xsd"/>
+        <include href="Function1620.xsd"/>
+        <include href="Function1619.xsd"/>
+        <include href="Function1618.xsd"/>
+        <include href="Function1617.xsd"/>
+        <include href="Function1616.xsd"/>
+    </grammars>
+    <doc>retrieve real time screenshots with one request Full API description at https browshot com api documentation</doc>
+    <resources base="https://browshot.p.mashape.com/">
+        <resource uri="simple/">
+            <method displayName="simple" id="1627" name="GET">
+                <doc>Get a screenshot or thumbnail in one request. make sure to follow all 302 redirections.</doc>
+                <request>
+                    <param name="cache" required="true" style="query" type="xsd:integer">
+                        <doc>use a previous screenshot same URL same instance if it was done within cache seconds The default value is hours Specify cache if you want a new screenshot</doc>
+                    </param>
+                    <param name="cookie" required="true" style="query" type="xsd:string">
+                        <doc>set a cookie for the URL requested</doc>
+                    </param>
+                    <param name="delay" required="true" style="query" type="xsd:integer">
+                        <doc>default number of seconds to wait after the page has loaded This is used to let JavaScript run longer before taking the screenshot Use delay to take screenshots faster</doc>
+                    </param>
+                    <param name="flashDelay" required="true" style="query" type="xsd:integer">
+                        <doc>default number of seconds to wait after the page has loaded if Flash elements are present Use flash delay to take screenshots faster</doc>
+                    </param>
+                    <param name="height" required="true" style="query" type="xsd:integer">
+                        <doc>height of the thumbnail</doc>
+                    </param>
+                    <param name="instanceId" required="true" style="query" type="xsd:integer">
+                        <doc>browser ID to use</doc>
+                    </param>
+                    <param name="postData" required="true" style="query" type="xsd:string">
+                        <doc>send a POST requests with post data useful for filling out forms</doc>
+                    </param>
+                    <param name="referer" required="true" style="query" type="xsd:string">
+                        <doc>use a custom referrer</doc>
+                    </param>
+                    <param name="script" required="true" style="query" type="xsd:string">
+                        <doc>uRL of javascript file to execute after the page load event</doc>
+                    </param>
+                    <param name="size" required="true" style="query" type="xsd:string">
+                        <doc>screenshot size screen default or page</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>url to take screenshot of</doc>
+                    </param>
+                    <param name="width" required="true" style="query" type="xsd:integer">
+                        <doc>width of the thumbnail</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="screenshot/">
+            <resource uri="thumbnail/">
+                <method displayName="/screenshot/thumbnail" id="1626" name="GET">
+                    <doc>Sends back the thumbnail as a PNG file.</doc>
+                    <request>
+                        <param name="bottom" required="true" style="query" type="xsd:integer">
+                            <doc>right edge of the area to be cropped</doc>
+                        </param>
+                        <param name="height" required="true" style="query" type="xsd:integer">
+                            <doc>height of the thumbnail</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>screenshot ID</doc>
+                        </param>
+                        <param name="left" required="true" style="query" type="xsd:integer">
+                            <doc>default left edge of the area to be cropped</doc>
+                        </param>
+                        <param name="ratio" required="true" style="query" type="xsd:string">
+                            <doc>fit fill default fit Use fit to keep the original page ration and fill to get a thumbnail for the exact width and height specified</doc>
+                        </param>
+                        <param name="right" required="true" style="query" type="xsd:integer">
+                            <doc>default right edge of the area to be cropped</doc>
+                        </param>
+                        <param name="scale" required="true" style="query" type="xsd:integer">
+                            <doc>scale of the thumbnail</doc>
+                        </param>
+                        <param name="top" required="true" style="query" type="xsd:integer">
+                            <doc>default top edge of the area to be cropped</doc>
+                        </param>
+                        <param name="width" required="true" style="query" type="xsd:integer">
+                            <doc>width of the thumbnail</doc>
+                        </param>
+                        <param name="zoom" required="true" style="query" type="xsd:integer">
+                            <doc>zoom to percents</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="share/">
+                <method displayName="/screenshot/share" id="1625" name="GET">
+                    <doc>Make your screenshots public, add notes, and share it with your friends and colleagues.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>screenshot ID</doc>
+                        </param>
+                        <param name="note" required="true" style="query" type="xsd:string">
+                            <doc>mote to add on the sharing page</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1625:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="list/">
+                <method displayName="/screenshot/list" id="1624" name="GET">
+                    <doc>Get information about the last 100 screenshots requested.</doc>
+                    <request>
+                        <param name="limit" required="true" style="query" type="xsd:integer">
+                            <doc>number of screenshots information to return maximum</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1624:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="info/">
+                <method displayName="/screenshot/info" id="1623" name="GET">
+                    <doc>Once a screenshot has been requested, its status must be checked until it is either "error" or "finished".</doc>
+                    <request>
+                        <param name="details" required="true" style="query" type="xsd:integer">
+                            <doc>default level of details about the screenshot and the page</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>screenshot ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1623:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="delete/">
+                <method displayName="/screenshot/delete" id="1622" name="GET">
+                    <doc>Delete details of your screenshots to remove any confidential information.</doc>
+                    <request>
+                        <param name="data" required="true" style="query" type="xsd:string">
+                            <doc>data to remove image default url metadata all</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>screenshot ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1622:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="create/">
+                <method displayName="/screenshot/create" id="1621" name="GET">
+                    <doc>Screenshots requests to private and shared instances require a positive balance.</doc>
+                    <request>
+                        <param name="instanceId" required="true" style="query" type="xsd:integer">
+                            <doc>instance ID to use default</doc>
+                        </param>
+                        <param name="size" required="true" style="query" type="xsd:string">
+                            <doc>screenshot size screen default or page</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>uRL of the page to get a screenshot for</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1621:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="instance/">
+            <resource uri="list/">
+                <method displayName="/instance/list" id="1620" name="GET">
+                    <doc>Get the list of instances available.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1620:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="info/">
+                <method displayName="/instance/info" id="1619" name="GET">
+                    <doc>Get details of a specific instance</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>instance ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1619:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="browser/">
+            <resource uri="list/">
+                <method displayName="/browser/list" id="1618" name="GET">
+                    <doc>List of all predefined web browsers.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1618:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="info/">
+                <method displayName="/browser/info" id="1617" name="GET">
+                    <doc>Get details of specific browser.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>browser ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1617:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="account/">
+            <resource uri="info/">
+                <method displayName="/account/info" id="1616" name="GET">
+                    <doc>Get information about your account.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1616:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

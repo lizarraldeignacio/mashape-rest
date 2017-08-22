@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6934="urn:function:f6934">
+    <grammars>
+        <include href="Function6934.xsd"/>
+    </grammars>
+    <doc>this API will help you to easily detect if a VAT number is valid in the EU or not If the country supports it you will also be able to get the name of the company</doc>
+    <resources base="https://euvatnumber.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Detect EU VAT Number" id="6934" name="GET">
+                <doc>This API will allow you to easily detect if a VAT number is valid in the EU or not.</doc>
+                <request>
+                    <param name="country" required="true" style="query" type="xsd:string">
+                        <doc>if you know the country you can optionally supply this parameter It will help by detecting the country prefix to the VAT number</doc>
+                    </param>
+                    <param name="vat" required="true" style="query" type="xsd:string">
+                        <doc>the VAT number to check verify</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6934:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

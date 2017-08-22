@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f413="urn:function:f413" xmlns:f414="urn:function:f414" xmlns:f415="urn:function:f415" xmlns:f416="urn:function:f416" xmlns:f417="urn:function:f417" xmlns:f418="urn:function:f418" xmlns:f419="urn:function:f419" xmlns:f420="urn:function:f420" xmlns:f421="urn:function:f421" xmlns:f422="urn:function:f422" xmlns:f423="urn:function:f423" xmlns:f424="urn:function:f424" xmlns:f425="urn:function:f425" xmlns:f426="urn:function:f426">
+    <grammars>
+        <include href="Function426.xsd"/>
+        <include href="Function425.xsd"/>
+        <include href="Function424.xsd"/>
+        <include href="Function423.xsd"/>
+        <include href="Function422.xsd"/>
+        <include href="Function421.xsd"/>
+        <include href="Function420.xsd"/>
+        <include href="Function419.xsd"/>
+        <include href="Function418.xsd"/>
+        <include href="Function417.xsd"/>
+        <include href="Function416.xsd"/>
+        <include href="Function415.xsd"/>
+        <include href="Function414.xsd"/>
+        <include href="Function413.xsd"/>
+    </grammars>
+    <doc>fOAAS Fuck Off As A Service provides a modern RESTful scalable solution to the common problem of telling people to fuck off</doc>
+    <resources base="https://mashape-community-foaas.p.mashape.com/">
+        <resource uri="shakespeare/">
+            <resource uri="{name}/">
+                <param name="name" style="template" type="xsd:string"/>
+                <resource uri="{from}/">
+                    <param name="from" style="template" type="xsd:string"/>
+                    <method displayName="Shakespeare" id="426" name="GET">
+                        <doc>Will return content of the form ':name, Thou clay-brained guts, thou knotty-pated fool, thou whoreson obscene greasy tallow-catch! - :from', e.g. /shakespeare/Falstaff/Prince%20Henry will return 'Falstaff, Thou clay-brained guts, thou knotty-pated fool, thou whoreson obscene greasy tallow-catch! - Prince Henry</doc>
+                        <request>
+                            <param name="from" required="true" style="query" type="xsd:string"/>
+                            <param name="name" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f426:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="linus/">
+            <resource uri="{name}/">
+                <param name="name" style="template" type="xsd:string"/>
+                <resource uri="{from}/">
+                    <param name="from" style="template" type="xsd:string"/>
+                    <method displayName="Linus" id="425" name="GET">
+                        <doc>Will return content of the form ':name, there aren't enough swear-words in the English language, so now I'll have to call you perkeleen vittupää just to express my disgust and frustration with this crap. - :from'.</doc>
+                        <request>
+                            <param name="from" required="true" style="query" type="xsd:string"/>
+                            <param name="name" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f425:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="king/">
+            <resource uri="{name}/">
+                <param name="name" style="template" type="xsd:string"/>
+                <resource uri="{from}/">
+                    <param name="from" style="template" type="xsd:string"/>
+                    <method displayName="King" id="424" name="GET">
+                        <doc>Will return content of the form 'Oh fuck off, just really fuck off you total dickface. Christ :name, you are fucking thick. - :from'.</doc>
+                        <request>
+                            <param name="from" required="true" style="query" type="xsd:string"/>
+                            <param name="name" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f424:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="thanks/">
+            <resource uri="{from}/">
+                <param name="from" style="template" type="xsd:string"/>
+                <method displayName="Fuck you very much" id="423" name="GET">
+                    <doc>Will return content of the form 'Fuck you very much. - :from'.</doc>
+                    <request>
+                        <param name="from" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f423:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="you/">
+            <resource uri="{name}/">
+                <param name="name" style="template" type="xsd:string"/>
+                <resource uri="{from}/">
+                    <param name="from" style="template" type="xsd:string"/>
+                    <method displayName="Fuck You" id="422" name="GET">
+                        <doc>Will return content of the form 'Fuck you, :name. - :from', e.g. /you/Tom/Chris will return 'Fuck you, Tom - Chris'</doc>
+                        <request>
+                            <param name="from" required="true" style="query" type="xsd:string"/>
+                            <param name="name" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f422:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="this/">
+            <resource uri="{from}/">
+                <param name="from" style="template" type="xsd:string"/>
+                <method displayName="Fuck This" id="421" name="GET">
+                    <doc>Will return content of the form 'Fuck this - :from', e.g. /this/Chris will return 'Fuck this. - Chris'</doc>
+                    <request>
+                        <param name="from" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f421:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="that/">
+            <resource uri="{from}/">
+                <param name="from" style="template" type="xsd:string"/>
+                <method displayName="Fuck That" id="420" name="GET">
+                    <doc>Will return content of the form 'Fuck that. - :from', e.g. /that/Chris will return 'Fuck that. - Chris'</doc>
+                    <request>
+                        <param name="from" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f420:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="off/">
+            <resource uri="{name}/">
+                <param name="name" style="template" type="xsd:string"/>
+                <resource uri="{from}/">
+                    <param name="from" style="template" type="xsd:string"/>
+                    <method displayName="Fuck Off" id="419" name="GET">
+                        <doc>Will return content of the form 'Fuck off, :name. - :from', e.g. /off/Tom/Chris will return 'Fuck off, Tom - Chris'</doc>
+                        <request>
+                            <param name="from" required="true" style="query" type="xsd:string"/>
+                            <param name="name" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f419:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="life/">
+            <resource uri="{from}/">
+                <param name="from" style="template" type="xsd:string"/>
+                <method displayName="Fuck my life" id="418" name="GET">
+                    <doc>Will return content of the form 'Well, Fuck me pink. - :from'.</doc>
+                    <request>
+                        <param name="from" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f418:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="pink/">
+            <resource uri="{from}/">
+                <param name="from" style="template" type="xsd:string"/>
+                <method displayName="Fuck me pink" id="417" name="GET">
+                    <doc>Will return content of the form 'Well, Fuck me pink. - :from'.</doc>
+                    <request>
+                        <param name="from" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f417:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="everything/">
+            <resource uri="{from}/">
+                <param name="from" style="template" type="xsd:string"/>
+                <method displayName="Fuck Everything" id="416" name="GET">
+                    <doc>Will return content of the form 'Fuck everything. - :from', e.g. /everything/Chris will return 'Fuck everything. - Chris'</doc>
+                    <request>
+                        <param name="from" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f416:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="everyone/">
+            <resource uri="{from}/">
+                <param name="from" style="template" type="xsd:string"/>
+                <method displayName="Fuck Everyone" id="415" name="GET">
+                    <doc>Will return content of the form 'Everyone can go and fuck off. - :name', e.g. /everyone/Tom will return 'Everyone can go and fuck off. - Tom'</doc>
+                    <request>
+                        <param name="from" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f415:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="donut/">
+            <resource uri="{name}/">
+                <param name="name" style="template" type="xsd:string"/>
+                <resource uri="{from}/">
+                    <param name="from" style="template" type="xsd:string"/>
+                    <method displayName="Donut" id="414" name="GET">
+                        <doc>Will return content of the form ':name, go and take a flying fuck at a rolling donut. - :from', e.g. /donut/Tom/Chris will return 'Tom, go and take a flying fuck at a rolling donut. - Chris'</doc>
+                        <request>
+                            <param name="from" required="true" style="query" type="xsd:string"/>
+                            <param name="name" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f414:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="chainsaw/">
+            <resource uri="{name}/">
+                <param name="name" style="template" type="xsd:string"/>
+                <resource uri="{from}/">
+                    <param name="from" style="template" type="xsd:string"/>
+                    <method displayName="Chainsaw" id="413" name="GET">
+                        <doc>Will return content of the form 'Fuck me gently with a chainsaw, :name. Do I look like Mother Teresa? - :from', e.g. /chainsaw/Chris/Heather will return 'Fuck me gently with a chainsaw, Chris. Do I look like Mother Teresa? - Heather</doc>
+                        <request>
+                            <param name="from" required="true" style="query" type="xsd:string"/>
+                            <param name="name" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f413:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

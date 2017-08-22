@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>textocat API enables scalable state of the art NLP search in your favorite language</doc>
+    <resources base="https://textocat-textocat-v1.p.mashape.com/">
+        <resource uri="status/">
+            <method displayName="/status" id="2188" name="GET">
+                <doc>Check the API status</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="entity/">
+            <resource uri="search/">
+                <method displayName="/entity/search" id="2187" name="GET">
+                    <doc>Full-text search over all the user's documents. Entity search is featured.</doc>
+                    <request>
+                        <param name="searchQuery" required="true" style="query" type="xsd:string">
+                            <doc>see http docs textocat com search query syntax pdf for the description of the search query syntax</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="retrieve/">
+                <method displayName="/entity/retrieve" id="2186" name="GET">
+                    <request>
+                        <param name="batchId" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="queue/">
+                <method displayName="/entity/queue" id="2185" name="POST">
+                    <request>
+                        <param name="body" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>send unlimited SMS to any Indian mobile number using this API all you need is an account from freesms co in</doc>
+    <resources base="https://freesms8.p.mashape.com/">
+        <resource uri="index.php/">
+            <method displayName="Send SMS" id="746" name="GET">
+                <doc>Send SMS using this endpoint.</doc>
+                <request>
+                    <param name="msg" required="true" style="query" type="xsd:string">
+                        <doc>message to be sent as SMS</doc>
+                    </param>
+                    <param name="phone" required="true" style="query" type="xsd:string">
+                        <doc>recipients digit phone numbers separated by semicolon</doc>
+                    </param>
+                    <param name="pwd" required="true" style="query" type="xsd:string">
+                        <doc>password of the account registered on freesms</doc>
+                    </param>
+                    <param name="uid" required="true" style="query" type="xsd:string">
+                        <doc>username registered on freesms</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

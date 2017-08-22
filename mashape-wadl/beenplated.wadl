@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>plate em Got their license plate Don t just report bad drivers plate em When you see a funny license plate or a funny looking car plate em Did you see someone loose a hubcap Plate em Stop yelling out the window at the girls in the car next to you plate em Anyone following the plate will receive an instant notification via text or email Don t forget to follow your license plate</doc>
+    <resources base="https://community-been-plated.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Command" id="4430" name="GET">
+                <doc>Please check http://www.been-plated.com/developers for a list of "apiCall" commands and parameters combinations</doc>
+                <request>
+                    <param name="apicall" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="email" required="true" style="query" type="xsd:string">
+                        <doc>submit a to get email notifications</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="label" required="true" style="query" type="xsd:string">
+                        <doc>supply a label to help recognize the plate For example Husband s Truck</doc>
+                    </param>
+                    <param name="plateid" required="true" style="query" type="xsd:string">
+                        <doc>the id of plate</doc>
+                    </param>
+                    <param name="sessionid" required="true" style="query" type="xsd:string">
+                        <doc>the user s session id</doc>
+                    </param>
+                    <param name="sms" required="true" style="query" type="xsd:string">
+                        <doc>submit a to get sms notifications</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

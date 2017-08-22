@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6604="urn:function:f6604" xmlns:f6605="urn:function:f6605" xmlns:f6606="urn:function:f6606" xmlns:f6607="urn:function:f6607" xmlns:f6608="urn:function:f6608" xmlns:f6609="urn:function:f6609" xmlns:f6610="urn:function:f6610">
+    <grammars>
+        <include href="Function6610.xsd"/>
+        <include href="Function6609.xsd"/>
+        <include href="Function6608.xsd"/>
+        <include href="Function6607.xsd"/>
+        <include href="Function6606.xsd"/>
+        <include href="Function6605.xsd"/>
+        <include href="Function6604.xsd"/>
+    </grammars>
+    <doc>using this API one can add GIS based functionality spatial capabilities to their application website This includes operations like buffering a point geocoding an address convert address to point reverse geocoding from a point location convert point to address point to point travel time analysis and travel time polygon generation Some refer to this as service area or drive time analysis Data coverage includes the Contiguous US Alaska and Hawaii</doc>
+    <resources base="https://mapfruition-spatialops.p.mashape.com/">
+        <resource uri="ZipProximity/">
+            <resource uri="v1/">
+                <resource uri="{zip}/">
+                    <param name="zip" style="template" type="xsd:string"/>
+                    <resource uri="{distance}/">
+                        <param name="distance" style="template" type="xsd:string"/>
+                        <resource uri="{distanceunit}/">
+                            <param name="distanceunit" style="template" type="xsd:string"/>
+                            <resource uri="{returnpoints}/">
+                                <param name="returnpoints" style="template" type="xsd:string"/>
+                                <method displayName="Zip Proximity" id="6610" name="GET">
+                                    <doc>Get all of the neighboring zip codes within 'x' miles from origin zip code.</doc>
+                                    <request>
+                                        <param name="distance" required="true" style="query" type="xsd:integer">
+                                            <doc>distance Max of miles</doc>
+                                        </param>
+                                        <param name="distanceunit" required="true" style="query" type="xsd:string">
+                                            <doc>distance Unit Options meter or mile</doc>
+                                        </param>
+                                        <param name="returnpoints" required="true" style="query" type="xsd:boolean">
+                                            <doc>return center point geometries in GeoJSON format Options true or false</doc>
+                                        </param>
+                                        <param name="zip" required="true" style="query" type="xsd:string">
+                                            <doc>origin zip code</doc>
+                                        </param>
+                                    </request>
+                                    <response>
+                                        <representation element="f6610:root" mediaType="application/json"/>
+                                    </response>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="ZipDistance/">
+            <resource uri="v1/">
+                <resource uri="{srczip}/">
+                    <param name="srczip" style="template" type="xsd:string"/>
+                    <resource uri="{tgtzip}/">
+                        <param name="tgtzip" style="template" type="xsd:string"/>
+                        <method displayName="Zip Distance" id="6609" name="GET">
+                            <doc>Get the "As the crow flies" distance between zip code center points.  Returns distance in miles.</doc>
+                            <request>
+                                <param name="srczip" required="true" style="query" type="xsd:string">
+                                    <doc>source Zip Code</doc>
+                                </param>
+                                <param name="tgtzip" required="true" style="query" type="xsd:string">
+                                    <doc>target Zip Code</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f6609:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="TravelTimeP2P/">
+            <resource uri="v1/">
+                <resource uri="{srclat},{srclng}/">
+                    <param name="srclat" style="template" type="xsd:string"/>
+                    <resource uri="{tgtlat},{tgtlng}/">
+                        <param name="tgtlat" style="template" type="xsd:string"/>
+                        <resource uri="{mode}/">
+                            <param name="mode" style="template" type="xsd:string"/>
+                            <method displayName="Travel Time P2P" id="6608" name="GET">
+                                <doc>Get point to point travel times.  This operation has a max constraint of 90 miles.</doc>
+                                <request>
+                                    <param name="mode" required="true" style="query" type="xsd:string">
+                                        <doc>travel mode Options drive bike or walk</doc>
+                                    </param>
+                                    <param name="srclat" required="true" style="query" type="xsd:integer">
+                                        <doc>source Latitude</doc>
+                                    </param>
+                                    <param name="srclng" required="true" style="query" type="xsd:integer">
+                                        <doc>source Longitude</doc>
+                                    </param>
+                                    <param name="tgtlat" required="true" style="query" type="xsd:integer">
+                                        <doc>target Latitude</doc>
+                                    </param>
+                                    <param name="tgtlng" required="true" style="query" type="xsd:integer">
+                                        <doc>target Longitude</doc>
+                                    </param>
+                                </request>
+                                <response>
+                                    <representation element="f6608:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="TravelTimeArea/">
+            <resource uri="v1/">
+                <resource uri="{lat},{lng}/">
+                    <param name="lat" style="template" type="xsd:string"/>
+                    <resource uri="{mode}/">
+                        <param name="mode" style="template" type="xsd:string"/>
+                        <resource uri="{timemin}/">
+                            <param name="timemin" style="template" type="xsd:string"/>
+                            <resource uri="{detail}/">
+                                <param name="detail" style="template" type="xsd:string"/>
+                                <method displayName="Travel Time Area" id="6607" name="GET">
+                                    <doc>Generate travel time polygons.  This operation has a max constraint of 60 minutes.</doc>
+                                    <request>
+                                        <param name="detail" required="true" style="query" type="xsd:boolean">
+                                            <doc>detailed polygon Options true or false</doc>
+                                        </param>
+                                        <param name="lat" required="true" style="query" type="xsd:integer">
+                                            <doc>latitude</doc>
+                                        </param>
+                                        <param name="lng" required="true" style="query" type="xsd:integer">
+                                            <doc>longitude</doc>
+                                        </param>
+                                        <param name="mode" required="true" style="query" type="xsd:string">
+                                            <doc>travel mode Options drive bike or walk</doc>
+                                        </param>
+                                        <param name="timemin" required="true" style="query" type="xsd:integer">
+                                            <doc>travel time in minutes Max of</doc>
+                                        </param>
+                                    </request>
+                                    <response>
+                                        <representation element="f6607:root" mediaType="application/json"/>
+                                    </response>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="ReverseGeocode/">
+            <resource uri="v1/">
+                <resource uri="{lat},{lng}/">
+                    <param name="lat" style="template" type="xsd:string"/>
+                    <resource uri="{detail}/">
+                        <param name="detail" style="template" type="xsd:string"/>
+                        <method displayName="Reverse Geocode" id="6606" name="GET">
+                            <doc>Convert point to address.</doc>
+                            <request>
+                                <param name="detail" required="true" style="query" type="xsd:boolean">
+                                    <doc>extended Detail Options true or false</doc>
+                                </param>
+                                <param name="lat" required="true" style="query" type="xsd:integer">
+                                    <doc>latitude</doc>
+                                </param>
+                                <param name="lng" required="true" style="query" type="xsd:integer">
+                                    <doc>longitude</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f6606:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="Geocode/">
+            <resource uri="v1/">
+                <resource uri="{address}/">
+                    <param name="address" style="template" type="xsd:string"/>
+                    <resource uri="{matchtype}/">
+                        <param name="matchtype" style="template" type="xsd:string"/>
+                        <method displayName="Geocode" id="6605" name="GET">
+                            <doc>Convert a named location to point.</doc>
+                            <request>
+                                <param name="address" required="true" style="query" type="xsd:string">
+                                    <doc>input address city st e g Austin TX state or zip code</doc>
+                                </param>
+                                <param name="matchtype" required="true" style="query" type="xsd:string">
+                                    <doc>match Type Options best or all</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f6605:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="BufferPoint/">
+            <resource uri="v1/">
+                <resource uri="{lat},{lng}/">
+                    <param name="lat" style="template" type="xsd:string"/>
+                    <resource uri="{distance}/">
+                        <param name="distance" style="template" type="xsd:string"/>
+                        <resource uri="{distanceunit}/">
+                            <param name="distanceunit" style="template" type="xsd:string"/>
+                            <resource uri="{buffertype}/">
+                                <param name="buffertype" style="template" type="xsd:string"/>
+                                <method displayName="Buffer Point" id="6604" name="GET">
+                                    <doc>Buffer a point</doc>
+                                    <request>
+                                        <param name="buffertype" required="true" style="query" type="xsd:string">
+                                            <doc>buffer Type Options round or square</doc>
+                                        </param>
+                                        <param name="distance" required="true" style="query" type="xsd:integer">
+                                            <doc>distance</doc>
+                                        </param>
+                                        <param name="distanceunit" required="true" style="query" type="xsd:string">
+                                            <doc>distance Unit Options meter or mile</doc>
+                                        </param>
+                                        <param name="lat" required="true" style="query" type="xsd:integer">
+                                            <doc>latitude</doc>
+                                        </param>
+                                        <param name="lng" required="true" style="query" type="xsd:integer">
+                                            <doc>longitude</doc>
+                                        </param>
+                                    </request>
+                                    <response>
+                                        <representation element="f6604:root" mediaType="application/json"/>
+                                    </response>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

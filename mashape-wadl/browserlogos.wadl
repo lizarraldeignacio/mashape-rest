@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>get the logos of your favorite browsers Doesn t get any better than that</doc>
+    <resources base="https://community-browser-logos.p.mashape.com/">
+        <resource uri="bl/">
+            <resource uri="getbyname/">
+                <resource uri="{browser}/">
+                    <param name="browser" style="template" type="xsd:string"/>
+                    <method displayName="Get browser logo" id="1534" name="GET">
+                        <request>
+                            <param name="browser" required="true" style="query" type="xsd:string">
+                                <doc>try chrome firefox safari</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>sentiFindr will help you analyze for sentiment your English texts from social media news and any other source you care about It swiftly tags sentiment with respect to certain target brand product person or any other object described with a phrase Like sentiment analysis in the text Sentiment analysis has never been so good yields positive tag</doc>
+    <resources base="https://dmitrykey-sentifind-v1.p.mashape.com/">
+        <resource uri="">
+            <method displayName="/" id="1802" name="GET">
+                <request>
+                    <param name="classifier" required="true" style="query" type="xsd:string">
+                        <doc>choose p default for favouring precision in classification precise but may miss some cases Choose r for favouring recall and system will try its best to tag all messages</doc>
+                    </param>
+                    <param name="context" required="true" style="query" type="xsd:string">
+                        <doc>the text snippet or full text that contains your target</doc>
+                    </param>
+                    <param name="target" required="true" style="query" type="xsd:string">
+                        <doc>target entity towards which you want to detect sentiment tag</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5169="urn:function:f5169">
+    <grammars>
+        <include href="Function5169.xsd"/>
+    </grammars>
+    <doc>world wide contact information provider Could extract from the name of a store a link or a given paragraph For an question please contact us at contact storysensecomputing com</doc>
+    <resources base="https://storysense.p.mashape.com/">
+        <resource uri="v6/">
+            <resource uri="web_numbers/">
+                <resource uri="merged_get/">
+                    <method displayName="Search by Name" id="5169" name="GET">
+                        <request>
+                            <param name="countryCode" required="true" style="query" type="xsd:string">
+                                <doc>located country of the store</doc>
+                            </param>
+                            <param name="latitude" required="true" style="query" type="xsd:string">
+                                <doc>location of the user instead of the location of the stores</doc>
+                            </param>
+                            <param name="location" required="true" style="query" type="xsd:string">
+                                <doc>where did the user want to find for the stores</doc>
+                            </param>
+                            <param name="longitude" required="true" style="query" type="xsd:string">
+                                <doc>location of the user instead of the location of the stores</doc>
+                            </param>
+                            <param name="searchInput" required="true" style="query" type="xsd:string">
+                                <doc>name of the store</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f5169:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

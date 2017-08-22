@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>bOT libre s goal is to foster an open safe community of artificial intelligent chat bots and their developers BOT libre allows you to create your own artificial intelligent chat bot train them and share them with others You are free to use this website and create your own bots for personal commercial or recreation usages You can give your bot its own avatar images connect it to Twitter or IRC chat You can train your bot through interacting with it or using chat logs You can program your bot using a th generational state machine scripting language Self You can import data from the web into your bot s memory such as words from Wiktionary or information from Freebase You can create a bot to act as your own website avatar You can create a bot to provide customer service or technical support for your products or services BOT libre is a website produced and hosted by Paphus Solutions Inc</doc>
+    <resources base="https://paphus-botlibre.p.mashape.com/">
+        <resource uri="form-get-all-instances/">
+            <method displayName="form-get-all-instances" id="1286" name="GET">
+                <doc>The form-get-all-instances API queries the details for all bot instances.</doc>
+                <request>
+                    <param name="application" required="true" style="query" type="xsd:string">
+                        <doc>oPTIONAL The application ID If not passed the application will be anonymous</doc>
+                    </param>
+                    <param name="filterprivate" required="true" style="query" type="xsd:string">
+                        <doc>oPTIONAL Set if only the user s private bots should be returned</doc>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc>oPTIONAL The password of the user A token can also be used</doc>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:string">
+                        <doc>oPTIONAL The sort option for the query One of name date dailyConnects weeklyConnects monthlyConnects</doc>
+                    </param>
+                    <param name="tag" required="true" style="query" type="xsd:string">
+                        <doc>oPTIONAL The tag to filter the bots by</doc>
+                    </param>
+                    <param name="token" required="true" style="query" type="xsd:string">
+                        <doc>oPTIONAL The token of the user A token can be obtained through check user and is valid until reset</doc>
+                    </param>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>oPTIONAL The ID of the user The user must be registered with BOT libre If not passed the user will be anonymous The user is required to query private bots</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="form-check-user/">
+            <method displayName="form-check-user" id="1285" name="GET">
+                <doc>The form-check-user API validates user, and returns the user's details.</doc>
+                <request>
+                    <param name="application" required="true" style="query" type="xsd:string">
+                        <doc>oPTIONAL The application ID If not passed the application will be anonymous</doc>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc>rEQUIRED The password of the user A token can also be used</doc>
+                    </param>
+                    <param name="token" required="true" style="query" type="xsd:string">
+                        <doc>rEQUIRED The token of the user A token can be obtained through check user and is valid until reset</doc>
+                    </param>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>rEQUIRED The ID of the user The user must be registered with BOT libre If not passed the user will be anonymous The user is required if the bot is private</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="form-check-instance/">
+            <method displayName="form-check-instance" id="1284" name="GET">
+                <doc>The form-check-instance API validates that a bot ID or name exists, and returns the bot's details.</doc>
+                <request>
+                    <param name="application" required="true" style="query" type="xsd:string">
+                        <doc>oPTIONAL The application ID If not passed the application will be anonymous</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>rEQUIRED The ID of the bot to validate The bot s name can also be used but the ID is better as it is guaranteed to be unique</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>rEQUIRED The nameof the bot to validate The bot s ID can also be used</doc>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc>oPTIONAL The password of the user A token can also be used</doc>
+                    </param>
+                    <param name="token" required="true" style="query" type="xsd:string">
+                        <doc>oPTIONAL The token of the user A token can be obtained through check user and is valid until reset</doc>
+                    </param>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>oPTIONAL The ID of the user The user must be registered with BOT libre If not passed the user will be anonymous The user is required if the bot is private</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="form-chat/">
+            <method displayName="form-chat" id="1283" name="GET">
+                <doc>The form-chat API receives a chat message and returns the chat bot's reply as an XML document.</doc>
+                <request>
+                    <param name="application" required="true" style="query" type="xsd:string">
+                        <doc>oPTIONAL The application ID If not passed the application will be anonymous</doc>
+                    </param>
+                    <param name="conversation" required="true" style="query" type="xsd:string">
+                        <doc>oPTIONAL The conversation ID for the current conversation This must not be passed on the first message but will be returned by the response and should be used for all subsequent messages in the conversation</doc>
+                    </param>
+                    <param name="correction" required="true" style="query" type="xsd:string">
+                        <doc>oPTIONAL A boolean that defines the chat message is a correction to the bot s last answer</doc>
+                    </param>
+                    <param name="disconnect" required="true" style="query" type="xsd:string">
+                        <doc>oPTIONAL A boolean that defines the end of the conversation</doc>
+                    </param>
+                    <param name="emote" required="true" style="query" type="xsd:string">
+                        <doc>oPTIONAL A emotion to tag the message with This is one of LOVE LIKE DISLIKE HATE RAGE ANGER CALM SERENE ECSTATIC HAPPY SAD CRYING PANIC AFRAID CONFIDENT COURAGEOUS SURPRISE BORED LAUGHTER SERIOUS</doc>
+                    </param>
+                    <param name="includequestion" required="true" style="query" type="xsd:string">
+                        <doc>oPTIONAL A boolean that indicates the question should be included in the response</doc>
+                    </param>
+                    <param name="instance" required="true" style="query" type="xsd:string">
+                        <doc>rEQUIRED The ID of the bot to chat with The bot s name can also be used but the ID is better as it is guaranteed to be unique</doc>
+                    </param>
+                    <param name="message" required="true" style="query" type="xsd:string">
+                        <doc>oPTIONAL The chat message to send to the bot The message can be omitted if you wish the bot to start the conversation if the bot has a greeting set The message must be encoded in the URI</doc>
+                    </param>
+                    <param name="offensive" required="true" style="query" type="xsd:string">
+                        <doc>oPTIONAL A boolean that defines the bot s last answer as offensive The message will be flagged for the bot s administrator to review</doc>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc>oPTIONAL The password of the user who is sending the message A token can also be used</doc>
+                    </param>
+                    <param name="token" required="true" style="query" type="xsd:string">
+                        <doc>oPTIONAL The token of the user who is sending the message A token can be obtained through check user and is valid until reset</doc>
+                    </param>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>oPTIONAL The ID of the user who is sending the message The user must be registered with BOT libre If not passed the user will be anonymous The user is required if the bot is private The user password are only required on the first message</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

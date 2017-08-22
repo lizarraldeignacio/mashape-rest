@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>a web service that converts Google Public posts to RSS feed</doc>
+    <resources base="https://petarov-syndicate-g.p.mashape.com/">
+        <resource uri="fetch/">
+            <resource uri="{gid}/">
+                <param name="gid" style="template" type="xsd:string"/>
+                <method displayName="/fetch" id="3883" name="GET">
+                    <doc>Fetch Google Plus Posts</doc>
+                    <request>
+                        <param name="gid" required="true" style="query" type="xsd:string">
+                            <doc>google Plus ID Either a string or numeric value</doc>
+                        </param>
+                        <param name="maxresults" required="true" style="query" type="xsd:string">
+                            <doc>maximum posts</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

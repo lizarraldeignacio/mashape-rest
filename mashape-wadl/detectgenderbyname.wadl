@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2946="urn:function:f2946">
+    <grammars>
+        <include href="Function2946.xsd"/>
+    </grammars>
+    <doc>using this API you can easily get the gender based on a first name for free There are currently over names in the databases both English European and Asian names are included The database is constantly updated based on statistical data from various countries This FREE api allows you to easily detect if a name is female or male</doc>
+    <resources base="https://detectgender.p.mashape.com/">
+        <resource uri="">
+            <method displayName="/" id="2946" name="GET">
+                <doc>Detect the gender based on the first name.</doc>
+                <request>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>name to detect the gender of If the string consists of multiple words i e John Doe only the first name will be used</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2946:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

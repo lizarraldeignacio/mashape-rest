@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2387="urn:function:f2387" xmlns:f2388="urn:function:f2388" xmlns:f2390="urn:function:f2390">
+    <grammars>
+        <include href="Function2390.xsd"/>
+        <include href="Function2388.xsd"/>
+        <include href="Function2387.xsd"/>
+    </grammars>
+    <doc>a web API for NYC food service establishment health inspection results All information is provided by NYC Open Data No key or authentication is required to gain access to the API The API was implemented using a REST like interface and is also CORS friendly The API provides JSON and XML endpoints for accessing the restaurant information default is JSON</doc>
+    <resources base="https://drrobotmck-nyc-health-inspection-results-v1.p.mashape.com/">
+        <resource uri="violations/">
+            <method displayName="Violations" id="2390" name="GET">
+                <doc>Returns a list of all inspection violation codes and description</doc>
+                <request/>
+                <response>
+                    <representation element="f2390:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="restaurants/">
+            <method displayName="Search" id="2389" name="GET">
+                <doc>Search for restaurants based on certain parameters</doc>
+                <request>
+                    <param name="boro" required="true" style="query" type="xsd:string">
+                        <doc>search for restaurants by boro</doc>
+                    </param>
+                    <param name="cuisine" required="true" style="query" type="xsd:string">
+                        <doc>search for restaurants by cuisine type</doc>
+                    </param>
+                    <param name="currentGrade" required="true" style="query" type="xsd:string">
+                        <doc>search for restaurants by current grade</doc>
+                    </param>
+                    <param name="dba" required="true" style="query" type="xsd:string">
+                        <doc>search for restaurants by name</doc>
+                    </param>
+                    <param name="zipCode" required="true" style="query" type="xsd:string">
+                        <doc>search for restaurants by zip code</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="camis/">
+            <resource uri="{camis}/">
+                <param name="camis" style="template" type="xsd:string"/>
+                <method displayName="CAMIS search" id="2388" name="GET">
+                    <doc>Search for restaurant by NYC CAMIS identification number</doc>
+                    <request>
+                        <param name="camis" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f2388:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="actions/">
+            <method displayName="Actions" id="2387" name="GET">
+                <doc>Returns a list of all inspection action codes and description</doc>
+                <request/>
+                <response>
+                    <representation element="f2387:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

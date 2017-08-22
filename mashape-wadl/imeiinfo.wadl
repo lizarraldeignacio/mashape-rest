@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f146="urn:function:f146">
+    <grammars>
+        <include href="Function146.xsd"/>
+    </grammars>
+    <doc>every mobile phone GSM modem or device with a built in phone modem has a unique digit IMEI number Based on this number you can check some information about the device eg brand or model Enter the IMEI number below</doc>
+    <resources base="https://ismaelc-imei-info.p.mashape.com/">
+        <resource uri="checkimei/">
+            <method displayName="Check IMEI" id="146" name="POST">
+                <doc>Every mobile phone, GSM modem or device with a built-in phone / modem has a unique 15 digit IMEI number. Based on this number, you can check some information about the device, eg brand or model. Enter the IMEI number below:</doc>
+                <request/>
+                <response>
+                    <representation element="f146:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

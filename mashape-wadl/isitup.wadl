@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f676="urn:function:f676">
+    <grammars>
+        <include href="Function676.xsd"/>
+    </grammars>
+    <doc>allows you to check if a given website is up or down with various useful data</doc>
+    <resources base="https://isitup.p.mashape.com/">
+        <resource uri="{domain}.txt/">
+            <param name="domain" style="template" type="xsd:string"/>
+            <method displayName="Text" id="677" name="GET">
+                <request>
+                    <param name="domain" required="true" style="query" type="xsd:string">
+                        <doc>the domain to check</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="{domain}.json/">
+            <param name="domain" style="template" type="xsd:string"/>
+            <method displayName="JSON" id="676" name="GET">
+                <request>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>the callback to wrap around the JSON</doc>
+                    </param>
+                    <param name="domain" required="true" style="query" type="xsd:string">
+                        <doc>the domain to check</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f676:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

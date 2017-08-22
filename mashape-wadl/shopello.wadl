@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2047="urn:function:f2047" xmlns:f2048="urn:function:f2048" xmlns:f2049="urn:function:f2049" xmlns:f2052="urn:function:f2052" xmlns:f2053="urn:function:f2053">
+    <grammars>
+        <include href="Function2053.xsd"/>
+        <include href="Function2052.xsd"/>
+        <include href="Function2049.xsd"/>
+        <include href="Function2048.xsd"/>
+        <include href="Function2047.xsd"/>
+    </grammars>
+    <doc>shopello provides an API for a product search engine offering our partners to display products</doc>
+    <resources base="https://shopello.p.mashape.com/">
+        <resource uri="1/">
+            <resource uri="stores.json/">
+                <method displayName="Stores" id="2053" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f2053:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="stores/">
+                <resource uri="{id}.json/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Store" id="2052" name="GET">
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f2052:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="related_products/">
+                <resource uri="{id}.json/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Related products" id="2051" name="GET">
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>product ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="products.json/">
+                <method displayName="Products" id="2050" name="GET">
+                    <request>
+                        <param name="categoryId" required="true" style="query" type="xsd:string">
+                            <doc>one or more category id s</doc>
+                        </param>
+                        <param name="fields" required="true" style="query" type="xsd:string">
+                            <doc>which fields to fetch comma separated</doc>
+                        </param>
+                        <param name="groupBy" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="hasImages" required="true" style="query" type="xsd:integer">
+                            <doc>or</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:integer">
+                            <doc/>
+                        </param>
+                        <param name="mode" required="true" style="query" type="xsd:string">
+                            <doc>when passed along it will match each word in the query</doc>
+                        </param>
+                        <param name="offset" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="order" required="true" style="query" type="xsd:string">
+                            <doc>aSC or DESC</doc>
+                        </param>
+                        <param name="orderBy" required="true" style="query" type="xsd:string">
+                            <doc>price name clicks popular or relevance</doc>
+                        </param>
+                        <param name="priceMax" required="true" style="query" type="xsd:integer">
+                            <doc/>
+                        </param>
+                        <param name="priceMin" required="true" style="query" type="xsd:integer">
+                            <doc/>
+                        </param>
+                        <param name="query" required="true" style="query" type="xsd:string">
+                            <doc>search query</doc>
+                        </param>
+                        <param name="storeId" required="true" style="query" type="xsd:string">
+                            <doc>one or more store id s</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="products/">
+                <resource uri="{id}.json/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Product" id="2049" name="GET">
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>product ID</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2049:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="categories/">
+                <resource uri="{id}.json/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Category" id="2048" name="GET">
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f2048:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="categories.json/">
+                <method displayName="Categories" id="2047" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f2047:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

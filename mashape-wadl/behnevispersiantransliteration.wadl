@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>with this API you can convert transliterate Persian text written in English letters called Pinglish or Finglish to Persian Farsi language script</doc>
+    <resources base="https://behnevis-string-transliteration-v1.p.mashape.com/">
+        <resource uri="convert_text_api.php/">
+            <method displayName="/convert_text_api.php" id="7499" name="GET">
+                <doc>Converts an input Latin string (max length 2048) to Farsi.</doc>
+                <request>
+                    <param name="latin" required="true" style="query" type="xsd:string">
+                        <doc>the Latin string to be converted to Farsi max length characters</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

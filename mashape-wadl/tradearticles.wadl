@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4390="urn:function:f4390">
+    <grammars>
+        <include href="Function4390.xsd"/>
+    </grammars>
+    <doc>the Trade News Articles API provides in depth news and articles written by Trade Specialists working in the Federal government The authors include staff from ITA as well as other Trade Promotion Coordinating Committee TPCC agencies such as Export Import Bank Overseas Private Investment Corporation OPIC U S Trade and Development Agency USTDA Small Business Administration SBA</doc>
+    <resources base="https://dataservices-trade-news-articles-v1.p.mashape.com/">
+        <resource uri="api.trade.gov/">
+            <resource uri="v2/">
+                <resource uri="trade_articles/">
+                    <resource uri="search/">
+                        <method displayName="/api.trade.gov/v2/trade_articles/search" id="4390" name="GET">
+                            <request/>
+                            <response>
+                                <representation element="f4390:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

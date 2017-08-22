@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f334="urn:function:f334">
+    <grammars>
+        <include href="Function334.xsd"/>
+    </grammars>
+    <doc>check domain name s availability at blazing speeds using this free API Currently we support com net org biz mobi and co domain search will be adding more soon</doc>
+    <resources base="https://domainsearch.p.mashape.com/">
+        <resource uri="index.php/">
+            <method displayName="Blazing Domain Availability Search" id="334" name="GET">
+                <doc>Check domain name availability at blazing speeds.</doc>
+                <request>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>name of the domain that you want to search for</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f334:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

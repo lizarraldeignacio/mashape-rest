@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f895="urn:function:f895" xmlns:f896="urn:function:f896" xmlns:f897="urn:function:f897" xmlns:f898="urn:function:f898" xmlns:f899="urn:function:f899" xmlns:f900="urn:function:f900" xmlns:f901="urn:function:f901" xmlns:f902="urn:function:f902" xmlns:f903="urn:function:f903" xmlns:f904="urn:function:f904" xmlns:f905="urn:function:f905" xmlns:f906="urn:function:f906" xmlns:f907="urn:function:f907" xmlns:f908="urn:function:f908" xmlns:f909="urn:function:f909" xmlns:f910="urn:function:f910" xmlns:f911="urn:function:f911" xmlns:f912="urn:function:f912" xmlns:f913="urn:function:f913" xmlns:f914="urn:function:f914" xmlns:f915="urn:function:f915" xmlns:f916="urn:function:f916" xmlns:f917="urn:function:f917" xmlns:f918="urn:function:f918" xmlns:f919="urn:function:f919" xmlns:f920="urn:function:f920" xmlns:f921="urn:function:f921" xmlns:f922="urn:function:f922" xmlns:f923="urn:function:f923" xmlns:f924="urn:function:f924" xmlns:f925="urn:function:f925" xmlns:f926="urn:function:f926" xmlns:f927="urn:function:f927" xmlns:f928="urn:function:f928" xmlns:f929="urn:function:f929">
+    <grammars>
+        <include href="Function929.xsd"/>
+        <include href="Function928.xsd"/>
+        <include href="Function927.xsd"/>
+        <include href="Function926.xsd"/>
+        <include href="Function925.xsd"/>
+        <include href="Function924.xsd"/>
+        <include href="Function923.xsd"/>
+        <include href="Function922.xsd"/>
+        <include href="Function921.xsd"/>
+        <include href="Function920.xsd"/>
+        <include href="Function919.xsd"/>
+        <include href="Function918.xsd"/>
+        <include href="Function917.xsd"/>
+        <include href="Function916.xsd"/>
+        <include href="Function915.xsd"/>
+        <include href="Function914.xsd"/>
+        <include href="Function913.xsd"/>
+        <include href="Function912.xsd"/>
+        <include href="Function911.xsd"/>
+        <include href="Function910.xsd"/>
+        <include href="Function909.xsd"/>
+        <include href="Function908.xsd"/>
+        <include href="Function907.xsd"/>
+        <include href="Function906.xsd"/>
+        <include href="Function905.xsd"/>
+        <include href="Function904.xsd"/>
+        <include href="Function903.xsd"/>
+        <include href="Function902.xsd"/>
+        <include href="Function901.xsd"/>
+        <include href="Function900.xsd"/>
+        <include href="Function899.xsd"/>
+        <include href="Function898.xsd"/>
+        <include href="Function897.xsd"/>
+        <include href="Function896.xsd"/>
+        <include href="Function895.xsd"/>
+    </grammars>
+    <doc>textAnalysis API provides customized Text Analysis Text Mining and Text Processing Services like Text Summarization Language Detection Text Classification Sentiment Analysis Word Tokenize Part of Speech POS Tagging Named Entity Recognition NER Stemmer Lemmatizer Chunker Parser Key Phrase Extraction Noun Phrase Extraction Sentence Segmentation Sentence Boundary Detection Grammar Checker and other Text Analysis Tasks It stands on the giant shoulders of NLP Tools such as NLTK TextBlob Pattern MBSP and etc You can test the services on our demo website TextAnalysisOnline and use the TextAnalysis API on Mashape If you have any questions or want any customized text analysis services you can contact us by email textanalysisapi gmail com</doc>
+    <resources base="https://textanalysis.p.mashape.com/">
+        <resource uri="textblob-word-tokenize/">
+            <method displayName="TextBlob Word Tokenize" id="929" name="POST">
+                <doc>Word Tokenize by TextBlob</doc>
+                <request/>
+                <response>
+                    <representation element="f929:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="textblob-word-singularize/">
+            <method displayName="TextBlob Word Singularize" id="928" name="POST">
+                <doc>Word Singularize by TextBlob</doc>
+                <request/>
+                <response>
+                    <representation element="f928:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="textblob-word-pluralize/">
+            <method displayName="TextBlob Word Pluralize" id="927" name="POST">
+                <doc>Word Pluralize by TextBlob</doc>
+                <request/>
+                <response>
+                    <representation element="f927:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="textblob-spelling-correction/">
+            <method displayName="TextBlob Spelling Correction" id="926" name="POST">
+                <doc>Spelling Correction by TextBlob</doc>
+                <request/>
+                <response>
+                    <representation element="f926:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="textblob-sentiment-analysis/">
+            <method displayName="TextBlob Sentiment Analysis" id="925" name="POST">
+                <doc>Sentiment Analysis by TextBlob</doc>
+                <request/>
+                <response>
+                    <representation element="f925:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="textblob-sentence-segmentation/">
+            <method displayName="TextBlob Sentence Segmentation" id="924" name="POST">
+                <doc>Sentence Segmentation or Sentence Boundary Detection by TextBlob</doc>
+                <request/>
+                <response>
+                    <representation element="f924:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="textblob-pos-tagging/">
+            <method displayName="TextBlob POS Tagging" id="923" name="POST">
+                <doc>Pos Tagging by TextBlob</doc>
+                <request/>
+                <response>
+                    <representation element="f923:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="textblob-parse/">
+            <method displayName="TextBlob Parse" id="922" name="POST">
+                <doc>Parse by TextBlob</doc>
+                <request/>
+                <response>
+                    <representation element="f922:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="textblob-noun-phrase-extraction/">
+            <method displayName="TextBlob Noun Phrase Extraction" id="921" name="POST">
+                <doc>Noun Phrase Extraction by TextBlob</doc>
+                <request/>
+                <response>
+                    <representation element="f921:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="pattern-word-tokenize/">
+            <method displayName="Pattern Word Tokenize" id="920" name="POST">
+                <doc>Word Tokenize by Pattern</doc>
+                <request/>
+                <response>
+                    <representation element="f920:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="pattern-word-superlative/">
+            <method displayName="Pattern Word Superlative" id="919" name="POST">
+                <doc>Word Superlative</doc>
+                <request/>
+                <response>
+                    <representation element="f919:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="pattern-word-singularize/">
+            <method displayName="Pattern Word Singularize" id="918" name="POST">
+                <doc>Word Singularize by Pattern</doc>
+                <request/>
+                <response>
+                    <representation element="f918:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="pattern-word-pluralize/">
+            <method displayName="Pattern Word Pluralize" id="917" name="POST">
+                <doc>Word Pluralize by Pattern</doc>
+                <request/>
+                <response>
+                    <representation element="f917:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="pattern-word-comparative/">
+            <method displayName="Pattern Word Comparative" id="916" name="POST">
+                <doc>Word Comparative by Pattern</doc>
+                <request/>
+                <response>
+                    <representation element="f916:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="pattern-sentiment-analysis/">
+            <method displayName="Pattern Sentiment Analysis" id="915" name="POST">
+                <doc>Sentiment Analysis by Pattern</doc>
+                <request/>
+                <response>
+                    <representation element="f915:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="pattern-sentence-segmentation/">
+            <method displayName="Pattern Sentence Segmentation" id="914" name="POST">
+                <doc>Sentence Segmentation by Pattern</doc>
+                <request/>
+                <response>
+                    <representation element="f914:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="pattern-pos-tagging/">
+            <method displayName="Pattern POS Tagging" id="913" name="POST">
+                <doc>Pos Tagging by Pattern</doc>
+                <request/>
+                <response>
+                    <representation element="f913:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="pattern-parse/">
+            <method displayName="Pattern Parse" id="912" name="POST">
+                <doc>Parse by Pattern</doc>
+                <request/>
+                <response>
+                    <representation element="f912:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="pattern-modality/">
+            <method displayName="Pattern Modality" id="911" name="POST">
+                <doc>Modality by Pattern</doc>
+                <request/>
+                <response>
+                    <representation element="f911:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="pattern-indefinite-article/">
+            <method displayName="Pattern Indefinite Article" id="910" name="POST">
+                <doc>Indefinite Article by Pattern</doc>
+                <request/>
+                <response>
+                    <representation element="f910:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="nltk-wordnet-word-lemmatizer/">
+            <method displayName="NLTK Wordnet Word Lemmatizer" id="909" name="POST">
+                <doc>NLTK wordnet word lemmatizer only for english word with pos tag</doc>
+                <request/>
+                <response>
+                    <representation element="f909:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="nltk-wordnet-lemmatizer/">
+            <method displayName="NLTK Wordnet Lemmatizer" id="908" name="POST">
+                <doc>Wordnet Lemmatizer by NLTK</doc>
+                <request/>
+                <response>
+                    <representation element="f908:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="nltk-word-tokenize/">
+            <method displayName="NLTK Word Tokenize" id="907" name="POST">
+                <doc>Word Tokenize by NLTK</doc>
+                <request/>
+                <response>
+                    <representation element="f907:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="nltk-snowball-stemmer/">
+            <method displayName="NLTK Snowball Stemmer" id="906" name="POST">
+                <doc>Snowball Stemmer by NLTK</doc>
+                <request/>
+                <response>
+                    <representation element="f906:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="nltk-sentence-segmentation/">
+            <method displayName="NLTK Sentence Segmentation" id="905" name="POST">
+                <doc>Sentence Segmentation or Sentence Boundary Detection by NLTK</doc>
+                <request/>
+                <response>
+                    <representation element="f905:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="nltk-pos-tagging/">
+            <method displayName="NLTK Pos Tagging" id="904" name="POST">
+                <doc>Pos Tagging by NLTK</doc>
+                <request/>
+                <response>
+                    <representation element="f904:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="nltk-porter-stemmer/">
+            <method displayName="NLTK Porter Stemmer" id="903" name="POST">
+                <doc>Porter Stemmer by NLTK</doc>
+                <request/>
+                <response>
+                    <representation element="f903:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="nltk-lancaster-stemmer/">
+            <method displayName="NLTK Lancaster Stemmer" id="902" name="POST">
+                <doc>Lancaster Stemmer by NLTK</doc>
+                <request/>
+                <response>
+                    <representation element="f902:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="mbsp-word-tokenize/">
+            <method displayName="MBSP Word Tokenize" id="901" name="POST">
+                <doc>Word Tokenize by MBSP</doc>
+                <request/>
+                <response>
+                    <representation element="f901:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="mbsp-word-lemmatize/">
+            <method displayName="MBSP Word Lemmatize" id="900" name="POST">
+                <doc>Word Lemmatize by MBSP</doc>
+                <request/>
+                <response>
+                    <representation element="f900:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="mbsp-pos-tagging/">
+            <method displayName="MBSP POS Tagging" id="899" name="POST">
+                <doc>POS Tagging by MBSP</doc>
+                <request/>
+                <response>
+                    <representation element="f899:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="mbsp-parse/">
+            <method displayName="MBSP Parse" id="898" name="POST">
+                <doc>Parse by MBSP</doc>
+                <request/>
+                <response>
+                    <representation element="f898:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="mbsp-chunk/">
+            <method displayName="MBSP Chunk" id="897" name="POST">
+                <doc>Chunk by MBSP</doc>
+                <request/>
+                <response>
+                    <representation element="f897:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="langid-language-detection/">
+            <method displayName="LangId Language Detection" id="896" name="POST">
+                <doc>Support about 100 languages (ISO 639-1 codes) , demo: http://textanalysisonline.com/langid-language-detection</doc>
+                <request/>
+                <response>
+                    <representation element="f896:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="segmenter/">
+            <method displayName="Chinese Word Segmenter" id="895" name="POST">
+                <doc>Chinese word segmenter</doc>
+                <request/>
+                <response>
+                    <representation element="f895:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

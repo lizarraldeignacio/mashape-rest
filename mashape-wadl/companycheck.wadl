@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1579="urn:function:f1579" xmlns:f1582="urn:function:f1582" xmlns:f1584="urn:function:f1584">
+    <grammars>
+        <include href="Function1584.xsd"/>
+        <include href="Function1582.xsd"/>
+        <include href="Function1579.xsd"/>
+    </grammars>
+    <doc>use the Company Check API platform to integrate company director financial and credit data in to your own software and bespoke applications With over million company and director records our API gives you direct access to information across the UK and Ireland Europe coming soon</doc>
+    <resources base="https://companycheck.p.mashape.com/">
+        <resource uri="directorSearch/">
+            <method displayName="Director Search" id="1584" name="GET">
+                <request>
+                    <param name="birthyear" required="true" style="query" type="xsd:integer">
+                        <doc>the year that the director was born in</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>the full or partial name of the director you want to look up</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>the page number of the results</doc>
+                    </param>
+                    <param name="postcode" required="true" style="query" type="xsd:string">
+                        <doc>a full or partial postcode for the director</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1584:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="directorBasic/">
+            <method displayName="Director Basic" id="1583" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>this is the Companies House ID of the director you want to look up</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="director/">
+            <method displayName="Director" id="1582" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>this is the Companies House ID of the director you want to look up</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1582:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="companySearch/">
+            <method displayName="Company Search" id="1581" name="GET">
+                <request>
+                    <param name="active" required="true" style="query" type="xsd:boolean">
+                        <doc>only return active companies must not also supply dissolved flag</doc>
+                    </param>
+                    <param name="address" required="true" style="query" type="xsd:string">
+                        <doc>a full or partial address for the company</doc>
+                    </param>
+                    <param name="assets" required="true" style="query" type="xsd:integer">
+                        <doc>assets in most recent accounts Accepts number or range in this format</doc>
+                    </param>
+                    <param name="cashatbank" required="true" style="query" type="xsd:integer">
+                        <doc>cash at Bank in most recent accounts Accepts number or range in this format</doc>
+                    </param>
+                    <param name="creditors" required="true" style="query" type="xsd:integer">
+                        <doc>creditors in most recent accounts Accepts number or range in this format</doc>
+                    </param>
+                    <param name="debtors" required="true" style="query" type="xsd:integer">
+                        <doc>debtors in most recent accounts Accepts number or range in this format</doc>
+                    </param>
+                    <param name="dissolved" required="true" style="query" type="xsd:boolean">
+                        <doc>only return dissolved companies must not also supply active flag</doc>
+                    </param>
+                    <param name="fixedassets" required="true" style="query" type="xsd:integer">
+                        <doc>fixed Assets in most recent accounts Accepts number or range in this format</doc>
+                    </param>
+                    <param name="liabilities" required="true" style="query" type="xsd:integer">
+                        <doc>liabilities in most recent accounts Accepts number or range in this format</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>the full or partial name of the company you want to look up</doc>
+                    </param>
+                    <param name="networth" required="true" style="query" type="xsd:integer">
+                        <doc>net Worth in most recent accounts Accepts number or range in this format</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>the page number of the results</doc>
+                    </param>
+                    <param name="postcode" required="true" style="query" type="xsd:string">
+                        <doc>a full or partial postcode for the company</doc>
+                    </param>
+                    <param name="siccode" required="true" style="query" type="xsd:integer">
+                        <doc>sIC code or range of acceptable numbers Accepts number or range in this format</doc>
+                    </param>
+                    <param name="turnover" required="true" style="query" type="xsd:integer">
+                        <doc>turnover in most recent accounts Accepts number or range in this format</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="companyBasic/">
+            <method displayName="Company Basic" id="1580" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>this is the Companies House ID of the company you want to look up</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="company/">
+            <method displayName="Company" id="1579" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>this is the Companies House ID of the company you want to look up</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1579:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2906="urn:function:f2906" xmlns:f2907="urn:function:f2907" xmlns:f2908="urn:function:f2908" xmlns:f2909="urn:function:f2909" xmlns:f2910="urn:function:f2910" xmlns:f2911="urn:function:f2911" xmlns:f2912="urn:function:f2912">
+    <grammars>
+        <include href="Function2911.xsd"/>
+        <include href="Function2912.xsd"/>
+        <include href="Function2910.xsd"/>
+        <include href="Function2908.xsd"/>
+        <include href="Function2909.xsd"/>
+        <include href="Function2906.xsd"/>
+        <include href="Function2907.xsd"/>
+    </grammars>
+    <doc>the Biteasy Blockchain REST API provides you with a convenient powerful and simple way to read data from the bitcoin network and build your own services with it</doc>
+    <resources base="https://community-biteasy.p.mashape.com/">
+        <resource uri="transactions/">
+            <method displayName="GET /transactions" id="2911" name="GET">
+                <doc>Returns an array of paginated transactions which can optionally be fltered.</doc>
+                <request>
+                    <param name="address" required="true" style="query" type="xsd:string">
+                        <doc>the incoming AND the outgoing address of the transactions</doc>
+                    </param>
+                    <param name="blockHash" required="true" style="query" type="xsd:string">
+                        <doc>the block SHA hash which the transactions must belong to</doc>
+                    </param>
+                    <param name="confidence" required="true" style="query" type="xsd:string">
+                        <doc>the confidence type of the transactions Allowed values are BUILDING DEAD PENDING and UNCONFIRMED</doc>
+                    </param>
+                    <param name="fromAddress" required="true" style="query" type="xsd:string">
+                        <doc>the incoming address of the transactions</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>default The page offset that needs to be fetched</doc>
+                    </param>
+                    <param name="perPage" required="true" style="query" type="xsd:string">
+                        <doc>default The number of transactions per page that needs to be fetched</doc>
+                    </param>
+                    <param name="toAddress" required="true" style="query" type="xsd:string">
+                        <doc>the outgoing address of the transactions</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2911:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="GET /transactions/{hash}" id="2912" name="GET">
+                <doc>Returns information about a specifc transaction.</doc>
+                <request>
+                    <param name="hash" required="true" style="query" type="xsd:string">
+                        <doc>the SHA hash of the block that needs to be fetched</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2912:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="search/">
+            <method displayName="GET /search" id="2910" name="GET">
+                <doc>Auto-detects the type of the blockchain data that are requested and searches for them. Possible  values for the type feld in the response body are BLOCK, ADDRESS and TRANSACTION</doc>
+                <request>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>the query string It can be a block hash block height transaction hash address or a hash</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2910:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="blocks/">
+            <method displayName="GET /blocks" id="2908" name="GET">
+                <doc>Returns an array of paginated blocks which can optionally be filtered.</doc>
+                <request>
+                    <param name="height" required="true" style="query" type="xsd:string">
+                        <doc>the height of the blocks</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>default The page offset that needs to be fetched</doc>
+                    </param>
+                    <param name="perPage" required="true" style="query" type="xsd:string">
+                        <doc>default The number of blocks per page that needs to be fetched</doc>
+                    </param>
+                    <param name="solvedAt" required="true" style="query" type="xsd:string">
+                        <doc>the ISO date formatted as YYYY MM DD e g which the blocks were solved</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2908:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="GET /blocks/{hash}" id="2909" name="GET">
+                <doc>Returns information about a specifc block.</doc>
+                <request>
+                    <param name="hash" required="true" style="query" type="xsd:string">
+                        <doc>the SHA hash of the block that needs to be hash</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2909:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="addresses/">
+            <method displayName="GET /addresses" id="2906" name="GET">
+                <doc>Returns an array of paginated addresses which can optionally be fltered.</doc>
+                <request>
+                    <param name="address" required="true" style="query" type="xsd:string">
+                        <doc>an array of specific address values</doc>
+                    </param>
+                    <param name="hash" required="true" style="query" type="xsd:string">
+                        <doc>an array of specific hash values</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2906:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="GET /addresses/{address}" id="2907" name="GET">
+                <doc>Returns information about a specifc bitcoin address.</doc>
+                <request>
+                    <param name="address" required="true" style="query" type="xsd:string">
+                        <doc>the address that needs to be fetched</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2907:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>pyrus redefines collaborative work It is a platform that supports workplace exchanges transparently manages responsibility for every unit of work and streamlines workflows Pyrus makes your work day smarter by automating your tedious yet essential business processes You can set up customized workflows with just a few clicks such as automatically requesting approvals routing business forms or simply delegating routine tasks to several employees It s easy to implement it saves both you and your colleagues time and lets you get back to actually getting work done</doc>
+    <resources base="https://daria-pyrus-v1.p.mashape.com/">
+        <resource uri="pyrus.com/">
+            <method displayName="Business" id="6640" name="GET">
+                <doc>Collaboration</doc>
+                <request>
+                    <param name="description" required="true" style="query" type="xsd:string">
+                        <doc>pyrus redefines collaborative work It is a platform that supports workplace exchanges transparently manages responsibility for every unit of work and streamlines workflows You can set up customized workflows with just a few clicks such as automatically requesting approvals routing business forms or simply delegating routine tasks to several employees It s easy to implement it saves both you and your colleagues time and lets you get back to actually getting work done</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6618="urn:function:f6618" xmlns:f6619="urn:function:f6619" xmlns:f6620="urn:function:f6620" xmlns:f6621="urn:function:f6621" xmlns:f6622="urn:function:f6622" xmlns:f6623="urn:function:f6623" xmlns:f6624="urn:function:f6624" xmlns:f6625="urn:function:f6625">
+    <grammars>
+        <include href="Function6625.xsd"/>
+        <include href="Function6624.xsd"/>
+        <include href="Function6623.xsd"/>
+        <include href="Function6622.xsd"/>
+        <include href="Function6621.xsd"/>
+        <include href="Function6620.xsd"/>
+        <include href="Function6619.xsd"/>
+        <include href="Function6618.xsd"/>
+    </grammars>
+    <doc>document conversion suite provides cloud API to create PDF and multipage TIFF from various document sources Also It could convert PDF file to Microsoft Word format</doc>
+    <resources base="https://petadata-document-conversion-suite.p.mashape.com/">
+        <resource uri="DownloadConvertedFile/">
+            <method displayName="DownloadConvertedFile" id="6626" name="GET">
+                <doc>Download converted file from server.</doc>
+                <request>
+                    <param name="taskid" required="true" style="query" type="xsd:string">
+                        <doc>task id of conversion job</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="DeleteTask/">
+            <method displayName="DeleteTask" id="6625" name="DELETE">
+                <doc>Deletes conversion task from server</doc>
+                <request>
+                    <param name="taskid" required="true" style="query" type="xsd:string">
+                        <doc>task id of conversion task</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6625:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="CheckConversionStatus/">
+            <method displayName="CheckConversionStatus" id="6624" name="GET">
+                <doc>Returns current status of conversion job.</doc>
+                <request>
+                    <param name="taskid" required="true" style="query" type="xsd:string">
+                        <doc>task id of conversion job</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6624:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="ConvertHTML/">
+            <method displayName="AddToWebConversionQueueJson" id="6623" name="POST">
+                <doc>Creates web conversion job and returns id of task</doc>
+                <request/>
+                <response>
+                    <representation element="f6623:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="AddToTIFFConversionQueueV2/">
+            <method displayName="AddToTIFFConversionQueueJson" id="6622" name="POST">
+                <doc>Creates TIFF conversion job and returns id of task</doc>
+                <request/>
+                <response>
+                    <representation element="f6622:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="AddToTIFFConversionQueue/">
+            <method displayName="AddToTIFFConversionQueue" id="6621" name="POST">
+                <doc>Creates TIFF conversion job and returns id of task</doc>
+                <request/>
+                <response>
+                    <representation element="f6621:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="AddToPDFConversionQueueV2/">
+            <method displayName="AddToPDFConversionQueueJson" id="6620" name="POST">
+                <doc>Creates PDF conversion job and returns id of task</doc>
+                <request/>
+                <response>
+                    <representation element="f6620:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="AddToPDFConversionQueue/">
+            <method displayName="AddToPDFConversionQueue" id="6619" name="POST">
+                <doc>Creates PDF conversion job and returns id of task</doc>
+                <request/>
+                <response>
+                    <representation element="f6619:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="AddToDOCXConversionQueueV2/">
+            <method displayName="AddToDOCXConversionQueueJson" id="6618" name="POST">
+                <doc>Creates PDF to Microsoft Word (DocX) conversion task</doc>
+                <request/>
+                <response>
+                    <representation element="f6618:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

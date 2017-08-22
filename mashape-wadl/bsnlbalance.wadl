@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6441="urn:function:f6441">
+    <grammars>
+        <include href="Function6441.xsd"/>
+    </grammars>
+    <doc>using this API you can check any BSNL prepaid number balance and account information</doc>
+    <resources base="https://devru-bsnl-balance-v1.p.mashape.com/">
+        <resource uri="balanceGSM.php/">
+            <method displayName="GSM Balance" id="6441" name="GET">
+                <doc>Get Account Details of BSNL GSM number</doc>
+                <request>
+                    <param name="mobileno" required="true" style="query" type="xsd:string">
+                        <doc>enter GSM mobile Number here</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6441:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2764="urn:function:f2764">
+    <grammars>
+        <include href="Function2764.xsd"/>
+    </grammars>
+    <doc>mopapp tracks analyzes the sales and downloads of your mobile apps It automatically integrates with iTunes App Store Android Market WP Markerplace BlackBerry App World Amazon Appstore GetJar Handango and MobiHand This API can be used to programmatically export sales to be analyzed in your own systems or to insert new ones</doc>
+    <resources base="https://mopapp-mopapp.p.mashape.com/">
+        <resource uri="sales/">
+            <resource uri="list.json/">
+                <method displayName="Get Sales" id="2764" name="GET">
+                    <doc>Extract the sales of your applications in raw format</doc>
+                    <request>
+                        <param name="account" required="true" style="query" type="xsd:string">
+                            <doc>your account name chosen when you signed up</doc>
+                        </param>
+                        <param name="application" required="true" style="query" type="xsd:integer">
+                            <doc>the application ID as assigned by Mopapp once you register the application To find out this ID go to My Account Applications and copy the value of the Mopapp ID column for the desired application</doc>
+                        </param>
+                        <param name="apporinappsales" required="true" style="query" type="xsd:integer">
+                            <doc>to include app and or in app sales Possible values to include both app and in app sales to include only app sales to include only in app purchases</doc>
+                        </param>
+                        <param name="country" required="true" style="query" type="xsd:string">
+                            <doc>the two letter code representing the customer s country For example US for USA IT for Italy DE for Germany etc</doc>
+                        </param>
+                        <param name="currency" required="true" style="query" type="xsd:string">
+                            <doc>the three letter code for the currency used in the sale Possible values are USD EUR GBP CAD JPY AUD and INR Note that the currency is totally independent from the country so for example an American customer might purchase in USD but a German customer might purchase in USD too not necessarily in EUR it usually depends on the store settings and the customer preferences</doc>
+                        </param>
+                        <param name="datefrom" required="true" style="query" type="xsd:string">
+                            <doc>the start date of the time range to include in the result set in one of the following formats yyyy MM dd HH mm ss or yyyy MM dd</doc>
+                        </param>
+                        <param name="dateto" required="true" style="query" type="xsd:string">
+                            <doc>the end date of the time range to include in the result set in one of the following formats yyyy MM dd HH mm ss or yyyy MM dd</doc>
+                        </param>
+                        <param name="key" required="true" style="query" type="xsd:string">
+                            <doc>your secret API key to be found under https www mopapp com my api</doc>
+                        </param>
+                        <param name="page" required="true" style="query" type="xsd:integer">
+                            <doc>since the API returns a maximus of records per call the result set is paginated and this parameter is the number based of the page to retrieve It s by default The totalPages parameter in the output will tell you the total number of pages you can retrieve with the specified filters</doc>
+                        </param>
+                        <param name="platform" required="true" style="query" type="xsd:integer">
+                            <doc>the type of the platform to filter for Possible values for Custom for BlackBerry for iPhone for Android for Symbian for Pre for Windows Phone for iPad for iPhone iPad</doc>
+                        </param>
+                        <param name="store" required="true" style="query" type="xsd:integer">
+                            <doc>the type of the store to filter for Possible values for Custom for Handango for MobiHand for RIM App World for Apple iTunes for Android Market paid apps for GetJar for Android Market free apps for WP Marketplace for Amazon Appstore</doc>
+                        </param>
+                        <param name="storeaccount" required="true" style="query" type="xsd:integer">
+                            <doc>the store account ID as assigned by Mopapp when you register it To find out this ID go to My Account Store Accounts and copy the value of the Mopapp ID column for the desired account</doc>
+                        </param>
+                        <param name="version" required="true" style="query" type="xsd:string">
+                            <doc>the version of the API function Currently it s just</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2764:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

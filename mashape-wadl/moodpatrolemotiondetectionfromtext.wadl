@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6597="urn:function:f6597">
+    <grammars>
+        <include href="Function6597.xsd"/>
+    </grammars>
+    <doc>moodPatrol offers developers a tool to analyze texts and extract the underlying emotions Go beyond simple sentiment analysis and enrich your apps to make them more human centered Easily detect Plutchik s basic emotions and a wide variety of finer emotions from your texts Our API uses sophisticated text analysis to find emotion patterns in text Create more human centered apps by understanding how your users feel</doc>
+    <resources base="https://shl-mp.p.mashape.com/">
+        <resource uri="webresources/">
+            <resource uri="jammin/">
+                <resource uri="emotionV2/">
+                    <method displayName="getEmotions" id="6597" name="POST">
+                        <doc>Detect the emotions from the given text</doc>
+                        <request/>
+                        <response>
+                            <representation element="f6597:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

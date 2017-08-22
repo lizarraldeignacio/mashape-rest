@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2818="urn:function:f2818">
+    <grammars>
+        <include href="Function2818.xsd"/>
+    </grammars>
+    <doc>howdy Developer if you are looking for a weather API then you search is over Metwit born as a crowdsourced platform for gathering real time weather reports from real people After more then ten thousand users started to using our apps and send a massive amount of reports we decided to release those precious reports through our APIs And that s not all we re also offering a single gateway for multiple hard to parse sources of forecasts like NOAA and we re enhancing them with social data like photos tweets etc that we leverage from existing social networks If you want to try it without a credit card please go to http metwit com weather api</doc>
+    <resources base="https://metwit-weather.p.mashape.com/">
+        <resource uri="weather/">
+            <method displayName="get_weather" id="2818" name="GET">
+                <doc>Return current real-time weather and forecast in a location</doc>
+                <request>
+                    <param name="locationLat" required="true" style="query" type="xsd:integer">
+                        <doc>the latitude of the location</doc>
+                    </param>
+                    <param name="locationLng" required="true" style="query" type="xsd:string">
+                        <doc>the longitude of the location</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2818:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

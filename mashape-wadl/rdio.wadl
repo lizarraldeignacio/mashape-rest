@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>rdio has millions of songs from massive hits to rare gems to cult classics with more added every week It s more music than you could listen to in a lifetime</doc>
+    <resources base="https://mashape-community-rdio.p.mashape.com/">
+        <resource uri="userFollowing/">
+            <method displayName="userFollowing" id="1842" name="POST">
+                <doc>Get a list of users that a user follows.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="userFollowers/">
+            <method displayName="userFollowers" id="1841" name="POST">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="searchSuggestions/">
+            <method displayName="searchSuggestions" id="1840" name="POST">
+                <doc>Match the supplied prefix against artists, albums, tracks, playlists and people in the Rdio system. Return the first ten matches.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="search/">
+            <method displayName="search" id="1839" name="POST">
+                <doc>Search for artists, albums, tracks, users or all kinds of objects.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="removeFromCollection/">
+            <method displayName="removeFromCollection" id="1838" name="POST">
+                <doc>Remove tracks or playlists from the current user's collection.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getUserPlaylists/">
+            <method displayName="getUserPlaylists" id="1837" name="POST">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getTracksInCollection/">
+            <method displayName="getTracksInCollection" id="1836" name="POST">
+                <doc>Get all of the tracks in the user's collection.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getTracksForArtistInCollection/">
+            <method displayName="getTracksForArtistInCollection" id="1835" name="POST">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getTracksForArtist/">
+            <method displayName="getTracksForArtist" id="1834" name="POST">
+                <doc>Get all of the tracks by this artist.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getTracksForAlbumInCollection/">
+            <method displayName="getTracksForAlbumInCollection" id="1833" name="POST">
+                <doc>Which tracks on the given album are in the user's collection.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getTracksByISRC/">
+            <method displayName="getTracksByISRC" id="1832" name="POST">
+                <doc>Finds and returns tracks based on their International Standard Recording Code (ISRC).</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getTopCharts/">
+            <method displayName="getTopCharts" id="1831" name="POST">
+                <doc>Return the site-wide most popular items for a given type.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getPlaylists/">
+            <method displayName="getPlaylists" id="1830" name="POST">
+                <doc>Returns a user's playlists. If no user is specified then the current user will be used.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getPlaybackToken/">
+            <method displayName="getPlaybackToken" id="1829" name="POST">
+                <doc>Get an playback token. If you are using this for web playback you must supply a domain.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getObjectFromUrl/">
+            <method displayName="getObjectFromUrl" id="1828" name="POST">
+                <doc>Return the object that the supplied Rdio url is a representation of, or 404 error response if the url doesn't represent an object.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getObjectFromShortCode/">
+            <method displayName="getObjectFromShortCode" id="1827" name="POST">
+                <doc>Return the object that the supplied Rdio short-code is a representation of, or an error if the short-code is invalid.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getNewReleases/">
+            <method displayName="getNewReleases" id="1826" name="POST">
+                <doc>Return new albums released across a timeframe.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getHeavyRotation/">
+            <method displayName="getHeavyRotation" id="1825" name="POST">
+                <doc>Find the most popular artists or albums for a user, their friends or the whole site.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getArtistsInCollection/">
+            <method displayName="getArtistsInCollection" id="1824" name="POST">
+                <doc>Get all of the artist in a user's collection.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getArtistsForLabel/">
+            <method displayName="getArtistsForLabel" id="1823" name="POST">
+                <doc>Return the artists for a label.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getAlbumsInCollection/">
+            <method displayName="getAlbumsInCollection" id="1822" name="GET">
+                <doc>Get all of the albums in the user's collection.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getAlbumsForLabel/">
+            <method displayName="getAlbumsForLabel" id="1821" name="POST">
+                <doc>Return the albums for a label.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getAlbumsForArtistInCollection/">
+            <method displayName="getAlbumsForArtistInCollection" id="1820" name="POST">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getAlbumsForArtist/">
+            <method displayName="getAlbumsForArtist" id="1819" name="POST">
+                <doc>Return the albums by (or featuring) an artist.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getAlbumsByUPC/">
+            <method displayName="getAlbumsByUPC" id="1818" name="POST">
+                <doc>Finds and returns albums based on their Universal Product Code (UPC).</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="getActivityStream/">
+            <method displayName="getActivityStream" id="1817" name="POST">
+                <doc>Get the activity events for a user, a user's friends, or everyone on Rdio.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="get/">
+            <method displayName="get" id="1816" name="POST">
+                <doc>Fetch one or more objects from Rdio.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="findUser/">
+            <method displayName="findUser" id="1815" name="POST">
+                <doc>Find a user either by email address or by their username. Exactly one of email or vanityName must be supplied.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="addToCollection/">
+            <method displayName="addToCollection" id="1814" name="POST">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="addFriend/">
+            <method displayName="addFriend" id="1813" name="POST">
+                <doc>Add a friend to the current user.</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

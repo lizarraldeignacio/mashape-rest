@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6537="urn:function:f6537" xmlns:f6538="urn:function:f6538" xmlns:f6539="urn:function:f6539">
+    <grammars>
+        <include href="Function6539.xsd"/>
+        <include href="Function6538.xsd"/>
+        <include href="Function6537.xsd"/>
+    </grammars>
+    <doc>queekyPaint is an online drawing tool that creates videos of your work while you are painting Create your own speed paint drawing or visit the huge galleries and learn from the creation process of your favourite art</doc>
+    <resources base="https://ideas2it-queeky.p.mashape.com/">
+        <resource uri="queeky/">
+            <resource uri="api/">
+                <resource uri="v1/">
+                    <resource uri="configure/">
+                        <resource uri="{api_key}/">
+                            <param name="api_key" style="template" type="xsd:string"/>
+                            <method displayName="/queeky/api/v1/configure/{api_key}" id="6539" name="GET">
+                                <doc>Get API settings</doc>
+                                <request>
+                                    <param name="apiKey" required="true" style="query" type="xsd:string"/>
+                                </request>
+                                <response>
+                                    <representation element="f6539:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="app?image={url}/">
+            <param name="url" style="template" type="xsd:string"/>
+            <method displayName="/app?image={url}" id="6538" name="GET">
+                <doc>Edit an image with QueekyPaint</doc>
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f6538:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="app?apikey={api_key}/">
+            <param name="api_key" style="template" type="xsd:string"/>
+            <method displayName="/app?apikey={api_key}" id="6537" name="GET">
+                <doc>Allow QueekyPaint to post on your site</doc>
+                <request>
+                    <param name="apiKey" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f6537:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

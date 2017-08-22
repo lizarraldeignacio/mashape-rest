@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1705="urn:function:f1705" xmlns:f1706="urn:function:f1706" xmlns:f1707="urn:function:f1707" xmlns:f1708="urn:function:f1708" xmlns:f1709="urn:function:f1709" xmlns:f1710="urn:function:f1710" xmlns:f1711="urn:function:f1711">
+    <grammars>
+        <include href="Function1709.xsd"/>
+        <include href="Function1710.xsd"/>
+        <include href="Function1711.xsd"/>
+        <include href="Function1708.xsd"/>
+        <include href="Function1706.xsd"/>
+        <include href="Function1707.xsd"/>
+        <include href="Function1705.xsd"/>
+    </grammars>
+    <doc>full page performance and speed analysis with a real browser using Google PageSpeed and Yahoo YSlow Using the GTmetrix API you can integrate performance testing into your development environment or into your application The GTmetrix API is based on the Web Testing Framework WTF Testing Service API which is RESTful API Please contact us if you have any questions or comments about the API or if you end up using it in a cool and interesting way Signup instantly for free and get your API key at http gtmetrix com</doc>
+    <resources base="https://gtmetrix-gtmetrix.p.mashape.com/">
+        <resource uri="test/">
+            <method displayName="resources" id="1709" name="GET">
+                <doc>Access the test resource files. Note that the resources are only kept for 3 days. They should be downloaded on job completion if you wish to save them.</doc>
+                <request>
+                    <param name="resource" required="true" style="query" type="xsd:string">
+                        <doc>test resource to download screenshot har pagespeed pagespeed files yslow report pdf video</doc>
+                    </param>
+                    <param name="testId" required="true" style="query" type="xsd:string">
+                        <doc>the test ID returned after starting the test</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1709:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="results" id="1710" name="GET">
+                <doc>Fetch the results of a launched test, and when complete, access the test data and resources.</doc>
+                <request>
+                    <param name="testId" required="true" style="query" type="xsd:string">
+                        <doc>test ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1710:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="test" id="1711" name="POST">
+                <doc>Launch a real browser and begin performance test</doc>
+                <request/>
+                <response>
+                    <representation element="f1711:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="locations/">
+            <method displayName="locations" id="1708" name="GET">
+                <doc>Retrieve a list of possible testing locations</doc>
+                <request/>
+                <response>
+                    <representation element="f1708:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="browsers/">
+            <method displayName="browser" id="1706" name="GET">
+                <doc>Fetch a browser's details and supported features</doc>
+                <request>
+                    <param name="browserId" required="true" style="query" type="xsd:string">
+                        <doc>browser ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1706:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="browsers" id="1707" name="GET">
+                <doc>Retrieve a list of available browsers</doc>
+                <request/>
+                <response>
+                    <representation element="f1707:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="status/">
+            <method displayName="account" id="1705" name="GET">
+                <doc>Check your account credit status and next refill date.</doc>
+                <request/>
+                <response>
+                    <representation element="f1705:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

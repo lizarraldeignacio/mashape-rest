@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1202="urn:function:f1202" xmlns:f1203="urn:function:f1203">
+    <grammars>
+        <include href="Function1203.xsd"/>
+        <include href="Function1202.xsd"/>
+    </grammars>
+    <doc>generate quirky names for your project app server e g vivacious flood divine rooster</doc>
+    <resources base="https://acedev-project-name-generator-v1.p.mashape.com/">
+        <resource uri="without-number/">
+            <method displayName="Without Number" id="1203" name="GET">
+                <doc>Get a project name without a number. e.g. diligent-teddy</doc>
+                <request/>
+                <response>
+                    <representation element="f1203:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="with-number/">
+            <method displayName="With Number" id="1202" name="GET">
+                <doc>Generate a project name with a number at the end. e.g. sassy-bread-8374</doc>
+                <request/>
+                <response>
+                    <representation element="f1202:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

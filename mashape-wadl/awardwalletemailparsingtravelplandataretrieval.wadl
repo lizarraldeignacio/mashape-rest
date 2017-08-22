@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6611="urn:function:f6611">
+    <grammars>
+        <include href="Function6611.xsd"/>
+    </grammars>
+    <doc>our email parsing API is designed to retrieve travel itineraries from an email So we can receive a raw email with some type of itinerary such a hotel reservation of flight reservation we will extract all the relevant information and return it in a</doc>
+    <resources base="https://awardwallet-email-parsing---travel-plan-data-retrieval.p.mashape.com/">
+        <resource uri="parseEmail/">
+            <method displayName="parseEmail" id="6611" name="POST">
+                <doc>Parse itinerary and loyalty data information from email</doc>
+                <request>
+                    <param name="synchronous" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6611:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

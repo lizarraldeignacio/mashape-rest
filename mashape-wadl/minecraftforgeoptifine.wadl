@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>this api is used to get version list and download for Minectaft Forge and Optifine</doc>
+    <resources base="https://nitroxenon-minecraft-forge-v1.p.mashape.com/">
+        <resource uri="resources/">
+            <method displayName="minecraftResources" id="7212" name="GET">
+                <doc>Same to official source. Used to get resources file for MC 1.6.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="optifine/">
+            <resource uri="versionlist/">
+                <method displayName="optifineVersionList" id="7214" name="GET">
+                    <doc>Get Optifine version list.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="{optifineversion}/">
+                <param name="optifineversion" style="template" type="xsd:string"/>
+                <method displayName="downloadOptimize" id="7209" name="GET">
+                    <doc>Redirect to download Optimize.</doc>
+                    <request>
+                        <param name="optifineversion" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="versions/">
+            <resource uri="versions.json/">
+                <method displayName="minecraftVersionList" id="7213" name="GET">
+                    <doc>Return Minecraft version list in JSON format.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="{minecraftversion}/">
+                <param name="minecraftversion" style="template" type="xsd:string"/>
+                <resource uri="{minecraftversion}.json/">
+                    <param name="minecraftversion" style="template" type="xsd:string"/>
+                    <method displayName="downloadMinecraftJson" id="7208" name="GET">
+                        <doc>Redirect to download Minecraft .json file.</doc>
+                        <request>
+                            <param name="minecraftversion" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="{minecraftversion}.jar.sha1/">
+                    <param name="minecraftversion" style="template" type="xsd:string"/>
+                    <method displayName="downloadMinecraftJarChecksum" id="7207" name="GET">
+                        <doc>Return a .sha1 file used to checksum for downloadMinecraftJar method.</doc>
+                        <request>
+                            <param name="minecraftversion" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="{minecraftversion}.jar/">
+                    <param name="minecraftversion" style="template" type="xsd:string"/>
+                    <method displayName="downloadMinecraftJar" id="7206" name="GET">
+                        <doc>Redirect to download Minecraft .jar file.</doc>
+                        <request>
+                            <param name="minecraftversion" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="forge/">
+            <resource uri="versionlist/">
+                <method displayName="forgeVersionList" id="7211" name="GET">
+                    <doc>This method return a forge version list in JSON format.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="legacylist/">
+                <method displayName="forgeLegacyList" id="7210" name="GET">
+                    <doc>Return a JSON format file of http://files.minecraftforge.net/minecraftforge/index_legacy.html .</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="getforge/">
+                <resource uri="{minecraftversion}/">
+                    <param name="minecraftversion" style="template" type="xsd:string"/>
+                    <resource uri="{forgeversion}/">
+                        <param name="forgeversion" style="template" type="xsd:string"/>
+                        <method displayName="downloadForgeInstaller" id="7205" name="GET">
+                            <doc>Redirect to download Forge Installer.</doc>
+                            <request>
+                                <param name="forgeversion" required="true" style="query" type="xsd:string"/>
+                                <param name="minecraftversion" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

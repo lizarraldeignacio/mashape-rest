@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1461="urn:function:f1461" xmlns:f1462="urn:function:f1462" xmlns:f1463="urn:function:f1463" xmlns:f1464="urn:function:f1464">
+    <grammars>
+        <include href="Function1464.xsd"/>
+        <include href="Function1461.xsd"/>
+        <include href="Function1462.xsd"/>
+        <include href="Function1463.xsd"/>
+    </grammars>
+    <doc>a simple scalable API for image processing px is a powerful and scalable API for image processing in the cloud We provide the critical infrastructure so that developers can create smart image based applications and services</doc>
+    <resources base="https://ideas2it-6px.p.mashape.com/">
+        <resource uri="users/">
+            <resource uri="{userId}/">
+                <param name="userId" style="template" type="xsd:string"/>
+                <resource uri="jobs/">
+                    <method displayName="List Jobs" id="1464" name="GET">
+                        <doc>List all the Jobs</doc>
+                        <request>
+                            <param name="key" required="true" style="query" type="xsd:string">
+                                <doc>aPI key</doc>
+                            </param>
+                            <param name="secret" required="true" style="query" type="xsd:string">
+                                <doc>aPI Secret</doc>
+                            </param>
+                            <param name="userid" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f1464:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="{user_id}/">
+                <param name="user_id" style="template" type="xsd:string"/>
+                <resource uri="jobs/">
+                    <method displayName="Create Job" id="1461" name="POST">
+                        <doc>Create Job</doc>
+                        <request>
+                            <param name="key" required="true" style="query" type="xsd:string">
+                                <doc>aPI Key</doc>
+                            </param>
+                            <param name="secret" required="true" style="query" type="xsd:string">
+                                <doc>aPI Secret</doc>
+                            </param>
+                            <param name="userId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f1461:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Get Job" id="1462" name="GET">
+                        <doc>Get the Job Details</doc>
+                        <request>
+                            <param name="jobId" required="true" style="query" type="xsd:string"/>
+                            <param name="key" required="true" style="query" type="xsd:string">
+                                <doc>aPI key</doc>
+                            </param>
+                            <param name="secret" required="true" style="query" type="xsd:string">
+                                <doc>aPI Secret Key</doc>
+                            </param>
+                            <param name="userId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f1462:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Job Options" id="1463" name="GET">
+                        <doc>Job Options like pagination, sorting and searching</doc>
+                        <request>
+                            <param name="created" required="true" style="query" type="xsd:string">
+                                <doc>searching the job by their Created time</doc>
+                            </param>
+                            <param name="key" required="true" style="query" type="xsd:string">
+                                <doc>aPI key</doc>
+                            </param>
+                            <param name="page" required="true" style="query" type="xsd:string">
+                                <doc>which page to be displayed</doc>
+                            </param>
+                            <param name="perPage" required="true" style="query" type="xsd:string">
+                                <doc>how many jobs to be displayed in a single page</doc>
+                            </param>
+                            <param name="secret" required="true" style="query" type="xsd:string">
+                                <doc>aPI Secret key</doc>
+                            </param>
+                            <param name="sortBy" required="true" style="query" type="xsd:string">
+                                <doc>sorting the jobs based on Creation Available options are created desc and created asc</doc>
+                            </param>
+                            <param name="status" required="true" style="query" type="xsd:string">
+                                <doc>string Search</doc>
+                            </param>
+                            <param name="userId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f1463:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

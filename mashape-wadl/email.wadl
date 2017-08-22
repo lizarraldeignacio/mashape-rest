@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f438="urn:function:f438">
+    <grammars>
+        <include href="Function438.xsd"/>
+    </grammars>
+    <doc>analyse the content of an Email Address and check if it is valid or not Email API can recode the Email Address if any common error or misspelling is found The API can also check for invalid or fake DNS</doc>
+    <resources base="https://metropolis-api-email.p.mashape.com/">
+        <resource uri="analysis/">
+            <method displayName="analysis" id="438" name="GET">
+                <doc>Analyse, validate and parse the content of a given Email Address</doc>
+                <request>
+                    <param name="email" required="true" style="query" type="xsd:string">
+                        <doc>email Address</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f438:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

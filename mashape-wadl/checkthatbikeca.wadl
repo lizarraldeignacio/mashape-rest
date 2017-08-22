@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3086="urn:function:f3086">
+    <grammars>
+        <include href="Function3086.xsd"/>
+    </grammars>
+    <doc>allows for the checking of a frame number against several websites</doc>
+    <resources base="https://stolenbikes88-check-that-bike-ca.p.mashape.com/">
+        <resource uri="get.json/">
+            <method displayName="Search" id="3086" name="GET">
+                <request>
+                    <param name="check" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="frame" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3086:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

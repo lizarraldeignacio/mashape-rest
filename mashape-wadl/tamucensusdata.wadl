@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>service to associated census data with latitude longitude points Send a lat lon value and get back or census data</doc>
+    <resources base="https://censusdata.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Census Data" id="5139" name="GET">
+                <request>
+                    <param name="apikey" required="true" style="query" type="xsd:string">
+                        <doc>aPI Key</doc>
+                    </param>
+                    <param name="censusyear" required="true" style="query" type="xsd:string">
+                        <doc>year of census data to return</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>output format</doc>
+                    </param>
+                    <param name="lat" required="true" style="query" type="xsd:integer">
+                        <doc>latitude value</doc>
+                    </param>
+                    <param name="lon" required="true" style="query" type="xsd:string">
+                        <doc>longitude value</doc>
+                    </param>
+                    <param name="notstore" required="true" style="query" type="xsd:boolean">
+                        <doc>flag to indicate that the server should not keep track of your query</doc>
+                    </param>
+                    <param name="s" required="true" style="query" type="xsd:string">
+                        <doc>state lat lon are within speeds up processing</doc>
+                    </param>
+                    <param name="version" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

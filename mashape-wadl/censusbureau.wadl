@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>to improve access to data and encourage innovation the Census Bureau has begun to provide API access to some data sets We invite developers to use these APIs join our Developer Forum and provide feedback to help us move forward with continued API development</doc>
+    <resources base="https://community-census-bureau.p.mashape.com/">
+        <resource uri="2011/">
+            <resource uri="acs5/">
+                <method displayName="Example of the request URL for ACS 2011 5 Year data for Gross Rent as a Percentage of Household Income, 10.0 to 14.9 percent for all counties in CA" id="2363" name="GET">
+                    <request>
+                        <param name="for" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="get" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="in" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="2010/">
+            <resource uri="acs5/">
+                <method displayName="Example of the request URL for ACS 2010 5 Year data for Total Population for California and New York" id="2362" name="GET">
+                    <request>
+                        <param name="for" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="get" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="sf1/">
+                <method displayName="Example of the request URL for 2010 Census SF1 data that has an assigned key inserted" id="2361" name="GET">
+                    <doc>Data are accessible to software developers through a stateless HTTP GET request. Up to 50 variables can be requested with a single API call. In order to access data, you will need to insert a key into the request URL in order for query results to be returned. If you do not have a key assigned to you, you will be directed to the Request a Key page where you can register for one.</doc>
+                    <request>
+                        <param name="for" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="get" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

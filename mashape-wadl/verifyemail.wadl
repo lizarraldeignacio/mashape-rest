@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1330="urn:function:f1330">
+    <grammars>
+        <include href="Function1330.xsd"/>
+    </grammars>
+    <doc>a simple api that checks if an email address is valid and exists It checks the format of the address then tries to contact the server to make sure the address exists</doc>
+    <resources base="https://verifyemail.p.mashape.com/">
+        <resource uri="verify/">
+            <resource uri="{email}/">
+                <param name="email" style="template" type="xsd:string"/>
+                <method displayName="verify" id="1330" name="GET">
+                    <doc>Verify if an email address exists</doc>
+                    <request>
+                        <param name="email" required="true" style="query" type="xsd:string">
+                            <doc>the email address to check</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1330:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

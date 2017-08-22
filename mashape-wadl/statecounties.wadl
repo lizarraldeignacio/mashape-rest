@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2944="urn:function:f2944">
+    <grammars>
+        <include href="Function2944.xsd"/>
+    </grammars>
+    <doc>returns list of state county data for a requested state</doc>
+    <resources base="https://logtim.p.mashape.com/">
+        <resource uri="StateCounties/">
+            <resource uri="{state}/">
+                <param name="state" style="template" type="xsd:string"/>
+                <method displayName="/StateCounties/{state}" id="2944" name="GET">
+                    <request>
+                        <param name="state" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f2944:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

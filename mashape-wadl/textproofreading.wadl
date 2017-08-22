@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>a service for automatic proofreading of multilingual texts This module uses multilingual Natural Language Processing technology to check the spelling grammar and style of your texts with high accuracy in order to provide precise and up to date suggestions and educational explanations based on references It also provides a number of configuration parameters that allow the user to obtain the corrections in different formats and to customize the behavior for certain types of errors</doc>
+    <resources base="https://spelling-grammar-proofreading.p.mashape.com/">
+        <resource uri="stilus-1.2.php/">
+            <method displayName="stilus-1.2" id="2561" name="GET">
+                <doc>Multilingual automatic proofreading service</doc>
+                <request>
+                    <param name="alw" required="true" style="query" type="xsd:string">
+                        <doc>warn of foreign words to be avoided More information at https textalytics com core stilus info</doc>
+                    </param>
+                    <param name="aqoi" required="true" style="query" type="xsd:string">
+                        <doc>smart handling of words written in italics or with quotation marks More information at https textalytics com core stilus info</doc>
+                    </param>
+                    <param name="dic" required="true" style="query" type="xsd:string">
+                        <doc>this parameter will specify the list of active dictionaries that will be used in the topic extraction More info at https textalytics com core stilus info</doc>
+                    </param>
+                    <param name="dpn" required="true" style="query" type="xsd:string">
+                        <doc>smart detection of proper nouns More information at https textalytics com core stilus info</doc>
+                    </param>
+                    <param name="lang" required="true" style="query" type="xsd:string">
+                        <doc>language for the input text Possible values are es en it fr</doc>
+                    </param>
+                    <param name="of" required="true" style="query" type="xsd:string">
+                        <doc>output format xml or json</doc>
+                    </param>
+                    <param name="pp" required="true" style="query" type="xsd:string">
+                        <doc>smart detection of prefixed words More information at https textalytics com core stilus info</doc>
+                    </param>
+                    <param name="txt" required="true" style="query" type="xsd:string">
+                        <doc>input text It can be plain text HTML or XML always using UTF encoding Required if url and doc are empty</doc>
+                    </param>
+                    <param name="txtf" required="true" style="query" type="xsd:string">
+                        <doc>the text format parameter specifies if the text included in the txt parameter uses markup language that needs to be interpreted Possible values are plain markup Required if txt has some value</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>uRL with the content to analyze Currently only non authenticated HTTP and FTP are supported The content types supported for URL contents can be found here Required if txt and doc are empty</doc>
+                    </param>
+                    <param name="wct" required="true" style="query" type="xsd:string">
+                        <doc>warn of confusion between terms More information at https textalytics com core stilus info</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

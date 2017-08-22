@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3196="urn:function:f3196">
+    <grammars>
+        <include href="Function3196.xsd"/>
+    </grammars>
+    <doc>takes a piece of text and detects the language it is written in</doc>
+    <resources base="https://langdetect.p.mashape.com/">
+        <resource uri="language/">
+            <method displayName="Language detection" id="3196" name="GET">
+                <doc>Detects the language of a piece of text</doc>
+                <request>
+                    <param name="mode" required="true" style="query" type="xsd:string">
+                        <doc>the response mode desired Default iso other values json xml iso</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>the text encoded with UTF A sample of text Longer text will give a more accurate result but only the first characters are considered</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3196:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

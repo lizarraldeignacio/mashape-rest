@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6100="urn:function:f6100" xmlns:f6101="urn:function:f6101">
+    <grammars>
+        <include href="Function6101.xsd"/>
+        <include href="Function6100.xsd"/>
+    </grammars>
+    <doc>web Malware SafeCode API</doc>
+    <resources base="https://asgard.p.mashape.com/">
+        <resource uri="scan_zip/">
+            <method displayName="/scan_zip" id="6101" name="POST">
+                <doc>Scan ZIP-ped unknown files and return verdict. Max upload size is 1MB.</doc>
+                <request/>
+                <response>
+                    <representation element="f6101:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="check/">
+            <method displayName="/check" id="6100" name="POST">
+                <doc>Check md5 hash list for known malware. Return index list: positive for malware, negative for unknown files.</doc>
+                <request/>
+                <response>
+                    <representation element="f6100:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1021="urn:function:f1021">
+    <grammars>
+        <include href="Function1021.xsd"/>
+    </grammars>
+    <doc>mimvi App Search provides mobile app search discovery and recommendation services Based on proprietary biomimetic algorithms Mimvi App Search delivers the best coverage and most relevant mobile apps mobile content and mobile products Coverage includes iTunes Google Play Android Windows Phone Windows Phone Facebook Blackberry Web Apps</doc>
+    <resources base="https://mimviapps-appsearch.p.mashape.com/">
+        <resource uri="1.1/">
+            <resource uri="search/">
+                <method displayName="search" id="1022" name="GET">
+                    <doc>Search for apps</doc>
+                    <request>
+                        <param name="count" required="true" style="query" type="xsd:integer">
+                            <doc>how many results to return may be limited by api deverlopers are responsbile for counting hte number of returned results</doc>
+                        </param>
+                        <param name="platform" required="true" style="query" type="xsd:string">
+                            <doc>optional empty all otherwise one of the following android blackberry facebook ipad itunes mobileweb windows</doc>
+                        </param>
+                        <param name="q" required="true" style="query" type="xsd:string">
+                            <doc>uRL encoded search query of character maximum</doc>
+                        </param>
+                        <param name="start" required="true" style="query" type="xsd:integer">
+                            <doc>where to start in the result list integer</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="recommendations/">
+                <method displayName="recommendations" id="1021" name="GET">
+                    <doc>given one app as input, get recommended apps as output</doc>
+                    <request>
+                        <param name="appId" required="true" style="query" type="xsd:string">
+                            <doc>mimvi ID of app</doc>
+                        </param>
+                        <param name="platform" required="true" style="query" type="xsd:string">
+                            <doc>optional same enumerations as search method</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1021:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

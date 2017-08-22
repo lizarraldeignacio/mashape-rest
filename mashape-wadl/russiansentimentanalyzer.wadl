@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1509="urn:function:f1509">
+    <grammars>
+        <include href="Function1509.xsd"/>
+    </grammars>
+    <doc>russianSentimentAnalyzer is a JSON API based on the technology stack of Insider Solutions company It is capable of parsing the input text reconstructing the meaning of messages with typos like tweets and finding sentiment polarity oriented towards a particular object Consider an example I like new GalaxyS but do not enjoy new iPhone If there are no objects the sentiment of this sentence can be detected as NEUTRAL or MIXED If however GalaxyS has been passed in as an object the sentiment will be POSITIVE It will be NEGATIVE for iPhone in this particular example Currently the API supports Russian language with input texts varying from long formal news posts to informal and short tweets Looking for sentiment analyzer for English Check this API out https www mashape com dmitrykey sentifindr</doc>
+    <resources base="https://russiansentimentanalyzer.p.mashape.com/">
+        <resource uri="ru/">
+            <resource uri="sentiment/">
+                <resource uri="polarity/">
+                    <resource uri="json/">
+                        <method displayName="RussianSentimentAnalyzerJson" id="1509" name="POST">
+                            <doc>json api for Russian sentiment analyzer</doc>
+                            <request/>
+                            <response>
+                                <representation element="f1509:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

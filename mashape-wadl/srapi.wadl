@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4042="urn:function:f4042" xmlns:f4043="urn:function:f4043" xmlns:f4044="urn:function:f4044" xmlns:f4045="urn:function:f4045" xmlns:f4046="urn:function:f4046" xmlns:f4047="urn:function:f4047" xmlns:f4048="urn:function:f4048" xmlns:f4049="urn:function:f4049" xmlns:f4050="urn:function:f4050" xmlns:f4051="urn:function:f4051" xmlns:f4052="urn:function:f4052" xmlns:f4053="urn:function:f4053" xmlns:f4054="urn:function:f4054" xmlns:f4055="urn:function:f4055" xmlns:f4056="urn:function:f4056" xmlns:f4057="urn:function:f4057" xmlns:f4058="urn:function:f4058">
+    <grammars>
+        <include href="Function4058.xsd"/>
+        <include href="Function4057.xsd"/>
+        <include href="Function4056.xsd"/>
+        <include href="Function4055.xsd"/>
+        <include href="Function4054.xsd"/>
+        <include href="Function4053.xsd"/>
+        <include href="Function4052.xsd"/>
+        <include href="Function4051.xsd"/>
+        <include href="Function4050.xsd"/>
+        <include href="Function4049.xsd"/>
+        <include href="Function4048.xsd"/>
+        <include href="Function4047.xsd"/>
+        <include href="Function4046.xsd"/>
+        <include href="Function4045.xsd"/>
+        <include href="Function4044.xsd"/>
+        <include href="Function4043.xsd"/>
+        <include href="Function4042.xsd"/>
+    </grammars>
+    <doc>singRing API SRAPI from now on is a restricted REST service developed to serve SingRing SR from now on lyrics artists and videoinformation to its partners The service is based on server side connection between partners server and SRAPI servers and between clients and SRAPI servers</doc>
+    <resources base="https://singring-srapi-10.p.mashape.com/">
+        <resource uri="getVideosByTitle.php/">
+            <method displayName="getVideosByTitle" id="4058" name="GET">
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:integer">
+                        <doc>end int default value is end start limit</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit int default and max value is</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:integer">
+                        <doc>start int default value is</doc>
+                    </param>
+                    <param name="str" required="true" style="query" type="xsd:string">
+                        <doc>string must be encoded</doc>
+                    </param>
+                    <param name="videoProximity" required="true" style="query" type="xsd:integer">
+                        <doc>admitted values are default is all video proximity</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4058:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getVideosByTag.php/">
+            <method displayName="getVideosByTag" id="4057" name="GET">
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:integer">
+                        <doc>end int default value is end start limit</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>id int id is a tag id you can find all id tags with getAllTags</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit int default and max value is</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:integer">
+                        <doc>start int default value is</doc>
+                    </param>
+                    <param name="videoProximity" required="true" style="query" type="xsd:integer">
+                        <doc>admitted values are default is all video proximity</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4057:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getVideosByArtist.php/">
+            <method displayName="getVideosByArtist" id="4056" name="GET">
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:integer">
+                        <doc>end int default value is end start limit</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>id int</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit int default and max value is</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:integer">
+                        <doc>start int default value is</doc>
+                    </param>
+                    <param name="videoProximity" required="true" style="query" type="xsd:integer">
+                        <doc>admitted values are default is all video proximity</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4056:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getSongsByTitle.php/">
+            <method displayName="getSongsByTitle" id="4055" name="GET">
+                <doc>getSongsByTitle returns a list of songs whose titles starts with the string passed with str parameter</doc>
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:integer">
+                        <doc>end int default value is end start limit</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit int default and max value is</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:integer">
+                        <doc>start int default value is</doc>
+                    </param>
+                    <param name="str" required="true" style="query" type="xsd:string">
+                        <doc>string must be encoded</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4055:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getSongsByTag.php/">
+            <method displayName="getSongsByTag" id="4054" name="GET">
+                <doc>getSongsBytag returns a list of songs tagged with a specific tag, passed as id parameter</doc>
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:integer">
+                        <doc>end int default value is end start limit</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>getSongsByTag php id</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit int default and max value is</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:integer">
+                        <doc>start int default value is</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4054:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getSongsByArtist.php/">
+            <method displayName="getSongsByArtist" id="4053" name="GET">
+                <doc>getSongsByArtist returns a list of songs of the artists specified with the id parameter passed</doc>
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:integer">
+                        <doc>end int default value is end start limit</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>getSongsByArtist php id</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit int default and max value is</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:integer">
+                        <doc>start int default value is</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4053:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getSongsByAlbum.php/">
+            <method displayName="getSongsByAlbum" id="4052" name="GET">
+                <doc>getSongsByAlbum returns a list of songs of the album specified with the id parameter passed</doc>
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:integer">
+                        <doc>end int default value is end start limit</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>getSongsByAlbum php id</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>limit int default and max value is</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:integer">
+                        <doc>start int default value is</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4052:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getLyricById.php/">
+            <method displayName="getLyricById" id="4051" name="GET">
+                <doc>getLyricsByTitle returns all information about the song request by passing the id, except for the information about the credits (you have to request the credits information with a client server call using the SingRing javascript library)</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>getLyricById php id</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4051:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getLatestLyrics.php/">
+            <method displayName="getLatestLyrics" id="4050" name="GET">
+                <doc>getLatestLyrics return the list oif newest songs list's inserted in the last 7 days from the date passed with string parameter</doc>
+                <request>
+                    <param name="str" required="true" style="query" type="xsd:string">
+                        <doc>str yyyy mm dd maximum days ago example today value</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4050:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getArtistsByName.php/">
+            <method displayName="getArtistsByName" id="4049" name="GET">
+                <doc>getArtistsByName returns the list of the artists that match with the string passed as parameter</doc>
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:integer">
+                        <doc>end int default value is end start limit</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit int default and max value is</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:integer">
+                        <doc>start int default value is</doc>
+                    </param>
+                    <param name="str" required="true" style="query" type="xsd:string">
+                        <doc>getArtistsByName php str luciano ligabue String must be encoded</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4049:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getAllVideos.php/">
+            <method displayName="getAllVideos" id="4048" name="GET">
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:integer">
+                        <doc>end int default value is end start limit</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit int default and max value is</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:integer">
+                        <doc>start int default value is</doc>
+                    </param>
+                    <param name="videoProximity" required="true" style="query" type="xsd:integer">
+                        <doc>admitted values are default is all video proximity</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4048:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getAllTags.php/">
+            <method displayName="getAllTags" id="4047" name="GET">
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:integer">
+                        <doc>end int default value is end start limit</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit int default and max value is</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:integer">
+                        <doc>start int default value is</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4047:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getAllSongs.php/">
+            <method displayName="getAllSongs" id="4046" name="GET">
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:integer">
+                        <doc>end int default value is end start limit</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit int default and max value is</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:integer">
+                        <doc>start int default value is</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4046:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getAllArtists.php/">
+            <method displayName="getAllArtists" id="4045" name="GET">
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:integer">
+                        <doc>end int default value is end start limit</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit int default and max value is</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:integer">
+                        <doc>start int default value is</doc>
+                    </param>
+                    <param name="videoProximity" required="true" style="query" type="xsd:string">
+                        <doc>video proximity boolean If true getAllArtist returns the list of the artists with videos If false or null returns the list of all artists</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4045:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getAllAlbums.php/">
+            <method displayName="getAllAlbums" id="4044" name="GET">
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:integer">
+                        <doc>end int default value is end start limit</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit int default and max value is</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:integer">
+                        <doc>start int default value is</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4044:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getAlbumsByName.php/">
+            <method displayName="getAlbumsByName" id="4043" name="GET">
+                <doc>getAlbumsByName returns the list of the albums that match with album title, passed as string parameter</doc>
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:integer">
+                        <doc>end int default value is end start limit</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit int default and max value is</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:integer">
+                        <doc>start int default value is</doc>
+                    </param>
+                    <param name="str" required="true" style="query" type="xsd:string">
+                        <doc>string must be encoded</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4043:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getAlbumsByArtist.php/">
+            <method displayName="getAlbumsByArtist" id="4042" name="GET">
+                <doc>getAlbumsByArtist.php return the list of the albums of the artist called by id parameter</doc>
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:string">
+                        <doc>end int default value is end start limit</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>getAlbumsByArtist php id</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>limit int default and max value is</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>start int default value is</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4042:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

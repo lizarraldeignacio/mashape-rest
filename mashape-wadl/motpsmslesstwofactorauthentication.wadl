@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f267="urn:function:f267" xmlns:f268="urn:function:f268" xmlns:f269="urn:function:f269">
+    <grammars>
+        <include href="Function269.xsd"/>
+        <include href="Function268.xsd"/>
+        <include href="Function267.xsd"/>
+    </grammars>
+    <doc>mOTP is an Open API Alternative to sms based One Time Password It is a hosted secured scalable solution for customer phone verification that works without SMS mOTP brings an innovative approach for customer phone verification It replaces SMS based one time password with an OTP over a missed call to mobile landline phone Thereby eliminating any Cost Delay Dnd Hurdles</doc>
+    <resources base="https://motp.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="OTP/">
+                <resource uri="{APIKey}/">
+                    <param name="APIKey" style="template" type="xsd:string"/>
+                    <resource uri="{SessionId}/">
+                        <param name="SessionId" style="template" type="xsd:string"/>
+                        <method displayName="Validate the mOTP entered by user" id="269" name="POST">
+                            <doc>When a user enters mOTP received, This API Call can be made to check if the mOTP is correct</doc>
+                            <request>
+                                <param name="apikey" required="true" style="query" type="xsd:string">
+                                    <doc>your mOTP API Key</doc>
+                                </param>
+                                <param name="sessionid" required="true" style="query" type="xsd:string">
+                                    <doc>session ID generated in Step Sending mOTP to user</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f269:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="{APIKey}/">
+                <param name="APIKey" style="template" type="xsd:string"/>
+                <resource uri="{Phone_With_ISD}/">
+                    <param name="Phone_With_ISD" style="template" type="xsd:string"/>
+                    <method displayName="Send mOTP to user's phone" id="268" name="GET">
+                        <doc>This call is used to send missed call OTP to end user's phone device</doc>
+                        <request>
+                            <param name="apikey" required="true" style="query" type="xsd:string">
+                                <doc>aPI Key received from mOTP</doc>
+                            </param>
+                            <param name="phoneWithIsd" required="true" style="query" type="xsd:string">
+                                <doc>phone Number with ISD Code</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f268:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="Add/">
+                <resource uri="{Domain}/">
+                    <param name="Domain" style="template" type="xsd:string"/>
+                    <resource uri="{EmailAdd}/">
+                        <param name="EmailAdd" style="template" type="xsd:string"/>
+                        <method displayName="Generate API Key" id="267" name="GET">
+                            <doc>API Call to generate user API Key</doc>
+                            <request>
+                                <param name="domain" required="true" style="query" type="xsd:string">
+                                    <doc>domain name to register with mOTP</doc>
+                                </param>
+                                <param name="emailadd" required="true" style="query" type="xsd:string">
+                                    <doc>email address to receive mOTP Keys</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f267:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3763="urn:function:f3763">
+    <grammars>
+        <include href="Function3763.xsd"/>
+    </grammars>
+    <doc>netImpact s easy to use JSON APIs provide IP to Location data consisting of Company IP ISP Host Name Geographic Location Zip Code Area Code</doc>
+    <resources base="https://ideas2it-net-impact.p.mashape.com/">
+        <resource uri="qv1.php/">
+            <method displayName="Get Info by IP" id="3763" name="GET">
+                <request>
+                    <param name="d" required="true" style="query" type="xsd:string">
+                        <doc>response Type</doc>
+                    </param>
+                    <param name="hostname" required="true" style="query" type="xsd:integer">
+                        <doc>to display ISP</doc>
+                    </param>
+                    <param name="key" required="true" style="query" type="xsd:string">
+                        <doc>key to generate response</doc>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:integer">
+                        <doc>iP Address</doc>
+                    </param>
+                    <param name="qt" required="true" style="query" type="xsd:string">
+                        <doc>default Value</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3763:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

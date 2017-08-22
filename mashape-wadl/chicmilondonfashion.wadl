@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7121="urn:function:f7121" xmlns:f7122="urn:function:f7122" xmlns:f7123="urn:function:f7123" xmlns:f7124="urn:function:f7124" xmlns:f7125="urn:function:f7125" xmlns:f7126="urn:function:f7126" xmlns:f7127="urn:function:f7127" xmlns:f7128="urn:function:f7128" xmlns:f7129="urn:function:f7129" xmlns:f7130="urn:function:f7130" xmlns:f7131="urn:function:f7131">
+    <grammars>
+        <include href="Function7131.xsd"/>
+        <include href="Function7130.xsd"/>
+        <include href="Function7129.xsd"/>
+        <include href="Function7128.xsd"/>
+        <include href="Function7127.xsd"/>
+        <include href="Function7126.xsd"/>
+        <include href="Function7125.xsd"/>
+        <include href="Function7124.xsd"/>
+        <include href="Function7123.xsd"/>
+        <include href="Function7122.xsd"/>
+        <include href="Function7121.xsd"/>
+    </grammars>
+    <doc>chicmi have the biggest database of London fashion sales sample sales and fashion events and a huge collection of luxury London fashion stores Our API provides developers with complete open access to this unique dataset</doc>
+    <resources base="https://chicmi.p.mashape.com/">
+        <resource uri="stores_get/">
+            <resource uri="?company_id={id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Store Details" id="7131" name="GET">
+                    <doc>Get extended store information</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>the Chicmi ID for the store</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7131:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="search/">
+            <resource uri="?search_string={search_string}&amp;distance_unit={distance_unit}&amp;search_radius={search_radius}&amp;latitude={latitude}&amp;longitude={longitude}&amp;search_date={search_date}/">
+                <param name="search_string" style="template" type="xsd:string"/>
+                <method displayName="Local Fashion Search" id="7130" name="GET">
+                    <doc>Get a list of stores, sales and fashion events near a latitude and longitude, based on a search string</doc>
+                    <request>
+                        <param name="distanceUnit" required="true" style="query" type="xsd:string">
+                            <doc>k for kilometers M for miles or N for nautical miles</doc>
+                        </param>
+                        <param name="latitude" required="true" style="query" type="xsd:integer">
+                            <doc>latitude you want to search around</doc>
+                        </param>
+                        <param name="longitude" required="true" style="query" type="xsd:integer">
+                            <doc>longitude you want to search around</doc>
+                        </param>
+                        <param name="searchDate" required="true" style="query" type="xsd:string">
+                            <doc>the date to search in YYYY MM DD</doc>
+                        </param>
+                        <param name="searchRadius" required="true" style="query" type="xsd:integer">
+                            <doc>the distance to search in distance unit units</doc>
+                        </param>
+                        <param name="searchString" required="true" style="query" type="xsd:string">
+                            <doc>the string or brand name to search for</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7130:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="stores_reviews_list/">
+            <resource uri="?company_id={id}&amp;next_id={next_id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="List Store Reviews" id="7129" name="GET">
+                    <doc>List customer reviews of a store</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>the Chicmi ID for the store</doc>
+                        </param>
+                        <param name="nextId" required="true" style="query" type="xsd:integer">
+                            <doc>the next id value returned from the response to enable paging</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7129:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="stores_children_list/">
+            <resource uri="?company_id={id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="List Store Children" id="7128" name="GET">
+                    <doc>List concessions or sub-stores within a store</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>the Chicmi ID for the parent department store</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7128:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="filters_list/">
+            <method displayName="List Lookup Tables" id="7127" name="GET">
+                <doc>Return Chicmi's internal lookup tables for categories, facilities, products etc.</doc>
+                <request/>
+                <response>
+                    <representation element="f7127:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="events_stores_list/">
+            <resource uri="?event_id={id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="List Event Stores" id="7126" name="GET">
+                    <doc>List stores where a sale or event is occurring</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>the Chicmi ID for the sale or event</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7126:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="events_reviews_list/">
+            <resource uri="?event_id={id}&amp;next_id={next_id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="List Event Reviews" id="7125" name="GET">
+                    <doc>List customer reviews of an event</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>the Chicmi ID for the event</doc>
+                        </param>
+                        <param name="nextId" required="true" style="query" type="xsd:integer">
+                            <doc>the next id value returned from the response to enable paging</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7125:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="stores_nearby/">
+            <resource uri="?distance_unit={distance_unit}&amp;search_radius={search_radius}&amp;latitude={latitude}&amp;longitude={longitude}/">
+                <param name="distance_unit" style="template" type="xsd:string"/>
+                <method displayName="Fashion Stores Nearby" id="7124" name="GET">
+                    <doc>Get a list of fashion stores near a latitude and longitude</doc>
+                    <request>
+                        <param name="distanceUnit" required="true" style="query" type="xsd:string">
+                            <doc>k for kilometers M for miles or N for nautical miles</doc>
+                        </param>
+                        <param name="latitude" required="true" style="query" type="xsd:integer">
+                            <doc>latitude you want to search around</doc>
+                        </param>
+                        <param name="longitude" required="true" style="query" type="xsd:integer">
+                            <doc>longitude you want to search around</doc>
+                        </param>
+                        <param name="searchRadius" required="true" style="query" type="xsd:integer">
+                            <doc>search radius in distance unit values</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7124:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="sales_nearby/">
+            <resource uri="?distance_unit={distance_unit}&amp;search_radius={search_radius}&amp;latitude={latitude}&amp;longitude={longitude}&amp;search_date={search_date}/">
+                <param name="distance_unit" style="template" type="xsd:string"/>
+                <method displayName="Fashion Sales Nearby" id="7123" name="GET">
+                    <doc>Get a list of fashion sales near a latitude and longitude</doc>
+                    <request>
+                        <param name="distanceUnit" required="true" style="query" type="xsd:string">
+                            <doc>k for kilometers M for miles or N for nautical miles</doc>
+                        </param>
+                        <param name="latitude" required="true" style="query" type="xsd:integer">
+                            <doc>latitude you want to search around</doc>
+                        </param>
+                        <param name="longitude" required="true" style="query" type="xsd:integer">
+                            <doc>longitude you want to search around</doc>
+                        </param>
+                        <param name="searchDate" required="true" style="query" type="xsd:string">
+                            <doc>the date to search in YYYY MM DD</doc>
+                        </param>
+                        <param name="searchRadius" required="true" style="query" type="xsd:integer">
+                            <doc>the distance to search in distance unit units</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7123:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="events_nearby/">
+            <resource uri="?distance_unit={distance_unit}&amp;search_radius={search_radius}&amp;latitude={latitude}&amp;longitude={longitude}&amp;search_date={search_date}/">
+                <param name="distance_unit" style="template" type="xsd:string"/>
+                <method displayName="Fashion Events Nearby" id="7122" name="GET">
+                    <doc>Get a list of fashion events near a latitude and longitude</doc>
+                    <request>
+                        <param name="distanceUnit" required="true" style="query" type="xsd:string">
+                            <doc>k for kilometers M for miles or N for nautical miles</doc>
+                        </param>
+                        <param name="latitude" required="true" style="query" type="xsd:integer">
+                            <doc>latitude you want to search around</doc>
+                        </param>
+                        <param name="longitude" required="true" style="query" type="xsd:integer">
+                            <doc>longitude you want to search around</doc>
+                        </param>
+                        <param name="searchDate" required="true" style="query" type="xsd:string">
+                            <doc>the date to search in YYYY MM DD</doc>
+                        </param>
+                        <param name="searchRadius" required="true" style="query" type="xsd:integer">
+                            <doc>the distance to search in distance unit units</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7122:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="events_get/">
+            <resource uri="?event_id={id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Event Details" id="7121" name="GET">
+                    <doc>Get extended sale or event information</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:integer">
+                            <doc>the Chicmi ID for the sale or event</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7121:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

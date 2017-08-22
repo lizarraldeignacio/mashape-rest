@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2641="urn:function:f2641">
+    <grammars>
+        <include href="Function2641.xsd"/>
+    </grammars>
+    <doc>retrieve Financial Market Data informations from stocks and quotes</doc>
+    <resources base="https://stock-quote-api.p.mashape.com/">
+        <resource uri="stock/">
+            <method displayName="/stock" id="2641" name="GET">
+                <doc>Get financial data informations of a quote or holding</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>bloomberg Ticker to identify a quote</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2641:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

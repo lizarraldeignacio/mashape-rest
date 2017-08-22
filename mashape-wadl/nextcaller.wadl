@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2152="urn:function:f2152">
+    <grammars>
+        <include href="Function2152.xsd"/>
+    </grammars>
+    <doc>the Next Caller API can currently ID over million US numbers Name address and email Quickly identify callers and reduce your customer identification costs by over</doc>
+    <resources base="https://nextcaller-next-caller.p.mashape.com/">
+        <resource uri="users/">
+            <resource uri="{nextcaller_id}/">
+                <param name="nextcaller_id" style="template" type="xsd:string"/>
+                <method displayName="POST Profile" id="2153" name="POST">
+                    <doc>Allows you to update caller's info on Nextcaller.</doc>
+                    <request>
+                        <param name="nextcallerId" required="true" style="query" type="xsd:string">
+                            <doc>the ID of the user whose profile you wish to edit</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="records/">
+            <method displayName="GET Profile" id="2152" name="GET">
+                <doc>Returns Nextcaller member detailed info.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>specifies a format of response JSON or XML</doc>
+                    </param>
+                    <param name="phone" required="true" style="query" type="xsd:string">
+                        <doc>specifies the caller s phone number</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2152:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

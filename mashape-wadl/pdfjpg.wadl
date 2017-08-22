@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2479="urn:function:f2479" xmlns:f2480="urn:function:f2480">
+    <grammars>
+        <include href="Function2479.xsd"/>
+        <include href="Function2480.xsd"/>
+    </grammars>
+    <doc>convert PDF to JPG with our API It s fast reliable and produce high quality pictures</doc>
+    <resources base="https://pdf2jpg-pdf2jpg.p.mashape.com/">
+        <resource uri="convert_pdf_to_jpg.php/">
+            <method displayName="Get the status of a conversion" id="2479" name="GET">
+                <doc>Get the status of an existing conversion and the URLs of the converted pictures and/or zip file.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>conversion identifier</doc>
+                    </param>
+                    <param name="key" required="true" style="query" type="xsd:string">
+                        <doc>conversion passphrase</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2479:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Post a PDF to be converted to JPG" id="2480" name="POST">
+                <doc>Initiate a conversion by posting a PDF and the expected conversion quality.</doc>
+                <request/>
+                <response>
+                    <representation element="f2480:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

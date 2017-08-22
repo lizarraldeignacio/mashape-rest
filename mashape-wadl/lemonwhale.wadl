@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6090="urn:function:f6090" xmlns:f6091="urn:function:f6091" xmlns:f6092="urn:function:f6092" xmlns:f6093="urn:function:f6093" xmlns:f6094="urn:function:f6094" xmlns:f6095="urn:function:f6095" xmlns:f6096="urn:function:f6096">
+    <grammars>
+        <include href="Function6093.xsd"/>
+        <include href="Function6092.xsd"/>
+        <include href="Function6096.xsd"/>
+        <include href="Function6095.xsd"/>
+        <include href="Function6094.xsd"/>
+        <include href="Function6091.xsd"/>
+        <include href="Function6090.xsd"/>
+    </grammars>
+    <doc>lemonwhale Cloud Video securely delivers the highest quality on demand and live video experiences to reach your audience no matter where they are We simplify delivery to an increasingly complex ecosystem of devices and standards across the online devices such a web mobile and tablets Lemonwhale API allows you to connect your application to Lemonwhales video system without having to use the web interface</doc>
+    <resources base="https://lemonwhale-lemonwhale.p.mashape.com/">
+        <resource uri="public/">
+            <resource uri="video/">
+                <resource uri="{id}.{format}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Get Video" id="6093" name="GET">
+                        <doc>Returns data for a single video that is publicly accessible (published=true and a publish date that have passed). If the requested video isn't publicly accessible it will return a 404. This request it's possible to use JSONP responses by using the callback-parameter.</doc>
+                        <request>
+                            <param name="format" required="true" style="query" type="xsd:string">
+                                <doc>json xml</doc>
+                            </param>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>the id of the video</doc>
+                            </param>
+                            <param name="idFormat" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f6093:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="progress/">
+                <resource uri="{videoid}.{format}/">
+                    <param name="videoid" style="template" type="xsd:string"/>
+                    <method displayName="Get Progress" id="6092" name="GET">
+                        <doc>This request is used for receiving information on the transcoding progress for a video file.</doc>
+                        <request>
+                            <param name="format" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="videoid" required="true" style="query" type="xsd:string">
+                                <doc>the id of the video for which you want to follow the transcoding progress</doc>
+                            </param>
+                            <param name="videoidFormat" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f6092:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="site/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <resource uri="toplist.{format}/">
+                        <param name="format" style="template" type="xsd:string"/>
+                        <method displayName="Public Toplist Videos for Site" id="6096" name="GET">
+                            <doc>Use this request to make a toplist for videos on a site over a specified period of time. You filter your request based on categories as well as timespan. The timespan is the time period used to summarize the number of impressions for each video and then order videos by number of impressions. . With this request it's possible to use JSONP responses by using the callback-parameter.</doc>
+                            <request>
+                                <param name="categories" required="true" style="query" type="xsd:string">
+                                    <doc>only include videos for specified categories in the result It takes a comma separated list of category ids as input</doc>
+                                </param>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc>json xml</doc>
+                                </param>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>the id for the Site</doc>
+                                </param>
+                                <param name="page" required="true" style="query" type="xsd:string">
+                                    <doc>specifies the page of results to retrieve</doc>
+                                </param>
+                                <param name="pageSize" required="true" style="query" type="xsd:string">
+                                    <doc>specifies the number of videos to retrieve up to a maximum of</doc>
+                                </param>
+                                <param name="timespan" required="true" style="query" type="xsd:string">
+                                    <doc>specifies a timespan to use for calculating sum of views If the timespan for example is between and the summary of views for each video will be use to order the videos in the response</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f6096:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="videos.{format}/">
+                        <param name="format" style="template" type="xsd:string"/>
+                        <method displayName="Public List Videos for Site" id="6095" name="GET">
+                            <doc>Use this request to list videos on a site. You filter your request based on categories as well as timespan and sort the data on several different values.</doc>
+                            <request>
+                                <param name="categories" required="true" style="query" type="xsd:string">
+                                    <doc>only return videos in specified categories It takes a comma separated list of category ids as input</doc>
+                                </param>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc>json xml</doc>
+                                </param>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>the id for the Site</doc>
+                                </param>
+                                <param name="page" required="true" style="query" type="xsd:string">
+                                    <doc>specifies the page of results to retrieve</doc>
+                                </param>
+                                <param name="pageSize" required="true" style="query" type="xsd:string">
+                                    <doc>specifies the number of videos to try and retrieve up to a maximum of</doc>
+                                </param>
+                                <param name="search" required="true" style="query" type="xsd:string">
+                                    <doc>lets you search your videos titles for matching phrases Returns a list of videos for which the title contains the search phrase The search is not case sensitive so you don t have to use capital letters</doc>
+                                </param>
+                                <param name="sortBy" required="true" style="query" type="xsd:string">
+                                    <doc>specifies the attribute on which the videos should be ordered The possible attributes to sort by created at published at name views duration</doc>
+                                </param>
+                                <param name="sortOrder" required="true" style="query" type="xsd:string">
+                                    <doc>specifies the order in which the videos should be ordered Possible values desc or asc</doc>
+                                </param>
+                                <param name="timespan" required="true" style="query" type="xsd:string">
+                                    <doc>specifies a timespan to request videos from If a video is created in the range of the timespan it will be returned</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f6095:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="categories.{format}/">
+                        <param name="format" style="template" type="xsd:string"/>
+                        <method displayName="List Categories for Site" id="6094" name="GET">
+                            <doc>Returns up to 200 categories on the site. Categories are ordered in a tree structure with parent categories and subcategories and this can be used when filtering out categories on a site in this request. There are two parameter for filtering out categories; the first one is only_root which only returns categories without a parent category, the other parameter is parent, who when used only returns categories with the specified parent category. This is a public request which means that no categories that are hidden, e.g. parameter hidden=true, will be in the response. With this request it's possible to use JSONP responses by using the callback-parameter.</doc>
+                            <request>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc>json xml</doc>
+                                </param>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>the id for the Site</doc>
+                                </param>
+                                <param name="onlyRoot" required="true" style="query" type="xsd:string">
+                                    <doc>specifies if the request only should return root categories e g without parent category</doc>
+                                </param>
+                                <param name="parent" required="true" style="query" type="xsd:string">
+                                    <doc>only returns categories with the specified parent category</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f6094:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="live.{format}/">
+                        <param name="format" style="template" type="xsd:string"/>
+                        <method displayName="Get Liveshows for Site" id="6091" name="GET">
+                            <doc>Returns a list of liveshows for the specified site. By default this request returns the 20 most recently created liveshows and that either had a start time in the last 60 days or have it in the next 20 days. This can easily be changed by using either the timespan or sorting parameters. This request will only return public liveshows which is defined by its visible_in_portal-parameter. When visible_in_portal is set to false for a liveshow, it will not be returned. With this request it's possible to use JSONP responses by using the callback-parameter.</doc>
+                            <request>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc>json xml</doc>
+                                </param>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>the id for the Site</doc>
+                                </param>
+                                <param name="page" required="true" style="query" type="xsd:string">
+                                    <doc>specifies the page of results to retrieve</doc>
+                                </param>
+                                <param name="pageSize" required="true" style="query" type="xsd:string">
+                                    <doc>specifies the number of liveshows to try and retrieve up to a maximum of</doc>
+                                </param>
+                                <param name="sortBy" required="true" style="query" type="xsd:string">
+                                    <doc>specifies the attribute on which the liveshows should be ordered The possible attributes to sort by created at name views starttime</doc>
+                                </param>
+                                <param name="sortOrder" required="true" style="query" type="xsd:string">
+                                    <doc>specifies the order in which the liveshows should be ordered Possible values desc or asc</doc>
+                                </param>
+                                <param name="timespan" required="true" style="query" type="xsd:string">
+                                    <doc>specifies a timespan to collect liveshows from All liveshows that has starttime in the range of the timespan it will be returned By default the request returns liveshows that either had a start time in the last days or have it in the next days</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f6091:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="live/">
+                <resource uri="{id}.{format}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Get Liveshow" id="6090" name="GET">
+                        <doc>Returns data for a single liveshow that is publicly accessible (published=true). If the requested liveshow isn't publicly accessible it will return a 404. This request it's possible to use JSONP responses by using the callback-parameter.</doc>
+                        <request>
+                            <param name="format" required="true" style="query" type="xsd:string">
+                                <doc>json xml</doc>
+                            </param>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>the id of the liveshow</doc>
+                            </param>
+                            <param name="idFormat" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f6090:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

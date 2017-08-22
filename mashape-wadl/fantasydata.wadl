@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>fantasyData com provides the most extensive accurate and easily consumable NFL data in the world Using our advanced data feeds you ll be able to build the fantasy football application of your dreams</doc>
+    <resources base="https://nfldata-nfl-data.p.mashape.com/">
+        <resource uri="{acess_level}/">
+            <param name="acess_level" style="template" type="xsd:string"/>
+            <resource uri="{format}/">
+                <param name="format" style="template" type="xsd:string"/>
+                <resource uri="PlayerSeasonStatsByPlayerID/">
+                    <resource uri="{season}/">
+                        <param name="season" style="template" type="xsd:string"/>
+                        <resource uri="{playerid}/">
+                            <param name="playerid" style="template" type="xsd:string"/>
+                            <method displayName="Player Season By Player ID" id="5345" name="GET">
+                                <request>
+                                    <param name="acessLevel" required="true" style="query" type="xsd:string">
+                                        <doc>can be trial developer standard premium enterprise</doc>
+                                    </param>
+                                    <param name="format" required="true" style="query" type="xsd:string">
+                                        <doc>json xml</doc>
+                                    </param>
+                                    <param name="playerid" required="true" style="query" type="xsd:string">
+                                        <doc>player ID</doc>
+                                    </param>
+                                    <param name="season" required="true" style="query" type="xsd:string">
+                                        <doc>the season from which you are pulling content This value must be an integer or the string current The minimum season for Fantasy data is The minimum season for Team data is</doc>
+                                    </param>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="{access_level}/">
+            <param name="access_level" style="template" type="xsd:string"/>
+            <resource uri="{format}/">
+                <param name="format" style="template" type="xsd:string"/>
+                <resource uri="UpcomingWeek/">
+                    <method displayName="Upcoming Week" id="5357" name="GET">
+                        <request>
+                            <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                <doc>can be trial developer standard premium enterprise</doc>
+                            </param>
+                            <param name="format" required="true" style="query" type="xsd:string">
+                                <doc>json xml</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="UpcomingSeason/">
+                    <method displayName="Upcoming Season" id="5356" name="GET">
+                        <request>
+                            <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                <doc>can be trial developer standard premium enterprise</doc>
+                            </param>
+                            <param name="format" required="true" style="query" type="xsd:string">
+                                <doc>json xml</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="Teams/">
+                    <resource uri="{season}/">
+                        <param name="season" style="template" type="xsd:string"/>
+                        <method displayName="Teams" id="5355" name="GET">
+                            <request>
+                                <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                    <doc>can be trial developer standard premium enterprise</doc>
+                                </param>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc>json xml</doc>
+                                </param>
+                                <param name="season" required="true" style="query" type="xsd:string">
+                                    <doc>the season from which you are pulling content This value must be an integer or the string current The minimum season for Fantasy data is The minimum season for Team data is</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="TeamSeasonStats/">
+                    <resource uri="{season}/">
+                        <param name="season" style="template" type="xsd:string"/>
+                        <method displayName="Team Season Stats" id="5354" name="GET">
+                            <request>
+                                <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                    <doc>can be trial developer standard premium enterprise</doc>
+                                </param>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc>json xml</doc>
+                                </param>
+                                <param name="season" required="true" style="query" type="xsd:string">
+                                    <doc>the season from which you are pulling content This value must be an integer or the string current The minimum season for Fantasy data is The minimum season for Team data is</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="TeamGameStats/">
+                    <resource uri="{season}/">
+                        <param name="season" style="template" type="xsd:string"/>
+                        <resource uri="{week}/">
+                            <param name="week" style="template" type="xsd:string"/>
+                            <method displayName="Team Game Stats" id="5353" name="GET">
+                                <request>
+                                    <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                        <doc>can be trial developer standard premium enterprise</doc>
+                                    </param>
+                                    <param name="format" required="true" style="query" type="xsd:string">
+                                        <doc>json xml</doc>
+                                    </param>
+                                    <param name="season" required="true" style="query" type="xsd:string">
+                                        <doc>the season from which you are pulling content This value must be an integer or the string current The minimum season for Fantasy data is The minimum season for Team data is</doc>
+                                    </param>
+                                    <param name="week" required="true" style="query" type="xsd:string">
+                                        <doc>the week from which you are pulling content This value must be an integer between and or the word current Weeks are regular season weeks Weeks are post season weeks</doc>
+                                    </param>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="Standings/">
+                    <resource uri="{season}/">
+                        <param name="season" style="template" type="xsd:string"/>
+                        <method displayName="Standings" id="5352" name="GET">
+                            <request>
+                                <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                    <doc>can be trial developer standard premium enterprise</doc>
+                                </param>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc>json xml</doc>
+                                </param>
+                                <param name="season" required="true" style="query" type="xsd:string">
+                                    <doc>the season from which you are pulling content This value must be an integer or the string current The minimum season for Fantasy data is The minimum season for Team data is</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="SeasonLeagueLeaders/">
+                    <resource uri="{season}/">
+                        <param name="season" style="template" type="xsd:string"/>
+                        <resource uri="{position}/">
+                            <param name="position" style="template" type="xsd:string"/>
+                            <resource uri="{column}/">
+                                <param name="column" style="template" type="xsd:string"/>
+                                <method displayName="Season League Leaders" id="5351" name="GET">
+                                    <request>
+                                        <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                            <doc>can be trial developer standard premium enterprise</doc>
+                                        </param>
+                                        <param name="column" required="true" style="query" type="xsd:string">
+                                            <doc>the column you want the results sorted by</doc>
+                                        </param>
+                                        <param name="format" required="true" style="query" type="xsd:string">
+                                            <doc>json xml</doc>
+                                        </param>
+                                        <param name="position" required="true" style="query" type="xsd:string">
+                                            <doc>the player s position that you want to filter content by</doc>
+                                        </param>
+                                        <param name="season" required="true" style="query" type="xsd:string">
+                                            <doc>the season from which you are pulling content This value must be an integer or the string current The minimum season for Fantasy data is The minimum season for Team data is</doc>
+                                        </param>
+                                    </request>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="ScoresByWeek/">
+                    <resource uri="{season}/">
+                        <param name="season" style="template" type="xsd:string"/>
+                        <resource uri="{week}/">
+                            <param name="week" style="template" type="xsd:string"/>
+                            <method displayName="Scores By Week" id="5350" name="GET">
+                                <request>
+                                    <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                        <doc>can be trial developer standard premium enterprise</doc>
+                                    </param>
+                                    <param name="format" required="true" style="query" type="xsd:string">
+                                        <doc>json xml</doc>
+                                    </param>
+                                    <param name="season" required="true" style="query" type="xsd:string">
+                                        <doc>the season from which you are pulling content This value must be an integer or the string current The minimum season for Fantasy data is The minimum season for Team data is</doc>
+                                    </param>
+                                    <param name="week" required="true" style="query" type="xsd:string">
+                                        <doc>the week from which you are pulling content This value must be an integer between and or the word current Weeks are regular season weeks Weeks are post season weeks</doc>
+                                    </param>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="Scores/">
+                    <resource uri="{season}/">
+                        <param name="season" style="template" type="xsd:string"/>
+                        <method displayName="Scores" id="5349" name="GET">
+                            <request>
+                                <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                    <doc>can be trial developer standard premium enterprise</doc>
+                                </param>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc>json xml</doc>
+                                </param>
+                                <param name="season" required="true" style="query" type="xsd:string">
+                                    <doc>the season from which you are pulling content This value must be an integer or the string current The minimum season for Fantasy data is The minimum season for Team data is</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="Schedules/">
+                    <resource uri="{season}/">
+                        <param name="season" style="template" type="xsd:string"/>
+                        <method displayName="Schedules" id="5348" name="GET">
+                            <request>
+                                <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                    <doc>can be trial developer standard premium enterprise</doc>
+                                </param>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc>json xml</doc>
+                                </param>
+                                <param name="season" required="true" style="query" type="xsd:string">
+                                    <doc>the season from which you are pulling content This value must be an integer or the string current The minimum season for Fantasy data is The minimum season for Team data is</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="Players/">
+                    <resource uri="{team}/">
+                        <param name="team" style="template" type="xsd:string"/>
+                        <method displayName="Players rosters" id="5347" name="GET">
+                            <request>
+                                <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                    <doc>can be trial developer standard premium enterprise</doc>
+                                </param>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc>json xml</doc>
+                                </param>
+                                <param name="team" required="true" style="query" type="xsd:string">
+                                    <doc>this is the abbreviation of the team from whom you are pulling content</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="PlayerSeasonStatsByTeam/">
+                    <resource uri="{season}/">
+                        <param name="season" style="template" type="xsd:string"/>
+                        <resource uri="{team}/">
+                            <param name="team" style="template" type="xsd:string"/>
+                            <method displayName="Player Stats By Season" id="5346" name="GET">
+                                <request>
+                                    <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                        <doc>can be trial developer standard premium enterprise</doc>
+                                    </param>
+                                    <param name="format" required="true" style="query" type="xsd:string">
+                                        <doc>json xml</doc>
+                                    </param>
+                                    <param name="season" required="true" style="query" type="xsd:string">
+                                        <doc>the season from which you are pulling content This value must be an integer or the string current The minimum season for Fantasy data is The minimum season for Team data is</doc>
+                                    </param>
+                                    <param name="team" required="true" style="query" type="xsd:string">
+                                        <doc>abbreviation of the team</doc>
+                                    </param>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="Player/">
+                    <resource uri="{playerid}/">
+                        <param name="playerid" style="template" type="xsd:string"/>
+                        <method displayName="Player Rosters" id="5344" name="GET">
+                            <request>
+                                <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                    <doc>can be trial developer standard premium enterprise</doc>
+                                </param>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc>json xml</doc>
+                                </param>
+                                <param name="playerid" required="true" style="query" type="xsd:string">
+                                    <doc>the unique ID of the player from whom you want to pull content Each NFL player has a unique ID assigned by NFLData com You will find these IDs whenever pulling player related content</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="PlayerGameStatsByTeam/">
+                    <resource uri="{season}/">
+                        <param name="season" style="template" type="xsd:string"/>
+                        <resource uri="{week}/">
+                            <param name="week" style="template" type="xsd:string"/>
+                            <resource uri="{team}/">
+                                <param name="team" style="template" type="xsd:string"/>
+                                <method displayName="Player Game Stats By Team" id="5343" name="GET">
+                                    <request>
+                                        <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                            <doc>can be trial developer standard premium enterprise</doc>
+                                        </param>
+                                        <param name="format" required="true" style="query" type="xsd:string">
+                                            <doc>json xml</doc>
+                                        </param>
+                                        <param name="season" required="true" style="query" type="xsd:string">
+                                            <doc>the season from which you are pulling content This value must be an integer or the string current The minimum season for Fantasy data is The minimum season for Team data is</doc>
+                                        </param>
+                                        <param name="team" required="true" style="query" type="xsd:string">
+                                            <doc>this is the abbreviation of the team from whom you are pulling content</doc>
+                                        </param>
+                                        <param name="week" required="true" style="query" type="xsd:string">
+                                            <doc>the week from which you are pulling content This value must be an integer between and or the word current Weeks are regular season weeks Weeks are post season weeks</doc>
+                                        </param>
+                                    </request>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="PlayerGameStatsByPlayerID/">
+                    <resource uri="{season}/">
+                        <param name="season" style="template" type="xsd:string"/>
+                        <resource uri="{week}/">
+                            <param name="week" style="template" type="xsd:string"/>
+                            <resource uri="{playerid}/">
+                                <param name="playerid" style="template" type="xsd:string"/>
+                                <method displayName="Player Game Stats By ID" id="5342" name="GET">
+                                    <request>
+                                        <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                            <doc>can be trial developer standard premium enterprise</doc>
+                                        </param>
+                                        <param name="format" required="true" style="query" type="xsd:string">
+                                            <doc>json xml</doc>
+                                        </param>
+                                        <param name="playerid" required="true" style="query" type="xsd:string">
+                                            <doc>this is the abbreviation of the team from whom you are pulling content</doc>
+                                        </param>
+                                        <param name="season" required="true" style="query" type="xsd:string">
+                                            <doc>the season from which you are pulling content This value must be an integer or the string current The minimum season for Fantasy data is The minimum season for Team data is</doc>
+                                        </param>
+                                        <param name="week" required="true" style="query" type="xsd:string">
+                                            <doc>the week from which you are pulling content This value must be an integer between and or the word current Weeks are regular season weeks Weeks are post season weeks</doc>
+                                        </param>
+                                    </request>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="NewsByTeam/">
+                    <resource uri="{team}/">
+                        <param name="team" style="template" type="xsd:string"/>
+                        <method displayName="News By Team" id="5341" name="GET">
+                            <request>
+                                <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                    <doc>trial developer standard premium enterprise</doc>
+                                </param>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc>json xml</doc>
+                                </param>
+                                <param name="team" required="true" style="query" type="xsd:string">
+                                    <doc>this is the abbreviation of the team from whom you are pulling content</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="NewsByPlayerID/">
+                    <resource uri="{playerid}/">
+                        <param name="playerid" style="template" type="xsd:string"/>
+                        <method displayName="News By Player ID" id="5340" name="GET">
+                            <request>
+                                <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                    <doc>can be trial developer standard premium enterprise</doc>
+                                </param>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc>json xml</doc>
+                                </param>
+                                <param name="playerid" required="true" style="query" type="xsd:string">
+                                    <doc>player ID</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="News/">
+                    <method displayName="News" id="5339" name="GET">
+                        <request>
+                            <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                <doc>can be trial developer standard premium enterprise</doc>
+                            </param>
+                            <param name="format" required="true" style="query" type="xsd:string">
+                                <doc>json xml</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="LiveBoxScores/">
+                    <method displayName="Live Box Score" id="5338" name="GET">
+                        <request>
+                            <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                <doc>can be trial developer standard premium enterprise</doc>
+                            </param>
+                            <param name="format" required="true" style="query" type="xsd:string">
+                                <doc>json xml</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="LastCompletedWeek/">
+                    <method displayName="Last Completed Week" id="5337" name="GET">
+                        <request>
+                            <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                <doc>can be trial developer standard premium enterprise</doc>
+                            </param>
+                            <param name="format" required="true" style="query" type="xsd:string">
+                                <doc>json xml</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="LastCompletedSeason/">
+                    <method displayName="Last Completed Season" id="5336" name="GET">
+                        <request>
+                            <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                <doc>can be trial developer standard premium enterprise</doc>
+                            </param>
+                            <param name="format" required="true" style="query" type="xsd:string">
+                                <doc>json xml</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="Injuries/">
+                    <resource uri="{season}/">
+                        <param name="season" style="template" type="xsd:string"/>
+                        <resource uri="{week}/">
+                            <param name="week" style="template" type="xsd:string"/>
+                            <method displayName="Injuries" id="5334" name="GET">
+                                <request>
+                                    <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                        <doc>can be trial developer standard premium enterprise</doc>
+                                    </param>
+                                    <param name="format" required="true" style="query" type="xsd:string">
+                                        <doc>json xml</doc>
+                                    </param>
+                                    <param name="season" required="true" style="query" type="xsd:string">
+                                        <doc>the season from which you are pulling content This value must be an integer or the string current The minimum season for Fantasy data is The minimum season for Team data is</doc>
+                                    </param>
+                                    <param name="week" required="true" style="query" type="xsd:string">
+                                        <doc>the week from which you are pulling content This value must be an integer between and or the word current Weeks are regular season weeks Weeks are post season weeks</doc>
+                                    </param>
+                                </request>
+                            </method>
+                            <method displayName="Injuries by team" id="5335" name="GET">
+                                <request>
+                                    <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                        <doc>can be trial developer standard premium enterprise</doc>
+                                    </param>
+                                    <param name="format" required="true" style="query" type="xsd:string">
+                                        <doc>json xml</doc>
+                                    </param>
+                                    <param name="season" required="true" style="query" type="xsd:string">
+                                        <doc>the season from which you are pulling content This value must be an integer or the string current The minimum season for Fantasy data is The minimum season for Team data is</doc>
+                                    </param>
+                                    <param name="team" required="true" style="query" type="xsd:string">
+                                        <doc>this is the abbreviation of the team from whom you are pulling content</doc>
+                                    </param>
+                                    <param name="week" required="true" style="query" type="xsd:string">
+                                        <doc>the week from which you are pulling content This value must be an integer between and or the word current Weeks are regular season weeks Weeks are post season weeks</doc>
+                                    </param>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="GameLeagueLeaders/">
+                    <resource uri="{season}/">
+                        <param name="season" style="template" type="xsd:string"/>
+                        <resource uri="{week}/">
+                            <param name="week" style="template" type="xsd:string"/>
+                            <resource uri="{position}/">
+                                <param name="position" style="template" type="xsd:string"/>
+                                <resource uri="{column}/">
+                                    <param name="column" style="template" type="xsd:string"/>
+                                    <method displayName="Game League Leaders" id="5333" name="GET">
+                                        <request>
+                                            <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                                <doc>can be trial developer standard premium enterprise</doc>
+                                            </param>
+                                            <param name="column" required="true" style="query" type="xsd:string">
+                                                <doc>the column you want the results sorted by</doc>
+                                            </param>
+                                            <param name="format" required="true" style="query" type="xsd:string">
+                                                <doc>json xml</doc>
+                                            </param>
+                                            <param name="position" required="true" style="query" type="xsd:string">
+                                                <doc>the player s position that you want to filter content by The default behavior is to return all positions</doc>
+                                            </param>
+                                            <param name="season" required="true" style="query" type="xsd:string">
+                                                <doc>the season from which you are pulling content This value must be an integer or the string current The minimum season for Fantasy data is The minimum season for Team data is</doc>
+                                            </param>
+                                            <param name="week" required="true" style="query" type="xsd:string">
+                                                <doc>the week from which you are pulling content This value must be an integer between and or the word current Weeks are regular season weeks Weeks are post season weeks</doc>
+                                            </param>
+                                        </request>
+                                    </method>
+                                </resource>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="AreAnyGamesInProgress/">
+                    <method displayName="Game In Progress" id="5332" name="GET">
+                        <request>
+                            <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                <doc>can be trial developer standard premium enterprise</doc>
+                            </param>
+                            <param name="format" required="true" style="query" type="xsd:string">
+                                <doc>json xml</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="FreeAgents/">
+                    <method displayName="Free Agents" id="5331" name="GET">
+                        <request>
+                            <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                <doc>can be trial developer standard premium enterprise</doc>
+                            </param>
+                            <param name="format" required="true" style="query" type="xsd:string">
+                                <doc>json xml</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="FantasyDefenseBySeason/">
+                    <resource uri="{season}/">
+                        <param name="season" style="template" type="xsd:string"/>
+                        <method displayName="Fantasy Defense By Season" id="5330" name="GET">
+                            <request>
+                                <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                    <doc>can be trial developer standard premium enterprise</doc>
+                                </param>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc>xml json</doc>
+                                </param>
+                                <param name="season" required="true" style="query" type="xsd:string">
+                                    <doc>the season from which you are pulling content This value must be an integer or the string current The minimum season for Fantasy data is The minimum season for Team data is</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="FantasyDefenseByGame/">
+                    <resource uri="{season}/">
+                        <param name="season" style="template" type="xsd:string"/>
+                        <resource uri="{week}/">
+                            <param name="week" style="template" type="xsd:string"/>
+                            <method displayName="Fantasy Defense By Game" id="5329" name="GET">
+                                <request>
+                                    <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                        <doc>can be trial developer standard premium enterprise</doc>
+                                    </param>
+                                    <param name="format" required="true" style="query" type="xsd:string">
+                                        <doc>json xml</doc>
+                                    </param>
+                                    <param name="season" required="true" style="query" type="xsd:string">
+                                        <doc>the season from which you are pulling content This value must be an integer or the string current The minimum season for Fantasy data is The minimum season for Team data is</doc>
+                                    </param>
+                                    <param name="week" required="true" style="query" type="xsd:string">
+                                        <doc>the week from which you are pulling content This value must be an integer between and or the word current Weeks are regular season weeks Weeks are post season weeks</doc>
+                                    </param>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="CurrentWeek/">
+                    <method displayName="Current Week" id="5328" name="GET">
+                        <request>
+                            <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                <doc>can be trial developer standard premium enterprise</doc>
+                            </param>
+                            <param name="format" required="true" style="query" type="xsd:string">
+                                <doc>json xml</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="CurrentSeason/">
+                    <method displayName="Current Season" id="5327" name="GET">
+                        <request>
+                            <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                <doc>can be trial developer standard premium enterprise</doc>
+                            </param>
+                            <param name="format" required="true" style="query" type="xsd:string">
+                                <doc>json xml</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="Byes/">
+                    <resource uri="{season}/">
+                        <param name="season" style="template" type="xsd:string"/>
+                        <method displayName="Byes" id="5326" name="GET">
+                            <request>
+                                <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                    <doc>can be trial developer standard premium enterprise</doc>
+                                </param>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc>json xml</doc>
+                                </param>
+                                <param name="season" required="true" style="query" type="xsd:string">
+                                    <doc>the season from which you are pulling content This value must be an integer or the string current The minimum season for Fantasy data is The minimum season for Team data is</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="BoxScore/">
+                    <resource uri="{season}/">
+                        <param name="season" style="template" type="xsd:string"/>
+                        <resource uri="{week}/">
+                            <param name="week" style="template" type="xsd:string"/>
+                            <resource uri="{hometeam}/">
+                                <param name="hometeam" style="template" type="xsd:string"/>
+                                <method displayName="Box Score" id="5325" name="GET">
+                                    <request>
+                                        <param name="accessLevel" required="true" style="query" type="xsd:string">
+                                            <doc>can be trial developer standard premium enterprise</doc>
+                                        </param>
+                                        <param name="format" required="true" style="query" type="xsd:string">
+                                            <doc>json xml</doc>
+                                        </param>
+                                        <param name="hometeam" required="true" style="query" type="xsd:string"/>
+                                        <param name="season" required="true" style="query" type="xsd:string">
+                                            <doc>the season from which you are pulling content This value must be an integer or the string current The minimum season for Fantasy data is The minimum season for Team data is</doc>
+                                        </param>
+                                        <param name="week" required="true" style="query" type="xsd:string">
+                                            <doc>the week from which you are pulling content This value must be an integer between and or the word current Weeks are regular season weeks Weeks are post season weeks</doc>
+                                        </param>
+                                    </request>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f478="urn:function:f478" xmlns:f479="urn:function:f479" xmlns:f480="urn:function:f480" xmlns:f481="urn:function:f481" xmlns:f482="urn:function:f482" xmlns:f483="urn:function:f483" xmlns:f484="urn:function:f484" xmlns:f485="urn:function:f485" xmlns:f486="urn:function:f486" xmlns:f487="urn:function:f487" xmlns:f488="urn:function:f488" xmlns:f489="urn:function:f489">
+    <grammars>
+        <include href="Function489.xsd"/>
+        <include href="Function487.xsd"/>
+        <include href="Function488.xsd"/>
+        <include href="Function486.xsd"/>
+        <include href="Function485.xsd"/>
+        <include href="Function484.xsd"/>
+        <include href="Function483.xsd"/>
+        <include href="Function481.xsd"/>
+        <include href="Function482.xsd"/>
+        <include href="Function480.xsd"/>
+        <include href="Function479.xsd"/>
+        <include href="Function478.xsd"/>
+    </grammars>
+    <doc>the WebKnox text processing API lets you process natural language texts You can detect the text s language the quality of the writing find entity mentions tag part of speech extract dates extract locations or determine the sentiment of the text</doc>
+    <resources base="https://webknox-text-processing.p.mashape.com/">
+        <resource uri="text/">
+            <resource uri="summary/">
+                <method displayName="Summarize Text" id="489" name="GET">
+                    <doc>Extract a summary of a text.</doc>
+                    <request>
+                        <param name="keepratio" required="true" style="query" type="xsd:string">
+                            <doc>the ratio of the text that should be kept</doc>
+                        </param>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>the text which should be summarized</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f489:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="sentences/">
+                <method displayName="Split Sentences" id="487" name="POST">
+                    <doc>Split a given text into sentences.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f487:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Split Sentences." id="488" name="GET">
+                    <doc>Split a given text into sentences.</doc>
+                    <request>
+                        <param name="language" required="true" style="query" type="xsd:string">
+                            <doc>the language of the text Currently English en and German de are supported</doc>
+                        </param>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>the text to split into sentences</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f488:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="quality/">
+                <method displayName="Rate the Quality" id="486" name="POST">
+                    <doc>Determine the quality of an article.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f486:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="locations/">
+                <method displayName="Extract Locations" id="485" name="GET">
+                    <doc>Extract names of locations in the given text.</doc>
+                    <request>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>the text from which locations should be extracted</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f485:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="entities/">
+                <method displayName="Extract Entities" id="484" name="GET">
+                    <doc>Extract entities such as movies or people in a given text.</doc>
+                    <request>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>the text in which entities should be detected</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f484:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="dates/">
+                <method displayName="Extract Dates" id="483" name="GET">
+                    <doc>Extract dates from a given text.</doc>
+                    <request>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>the text from which dates should be extracted</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f483:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="sentiment/">
+                <method displayName="Detect Sentiment" id="481" name="GET">
+                    <doc>Detect the sentiment (positive or negative) of a given text. The detection works for English and German texts.</doc>
+                    <request>
+                        <param name="contextwords" required="true" style="query" type="xsd:string">
+                            <doc>optionally consider only sentences that contain a context word for the sentiment detection</doc>
+                        </param>
+                        <param name="language" required="true" style="query" type="xsd:string">
+                            <doc>the language of the given text en English de German</doc>
+                        </param>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>the text for which the sentiment should be detected</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f481:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Detect Sentiment - POST" id="482" name="POST">
+                    <doc>Detect the sentiment of a text.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f482:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="posTags/">
+                <method displayName="Detect Part-of-Speech" id="480" name="GET">
+                    <doc>Tag a given text with part-of-speech tags (POS tags).</doc>
+                    <request>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>the text for which the POS tags should be found</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f480:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="language/">
+                <method displayName="Detect Language" id="479" name="GET">
+                    <doc>Detect the language of a natural language text.</doc>
+                    <request>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>the text for which the language should be determined</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f479:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="correction/">
+                <method displayName="Detect Errors" id="478" name="GET">
+                    <doc>Detect spelling errors in the text.</doc>
+                    <request>
+                        <param name="language" required="true" style="query" type="xsd:string">
+                            <doc>the language of the given text</doc>
+                        </param>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>the text that should be auto corrected</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f478:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1722="urn:function:f1722" xmlns:f1723="urn:function:f1723" xmlns:f1724="urn:function:f1724" xmlns:f1725="urn:function:f1725">
+    <grammars>
+        <include href="Function1725.xsd"/>
+        <include href="Function1724.xsd"/>
+        <include href="Function1723.xsd"/>
+        <include href="Function1722.xsd"/>
+    </grammars>
+    <doc>the WebKnox entities API gives you access to millions of entities such as cities actors movies cars etc You can search for entities and get factual information Additionally you may detect known entities from texts often referred to as Named Entity Recognition</doc>
+    <resources base="https://webknox-entities.p.mashape.com/">
+        <resource uri="entities/">
+            <resource uri="{entityId}/">
+                <param name="entityId" style="template" type="xsd:string"/>
+                <method displayName="Get Entity Information" id="1725" name="GET">
+                    <doc>Get information about a certain entity.</doc>
+                    <request>
+                        <param name="entityid" required="true" style="query" type="xsd:string">
+                            <doc>the id of the entity for which information should be returned The id can be found using the entity search method with an entity name</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1725:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="quotes/">
+                <method displayName="Find Quotes" id="1724" name="GET">
+                    <doc>Find quotes from people about certain topics.</doc>
+                    <request>
+                        <param name="author" required="true" style="query" type="xsd:string">
+                            <doc>the author of the quote or empty if the author does not matter</doc>
+                        </param>
+                        <param name="topic" required="true" style="query" type="xsd:string">
+                            <doc>the text that must appear in the quote Leave that empty if you want all quotes from the given author</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1724:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="search/">
+                <method displayName="Find Entities." id="1723" name="GET">
+                    <doc>Find entities by name.</doc>
+                    <request>
+                        <param name="query" required="true" style="query" type="xsd:string">
+                            <doc>the name to search an entity for</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1723:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="text/">
+            <resource uri="entities/">
+                <method displayName="Detect Entities" id="1722" name="GET">
+                    <doc>Detect entity mentions in a given text.</doc>
+                    <request>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>the text in which entities should be detected</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1722:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6102="urn:function:f6102" xmlns:f6104="urn:function:f6104">
+    <grammars>
+        <include href="Function6104.xsd"/>
+        <include href="Function6102.xsd"/>
+    </grammars>
+    <doc>aPI allows manage LEGO set collection User can specify which items you own and how many of them Through this API could be persist collection</doc>
+    <resources base="https://cubiculuscollection.p.mashape.com/">
+        <resource uri="user-by-email/">
+            <resource uri="{apiKey}/">
+                <param name="apiKey" style="template" type="xsd:string"/>
+                <resource uri="{email}/">
+                    <param name="email" style="template" type="xsd:string"/>
+                    <method displayName="User by email" id="6104" name="GET">
+                        <doc>get detail user informations, requires users's own cubiculus credential</doc>
+                        <request>
+                            <param name="apikey" required="true" style="query" type="xsd:string">
+                                <doc>application key Accessing application is identified by key This application key could be for free obtained at cubiculus com after registration</doc>
+                            </param>
+                            <param name="email" required="true" style="query" type="xsd:string">
+                                <doc>users s email</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6104:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="collection/">
+            <resource uri="{apiKey}/">
+                <param name="apiKey" style="template" type="xsd:string"/>
+                <method displayName="Collection" id="6102" name="GET">
+                    <doc>Get list of items in user's collection</doc>
+                    <request>
+                        <param name="apikey" required="true" style="query" type="xsd:string">
+                            <doc>application key Accessing application is identified by key This application key could be for free obtained at cubiculus com after registration</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6102:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Save collection item" id="6103" name="POST">
+                    <doc>Allows to save change in user's LEGO collection. When user want to remove item than save it in quantity 0.</doc>
+                    <request>
+                        <param name="apikey" required="true" style="query" type="xsd:string">
+                            <doc>application key Accessing application is identified by key This application key could be for free obtained at cubiculus com after registration</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

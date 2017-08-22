@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1964="urn:function:f1964" xmlns:f1965="urn:function:f1965" xmlns:f1966="urn:function:f1966" xmlns:f1967="urn:function:f1967">
+    <grammars>
+        <include href="Function1967.xsd"/>
+        <include href="Function1966.xsd"/>
+        <include href="Function1964.xsd"/>
+        <include href="Function1965.xsd"/>
+    </grammars>
+    <doc>netbase your semantic web database Knowledge Graph containing over nodes and statements from all the Internet s finest sources including Freebase DBPedia Yago Wordnet babelnet as well as many custom GraphDBs From simple entities to complex queries this is by far the fastest db of its kind</doc>
+    <resources base="https://freebase.p.mashape.com/">
+        <resource uri="xml/">
+            <resource uri="verbose/">
+                <resource uri="{query}/">
+                    <param name="query" style="template" type="xsd:string"/>
+                    <method displayName="Full XML results" id="1967" name="GET">
+                        <doc>Full XML for entity, id, query or statement</doc>
+                        <request>
+                            <param name="query" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f1967:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="json/">
+            <resource uri="verbose/">
+                <resource uri="{entity}/">
+                    <param name="entity" style="template" type="xsd:string"/>
+                    <method displayName="Full results" id="1966" name="GET">
+                        <doc>Full results</doc>
+                        <request>
+                            <param name="entity" required="true" style="query" type="xsd:string">
+                                <doc>entity or query i e Paul Bley or love antonym</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1966:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="{query}/">
+                    <param name="query" style="template" type="xsd:string"/>
+                    <method displayName="Full JSON" id="1964" name="GET">
+                        <doc>Full JSON</doc>
+                        <request>
+                            <param name="query" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f1964:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Full JSON results" id="1965" name="GET">
+                        <doc>Complete json results for query, including statements (see limit)</doc>
+                        <request>
+                            <param name="query" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f1965:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

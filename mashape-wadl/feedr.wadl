@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3446="urn:function:f3446" xmlns:f3447="urn:function:f3447" xmlns:f3448="urn:function:f3448" xmlns:f3449="urn:function:f3449" xmlns:f3450="urn:function:f3450" xmlns:f3451="urn:function:f3451" xmlns:f3452="urn:function:f3452" xmlns:f3459="urn:function:f3459" xmlns:f3462="urn:function:f3462" xmlns:f3463="urn:function:f3463" xmlns:f3464="urn:function:f3464" xmlns:f3465="urn:function:f3465" xmlns:f3467="urn:function:f3467" xmlns:f3469="urn:function:f3469">
+    <grammars>
+        <include href="Function3465.xsd"/>
+        <include href="Function3464.xsd"/>
+        <include href="Function3459.xsd"/>
+        <include href="Function3452.xsd"/>
+        <include href="Function3451.xsd"/>
+        <include href="Function3449.xsd"/>
+        <include href="Function3450.xsd"/>
+        <include href="Function3462.xsd"/>
+        <include href="Function3463.xsd"/>
+        <include href="Function3467.xsd"/>
+        <include href="Function3469.xsd"/>
+        <include href="Function3448.xsd"/>
+        <include href="Function3447.xsd"/>
+        <include href="Function3446.xsd"/>
+    </grammars>
+    <doc>rSS cloud proxy service for web publishers developers and readers More www feedr io</doc>
+    <resources base="https://feedr.p.mashape.com/">
+        <resource uri="unsubscribe/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Subscriber Seeds Unsubscribe" id="3468" name="GET">
+                    <doc>The method unsubscribes you from the seed.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="entries/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Subscriber Feed Entry" id="3465" name="GET">
+                    <doc>The method retrieves a specific feed entry and all related custom fields by provided id. If the feed entry of the provided id does not exist or you do not have access to the seed of the feed entry, then no feed entry will be returned.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the unique identification number in Feedr</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3465:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="search/">
+            <resource uri="{term}/">
+                <param name="term" style="template" type="xsd:string"/>
+                <method displayName="Subscriber Feed Entries Search" id="3464" name="GET">
+                    <doc>The method searches every field of every feed entry in the seed of the provided link.</doc>
+                    <request>
+                        <param name="count" required="true" style="query" type="xsd:integer">
+                            <doc>the amount of feed entries to return If the parameter is specified then p and ps are ignored</doc>
+                        </param>
+                        <param name="dir" required="true" style="query" type="xsd:string">
+                            <doc>the direction of the order for the field specified in order If the parameter is not specified or provided anything else than asc or desc then it defaults to asc</doc>
+                        </param>
+                        <param name="link" required="true" style="query" type="xsd:string">
+                            <doc>feed url with all non alphanumeric characters escaped</doc>
+                        </param>
+                        <param name="order" required="true" style="query" type="xsd:string">
+                            <doc>the name of the field to order by</doc>
+                        </param>
+                        <param name="p" required="true" style="query" type="xsd:integer">
+                            <doc>the page number If the parameter is greater than the total number of pages the method returns an empty array If the parameter is not provided the method returns all seeds and ps is ignored</doc>
+                        </param>
+                        <param name="ps" required="true" style="query" type="xsd:integer">
+                            <doc>the page size The amount of seeds returned is equal to or less than the parameter The parameter is ignored if p is not provided If the parameter is not provided then it defaults to</doc>
+                        </param>
+                        <param name="smr" required="true" style="query" type="xsd:boolean">
+                            <doc>the flag that specifies whether feed entries summaries must be returned</doc>
+                        </param>
+                        <param name="term" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3464:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="publisher/">
+            <resource uri="seeds/">
+                <resource uri="kill/">
+                    <resource uri="{id}/">
+                        <param name="id" style="template" type="xsd:string"/>
+                        <method displayName="Publisher Seeds Kill" id="3461" name="GET">
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="change/">
+                    <resource uri="{id}/">
+                        <param name="id" style="template" type="xsd:string"/>
+                        <method displayName="Publisher Seeds Change" id="3460" name="GET">
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="all/">
+                    <method displayName="Publisher Seeds All" id="3459" name="GET">
+                        <doc>The method returns all the seeds you publish (a.k.a. your publications).</doc>
+                        <request>
+                            <param name="p" required="true" style="query" type="xsd:integer">
+                                <doc>the page number If the parameter is greater than the total number of pages the method returns an empty array If the parameter is not provided the method returns all seeds and ps is ignored</doc>
+                            </param>
+                            <param name="ps" required="true" style="query" type="xsd:integer">
+                                <doc>the page size The amount of seeds returned is equal to or less than the parameter The parameter is ignored if p is not provided If the parameter is not provided then it defaults to</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f3459:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="add/">
+                    <method displayName="Publisher Seeds Add" id="3458" name="GET">
+                        <doc>The method creates a new seed based on the provided link and retrieves feed entries. If the seed is already published by another publisher, the error with the according message is returned. Note: all non-URL-safe characters must be escaped.</doc>
+                        <request>
+                            <param name="link" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="domains/">
+                <resource uri="kill/">
+                    <resource uri="{id}/">
+                        <param name="id" style="template" type="xsd:string"/>
+                        <method displayName="Publisher Domains Kill" id="3457" name="GET">
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="change/">
+                    <resource uri="{id}/">
+                        <param name="id" style="template" type="xsd:string"/>
+                        <method displayName="Publisher Domains Change" id="3456" name="GET">
+                            <request>
+                                <param name="host" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                                <param name="ip" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="all/">
+                    <method displayName="Publisher Domains All" id="3455" name="GET">
+                        <request/>
+                    </method>
+                </resource>
+                <resource uri="add/">
+                    <resource uri="{host}/">
+                        <param name="host" style="template" type="xsd:string"/>
+                        <method displayName="Publisher Domains Add" id="3454" name="GET">
+                            <request>
+                                <param name="host" required="true" style="query" type="xsd:string"/>
+                                <param name="ip" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="ip/">
+            <method displayName="My IP" id="3453" name="GET">
+                <doc>The method returns your IP. If the call is made via proxy, proxy IP and your IP are returned.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="kill/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Kill" id="3452" name="GET">
+                    <doc>The method deletes the seed of the provided id along with all related feed entries. Returns the status and the deleted seed.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the unique identification number in Feedr</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3452:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="digest/">
+            <method displayName="Digest" id="3451" name="GET">
+                <doc>The method returns the set of feed entries for the seed of the provided link.</doc>
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:integer">
+                        <doc>the amount of feed entries to return If the parameter is specified then p and ps are ignored</doc>
+                    </param>
+                    <param name="dir" required="true" style="query" type="xsd:string">
+                        <doc>the direction of the order for the field specified in order If the parameter is not specified or provided anything else than asc or desc then it defaults to asc</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>the unique identification number of a seed in Feedr It is required if link is not provided</doc>
+                    </param>
+                    <param name="link" required="true" style="query" type="xsd:string">
+                        <doc>feed url with all non alphanumeric characters escaped It is required if id is not provided</doc>
+                    </param>
+                    <param name="order" required="true" style="query" type="xsd:string">
+                        <doc>the name of the field to order by</doc>
+                    </param>
+                    <param name="p" required="true" style="query" type="xsd:integer">
+                        <doc>the page number If the parameter is greater than the total number of pages the method returns an empty array If the parameter is not provided the method returns all seeds and ps is ignored</doc>
+                    </param>
+                    <param name="ps" required="true" style="query" type="xsd:integer">
+                        <doc>the page size The amount of seeds returned is equal to or less than the parameter The parameter is ignored if p is not provided If the parameter is not provided then it defaults to</doc>
+                    </param>
+                    <param name="smr" required="true" style="query" type="xsd:boolean">
+                        <doc>the flag that specifies whether feed entries summaries must be returned</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3451:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="s/">
+            <method displayName="Create" id="3449" name="POST">
+                <doc>The method creates a new seed based on the provided link and retrieves feed entries. If the seed for the link already exists, nothing happens. Returns the status and the created seed.</doc>
+                <request/>
+                <response>
+                    <representation element="f3449:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete" id="3450" name="DELETE">
+                <doc>The method deletes the seed of the provided id along with all related feed entries. Returns the status and the deleted seed.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>the unique identification number in Feedr of the seed that is being deleted</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3450:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Read" id="3462" name="GET">
+                <doc>The method retrieves all seeds that either you own, or you are subscribed to. Returns the status and the seed set.</doc>
+                <request>
+                    <param name="p" required="true" style="query" type="xsd:integer">
+                        <doc>the page number If the parameter is greater than the total number of pages the method returns an empty array If the parameter is not provided the method returns all seeds and ps is ignored</doc>
+                    </param>
+                    <param name="ps" required="true" style="query" type="xsd:integer">
+                        <doc>the page size The amount of seeds returned is equal to or less than the parameter The parameter is ignored if p is not provided If the parameter is not provided then it defaults to</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3462:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Read One" id="3463" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3463:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Subscriber Seed Fix" id="3466" name="GET">
+                <doc>The method sets title and/or description for a seed for a subscriber's personal use.</doc>
+                <request>
+                    <param name="description" required="true" style="query" type="xsd:string">
+                        <doc>personal seed description</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>seed id or seed link</doc>
+                    </param>
+                    <param name="title" required="true" style="query" type="xsd:string">
+                        <doc>personal seed title</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Subscriber Seeds All" id="3467" name="GET">
+                <request>
+                    <param name="p" required="true" style="query" type="xsd:integer">
+                        <doc>the page number If the parameter is greater than the total number of pages the method returns an empty array If the parameter is not provided the method returns all seeds and ps is ignored</doc>
+                    </param>
+                    <param name="ps" required="true" style="query" type="xsd:integer">
+                        <doc>the page size The amount of seeds returned is equal to or less than the parameter The parameter is ignored if p is not provided If the parameter is not provided then it defaults to</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3467:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update" id="3469" name="PUT">
+                <doc>The method updates the provided properties of the seed of the provided id. Returns the status and the updated seed.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3469:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="change/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Change" id="3448" name="GET">
+                    <doc>The method updates the provided properties of the seed of the provided id. All non-URL-safe characters must be escaped. Returns the status and the updated seed.</doc>
+                    <request>
+                        <param name="copyright" required="true" style="query" type="xsd:string">
+                            <doc>copyright notice for content of the seed It matches the copyright element of the RSS channel</doc>
+                        </param>
+                        <param name="cronJobFrequence" required="true" style="query" type="xsd:integer">
+                            <doc>update frequency The value specifies how many hours between each update there are starting now The values must be between and To turn the cron job off you need to send as the parameter</doc>
+                        </param>
+                        <param name="description" required="true" style="query" type="xsd:string">
+                            <doc>the detailed description of the seed It matches the description element of the RSS channel You can leave it blank and it will be automatically retrieved from the corresponding feed Otherwise it will be overwritten</doc>
+                        </param>
+                        <param name="docs" required="true" style="query" type="xsd:string">
+                            <doc>the URL that points to the documentation about RSS According to RSS board it will never change so we default it to http www rssboard org rss specification You are more than welcome to specify your own URL to the documentation about your seed It matches the docs element of the RSS channel</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the unique identification number in Feedr</doc>
+                        </param>
+                        <param name="imageUrl" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="language" required="true" style="query" type="xsd:string">
+                            <doc>the language that the seed is written in It matches the language element of the RSS channel</doc>
+                        </param>
+                        <param name="lastBuildDate" required="true" style="query" type="xsd:string">
+                            <doc>the date when the content of the seed was changed It matches the last build date element of the RSS channel</doc>
+                        </param>
+                        <param name="managingEditor" required="true" style="query" type="xsd:string">
+                            <doc>contact information of the publisher or other content responsible party It matches the managing editor element of the RSS channel</doc>
+                        </param>
+                        <param name="pubDate" required="true" style="query" type="xsd:string">
+                            <doc>the date when the content of the seed was officially published It matches the pub date element of the RSS channel</doc>
+                        </param>
+                        <param name="rating" required="true" style="query" type="xsd:string">
+                            <doc>the PICS rating for the seed It matches the rating element of the RSS channel</doc>
+                        </param>
+                        <param name="skipDays" required="true" style="query" type="xsd:string">
+                            <doc>specific days of the week when the seed should not be read Can contain up to sever days It matches skip days element of the RSS channel</doc>
+                        </param>
+                        <param name="skipHours" required="true" style="query" type="xsd:string">
+                            <doc>specific hours of the day when the seed should not be read Can contain up to hours each is between and It matches skip hours element of the RSS channel</doc>
+                        </param>
+                        <param name="title" required="true" style="query" type="xsd:string">
+                            <doc>the name of the seed It matches the title element of the RSS channel You can leave it blank and it will be automatically retrieved from the corresponding feed Otherwise it will be overwritten</doc>
+                        </param>
+                        <param name="ttl" required="true" style="query" type="xsd:integer">
+                            <doc>time to live Time that defines how often the seed should be updated It matches the ttl element of the RSS channel</doc>
+                        </param>
+                        <param name="webMaster" required="true" style="query" type="xsd:string">
+                            <doc>contact information for the technical support It matches the web master element of the RSS channel</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3448:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="all/">
+            <method displayName="All" id="3447" name="GET">
+                <doc>The method returns all the seeds you are subscribed to (a.k.a. your subscriptions).</doc>
+                <request>
+                    <param name="p" required="true" style="query" type="xsd:integer">
+                        <doc>the page number If the parameter is greater than the total number of pages the method returns an empty array If the parameter is not provided the method returns all seeds and ps is ignored</doc>
+                    </param>
+                    <param name="ps" required="true" style="query" type="xsd:integer">
+                        <doc>the page size The amount of seeds returned is equal to or less than the parameter The parameter is ignored if p is not provided If the parameter is not provided then it defaults to</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3447:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="add/">
+            <method displayName="Add" id="3446" name="GET">
+                <doc>The method subscribes you to the seed. If the seed does not exist, it creates a new seed based on the provided link and retrieves feed entries. Note: all non-URL-safe characters must be escaped.</doc>
+                <request>
+                    <param name="copyright" required="true" style="query" type="xsd:string">
+                        <doc>copyright notice for content of the seed It matches the copyright element of the RSS channel</doc>
+                    </param>
+                    <param name="description" required="true" style="query" type="xsd:string">
+                        <doc>the detailed description of the seed It matches the description element of the RSS channel You can leave it blank and it will be automatically retrieved from the corresponding feed Otherwise it will be overwritten</doc>
+                    </param>
+                    <param name="docs" required="true" style="query" type="xsd:string">
+                        <doc>the URL that points to the documentation about RSS According to RSS board it will never change so we default it to http www rssboard org rss specification You are more than welcome to specify your own URL to the documentation about your seed It matches the docs element of the RSS channel</doc>
+                    </param>
+                    <param name="imageUrl" required="true" style="query" type="xsd:string">
+                        <doc>the URL to the image associated with the seed</doc>
+                    </param>
+                    <param name="language" required="true" style="query" type="xsd:string">
+                        <doc>the language that the seed is written in It matches the language element of the RSS channel</doc>
+                    </param>
+                    <param name="lastBuildDate" required="true" style="query" type="xsd:string">
+                        <doc>the date when the content of the seed was changed It matches the last build date element of the RSS channel</doc>
+                    </param>
+                    <param name="link" required="true" style="query" type="xsd:string">
+                        <doc>the URL of the source It matches the link element of the RSS channel</doc>
+                    </param>
+                    <param name="managingEditor" required="true" style="query" type="xsd:string">
+                        <doc>contact information of the publisher or other content responsible party It matches the managing editor element of the RSS channel</doc>
+                    </param>
+                    <param name="pubDate" required="true" style="query" type="xsd:string">
+                        <doc>the date when the content of the seed was officially published It matches the pub date element of the RSS channel</doc>
+                    </param>
+                    <param name="rating" required="true" style="query" type="xsd:string">
+                        <doc>the PICS rating for the seed It matches the rating element of the RSS channel</doc>
+                    </param>
+                    <param name="skipDays" required="true" style="query" type="xsd:string">
+                        <doc>specific days of the week when the seed should not be read Can contain up to sever days It matches skip days element of the RSS channel</doc>
+                    </param>
+                    <param name="skipHours" required="true" style="query" type="xsd:string">
+                        <doc>specific hours of the day when the seed should not be read Can contain up to hours each is between and It matches skip hours element of the RSS channel</doc>
+                    </param>
+                    <param name="title" required="true" style="query" type="xsd:string">
+                        <doc>the name of the seed It matches the title element of the RSS channel You can leave it blank and it will be automatically retrieved from the corresponding feed Otherwise it will be overwritten</doc>
+                    </param>
+                    <param name="ttl" required="true" style="query" type="xsd:integer">
+                        <doc>time to live Time that defines how often the seed should be updated It matches the ttl element of the RSS channel</doc>
+                    </param>
+                    <param name="webMaster" required="true" style="query" type="xsd:string">
+                        <doc>contact information for the technical support It matches the web master element of the RSS channel</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3446:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

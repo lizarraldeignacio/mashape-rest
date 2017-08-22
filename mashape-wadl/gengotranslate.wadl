@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>get human translation directly from your website or application Plug into the most scalable adaptable translation platform</doc>
+    <resources base="https://gengo-gengo.p.mashape.com/">
+        <resource uri="translate/">
+            <resource uri="service/">
+                <resource uri="quote/">
+                    <method displayName="Quote" id="1629" name="POST">
+                        <request/>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="account/">
+            <resource uri="stats/">
+                <method displayName="Account statistics" id="1628" name="GET">
+                    <doc>Retrieves account stats, such as orders made.</doc>
+                    <request>
+                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                            <doc>your API key</doc>
+                        </param>
+                        <param name="apiSig" required="true" style="query" type="xsd:string">
+                            <doc>your API signature</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

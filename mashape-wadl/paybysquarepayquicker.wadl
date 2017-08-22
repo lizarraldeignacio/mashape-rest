@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>payBySquare QR code generator standard used in Slovakia for invoices to denote payment information This format has been approved by the Slovak Banking Association</doc>
+    <resources base="https://payquicker-paybysquare-payquicker-v1.p.mashape.com/">
+        <resource uri="code.php/">
+            <method displayName="/code.php" id="5224" name="GET">
+                <doc>PayBySquare QR Code Generator</doc>
+                <request>
+                    <param name="amount" required="true" style="query" type="xsd:string">
+                        <doc>amount in EUR Numbers are allowed with dots with maximum length characters</doc>
+                    </param>
+                    <param name="bic" required="true" style="query" type="xsd:string">
+                        <doc>bIC or SWIFT code Valid value of BIC or SWIFT code with maximum length characters</doc>
+                    </param>
+                    <param name="cs" required="true" style="query" type="xsd:string">
+                        <doc>constant Symbol Maximum length characters</doc>
+                    </param>
+                    <param name="iban" required="true" style="query" type="xsd:string">
+                        <doc>iBAN Valid value of IBAN with maximum length characters</doc>
+                    </param>
+                    <param name="invoiceid" required="true" style="query" type="xsd:string">
+                        <doc>invoice ID Maximum length characters</doc>
+                    </param>
+                    <param name="paynote" required="true" style="query" type="xsd:string">
+                        <doc>pay note Maximum length characters</doc>
+                    </param>
+                    <param name="r" required="true" style="query" type="xsd:integer">
+                        <doc>qR code rotation Allowed values left right</doc>
+                    </param>
+                    <param name="s" required="true" style="query" type="xsd:integer">
+                        <doc>qR code size in pixels Allowed values</doc>
+                    </param>
+                    <param name="ss" required="true" style="query" type="xsd:string">
+                        <doc>specific Symbol Maximum length characters</doc>
+                    </param>
+                    <param name="v" required="true" style="query" type="xsd:integer">
+                        <doc>qR code variation Allowed values dark blue light blue black grey</doc>
+                    </param>
+                    <param name="vs" required="true" style="query" type="xsd:string">
+                        <doc>variable Symbol Maximum length characters</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

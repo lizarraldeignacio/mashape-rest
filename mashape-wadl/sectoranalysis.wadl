@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6536="urn:function:f6536">
+    <grammars>
+        <include href="Function6536.xsd"/>
+    </grammars>
+    <doc>the Sector Analysis API returns the sector weights of up to portfolios A common use for the Sector Analysis API is to power charts or tables that show the sector breakdown of a portfolio Sector weights are determined based on each security s sector assignments in the tenant s security master The Sector Analysis API utilizes the Global Industry Classification Standard GICS sector categories to classify securities by sector and determine sector weights of a portfolio You can also analyze a model portfolio by specifying the Model ID in the request using the modelID parameter The Model ID is retrieved using the Models API</doc>
+    <resources base="https://achavar-sector-analysis-v1.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="sectors/">
+                <method displayName="Sector Analysis API" id="6536" name="POST">
+                    <doc>The Sector Analysis API returns the sector weights of up to 10 portfolios. A common use for the Sector Analysis API is to power charts or tables that show the sector breakdown of a portfolio. Sector weights are determined based on each security's sector assignments in the tenant's security master. The Sector Analysis API utilizes the Global Industry Classification Standard (GICS®) sector categories to classify securities by sector and determine sector weights of a portfolio. You can also analyze a model portfolio by specifying the Model ID in the request using the 'modelID' parameter. The Model ID is retrieved using the Models API.</doc>
+                    <request>
+                        <param name="returnsecuritydetails" required="true" style="query" type="xsd:string">
+                            <doc>optional parameter to return the list of security sector allocations Allowable Values Yes Y y YES No N n NO</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6536:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4033="urn:function:f4033" xmlns:f4034="urn:function:f4034" xmlns:f4035="urn:function:f4035" xmlns:f4036="urn:function:f4036" xmlns:f4037="urn:function:f4037" xmlns:f4038="urn:function:f4038" xmlns:f4039="urn:function:f4039" xmlns:f4040="urn:function:f4040" xmlns:f4041="urn:function:f4041">
+    <grammars>
+        <include href="Function4036.xsd"/>
+        <include href="Function4037.xsd"/>
+        <include href="Function4038.xsd"/>
+        <include href="Function4039.xsd"/>
+        <include href="Function4040.xsd"/>
+        <include href="Function4041.xsd"/>
+        <include href="Function4035.xsd"/>
+        <include href="Function4034.xsd"/>
+        <include href="Function4033.xsd"/>
+    </grammars>
+    <doc>stockFluence com provides financial sentiment analysis for investors to discover react and respond to market opinions We monitor social media channels and analyze the overall sentiment with our algorithms Based on the sentiment we make predictions with an accuracy level of</doc>
+    <resources base="https://stock.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="funds/">
+                <method displayName="List" id="4036" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f4036:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Losers" id="4037" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f4037:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Popular" id="4038" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f4038:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Search" id="4039" name="GET">
+                    <request>
+                        <param name="s" required="true" style="query" type="xsd:string">
+                            <doc>string</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4039:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Trending" id="4040" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f4040:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Winners" id="4041" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f4041:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="prediction/">
+                <resource uri="{fundsymbol}/">
+                    <param name="fundsymbol" style="template" type="xsd:string"/>
+                    <method displayName="Fund predictions" id="4035" name="GET">
+                        <request>
+                            <param name="fundsymbol" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4035:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="extended-fund/">
+                <resource uri="{symbol}/">
+                    <param name="symbol" style="template" type="xsd:string"/>
+                    <method displayName="Extended" id="4034" name="GET">
+                        <request>
+                            <param name="symbol" required="true" style="query" type="xsd:string">
+                                <doc>stocksymbol</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4034:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="fund/">
+                <resource uri="{symbol}/">
+                    <param name="symbol" style="template" type="xsd:string"/>
+                    <method displayName="Basic" id="4033" name="GET">
+                        <request>
+                            <param name="symbol" required="true" style="query" type="xsd:string">
+                                <doc>stocksymbol</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4033:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5135="urn:function:f5135" xmlns:f5136="urn:function:f5136" xmlns:f5137="urn:function:f5137" xmlns:f5138="urn:function:f5138">
+    <grammars>
+        <include href="Function5136.xsd"/>
+        <include href="Function5137.xsd"/>
+        <include href="Function5138.xsd"/>
+        <include href="Function5135.xsd"/>
+    </grammars>
+    <doc>when you provide an English word to this API it will give you a list of related English words scored by distance in meaning Uses natural language processing word vec GLoVe and lets you select any of large corpuses Wikipedia Common Crawl the internet and Gutenberg th Century Books See http domainthesaurus witzy org for an example use case</doc>
+    <resources base="https://canadaduane-word2vec-v1.p.mashape.com/">
+        <resource uri="lookup/">
+            <method displayName="Dictionaries" id="5136" name="GET">
+                <doc>List dictionaries available for word2vec lookup, i.e. acceptable {dictid} parameters for Related Words searches.</doc>
+                <request/>
+                <response>
+                    <representation element="f5136:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Dictionary Details" id="5137" name="GET">
+                <doc>Get information about a particular "lookup dictionary" using its dictionary id (dictid)</doc>
+                <request>
+                    <param name="dictid" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5137:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Related Words" id="5138" name="GET">
+                <doc>Find related words, ranked by similarity distance, in a particular word2vec dictionary. The {dictid} parameter can be "common" or "wikipedia", for instance. See GET Dictionaries for a complete list of {dictid}s.</doc>
+                <request>
+                    <param name="dictid" required="true" style="query" type="xsd:string"/>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>page number default</doc>
+                    </param>
+                    <param name="perPage" required="true" style="query" type="xsd:integer">
+                        <doc>results per page default maximum</doc>
+                    </param>
+                    <param name="words" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5138:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="">
+            <method displayName="API Directory" id="5135" name="GET">
+                <doc>Lists available API methods you can call.</doc>
+                <request/>
+                <response>
+                    <representation element="f5135:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

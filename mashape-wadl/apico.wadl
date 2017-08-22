@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6817="urn:function:f6817">
+    <grammars>
+        <include href="Function6817.xsd"/>
+    </grammars>
+    <doc>with APICO API you can add voice calls to your already existing applications The APICO REST API allows you to add communication to your applications It s very easy to interact with the API and query about your subscriber s account your applications phone numbers call history call recordings and call redirect settings</doc>
+    <resources base="https://apico-apico-v1.p.mashape.com/">
+        <resource uri="oauth2/">
+            <resource uri="auth/">
+                <resource uri="logout/">
+                    <method displayName="Logout" id="6818" name="POST">
+                        <request>
+                            <param name="token" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="login/">
+                    <method displayName="Login" id="6817" name="POST">
+                        <request/>
+                        <response>
+                            <representation element="f6817:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="v1/">
+            <resource uri="subscribers/">
+                <resource uri="{subscriber_id}/">
+                    <param name="subscriber_id" style="template" type="xsd:string"/>
+                    <method displayName="Show Subscriber Info" id="6819" name="GET">
+                        <request>
+                            <param name="subscriberId" required="true" style="query" type="xsd:string"/>
+                            <param name="token" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="{subscriber_id}}/">
+                    <param name="subscriber_id" style="template" type="xsd:string"/>
+                    <resource uri="balance?token={token}}/">
+                        <param name="token" style="template" type="xsd:string"/>
+                        <method displayName="Balance" id="6816" name="GET">
+                            <request>
+                                <param name="subscriberId" required="true" style="query" type="xsd:string"/>
+                                <param name="token" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

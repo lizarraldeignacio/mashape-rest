@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6544="urn:function:f6544" xmlns:f6545="urn:function:f6545" xmlns:f6547="urn:function:f6547" xmlns:f6549="urn:function:f6549" xmlns:f6550="urn:function:f6550" xmlns:f6551="urn:function:f6551">
+    <grammars>
+        <include href="Function6551.xsd"/>
+        <include href="Function6547.xsd"/>
+        <include href="Function6545.xsd"/>
+        <include href="Function6550.xsd"/>
+        <include href="Function6544.xsd"/>
+        <include href="Function6549.xsd"/>
+    </grammars>
+    <doc>the API behind Stamp s mobile app</doc>
+    <resources base="https://frank611-stamp-v1.p.mashape.com/">
+        <resource uri="recommendation/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Update a recommendation" id="6553" name="PUT">
+                    <doc>Updates the specified keys in a recommendation. Keys that are not specified will be left unchanged. Note that this is how you can mark a reco as visited.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="user/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <resource uri="picture/">
+                    <method displayName="Redirect to a user's profile picture" id="6552" name="GET">
+                        <doc>Redirects (301) to a user's profile picture. This does not return a json object.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="me/">
+                <method displayName="Get the logged in user's info" id="6551" name="GET">
+                    <doc>Returns information on the currently logged in user.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f6551:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="auth/">
+            <resource uri="facebook/">
+                <resource uri="token/">
+                    <method displayName="Facebook login" id="6547" name="POST">
+                        <doc>Generates and returns a JWT token associated to a Facebook user. If the user doesn't exist in the DB yet, it is created.</doc>
+                        <request/>
+                        <response>
+                            <representation element="f6547:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="passport/">
+            <method displayName="Create a passport" id="6545" name="POST">
+                <doc>Creates a passport with initial recommendations</doc>
+                <request/>
+                <response>
+                    <representation element="f6545:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete a passport" id="6546" name="DELETE">
+                <doc>Deletes a passport and its associated recos.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Fork a shared pasport" id="6548" name="POST">
+                <doc>This copies the passport with the specified ID to the user's briefcase. Note that this is a deep copy, not a reference. Referenced recos are also copied.</doc>
+                <request/>
+            </method>
+            <method displayName="Get passport list" id="6550" name="GET">
+                <doc>Get a list of the logged in user's passports and their respective recommendations.</doc>
+                <request/>
+                <response>
+                    <representation element="f6550:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update passport" id="6554" name="PUT">
+                <doc>Updates a passport with the specified attributes. Unspecified attributes are left unchanged. Note that if the 'recommendations' attribute is set, all existing recos will be deleted and replaced with the ones specified as parameters.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+        <resource uri="request/">
+            <method displayName="Create a new request" id="6544" name="POST">
+                <doc>Creates a new request associated with the logged in user.</doc>
+                <request>
+                    <param name="description" required="true" style="query" type="xsd:string">
+                        <doc>allows the user to describe what he s looking for in his passport Will be readable by the request s recipient</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6544:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get a request" id="6549" name="GET">
+                <doc>Gets the request with the specified ID. Note that this allows to get any request by any user. Requests are therefore considered "public". Also note that this only returns the json info for the request. To get to the request's web page, go to 'http://xxxx/request/:id' (without the /api)</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f6549:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

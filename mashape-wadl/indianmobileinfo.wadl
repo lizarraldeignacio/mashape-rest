@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f552="urn:function:f552">
+    <grammars>
+        <include href="Function552.xsd"/>
+    </grammars>
+    <doc>enter any digit Indian mobile number and get its Location provider type and other details easily</doc>
+    <resources base="https://ajith-indian-mob-info.p.mashape.com/">
+        <resource uri="getInfo/">
+            <method displayName="getInfo" id="552" name="GET">
+                <request>
+                    <param name="mobno" required="true" style="query" type="xsd:integer">
+                        <doc>enter your digit mobile number</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f552:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

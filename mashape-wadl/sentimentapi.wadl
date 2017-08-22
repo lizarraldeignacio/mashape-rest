@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6112="urn:function:f6112" xmlns:f6113="urn:function:f6113">
+    <grammars>
+        <include href="Function6112.xsd"/>
+        <include href="Function6113.xsd"/>
+    </grammars>
+    <doc>we have developed this API using machine learning algorithm with over lakh training samples</doc>
+    <resources base="https://sentimentapi.p.mashape.com/">
+        <resource uri="products/">
+            <resource uri="api/">
+                <resource uri="extractsentiment?text={text}/">
+                    <param name="text" style="template" type="xsd:string"/>
+                    <method displayName="Sentiment Engine" id="6112" name="GET">
+                        <doc>Extracts sentiment from a given text. Result range from 1 to 5. While 1 represents the least sentiment and 5 represent the best sentiment. This version is implemented for English language only.</doc>
+                        <request>
+                            <param name="text" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f6112:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Sentiment Engine for POST" id="6113" name="POST">
+                        <doc>Extracts sentiment from a given text. Result range from 1 to 5. While 1 represents the least sentiment and 5 represent the best sentiment. This version is implemented for English language only.</doc>
+                        <request>
+                            <param name="text" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f6113:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

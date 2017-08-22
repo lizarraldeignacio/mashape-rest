@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1801="urn:function:f1801">
+    <grammars>
+        <include href="Function1801.xsd"/>
+    </grammars>
+    <doc>yactraq Speech Topics is a cloud service that converts audiovisual content into topic metadata via speech recognition natural language processing Customers use Yactraq metadata to target ads build UX features like content search discovery and mine Youtube videos for brand sentiment In the past such services have been expensive and only used by large video publishers The unique thing about Yactraq is we deliver our service at a price any product developer can afford</doc>
+    <resources base="https://yactraq-yactraq-speech2topics.p.mashape.com/">
+        <resource uri="stream-status/">
+            <method displayName="Stream" id="1801" name="GET">
+                <doc>Access the status of a Speech2Topics stream.</doc>
+                <request>
+                    <param name="adset" required="true" style="query" type="xsd:string">
+                        <doc>the id of an adset configured for your account</doc>
+                    </param>
+                    <param name="guid" required="true" style="query" type="xsd:string">
+                        <doc>a guid that you wish to assign to this URL</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>if provided and non zero will initiate processing of this media stream if not already done A value of redo will rerun the interpretation process</doc>
+                    </param>
+                    <param name="tx" required="true" style="query" type="xsd:integer">
+                        <doc>non zero if the raw ASR transcript of the vide is requested</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>the URL of a audio video stream to be processed</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1801:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

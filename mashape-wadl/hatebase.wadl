@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>hatebase is the world s largest online repository of structured multilingual usage based hate speech Hatebase was built to assist government agencies NGOs research organizations and other philanthropic individuals and groups use hate speech as a predictor for regional violence Language based classification or symbolization is one of a handful of quantifiable steps toward genocide</doc>
+    <resources base="https://hatebase-hatebase.p.mashape.com/">
+        <resource uri="v{increment}-{subincrement}/">
+            <param name="increment" style="template" type="xsd:string"/>
+            <resource uri="{32-digit key}/">
+                <param name="32-digit key" style="template" type="xsd:string"/>
+                <resource uri="{query}/">
+                    <param name="query" style="template" type="xsd:string"/>
+                    <resource uri="{output}/">
+                        <param name="output" style="template" type="xsd:string"/>
+                        <resource uri="{first_key}={first_value}|{second_key}={second_value}/">
+                            <param name="first_key" style="template" type="xsd:string"/>
+                            <method displayName="Hatebase API" id="3479" name="GET">
+                                <doc>The Hatebase API allows authorized users to retrieve Hatebase data asynchronously for use in their own applications. The API is a continual work in progress, so as new vesions of the API become available, old versions will be retired (after a suitable transition period).</doc>
+                                <request>
+                                    <param name="digitKey" required="true" style="query" type="xsd:string">
+                                        <doc>a private API key provisioned at hatebase org</doc>
+                                    </param>
+                                    <param name="digitKey" required="true" style="query" type="xsd:string"/>
+                                    <param name="firstKey" required="true" style="query" type="xsd:string">
+                                        <doc>filters are key value pairs which correspond to output parameters This is the first pair s key</doc>
+                                    </param>
+                                    <param name="firstKeyFirstValueSecondKeySecondValue" required="true" style="query" type="xsd:string"/>
+                                    <param name="firstValue" required="true" style="query" type="xsd:string">
+                                        <doc>this is the first pair s value</doc>
+                                    </param>
+                                    <param name="increment" required="true" style="query" type="xsd:string">
+                                        <doc>version increment</doc>
+                                    </param>
+                                    <param name="incrementSubincrement" required="true" style="query" type="xsd:string"/>
+                                    <param name="output" required="true" style="query" type="xsd:string">
+                                        <doc>possible options json xml</doc>
+                                    </param>
+                                    <param name="query" required="true" style="query" type="xsd:string">
+                                        <doc>possible options vocabulary sightings</doc>
+                                    </param>
+                                    <param name="secondKey" required="true" style="query" type="xsd:string">
+                                        <doc>this is the second pair s key</doc>
+                                    </param>
+                                    <param name="secondValue" required="true" style="query" type="xsd:string">
+                                        <doc>this is the second pair s value</doc>
+                                    </param>
+                                    <param name="subincrement" required="true" style="query" type="xsd:string">
+                                        <doc>version sub increment</doc>
+                                    </param>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3180="urn:function:f3180">
+    <grammars>
+        <include href="Function3180.xsd"/>
+    </grammars>
+    <doc>this data API lets users access latest product prices across different e commerce portals in India on a daily basis Users can enter the product they wish to know the prices for and access the results</doc>
+    <resources base="https://devru-price-comparison-v1.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Compare Price" id="3180" name="GET">
+                <doc>Compare Price of any product</doc>
+                <request>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>page Index</doc>
+                    </param>
+                    <param name="product" required="true" style="query" type="xsd:string">
+                        <doc>enter your Product Name</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3180:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

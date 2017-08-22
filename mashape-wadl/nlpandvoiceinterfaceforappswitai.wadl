@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f555="urn:function:f555">
+    <grammars>
+        <include href="Function555.xsd"/>
+    </grammars>
+    <doc>wit ai enables developers to build apps and devices that users can talk to</doc>
+    <resources base="https://wit.p.mashape.com/">
+        <resource uri="message/">
+            <method displayName="Message" id="555" name="GET">
+                <doc>Turn text into structured meaning</doc>
+                <request>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>sentence you want Wit to analyze First you should connect to your Wit console and provide samples to Wit</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f555:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

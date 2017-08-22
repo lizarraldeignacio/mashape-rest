@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6739="urn:function:f6739">
+    <grammars>
+        <include href="Function6739.xsd"/>
+    </grammars>
+    <doc>get your VTU result in JSON format All the data scrapping part is done at the back end</doc>
+    <resources base="https://raviroshan-talk-vtu-result-v1.p.mashape.com/">
+        <resource uri="rapid_vtu_results/">
+            <method displayName="/rapid_vtu_results" id="6739" name="POST">
+                <doc>usn</doc>
+                <request>
+                    <param name="module" required="true" style="query" type="xsd:string">
+                        <doc>this is needed for JSON result</doc>
+                    </param>
+                    <param name="usn" required="true" style="query" type="xsd:string">
+                        <doc>valid USN of the student</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6739:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

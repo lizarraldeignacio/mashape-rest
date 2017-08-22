@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2224="urn:function:f2224" xmlns:f2225="urn:function:f2225" xmlns:f2226="urn:function:f2226" xmlns:f2227="urn:function:f2227" xmlns:f2228="urn:function:f2228" xmlns:f2229="urn:function:f2229">
+    <grammars>
+        <include href="Function2229.xsd"/>
+        <include href="Function2228.xsd"/>
+        <include href="Function2227.xsd"/>
+        <include href="Function2226.xsd"/>
+        <include href="Function2225.xsd"/>
+        <include href="Function2224.xsd"/>
+    </grammars>
+    <doc>british Airways is the flag carrier airline of the United Kingdom and its largest airline based on fleet size international flights and international destinations</doc>
+    <resources base="https://community-british-airways-flight-info.p.mashape.com/">
+        <resource uri="flights;departureLocation={departureLocation};startTime={startTime};endTime={endTime}.json/">
+            <param name="departureLocation" style="template" type="xsd:string"/>
+            <method displayName="Search today's departures by time" id="2229" name="GET">
+                <request>
+                    <param name="departurelocation" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="departurelocationStarttimeStarttimeEndtimeEndtime" required="true" style="query" type="xsd:string"/>
+                    <param name="endtime" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="starttime" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2229:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="flights;arrivalLocation={arrivalLocation};startTime={startTime};endTime={endTime}.json/">
+            <param name="arrivalLocation" style="template" type="xsd:string"/>
+            <method displayName="Search today's arrivals by time" id="2228" name="GET">
+                <request>
+                    <param name="arrivallocation" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="arrivallocationStarttimeStarttimeEndtimeEndtime" required="true" style="query" type="xsd:string"/>
+                    <param name="endtime" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="starttime" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2228:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="flights;departureLocation={departureLocation};arrivalLocation={arrivalLocation};scheduledDepartureDate={scheduledDepartureDate}.json/">
+            <param name="departureLocation" style="template" type="xsd:string"/>
+            <method displayName="Search departures by route" id="2227" name="GET">
+                <request>
+                    <param name="arrivallocation" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="departurelocation" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="departurelocationArrivallocationArrivallocationScheduleddeparturedateScheduleddeparturedate" required="true" style="query" type="xsd:string"/>
+                    <param name="scheduleddeparturedate" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2227:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="flights;flightNumber={flightNumber};scheduledDepartureDate={scheduledDepartureDate}.json/">
+            <param name="flightNumber" style="template" type="xsd:string"/>
+            <method displayName="Search departures by flight" id="2226" name="GET">
+                <request>
+                    <param name="flightnumber" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="flightnumberScheduleddeparturedateScheduleddeparturedate" required="true" style="query" type="xsd:string"/>
+                    <param name="scheduleddeparturedate" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2226:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="flights;departureLocation={departureLocation};arrivalLocation={arrivalLocation};scheduledArrivalDate={scheduledArrivalDate}.json/">
+            <param name="departureLocation" style="template" type="xsd:string"/>
+            <method displayName="Search arrivals by route" id="2225" name="GET">
+                <request>
+                    <param name="arrivallocation" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="departurelocation" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="departurelocationArrivallocationArrivallocationScheduledarrivaldateScheduledarrivaldate" required="true" style="query" type="xsd:string"/>
+                    <param name="scheduledarrivaldate" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2225:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="flights;flightNumber={flightNumber};scheduledArrivalDate={scheduledArrivalDate}.json/">
+            <param name="flightNumber" style="template" type="xsd:string"/>
+            <method displayName="Search arrivals by flight" id="2224" name="GET">
+                <request>
+                    <param name="flightnumber" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="flightnumberScheduledarrivaldateScheduledarrivaldate" required="true" style="query" type="xsd:string"/>
+                    <param name="scheduledarrivaldate" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2224:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

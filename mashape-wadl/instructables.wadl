@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1049="urn:function:f1049" xmlns:f1050="urn:function:f1050">
+    <grammars>
+        <include href="Function1049.xsd"/>
+        <include href="Function1050.xsd"/>
+    </grammars>
+    <doc>this is unofficial API of Instructables com Instructables is a website specializing in user created and uploaded do it yourself projects which other users can comment on and rate for quality Instructables is dedicated to step by step collaboration among members to build a variety of projects Users post instructions to their projects usually accompanied by visual aids and then interact through comment sections below each Instructable step as well in topic forums</doc>
+    <resources base="https://devru-instructables.p.mashape.com/">
+        <resource uri="list/">
+            <method displayName="Get List" id="1049" name="GET">
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>limit example</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>offset value</doc>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:string">
+                        <doc>example recent featured popular</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>enter the item id</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1049:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="json-api/">
+            <resource uri="showInstructable/">
+                <method displayName="Show details" id="1050" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>example EBUFWEJHWJJWSD</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1050:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="getCategories/">
+                <method displayName="Get Categories" id="1048" name="GET">
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>this api generates REAL randomness generated with a hardware random generator for applications where a pseudo random generator is not sufficient or to seed a pseudo random generator for better results The logo contains a noise image of a random sample created by this generator</doc>
+    <resources base="https://hwrng.p.mashape.com/">
+        <resource uri="get/">
+            <resource uri="kb/">
+                <resource uri="{count}/">
+                    <param name="count" style="template" type="xsd:string"/>
+                    <resource uri="{format}/">
+                        <param name="format" style="template" type="xsd:string"/>
+                        <method displayName="KiloByte" id="6760" name="GET">
+                            <doc>Get some Kilobytes of random data (up to 1MB per Request)</doc>
+                            <request>
+                                <param name="count" required="true" style="query" type="xsd:string">
+                                    <doc>number of KBytes to get Default</doc>
+                                </param>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc>format can be hex base or raw default raw</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="b/">
+                <resource uri="{count}/">
+                    <param name="count" style="template" type="xsd:string"/>
+                    <resource uri="{format}/">
+                        <param name="format" style="template" type="xsd:string"/>
+                        <method displayName="Byte" id="6759" name="GET">
+                            <doc>Get a some Bytes of random data (up to 1KB per Request)</doc>
+                            <request>
+                                <param name="count" required="true" style="query" type="xsd:integer">
+                                    <doc>number of Bytes to get Default</doc>
+                                </param>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc>format can be hex base or raw default raw</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

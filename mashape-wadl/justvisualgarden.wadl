@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5260="urn:function:f5260">
+    <grammars>
+        <include href="Function5260.xsd"/>
+    </grammars>
+    <doc>identify plant names and species The API returns multiple possible results ranked in order of the most likely matches Each includes the scientific and common names of that plant as well as additional reference images of that plant species</doc>
+    <resources base="https://alisamac-justvisual-garden-v1.p.mashape.com/">
+        <resource uri="api-search/">
+            <resource uri="by-url/">
+                <method displayName="Search by URL" id="5260" name="GET">
+                    <request>
+                        <param name="apiid" required="true" style="query" type="xsd:string">
+                            <doc>aPI developer ID provided when you register</doc>
+                        </param>
+                        <param name="apikey" required="true" style="query" type="xsd:string">
+                            <doc>aPI key provided when you register</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>uRL of the query image</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5260:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

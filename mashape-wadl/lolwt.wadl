@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>loLWT API for League of Legends LoLWT API provides you data from RIOT League of Legends Features List of all types supported Languages Items Summoner spells Champions Champions spells Masteries Runes Profile icons GetJson data of Item Mastery Rune Champion Summoner spell Champion spell Profile icon Languages French English Deutsch Espa ol Italiano LoLWT Api also gives u LoLWT Tags and LoLWT div way to use my javascript LoLWT script see demo on http www xrecasens info informatique lol webmaster tooltip lolwt</doc>
+    <resources base="https://xavblog-lolwt.p.mashape.com/">
+        <resource uri="version/">
+            <resource uri="{langue}/">
+                <param name="langue" style="template" type="xsd:string"/>
+                <method displayName="version" id="629" name="GET">
+                    <doc>To obtain version of each type of Json data</doc>
+                    <request>
+                        <param name="langue" required="true" style="query" type="xsd:string">
+                            <doc>language en fr de es or it</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="getSummonerSpell/">
+            <resource uri="{language}/">
+                <param name="language" style="template" type="xsd:string"/>
+                <resource uri="{argument}/">
+                    <param name="argument" style="template" type="xsd:string"/>
+                    <method displayName="getSummonerSpell" id="628" name="GET">
+                        <request>
+                            <param name="argument" required="true" style="query" type="xsd:string">
+                                <doc>id Summoner s spell id</doc>
+                            </param>
+                            <param name="language" required="true" style="query" type="xsd:string">
+                                <doc>en fr de es or it</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="getRune/">
+            <resource uri="{language}/">
+                <param name="language" style="template" type="xsd:string"/>
+                <resource uri="{argument}/">
+                    <param name="argument" style="template" type="xsd:string"/>
+                    <method displayName="getRune" id="627" name="GET">
+                        <request>
+                            <param name="argument" required="true" style="query" type="xsd:string">
+                                <doc>id Rune s id</doc>
+                            </param>
+                            <param name="language" required="true" style="query" type="xsd:string">
+                                <doc>en fr de es or it</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="getMastery/">
+            <resource uri="{language}/">
+                <param name="language" style="template" type="xsd:string"/>
+                <resource uri="{argument}/">
+                    <param name="argument" style="template" type="xsd:string"/>
+                    <method displayName="getMastery" id="626" name="GET">
+                        <request>
+                            <param name="argument" required="true" style="query" type="xsd:string">
+                                <doc>id Mastery s id</doc>
+                            </param>
+                            <param name="language" required="true" style="query" type="xsd:string">
+                                <doc>en fr de es or it</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="getListOf/">
+            <resource uri="{language}/">
+                <param name="language" style="template" type="xsd:string"/>
+                <resource uri="{argument}/">
+                    <param name="argument" style="template" type="xsd:string"/>
+                    <method displayName="getListOf" id="625" name="GET">
+                        <doc>Obtain list of type specified</doc>
+                        <request>
+                            <param name="argument" required="true" style="query" type="xsd:string">
+                                <doc>type mode possible type item rune mastery profileicon champion summoner spell Possible mode default inverse key value</doc>
+                            </param>
+                            <param name="language" required="true" style="query" type="xsd:string">
+                                <doc>en fr de es or it</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="getLanguage/">
+            <resource uri="{language}/">
+                <param name="language" style="template" type="xsd:string"/>
+                <method displayName="getLanguage" id="624" name="GET">
+                    <doc>Return the language Json of League of Legends in language specified</doc>
+                    <request>
+                        <param name="language" required="true" style="query" type="xsd:string">
+                            <doc>en fr de es or it</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="getItem/">
+            <resource uri="{language}/">
+                <param name="language" style="template" type="xsd:string"/>
+                <resource uri="{argument}/">
+                    <param name="argument" style="template" type="xsd:string"/>
+                    <method displayName="getItem" id="623" name="GET">
+                        <doc>To get all data about an Item</doc>
+                        <request>
+                            <param name="argument" required="true" style="query" type="xsd:string">
+                                <doc>id Item s id</doc>
+                            </param>
+                            <param name="language" required="true" style="query" type="xsd:string">
+                                <doc>en fr de es or it</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="getChampionSpell/">
+            <resource uri="{language}/">
+                <param name="language" style="template" type="xsd:string"/>
+                <resource uri="{argument}/">
+                    <param name="argument" style="template" type="xsd:string"/>
+                    <method displayName="getChampionSpell" id="622" name="GET">
+                        <request>
+                            <param name="argument" required="true" style="query" type="xsd:string">
+                                <doc>id Champion Spell s id</doc>
+                            </param>
+                            <param name="language" required="true" style="query" type="xsd:string">
+                                <doc>en fr de es or it</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="getChampion/">
+            <resource uri="{language}/">
+                <param name="language" style="template" type="xsd:string"/>
+                <resource uri="{argument}/">
+                    <param name="argument" style="template" type="xsd:string"/>
+                    <method displayName="getChampion" id="621" name="GET">
+                        <request>
+                            <param name="argument" required="true" style="query" type="xsd:string">
+                                <doc>id Champion s id</doc>
+                            </param>
+                            <param name="language" required="true" style="query" type="xsd:string">
+                                <doc>en fr de es or it</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

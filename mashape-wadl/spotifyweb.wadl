@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>the Spotify Web API enables you to search and lookup metadata about artists tracks and albums using a REST interface</doc>
+    <resources base="https://mager-spotify-web.p.mashape.com/">
+        <resource uri="search/">
+            <resource uri="1/">
+                <resource uri="track.json/">
+                    <method displayName="Search Tracks" id="22" name="GET">
+                        <request>
+                            <param name="q" required="true" style="query" type="xsd:string">
+                                <doc>a search string encoded in UTF required</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="artist.json/">
+                    <method displayName="Search Artists" id="21" name="GET">
+                        <request>
+                            <param name="q" required="true" style="query" type="xsd:string">
+                                <doc>a search string encoded in UTF required</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="album.json/">
+                    <method displayName="Search Albums" id="20" name="GET">
+                        <request>
+                            <param name="q" required="true" style="query" type="xsd:string">
+                                <doc>a search string encoded in UTF required</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="lookup/">
+            <resource uri="1/">
+                <resource uri=".json/">
+                    <method displayName="Lookup Spotify URI" id="19" name="GET">
+                        <request>
+                            <param name="extras" required="true" style="query" type="xsd:string">
+                                <doc>a comma separated list of words that defines the detail level expected in the response</doc>
+                            </param>
+                            <param name="uri" required="true" style="query" type="xsd:string">
+                                <doc>a Spotify URI</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

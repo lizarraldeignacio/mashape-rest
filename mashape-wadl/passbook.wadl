@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2042="urn:function:f2042" xmlns:f2045="urn:function:f2045" xmlns:f2046="urn:function:f2046">
+    <grammars>
+        <include href="Function2045.xsd"/>
+        <include href="Function2046.xsd"/>
+        <include href="Function2042.xsd"/>
+    </grammars>
+    <doc>passSlot is a free service for developers that aims to make Passbook integration easy Really easy</doc>
+    <resources base="https://passbook.p.mashape.com/">
+        <resource uri="passes/">
+            <method displayName="Download Pass" id="2043" name="GET">
+                <request>
+                    <param name="passtypeidentifier" required="true" style="query" type="xsd:string"/>
+                    <param name="serialnumber" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Email Pass" id="2044" name="POST">
+                <request>
+                    <param name="passtypeidentifier" required="true" style="query" type="xsd:string"/>
+                    <param name="serialnumber" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="List Passes" id="2045" name="GET">
+                <request/>
+                <response>
+                    <representation element="f2045:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update Pass" id="2046" name="PUT">
+                <doc>http://www.passslot.com/developer/api/resources/updatePassValues</doc>
+                <request>
+                    <param name="passtypeidentifier" required="true" style="query" type="xsd:string"/>
+                    <param name="serialnumber" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2046:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="templates/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <resource uri="pass/">
+                    <method displayName="Create Pass from Template" id="2042" name="POST">
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>pass Template ID</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2042:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

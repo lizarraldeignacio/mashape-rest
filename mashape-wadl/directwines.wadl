@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4154="urn:function:f4154" xmlns:f4155="urn:function:f4155">
+    <grammars>
+        <include href="Function4155.xsd"/>
+        <include href="Function4154.xsd"/>
+    </grammars>
+    <doc>the API provides you a way to consume different API s around product customer and account</doc>
+    <resources base="https://directwines.p.mashape.com/">
+        <resource uri="user/">
+            <resource uri="recommendations/">
+                <resource uri="list/">
+                    <method displayName="Recommendations" id="4155" name="GET">
+                        <request/>
+                        <response>
+                            <representation element="f4155:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="cart/">
+            <resource uri="list/">
+                <method displayName="Cart" id="4154" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f4154:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

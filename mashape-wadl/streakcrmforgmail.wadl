@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>connects to Streak CRM Streak offers a simple CRM extension to use with Gmail You install it in the Chrome browser then create a set of workflow interfaces in Gmail that allow you to organize related sets of emails Send reminders to yourself in Gmail Queue mails to be sent at certain dates create worklows Some recent email extensions like Rapportive also provide lightweight CRM features but Streak goes way deeper into the workflow process</doc>
+    <resources base="https://streak.p.mashape.com/">
+        <resource uri="user/">
+            <resource uri="me/">
+                <method displayName="User" id="2980" name="GET">
+                    <doc>User call</doc>
+                    <request>
+                        <param name="displayname" required="true" style="query" type="xsd:string">
+                            <doc>a display friendly name usually the users full name if it exists in their profile</doc>
+                        </param>
+                        <param name="email" required="true" style="query" type="xsd:string">
+                            <doc>the email address of the user</doc>
+                        </param>
+                        <param name="isoauthcomplete" required="true" style="query" type="xsd:string">
+                            <doc>whether the user has completed the OAuth process Useful to determine whether they can successully share emails</doc>
+                        </param>
+                        <param name="lastseentimestamp" required="true" style="query" type="xsd:string">
+                            <doc>the date the user last logged ino Streak</doc>
+                        </param>
+                        <param name="lowercaseemail" required="true" style="query" type="xsd:string">
+                            <doc>a lower case version of the users email address Useful for normalization</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="boxes/">
+            <resource uri="{boxKey}/">
+                <param name="boxKey" style="template" type="xsd:string"/>
+                <method displayName="Delete a Box" id="2967" name="DELETE">
+                    <doc>This call lets you delete a particular box. It also deletes all of the relevant data such as files, emails, and reminders for that box.</doc>
+                    <request>
+                        <param name="boxkey" required="true" style="query" type="xsd:string">
+                            <doc>key of the box</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Edit a Box" id="2970" name="POST">
+                    <doc>edit the properties of a box.</doc>
+                    <request>
+                        <param name="boxkey" required="true" style="query" type="xsd:string">
+                            <doc>key of the box to be edited</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="pipelines/">
+            <method displayName="Create a Pipeline" id="2964" name="PUT">
+                <doc>This call will give you a single pipeline, given the key</doc>
+                <request/>
+            </method>
+            <method displayName="Create a Stage in Pipeline" id="2965" name="PUT">
+                <doc>This call lets you create a stage defined in a pipeline.</doc>
+                <request>
+                    <param name="pipelinekey" required="true" style="query" type="xsd:string">
+                        <doc>the key of the pipeline for which you want the boxes listed</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Create Field in Pipeline" id="2966" name="PUT">
+                <doc>This call lets you create a field for a pipeline. This defines the field in the pipeline so that you can add values for that field for each box in the pipeline.</doc>
+                <request>
+                    <param name="pipelinekey" required="true" style="query" type="xsd:string">
+                        <doc>key of the pipeline</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Delete a Specific Stage in Pipeline" id="2968" name="DELETE">
+                <doc>This call lets you delete a stage defined in a pipeline. This call will only suceed if there are no boxes tagged with the key of this stage, else it throws a 400.</doc>
+                <request>
+                    <param name="pipelinekey" required="true" style="query" type="xsd:string">
+                        <doc>the key of the pipeline</doc>
+                    </param>
+                    <param name="stagekey" required="true" style="query" type="xsd:string">
+                        <doc>the key of the stage</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Delete Field in a Pipeline" id="2969" name="DELETE">
+                <doc>This call lets you delete a field defined in a pipeline. Note: this will also remove the values of this field for every box in the pipeline.</doc>
+                <request>
+                    <param name="fieldkey" required="true" style="query" type="xsd:string">
+                        <doc>the key of the field</doc>
+                    </param>
+                    <param name="pipelinekey" required="true" style="query" type="xsd:string">
+                        <doc>the key of the pipeline</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Edit a Field in Pipeline" id="2971" name="POST">
+                <doc>This call lets you edit the name of a field. Note that editing the TYPE of a field is not currently permitted and will throw a 400 error.</doc>
+                <request>
+                    <param name="fieldkey" required="true" style="query" type="xsd:string">
+                        <doc>the key of the field</doc>
+                    </param>
+                    <param name="pipelinekey" required="true" style="query" type="xsd:string">
+                        <doc>the key of the pipeline</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Edit a Specific Stage in Pipeline" id="2972" name="POST">
+                <doc>lets you edit the name of a stage.</doc>
+                <request>
+                    <param name="pipelinekey" required="true" style="query" type="xsd:string">
+                        <doc>the key of the pipeline</doc>
+                    </param>
+                    <param name="stagekey" required="true" style="query" type="xsd:string">
+                        <doc>the key of the stage</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Edit Pipeline" id="2973" name="POST">
+                <doc>This call lets you edit the properties of a pipeline.</doc>
+                <request>
+                    <param name="pipelinekey" required="true" style="query" type="xsd:string">
+                        <doc>the key of the pipeline to be edited</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Field" id="2974" name="GET">
+                <doc>allow users to define custom schema on their boxes.  That is, a field is user defined metadata on a box. In the web UI of Streak, a field shows up as an additional column in the pipeline view and box views. Fields are defined on a per pipeline basis. This means that all boxes in the same pipeline have the same custom fields (schema).  Fields have a name and a type. The type can be any of: TEXT_INPUT, DATE or PERSON.</doc>
+                <request>
+                    <param name="date" required="true" style="query" type="xsd:string">
+                        <doc>this is formatted as the number of milliseconds since epoch This should be a number type when used in JSON</doc>
+                    </param>
+                    <param name="fieldkey" required="true" style="query" type="xsd:string">
+                        <doc>the key of the field</doc>
+                    </param>
+                    <param name="person" required="true" style="query" type="xsd:string">
+                        <doc>this field supports values of contacts from the Google Contacts api as well as arbitrary names and email addresses It is represented as an array of JSON Objects</doc>
+                    </param>
+                    <param name="pipelinekey" required="true" style="query" type="xsd:string">
+                        <doc>key of pipeline</doc>
+                    </param>
+                    <param name="textInput" required="true" style="query" type="xsd:string">
+                        <doc>this can be any arbitrary string and should be represented in JSON as a string</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get a Specific Stage in Pipeline" id="2976" name="GET">
+                <doc>This call gives you a specific stage defined in a pipeline</doc>
+                <request>
+                    <param name="pipelinekey" required="true" style="query" type="xsd:string">
+                        <doc>the key of the pipeline</doc>
+                    </param>
+                    <param name="stagekey" required="true" style="query" type="xsd:string">
+                        <doc>the key of the stage</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="List all Stages (in a pipeline)" id="2977" name="GET">
+                <doc>This call lists the stages defined in a pipeline. Remember, this is only the definition of the stages - to change what stage a box is in, simply update the box with a new stageKey.</doc>
+                <request>
+                    <param name="pipelinekey" required="true" style="query" type="xsd:string">
+                        <doc>the key of the pipeline</doc>
+                    </param>
+                    <param name="stagekey" required="true" style="query" type="xsd:string">
+                        <doc>the key of the stage</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Pipeline" id="2978" name="GET">
+                <doc>Pipelines represent a business process that a user would like managed.</doc>
+                <request>
+                    <param name="aclentries" required="true" style="query" type="xsd:string">
+                        <doc>an array of ACL objects with properties fullName email isOwner image which determines a list of users who have access to this pipeline</doc>
+                    </param>
+                    <param name="creatorkey" required="true" style="query" type="xsd:string">
+                        <doc>the user key of the user that created the pipeline</doc>
+                    </param>
+                    <param name="description" required="true" style="query" type="xsd:string">
+                        <doc>the purpose of this pipeline displayed in the web UI</doc>
+                    </param>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc>what fields each box within the pipeline can have This field is read only To modify refer to the Fields endpoints</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>the name of this pipeline</doc>
+                    </param>
+                    <param name="orgwide" required="true" style="query" type="xsd:string">
+                        <doc>whether this pipeline is shared with all users in the organization same domain in email address</doc>
+                    </param>
+                    <param name="owner" required="true" style="query" type="xsd:string">
+                        <doc>an object with the same properties as elements in the aclEntries array specifying the creator of this pipeline</doc>
+                    </param>
+                    <param name="stageorder" required="true" style="query" type="xsd:string">
+                        <doc>editable array which allows you to reorder the stages This modifies the order of the stages that appear in the web UI</doc>
+                    </param>
+                    <param name="stages" required="true" style="query" type="xsd:string">
+                        <doc>a map describing the set of possible stages a box within the pipeline can be in Read only and can only be modified using Stages endpoints</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Pipeline Delete" id="2979" name="DELETE">
+                <doc>This call lets you delete a pipeline. All associated data of a pipeline (like boxes) will be deleted as well.</doc>
+                <request>
+                    <param name="pipelinekey" required="true" style="query" type="xsd:string">
+                        <doc>the key of the pipeline to be deleted</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri=" /">
+            <resource uri="boxes/">
+                <resource uri="{boxKey}/">
+                    <param name="boxKey" style="template" type="xsd:string"/>
+                    <method displayName="Get a specific Box" id="2975" name="GET">
+                        <doc>This call gives you a specific box based on the key you provide</doc>
+                        <request>
+                            <param name="boxkey" required="true" style="query" type="xsd:string">
+                                <doc>the key of the respective box</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="pipelines/">
+                <resource uri="{pipelineKey}/">
+                    <param name="pipelineKey" style="template" type="xsd:string"/>
+                    <resource uri="boxes/">
+                        <method displayName="Create a Box" id="2963" name="PUT">
+                            <doc>This call gives you a specific box based on the key you provide.</doc>
+                            <request>
+                                <param name="pipelinekey" required="true" style="query" type="xsd:string">
+                                    <doc>the key of the pipeline this box should belong to</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f675="urn:function:f675">
+    <grammars>
+        <include href="Function675.xsd"/>
+    </grammars>
+    <doc>this API takes a URL or domain as input and return back whois data</doc>
+    <resources base="https://enclout-whois.p.mashape.com/">
+        <resource uri="show.json/">
+            <method displayName="whois" id="675" name="GET">
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>uRL or domain</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f675:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

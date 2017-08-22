@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6312="urn:function:f6312" xmlns:f6313="urn:function:f6313" xmlns:f6314="urn:function:f6314" xmlns:f6315="urn:function:f6315" xmlns:f6316="urn:function:f6316">
+    <grammars>
+        <include href="Function6313.xsd"/>
+        <include href="Function6316.xsd"/>
+        <include href="Function6315.xsd"/>
+        <include href="Function6314.xsd"/>
+        <include href="Function6312.xsd"/>
+    </grammars>
+    <doc>metaglance is a service for detecting linguistic elements and generating metadata with computational linguistics and semantic analysis Metaglance supports several Open Source projects such as ADL s DECALS and RUSSEL</doc>
+    <resources base="https://eduworks-metaglance-v1.p.mashape.com/">
+        <resource uri="metadata/">
+            <resource uri="russel/">
+                <resource uri="generate/">
+                    <method displayName="Metadata Generation" id="6313" name="POST">
+                        <doc>Generate metadata for a file, in a format for use by RUSSEL.</doc>
+                        <request>
+                            <param name="url" required="true" style="query" type="xsd:string">
+                                <doc>uRL of the resource to download and process</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6313:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="text/">
+            <resource uri="nouns/">
+                <method displayName="Noun Detection" id="6316" name="POST">
+                    <doc>Selects the nouns from the provided text.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f6316:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="namedEntity/">
+                <method displayName="Named Entity Detection" id="6315" name="POST">
+                    <doc>Detects Named Entities</doc>
+                    <request>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>uRL of the resource to download and process</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6315:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="names/">
+                <method displayName="Name Detection" id="6314" name="POST">
+                    <doc>Retrieves names from the provided text.</doc>
+                    <request>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>uRL of the resource to download and process</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6314:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="keywords/">
+                <method displayName="Keyword Generation" id="6312" name="POST">
+                    <doc>Generate Keywords on any segment of text.</doc>
+                    <request>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>uRL of the resource to download and process</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6312:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="decals/">
+            <resource uri="text/">
+                <resource uri="wikiInfo/">
+                    <method displayName="Wikipedia Information (for Semantic Search)" id="6317" name="POST">
+                        <request/>
+                    </method>
+                </resource>
+                <resource uri="nouns/">
+                    <method displayName="DECALS Nouns (for Semantic Search)" id="6311" name="POST">
+                        <request/>
+                    </method>
+                </resource>
+                <resource uri="keywords/">
+                    <method displayName="DECALS Keywords (for Semantic Search)" id="6310" name="POST">
+                        <request/>
+                    </method>
+                </resource>
+                <resource uri="define/">
+                    <method displayName="DECALS Definition (for Semantic Search)" id="6309" name="POST">
+                        <request/>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="test/">
+            <resource uri="debug/">
+                <method displayName="Debugger" id="6308" name="POST">
+                    <doc>Do not use.</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

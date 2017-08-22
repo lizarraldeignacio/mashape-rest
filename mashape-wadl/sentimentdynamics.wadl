@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4761="urn:function:f4761">
+    <grammars>
+        <include href="Function4761.xsd"/>
+    </grammars>
+    <doc>sentiment Dynamics is a powerful domain independent API for Sentiment Analysis and Opinion Mining Simple and effective tool for opinion polarity classification You can determine if a text has a positive negative or neutral opinion polarity Our API enables you the posibility of extract the keywords that represent the opinion targets</doc>
+    <resources base="https://iodynamics-sentiment-dynamics.p.mashape.com/">
+        <resource uri="query.json/">
+            <method displayName="Query" id="4761" name="GET">
+                <doc>Polarity Classification and Opinion Target Extraction</doc>
+                <request>
+                    <param name="aspects" required="true" style="query" type="xsd:string">
+                        <doc>indicates if opinion target extraction is performed</doc>
+                    </param>
+                    <param name="normalize" required="true" style="query" type="xsd:string">
+                        <doc>indicates if text normalization is performed</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>the text to classify</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4761:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

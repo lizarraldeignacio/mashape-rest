@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f462="urn:function:f462">
+    <grammars>
+        <include href="Function462.xsd"/>
+    </grammars>
+    <doc>with this API you can easily develop a bingo game just design the graphic Card s makers Extraction number Winner cards Points</doc>
+    <resources base="https://bingo.p.mashape.com/">
+        <resource uri="index.php/">
+            <method displayName="Play" id="462" name="GET">
+                <request>
+                    <param name="cardsNumber" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f462:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

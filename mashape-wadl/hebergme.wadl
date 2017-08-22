@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7371="urn:function:f7371">
+    <grammars>
+        <include href="Function7371.xsd"/>
+    </grammars>
+    <doc>upload pictures or files on the Heberg me</doc>
+    <resources base="https://tony11-heberg-me-v1.p.mashape.com/">
+        <resource uri="upload/">
+            <method displayName="Upload" id="7371" name="POST">
+                <request/>
+                <response>
+                    <representation element="f7371:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

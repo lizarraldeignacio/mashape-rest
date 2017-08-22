@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>twilio powers the future of business communications enabling phones SMS calls VoIP and messaging to be embedded into web desktop and mobile software We take care of the messy telecom hardware and expose a globally available cloud API that developers can interact with to build intelligent complex communications systems As your app s usage scales up or down Twilio automatically scales with you</doc>
+    <resources base="https://twilio.p.mashape.com/">
+        <resource uri="{AccountSid}/">
+            <param name="AccountSid" style="template" type="xsd:string"/>
+            <resource uri="SMS/">
+                <resource uri="Messages.json/">
+                    <method displayName="Send SMS" id="1003" name="POST">
+                        <doc>Send a new outgoing message</doc>
+                        <request>
+                            <param name="accountsid" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="Calls.json/">
+                <method displayName="Make a call" id="1002" name="POST">
+                    <request>
+                        <param name="accountsid" required="true" style="query" type="xsd:string">
+                            <doc>get this from https www twilio com user account</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

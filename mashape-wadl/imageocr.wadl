@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2095="urn:function:f2095">
+    <grammars>
+        <include href="Function2095.xsd"/>
+    </grammars>
+    <doc>this API method is developed for recognizing text content from images It differs from conventional print OCR engines by using a set of sophisticated preprocessing such as text localisation background reparation etc It is suited for processing overlay text and some of scene text occurred within video frames and images with limited rotation and enough contrast ratio</doc>
+    <resources base="https://semamediadata-image-ocr-v1.p.mashape.com/">
+        <resource uri="">
+            <method displayName="image ocr" id="2095" name="POST">
+                <doc>recognizes texts from video frames and images</doc>
+                <request/>
+                <response>
+                    <representation element="f2095:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

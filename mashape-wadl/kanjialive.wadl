@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6998="urn:function:f6998" xmlns:f7000="urn:function:f7000">
+    <grammars>
+        <include href="Function7000.xsd"/>
+        <include href="Function6998.xsd"/>
+    </grammars>
+    <doc>kanji alive was designed to help you learn to read and write Japanese kanji</doc>
+    <resources base="https://kanjialive-api.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="public/">
+                <resource uri="kanji/">
+                    <resource uri="{kanji}/">
+                        <param name="kanji" style="template" type="xsd:string"/>
+                        <method displayName="Kanji Details" id="7000" name="GET">
+                            <doc>Language attributes and media files for individual kanji</doc>
+                            <request>
+                                <param name="kanji" required="true" style="query" type="xsd:string">
+                                    <doc>a single kanji character</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f7000:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="search/">
+                    <resource uri="advanced/">
+                        <method displayName="Kanji character" id="6999" name="GET">
+                            <doc>The Advanced Search URL parameters are described here as individual endpoints to permit per parameter testing. Parameters may be combined as required.</doc>
+                            <request>
+                                <param name="kanji" required="true" style="query" type="xsd:string">
+                                    <doc>kanji character</doc>
+                                </param>
+                            </request>
+                        </method>
+                        <method displayName="Kanji English meaning" id="7001" name="GET">
+                            <doc>The Advanced Search URL parameters are described here as individual endpoints to permit per parameter testing. Parameters may be combined as required.</doc>
+                            <request>
+                                <param name="kem" required="true" style="query" type="xsd:string">
+                                    <doc>simplified English kanji meaning</doc>
+                                </param>
+                            </request>
+                        </method>
+                        <method displayName="Kanji grade level" id="7002" name="GET">
+                            <doc>The Advanced Search URL parameters are described here as individual endpoints to permit per parameter testing. Parameters may be combined as required.</doc>
+                            <request>
+                                <param name="grade" required="true" style="query" type="xsd:string">
+                                    <doc>positive integer</doc>
+                                </param>
+                            </request>
+                        </method>
+                        <method displayName="Kanji stroke number" id="7003" name="GET">
+                            <doc>The Advanced Search URL parameters are described here as individual endpoints to permit per parameter testing. Parameters may be combined as required.</doc>
+                            <request>
+                                <param name="ks" required="true" style="query" type="xsd:integer">
+                                    <doc>positive integer</doc>
+                                </param>
+                            </request>
+                        </method>
+                        <method displayName="Kunyomi reading" id="7004" name="GET">
+                            <doc>The Advanced Search URL parameters are described here as individual endpoints to permit per parameter testing. Parameters may be combined as required.</doc>
+                            <request>
+                                <param name="kun" required="true" style="query" type="xsd:string">
+                                    <doc>hiragana or romaji</doc>
+                                </param>
+                            </request>
+                        </method>
+                        <method displayName="Onyomi reading" id="7005" name="GET">
+                            <doc>The Advanced Search URL parameters are described here as individual endpoints to permit per parameter testing. Parameters may be combined as required.</doc>
+                            <request>
+                                <param name="on" required="true" style="query" type="xsd:string">
+                                    <doc>katakana or romaji</doc>
+                                </param>
+                            </request>
+                        </method>
+                        <method displayName="Radical English meaning" id="7006" name="GET">
+                            <doc>The Advanced Search URL parameters are described here as individual endpoints to permit per parameter testing. Parameters may be combined as required.</doc>
+                            <request>
+                                <param name="rem" required="true" style="query" type="xsd:string">
+                                    <doc>radical s meaning in English</doc>
+                                </param>
+                            </request>
+                        </method>
+                        <method displayName="Radical Japanese name" id="7007" name="GET">
+                            <doc>The Advanced Search URL parameters are described here as individual endpoints to permit per parameter testing. Parameters may be combined as required.</doc>
+                            <request>
+                                <param name="rjn" required="true" style="query" type="xsd:string">
+                                    <doc>hiragana or romaji</doc>
+                                </param>
+                            </request>
+                        </method>
+                        <method displayName="Radical position" id="7008" name="GET">
+                            <doc>The Advanced Search URL parameters are described here as individual endpoints to permit per parameter testing. Parameters may be combined as required.</doc>
+                            <request>
+                                <param name="rpos" required="true" style="query" type="xsd:string">
+                                    <doc>hiragana or romaji</doc>
+                                </param>
+                            </request>
+                        </method>
+                        <method displayName="Radical stroke number" id="7009" name="GET">
+                            <doc>The Advanced Search URL parameters are described here as individual endpoints to permit per parameter testing. Parameters may be combined as required.</doc>
+                            <request>
+                                <param name="rs" required="true" style="query" type="xsd:string">
+                                    <doc>positive integer</doc>
+                                </param>
+                            </request>
+                        </method>
+                        <method displayName="Study list (AP exam)" id="7010" name="GET">
+                            <doc>The Advanced Search URL parameters are described here as individual endpoints to permit per parameter testing. Parameters may be combined as required.</doc>
+                            <request>
+                                <param name="list" required="true" style="query" type="xsd:string">
+                                    <doc>kanji divided into chapters by Kanji alive</doc>
+                                </param>
+                            </request>
+                        </method>
+                        <method displayName="Study list (Macquarie)" id="7011" name="GET">
+                            <doc>The Advanced Search URL parameters are described here as individual endpoints to permit per parameter testing. Parameters may be combined as required.</doc>
+                            <request>
+                                <param name="list" required="true" style="query" type="xsd:string">
+                                    <doc>kanji divided into chapters</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                    <resource uri="{query}/">
+                        <param name="query" style="template" type="xsd:string"/>
+                        <method displayName="Basic Search" id="6998" name="GET">
+                            <doc>A kanji character, Onyomi reading (katakana), Kunyomi reading (hiragana), or a kanji's simplified English meaning.</doc>
+                            <request>
+                                <param name="query" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f6998:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

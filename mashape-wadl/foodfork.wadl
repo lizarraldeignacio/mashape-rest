@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f747="urn:function:f747" xmlns:f748="urn:function:f748">
+    <grammars>
+        <include href="Function748.xsd"/>
+        <include href="Function747.xsd"/>
+    </grammars>
+    <doc>food Fork is a place to find top socially ranked recipes from tons of recipe blogs and websites</doc>
+    <resources base="https://community-food2fork.p.mashape.com/">
+        <resource uri="search/">
+            <method displayName="Search" id="748" name="GET">
+                <request>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>page optional Used to get additional results Any request will return a maximum of results To get the next set of results send the same request again but with page The default if omitted is page</doc>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>q optional Search Query Ingredients should be separated by commas If this is omitted top rated recipes will be returned</doc>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:string">
+                        <doc>sort optional How the results should be sorted The Food Fork API offers two kinds of sorting for queries The first is by rating This rating is based off of social media scores to determine the best recipes sort r The second is by trendingness The most recent recipes from our publishers have a trend score based on how quickly they are gaining popularity sort t</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f748:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="get/">
+            <method displayName="Get Recipe" id="747" name="GET">
+                <request>
+                    <param name="rid" required="true" style="query" type="xsd:string">
+                        <doc>rId Id of desired recipe as returned by Search Query</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f747:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

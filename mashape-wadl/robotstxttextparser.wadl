@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1414="urn:function:f1414" xmlns:f1415="urn:function:f1415">
+    <grammars>
+        <include href="Function1414.xsd"/>
+        <include href="Function1415.xsd"/>
+    </grammars>
+    <doc>this API parses robots txt provided as text or as url and provides JSON output with all parsed values</doc>
+    <resources base="https://robotstxt.p.mashape.com/">
+        <resource uri="site/">
+            <resource uri="robots/">
+                <method displayName="Parse as text" id="1414" name="POST">
+                    <doc>Parses text of file provided</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1414:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Parse by url" id="1415" name="GET">
+                    <doc>Parse robots.txt by url provided</doc>
+                    <request>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>url of robots txt file</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1415:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

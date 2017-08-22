@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6751="urn:function:f6751" xmlns:f6752="urn:function:f6752">
+    <grammars>
+        <include href="Function6752.xsd"/>
+        <include href="Function6751.xsd"/>
+    </grammars>
+    <doc>cloudfish provides realtime email validation along with advanced syntax checks IETF standards dea role account checks smtp dns mailbox checks a plethora of checks</doc>
+    <resources base="https://bityard-cloudfish-v1.p.mashape.com/">
+        <resource uri="Validation/">
+            <resource uri="Realtime/">
+                <resource uri="Requests/">
+                    <method displayName="Validate Addresses" id="6752" name="POST">
+                        <doc>Validate a list of addresses (max 50). This is the equivalent of a real time request in the UI. Results are processed immediately but may take time.</doc>
+                        <request/>
+                        <response>
+                            <representation element="f6752:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="Text/">
+                <resource uri="Requests/">
+                    <method displayName="Create Text Request" id="6751" name="POST">
+                        <doc>Create a text request using posted addresses. This is equivalent to a copy/paste request in the UI. The request is queued for processing; results are not instantaneous.</doc>
+                        <request/>
+                        <response>
+                            <representation element="f6751:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>takes screenshots of websites</doc>
+    <resources base="https://handtrix-website-screenshot-v1.p.mashape.com/">
+        <resource uri="?url={url}/">
+            <param name="url" style="template" type="xsd:string"/>
+            <method displayName="/?url={url}" id="1067" name="GET">
+                <doc>Take a screenshot</doc>
+                <request>
+                    <param name="adblockenabled" required="true" style="query" type="xsd:boolean">
+                        <doc/>
+                    </param>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="cliprect" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="height" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                    <param name="javascriptenabled" required="true" style="query" type="xsd:boolean">
+                        <doc/>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="size" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string"/>
+                    <param name="useragent" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="width" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

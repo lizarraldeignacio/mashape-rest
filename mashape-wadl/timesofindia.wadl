@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f314="urn:function:f314" xmlns:f315="urn:function:f315">
+    <grammars>
+        <include href="Function315.xsd"/>
+        <include href="Function314.xsd"/>
+    </grammars>
+    <doc>the Times of India is an Indian English language daily newspaper</doc>
+    <resources base="https://devru-times-of-india.p.mashape.com/">
+        <resource uri="feeds/">
+            <resource uri="feedurllist.cms/">
+                <method displayName="Catagory" id="315" name="GET">
+                    <request>
+                        <param name="catagory" required="true" style="query" type="xsd:string">
+                            <doc>city world tech sports nri moviereviews entertainment tv events bp lifenstyle education environment photo video</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f315:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="breakingnewsfeed.cms/">
+                <method displayName="Breaking News" id="314" name="GET">
+                    <request>
+                        <param name="feedtype" required="true" style="query" type="xsd:string">
+                            <doc>sjson</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f314:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f249="urn:function:f249">
+    <grammars>
+        <include href="Function249.xsd"/>
+    </grammars>
+    <doc>this API exposes an endpoint which can spin a text containing a spinning expression syntax by generating a list of different variations</doc>
+    <resources base="https://pozzad-text-spinner.p.mashape.com/">
+        <resource uri="textspinner/">
+            <resource uri="spin/">
+                <method displayName="spin" id="249" name="POST">
+                    <doc>The spin method</doc>
+                    <request/>
+                    <response>
+                        <representation element="f249:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

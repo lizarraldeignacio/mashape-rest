@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1004="urn:function:f1004" xmlns:f1005="urn:function:f1005" xmlns:f1006="urn:function:f1006" xmlns:f1007="urn:function:f1007" xmlns:f1008="urn:function:f1008" xmlns:f1009="urn:function:f1009" xmlns:f1010="urn:function:f1010">
+    <grammars>
+        <include href="Function1010.xsd"/>
+        <include href="Function1006.xsd"/>
+        <include href="Function1009.xsd"/>
+        <include href="Function1005.xsd"/>
+        <include href="Function1008.xsd"/>
+        <include href="Function1007.xsd"/>
+        <include href="Function1004.xsd"/>
+    </grammars>
+    <doc>mobile app store API Easy access to app data from Google Play and the Apple iTunes</doc>
+    <resources base="https://apps.p.mashape.com/">
+        <resource uri="{store}/">
+            <param name="store" style="template" type="xsd:string"/>
+            <resource uri="application?query={query}/">
+                <param name="query" style="template" type="xsd:string"/>
+                <method displayName="Search applications" id="1010" name="GET">
+                    <doc>Full-text application search</doc>
+                    <request>
+                        <param name="query" required="true" style="query" type="xsd:string">
+                            <doc>the text you are searching for</doc>
+                        </param>
+                        <param name="store" required="true" style="query" type="xsd:string">
+                            <doc>the store you are trying to search i e apple or google</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1010:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="collection/">
+                <method displayName="Find collection by id" id="1006" name="GET">
+                    <doc>Get collection details by unique identifier</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the id of the collection you would like to access i e free or paid</doc>
+                        </param>
+                        <param name="store" required="true" style="query" type="xsd:string">
+                            <doc>the store you are trying to access i e apple or google</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1006:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="List collections" id="1009" name="GET">
+                    <doc>List available collections for the specified app store</doc>
+                    <request>
+                        <param name="store" required="true" style="query" type="xsd:string">
+                            <doc>the store you are trying to access i e apple or google</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1009:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="category/">
+                <method displayName="Find category by id" id="1005" name="GET">
+                    <doc>Get category details by unique identifier</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>the unique identifier for the category</doc>
+                        </param>
+                        <param name="store" required="true" style="query" type="xsd:string">
+                            <doc>the store you are trying to access i e apple or google</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1005:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="List categories" id="1008" name="GET">
+                    <doc>List all categories for the specified app store</doc>
+                    <request>
+                        <param name="store" required="true" style="query" type="xsd:string">
+                            <doc>the store you are trying to access i e apple or google</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1008:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="application/">
+                <resource uri="random/">
+                    <method displayName="Find random application" id="1007" name="GET">
+                        <doc>Find a random application with a specific store</doc>
+                        <request>
+                            <param name="store" required="true" style="query" type="xsd:string">
+                                <doc>the store you would like to use i e Apple or Google</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1007:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Find application by id" id="1004" name="GET">
+                        <doc>Get application details by unique identifier</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>the unique identifier for the app For iTunes this is an Apple generated numeric id For Google Play this is the package name</doc>
+                            </param>
+                            <param name="store" required="true" style="query" type="xsd:string">
+                                <doc>the store you are trying to access i e apple or google</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1004:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

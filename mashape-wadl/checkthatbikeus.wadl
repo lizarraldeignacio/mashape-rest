@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2629="urn:function:f2629" xmlns:f2630="urn:function:f2630">
+    <grammars>
+        <include href="Function2630.xsd"/>
+        <include href="Function2629.xsd"/>
+    </grammars>
+    <doc>this API allows you to pragmatically check bike registers in the US</doc>
+    <resources base="https://stolenbikes88-check-that-bike-us.p.mashape.com/">
+        <resource uri="help.json/">
+            <method displayName="List" id="2630" name="GET">
+                <doc>Produces an array of valid strings for use with the 'check' parameter</doc>
+                <request>
+                    <param name="check" required="true" style="query" type="xsd:string">
+                        <doc>will produce a list of available valid parameters for checks</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2630:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="get.json/">
+            <method displayName="Check" id="2629" name="GET">
+                <doc>Used to search the database for matching frame numbers</doc>
+                <request>
+                    <param name="check" required="true" style="query" type="xsd:string">
+                        <doc>which register s you wish to check available strings can be found using list method</doc>
+                    </param>
+                    <param name="frame" required="true" style="query" type="xsd:string">
+                        <doc>the frame number to check</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2629:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2759="urn:function:f2759">
+    <grammars>
+        <include href="Function2759.xsd"/>
+    </grammars>
+    <doc>the sanitizer will remove certain tags script marquee head frame menu object et al It retains predominantly content tags The sanitizer will remove most attributes It will keep only hrefs on a tags and colspans on td th tags The sanitizer can be a great tool for cleaning up the HTML saved by the likes of Word and OpenOffice</doc>
+    <resources base="https://pbkwee-html-sanitizer.p.mashape.com/">
+        <resource uri="html-sanitizer/">
+            <method displayName="HTML Sanitizer" id="2759" name="PUT">
+                <request/>
+                <response>
+                    <representation element="f2759:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

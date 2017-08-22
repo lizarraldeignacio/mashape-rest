@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6671="urn:function:f6671" xmlns:f6672="urn:function:f6672">
+    <grammars>
+        <include href="Function6672.xsd"/>
+        <include href="Function6671.xsd"/>
+    </grammars>
+    <doc>after you uploaded your files the expressFlow servers encrypt and secure your files and enable you to push it forward to your favorite cloud storage</doc>
+    <resources base="https://community-expressflow.p.mashape.com/">
+        <resource uri="encrypt/">
+            <method displayName="Encrypt" id="6672" name="POST">
+                <doc>The expressFlow Encrypt API operates 100% cloud-enabled. That means that you do not need to upload, PUT or POST the file you want to encrypt to the expressFlow Encrypt API. You just need to send over the link referring to the resource you want to encrypt. expressFlow does all the rest for you.</doc>
+                <request/>
+                <response>
+                    <representation element="f6672:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="decrypt/">
+            <method displayName="Decrypt" id="6671" name="POST">
+                <doc>The expressFlow Decrypt API operates 100% cloud-enabled. That means that you do not need to upload, PUT or POST the file you want to decrypt to the expressFlow Decrypt API. You just need to send over the link referring to the encrypted resource you want to decrypt. expressFlow does all the rest for you.</doc>
+                <request/>
+                <response>
+                    <representation element="f6671:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

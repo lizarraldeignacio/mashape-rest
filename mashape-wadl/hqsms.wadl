@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>hQSMS is a global SMS provider offering SMS gateway and specializing in SMS text messaging solutions SMS notices bulk SMS and HLR lookup service HTTPS API interface allows you to inegrate most of on line applications</doc>
+    <resources base="https://community-hqsms.p.mashape.com/">
+        <resource uri="sms.do/">
+            <method displayName="Send SMS" id="1378" name="GET">
+                <request>
+                    <param name="from" required="true" style="query" type="xsd:string">
+                        <doc>sender name have to be activated</doc>
+                    </param>
+                    <param name="message" required="true" style="query" type="xsd:string">
+                        <doc>content of message</doc>
+                    </param>
+                    <param name="to" required="true" style="query" type="xsd:string">
+                        <doc>destination number</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

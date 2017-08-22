@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6995="urn:function:f6995">
+    <grammars>
+        <include href="Function6995.xsd"/>
+    </grammars>
+    <doc>myPoolin API is the smartest way to allow your customers to do group purchases like group gifting group travel booking party dinner cost sharing wedding registries and more It is a RESTful plugin that gets seamlessly integrated either in the form of native integration complete front end customization or a microsite partial front end customization</doc>
+    <resources base="https://mypoolin-mypoolin-v1.p.mashape.com/">
+        <resource uri="VoucherPage/">
+            <method displayName="/VoucherPage" id="6996" name="POST">
+                <doc>For group gifting of vouchers/packages/cards etc. Requires parameters - productname (voucher), client_name (shared and approved with us separately) and imgSrc (source image)</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="Page/">
+            <method displayName="/Page" id="6995" name="POST">
+                <doc>Requires product parameters like - ID, name, description and more along with your client_name that has been notified to us.</doc>
+                <request/>
+                <response>
+                    <representation element="f6995:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

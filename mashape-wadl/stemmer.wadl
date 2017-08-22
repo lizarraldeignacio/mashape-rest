@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2180="urn:function:f2180">
+    <grammars>
+        <include href="Function2180.xsd"/>
+    </grammars>
+    <doc>this API takes a paragraph and returns the text with each word stemmed using porter stemmer snowball stemmer or UEA stemmer</doc>
+    <resources base="https://enclout-stemmer.p.mashape.com/">
+        <resource uri="show.json/">
+            <method displayName="stemmer" id="2180" name="GET">
+                <doc>Given a text paragraph, this function returns the stemmed text</doc>
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>text that needs to be stemmed</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2180:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

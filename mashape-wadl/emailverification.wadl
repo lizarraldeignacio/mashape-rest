@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1567="urn:function:f1567" xmlns:f1568="urn:function:f1568">
+    <grammars>
+        <include href="Function1568.xsd"/>
+        <include href="Function1567.xsd"/>
+    </grammars>
+    <doc>kickbox determines if an email address is not only valid but associated with an actual user</doc>
+    <resources base="https://verify-email.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="verify/">
+                <method displayName="Verify (Legacy)" id="1568" name="GET">
+                    <doc>Verify if an email is valid and exists</doc>
+                    <request>
+                        <param name="email" required="true" style="query" type="xsd:string">
+                            <doc>the email address to be verified</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1568:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="v2/">
+            <resource uri="verify/">
+                <method displayName="Verify" id="1567" name="GET">
+                    <doc>Verify if an email is deliverable</doc>
+                    <request>
+                        <param name="email" required="true" style="query" type="xsd:string">
+                            <doc>the email address to be verified</doc>
+                        </param>
+                        <param name="timeout" required="true" style="query" type="xsd:integer">
+                            <doc>maximum time in milliseconds for the API to complete a verification request</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1567:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

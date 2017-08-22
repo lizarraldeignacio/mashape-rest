@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>iMPORTANT Eventful API is a Paid Usage model and requires a licensing agreement directly with Eventful Eventful is a leading digital media company connecting consumers with entertainment movies and local events Over million people rely on Eventful to find out what s happening and decide what to do from movies concerts and sports to family fun and nightlife With millions of local events to choose from Eventful provides the world s most comprehensive selection of local entertainment content and serves its users across multiple platforms including online mobile and email delivering highly personalized content and recommendations to each of Eventful s million registered users</doc>
+    <resources base="https://community-eventful.p.mashape.com/">
+        <resource uri="venues/">
+            <resource uri="search/">
+                <method displayName="Venues search" id="2231" name="GET">
+                    <request>
+                        <param name="keywords" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="events/">
+            <resource uri="search/">
+                <method displayName="Events search" id="2230" name="GET">
+                    <request>
+                        <param name="keywords" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

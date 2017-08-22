@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7355="urn:function:f7355">
+    <grammars>
+        <include href="Function7355.xsd"/>
+    </grammars>
+    <doc>lookup the details of an address within The Netherlands By entering a postcode and house number you get the street city province lattitude and longitude</doc>
+    <resources base="https://nl_postcode.p.mashape.com/">
+        <resource uri="address/">
+            <method displayName="Address" id="7355" name="GET">
+                <doc>Look up the details of a Dutch address</doc>
+                <request>
+                    <param name="houseNumber" required="true" style="query" type="xsd:string">
+                        <doc>the full house number starting with a digit E g or B</doc>
+                    </param>
+                    <param name="postcode" required="true" style="query" type="xsd:string">
+                        <doc>the full postcode in the format AB</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f7355:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2610="urn:function:f2610" xmlns:f2611="urn:function:f2611" xmlns:f2612="urn:function:f2612" xmlns:f2613="urn:function:f2613" xmlns:f2614="urn:function:f2614" xmlns:f2615="urn:function:f2615">
+    <grammars>
+        <include href="Function2615.xsd"/>
+        <include href="Function2614.xsd"/>
+        <include href="Function2610.xsd"/>
+        <include href="Function2611.xsd"/>
+        <include href="Function2612.xsd"/>
+        <include href="Function2613.xsd"/>
+    </grammars>
+    <doc>mediaCrush makes sharing media super fast by reducing the file size without sacrificing quality We ll losslessly compress images video and audio uploaded to our service We can get faster for some files</doc>
+    <resources base="https://community-mediacrush.p.mashape.com/">
+        <resource uri="upload/">
+            <resource uri="url/">
+                <method displayName="/api/upload/url" id="2616" name="GET">
+                    <doc>Parameters: url, the URL from where to fetch the file to upload.  Returns: the same as /api/upload/file.</doc>
+                    <request>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>the URL from where to fetch the file to upload</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="file/">
+                <method displayName="/api/upload/file" id="2615" name="POST">
+                    <doc>Returns: a dictionary with the hash of the file in case the upload succeeded, a dictionary containing the error code if it did not succeed.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2615:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="info/">
+            <method displayName="/api/info" id="2614" name="GET">
+                <doc>Returns: an array of file objects.</doc>
+                <request>
+                    <param name="list" required="true" style="query" type="xsd:string">
+                        <doc>a comma separated list of hashes</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2614:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="{hash}/">
+            <param name="hash" style="template" type="xsd:string"/>
+            <method displayName="/api/&lt;hash&gt;" id="2610" name="GET">
+                <doc>Returns: information about the file whose hash is &lt;hash&gt;. When a file is uploaded to MediaCrush, several associated files may be generated. In the case of GIF files, two video files are generated - one with h.264/mpeg and another with theora/vorbis. Some media will also have "extra" files. In the case of uploaded videos, we'll include an image/png thumbnail file in the extras.</doc>
+                <request>
+                    <param name="hash" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2610:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="/api/&lt;hash&gt;/delete" id="2611" name="GET">
+                <doc>Returns: a dictionary describing whether the delete operation succeeded. In most cases it is easier to check the HTTP status code.</doc>
+                <request>
+                    <param name="hash" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2611:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="/api/&lt;hash&gt;/exists" id="2612" name="GET">
+                <doc>Returns: a dictionary answering the question of whether a hash exists.</doc>
+                <request>
+                    <param name="hash" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2612:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="/api/&lt;hash&gt;/status" id="2613" name="GET">
+                <doc>Returns: the processing status of the file identified by &lt;hash&gt;.</doc>
+                <request>
+                    <param name="hash" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2613:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4996="urn:function:f4996" xmlns:f4997="urn:function:f4997" xmlns:f4998="urn:function:f4998" xmlns:f4999="urn:function:f4999" xmlns:f5000="urn:function:f5000">
+    <grammars>
+        <include href="Function4996.xsd"/>
+        <include href="Function4997.xsd"/>
+        <include href="Function4998.xsd"/>
+        <include href="Function4999.xsd"/>
+        <include href="Function5000.xsd"/>
+    </grammars>
+    <doc>a collection of functions that will remove contact information phone numbers email and or addresses from a string</doc>
+    <resources base="https://esseguin-remove-contact-info.p.mashape.com/">
+        <resource uri="api.php/">
+            <method displayName="Remove Addresses" id="4996" name="GET">
+                <doc>Remove all addresses from a given string of text. This will match short and longhand address such as: 111 Main St. or 111 Main Street, San Francisco, CA 94107</doc>
+                <request>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="greedy" required="true" style="query" type="xsd:boolean">
+                        <doc>setting greedy to true will cause the replacement to be more likely to match false positives If this is false only sure matches will be replaced Default false</doc>
+                    </param>
+                    <param name="message" required="true" style="query" type="xsd:string">
+                        <doc>this is a string which will be stripped of addresses</doc>
+                    </param>
+                    <param name="replacementtext" required="true" style="query" type="xsd:string">
+                        <doc>the text to replace all matches with If not set the string address replaced will be used</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4996:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Remove All" id="4997" name="GET">
+                <doc>Remove all phone numbers, addresses, and emails from a given string of text</doc>
+                <request>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="greedy" required="true" style="query" type="xsd:boolean">
+                        <doc>setting greedy to true will cause the replacement to be more likely to match false positives If this is false only sure matches will be replaced Default false</doc>
+                    </param>
+                    <param name="message" required="true" style="query" type="xsd:string">
+                        <doc>this is a string which will be stripped of all contact information</doc>
+                    </param>
+                    <param name="replacementtext" required="true" style="query" type="xsd:string">
+                        <doc>the text to replace all matches with If not set the string contact information replaced will be used</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4997:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Remove All (Multiple)" id="4998" name="GET">
+                <doc>Remove all contact information from multiple messages. This endpoint lets you batch conversions and is faster than multiple individual requests.</doc>
+                <request>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="greedy" required="true" style="query" type="xsd:boolean">
+                        <doc>setting greedy to true will cause the replacement to be more likely to match false positives If this is false only sure matches will be replaced Default false</doc>
+                    </param>
+                    <param name="messages" required="true" style="query" type="xsd:string">
+                        <doc>multiple URL encoded strings separated with commas</doc>
+                    </param>
+                    <param name="replacementtext" required="true" style="query" type="xsd:string">
+                        <doc>the text to replace all matches with If not set the string contact information replaced will be used</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4998:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Remove Emails" id="4999" name="GET">
+                <doc>Remove all emails from a given string of text. This will match things such as: name@domain.com, name at domain dot com, name@domain dot com</doc>
+                <request>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="greedy" required="true" style="query" type="xsd:boolean">
+                        <doc>setting greedy to true will cause the replacement to be more likely to match false positives If this is false only sure matches will be replaced Default false</doc>
+                    </param>
+                    <param name="message" required="true" style="query" type="xsd:string">
+                        <doc>this is a string which will be stripped of emails</doc>
+                    </param>
+                    <param name="replacementtext" required="true" style="query" type="xsd:string">
+                        <doc>the text to replace all matches with If not set the string email replaced will be used</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4999:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Remove Phone Numbers" id="5000" name="GET">
+                <doc>Remove all phone numbers from a given string of text. Matches formats such as: 555.666.7777, (555) 666-7777, 555 666 7777.</doc>
+                <request>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="greedy" required="true" style="query" type="xsd:boolean">
+                        <doc>setting greedy to true will cause the replacement to be more likely to match false positives If this is false only sure matches will be replaced Default false</doc>
+                    </param>
+                    <param name="message" required="true" style="query" type="xsd:string">
+                        <doc>this is a string which will be stripped of phone numbers</doc>
+                    </param>
+                    <param name="replacementtext" required="true" style="query" type="xsd:string">
+                        <doc>the text to replace all matches with If not set the string phone number replaced will be used</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5000:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

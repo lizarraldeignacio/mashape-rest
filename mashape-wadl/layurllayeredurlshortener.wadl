@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4868="urn:function:f4868" xmlns:f4870="urn:function:f4870">
+    <grammars>
+        <include href="Function4870.xsd"/>
+        <include href="Function4868.xsd"/>
+    </grammars>
+    <doc>layURL is an URL Shortener Features with custom naming password protected private access QR code generated expiry with date expiry by view count etc Public stats available Read more http layurl com developer html An InnoByT com Project</doc>
+    <resources base="https://layurl.p.mashape.com/">
+        <resource uri="api.php/">
+            <method displayName="Simple API" id="4869" name="GET">
+                <doc>Simple API</doc>
+                <request>
+                    <param name="custom" required="true" style="query" type="xsd:string"/>
+                    <param name="url" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+        <resource uri="API/">
+            <resource uri="write/">
+                <resource uri="get/">
+                    <method displayName="Write API" id="4870" name="GET">
+                        <doc>Write API</doc>
+                        <request>
+                            <param name="custom" required="true" style="query" type="xsd:string">
+                                <doc>custom name</doc>
+                            </param>
+                            <param name="expire" required="true" style="query" type="xsd:string">
+                                <doc>date in format MM DD YYYY to expire url</doc>
+                            </param>
+                            <param name="password" required="true" style="query" type="xsd:string">
+                                <doc>set url password</doc>
+                            </param>
+                            <param name="private" required="true" style="query" type="xsd:integer">
+                                <doc>set url to private not listed</doc>
+                            </param>
+                            <param name="type" required="true" style="query" type="xsd:string">
+                                <doc>response type json xml</doc>
+                            </param>
+                            <param name="url" required="true" style="query" type="xsd:string">
+                                <doc>the url you want to shrink</doc>
+                            </param>
+                            <param name="uses" required="true" style="query" type="xsd:integer">
+                                <doc>number of uses for the url</doc>
+                            </param>
+                            <param name="via" required="true" style="query" type="xsd:string">
+                                <doc>adds a signature to track your application</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4870:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="read/">
+                <resource uri="get/">
+                    <method displayName="Read API" id="4868" name="GET">
+                        <doc>Read API</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>iD of the url you want to access</doc>
+                            </param>
+                            <param name="password" required="true" style="query" type="xsd:string">
+                                <doc>password for url if protected</doc>
+                            </param>
+                            <param name="type" required="true" style="query" type="xsd:string">
+                                <doc>response type json xml</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4868:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

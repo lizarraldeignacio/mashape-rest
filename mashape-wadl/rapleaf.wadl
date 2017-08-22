@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f79="urn:function:f79">
+    <grammars>
+        <include href="Function79.xsd"/>
+    </grammars>
+    <doc>rapleaf s Personlization API provides rich demographic data about email addresses in real time You will need an Rapleaf API key in order to use this service You can get one for free here https www rapleaf com developers api access With an API key you will have free unlimited access to age gender and city state country data Additionally we provide many other premium fields for a small price Please visit our website or email us at info rapleaf com to get more info on pricing and our premium fields</doc>
+    <resources base="https://rapleaf-rapleaf.p.mashape.com/">
+        <resource uri="dr/">
+            <method displayName="Personalization API" id="79" name="GET">
+                <doc>Use the Rapleaf Personalization API to get demographic data tied to a specific email.  In addition, we will have a higher match rate if you provide one or more of the following:
+
+First Name
+Last Name
+Street, City, State (all three)
+Zip Code (with optional 4 digit extension)</doc>
+                <request>
+                    <param name="address" required="true" style="query" type="xsd:string">
+                        <doc>postal address</doc>
+                    </param>
+                    <param name="apiKey" required="true" style="query" type="xsd:string">
+                        <doc>rapleaf API key Get one for free here https dashboard rapleaf com register</doc>
+                    </param>
+                    <param name="city" required="true" style="query" type="xsd:string">
+                        <doc>city of individual s residence</doc>
+                    </param>
+                    <param name="email" required="true" style="query" type="xsd:string">
+                        <doc>email address of individual</doc>
+                    </param>
+                    <param name="first" required="true" style="query" type="xsd:string">
+                        <doc>first name of individual Not case sensitive</doc>
+                    </param>
+                    <param name="last" required="true" style="query" type="xsd:string">
+                        <doc>last name of individual Not case sensitive</doc>
+                    </param>
+                    <param name="state" required="true" style="query" type="xsd:string">
+                        <doc>state of individual s residence</doc>
+                    </param>
+                    <param name="zip" required="true" style="query" type="xsd:string">
+                        <doc>zip Code with optional digit extension for individual s residence</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f79:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

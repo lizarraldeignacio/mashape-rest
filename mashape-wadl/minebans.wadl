@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>mineBans is a global banning system for Minecraft servers We offer a way for server admins to publish the player bans they make on their servers to our database The owners of other servers can then use this information to decide if a player that just joined their server should be allowed to stay All of this is done automatically and is completely configurable using a custom plugin for Bukkit servers</doc>
+    <resources base="https://community-minebans.p.mashape.com/">
+        <resource uri="server_moderators.json/">
+            <method displayName="Server Moderators" id="6733" name="GET">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="server_bans.json/">
+            <method displayName="Server Bans" id="6732" name="GET">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="player_bans.json/">
+            <method displayName="Player Bans" id="6731" name="GET">
+                <request>
+                    <param name="playerUuid" required="true" style="query" type="xsd:string">
+                        <doc>mojang account ID of the player you want to look up</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

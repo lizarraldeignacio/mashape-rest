@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6698="urn:function:f6698">
+    <grammars>
+        <include href="Function6698.xsd"/>
+    </grammars>
+    <doc>multiple image API s to help developers add advanced image manipulation to their apps Image Information API s Image Modification API s and Image Filter API s</doc>
+    <resources base="https://mnimer-image-appengine-v1.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="v1/">
+                <resource uri="image/">
+                    <resource uri="info/">
+                        <resource uri="size/">
+                            <method displayName="Size Info" id="6714" name="POST">
+                                <doc>Get the height and width for the image</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                        <resource uri="metadata/">
+                            <method displayName="Metadata Info" id="6710" name="POST">
+                                <doc>Return the embedded metadata in an image (ex: EXIF, etc.)</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                    </resource>
+                    <resource uri="filter/">
+                        <resource uri="minimum/">
+                            <method displayName="Minimum Filter" id="6711" name="POST">
+                                <doc>This filter replaces each pixel by the median of the input pixel and its eight neighbours. Each of the RGB channels is considered separately.</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                        <resource uri="median/">
+                            <method displayName="Median Filter" id="6709" name="POST">
+                                <doc>This filter replaces each pixel by the median of the input pixel and its eight neighbours. Each of the RGB channels is considered separately.</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                        <resource uri="maximum/">
+                            <method displayName="Maximum Filter" id="6708" name="POST">
+                                <doc>This filter replaces each pixel by the maximum of the input pixel and its eight neighbours. Each of the RGB channels is considered separately.</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                        <resource uri="lensblur/">
+                            <method displayName="Lens Blur Filter" id="6707" name="POST">
+                                <doc>This filter simulates the blurring caused by a camera lens. You can change the aperture size and shape and also specify blooming of the image. This filter is very slow.</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                        <resource uri="grayscale/">
+                            <method displayName="Grayscale Filter" id="6706" name="POST">
+                                <doc>This filter converts an uploaded image to a grayscale image. To do this it finds the brightness of each pixel and sets the red, green and blue of the output to the brightness value. But what is the brightness? The simplest answer might be that it is the average of the RGB components, but that neglects the way in which the human eye works. The eye is much more sensitive to green and red than it is to blue, and so we need to take less acount of the blue and more account of the green. The weighting used by GrayscaleFilter is: luma = 77R + 151G + 28B</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                        <resource uri="glow/">
+                            <method displayName="Glow Filter" id="6705" name="POST">
+                                <doc>This filter produces a glowing effect on an uploaded image by adding a blurred version of the image to subtracted from the original image.</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                        <resource uri="gaussian/">
+                            <method displayName="Gaussian Filter" id="6704" name="POST">
+                                <doc>This filter performs a Gaussian blur on an uploaded image.</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                        <resource uri="despeckle/">
+                            <method displayName="Despeckle Filter" id="6703" name="POST">
+                                <doc>This filter reduces light noise in an image using the eight hull algorithm described in Applied Optics, Vol. 24, No. 10, 15 May 1985, "Geometric filter for Speckle Reduction", by Thomas R Crimmins. Basically, it tries to move each pixel closer in value to its neighbours. As it only has a small effect, you may need to apply it several times. This is good for removing small levels of noise from an image but does give the image some fuzziness.</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                        <resource uri="bump/">
+                            <method displayName="Bump Filter" id="6702" name="POST">
+                                <doc>This filter does a simple convolution which emphasises edges in an uploaded image.</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                        <resource uri="boxblur/">
+                            <method displayName="Box Blur Filter" id="6701" name="POST">
+                                <doc>A filter which performs a box blur on an uploaded image. The horizontal and vertical blurs can be specified separately and a number of iterations can be given which allows an approximation to Gaussian blur.</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                        <resource uri="blur/">
+                            <method displayName="Blur Filter" id="6700" name="POST">
+                                <doc>This filter blurs an uploaded image very slightly using a 3x3 blur kernel.</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                    </resource>
+                    <resource uri="modify/">
+                        <resource uri="rotate/">
+                            <method displayName="Rotate Image" id="6713" name="POST">
+                                <doc>Rotate an image</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                        <resource uri="resize/">
+                            <method displayName="Resize Image" id="6712" name="POST">
+                                <doc>Resize an image</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                        <resource uri="text/">
+                            <method displayName="Add Text to Image" id="6699" name="POST">
+                                <doc>Overlay text on an image</doc>
+                                <request/>
+                            </method>
+                        </resource>
+                        <resource uri="border/">
+                            <method displayName="Add Border" id="6698" name="POST">
+                                <doc>Draw a border around an image</doc>
+                                <request/>
+                                <response>
+                                    <representation element="f6698:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

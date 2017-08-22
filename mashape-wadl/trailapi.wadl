@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>information and photos for tens of thousands of outdoor recreation locations including hiking and mountain biking trails campgrounds ski resorts ATV trails and more</doc>
+    <resources base="https://trailapi-trailapi.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Activity Info" id="490" name="GET">
+                <request>
+                    <param name="lat" required="true" style="query" type="xsd:integer">
+                        <doc>latitude</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>defaults to results</doc>
+                    </param>
+                    <param name="lon" required="true" style="query" type="xsd:integer">
+                        <doc>longitude</doc>
+                    </param>
+                    <param name="qActivitiesActivityNameCont" required="true" style="query" type="xsd:string">
+                        <doc>name of a specific park or trail</doc>
+                    </param>
+                    <param name="qActivitiesActivityTypeNameEq" required="true" style="query" type="xsd:string">
+                        <doc>limit reslts to specific outdoor activity</doc>
+                    </param>
+                    <param name="qCityCont" required="true" style="query" type="xsd:string">
+                        <doc>name of a city</doc>
+                    </param>
+                    <param name="qCountryCont" required="true" style="query" type="xsd:string">
+                        <doc>name of a country</doc>
+                    </param>
+                    <param name="qStateCont" required="true" style="query" type="xsd:string">
+                        <doc>uS state or Canadian province</doc>
+                    </param>
+                    <param name="radius" required="true" style="query" type="xsd:integer">
+                        <doc>used in combination with a lat lon Value is in miles</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

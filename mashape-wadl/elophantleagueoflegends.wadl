@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f731="urn:function:f731" xmlns:f732="urn:function:f732" xmlns:f733="urn:function:f733" xmlns:f734="urn:function:f734" xmlns:f735="urn:function:f735" xmlns:f736="urn:function:f736" xmlns:f737="urn:function:f737" xmlns:f738="urn:function:f738" xmlns:f739="urn:function:f739" xmlns:f740="urn:function:f740" xmlns:f741="urn:function:f741" xmlns:f742="urn:function:f742">
+    <grammars>
+        <include href="Function740.xsd"/>
+        <include href="Function741.xsd"/>
+        <include href="Function742.xsd"/>
+        <include href="Function739.xsd"/>
+        <include href="Function738.xsd"/>
+        <include href="Function737.xsd"/>
+        <include href="Function736.xsd"/>
+        <include href="Function735.xsd"/>
+        <include href="Function734.xsd"/>
+        <include href="Function733.xsd"/>
+        <include href="Function732.xsd"/>
+        <include href="Function731.xsd"/>
+    </grammars>
+    <doc>lOL Champion and Summoner Stats To consume a service perform a GET request on api elophant com v region resource Remember you must include your developer key for authentication resource key Each developer is currently rate limited to calls every minutes We highly discourage making an unreasonable amount of requests calls second All calls now return the proper content type for Json Also the number of requests remaining has been added to the header This value is updated immediately The regions we current support include NA EUW EUNE and BR</doc>
+    <resources base="https://community-elophant-league-of-legends.p.mashape.com/">
+        <resource uri="{region}/">
+            <param name="region" style="template" type="xsd:string"/>
+            <resource uri="team/">
+                <resource uri="{teamId}/">
+                    <param name="teamId" style="template" type="xsd:string"/>
+                    <method displayName="GET team" id="740" name="GET">
+                        <doc>Returns a brief overview of a team, including gameType dependent Elos, the current roster, and basic match history statistics.  Use this method in favor of find_team when the teamId is known because this method is faster.</doc>
+                        <request>
+                            <param name="region" required="true" style="query" type="xsd:string"/>
+                            <param name="teamid" required="true" style="query" type="xsd:string">
+                                <doc>specifies the teamId of the team to look up Example Value TEAM e d b b e a c ccf c</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f740:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="GET team_end_of_game_stats" id="741" name="GET">
+                        <doc>Returns very detailed statistics about the specified match.  Note: This request is only for teams, like TSM or CLG, not individual summoners.</doc>
+                        <request>
+                            <param name="gameid" required="true" style="query" type="xsd:string">
+                                <doc>specifies the gameId to look up Example Value</doc>
+                            </param>
+                            <param name="region" required="true" style="query" type="xsd:string"/>
+                            <param name="teamid" required="true" style="query" type="xsd:string">
+                                <doc>specifies the teamId of the team to look up Example Value TEAM e d b b e a c ccf c</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f741:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="GET team_ranked_stats" id="742" name="GET">
+                        <doc>Returns each team member's statistics for the specified team. This call provides very similar results to summoner ranked_stats.</doc>
+                        <request>
+                            <param name="region" required="true" style="query" type="xsd:string"/>
+                            <param name="teamid" required="true" style="query" type="xsd:string">
+                                <doc>specifies the teamId of the team to look up Example Value TEAM e d b b e a c ccf c</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f742:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="summoner_team_info/">
+                <resource uri="{summonerId}/">
+                    <param name="summonerId" style="template" type="xsd:string"/>
+                    <method displayName="GET summoner_team_info" id="739" name="GET">
+                        <doc>Returns all team info regarding the specified summoner, including team overviews and all of the teams the summoner has created. Use this method to obtain teamIds for use in other team-related methods.  This method also returns a brief match history for each team the summoner is on.  The value "date" returns a binary encoded DateTime object. Be sure to account for that in your code.  Team names with special characters contain special encoding.</doc>
+                        <request>
+                            <param name="region" required="true" style="query" type="xsd:string"/>
+                            <param name="summonerid" required="true" style="query" type="xsd:string">
+                                <doc>specifies the summonerId of the summoner to look up Example Value</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f739:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="summoner/">
+                <resource uri="{summonerName}/">
+                    <param name="summonerName" style="template" type="xsd:string"/>
+                    <method displayName="GET summoner" id="738" name="GET">
+                        <doc>Returns a summoner's accountId, summonerId, account level, and profile icon id. This method has one of the smallest return sizes for the amount of value it possesses.  When requesting a summoner with a space in their name, use "%20" to represent the space.  On that note, please URL encode all summoner names before making a request.  Use this method to find out a summoner's accountId and summonerId when only the name is known. From there, requests for mastery pages or rune pages are easy.</doc>
+                        <request>
+                            <param name="region" required="true" style="query" type="xsd:string"/>
+                            <param name="summonername" required="true" style="query" type="xsd:string">
+                                <doc>specifies the name of the summoner to look up Example Values HotshotGG or hotshotgg</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f738:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="rune_pages/">
+                <resource uri="{summonerId}/">
+                    <param name="summonerId" style="template" type="xsd:string"/>
+                    <method displayName="GET rune_pages" id="737" name="GET">
+                        <doc>Returns an array with each rune page and subsequent runes for a specific summoner.  Rune pages are very complex objects. We recommend that you play around with different runes to obtain their "runeId".</doc>
+                        <request>
+                            <param name="region" required="true" style="query" type="xsd:string"/>
+                            <param name="summonerid" required="true" style="query" type="xsd:string">
+                                <doc>specifies the summonerId of the summoner to look up Example Value</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f737:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="master_pages/">
+                <resource uri="{summonerId}/">
+                    <param name="summonerId" style="template" type="xsd:string"/>
+                    <method displayName="GET mastery_pages" id="736" name="GET">
+                        <doc>Returns an array with each mastery book page and subsequent talent point entries for a specific summoner.  Mastery pages are very complex objects. We recommend that you play around with different talent entries to obtain their "talentId".  The most important values when reconstructing a page are "rank" and "talentId".</doc>
+                        <request>
+                            <param name="region" required="true" style="query" type="xsd:string"/>
+                            <param name="summonerid" required="true" style="query" type="xsd:string">
+                                <doc>specifies the summonerId of the summoner to look up Example Value</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f736:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="leagues/">
+                <resource uri="{summonerId}/">
+                    <param name="summonerId" style="template" type="xsd:string"/>
+                    <method displayName="GET leagues" id="735" name="GET">
+                        <doc>Returns the current Leagues for the requested summonerId, including all players within each League.</doc>
+                        <request>
+                            <param name="region" required="true" style="query" type="xsd:string"/>
+                            <param name="summonerid" required="true" style="query" type="xsd:string">
+                                <doc>specifies the summonerId of the summoner to look up Example Value</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f735:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="items/">
+                <method displayName="GET items" id="734" name="GET">
+                    <doc>Returns every item's id and name in Json.  We do not recommend calling this method too often because it does count as an API call. Try to cache it and only use this method for updates.</doc>
+                    <request>
+                        <param name="region" required="true" style="query" type="xsd:string">
+                            <doc>nA EUW EUNE and BR</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f734:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="in_progress_game_info/">
+                <resource uri="{summonerName}/">
+                    <param name="summonerName" style="template" type="xsd:string"/>
+                    <method displayName="GET in_progress_game_info" id="733" name="GET">
+                        <doc>Returns the player information for both teams, bans (if draft or ranked), and observer information.  If the summoner is not found, an error will be returned.  If the summoner is found, but is not in game, an error will be returned.</doc>
+                        <request>
+                            <param name="region" required="true" style="query" type="xsd:string"/>
+                            <param name="summonername" required="true" style="query" type="xsd:string">
+                                <doc>specifies the name of the summoner to look up Example Values Dyrus or dyrus</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f733:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="find_team/">
+                <resource uri="{tagOrName}/">
+                    <param name="tagOrName" style="template" type="xsd:string"/>
+                    <method displayName="GET find_team" id="732" name="GET">
+                        <doc>Returns a brief overview of a team, including gameType dependent tiers and divisions, the current roster, and basic match history statistics.  Use this method only if and when teamId is not known or cannot be found another way.  When requesting a team tag or name with a space, use "%20" to represent the space.  On that note, always URL encode the team tag or name to avoid false error messages.</doc>
+                        <request>
+                            <param name="region" required="true" style="query" type="xsd:string"/>
+                            <param name="tagorname" required="true" style="query" type="xsd:string">
+                                <doc>specifies the tag or name of the team to look up Example Value tsm or Team Solo Mid</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f732:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="">
+            <method displayName="GET champions" id="731" name="GET">
+                <doc>Returns every champion's id and name in Json.  We do not recommend calling this method too often because it does count as an API call. Try to cache it and only use this method for updates.  A champion with an id of "0" does not exist. We use it to deal with exceptions.</doc>
+                <request/>
+                <response>
+                    <representation element="f731:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

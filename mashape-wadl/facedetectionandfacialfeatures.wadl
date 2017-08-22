@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1485="urn:function:f1485">
+    <grammars>
+        <include href="Function1485.xsd"/>
+    </grammars>
+    <doc>a better Face detection service Provides coordinates for all faces detected and associated facial features such as eyes nose mouth skin tone and hair color This API also returns several biometric features still in development to include gender race and age estimation</doc>
+    <resources base="https://ivladmin-face-detection.p.mashape.com/">
+        <resource uri="faceSearch/">
+            <resource uri="detectFaces/">
+                <method displayName="Face Detection" id="1485" name="POST">
+                    <doc>Use this API to detect face(s)  in images. NOTE: API accepts JSON and XML encoded posts.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1485:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

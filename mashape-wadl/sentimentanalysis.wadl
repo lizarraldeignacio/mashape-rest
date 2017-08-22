@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f769="urn:function:f769">
+    <grammars>
+        <include href="Function769.xsd"/>
+    </grammars>
+    <doc>multilingual sentiment analysis of texts from different sources blogs social networks Besides polarity at sentence and global level Sentiment Analysis uses advanced natural language processing techniques to also detect the polarity associated to both entities and concepts in the text Sentiment Analysis also gives the user the possibility of detecting the polarity of user defined entities and concepts making the service a flexible tool applicable to any kind of scenario Additionally Sentiment Analysis detects if the text processed is subjective or objective and if it contains irony marks beta both at global and sentence level giving the user additional information about the reliability of the polarity obtained from the sentiment analysis</doc>
+    <resources base="https://sentiment-analysis.p.mashape.com/">
+        <resource uri="sentiment-2.0.php/">
+            <method displayName="sentiment-2.0" id="770" name="GET">
+                <doc>Sentiment analysis of multilingual texts</doc>
+                <request>
+                    <param name="cont" required="true" style="query" type="xsd:string">
+                        <doc>disambiguation context Context prioritization for entity semantic disambiguation</doc>
+                    </param>
+                    <param name="cs" required="true" style="query" type="xsd:string">
+                        <doc>indicates if the concept extraction must be case sensitive Possible values y or n</doc>
+                    </param>
+                    <param name="dm" required="true" style="query" type="xsd:string">
+                        <doc>type of disambiguation applied It is accumulative that is the semantic disambiguation mode will also include morphosyntactic disambiguation Possible values n no disambiguation m morphosyntactic disambiguation s semantic disambiguation</doc>
+                    </param>
+                    <param name="egp" required="true" style="query" type="xsd:string">
+                        <doc>expand global polarity This mode allows you to choose between two different algorithms for the polarity detection of entities and concepts Enabling the parameter gives less weight to the syntactic relationships so it s recommended for short texts with unreliable typography Possible values y or n</doc>
+                    </param>
+                    <param name="model" required="true" style="query" type="xsd:string">
+                        <doc>sentiment model chosen It can be configured so the most adequate model is automatically detected based on the language of the text Possible values general en general es general fr or auto</doc>
+                    </param>
+                    <param name="of" required="true" style="query" type="xsd:string">
+                        <doc>output format xml or json</doc>
+                    </param>
+                    <param name="rt" required="true" style="query" type="xsd:string">
+                        <doc>this parameter indicates how reliable the text to analyze is as far as spelling typography etc are concerned and influences how strict the engine will be when it comes to take these factors into account in the analysis Possible values y n or u enabled just for user dictionary</doc>
+                    </param>
+                    <param name="sdg" required="true" style="query" type="xsd:string">
+                        <doc>semantic disambiguation grouping This parameter will only apply when semantic disambiguation is activated dm s Possible values n none g global intersection t intersection by type l intersection by type smallest location</doc>
+                    </param>
+                    <param name="st" required="true" style="query" type="xsd:string">
+                        <doc>show subtopics This parameter will indicate if subtopics are to be detected In the cases where they are detected they will appear at the same level as their parent topic Possible values y or n</doc>
+                    </param>
+                    <param name="timeref" required="true" style="query" type="xsd:string">
+                        <doc>this value allows to set a specific time reference to detect the actual value of all the relative time expressions detected in the text It only applies for tv y Format YYYY MM DD hh mm ss GMT HH MM Default current time at the moment the request is made</doc>
+                    </param>
+                    <param name="tt" required="true" style="query" type="xsd:string">
+                        <doc>specifies the list of topic types to extract In this case only the named entities and the concepts will be taken into account for the sentiment analysis and so the rest of the values will only make sense when the tree view is used tv y Possible values e named entities c concepts t time expressions m money expressions u URIs p phone number expressions o other expressions q quotations r relations beta a all</doc>
+                    </param>
+                    <param name="tv" required="true" style="query" type="xsd:string">
+                        <doc>tree view It changes the output so it s shown as a morphosyntactic tree with sentiment associated Possible values y or n</doc>
+                    </param>
+                    <param name="txt" required="true" style="query" type="xsd:string">
+                        <doc>input text that s going to be analyzed</doc>
+                    </param>
+                    <param name="txtf" required="true" style="query" type="xsd:string">
+                        <doc>the text format parameter specifies if the text included in the txt parameter uses markup language that needs to be interpreted known HTML tags and HTML code will be interpreted and unknown tags will be ignored Possible values plain or markup</doc>
+                    </param>
+                    <param name="uw" required="true" style="query" type="xsd:string">
+                        <doc>deal with unknown words This feature adds a stage to the topic extraction in which the engine much like a spellchecker tries to find a suitable analysis to the unknown words resulted from the initial analysis assignment It is specially useful to decrease the impact typos have in text analyses Possible values y or n</doc>
+                    </param>
+                    <param name="verbose" required="true" style="query" type="xsd:string">
+                        <doc>verbose mode When active it shows additional information about the sentiment analysis specifically it shows the changes applied to the basic polarity of the different polarity terms detected Possible values y or n</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="sentiment-1.2.php/">
+            <method displayName="sentiment-1.2" id="769" name="GET">
+                <doc>Sentiment analysis of multilingual texts</doc>
+                <request>
+                    <param name="concepts" required="true" style="query" type="xsd:string">
+                        <doc>this parameter will allow the user to define concepts for which the polarity in the text will be extracted in the text More information at https textalytics com core sentiment info</doc>
+                    </param>
+                    <param name="entities" required="true" style="query" type="xsd:string">
+                        <doc>this parameter will allow the user to define his her own entities so their polarity in the text can be evaluated Each entity will have to be in a different line the first form included will be its canonical form as it will be refered to when data about its polarity appear in the results and every form after that included in the line and separated by the character will be considered an alias of said entity</doc>
+                    </param>
+                    <param name="model" required="true" style="query" type="xsd:string">
+                        <doc>sentiment model chosen If no model is specified the most adequate one will be detected automatically based on the language of the text Possible values es general en general fr general</doc>
+                    </param>
+                    <param name="of" required="true" style="query" type="xsd:string">
+                        <doc>output format xml or json</doc>
+                    </param>
+                    <param name="txt" required="true" style="query" type="xsd:string">
+                        <doc>input text It can be plain text HTML or XML always using UTF encoding</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f769:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

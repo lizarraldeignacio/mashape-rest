@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4735="urn:function:f4735" xmlns:f4737="urn:function:f4737" xmlns:f4739="urn:function:f4739">
+    <grammars>
+        <include href="Function4737.xsd"/>
+        <include href="Function4739.xsd"/>
+        <include href="Function4735.xsd"/>
+    </grammars>
+    <doc>create ASCII art from your images Create ASCII tables from your CSV data Create ASCII figlets text art using text fonts for any strings using any of the figlet styles Make our cow or other animals say things you want in ascii cowsay All the results are returned as base encoded json strings to preserve the perfect formatting until it reaches your program</doc>
+    <resources base="https://ascii.p.mashape.com/">
+        <resource uri="matheq/">
+            <method displayName="matheq" id="4741" name="POST">
+                <doc>Generate ASCII Math Equations.</doc>
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>text to generate Math equation</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="image2ascii/">
+            <method displayName="image2ascii" id="4738" name="POST">
+                <doc>Convert an image to ascii art</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="figlet/">
+            <method displayName="figlet" id="4737" name="GET">
+                <doc>Create a ASCII art from a given text</doc>
+                <request>
+                    <param name="style" required="true" style="query" type="xsd:string">
+                        <doc>style of the figlet text you want Pick one from the list returned from figlet list styles Otherwise a random style will be chosen</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>string to convert to ASCII art</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4737:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="list figlet styles" id="4739" name="GET">
+                <doc>List the available figlet styles</doc>
+                <request/>
+                <response>
+                    <representation element="f4739:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="cowsay/">
+            <method displayName="cowsay" id="4736" name="GET">
+                <doc>Make an ASCII cow say things</doc>
+                <request>
+                    <param name="style" required="true" style="query" type="xsd:string">
+                        <doc>cow style you want to use</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>text to put in cow s mouth</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="list_cowsay_styles" id="4740" name="GET">
+                <doc>List available cow styles</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="table/">
+            <method displayName="ascii_table" id="4735" name="POST">
+                <doc>Create an ASCII Table from a given csv table.</doc>
+                <request/>
+                <response>
+                    <representation element="f4735:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

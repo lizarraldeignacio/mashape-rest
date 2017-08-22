@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f679="urn:function:f679" xmlns:f680="urn:function:f680" xmlns:f681="urn:function:f681">
+    <grammars>
+        <include href="Function680.xsd"/>
+        <include href="Function681.xsd"/>
+        <include href="Function679.xsd"/>
+    </grammars>
+    <doc>diffbot extracts data from web pages automatically and returns structured JSON For example our Article API returns an article s title author date and full text Use the web as your database We use computer vision machine learning and natural language processing to add structure to just about any web page</doc>
+    <resources base="https://diffbot-diffbot.p.mashape.com/">
+        <resource uri="frontpage/">
+            <method displayName="Frontpage" id="680" name="GET">
+                <doc>The Frontpage API takes in a multifaceted “homepage” and returns individual page elements.</doc>
+                <request>
+                    <param name="all" required="true" style="query" type="xsd:string">
+                        <doc>returns all content from page including navigation and similar links that the Diffbot visual processing engine considers less important non core</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>format the response output in xml default or json</doc>
+                    </param>
+                    <param name="timeout" required="true" style="query" type="xsd:string">
+                        <doc>specify a value in milliseconds e g timeout to override the default API timeout of ms</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>frontpage URL from which to extract items</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f680:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="v2/">
+            <resource uri="product/">
+                <method displayName="Product API" id="681" name="GET">
+                    <doc>The Product API retrieves full product data from any e-commerce shopping page.</doc>
+                    <request>
+                        <param name="fields" required="true" style="query" type="xsd:string">
+                            <doc>send in a list of comma separated fieldnames to override default field output in the response</doc>
+                        </param>
+                        <param name="timeout" required="true" style="query" type="xsd:integer">
+                            <doc>specify a value in milliseconds e g timeout to override the default API timeout of ms</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>uRL of the page to process</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f681:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="article/">
+                <method displayName="Article API" id="679" name="GET">
+                    <doc>The Article API is used to extract clean article text from news articles, blog posts, and other text-heavy web pages.</doc>
+                    <request>
+                        <param name="fields" required="true" style="query" type="xsd:string">
+                            <doc>send in a list of comma separated fieldnames to override default field output in the response</doc>
+                        </param>
+                        <param name="paging" required="true" style="query" type="xsd:boolean">
+                            <doc>send paging false to disable automatic concatenation of multi page articles</doc>
+                        </param>
+                        <param name="timeout" required="true" style="query" type="xsd:integer">
+                            <doc>specify a value in milliseconds e g timeout to override the default API timeout of ms</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>uRL to extract article from URLEncoded</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f679:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

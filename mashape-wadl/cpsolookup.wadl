@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>aPI to find Physician CPSO numbers based on physican name address site location etc</doc>
+    <resources base="https://ben-yu-cpso-listing.p.mashape.com/">
+        <resource uri="physicians/">
+            <method displayName="Physician Lookup" id="5102" name="GET">
+                <doc>Find Physician by Name</doc>
+                <request>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>physician s Full Name</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

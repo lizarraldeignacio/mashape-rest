@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7356="urn:function:f7356" xmlns:f7357="urn:function:f7357">
+    <grammars>
+        <include href="Function7356.xsd"/>
+        <include href="Function7357.xsd"/>
+    </grammars>
+    <doc>this API is the magic behind Sight the amazing iOS app https itunes apple com us app id Uploading a screenshot of any web pages blogs even news apps like Yahoo Digest Sight will try to find the ORIGINAL web link Here is a good sample to show what Sight can do Given the screenshot http mac us s amazonaws com sight api usercontent c b f aa b a df jpg and Sight API returns http eatingonadime com mexican white cheese dip as the original web link</doc>
+    <resources base="https://sight-api.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="v1/">
+                <resource uri="s/">
+                    <method displayName="/api/v1/s/" id="7356" name="POST">
+                        <doc>Upload a screenshot for analysing. The whole processing and searching processes are asynchronous, so developers should issue another API request to fetch the final result, using the given "token"</doc>
+                        <request/>
+                        <response>
+                            <representation element="f7356:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="/api/v1/s/{token}/" id="7357" name="GET">
+                        <doc>Try to fetch the processing result associated with given "token". If the "status" is "NOT_FOUND" or "FOUND", then the processing process finished. Otherwise, developer should try to fetch again after serval seconds delay, better &gt;= 5 seconds.</doc>
+                        <request>
+                            <param name="token" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f7357:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

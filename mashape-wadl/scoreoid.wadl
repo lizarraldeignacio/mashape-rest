@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4243="urn:function:f4243" xmlns:f4244="urn:function:f4244" xmlns:f4245="urn:function:f4245" xmlns:f4246="urn:function:f4246" xmlns:f4247="urn:function:f4247" xmlns:f4248="urn:function:f4248" xmlns:f4249="urn:function:f4249" xmlns:f4250="urn:function:f4250" xmlns:f4251="urn:function:f4251" xmlns:f4252="urn:function:f4252" xmlns:f4253="urn:function:f4253" xmlns:f4254="urn:function:f4254" xmlns:f4255="urn:function:f4255" xmlns:f4256="urn:function:f4256" xmlns:f4257="urn:function:f4257" xmlns:f4258="urn:function:f4258" xmlns:f4259="urn:function:f4259" xmlns:f4260="urn:function:f4260" xmlns:f4261="urn:function:f4261" xmlns:f4262="urn:function:f4262" xmlns:f4263="urn:function:f4263" xmlns:f4264="urn:function:f4264" xmlns:f4265="urn:function:f4265" xmlns:f4266="urn:function:f4266" xmlns:f4267="urn:function:f4267" xmlns:f4268="urn:function:f4268" xmlns:f4269="urn:function:f4269" xmlns:f4270="urn:function:f4270" xmlns:f4271="urn:function:f4271" xmlns:f4272="urn:function:f4272">
+    <grammars>
+        <include href="Function4272.xsd"/>
+        <include href="Function4271.xsd"/>
+        <include href="Function4270.xsd"/>
+        <include href="Function4269.xsd"/>
+        <include href="Function4268.xsd"/>
+        <include href="Function4267.xsd"/>
+        <include href="Function4266.xsd"/>
+        <include href="Function4265.xsd"/>
+        <include href="Function4263.xsd"/>
+        <include href="Function4262.xsd"/>
+        <include href="Function4261.xsd"/>
+        <include href="Function4260.xsd"/>
+        <include href="Function4259.xsd"/>
+        <include href="Function4258.xsd"/>
+        <include href="Function4257.xsd"/>
+        <include href="Function4256.xsd"/>
+        <include href="Function4255.xsd"/>
+        <include href="Function4254.xsd"/>
+        <include href="Function4253.xsd"/>
+        <include href="Function4252.xsd"/>
+        <include href="Function4251.xsd"/>
+        <include href="Function4250.xsd"/>
+        <include href="Function4249.xsd"/>
+        <include href="Function4264.xsd"/>
+        <include href="Function4248.xsd"/>
+        <include href="Function4247.xsd"/>
+        <include href="Function4246.xsd"/>
+        <include href="Function4245.xsd"/>
+        <include href="Function4244.xsd"/>
+        <include href="Function4243.xsd"/>
+    </grammars>
+    <doc>truly cross platform highly scalable gaming backend as service and real time marketing platform that powers engagement and monetization Gamify your apps with Scoreoid s gaming backend as a service Increase retention engagement and sales in real time using Scoreoid Live Scoreoid Live enables brands studios publishers and app developers to interact and engage with their users in real time</doc>
+    <resources base="https://community-scoreoid.p.mashape.com/">
+        <resource uri="updatePlayerField/">
+            <method displayName="updatePlayerField()" id="4272" name="POST">
+                <doc>updatePlayerField() method lets you update your player field’s.</doc>
+                <request/>
+                <response>
+                    <representation element="f4272:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="unsetPlayerData/">
+            <method displayName="unsetPlayerData()" id="4271" name="POST">
+                <doc>unsetPlayerData() sets the value for the key.</doc>
+                <request/>
+                <response>
+                    <representation element="f4271:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="unsetGameData/">
+            <method displayName="unsetGameData()" id="4270" name="POST">
+                <doc>sets the value for the key.</doc>
+                <request/>
+                <response>
+                    <representation element="f4270:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="setPlayerData/">
+            <method displayName="setPlayerData()" id="4269" name="POST">
+                <doc>setPlayerData() sets the value for the key.</doc>
+                <request/>
+                <response>
+                    <representation element="f4269:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="setGameData/">
+            <method displayName="setGameData()" id="4268" name="POST">
+                <doc>sets the value for the key.</doc>
+                <request/>
+                <response>
+                    <representation element="f4268:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="incrementScore/">
+            <method displayName="incrementScore()" id="4267" name="POST">
+                <doc>incrementScore() sets the value for the key.</doc>
+                <request/>
+                <response>
+                    <representation element="f4267:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getScores/">
+            <method displayName="getScores()" id="4266" name="POST">
+                <doc>getScores() method lets you pull all your game scores.</doc>
+                <request/>
+                <response>
+                    <representation element="f4266:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getPlayerScores/">
+            <method displayName="getPlayerScores()" id="4265" name="POST">
+                <doc>getPlayerScores() method lets you pull all the scores for a player.</doc>
+                <request/>
+                <response>
+                    <representation element="f4265:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getPlayerRank/">
+            <method displayName="getPlayerRank()" id="4263" name="POST">
+                <doc>getPlayerRank() returns a player’s rank.</doc>
+                <request/>
+                <response>
+                    <representation element="f4263:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getPlayerField/">
+            <method displayName="getPlayerField()" id="4262" name="POST">
+                <doc>getPlayerField() method lets you pull a specific field from your player info.</doc>
+                <request/>
+                <response>
+                    <representation element="f4262:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getPlayerData/">
+            <method displayName="getPlayerData()" id="4261" name="POST">
+                <doc>getPlayerData() sets the value for the key.</doc>
+                <request/>
+                <response>
+                    <representation element="f4261:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getPlayer/">
+            <method displayName="getPlayer()" id="4260" name="POST">
+                <doc>getPlayer() checks if player exists and returns the player information. Post parameters work as query conditions. This method can be used for login by adding username and password parameters.</doc>
+                <request/>
+                <response>
+                    <representation element="f4260:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getNotification/">
+            <method displayName="getNotification()" id="4259" name="POST">
+                <doc>getNotification() method lets you pull your game’s in game notifications.</doc>
+                <request/>
+                <response>
+                    <representation element="f4259:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getGameTotal/">
+            <method displayName="getGameTotal()" id="4258" name="POST">
+                <doc>method lets you pull the total value for the game field’s.</doc>
+                <request/>
+                <response>
+                    <representation element="f4258:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getGameTop/">
+            <method displayName="getGameTop()" id="4257" name="POST">
+                <doc>method lets you pull the top value for the game field’s.</doc>
+                <request/>
+                <response>
+                    <representation element="f4257:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getGameLowest/">
+            <method displayName="getGameLowest()" id="4256" name="POST">
+                <doc>method lets you pull the lowest value for the game field’s.</doc>
+                <request/>
+                <response>
+                    <representation element="f4256:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getGameField/">
+            <method displayName="getGameField()" id="4255" name="POST">
+                <doc>method lets you pull a specific field from your game info.</doc>
+                <request/>
+                <response>
+                    <representation element="f4255:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getGameData/">
+            <method displayName="getGameData()" id="4254" name="POST">
+                <doc>sets the value for the key.</doc>
+                <request/>
+                <response>
+                    <representation element="f4254:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getGameAverage/">
+            <method displayName="getGameAverage()" id="4253" name="POST">
+                <doc>method lets you pull the average value for the game field’s.</doc>
+                <request/>
+                <response>
+                    <representation element="f4253:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getGame/">
+            <method displayName="getGame()" id="4252" name="POST">
+                <doc>method lets you pull all your game information.</doc>
+                <request/>
+                <response>
+                    <representation element="f4252:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getBestScores/">
+            <method displayName="getBestScores()" id="4251" name="POST">
+                <doc>getBestScores() method lets you get all your games best scores.</doc>
+                <request/>
+                <response>
+                    <representation element="f4251:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getAverageScore/">
+            <method displayName="getAverageScore()" id="4250" name="POST">
+                <doc>getAverageScore() method lets you get all your game Average Scores.</doc>
+                <request/>
+                <response>
+                    <representation element="f4250:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="">
+            <method displayName="editPlayer()" id="4249" name="POST">
+                <doc>editPlayer() method lets you edit your player information.</doc>
+                <request/>
+                <response>
+                    <representation element="f4249:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="getPlayers()" id="4264" name="POST">
+                <doc>method lets you pull all the players for a game.</doc>
+                <request/>
+                <response>
+                    <representation element="f4264:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="deletePlayer/">
+            <method displayName="deletePlayer()" id="4248" name="POST">
+                <doc>deletePlayer() method deletes a player and all the players scores.</doc>
+                <request/>
+                <response>
+                    <representation element="f4248:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="createScore/">
+            <method displayName="createScore()" id="4247" name="POST">
+                <doc>createScore() method lets you create a score for a player.</doc>
+                <request/>
+                <response>
+                    <representation element="f4247:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="createPlayer/">
+            <method displayName="createPlayer()" id="4246" name="POST">
+                <doc>createPlayer() method lets you create a new player.</doc>
+                <request/>
+                <response>
+                    <representation element="f4246:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="countScores/">
+            <method displayName="countScores()" id="4245" name="POST">
+                <doc>countScores() method lets you count all your game scores.</doc>
+                <request/>
+                <response>
+                    <representation element="f4245:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="countPlayers/">
+            <method displayName="countPlayers()" id="4244" name="POST">
+                <doc>countPlayers() method lets you count all your players.</doc>
+                <request/>
+                <response>
+                    <representation element="f4244:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="countBestScores/">
+            <method displayName="countBestScores()" id="4243" name="POST">
+                <doc>countBestScores() method lets you count all your game best scores.</doc>
+                <request/>
+                <response>
+                    <representation element="f4243:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

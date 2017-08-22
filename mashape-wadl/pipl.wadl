@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2316="urn:function:f2316" xmlns:f2317="urn:function:f2317">
+    <grammars>
+        <include href="Function2317.xsd"/>
+        <include href="Function2316.xsd"/>
+    </grammars>
+    <doc>access rich people data from millions of sources with one robust easy to use API</doc>
+    <resources base="https://community-pipl.p.mashape.com/">
+        <resource uri="thumbnail/">
+            <resource uri="v2/">
+                <method displayName="Thumbnail" id="2318" name="GET">
+                    <doc>http://dev.pipl.com/docs/read/thumbnail_api/getstarted</doc>
+                    <request>
+                        <param name="faviconDomain" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="height" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="imageUrl" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="width" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="search/">
+            <resource uri="v3/">
+                <resource uri="json/">
+                    <method displayName="Search" id="2317" name="GET">
+                        <doc>http://dev.pipl.com/docs/read/search_api/request</doc>
+                        <request>
+                            <param name="email" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="firstName" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="lastName" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2317:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="name/">
+            <resource uri="v2/">
+                <resource uri="json/">
+                    <method displayName="Name" id="2316" name="GET">
+                        <doc>http://dev.pipl.com/docs/read/name_api/getstarted</doc>
+                        <request>
+                            <param name="rawName" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2316:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

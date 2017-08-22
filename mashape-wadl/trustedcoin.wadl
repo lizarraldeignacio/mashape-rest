@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>trusted Coin is a Bitcoin transaction cosigning service Users of this API can create M of N multisignature P SH addresses where Trusted Coin acts as one of the cosigners The policy logic Trusted Coin should apply when deciding if to cosign and thus approve individual transactions is user configurable Via this mechanism higher level services can be built including wallet protection schemes and escrow</doc>
+    <resources base="https://jseims-trustedcoin.p.mashape.com/">
+        <resource uri="1/">
+            <resource uri="cosigner/">
+                <method displayName="/1/cosigner" id="6069" name="POST">
+                    <doc>Creates a cosigner enforcing a particular policy.</doc>
+                    <request/>
+                </method>
+                <method displayName="/1/cosigner/&lt;script_hash_address&gt;" id="6070" name="GET">
+                    <request/>
+                </method>
+                <method displayName="/1/cosigner/&lt;script_hash_address&gt;/send_finish" id="6071" name="POST">
+                    <request/>
+                </method>
+                <method displayName="/1/cosigner/&lt;script_hash_address&gt;/send_start" id="6072" name="POST">
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6454="urn:function:f6454" xmlns:f6455="urn:function:f6455" xmlns:f6456="urn:function:f6456">
+    <grammars>
+        <include href="Function6456.xsd"/>
+        <include href="Function6455.xsd"/>
+        <include href="Function6454.xsd"/>
+    </grammars>
+    <doc>weather is the most popular long range weather forecast API available Used by popular mobile apps like Weather and already serving over million forecasts a day the Weather long range weather forecasts give you something new and unique for your weather travel or outdoor applications Created by famed meteorologist Gary Lezak our forecasts are powered by the most accurate long range weather model known as the LRC For the first time ever give your users a reliable and accurate long range weather forecast</doc>
+    <resources base="https://weather2020-weather-v1.p.mashape.com/">
+        <resource uri="zip/">
+            <resource uri="e8ecee8ff60c478f8a36280fea0524fe/">
+                <resource uri="{zip}/">
+                    <param name="zip" style="template" type="xsd:string"/>
+                    <method displayName="12 Week Forecast Request by Zip Code" id="6456" name="GET">
+                        <doc>Using Zip Code this returns an array of 12 weekly forecast objects</doc>
+                        <request>
+                            <param name="zip" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f6456:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="e8ecee8ff60c478f8a36280fea0524fe/">
+            <resource uri="{latitude},{longitude}/">
+                <param name="latitude" style="template" type="xsd:string"/>
+                <method displayName="12 Week Forecast Request by Latitude and Longitude" id="6455" name="GET">
+                    <doc>Using Latitude and Longitude this returns an array of 12 weekly forecast objects</doc>
+                    <request>
+                        <param name="latitude" required="true" style="query" type="xsd:string"/>
+                        <param name="longitude" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f6455:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="city/">
+            <resource uri="e8ecee8ff60c478f8a36280fea0524fe/">
+                <resource uri="{cityname},{state-abbreviation}/">
+                    <param name="cityname" style="template" type="xsd:string"/>
+                    <method displayName="12 Week Forecast Request by City and State" id="6454" name="GET">
+                        <doc>Using City and State this returns an array of 12 weekly forecast objects</doc>
+                        <request>
+                            <param name="cityname" required="true" style="query" type="xsd:string"/>
+                            <param name="stateAbbreviation" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f6454:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

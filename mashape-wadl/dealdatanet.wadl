@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4792="urn:function:f4792" xmlns:f4793="urn:function:f4793" xmlns:f4794="urn:function:f4794" xmlns:f4795="urn:function:f4795" xmlns:f4796="urn:function:f4796" xmlns:f4797="urn:function:f4797" xmlns:f4798="urn:function:f4798" xmlns:f4799="urn:function:f4799" xmlns:f4800="urn:function:f4800" xmlns:f4801="urn:function:f4801" xmlns:f4802="urn:function:f4802">
+    <grammars>
+        <include href="Function4801.xsd"/>
+        <include href="Function4800.xsd"/>
+        <include href="Function4799.xsd"/>
+        <include href="Function4798.xsd"/>
+        <include href="Function4797.xsd"/>
+        <include href="Function4802.xsd"/>
+        <include href="Function4796.xsd"/>
+        <include href="Function4795.xsd"/>
+        <include href="Function4794.xsd"/>
+        <include href="Function4793.xsd"/>
+        <include href="Function4792.xsd"/>
+    </grammars>
+    <doc>sEC Form D filing API Get private company hedge fund private equity fund and venture capital fund fundraising profiles See connections between people companies and funds Populate your CRM with phone numbers and addresses of companies and funds that are actively fundraising Filter new filings by state company fund type amount raised etc Our freemium API is available at a tiny fraction of the cost of Pitchbook CB Insights etc Subscription tiers are available for internal use CRM integration as well as public facing websites looking to make use of our data</doc>
+    <resources base="https://fintoolbox-dealdata-net-v1.p.mashape.com/">
+        <resource uri="api.php?function=personProfile&amp;personid={personid}/">
+            <param name="personid" style="template" type="xsd:string"/>
+            <method displayName="Person Profile (from Person ID)" id="4801" name="GET">
+                <doc>Given the person ID from a person search API call, this endpoint returns a full profile for that person.</doc>
+                <request>
+                    <param name="personid" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4801:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="api.php?function=getIndustries/">
+            <method displayName="Get Industries" id="4800" name="GET">
+                <doc>This returns all of the available industries, or company types, in the database.</doc>
+                <request/>
+                <response>
+                    <representation element="f4800:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="api.php?function=getFundTypes/">
+            <method displayName="Get Fund Types" id="4799" name="GET">
+                <doc>Returns a list of available fund types for FUND filing feeds and searches.</doc>
+                <request/>
+                <response>
+                    <representation element="f4799:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="api.php?function=filingProfile&amp;filingid={filingid}/">
+            <param name="filingid" style="template" type="xsd:string"/>
+            <method displayName="Filing Profile (from Filing ID)" id="4798" name="GET">
+                <doc>Given an internal filing ID (returned from another endpoint), this call returns a full filing profile.</doc>
+                <request>
+                    <param name="filingid" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4798:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="api.php/">
+            <method displayName="Filing Feed/Search" id="4797" name="GET">
+                <doc>This endpoint returns a filing feed based on any combination of a date range, entity type, range of amount raised, primary company/fund state.  It also allows a limit range to be set.  NOTE: all JSON return strings are limited to a maximum of 50 kilobytes.  Ensure that your query is sufficiently narrow, or an explicit result limit (&lt;= 25 per call recommended) is set to ensure that the call does not return a 0 status.</doc>
+                <request>
+                    <param name="amounthigh" required="true" style="query" type="xsd:integer">
+                        <doc>only filings where no more than amounthigh USD was raised will be returned Leave blank for no upper bound</doc>
+                    </param>
+                    <param name="amountlow" required="true" style="query" type="xsd:integer">
+                        <doc>only filings where the total amount sold is greater than this parameter will be returned Leave blank for no lower bound</doc>
+                    </param>
+                    <param name="end" required="true" style="query" type="xsd:string">
+                        <doc>optional end date of the form YYYY mm dd for the result set If this is not set the current date will be used as the end date</doc>
+                    </param>
+                    <param name="entity" required="true" style="query" type="xsd:string">
+                        <doc>may be FUND COMPANY or ALL Only filings of the specified type will be returned</doc>
+                    </param>
+                    <param name="first" required="true" style="query" type="xsd:integer">
+                        <doc>the first result to return starting from Modify this value to page through large result sets</doc>
+                    </param>
+                    <param name="function" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>the maximum number of results to return It is not recommended to set this value higher than NOTE All JSON values are limited to kilobytes in size If you set this parameter too large your result set will not be returned</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>a start date of the format YYYY mm dd Only filings since this date inclusive will be returned Since filings are returned in descending date order this parameter can be set to the distant past to not limit by date</doc>
+                    </param>
+                    <param name="state" required="true" style="query" type="xsd:string">
+                        <doc>only filings whose primary entity is located in this two letter US state code will be returned Leave blank for all states</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>may be set to one of the values returned by the Discover Available Parameters endpoints Separate values are provided for funds and companies</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4797:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Person Search" id="4802" name="GET">
+                <doc>Fragments can be of any length, including a null string. NOTE: API call returns are limited to more than 50,000 characters each. As a result, you should provide enough of a guess as to the peroson's name so as to adequately limit the result set.</doc>
+                <request>
+                    <param name="first" required="true" style="query" type="xsd:string">
+                        <doc>one or more characters from the person s first name</doc>
+                    </param>
+                    <param name="function" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="last" required="true" style="query" type="xsd:string">
+                        <doc>one or more characters from the person s last name</doc>
+                    </param>
+                    <param name="middle" required="true" style="query" type="xsd:string">
+                        <doc>one or more characters from the person s middle name</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4802:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="api.php?function=findCompany&amp;name={name-fragment}/">
+            <param name="name-fragment" style="template" type="xsd:string"/>
+            <method displayName="Company/Fund Search" id="4796" name="GET">
+                <doc>Finds all companies matching the name fragment. NOTE: All API requests are limited to a maximum return size of 50,000 characters. While there are no hard limits on how long of a fragment needs to be provided, the fragment provided should not return too many results or the response limit will be triggered.</doc>
+                <request>
+                    <param name="nameFragment" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4796:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="api.php?function=companyProfile&amp;cik={cik}/">
+            <param name="cik" style="template" type="xsd:string"/>
+            <method displayName="Company Profile (from CIK)" id="4795" name="GET">
+                <doc>Given a CIK number (the SEC identifier for the entity), this function returns a full company or fund profile for the entity.</doc>
+                <request>
+                    <param name="cik" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4795:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="api.php?function=findBroker&amp;name={name}/">
+            <param name="name" style="template" type="xsd:string"/>
+            <method displayName="Broker Search" id="4794" name="GET">
+                <doc>Returns a list of brokers that match the given name fragment. NOTE: API responses are limited to 50,000 characters so the fragment provided must limit the result set so as not to exceed this limit.</doc>
+                <request>
+                    <param name="name" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4794:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="api.php?function=brokerProfileCRD&amp;crd={crd-number}/">
+            <param name="crd-number" style="template" type="xsd:string"/>
+            <method displayName="Broker Profile (from CRD Number)" id="4793" name="GET">
+                <doc>Given a FINRA Central Registration Depository (CRD) for a broker/dealer, this function returns a full broker profile.</doc>
+                <request>
+                    <param name="crdNumber" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4793:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="api.php?function=brokerProfile&amp;brokerid={brokerid}/">
+            <param name="brokerid" style="template" type="xsd:string"/>
+            <method displayName="Broker Profile (from Broker ID)" id="4792" name="GET">
+                <doc>Given the broker ID returned from a broker search, this endpoint returns a full broker profile.</doc>
+                <request>
+                    <param name="brokerid" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4792:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7096="urn:function:f7096">
+    <grammars>
+        <include href="Function7096.xsd"/>
+    </grammars>
+    <doc>entities represent either a person or a company They are used in a number of places They can be an investor an issuer or anyone related to an offering that is eligible for a background check Entities can also have a investor suitability status set for them For more details on investor suitability status and the related investor suitability questionnaires please see Broker Dealer Services</doc>
+    <resources base="https://amilcar_fundamerica-create-investor-v1.p.mashape.com/">
+        <resource uri="entities/">
+            <method displayName="/entities" id="7096" name="POST">
+                <doc>Create New Entity (Person, Company)</doc>
+                <request>
+                    <param name="city" required="true" style="query" type="xsd:string">
+                        <doc>city of entity s address</doc>
+                    </param>
+                    <param name="country" required="true" style="query" type="xsd:string">
+                        <doc>entity s Country</doc>
+                    </param>
+                    <param name="dateOfBirth" required="true" style="query" type="xsd:string">
+                        <doc>entity s date of birth Required for creating a person For a company leave blank</doc>
+                    </param>
+                    <param name="email" required="true" style="query" type="xsd:string">
+                        <doc>entity s contact email</doc>
+                    </param>
+                    <param name="executiveName" required="true" style="query" type="xsd:string">
+                        <doc>executive Name Required when creating a company</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>entity s legal name Enter a person s or company s legal name</doc>
+                    </param>
+                    <param name="phone" required="true" style="query" type="xsd:string">
+                        <doc>entity s contact phone number</doc>
+                    </param>
+                    <param name="postalCode" required="true" style="query" type="xsd:string">
+                        <doc>zIP code of entity s address</doc>
+                    </param>
+                    <param name="region" required="true" style="query" type="xsd:string">
+                        <doc>state of entity s address</doc>
+                    </param>
+                    <param name="regionFormedIn" required="true" style="query" type="xsd:string">
+                        <doc>the state where the company was formed Required if type is company</doc>
+                    </param>
+                    <param name="streetAddress" required="true" style="query" type="xsd:string">
+                        <doc>street address line</doc>
+                    </param>
+                    <param name="taxIdNumber" required="true" style="query" type="xsd:string">
+                        <doc>sSN or FEIN for entity</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>must be person company or custodial</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f7096:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="/entities/{id}" id="7097" name="GET">
+                <doc>View individual entity.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

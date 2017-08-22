@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3691="urn:function:f3691">
+    <grammars>
+        <include href="Function3691.xsd"/>
+    </grammars>
+    <doc>we provide a solution to automate and optimize your routing and scheduling operations Whether you deliver groceries distribute compost bins or pick up laundry any Vehicle Routing Problem for that matter we got your back</doc>
+    <resources base="https://community-routific.p.mashape.com/">
+        <resource uri="vrp/">
+            <method displayName="Input Vehicle Routing Problem" id="3691" name="POST">
+                <request/>
+                <response>
+                    <representation element="f3691:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

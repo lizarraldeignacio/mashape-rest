@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2117="urn:function:f2117">
+    <grammars>
+        <include href="Function2117.xsd"/>
+    </grammars>
+    <doc>this API collects pictures of K pop stars from all over the world and return random pictures according to user s request</doc>
+    <resources base="https://c9dong-face-match-v1.p.mashape.com/">
+        <resource uri="pairs/">
+            <method displayName="Random male and female image" id="2117" name="GET">
+                <doc>Returns a pair of random male and female K-pop star images.</doc>
+                <request/>
+                <response>
+                    <representation element="f2117:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="random/">
+            <method displayName="Random female image" id="2115" name="GET">
+                <doc>Returns a random female K-pop star image.</doc>
+                <request/>
+            </method>
+            <method displayName="Random Image" id="2116" name="GET">
+                <doc>Returns a random K-pop star picture.</doc>
+                <request/>
+            </method>
+            <method displayName="Random male image" id="2118" name="GET">
+                <doc>Returns a random male K-pop star image.</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

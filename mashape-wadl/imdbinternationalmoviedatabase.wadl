@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3139="urn:function:f3139" xmlns:f3140="urn:function:f3140">
+    <grammars>
+        <include href="Function3140.xsd"/>
+        <include href="Function3139.xsd"/>
+    </grammars>
+    <doc>an API for Movies TV Series and Games This API allows you to search for Movies TV series Games and gather information of Movies TV series Games such as Title Year Rating Released Date Run time Genres Cast Directores Writers Actors Plot Languages Country Awards Poster Votes DVD Released Date Box Office Production Studio Website along with Rotten Tomato information</doc>
+    <resources base="https://imdb-api.p.mashape.com/">
+        <resource uri="search/">
+            <method displayName="SEARCH" id="3140" name="GET">
+                <doc>Search for Movies, TV Series and Games</doc>
+                <request>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>search query</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3140:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="item/">
+            <method displayName="MOVIE - TV-Series" id="3139" name="GET">
+                <doc>Retrive information of an IMDB Movie or TV Series along with Rotten Tomato results.</doc>
+                <request>
+                    <param name="imdbid" required="true" style="query" type="xsd:string">
+                        <doc>iMDB ID of the movie or tv series you wish to gather information You can use the search method to search for a movie and it s IMDB ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3139:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

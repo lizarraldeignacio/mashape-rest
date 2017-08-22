@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f682="urn:function:f682">
+    <grammars>
+        <include href="Function682.xsd"/>
+    </grammars>
+    <doc>this is the best API to find most latest popular and viral images on facebook For example users can specify to fetch all the images from facebook under sports category which got more than likes in last days</doc>
+    <resources base="https://viralfacebookimages.p.mashape.com/">
+        <resource uri="dl/">
+            <method displayName="getViralFacebookImages" id="682" name="POST">
+                <doc>Get most popular images on facebook on the basis of facebook likes</doc>
+                <request/>
+                <response>
+                    <representation element="f682:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

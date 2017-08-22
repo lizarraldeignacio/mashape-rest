@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4857="urn:function:f4857" xmlns:f4858="urn:function:f4858">
+    <grammars>
+        <include href="Function4857.xsd"/>
+        <include href="Function4858.xsd"/>
+    </grammars>
+    <doc>generate Word Clouds from text Multi color and different sizes and easily output to jpg png or pdf</doc>
+    <resources base="https://wordcloudservice.p.mashape.com/">
+        <resource uri="generate_wc/">
+            <method displayName="Word Cloud" id="4857" name="POST">
+                <request/>
+                <response>
+                    <representation element="f4857:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Word Cloud by URL" id="4858" name="POST">
+                <request/>
+                <response>
+                    <representation element="f4858:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

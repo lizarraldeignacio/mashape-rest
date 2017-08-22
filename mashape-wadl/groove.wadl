@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>groove is a simple tool for growing small businesses help your team deliver personal customer support Ticket management tracking and reports and email integration</doc>
+    <resources base="https://groove.p.mashape.com/">
+        <resource uri="messages/">
+            <resource uri="{message_id}/">
+                <param name="message_id" style="template" type="xsd:string"/>
+                <method displayName="Find one message" id="6177" name="GET">
+                    <request>
+                        <param name="messageId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="customers/">
+            <method displayName="Find one customer" id="6176" name="GET">
+                <request>
+                    <param name="customerEmail" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="List all customers" id="6180" name="GET">
+                <request>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>the page number</doc>
+                    </param>
+                    <param name="perPage" required="true" style="query" type="xsd:integer">
+                        <doc>the number of messages to return per page max</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Update one customer" id="6184" name="PUT">
+                <request>
+                    <param name="customerEmail" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+        <resource uri="agents/">
+            <resource uri="{agent_email}/">
+                <param name="agent_email" style="template" type="xsd:string"/>
+                <method displayName="Find one agent" id="6175" name="GET">
+                    <request>
+                        <param name="agentEmail" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="tickets/">
+            <method displayName="Create a new message" id="6173" name="POST">
+                <request>
+                    <param name="ticketNumber" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Create a new ticket" id="6174" name="POST">
+                <request/>
+            </method>
+            <method displayName="Find one ticket" id="6178" name="GET">
+                <request>
+                    <param name="ticketNumber" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Find one ticket's state" id="6179" name="GET">
+                <request>
+                    <param name="ticketNumber" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="List all messages" id="6181" name="GET">
+                <request>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>the page number</doc>
+                    </param>
+                    <param name="perPage" required="true" style="query" type="xsd:integer">
+                        <doc>the number of messages to return per page max</doc>
+                    </param>
+                    <param name="ticketNumber" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="List tickets" id="6182" name="GET">
+                <request>
+                    <param name="assignee" required="true" style="query" type="xsd:string">
+                        <doc>the email address of the assignee or unassigned to find all unassigned tickets</doc>
+                    </param>
+                    <param name="customer" required="true" style="query" type="xsd:string">
+                        <doc>returns tickets belonging to the specified customer</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>the page number</doc>
+                    </param>
+                    <param name="perPage" required="true" style="query" type="xsd:integer">
+                        <doc>the number of messages to return per page max</doc>
+                    </param>
+                    <param name="state" required="true" style="query" type="xsd:string">
+                        <doc>returns tickets with the specified state only</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Update a ticket state" id="6183" name="PUT">
+                <request>
+                    <param name="ticketNumber" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2506="urn:function:f2506">
+    <grammars>
+        <include href="Function2506.xsd"/>
+    </grammars>
+    <doc>find and validate addresses in arbitrary text such as emails web pages documents posts tweets articles or whatever else you ve got</doc>
+    <resources base="https://liveaddressextract.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Extract addresses from text" id="2506" name="GET">
+                <request>
+                    <param name="addrLineBreaks" required="true" style="query" type="xsd:boolean">
+                        <doc>this parameter specifies whether addresses in your input text will ever have line breaks Typically you ll only set this to false if you re processing a bunch of single line addresses like those in a spreadsheet and can guarantee that every address in your input will be on the same line and never have a line break</doc>
+                    </param>
+                    <param name="addrPerLine" required="true" style="query" type="xsd:integer">
+                        <doc>default no limit Limits the extractor to getting a certain number of addresses per line Generally you will leave this unchanged to find as many addresses per line as necessary If you set this to for instance the extractor will find an address starting on a certain line and then skip any other addresses that start on that line This option is typically set to along with setting addr line breaks to false if you re extracting from spreadsheet data</doc>
+                    </param>
+                    <param name="aggressive" required="true" style="query" type="xsd:boolean">
+                        <doc>set to true if you want the extractor to be more aggressive in finding addresses This can use more lookups but can sometimes find more addresses For example aggressive mode can find addresses in popular cities without a state and ZIP code If too many false positives are appearing turn off aggressive mode</doc>
+                    </param>
+                    <param name="html" required="true" style="query" type="xsd:boolean">
+                        <doc>hTML in your input is auto detected but you can override auto detection by setting this parameter to true or false if needed For example if you have addresses inside HTML tags you should set this to false and submit only as much HTML code as necessary Do not submit your input text in this field</doc>
+                    </param>
+                    <param name="input" required="true" style="query" type="xsd:string">
+                        <doc>the text from which to extract addresses This is only required if using a GET request If using a POST request submit the data in the raw body of the POST request don t use an input field name For input strings longer than a sentence or two use a POST request not GET The maximum input length is currently KB</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2506:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

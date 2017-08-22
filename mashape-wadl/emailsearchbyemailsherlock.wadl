@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>a reverse email search conducted at EmailSherlock com can help determine the identity of the owner of an unknown address that shows up in your inbox You can also use this free email search service to learn more about an address you found in your address book or perhaps in connection with an online ad you re considering responding to</doc>
+    <resources base="https://emailsherlock.p.mashape.com/">
+        <resource uri="">
+            <method displayName="EmailSherlock" id="293" name="GET">
+                <doc>EmailSherlock _api</doc>
+                <request>
+                    <param name="clientRef" required="true" style="query" type="xsd:string">
+                        <doc>iP address of the client sending the request</doc>
+                    </param>
+                    <param name="email" required="true" style="query" type="xsd:string">
+                        <doc>email address to be searched</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

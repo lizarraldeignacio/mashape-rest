@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f52="urn:function:f52" xmlns:f53="urn:function:f53">
+    <grammars>
+        <include href="Function53.xsd"/>
+        <include href="Function52.xsd"/>
+    </grammars>
+    <doc>faceRect is a powerful and free API for face detection It finds faces both frontal and profile on the image specified by URL or uploaded as a file and is able to find multiple faces on a single photo producing JSON output with a bounding box for each face found Check out visual demo here http apicloud me apis facerect demo Note that additionally FaceRect can find face features for each detected face eyes nose and mouth For more precise face feature detection please see our FaceMark API https www mashape com apicloud facemark</doc>
+    <resources base="https://apicloud-facerect.p.mashape.com/">
+        <resource uri="process-url.json/">
+            <method displayName="Process Image URL" id="53" name="GET">
+                <doc>Returns a JSON object that contains detected faces for the image specified by URL  (visual demo: http://apicloud.me/apis/facerect/demo/)</doc>
+                <request>
+                    <param name="features" required="true" style="query" type="xsd:boolean">
+                        <doc>specifies if you need to find face features eyes nose and mouth or just faces If set to true the API will search for face features within faces detected for frontal faces only Default value is false For more information please refer to the documentation http apicloud me apis facerect docs</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>uRL of the image you would like to find faces on For supported image files and limitations please refer to the documentation http apicloud me apis facerect docs</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f53:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="process-file.json/">
+            <method displayName="Process Image File" id="52" name="POST">
+                <doc>Returns a JSON object that contains detected faces for the uploaded image (visual demo: http://apicloud.me/apis/facerect/demo/)</doc>
+                <request/>
+                <response>
+                    <representation element="f52:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

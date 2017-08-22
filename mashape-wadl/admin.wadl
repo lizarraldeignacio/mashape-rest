@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7352="urn:function:f7352">
+    <grammars>
+        <include href="Function7352.xsd"/>
+    </grammars>
+    <doc>need an Office API Create apps that provide custom administration capabilities for Office using this REST JSON based API Sample apps include the Admin mobile app http www yellowshoetechnology com office anywhere admin mobile app</doc>
+    <resources base="https://yellowshoe-admin-365-v1.p.mashape.com/">
+        <resource uri="{api}/">
+            <param name="api" style="template" type="xsd:string"/>
+            <resource uri="{entity}/">
+                <param name="entity" style="template" type="xsd:string"/>
+                <method displayName="GET Entity" id="7352" name="GET">
+                    <doc>Default GET action to obtain Office 365 entities such as MSOLUser, Mailbox etc</doc>
+                    <request>
+                        <param name="api" required="true" style="query" type="xsd:string"/>
+                        <param name="entity" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f7352:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="PUT (Update) Endpoint" id="7353" name="PUT">
+                    <doc>Use PUT requests to perform updates (add, remove etc) in Office 365. PUT requests will change the data in Office 365. To safely perform a request for data, always use GET to ensure that nothing in Office 365 is changed.</doc>
+                    <request>
+                        <param name="action" required="true" style="query" type="xsd:string"/>
+                        <param name="api" required="true" style="query" type="xsd:string"/>
+                        <param name="entity" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2787="urn:function:f2787" xmlns:f2788="urn:function:f2788" xmlns:f2789="urn:function:f2789">
+    <grammars>
+        <include href="Function2789.xsd"/>
+        <include href="Function2788.xsd"/>
+        <include href="Function2787.xsd"/>
+    </grammars>
+    <doc>graphHopper Directions API is a routing service designed to find the fastest route based on OpenStreetMap data It provides worldwide coverage and suggests routes for car bicycle or foot Additionally a Route Optimization and Matrix API is provided The Routing API and Geocoding API end points can be consumed via Mashape all can be consumed directly at graphhopper com where we offer bigger and even custom limits</doc>
+    <resources base="https://karussell-graphhopper.p.mashape.com/">
+        <resource uri="route/">
+            <method displayName="/route" id="2789" name="GET">
+                <doc>Routing API</doc>
+                <request>
+                    <param name="calcPoints" required="true" style="query" type="xsd:boolean">
+                        <doc>if the points for the route should be calculated at all Sometimes only the distance and time is necessary</doc>
+                    </param>
+                    <param name="elevation" required="true" style="query" type="xsd:boolean">
+                        <doc>if elevation should be included in the point list</doc>
+                    </param>
+                    <param name="instructions" required="true" style="query" type="xsd:boolean">
+                        <doc>if turn instructions should be included in the response</doc>
+                    </param>
+                    <param name="locale" required="true" style="query" type="xsd:string">
+                        <doc>the locale of the returned turn instructions</doc>
+                    </param>
+                    <param name="point" required="true" style="query" type="xsd:string">
+                        <doc>the start via or end point of the requested route At least point parameters required</doc>
+                    </param>
+                    <param name="pointsEncoded" required="true" style="query" type="xsd:boolean">
+                        <doc>if false a GeoJson array in point is returned If true the resulting route will be encoded leading to big bandwith reduction You ll need a special handling for the decoding of this string on the client side see the Java or JavaScript code above It is especially important to use our decoding methods if you set elevation true</doc>
+                    </param>
+                    <param name="vehicle" required="true" style="query" type="xsd:string">
+                        <doc>vehicle which can be bike foot or car</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2789:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="matrix/">
+            <method displayName="/matrix" id="2788" name="GET">
+                <doc>Matrix API</doc>
+                <request>
+                    <param name="fromPoint" required="true" style="query" type="xsd:string">
+                        <doc>the starting points of the routes distances</doc>
+                    </param>
+                    <param name="outArray" required="true" style="query" type="xsd:string">
+                        <doc>specifies which arrays should be included in the response Specify one or more of the following options weights times distances paths To specify more than one array use e g out array times out array distances The units of the entries of distances are meters of times are seconds and of weights is arbitrary and it can differ for different vehicles or versions of this API</doc>
+                    </param>
+                    <param name="point" required="true" style="query" type="xsd:string">
+                        <doc>specifiy multiple points for which the weight route time or distance matrix should be calculated In this case the starts are identical to the destinations If there are N points then NxN entries will be calculated The order of the point parameter is important Specify at least three points Cannot be used with from point or to point</doc>
+                    </param>
+                    <param name="toPoint" required="true" style="query" type="xsd:string">
+                        <doc>the destination points for the routes</doc>
+                    </param>
+                    <param name="vehicle" required="true" style="query" type="xsd:string">
+                        <doc>the vehicle for which the route should be calculated Other vehicles are foot and bike</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2788:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="geocode/">
+            <method displayName="/geocode" id="2787" name="GET">
+                <doc>Geocoding API</doc>
+                <request>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>the location as string</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2787:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

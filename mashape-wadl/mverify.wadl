@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1149="urn:function:f1149" xmlns:f1150="urn:function:f1150">
+    <grammars>
+        <include href="Function1149.xsd"/>
+        <include href="Function1150.xsd"/>
+    </grammars>
+    <doc>mVerify is an Open API that is an alternative to SMS based One Time Password It is a hosted secured scalable solution for customer phone verification that works without SMS mVerify brings an innovative approach for customer phone verification as it replaces SMS based onetime password with an OTP over a missed call to mobile landline phone thereby eliminating any cost and delay</doc>
+    <resources base="https://webaroo-mobile-verification.p.mashape.com/">
+        <resource uri="mobileVerification/">
+            <method displayName="Step 1: Send OTP on phone" id="1149" name="GET">
+                <doc>Send Verification Code on Mobile</doc>
+                <request>
+                    <param name="phone" required="true" style="query" type="xsd:integer">
+                        <doc>phone Number with ISD Code</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1149:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Step 2: Verify OTP received on phone" id="1150" name="GET">
+                <request>
+                    <param name="code" required="true" style="query" type="xsd:string">
+                        <doc>oTP code received on phone in first step</doc>
+                    </param>
+                    <param name="phone" required="true" style="query" type="xsd:integer">
+                        <doc>phone Number with ISD Code</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1150:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

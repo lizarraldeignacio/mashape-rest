@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6461="urn:function:f6461" xmlns:f6462="urn:function:f6462" xmlns:f6463="urn:function:f6463">
+    <grammars>
+        <include href="Function6463.xsd"/>
+        <include href="Function6462.xsd"/>
+        <include href="Function6461.xsd"/>
+    </grammars>
+    <doc>our API exposes site monitoring tools in cities across different countries on continents Through our global network we expose five types of monitoring tools HTTP We make an HTTP request against the specified URL returning the response code size and basic timing information for the request Easily confirm site accessibility from global locations dig Leveraging this foundational DNS tool we return global results on the requested domain Confirm and monitor your global hosting and anycast DNS solutions trace Returns the full traceroute from any of our locations to your server providing useful monitoring information and critical data when diagnosing an outage ping Obtain basic timing information from any of our cities to your server useful in capacity planning and ensuring consistent results in the global marketplace fast Through a headless webkit browser we ll load the requested page and return detailed timing information</doc>
+    <resources base="https://wheresitup.p.mashape.com/">
+        <resource uri="retrieve/">
+            <resource uri="{job_id}/">
+                <param name="job_id" style="template" type="xsd:string"/>
+                <method displayName="2. retrieve" id="6463" name="GET">
+                    <doc>Reports can only be collected for jobs your account submitted. The jobID returned when the job was submitted will be critical in this instance. Jobs may take a while to perform, depending on the source location and test type. A traceroute from South Africa to Vancouver for example will take a while.</doc>
+                    <request>
+                        <param name="jobId" required="true" style="query" type="xsd:string">
+                            <doc>job ID of the test run</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6463:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="submit/">
+            <method displayName="1. submit" id="6462" name="POST">
+                <request/>
+                <response>
+                    <representation element="f6462:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="sources/">
+            <method displayName="0. sources" id="6461" name="GET">
+                <doc>Get list of possible cities to launch tests from</doc>
+                <request/>
+                <response>
+                    <representation element="f6461:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

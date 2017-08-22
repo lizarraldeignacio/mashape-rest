@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f931="urn:function:f931" xmlns:f932="urn:function:f932" xmlns:f933="urn:function:f933" xmlns:f934="urn:function:f934">
+    <grammars>
+        <include href="Function934.xsd"/>
+        <include href="Function933.xsd"/>
+        <include href="Function932.xsd"/>
+        <include href="Function931.xsd"/>
+    </grammars>
+    <doc>search videos channels playlists download videos and convert to mp files Work with all videos included cipher signature encrypt videos copyrighted and vevo videos</doc>
+    <resources base="https://zazkov-youtube-grabber-v1.p.mashape.com/">
+        <resource uri="search.video.php/">
+            <method displayName="/search.video.php" id="934" name="GET">
+                <doc>Search Youtube videos by string</doc>
+                <request>
+                    <param name="maxresults" required="true" style="query" type="xsd:string">
+                        <doc>set max results per page default is records per page</doc>
+                    </param>
+                    <param name="pagetoken" required="true" style="query" type="xsd:string">
+                        <doc>to get content of nextPage or prevPage leave it blank to get the first page</doc>
+                    </param>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>input query string to search</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f934:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="search.playlist.php/">
+            <method displayName="/search.playlist.php" id="933" name="GET">
+                <doc>Search Youtube video playlists</doc>
+                <request>
+                    <param name="maxresults" required="true" style="query" type="xsd:string">
+                        <doc>set max results per page default is records per page</doc>
+                    </param>
+                    <param name="pagetoken" required="true" style="query" type="xsd:string">
+                        <doc>to get content of nextPage or prevPage leave it blank to get the first page</doc>
+                    </param>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>input query string to search for channels</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f933:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="search.channel.php/">
+            <method displayName="/search.channel.php" id="932" name="GET">
+                <doc>Search Youtube channels by string</doc>
+                <request>
+                    <param name="maxresults" required="true" style="query" type="xsd:string">
+                        <doc>set max results per page default is records per page</doc>
+                    </param>
+                    <param name="pagetoken" required="true" style="query" type="xsd:string">
+                        <doc>to get content of nextPage or prevPage leave it blank to get the first page</doc>
+                    </param>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>input query string to search for channels</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f932:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="download.video.php/">
+            <method displayName="/download.video.php" id="931" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f931:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

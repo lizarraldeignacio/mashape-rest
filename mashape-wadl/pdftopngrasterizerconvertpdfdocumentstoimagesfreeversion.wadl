@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>this API consumes PDFs and outputs PNG images of the pages Input can be via a POST upload or you may use a GET request and pass the URL of a publicly accessible PDF PNGs of the pages can be retrieved individually using a session token or all at once as Base data in JSON or HTML For more input and output options we will soon release a paid version of this API</doc>
+    <resources base="https://mazira-pdf-to-png1.p.mashape.com/">
+        <resource uri="">
+            <method displayName="for PDF upload" id="2063" name="POST">
+                <request/>
+            </method>
+            <method displayName="for public PDF URLs" id="2064" name="GET">
+                <doc>Extract images by passing the URL of a publicly accessible PDF file.</doc>
+                <request>
+                    <param name="file" required="true" style="query" type="xsd:string">
+                        <doc>a URL encoded string of a publicly accessible PDF file</doc>
+                    </param>
+                    <param name="output" required="true" style="query" type="xsd:string">
+                        <doc>the desired output format Set to json to retrieve a JSON array of Base encoded data Set to html to retrieve a web page with embedded images</doc>
+                    </param>
+                    <param name="res" required="true" style="query" type="xsd:string">
+                        <doc>the rasterization resolution in pixels per inch For example a PDF that is inches wide rasterized at PPI will produce an image pixels wide Default value is The maximum value for the free version of this API is</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

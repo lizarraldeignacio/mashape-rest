@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2851="urn:function:f2851" xmlns:f2852="urn:function:f2852" xmlns:f2853="urn:function:f2853" xmlns:f2854="urn:function:f2854" xmlns:f2855="urn:function:f2855" xmlns:f2856="urn:function:f2856" xmlns:f2857="urn:function:f2857" xmlns:f2858="urn:function:f2858" xmlns:f2859="urn:function:f2859" xmlns:f2860="urn:function:f2860" xmlns:f2861="urn:function:f2861" xmlns:f2862="urn:function:f2862" xmlns:f2863="urn:function:f2863">
+    <grammars>
+        <include href="Function2862.xsd"/>
+        <include href="Function2861.xsd"/>
+        <include href="Function2860.xsd"/>
+        <include href="Function2859.xsd"/>
+        <include href="Function2857.xsd"/>
+        <include href="Function2853.xsd"/>
+        <include href="Function2852.xsd"/>
+        <include href="Function2863.xsd"/>
+        <include href="Function2858.xsd"/>
+        <include href="Function2856.xsd"/>
+        <include href="Function2855.xsd"/>
+        <include href="Function2854.xsd"/>
+        <include href="Function2851.xsd"/>
+    </grammars>
+    <doc>uflixit Movie Tv shows Api many informations for movies shows</doc>
+    <resources base="https://uflixit.p.mashape.com/">
+        <resource uri="tv-shows/">
+            <resource uri="reviews/">
+                <method displayName="Tv Show Reviews" id="2862" name="GET">
+                    <doc>Get External reviews</doc>
+                    <request>
+                        <param name="imdbId" required="true" style="query" type="xsd:string">
+                            <doc>tv Show IMDB ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2862:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="parentalguide/">
+                <method displayName="Tv Show Parental Guide" id="2861" name="GET">
+                    <doc>Get Tv Show Parental Guide</doc>
+                    <request>
+                        <param name="imdbId" required="true" style="query" type="xsd:string">
+                            <doc>tv Show IMDB ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2861:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="synopsis/">
+                <method displayName="Show Synopsis" id="2860" name="GET">
+                    <doc>return full synopsis for a show</doc>
+                    <request>
+                        <param name="imdbId" required="true" style="query" type="xsd:string">
+                            <doc>iMDB ID of Tv show</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2860:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="popular/">
+                <method displayName="Popular Shows" id="2859" name="GET">
+                    <doc>Return Imdb ID's For Most Popular Shows</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2859:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="links/">
+            <resource uri="movie/">
+                <method displayName="Movie Streaming Links" id="2857" name="GET">
+                    <doc>Get 20 Streaming links</doc>
+                    <request>
+                        <param name="imdbId" required="true" style="query" type="xsd:string">
+                            <doc>movie IMDB ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2857:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="episode/">
+                <method displayName="Episode Streaming Links" id="2853" name="GET">
+                    <doc>Get 20 Streaming Links for Episode</doc>
+                    <request>
+                        <param name="episode" required="true" style="query" type="xsd:integer">
+                            <doc>season Episode Number</doc>
+                        </param>
+                        <param name="imdbId" required="true" style="query" type="xsd:string">
+                            <doc>episode Show IMDB ID</doc>
+                        </param>
+                        <param name="season" required="true" style="query" type="xsd:integer">
+                            <doc>season Number</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2853:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="checklink/">
+            <method displayName="Check Links" id="2852" name="GET">
+                <doc>Check Dead or Live Link (we accept only 79 hosts)</doc>
+                <request>
+                    <param name="link" required="true" style="query" type="xsd:string">
+                        <doc>check Link Status</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2852:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="movies/">
+            <resource uri="wanted/">
+                <method displayName="Wanted Movies" id="2863" name="GET">
+                    <doc>Most wanted movies of the week</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2863:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="synopsis/">
+                <method displayName="Movie Synopsis" id="2858" name="GET">
+                    <doc>Get Full Movie Synopsis</doc>
+                    <request>
+                        <param name="imdbId" required="true" style="query" type="xsd:string">
+                            <doc>movie IMDB ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2858:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="reviews/">
+                <method displayName="Movie Reviews" id="2856" name="GET">
+                    <doc>Get Movie external reviews</doc>
+                    <request>
+                        <param name="imdbId" required="true" style="query" type="xsd:string">
+                            <doc>movie IMDB ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2856:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="parentalguide/">
+                <method displayName="Movie Parental Guide" id="2855" name="GET">
+                    <doc>Movie Parental Guide</doc>
+                    <request>
+                        <param name="imdbId" required="true" style="query" type="xsd:string">
+                            <doc>movie IMDB ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2855:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="gstream/">
+                <method displayName="Google Video Streaming" id="2854" name="GET">
+                    <doc>Movie Google Video High Quality Streaming</doc>
+                    <request>
+                        <param name="imdbId" required="true" style="query" type="xsd:string">
+                            <doc>movie IMDB ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2854:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="boxoffice/">
+                <method displayName="Box Office" id="2851" name="GET">
+                    <doc>Weekly Movies Boxoffice with income revenu</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2851:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

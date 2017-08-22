@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1535="urn:function:f1535" xmlns:f1536="urn:function:f1536" xmlns:f1537="urn:function:f1537" xmlns:f1538="urn:function:f1538" xmlns:f1539="urn:function:f1539">
+    <grammars>
+        <include href="Function1539.xsd"/>
+        <include href="Function1538.xsd"/>
+        <include href="Function1537.xsd"/>
+        <include href="Function1536.xsd"/>
+        <include href="Function1535.xsd"/>
+    </grammars>
+    <doc>the WebKnox proxies API lets you retrieve public proxies We try to keep a list of fresh unblocked high responsive and alive proxies Public proxies come and go so it is not guaranteed that they are available at the point of retrieval You can improve proxy delivery by sending feedback whether a proxy is blocked or dead</doc>
+    <resources base="https://webknox-proxies.p.mashape.com/">
+        <resource uri="proxies/">
+            <resource uri="retrieve/">
+                <method displayName="Retrieve" id="1539" name="GET">
+                    <doc>Retrieve a Web page using a proxy.</doc>
+                    <request>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>the URL of the Web page you want to retrieve</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1539:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="dead/">
+                <method displayName="Mark Proxy Dead" id="1538" name="GET">
+                    <doc>Mark a certain proxy as dead.</doc>
+                    <request>
+                        <param name="proxy" required="true" style="query" type="xsd:string">
+                            <doc>mark the proxy as dead This will help improving proxy delivery</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1538:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="blocked/">
+                <method displayName="Mark Proxy Blocked" id="1537" name="GET">
+                    <doc>Mark a certain proxy as blocked.</doc>
+                    <request>
+                        <param name="proxy" required="true" style="query" type="xsd:string">
+                            <doc>mark a certain proxy as blocked This will help improving proxy delivery</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1537:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="newMultiple/">
+                <method displayName="Get Proxies in Batch" id="1536" name="GET">
+                    <doc>Get multiple proxies with one request.</doc>
+                    <request>
+                        <param name="batchsize" required="true" style="query" type="xsd:integer">
+                            <doc>number of proxies that should be returned with the request between and</doc>
+                        </param>
+                        <param name="maxresponsetime" required="true" style="query" type="xsd:integer">
+                            <doc>the maximum response time of the proxy in seconds</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1536:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="new/">
+                <method displayName="Get a Proxy" id="1535" name="GET">
+                    <doc>Get a fresh proxy.</doc>
+                    <request>
+                        <param name="maxresponsetime" required="true" style="query" type="xsd:integer">
+                            <doc>the maximum response time of the proxy in seconds</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1535:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

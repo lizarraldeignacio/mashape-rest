@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1151="urn:function:f1151">
+    <grammars>
+        <include href="Function1151.xsd"/>
+    </grammars>
+    <doc>extract HTML tag contents or attributes from HTML content</doc>
+    <resources base="https://neutrinoapi-html-extract.p.mashape.com/">
+        <resource uri="html-extract-tags/">
+            <method displayName="HTML Extract" id="1151" name="POST">
+                <request/>
+                <response>
+                    <representation element="f1151:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

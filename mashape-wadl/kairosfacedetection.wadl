@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1549="urn:function:f1549" xmlns:f1550="urn:function:f1550" xmlns:f1551="urn:function:f1551" xmlns:f1552="urn:function:f1552" xmlns:f1553="urn:function:f1553" xmlns:f1554="urn:function:f1554" xmlns:f1555="urn:function:f1555">
+    <grammars>
+        <include href="Function1555.xsd"/>
+        <include href="Function1554.xsd"/>
+        <include href="Function1553.xsd"/>
+        <include href="Function1552.xsd"/>
+        <include href="Function1551.xsd"/>
+        <include href="Function1550.xsd"/>
+        <include href="Function1549.xsd"/>
+    </grammars>
+    <doc>kairos D to D face detection and facial recognition API</doc>
+    <resources base="https://kairos-face-recognition.p.mashape.com/">
+        <resource uri="recognize/">
+            <method displayName="* /recognize" id="1555" name="POST">
+                <doc>Takes an image and tries to match it against the already enrolled images in a gallery you define</doc>
+                <request/>
+                <response>
+                    <representation element="f1555:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="gallery/">
+            <resource uri="view/">
+                <method displayName="* /gallery/view" id="1554" name="POST">
+                    <doc>Lists out all the subjects you have enrolled in a specified gallery</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1554:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="remove_subject/">
+                <method displayName="* /gallery/remove_subject" id="1553" name="POST">
+                    <doc>Removes a subject from a specified gallery</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1553:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="remove/">
+                <method displayName="* /gallery/remove" id="1552" name="POST">
+                    <doc>Removes all the subjects in a gallery</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1552:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="list_all/">
+                <method displayName="* /gallery/list_all" id="1551" name="POST">
+                    <doc>Lists out all the galleries you have subjects enrolled in</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1551:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="enroll/">
+            <method displayName="* /enroll" id="1550" name="POST">
+                <doc>Takes an image and stores it as a face template into a gallery you define</doc>
+                <request/>
+                <response>
+                    <representation element="f1550:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="detect/">
+            <method displayName="* /detect" id="1549" name="POST">
+                <doc>Takes an image and returns the facial features found within it.</doc>
+                <request/>
+                <response>
+                    <representation element="f1549:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

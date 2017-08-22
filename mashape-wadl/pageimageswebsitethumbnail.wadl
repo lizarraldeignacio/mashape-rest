@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1135="urn:function:f1135">
+    <grammars>
+        <include href="Function1135.xsd"/>
+    </grammars>
+    <doc>send us a url We return the image of it Support iPhone Android iPad</doc>
+    <resources base="https://p2i.p.mashape.com/">
+        <resource uri="restfullink/">
+            <method displayName="Restfullink Get" id="1135" name="GET">
+                <request>
+                    <param name="pIDevice" required="true" style="query" type="xsd:string">
+                        <doc>our system can generate the screenshot for those smart phones and desktops Please pass it to server as needed Following are devices we supported iPhone iPhone Android WinPhone iPad Android Pad Desktop</doc>
+                    </param>
+                    <param name="pIFullpage" required="true" style="query" type="xsd:string">
+                        <doc>full page or just the screen area If the value is or true we will take the full page screenshot If the value is or false we will take the screen area only</doc>
+                    </param>
+                    <param name="pIImageformat" required="true" style="query" type="xsd:string">
+                        <doc>png or jpg We strongly recommend jpg since most jpg file is smaller than png</doc>
+                    </param>
+                    <param name="pIKey" required="true" style="query" type="xsd:string"/>
+                    <param name="pIRefresh" required="true" style="query" type="xsd:string">
+                        <doc>we will cache the screenshot result for hours If you does not want to use the cache please set this value to</doc>
+                    </param>
+                    <param name="pIScreen" required="true" style="query" type="xsd:string">
+                        <doc>the screen size of device you want to simulate Format screen widthxscreen height e g x We predefined the size for those devices for most usage Mobile x Mobile iPhone x Tablets x Desktop x Advanced information The screen size should not be less than image size</doc>
+                    </param>
+                    <param name="pISize" required="true" style="query" type="xsd:string">
+                        <doc>the thumbnail file size you want to get Not the screen size of device If you want a big image you need enlarge the width and height If you need a small one you need reduce the width and height But it will take some more time to download a big image than a small one Format widthxheight e g x We predefined the size for those devices for most usage Mobile Phones x Tablets x Desktop x Advanced information If you only know the fixed width or height of the images you want to get you can just pass the width or height to us by following format x or x We will resize the image to fit that width height and make sure it is the biggest image we can generate The screenshot image will be resized to fit the width and height without stretching</doc>
+                    </param>
+                    <param name="pIUrl" required="true" style="query" type="xsd:string">
+                        <doc>uRL of target page Do not need to be encode Valid inputs www google com google com http www google com https www google com</doc>
+                    </param>
+                    <param name="pIWait" required="true" style="query" type="xsd:string">
+                        <doc>how many second wait after page load complete System will not accept the value less than seconds</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1135:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

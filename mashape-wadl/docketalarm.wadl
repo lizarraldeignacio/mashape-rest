@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4351="urn:function:f4351" xmlns:f4352="urn:function:f4352" xmlns:f4353="urn:function:f4353">
+    <grammars>
+        <include href="Function4353.xsd"/>
+        <include href="Function4352.xsd"/>
+        <include href="Function4351.xsd"/>
+    </grammars>
+    <doc>aPI for the U S Court System Search for cases get detailed docket information and download filings Docket Alarm is for Financial institutions that want to run background litigation checks on companies Document management or doc review systems that want to automatically sync data with the court s and Law firms that want to automate tracking court filings in their cases</doc>
+    <resources base="https://docketalarm.p.mashape.com/">
+        <resource uri="searchpacer/">
+            <method displayName="Search PACER" id="4353" name="GET">
+                <doc>Search PACER dockets using one of several search criteria.</doc>
+                <request>
+                    <param name="clientMatter" required="true" style="query" type="xsd:string">
+                        <doc>an invoice number to make billing easier</doc>
+                    </param>
+                    <param name="courtRegion" required="true" style="query" type="xsd:string">
+                        <doc>limits results to cases filed in the given region</doc>
+                    </param>
+                    <param name="dateFiledEnd" required="true" style="query" type="xsd:string">
+                        <doc>limits results to cases filed on or before the given date</doc>
+                    </param>
+                    <param name="dateFiledStart" required="true" style="query" type="xsd:string">
+                        <doc>limits results to cases filed on or after the given date</doc>
+                    </param>
+                    <param name="loginToken" required="true" style="query" type="xsd:string">
+                        <doc>the login token that you received during the call to login</doc>
+                    </param>
+                    <param name="partyName" required="true" style="query" type="xsd:string">
+                        <doc>the name of the party that you are searching for</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4353:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="login/">
+            <method displayName="Login" id="4352" name="POST">
+                <doc>Login to the Docket Alarm API</doc>
+                <request/>
+                <response>
+                    <representation element="f4352:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="getdocket/">
+            <method displayName="Get Docket" id="4351" name="GET">
+                <doc>Retrieve docket information about a particular case.</doc>
+                <request>
+                    <param name="clientMatter" required="true" style="query" type="xsd:string">
+                        <doc>an invoice number to make billing easier</doc>
+                    </param>
+                    <param name="court" required="true" style="query" type="xsd:string">
+                        <doc>the name of the court retrieved using the search pacer command</doc>
+                    </param>
+                    <param name="docket" required="true" style="query" type="xsd:string">
+                        <doc>the docket number</doc>
+                    </param>
+                    <param name="loginToken" required="true" style="query" type="xsd:string">
+                        <doc>the login token you retrieved from the login command</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4351:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

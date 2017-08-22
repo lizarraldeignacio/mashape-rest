@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f527="urn:function:f527" xmlns:f528="urn:function:f528" xmlns:f529="urn:function:f529" xmlns:f531="urn:function:f531" xmlns:f532="urn:function:f532" xmlns:f533="urn:function:f533">
+    <grammars>
+        <include href="Function533.xsd"/>
+        <include href="Function532.xsd"/>
+        <include href="Function531.xsd"/>
+        <include href="Function529.xsd"/>
+        <include href="Function528.xsd"/>
+        <include href="Function527.xsd"/>
+    </grammars>
+    <doc>the PubNub Network makes Real time Communications Simple with an easy API Two Functions Send Receive Publish Subscribe We provide a web scale API for businesses to build scalable Data Push communication apps on Mobile Tablet and Web Bidirectional JSON Ask for commit access via Twitter pubnub via IRC pubnub on FreeNode</doc>
+    <resources base="https://pubnub-pubnub.p.mashape.com/">
+        <resource uri="time/">
+            <resource uri="{callback}/">
+                <param name="callback" style="template" type="xsd:string"/>
+                <method displayName="Time" id="533" name="GET">
+                    <doc>Timetoken from PubNub Network</doc>
+                    <request>
+                        <param name="callback" required="true" style="query" type="xsd:string">
+                            <doc>jSONP Callback</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f533:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="subscribe/">
+            <resource uri="{subscribe_key}/">
+                <param name="subscribe_key" style="template" type="xsd:string"/>
+                <resource uri="{channel}/">
+                    <param name="channel" style="template" type="xsd:string"/>
+                    <resource uri="{callback}/">
+                        <param name="callback" style="template" type="xsd:string"/>
+                        <resource uri="{timetoken}/">
+                            <param name="timetoken" style="template" type="xsd:string"/>
+                            <method displayName="Subscribe" id="532" name="GET">
+                                <doc>Receive message.</doc>
+                                <request>
+                                    <param name="callback" required="true" style="query" type="xsd:string">
+                                        <doc>jSONP Callback</doc>
+                                    </param>
+                                    <param name="channel" required="true" style="query" type="xsd:string">
+                                        <doc>channel Name</doc>
+                                    </param>
+                                    <param name="subscribeKey" required="true" style="query" type="xsd:string">
+                                        <doc>subscribe Key</doc>
+                                    </param>
+                                    <param name="timetoken" required="true" style="query" type="xsd:string">
+                                        <doc>pubNub TimeToken</doc>
+                                    </param>
+                                </request>
+                                <response>
+                                    <representation element="f532:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="v1/">
+            <resource uri="replay/">
+                <resource uri="{publish_key}/">
+                    <param name="publish_key" style="template" type="xsd:string"/>
+                    <resource uri="{subscribe_key}/">
+                        <param name="subscribe_key" style="template" type="xsd:string"/>
+                        <resource uri="{source}/">
+                            <param name="source" style="template" type="xsd:string"/>
+                            <resource uri="{destination}/">
+                                <param name="destination" style="template" type="xsd:string"/>
+                                <method displayName="Replay" id="531" name="GET">
+                                    <doc>Replay messages from the past in the order and timespan they came in.</doc>
+                                    <request>
+                                        <param name="destination" required="true" style="query" type="xsd:string">
+                                            <doc>destination Channel</doc>
+                                        </param>
+                                        <param name="publishKey" required="true" style="query" type="xsd:string">
+                                            <doc>publish Key</doc>
+                                        </param>
+                                        <param name="source" required="true" style="query" type="xsd:string">
+                                            <doc>source Channel</doc>
+                                        </param>
+                                        <param name="subscribeKey" required="true" style="query" type="xsd:string">
+                                            <doc>subscribe Key</doc>
+                                        </param>
+                                    </request>
+                                    <response>
+                                        <representation element="f531:root" mediaType="application/json"/>
+                                    </response>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="push/">
+                <resource uri="sub-key/">
+                    <resource uri="{subscribe_key}/">
+                        <param name="subscribe_key" style="template" type="xsd:string"/>
+                        <resource uri="devices/">
+                            <resource uri="{device_token}/">
+                                <param name="device_token" style="template" type="xsd:string"/>
+                                <method displayName="Register Device APNS" id="530" name="GET">
+                                    <doc>iOS Only: Register and Deregister an iOS Device to receive Apple Push Notification Service.  This is a secondary PubNub Service endpoint that allows you to PUBLISH a message via PubNub Publish API and receive the data via APNs.  See: https://gist.github.com/stephenlb/c1274151c52d9f9f7474 for more details.</doc>
+                                    <request>
+                                        <param name="add" required="true" style="query" type="xsd:string">
+                                            <doc>add list of Channels</doc>
+                                        </param>
+                                        <param name="deviceToken" required="true" style="query" type="xsd:string">
+                                            <doc>device Token</doc>
+                                        </param>
+                                        <param name="remove" required="true" style="query" type="xsd:string">
+                                            <doc>remove list of Channels</doc>
+                                        </param>
+                                        <param name="subscribeKey" required="true" style="query" type="xsd:string">
+                                            <doc>subscribe Key</doc>
+                                        </param>
+                                    </request>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="publish/">
+            <resource uri="{publish_key}/">
+                <param name="publish_key" style="template" type="xsd:string"/>
+                <resource uri="{subscribe_key}/">
+                    <param name="subscribe_key" style="template" type="xsd:string"/>
+                    <resource uri="0/">
+                        <resource uri="{channel}/">
+                            <param name="channel" style="template" type="xsd:string"/>
+                            <resource uri="{callback}/">
+                                <param name="callback" style="template" type="xsd:string"/>
+                                <resource uri="{message}/">
+                                    <param name="message" style="template" type="xsd:string"/>
+                                    <method displayName="Publish" id="529" name="GET">
+                                        <doc>Send message.</doc>
+                                        <request>
+                                            <param name="callback" required="true" style="query" type="xsd:string">
+                                                <doc>jSONP Callback</doc>
+                                            </param>
+                                            <param name="channel" required="true" style="query" type="xsd:string">
+                                                <doc>channel Name</doc>
+                                            </param>
+                                            <param name="message" required="true" style="query" type="xsd:string">
+                                                <doc>jSON Message Number String Array Object</doc>
+                                            </param>
+                                            <param name="publishKey" required="true" style="query" type="xsd:string">
+                                                <doc>publish Key</doc>
+                                            </param>
+                                            <param name="subscribeKey" required="true" style="query" type="xsd:string">
+                                                <doc>subscribe Key</doc>
+                                            </param>
+                                        </request>
+                                        <response>
+                                            <representation element="f529:root" mediaType="application/json"/>
+                                        </response>
+                                    </method>
+                                </resource>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="history/">
+            <resource uri="{subscribe_key}/">
+                <param name="subscribe_key" style="template" type="xsd:string"/>
+                <resource uri="{channel}/">
+                    <param name="channel" style="template" type="xsd:string"/>
+                    <resource uri="{callback}/">
+                        <param name="callback" style="template" type="xsd:string"/>
+                        <resource uri="{limit}/">
+                            <param name="limit" style="template" type="xsd:string"/>
+                            <method displayName="History" id="528" name="GET">
+                                <doc>Get older messages.</doc>
+                                <request>
+                                    <param name="callback" required="true" style="query" type="xsd:string">
+                                        <doc>jSONP Callback</doc>
+                                    </param>
+                                    <param name="channel" required="true" style="query" type="xsd:string">
+                                        <doc>channel Name</doc>
+                                    </param>
+                                    <param name="limit" required="true" style="query" type="xsd:string">
+                                        <doc>limit of messages to return</doc>
+                                    </param>
+                                    <param name="subscribeKey" required="true" style="query" type="xsd:string">
+                                        <doc>subscribe Key</doc>
+                                    </param>
+                                </request>
+                                <response>
+                                    <representation element="f528:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="v2/">
+            <resource uri="presence/">
+                <resource uri="sub_key/">
+                    <resource uri="{subscribe_key}/">
+                        <param name="subscribe_key" style="template" type="xsd:string"/>
+                        <resource uri="channel/">
+                            <resource uri="{channel}/">
+                                <param name="channel" style="template" type="xsd:string"/>
+                                <method displayName="Here Now" id="527" name="GET">
+                                    <doc>Presence Summery of User IDs who are Online Now.</doc>
+                                    <request>
+                                        <param name="channel" required="true" style="query" type="xsd:string">
+                                            <doc>channel Name</doc>
+                                        </param>
+                                        <param name="subscribeKey" required="true" style="query" type="xsd:string">
+                                            <doc>subscribe Key</doc>
+                                        </param>
+                                    </request>
+                                    <response>
+                                        <representation element="f527:root" mediaType="application/json"/>
+                                    </response>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

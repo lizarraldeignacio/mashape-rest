@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>predikt s advanced and accurate self learning artificial intelligence algorithms determine the top jobs for every candidate Our technology learns from career paths and recommends the most likely next job job for every candidate This approach is significantly better than keyword and semantic matches which give sub standard matches</doc>
+    <resources base="https://predikt-recommendations-v1.p.mashape.com/">
+        <resource uri="{positions}/">
+            <param name="positions" style="template" type="xsd:string"/>
+            <method displayName="/{positions}" id="7402" name="GET">
+                <doc>Get predictively recommended job positions for a candidate</doc>
+                <request>
+                    <param name="positions" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

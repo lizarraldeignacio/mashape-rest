@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6478="urn:function:f6478" xmlns:f6479="urn:function:f6479" xmlns:f6480="urn:function:f6480" xmlns:f6481="urn:function:f6481" xmlns:f6482="urn:function:f6482">
+    <grammars>
+        <include href="Function6482.xsd"/>
+        <include href="Function6481.xsd"/>
+        <include href="Function6479.xsd"/>
+        <include href="Function6480.xsd"/>
+        <include href="Function6478.xsd"/>
+    </grammars>
+    <doc>vedic Rishi Free APIs for Basic Astrological and Horoscope Details along with numerous Numerological details It also provides panchang or hindu indian calendar details</doc>
+    <resources base="https://vedicrishi-horoscope-matching-v1.p.mashape.com/">
+        <resource uri="numero_table/">
+            <method displayName="Numerology basic details" id="6482" name="POST">
+                <doc>Provides detailed Numerology report.</doc>
+                <request/>
+                <response>
+                    <representation element="f6482:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="birth_details/">
+            <method displayName="Birth Details" id="6481" name="POST">
+                <doc>Along with birth details it provides sunrise, sunset, ayanamsha as well.</doc>
+                <request/>
+                <response>
+                    <representation element="f6481:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="basic_panchang/">
+            <method displayName="Basic panchang details" id="6479" name="POST">
+                <doc>Provides data points for panchang elements, and sunrise and set timings.</doc>
+                <request/>
+                <response>
+                    <representation element="f6479:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Basic panchang details at the time of sunrise" id="6480" name="POST">
+                <doc>Provides data points for panchang elements, chaugadiya and sunrise and set time at he time of  sunrise.</doc>
+                <request>
+                    <param name="sunrise" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f6480:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="astro_details/">
+            <method displayName="Basic Astrological Details" id="6478" name="POST">
+                <doc>Provides the complete avakahada details e.g. nakshtatra, charan, tithi, karan, yog ,varna, vashaya, yoni, etc</doc>
+                <request/>
+                <response>
+                    <representation element="f6478:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5932="urn:function:f5932" xmlns:f5939="urn:function:f5939" xmlns:f5940="urn:function:f5940" xmlns:f5952="urn:function:f5952" xmlns:f5953="urn:function:f5953">
+    <grammars>
+        <include href="Function5953.xsd"/>
+        <include href="Function5952.xsd"/>
+        <include href="Function5939.xsd"/>
+        <include href="Function5932.xsd"/>
+        <include href="Function5940.xsd"/>
+    </grammars>
+    <doc>micro Surveys Mega Insights The SlimSurveys REST API allows you to query data about your account surveys questions results and more It also allows you to create and manage your surveys You can leverage our entire engagement infrastructure without the need to scale support or manage it</doc>
+    <resources base="https://slimsurveys-rapidengage.p.mashape.com/">
+        <resource uri="identities/">
+            <resource uri="create/">
+                <resource uri="{survey_id}/">
+                    <param name="survey_id" style="template" type="xsd:string"/>
+                    <method displayName="POST /identities/create/{survey_id}" id="5953" name="POST">
+                        <doc>This API call is used to track the identity of a survey respondent.  Since answering a survey doesn't require authentication, this is a way to track who is viewing/taking your surveys. Once the survey is loaded, you would call this API with all of the data you have available to you.  The most important part is the "unique visitor ID" or uvid. This should be the same value you use/track when an answer is recorded.  *Special Case: The survey_id is part of the URI. Though if your application only has the survey_uid at this point, then just leave the survey_id empty in the URI and pass in the survey_uid as a query parameter. Here's an Example:  curl https://slimsurveys.com/api/surveys/survey?survey_uid=8581546d -H "X-API-KEY: YOUR_API_KEY"</doc>
+                        <request>
+                            <param name="surveyId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the survey</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f5953:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="results/">
+            <resource uri="survey/">
+                <resource uri="{survey_id}/">
+                    <param name="survey_id" style="template" type="xsd:string"/>
+                    <method displayName="GET /results/survey/{survey_id}" id="5947" name="GET">
+                        <doc>This API call is used to get the results and statistics of a survey and all of its questions.  *Special Case: The survey_id is part of the URI. Though if your application only has the survey_uid at this point, then just leave the survey_id empty in the URI and pass in the survey_uid as a query parameter. Here's an Example:  curl https://slimsurveys.com/api/surveys/survey?survey_uid=8581546d -H "X-API-KEY: YOUR_API_KEY"</doc>
+                        <request>
+                            <param name="surveyId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the survey</doc>
+                            </param>
+                            <param name="surveyUid" required="true" style="query" type="xsd:string">
+                                <doc>the UID of the survey</doc>
+                            </param>
+                            <param name="xAuthToken" required="true" style="query" type="xsd:string">
+                                <doc>user Authentication Token</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="question/">
+                <resource uri="{question_id}/">
+                    <param name="question_id" style="template" type="xsd:string"/>
+                    <method displayName="GET /results/question/{question_id}" id="5946" name="GET">
+                        <doc>This API call is used to get the results of a particular question.</doc>
+                        <request>
+                            <param name="questionId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the question</doc>
+                            </param>
+                            <param name="xAuthToken" required="true" style="query" type="xsd:string">
+                                <doc>user Authentication Token</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="permutations/">
+                <resource uri="{survey_id}/">
+                    <param name="survey_id" style="template" type="xsd:string"/>
+                    <method displayName="GET /results/permutations/{survey_id}" id="5945" name="GET">
+                        <request>
+                            <param name="surveyId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the survey</doc>
+                            </param>
+                            <param name="surveyUid" required="true" style="query" type="xsd:string">
+                                <doc>the UID of the survey</doc>
+                            </param>
+                            <param name="xAuthToken" required="true" style="query" type="xsd:string">
+                                <doc>user Authentication Token</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="oembed/">
+            <method displayName="GET /oembed" id="5942" name="GET">
+                <doc>oEmbed is an open standard for turning a URL into an embeddable piece of content for your site. To find out more about oEmbed read the spec. The SlimSurveys oEmbed endpoint will return HTML snippets that you can include on your site.  NOTE: The oEmbed API endpoint is the only API call that DOES NOT require an API KEY.</doc>
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>the ID of the answer option</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="users/">
+            <resource uri="vanity/">
+                <method displayName="POST /users/vanity" id="5969" name="POST">
+                    <doc>This API call is used to update the Custom Vanity URL for the current user.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="thanks/">
+                <method displayName="POST /users/thanks" id="5968" name="POST">
+                    <doc>This API call is used to update the Thank You Page links for the current user.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="signup/">
+                <method displayName="POST /users/signup" id="5967" name="POST">
+                    <doc>This API call is used to create a new account on the 14 day free trial.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="reset/">
+                <resource uri="{reset_token}/">
+                    <param name="reset_token" style="template" type="xsd:string"/>
+                    <method displayName="POST /users/reset/{reset_token}" id="5966" name="POST">
+                        <doc>This API call is used to reset the password. This will also send out an email to the current user.</doc>
+                        <request>
+                            <param name="resetToken" required="true" style="query" type="xsd:string">
+                                <doc>the password reset token</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="privacy/">
+                <method displayName="POST /users/privacy" id="5965" name="POST">
+                    <doc>This API call is used to update the privacy flag for the current user.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="password/">
+                <method displayName="POST /users/password" id="5964" name="POST">
+                    <doc>This API call is used to reset the password for the current user.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="forgot/">
+                <method displayName="POST /users/forgot" id="5963" name="POST">
+                    <doc>This API call is used to request a reset password token. This will also send out an email to the current user.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="email/">
+                <method displayName="POST /users/email" id="5962" name="POST">
+                    <doc>/users/email</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="me/">
+                <method displayName="GET /users/me" id="5951" name="GET">
+                    <doc>This API call is used to get the meta-data of the current user.</doc>
+                    <request>
+                        <param name="xAuthToken" required="true" style="query" type="xsd:string">
+                            <doc>user Authentication Token</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="widget/">
+                <method displayName="DELETE /users/widget" id="5938" name="DELETE">
+                    <doc>This API call is used to disable the active survey.</doc>
+                    <request/>
+                </method>
+                <method displayName="POST /users/widget/{survey_id}" id="5970" name="POST">
+                    <doc>This API call is used to update the active survey.  *Special Case: The survey_id is part of the URI. Though if your application only has the survey_uid at this point, then just leave the survey_id empty in the URI and pass in the survey_uid as a query parameter. Here's an Example:  curl https://slimsurveys.com/api/surveys/survey?survey_uid=8581546d -H "X-API-KEY: YOUR_API_KEY"</doc>
+                    <request>
+                        <param name="surveyId" required="true" style="query" type="xsd:string">
+                            <doc>the ID of the survey</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="user/">
+                <method displayName="DELETE /users/user" id="5937" name="DELETE">
+                    <doc>This API call is used to cancel the current user's account.</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="surveys/">
+            <resource uri="create/">
+                <method displayName="POST /surveys/create" id="5960" name="POST">
+                    <doc>This API call is used to create a new survey.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="copy/">
+                <resource uri="{survey_id}/">
+                    <param name="survey_id" style="template" type="xsd:string"/>
+                    <method displayName="POST /surveys/copy/{survey_id}" id="5959" name="POST">
+                        <doc>This API call is used to make a copy of a survey.  *Special Case: The survey_id is part of the URI. Though if your application only has the survey_uid at this point, then just leave the survey_id empty in the URI and pass in the survey_uid as a query parameter. Here's an Example:  curl https://slimsurveys.com/api/surveys/survey?survey_uid=8581546d -H "X-API-KEY: YOUR_API_KEY"</doc>
+                        <request>
+                            <param name="surveyId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the survey</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="mine/">
+                <method displayName="GET /surveys/mine" id="5949" name="GET">
+                    <doc>This API call is used to get a listing of the surveys with question and response counts for the current user.</doc>
+                    <request>
+                        <param name="xAuthToken" required="true" style="query" type="xsd:string">
+                            <doc>user Authentication Token</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="embed/">
+                <resource uri="{survey_id}/">
+                    <param name="survey_id" style="template" type="xsd:string"/>
+                    <method displayName="GET /surveys/embed/{survey_id}" id="5948" name="GET">
+                        <doc>This API call is used to get the entire survey and all of its questions, images, and answer options. This is the main API call to display a survey as well as track its impression for tracking.  *Special Case: The survey_id is part of the URI. Though if your application only has the survey_uid at this point, then just leave the survey_id empty in the URI and pass in the survey_uid as a query parameter. Here's an Example:  curl https://slimsurveys.com/api/surveys/survey?survey_uid=8581546d -H "X-API-KEY: YOUR_API_KEY"</doc>
+                        <request>
+                            <param name="surveyId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the survey</doc>
+                            </param>
+                            <param name="surveyUid" required="true" style="query" type="xsd:string">
+                                <doc>the UID of the survey</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="survey/">
+                <resource uri="{survey_id}/">
+                    <param name="survey_id" style="template" type="xsd:string"/>
+                    <method displayName="DELETE /surveys/survey/{survey_id}" id="5936" name="DELETE">
+                        <doc>This API call is used to delete a survey.  *Special Case: The survey_id is part of the URI. Though if your application only has the survey_uid at this point, then just leave the survey_id empty in the URI and pass in the survey_uid as a query parameter. Here's an Example:  curl https://slimsurveys.com/api/surveys/survey?survey_uid=8581546d -H "X-API-KEY: YOUR_API_KEY"</doc>
+                        <request>
+                            <param name="surveyId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the survey</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="GET /surveys/survey/{survey_id}" id="5950" name="GET">
+                        <doc>This API call is used to get the meta-data of a survey.  *Special Case: The survey_id is part of the URI. Though if your application only has the survey_uid at this point, then just leave the survey_id empty in the URI and pass in the survey_uid as a query parameter. Here's an Example:  curl https://slimsurveys.com/api/surveys/survey?survey_uid=8581546d -H "X-API-KEY: YOUR_API_KEY"</doc>
+                        <request>
+                            <param name="surveyId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the survey</doc>
+                            </param>
+                            <param name="surveyUid" required="true" style="query" type="xsd:string">
+                                <doc>the UID of the survey</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="POST /surveys/survey/{survey_id}" id="5961" name="POST">
+                        <doc>This API call is used to update the meta-data of a survey.  *Special Case: The survey_id is part of the URI. Though if your application only has the survey_uid at this point, then just leave the survey_id empty in the URI and pass in the survey_uid as a query parameter. Here's an Example:  curl https://slimsurveys.com/api/surveys/survey?survey_uid=8581546d -H "X-API-KEY: YOUR_API_KEY"</doc>
+                        <request>
+                            <param name="surveyId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the survey</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="questions/">
+            <resource uri="create/">
+                <resource uri="{survey_id}/">
+                    <param name="survey_id" style="template" type="xsd:string"/>
+                    <method displayName="POST /questions/create/{survey_id}" id="5957" name="POST">
+                        <doc>This API call is used to create a new question on a survey.  *Special Case: The survey_id is part of the URI. Though if your application only has the survey_uid at this point, then just leave the survey_id empty in the URI and pass in the survey_uid as a query parameter. Here's an Example:  curl https://slimsurveys.com/api/surveys/survey?survey_uid=8581546d -H "X-API-KEY: YOUR_API_KEY"</doc>
+                        <request>
+                            <param name="surveyId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the survey</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="question/">
+                <resource uri="{question_id}/">
+                    <param name="question_id" style="template" type="xsd:string"/>
+                    <method displayName="DELETE /questions/question/{question_id}" id="5935" name="DELETE">
+                        <doc>This API call is used to delete a question.</doc>
+                        <request>
+                            <param name="questionId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the question</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="GET /questions/question/{question_id}" id="5944" name="GET">
+                        <doc>This API call is used to get the meta-data of a question.</doc>
+                        <request>
+                            <param name="questionId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the question</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="POST /questions/question/{question_id}" id="5958" name="POST">
+                        <doc>This API call is used to update the meta-data of a question.</doc>
+                        <request>
+                            <param name="questionId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the question</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="options/">
+            <resource uri="create/">
+                <resource uri="{question_id}/">
+                    <param name="question_id" style="template" type="xsd:string"/>
+                    <method displayName="POST /options/create/{question_id}" id="5955" name="POST">
+                        <doc>This API call is used to create a new answer option for a question.</doc>
+                        <request>
+                            <param name="questionId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the question</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="option/">
+                <resource uri="{option_id}/">
+                    <param name="option_id" style="template" type="xsd:string"/>
+                    <method displayName="DELETE /options/option/{option_id}" id="5934" name="DELETE">
+                        <doc>This API call is used to delete an answer option.</doc>
+                        <request>
+                            <param name="optionId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the answer option</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="GET /options/option/{option_id}" id="5943" name="GET">
+                        <doc>This API call is used to get the meta-data of an answer option.</doc>
+                        <request>
+                            <param name="optionId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the answer option</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="POST /options/option/{option_id}" id="5956" name="POST">
+                        <doc>This API call is used to update the meta-data of an answer option.</doc>
+                        <request>
+                            <param name="optionId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the answer option</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="images/">
+            <resource uri="create/">
+                <resource uri="{question_id}/">
+                    <param name="question_id" style="template" type="xsd:string"/>
+                    <method displayName="POST /images/create/{question_id}" id="5954" name="POST">
+                        <doc>This API call is used to create/upload a new image for a question.</doc>
+                        <request>
+                            <param name="questionId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the question</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="image/">
+                <resource uri="{image_id}/">
+                    <param name="image_id" style="template" type="xsd:string"/>
+                    <method displayName="DELETE /images/image/{image_id}" id="5933" name="DELETE">
+                        <doc>This API call is used to delete an image.</doc>
+                        <request>
+                            <param name="imageId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the image</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="GET /images/image/{image_id}" id="5941" name="GET">
+                        <doc>This API call is used to get the meta-data of an image.</doc>
+                        <request>
+                            <param name="imageId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the image</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="answers/">
+            <resource uri="create/">
+                <resource uri="{question_id}/">
+                    <param name="question_id" style="template" type="xsd:string"/>
+                    <method displayName="POST /answers/create/{question_id}" id="5952" name="POST">
+                        <doc>This API call is used to record a respondent's answer to a question.  *Special Case: Due to the different question types, we can only accept certain answer values for specific question types. This is so we don't mess up the results when we aggregate the answers.</doc>
+                        <request>
+                            <param name="questionId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the question</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f5952:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="question/">
+                <resource uri="{question_id}/">
+                    <param name="question_id" style="template" type="xsd:string"/>
+                    <method displayName="GET /answers/question/{question_id}" id="5939" name="GET">
+                        <doc>This API call is used to get the listing of the respondent's answers to a particular question.</doc>
+                        <request>
+                            <param name="questionId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the question</doc>
+                            </param>
+                            <param name="xAuthToken" required="true" style="query" type="xsd:string">
+                                <doc>user Authentication Token</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f5939:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="survey/">
+                <resource uri="{survey_id}/">
+                    <param name="survey_id" style="template" type="xsd:string"/>
+                    <method displayName="DELETE /answers/survey/{survey_id}" id="5932" name="DELETE">
+                        <doc>This API call is used to clear a survey's responses, and reset the start and completed counts.  *Special Case: The survey_id is part of the URI. Though if your application only has the survey_uid at this point, then just leave the survey_id empty in the URI and pass in the survey_uid as a query parameter. Here's an Example:  curl https://slimsurveys.com/api/surveys/survey?survey_uid=8581546d -H "X-API-KEY: YOUR_API_KEY"</doc>
+                        <request>
+                            <param name="surveyId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the survey</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f5932:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="GET /answers/survey/{survey_id}" id="5940" name="GET">
+                        <doc>This API call is used to get the listing of the respondent's answers to a survey.  *Special Case: The survey_id is part of the URI. Though if your application only has the survey_uid at this point, then just leave the survey_id empty in the URI and pass in the survey_uid as a query parameter. Here's an Example:  curl https://slimsurveys.com/api/surveys/survey?survey_uid=8581546d -H "X-API-KEY: YOUR_API_KEY"</doc>
+                        <request>
+                            <param name="pvid" required="true" style="query" type="xsd:string">
+                                <doc>the unique pageview ID If passed in the answers will be filtered down to just this unique answer set</doc>
+                            </param>
+                            <param name="surveyId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the survey</doc>
+                            </param>
+                            <param name="surveyUid" required="true" style="query" type="xsd:string">
+                                <doc>the UID of the survey</doc>
+                            </param>
+                            <param name="uvid" required="true" style="query" type="xsd:string">
+                                <doc>the unique visitor ID If passed in the answers will be filtered down to just this visitor respondent</doc>
+                            </param>
+                            <param name="xAuthToken" required="true" style="query" type="xsd:string">
+                                <doc>user Authentication Token</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f5940:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

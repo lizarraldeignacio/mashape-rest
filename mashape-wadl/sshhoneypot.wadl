@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3758="urn:function:f3758" xmlns:f3759="urn:function:f3759" xmlns:f3760="urn:function:f3760">
+    <grammars>
+        <include href="Function3760.xsd"/>
+        <include href="Function3759.xsd"/>
+        <include href="Function3758.xsd"/>
+    </grammars>
+    <doc>sSH honeypot data including logins commands and proxy requests</doc>
+    <resources base="https://sshpot.p.mashape.com/">
+        <resource uri="ssh_proxy.json/">
+            <method displayName="Proxy Requests" id="3760" name="GET">
+                <request>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3760:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="ssh_logins.json/">
+            <method displayName="Login Data" id="3759" name="GET">
+                <request>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>page offset defaults to</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3759:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="ssh_commands.json/">
+            <method displayName="Commands Run" id="3758" name="GET">
+                <doc>Commands being run by honey pot logins</doc>
+                <request>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3758:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

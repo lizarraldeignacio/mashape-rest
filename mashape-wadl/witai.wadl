@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2710="urn:function:f2710" xmlns:f2712="urn:function:f2712" xmlns:f2713="urn:function:f2713" xmlns:f2714="urn:function:f2714" xmlns:f2715="urn:function:f2715" xmlns:f2716="urn:function:f2716" xmlns:f2717="urn:function:f2717" xmlns:f2718="urn:function:f2718" xmlns:f2719="urn:function:f2719" xmlns:f2720="urn:function:f2720" xmlns:f2721="urn:function:f2721" xmlns:f2722="urn:function:f2722" xmlns:f2723="urn:function:f2723">
+    <grammars>
+        <include href="Function2721.xsd"/>
+        <include href="Function2720.xsd"/>
+        <include href="Function2712.xsd"/>
+        <include href="Function2719.xsd"/>
+        <include href="Function2710.xsd"/>
+        <include href="Function2713.xsd"/>
+        <include href="Function2714.xsd"/>
+        <include href="Function2715.xsd"/>
+        <include href="Function2716.xsd"/>
+        <include href="Function2717.xsd"/>
+        <include href="Function2718.xsd"/>
+        <include href="Function2722.xsd"/>
+        <include href="Function2723.xsd"/>
+    </grammars>
+    <doc>wit is a natural language interface for applications capable of turning sentences into structured data The Wit API allows HTTP GET calls returning the extracted meaning from a given sentence based on examples</doc>
+    <resources base="https://baskarm28-wit-ai-v1.p.mashape.com/">
+        <resource uri="messages/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Message id" id="2721" name="GET">
+                    <doc>Returns the stored message for a specific id.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f2721:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="message/">
+            <method displayName="message" id="2720" name="GET">
+                <doc>Returns the extracted meaning from a sentence, based on instance data.</doc>
+                <request>
+                    <param name="context" required="true" style="query" type="xsd:string">
+                        <doc>user s context</doc>
+                    </param>
+                    <param name="msgId" required="true" style="query" type="xsd:string">
+                        <doc>a specific Id you want to assign to the message that will be processed If not set Wit AI will auto generate one for you</doc>
+                    </param>
+                    <param name="n" required="true" style="query" type="xsd:integer">
+                        <doc>the number of n best outcomes you want to get back default is</doc>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>user s query Length must be and</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2720:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="intents/">
+            <method displayName="Corresponding intent" id="2712" name="GET">
+                <doc>Returns the corresponding intent with all its entities and expressions.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2712:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Intents list" id="2719" name="GET">
+                <doc>Returns a list of all intents (without their expressions).</doc>
+                <request/>
+                <response>
+                    <representation element="f2719:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="speech/">
+            <method displayName="Audio file meaning" id="2711" name="GET">
+                <doc>Returns the meaning extracted from an audio file or stream.</doc>
+                <request>
+                    <param name="context" required="true" style="query" type="xsd:string">
+                        <doc>context</doc>
+                    </param>
+                    <param name="msgId" required="true" style="query" type="xsd:string">
+                        <doc>a specific Id you want to assign to the message that will be processed If not set Wit AI will auto generate one for you</doc>
+                    </param>
+                    <param name="n" required="true" style="query" type="xsd:integer">
+                        <doc>the number of n best outcomes you want to get back default is</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="entities/">
+            <method displayName="Add entity value" id="2710" name="POST">
+                <doc>Add a possible value into the list of values for the entity.</doc>
+                <request/>
+                <response>
+                    <representation element="f2710:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete entity" id="2713" name="DELETE">
+                <doc>Permanently remove the entity.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2713:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete entity value" id="2714" name="DELETE">
+                <doc>Delete a canonical value from the entity.</doc>
+                <request>
+                    <param name="value" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2714:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete expression" id="2715" name="DELETE">
+                <doc>Delete an expression of the canonical value of the entity.</doc>
+                <request>
+                    <param name="expression" required="true" style="query" type="xsd:string"/>
+                    <param name="value" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2715:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Entities list" id="2716" name="GET">
+                <doc>Returns a list of available entities for the instance.</doc>
+                <request/>
+                <response>
+                    <representation element="f2716:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Entity update" id="2717" name="PUT">
+                <doc>Updates an entity with the given attributes.</doc>
+                <request/>
+                <response>
+                    <representation element="f2717:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Extract meaning" id="2718" name="GET">
+                <doc>Returns the extracted meaning from a sentence, based on instance data.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2718:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="New entity" id="2722" name="POST">
+                <doc>Creates a new entity with the given attributes.</doc>
+                <request/>
+                <response>
+                    <representation element="f2722:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="New expression" id="2723" name="POST">
+                <doc>Create a new expression of the canonical value of the entity.</doc>
+                <request/>
+                <response>
+                    <representation element="f2723:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

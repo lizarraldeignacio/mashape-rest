@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6256="urn:function:f6256">
+    <grammars>
+        <include href="Function6256.xsd"/>
+    </grammars>
+    <doc>the Questionnaires API can either return a list of questionnaires for a tenant or a specific questionnaire s details The common use of the Questionnaires API is to retrieve the list of questionnaires stored for a tenant in order to extract a specific questionnaire s ID in order to make a subsequent request with the Questionnaires API to retrieve the details for that specific questionnaire using that questionnaire s ID If you make a request to https sandbox advisorsoftware com v questionnaires then all questionnaires for the tenant are returned If you include a questionnaire ID in the path then the details just for that questionnaire are returned For example https sandbox advisorsoftware com v questionnaires would return the details for the questionnaire with ID</doc>
+    <resources base="https://achavar-questionnaires-v1.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="questionnaire_score/">
+                <method displayName="post_questionnaire_score" id="6258" name="POST">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="questionnaires/">
+                <method displayName="get_questionnaire_id" id="6256" name="GET">
+                    <doc>The Questionnaires API can either return a list of questionnaires for a tenant or a specific questionnaire's details. The common use of the Questionnaires API is to retrieve the list of questionnaires stored for a tenant in order to extract a specific questionnaire's ID in order to make a subsequent request with the Questionnaires API to retrieve the details for that specific questionnaire using that questionnaire's ID. If you make a request to https://sandbox.advisorsoftware.com/v1/questionnaires, then all questionnaires for the tenant are returned. If you include a questionnaire ID in the path, then the details just for that questionnaire are returned. For example, https://sandbox.advisorsoftware.com/v1/questionnaires/1234 would return the details for the questionnaire with ID 1234.</doc>
+                    <request>
+                        <param name="questionnaireid" required="true" style="query" type="xsd:string">
+                            <doc>optional parameter to request details for a specific questionnaire</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6256:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="get_questionnaires" id="6257" name="GET">
+                    <doc>The Questionnaires API can either return a list of questionnaires for a tenant or a specific questionnaire's details. The common use of the Questionnaires API is to retrieve the list of questionnaires stored for a tenant in order to extract a specific questionnaire's ID in order to make a subsequent request with the Questionnaires API to retrieve the details for that specific questionnaire using that questionnaire's ID. If you make a request to https://sandbox.advisorsoftware.com/v1/questionnaires, then all questionnaires for the tenant are returned. If you include a questionnaire ID in the path, then the details just for that questionnaire are returned. For example, https://sandbox.advisorsoftware.com/v1/questionnaires/1234 would return the details for the questionnaire with ID 1234.</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

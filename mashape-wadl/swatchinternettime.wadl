@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7408="urn:function:f7408" xmlns:f7409="urn:function:f7409" xmlns:f7410="urn:function:f7410">
+    <grammars>
+        <include href="Function7409.xsd"/>
+        <include href="Function7410.xsd"/>
+        <include href="Function7408.xsd"/>
+    </grammars>
+    <doc>our Swatch Internet Time API provides you with the ability to quickly synchronize time across the globe using REST completely for free We support timezones GMT offsets and full dates with year month day all that to give you the most flexible platform to build your services on</doc>
+    <resources base="https://tendersoft-swatch-internet-time-v1.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="InternetTime/">
+                <method displayName="/v1/InternetTime" id="7409" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f7409:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="/v1/InternetTime/beats" id="7410" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f7410:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="more/">
+            <resource uri="at/">
+                <resource uri="api.tendersoft.pl/">
+                    <method displayName="/more/at/api.tendersoft.pl" id="7408" name="GET">
+                        <request/>
+                        <response>
+                            <representation element="f7408:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

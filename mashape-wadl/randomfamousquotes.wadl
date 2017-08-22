@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f70="urn:function:f70">
+    <grammars>
+        <include href="Function70.xsd"/>
+    </grammars>
+    <doc>get a random quote in JSON format Current categories are famous movies</doc>
+    <resources base="https://andruxnet-random-famous-quotes.p.mashape.com/">
+        <resource uri="cat={category}/">
+            <param name="category" style="template" type="xsd:string"/>
+            <method displayName="My endpoint" id="70" name="POST">
+                <doc>Don't know what to put here</doc>
+                <request>
+                    <param name="category" required="true" style="query" type="xsd:string">
+                        <doc>category to pull quotes from</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f70:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

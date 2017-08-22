@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>handicap of golf player in Slovakia or the Czech republic</doc>
+    <resources base="https://xpavlic4-skga-golf-handicap.p.mashape.com/">
+        <resource uri="members/">
+            <resource uri="search/">
+                <method displayName="SearchByName" id="6004" name="GET">
+                    <doc>search by name</doc>
+                    <request>
+                        <param name="q" required="true" style="query" type="xsd:string">
+                            <doc>complete name or part of the name to be searchd</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Handicap" id="6003" name="GET">
+                    <doc>golf handicap of player</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>number you have on your plastic golf card</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

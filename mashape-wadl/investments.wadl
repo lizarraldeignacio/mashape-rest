@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7400="urn:function:f7400" xmlns:f7401="urn:function:f7401">
+    <grammars>
+        <include href="Function7401.xsd"/>
+        <include href="Function7400.xsd"/>
+    </grammars>
+    <doc>investments are made when an investor wants to invest in an offering and send funds for said investment Investments are probably the single most complex object in the system It s important to understand all the status settings and payment methods involved An AML check is automatically processed on every single investment When using our escrow service this is not charged to your account FundAmerica customer service will do a follow up if there are any issues with the background check and may cancel the result if there are problems The results of this background check are available to your account if you have requested permission and been accepted for processing AML checks on your account Please see AML and Due Diligence for more information on this process and details on the API calls When an investment is made customer service will review the details before changing the status type They may even opt to cancel the investment if there is a problem If you want to give immediate feedback to your investors it s important to utilize webhooks for status updates Note An offering must have accept investments set to true to create investments otherwise you will receive a error This is done by having an escrow service application accepted</doc>
+    <resources base="https://amilcar_fundamerica-investments-v1.p.mashape.com/">
+        <resource uri="test_mode/">
+            <resource uri="investments/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="/test_mode/investments/{id}" id="7401" name="PATCH">
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>investment Id</doc>
+                            </param>
+                            <param name="status" required="true" style="query" type="xsd:string">
+                                <doc>investment Status</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f7401:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="investments/">
+            <method displayName="/investments" id="7400" name="POST">
+                <doc>Investments</doc>
+                <request>
+                    <param name="amount" required="true" style="query" type="xsd:string">
+                        <doc>investment Amount</doc>
+                    </param>
+                    <param name="entityCity" required="true" style="query" type="xsd:string">
+                        <doc>entity City</doc>
+                    </param>
+                    <param name="entityCountry" required="true" style="query" type="xsd:string">
+                        <doc>entity Country</doc>
+                    </param>
+                    <param name="entityDateOfBirth" required="true" style="query" type="xsd:string">
+                        <doc>investor s Date of Birth</doc>
+                    </param>
+                    <param name="entityEmail" required="true" style="query" type="xsd:string">
+                        <doc>entity s Email e g Investor s Email</doc>
+                    </param>
+                    <param name="entityName" required="true" style="query" type="xsd:string">
+                        <doc>entity Investor Name</doc>
+                    </param>
+                    <param name="entityPhone" required="true" style="query" type="xsd:string">
+                        <doc>entity Phone Number</doc>
+                    </param>
+                    <param name="entityPostalCode" required="true" style="query" type="xsd:string">
+                        <doc>entity Postal Code</doc>
+                    </param>
+                    <param name="entityRegion" required="true" style="query" type="xsd:string">
+                        <doc>entity Region</doc>
+                    </param>
+                    <param name="entityStreetAddress" required="true" style="query" type="xsd:string">
+                        <doc>entity s Address</doc>
+                    </param>
+                    <param name="entityTaxIdNumber" required="true" style="query" type="xsd:string">
+                        <doc>entity s Investor Social Security Number</doc>
+                    </param>
+                    <param name="equityShareCount" required="true" style="query" type="xsd:string">
+                        <doc>number of Shares Bought</doc>
+                    </param>
+                    <param name="offeringId" required="true" style="query" type="xsd:string">
+                        <doc>offering ID</doc>
+                    </param>
+                    <param name="paymentMethod" required="true" style="query" type="xsd:string">
+                        <doc>payment Method</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f7400:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

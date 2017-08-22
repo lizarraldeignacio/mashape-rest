@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>simple REST API to makes almost all D printers wirelessly controllable using the Doodle D WiFi Box</doc>
+    <resources base="https://doodle3d-doodle3d-wifi-box.p.mashape.com/">
+        <resource uri="http:/">
+            <resource uri="">
+                <resource uri="{wifibox ip}/">
+                    <param name="wifibox ip" style="template" type="xsd:string"/>
+                    <resource uri="d3dapi/">
+                        <resource uri="printer/">
+                            <resource uri="print/">
+                                <method displayName="Printer:print" id="6292" name="GET">
+                                    <doc>Make the printer print</doc>
+                                    <request>
+                                        <param name="first" required="true" style="query" type="xsd:boolean">
+                                            <doc>normally gcode chunks will be concatenated but if you set this to true the buffer is cleared first</doc>
+                                        </param>
+                                        <param name="gcode" required="true" style="query" type="xsd:string">
+                                            <doc>see G Code please limit the amount of GCODE to lines</doc>
+                                        </param>
+                                        <param name="start" required="true" style="query" type="xsd:boolean">
+                                            <doc>only when this argument is true will printing be started</doc>
+                                        </param>
+                                        <param name="wifiboxIp" required="true" style="query" type="xsd:string">
+                                            <doc>iP adres of WiFi Box on network</doc>
+                                        </param>
+                                        <param name="wifiboxIp" required="true" style="query" type="xsd:string"/>
+                                    </request>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="{ip wifibox}/">
+            <param name="ip wifibox" style="template" type="xsd:string"/>
+            <resource uri="d3dapi/">
+                <resource uri="info/">
+                    <resource uri="status/">
+                        <method displayName="Info:status" id="6291" name="GET">
+                            <doc>Combination of:  printer/state, printer/temperature, printer/progress and info/access</doc>
+                            <request>
+                                <param name="ipWifibox" required="true" style="query" type="xsd:string">
+                                    <doc>iP adres of WiFi Box on network</doc>
+                                </param>
+                                <param name="ipWifibox" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

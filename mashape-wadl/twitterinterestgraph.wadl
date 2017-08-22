@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4158="urn:function:f4158">
+    <grammars>
+        <include href="Function4158.xsd"/>
+    </grammars>
+    <doc>twitter VuGraph generates social persona from the publicly available profile of a Twitter user by aggregating interests inferred from tweets photos vines checkins and commerce to produce the richest behavioral persona</doc>
+    <resources base="https://twitter-vugraph.p.mashape.com/">
+        <resource uri="vugraph/">
+            <method displayName="Twitter Interest Graph" id="4158" name="GET">
+                <doc>Compute vuGraph of Twitter handle</doc>
+                <request>
+                    <param name="appKey" required="true" style="query" type="xsd:string">
+                        <doc>your auth key</doc>
+                    </param>
+                    <param name="token" required="true" style="query" type="xsd:string">
+                        <doc>your auth token</doc>
+                    </param>
+                    <param name="twitterhandle" required="true" style="query" type="xsd:string">
+                        <doc>twitter handle for which you want to compute interest graph</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4158:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1557="urn:function:f1557" xmlns:f1560="urn:function:f1560" xmlns:f1561="urn:function:f1561">
+    <grammars>
+        <include href="Function1561.xsd"/>
+        <include href="Function1560.xsd"/>
+        <include href="Function1557.xsd"/>
+    </grammars>
+    <doc>an API to call an Uber car to your location</doc>
+    <resources base="https://t14ha70d-uber-v1.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="history/">
+                <method displayName="User lifetime activity" id="1561" name="GET">
+                    <doc>The User Activity endpoint returns data about a user's lifetime activity with Uber. The response will include pickup locations and times, dropoff locations and times, the distance of past requests, and information about which products were requested.</doc>
+                    <request>
+                        <param name="limit" required="true" style="query" type="xsd:integer">
+                            <doc>number of items to retrieve Default is maximum is</doc>
+                        </param>
+                        <param name="offset" required="true" style="query" type="xsd:integer">
+                            <doc>offset the list of returned results by this amount Default is zero</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1561:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="me/">
+                <method displayName="User information" id="1560" name="GET">
+                    <doc>The User Profile endpoint returns information about the Uber user that has authorized with the application.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1560:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="products/">
+                <method displayName="product information" id="1559" name="GET">
+                    <doc>The Products endpoint returns information about the Uber products offered at a given location. The response includes the display name and other details about each product, and lists the products in the proper display order.</doc>
+                    <request>
+                        <param name="latitude" required="true" style="query" type="xsd:integer">
+                            <doc>latitude component of location</doc>
+                        </param>
+                        <param name="longitude" required="true" style="query" type="xsd:integer">
+                            <doc>longitude component of location</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="estimates/">
+                <resource uri="time/">
+                    <method displayName="product ETAs" id="1558" name="GET">
+                        <doc>The Time Estimates endpoint returns ETAs for all products offered at a given location, with the responses expressed as integers in seconds. We recommend that this endpoint be called every minute to provide the most accurate, up-to-date ETAs.</doc>
+                        <request>
+                            <param name="customerUuid" required="true" style="query" type="xsd:string">
+                                <doc>unique customer identifier to be used for experience customization</doc>
+                            </param>
+                            <param name="productId" required="true" style="query" type="xsd:string">
+                                <doc>unique identifier representing a specific product for a given latitude longitude</doc>
+                            </param>
+                            <param name="startLatitude" required="true" style="query" type="xsd:integer">
+                                <doc>latitude component</doc>
+                            </param>
+                            <param name="startLongitude" required="true" style="query" type="xsd:integer">
+                                <doc>longitude component</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="price/">
+                    <method displayName="Estimated price range" id="1557" name="GET">
+                        <doc>The Price Estimates endpoint returns an estimated price range for each product offered at a given location. The price estimate is provided as a formatted string with the full price range and the localized currency symbol.</doc>
+                        <request>
+                            <param name="endLatitude" required="true" style="query" type="xsd:integer">
+                                <doc>latitude component of end location</doc>
+                            </param>
+                            <param name="endLongitude" required="true" style="query" type="xsd:integer">
+                                <doc>longitude component of end location</doc>
+                            </param>
+                            <param name="startLatitude" required="true" style="query" type="xsd:integer">
+                                <doc>latitude component of start location</doc>
+                            </param>
+                            <param name="startLongitude" required="true" style="query" type="xsd:integer">
+                                <doc>longitude component of start location</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1557:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

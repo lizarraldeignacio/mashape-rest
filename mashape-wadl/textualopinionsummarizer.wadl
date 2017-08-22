@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5134="urn:function:f5134">
+    <grammars>
+        <include href="Function5134.xsd"/>
+    </grammars>
+    <doc>generate short sentiment summaries of texts such as tweets Foursquare tips blog comments etc The API generates a set of short phrases summarizing key opinions in your text This API uses the Opinosis Abstractive Summarization algorithm behind the scenes</doc>
+    <resources base="https://rxnlp-opinosis.p.mashape.com/">
+        <resource uri="generateOpinosisSummaries/">
+            <method displayName="/SummarizeOpinions" id="5134" name="POST">
+                <doc>Generate textual summaries of highly redundant opinions</doc>
+                <request/>
+                <response>
+                    <representation element="f5134:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f364="urn:function:f364" xmlns:f365="urn:function:f365">
+    <grammars>
+        <include href="Function364.xsd"/>
+        <include href="Function365.xsd"/>
+    </grammars>
+    <doc>returns life expectancy in different formats such as years left to live and fraction of life completed Based on US data</doc>
+    <resources base="https://life-left.p.mashape.com/">
+        <resource uri="time-left/">
+            <method displayName="Time Left GET" id="364" name="GET">
+                <doc>Expected time left to live</doc>
+                <request>
+                    <param name="birth" required="true" style="query" type="xsd:string">
+                        <doc>birth date and year</doc>
+                    </param>
+                    <param name="gender" required="true" style="query" type="xsd:string">
+                        <doc>gender</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f364:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Time Left POST" id="365" name="POST">
+                <request/>
+                <response>
+                    <representation element="f365:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

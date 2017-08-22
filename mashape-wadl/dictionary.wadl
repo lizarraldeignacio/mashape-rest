@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f25="urn:function:f25">
+    <grammars>
+        <include href="Function25.xsd"/>
+    </grammars>
+    <doc>english dictionary that provides multiple definitions for most words</doc>
+    <resources base="https://montanaflynn-dictionary.p.mashape.com/">
+        <resource uri="define/">
+            <method displayName="Define" id="25" name="GET">
+                <doc>Gets definitions for a word.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>any english word</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f25:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

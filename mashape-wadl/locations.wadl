@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5093="urn:function:f5093">
+    <grammars>
+        <include href="Function5093.xsd"/>
+    </grammars>
+    <doc>this api allows users to retrieve locations nearby a specific coordinate latitude longitude in the language that most suites them</doc>
+    <resources base="https://locations.p.mashape.com/">
+        <resource uri="">
+            <method displayName="locations" id="5093" name="GET">
+                <doc>locations near a coordinate (latitude, longitude)</doc>
+                <request>
+                    <param name="language" required="true" style="query" type="xsd:string">
+                        <doc>language to show the results in Possible values are ar bg bn ca cs de el en es et eu fr ga hi hr hu id it ja ko nl pl pt ru sl tr and ur Defaults to en</doc>
+                    </param>
+                    <param name="lat" required="true" style="query" type="xsd:string">
+                        <doc>latitude portion of the coordinate in decimal format</doc>
+                    </param>
+                    <param name="long" required="true" style="query" type="xsd:string">
+                        <doc>longitude portion of the coordinate in decimal format</doc>
+                    </param>
+                    <param name="radius" required="true" style="query" type="xsd:string">
+                        <doc>radius in meters to use when finding locations nearby Defaults to meters</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5093:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

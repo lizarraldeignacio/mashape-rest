@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f381="urn:function:f381" xmlns:f382="urn:function:f382" xmlns:f383="urn:function:f383" xmlns:f384="urn:function:f384" xmlns:f385="urn:function:f385" xmlns:f386="urn:function:f386" xmlns:f387="urn:function:f387" xmlns:f388="urn:function:f388" xmlns:f389="urn:function:f389">
+    <grammars>
+        <include href="Function387.xsd"/>
+        <include href="Function384.xsd"/>
+        <include href="Function383.xsd"/>
+        <include href="Function382.xsd"/>
+        <include href="Function388.xsd"/>
+        <include href="Function389.xsd"/>
+        <include href="Function386.xsd"/>
+        <include href="Function385.xsd"/>
+        <include href="Function381.xsd"/>
+    </grammars>
+    <doc>the one and only public documentation of Vine app</doc>
+    <resources base="https://community-vineapp.p.mashape.com/">
+        <resource uri="timelines/">
+            <resource uri="users/">
+                <resource uri="{userid}/">
+                    <param name="userid" style="template" type="xsd:string"/>
+                    <method displayName="Get User Timeline" id="387" name="GET">
+                        <request>
+                            <param name="userid" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f387:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="tags/">
+                <resource uri="{tag}/">
+                    <param name="tag" style="template" type="xsd:string"/>
+                    <method displayName="Get Tag" id="384" name="GET">
+                        <request>
+                            <param name="tag" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f384:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="posts/">
+                <resource uri="{postid}/">
+                    <param name="postid" style="template" type="xsd:string"/>
+                    <method displayName="Get Single Post" id="383" name="GET">
+                        <request>
+                            <param name="postid" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f383:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="popular/">
+                <method displayName="Get Popular" id="382" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f382:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="users/">
+            <resource uri="authenticate/">
+                <method displayName="Login" id="388" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f388:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Logout" id="389" name="DELETE">
+                    <request/>
+                    <response>
+                        <representation element="f389:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="me/">
+                <method displayName="Get User Data - Self" id="386" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f386:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="profiles/">
+                <resource uri="{userid}/">
+                    <param name="userid" style="template" type="xsd:string"/>
+                    <method displayName="Get User Data" id="385" name="GET">
+                        <request>
+                            <param name="userid" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f385:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="{userid}/">
+                <param name="userid" style="template" type="xsd:string"/>
+                <resource uri="pendingNotificationsCount/">
+                    <method displayName="Get Notifications" id="381" name="GET">
+                        <request>
+                            <param name="userid" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f381:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

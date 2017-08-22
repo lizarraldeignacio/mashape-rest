@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>e Sim is an online modern world simulation wherein the player becomes a citizen of one of virtual countries Players can take on a role such as soldier or business owner in order to affect the politics economics and military standing of their country</doc>
+    <resources base="https://lrdarc-unofficial-e-sim-csc.p.mashape.com/">
+        <resource uri="&lt;server&gt;/">
+            <resource uri="battle/">
+                <resource uri="&lt;battle_id&gt;-&lt;round_id&gt;/">
+                    <resource uri=".&lt;format&gt;/">
+                        <method displayName="Battle" id="2418" name="GET">
+                            <doc>It will shows the battle statistic of given ID</doc>
+                            <request>
+                                <param name="battleId" required="true" style="query" type="xsd:string">
+                                    <doc>it s clear</doc>
+                                </param>
+                                <param name="server" required="true" style="query" type="xsd:string">
+                                    <doc>e Sim server</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

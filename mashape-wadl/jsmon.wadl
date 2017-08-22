@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4854="urn:function:f4854">
+    <grammars>
+        <include href="Function4854.xsd"/>
+    </grammars>
+    <doc>jSMon is an interactive tracking conversion tool Get started to understand who is on your site at a particular moment occasional visitor or potential customer And interact with him Our system will analyze visitor s behavioral factors and offer optimal variants for interaction with him We help to understand who are your visitors on line We make it possible to set up behavioral models you like We offer the visitor what he is interested in</doc>
+    <resources base="https://jsmon.p.mashape.com/">
+        <resource uri="track/">
+            <method displayName="Get Info" id="4854" name="GET">
+                <doc>Request information.</doc>
+                <request>
+                    <param name="actionType" required="true" style="query" type="xsd:string">
+                        <doc>action ID</doc>
+                    </param>
+                    <param name="callbackId" required="true" style="query" type="xsd:string">
+                        <doc>callback function</doc>
+                    </param>
+                    <param name="sessionId" required="true" style="query" type="xsd:string">
+                        <doc>session ID</doc>
+                    </param>
+                    <param name="siteId" required="true" style="query" type="xsd:string">
+                        <doc>site ID</doc>
+                    </param>
+                    <param name="userId" required="true" style="query" type="xsd:string">
+                        <doc>user ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4854:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

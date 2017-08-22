@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1742="urn:function:f1742" xmlns:f1743="urn:function:f1743" xmlns:f1744="urn:function:f1744" xmlns:f1745="urn:function:f1745" xmlns:f1746="urn:function:f1746" xmlns:f1747="urn:function:f1747">
+    <grammars>
+        <include href="Function1744.xsd"/>
+        <include href="Function1743.xsd"/>
+        <include href="Function1747.xsd"/>
+        <include href="Function1746.xsd"/>
+        <include href="Function1745.xsd"/>
+        <include href="Function1742.xsd"/>
+    </grammars>
+    <doc>eASILY DEVELOP WITH DATA Search over datasets consume them through one simple API or upload your own Collaborate publish share or version control it with colleagues and the community</doc>
+    <resources base="https://exversion-exversion.p.mashape.com/">
+        <resource uri="search/">
+            <method displayName="GET /SEARCH" id="1744" name="GET">
+                <doc>Search for data through the API. No API Key is required for this call.</doc>
+                <request>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1744:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="metadata/">
+            <resource uri="{dataset}/">
+                <param name="dataset" style="template" type="xsd:string"/>
+                <method displayName="GET /METADATA/:DATASET" id="1743" name="GET">
+                    <doc>Returns the metadata about a selected dataset, including ids for the parent datasets if applicable.</doc>
+                    <request>
+                        <param name="dataset" required="true" style="query" type="xsd:string"/>
+                        <param name="key" required="true" style="query" type="xsd:string">
+                            <doc>your key</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1743:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="dataset/">
+            <resource uri="push/">
+                <method displayName="POST /DATASET/PUSH" id="1747" name="POST">
+                    <doc>Adds new data to an existing dataset. Controls for duplicate information by remapping rows of existing identical information.  Missing Values In order to ensure the best possible query results, Exversion normalizes pushed data to conform to the dataset's existing schema. If the dataset is empty a schema is created from the first row submitted through the API. For that reason please make sure there are no missing values (empty strings are acceptable). The API will reject any new data that contains parameters not listed in the schema.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1747:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="edit/">
+                <method displayName="POST /DATASET/EDIT" id="1746" name="POST">
+                    <doc>Edit specific data points. Requires the _id of the specific data point (which is part of the information returned by any dataset query). This is intended to fixes errors, mistakes, corruption or inconsistencies in the data, not to update existing data points with new information. All changes are tracked and can be reverted through the web interface.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1746:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="create/">
+                <method displayName="POST /DATASET/CREATE" id="1745" name="POST">
+                    <doc>Creates a new dataset from parameters supplied. Org should be the id number of the relevant organization (if applicable). Private should be either 1 to keep the dataset private or 0 to leave it public. All other parameters are strings following the same conventions of the upload form on Exversion.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1745:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="{dataset}/">
+                <param name="dataset" style="template" type="xsd:string"/>
+                <resource uri="json/">
+                    <method displayName="GET /DATASET/:DATASET" id="1742" name="GET">
+                        <doc>Runs a query on the selected dataset and returns the results. Consult the dataset's listing for information on columns.</doc>
+                        <request>
+                            <param name="dataset" required="true" style="query" type="xsd:string"/>
+                            <param name="key" required="true" style="query" type="xsd:string">
+                                <doc>your key</doc>
+                            </param>
+                            <param name="lobbyistFirstName" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1742:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

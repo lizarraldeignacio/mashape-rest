@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1713="urn:function:f1713">
+    <grammars>
+        <include href="Function1713.xsd"/>
+    </grammars>
+    <doc>static League of Legends data like champion information</doc>
+    <resources base="https://philippwiddra-piltlib-compendium.p.mashape.com/">
+        <resource uri="champion/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Champion" id="1713" name="GET">
+                    <doc>Get static Champion data.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>champion ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1713:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

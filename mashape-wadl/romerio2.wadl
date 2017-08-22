@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f402="urn:function:f402" xmlns:f403="urn:function:f403">
+    <grammars>
+        <include href="Function403.xsd"/>
+        <include href="Function402.xsd"/>
+    </grammars>
+    <doc>rome rio offers a multi modal travel API that allows users to plan journeys all around the world by searching plane train bus car and ferry routes The database currently features over airlines million surface routes including extensive rail coverage in Europe India Japan North America and China and constantly expanding intercity bus rail and ferry coverage across the globe Feel free to contact us at api rome rio com with any support questions or to tell us about your project</doc>
+    <resources base="https://rome2rio12.p.mashape.com/">
+        <resource uri="Search/">
+            <method displayName="Search" id="403" name="GET">
+                <doc>provide routes options from one point to another</doc>
+                <request>
+                    <param name="currency" required="true" style="query" type="xsd:string">
+                        <doc>currency code ISO</doc>
+                    </param>
+                    <param name="dkind" required="true" style="query" type="xsd:string">
+                        <doc>destination kind city town address</doc>
+                    </param>
+                    <param name="dname" required="true" style="query" type="xsd:string">
+                        <doc>destination display name</doc>
+                    </param>
+                    <param name="dpos" required="true" style="query" type="xsd:string">
+                        <doc>destination latitude longitude comma separated</doc>
+                    </param>
+                    <param name="okind" required="true" style="query" type="xsd:string">
+                        <doc>origin kind city town address</doc>
+                    </param>
+                    <param name="oname" required="true" style="query" type="xsd:string">
+                        <doc>origin display name</doc>
+                    </param>
+                    <param name="opos" required="true" style="query" type="xsd:string">
+                        <doc>origin latitude longitude comma separated</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f403:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="Geocode/">
+            <method displayName="Geocode" id="402" name="GET">
+                <request>
+                    <param name="countrycode" required="true" style="query" type="xsd:string">
+                        <doc>country code hint</doc>
+                    </param>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>place name</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f402:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

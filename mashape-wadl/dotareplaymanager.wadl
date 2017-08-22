@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>aPI that I use with my Dota Replay Manager for retrieving match info</doc>
+    <resources base="https://computerfr33k-dota-2-replay-manager.p.mashape.com/">
+        <resource uri="json-mashape.php/">
+            <method displayName="Match Details" id="1013" name="GET">
+                <request>
+                    <param name="matchId" required="true" style="query" type="xsd:integer">
+                        <doc>the match id that you want to fetch the info for</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

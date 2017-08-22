@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3480="urn:function:f3480" xmlns:f3481="urn:function:f3481" xmlns:f3484="urn:function:f3484" xmlns:f3485="urn:function:f3485" xmlns:f3486="urn:function:f3486" xmlns:f3487="urn:function:f3487" xmlns:f3488="urn:function:f3488" xmlns:f3489="urn:function:f3489" xmlns:f3491="urn:function:f3491" xmlns:f3492="urn:function:f3492">
+    <grammars>
+        <include href="Function3492.xsd"/>
+        <include href="Function3491.xsd"/>
+        <include href="Function3489.xsd"/>
+        <include href="Function3488.xsd"/>
+        <include href="Function3487.xsd"/>
+        <include href="Function3486.xsd"/>
+        <include href="Function3485.xsd"/>
+        <include href="Function3484.xsd"/>
+        <include href="Function3481.xsd"/>
+        <include href="Function3480.xsd"/>
+    </grammars>
+    <doc>direct access to all of the pricing and card information hosted on YugiohPrices com</doc>
+    <resources base="https://yugiohprices.p.mashape.com/">
+        <resource uri="top_50_cards/">
+            <method displayName="Top 50 Most Expensive Cards" id="3492" name="GET">
+                <doc>Retrieve a list of the top 50 most expensive cards in Yu-Gi-Oh! right now.</doc>
+                <request>
+                    <param name="rarity" required="true" style="query" type="xsd:string">
+                        <doc>passing a specific rarity will return a top list for jsut that rarity</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3492:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="card_support/">
+            <resource uri="{card_name}/">
+                <param name="card_name" style="template" type="xsd:string"/>
+                <method displayName="Support Cards" id="3491" name="GET">
+                    <doc>Returns a list of all support cards for a given card.</doc>
+                    <request>
+                        <param name="cardName" required="true" style="query" type="xsd:string">
+                            <doc>the name of the card you d like to retrieve support cards for</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3491:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="train_card_image/">
+            <method displayName="Send Image Training Data" id="3490" name="POST">
+                <doc>Associate image data  with a specific card in the image matching database</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="rising_and_falling/">
+            <method displayName="Rising and Falling Card Lists" id="3489" name="GET">
+                <doc>Retrieve a list of the top 15 cards that are rising in price, and the top 15 cards that are falling in price.</doc>
+                <request/>
+                <response>
+                    <representation element="f3489:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="set_data/">
+            <resource uri="{set_name}/">
+                <param name="set_name" style="template" type="xsd:string"/>
+                <method displayName="Retrieve Card Set Data" id="3488" name="GET">
+                    <doc>Returns all relevant data for a cards set, including rarities and low/high/average prices for each card.</doc>
+                    <request>
+                        <param name="setName" required="true" style="query" type="xsd:string">
+                            <doc>the name of the card set you want data for</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3488:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="price_for_print_tag/">
+            <resource uri="{print_tag}/">
+                <param name="print_tag" style="template" type="xsd:string"/>
+                <method displayName="Prices for Specific Version of a Card" id="3487" name="GET">
+                    <doc>Returns price (and card) data for one specific version of a card.</doc>
+                    <request>
+                        <param name="printTag" required="true" style="query" type="xsd:string">
+                            <doc>the print tag for the specific version of a card you would like prices for</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3487:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="get_card_prices_live/">
+            <resource uri="{card_name}/">
+                <param name="card_name" style="template" type="xsd:string"/>
+                <method displayName="Prices for All Versions of a Card" id="3486" name="GET">
+                    <doc>Retrieves prices data for every version of a card.</doc>
+                    <request>
+                        <param name="cardName" required="true" style="query" type="xsd:string">
+                            <doc>the name of the card you would like to retrieve prices data for</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3486:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="price_history/">
+            <resource uri="{card_number}/">
+                <param name="card_number" style="template" type="xsd:string"/>
+                <method displayName="Price History for Specific Version of a Card" id="3485" name="GET">
+                    <doc>Retrieve price history for up to one year back for a given card.</doc>
+                    <request>
+                        <param name="cardNumber" required="true" style="query" type="xsd:string">
+                            <doc>the card number sometimes referred to as a print tag of the specific version of a card you want the price history for</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3485:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="match_card_image/">
+            <method displayName="Identify Card Image" id="3484" name="POST">
+                <doc>Returns a list of all possible card matches for a submitted image</doc>
+                <request/>
+                <response>
+                    <representation element="f3484:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="set_image/">
+            <resource uri="{set_name}/">
+                <param name="set_name" style="template" type="xsd:string"/>
+                <method displayName="Get Set Image" id="3483" name="GET">
+                    <doc>Retrieve the image for a given set.</doc>
+                    <request>
+                        <param name="setName" required="true" style="query" type="xsd:string">
+                            <doc>the name of the set you would like to retrieve the image for</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="card_image/">
+            <resource uri="{card_name}/">
+                <param name="card_name" style="template" type="xsd:string"/>
+                <method displayName="Get Card Image" id="3482" name="GET">
+                    <doc>Retrieve the image for a given card name.</doc>
+                    <request>
+                        <param name="cardName" required="true" style="query" type="xsd:string">
+                            <doc>the name of the card you would like to retrieve the image for</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="card_versions/">
+            <resource uri="{card_name}/">
+                <param name="card_name" style="template" type="xsd:string"/>
+                <method displayName="Card Versions" id="3481" name="GET">
+                    <doc>Retrieves a list of all versions of a card that are currently available</doc>
+                    <request>
+                        <param name="cardName" required="true" style="query" type="xsd:string">
+                            <doc>the name of the card you d like to fetch versions for</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3481:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="card_data/">
+            <resource uri="{card_name}/">
+                <param name="card_name" style="template" type="xsd:string"/>
+                <method displayName="Card Data" id="3480" name="GET">
+                    <doc>Get all relevant information for a given card.</doc>
+                    <request>
+                        <param name="cardName" required="true" style="query" type="xsd:string">
+                            <doc>the name of the card to retrieve data for</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3480:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

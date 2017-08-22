@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6085="urn:function:f6085">
+    <grammars>
+        <include href="Function6085.xsd"/>
+    </grammars>
+    <doc>sEM SEO keyword Statistics to generate Google search request keyword competition and CPC Cost Per Click</doc>
+    <resources base="https://sem.p.mashape.com/">
+        <resource uri="?keywords={keyword}/">
+            <param name="keyword" style="template" type="xsd:string"/>
+            <method displayName="Keyword Stats Retrieval" id="6085" name="GET">
+                <doc>This endpoint will allow you to retrieve: Monthly Search Volume, CPC ($), and Competition Rating.</doc>
+                <request>
+                    <param name="keyword" required="true" style="query" type="xsd:string">
+                        <doc>use any keyword you would like in order to extract real time SEM keyword statistics on search volume competition and keyword CPC</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6085:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

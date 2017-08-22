@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>create beautiful formal letters from simple text strings This is the official API of the Lettrice App from https itunes apple com de app lettrice id mt</doc>
+    <resources base="https://chrisbecker-lettrice-v1.p.mashape.com/">
+        <resource uri="lettrice/">
+            <resource uri="rpcma?create_document=1/">
+                <method displayName="Create new document" id="7132" name="POST">
+                    <doc>Create new formal letter. Returns PDF.</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6741="urn:function:f6741">
+    <grammars>
+        <include href="Function6741.xsd"/>
+    </grammars>
+    <doc>this tool extract sentiment for text in French You can determine if a text has a positive negative or neutral opinion polarity Result range from very negative to very positive</doc>
+    <resources base="https://shackra-french-text-sentiment-analysis-v1.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="fr/">
+                <method displayName="/api/fr/" id="6741" name="POST">
+                    <doc>analyzer endpoint</doc>
+                    <request/>
+                    <response>
+                        <representation element="f6741:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

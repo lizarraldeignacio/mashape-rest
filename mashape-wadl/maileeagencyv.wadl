@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4879="urn:function:f4879" xmlns:f4880="urn:function:f4880" xmlns:f4881="urn:function:f4881" xmlns:f4882="urn:function:f4882" xmlns:f4883="urn:function:f4883" xmlns:f4885="urn:function:f4885" xmlns:f4887="urn:function:f4887">
+    <grammars>
+        <include href="Function4887.xsd"/>
+        <include href="Function4879.xsd"/>
+        <include href="Function4880.xsd"/>
+        <include href="Function4881.xsd"/>
+        <include href="Function4882.xsd"/>
+        <include href="Function4883.xsd"/>
+        <include href="Function4885.xsd"/>
+    </grammars>
+    <doc>aPI to integrate your app with Mailee me This API is focused on agencies so you can create and manage your subclients We are still in beta If you have any problems or suggestions please contact us at support mailee me</doc>
+    <resources base="https://maileeagency.p.mashape.com/">
+        <resource uri="me/">
+            <method displayName="me" id="4887" name="GET">
+                <doc>account information</doc>
+                <request/>
+                <response>
+                    <representation element="f4887:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="clients/">
+            <method displayName="clients add credits" id="4879" name="PUT">
+                <doc>Add credits to a subclient</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4879:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="clients destroy" id="4880" name="DELETE">
+                <doc>Destroy a subaccount</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4880:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="clients index" id="4881" name="GET">
+                <doc>list all clients</doc>
+                <request/>
+                <response>
+                    <representation element="f4881:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="clients new" id="4882" name="POST">
+                <doc>Create a new subaccount</doc>
+                <request/>
+                <response>
+                    <representation element="f4882:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="clients new (info)" id="4883" name="GET">
+                <request/>
+                <response>
+                    <representation element="f4883:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="clients remove credits" id="4884" name="PUT">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="clients show" id="4885" name="GET">
+                <doc>Show information for a subaccount</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4885:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="clients update" id="4886" name="PUT">
+                <doc>Update the subaccount information</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4667="urn:function:f4667" xmlns:f4668="urn:function:f4668">
+    <grammars>
+        <include href="Function4668.xsd"/>
+        <include href="Function4667.xsd"/>
+    </grammars>
+    <doc>you need almost only one line of code in your application to start sending instant messages Add another line of code if you need to check the status</doc>
+    <resources base="https://sends-im-instant-messaging-v1.p.mashape.com/">
+        <resource uri="messages/">
+            <resource uri="send/">
+                <method displayName="messages/send" id="4668" name="POST">
+                    <doc>This method allows you to send a new instant message to your recipient.</doc>
+                    <request>
+                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                            <doc>get your API key here http admin sends im settings</doc>
+                        </param>
+                        <param name="imsId" required="true" style="query" type="xsd:string">
+                            <doc>instant Messaging System WhatsApp Skype etc</doc>
+                        </param>
+                        <param name="message" required="true" style="query" type="xsd:string">
+                            <doc>your instant message</doc>
+                        </param>
+                        <param name="recipient" required="true" style="query" type="xsd:string">
+                            <doc>your instant message recipient</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4668:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="info/">
+                <method displayName="messages/info" id="4667" name="POST">
+                    <doc>This method allows you to get the information for a sent instant message.</doc>
+                    <request>
+                        <param name="apiKey" required="true" style="query" type="xsd:string">
+                            <doc>get your API key here http admin sends im settings</doc>
+                        </param>
+                        <param name="messageId" required="true" style="query" type="xsd:string">
+                            <doc>message ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4667:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

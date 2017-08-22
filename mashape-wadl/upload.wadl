@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3141="urn:function:f3141">
+    <grammars>
+        <include href="Function3141.xsd"/>
+    </grammars>
+    <doc>upload API for Uploadcare Handles large file uploads and cloud storage for you Serves the uploaded files on a fast CDN Performs on the fly manipulations with the uploaded images using URL commands</doc>
+    <resources base="https://upload.p.mashape.com/">
+        <resource uri="base/">
+            <method displayName="Upload a single file" id="3141" name="POST">
+                <doc>Upload a single file to Uploadcare infrastructure. DEMO ONLY: please register at https://uploadcare.com/ to use the service.</doc>
+                <request/>
+                <response>
+                    <representation element="f3141:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

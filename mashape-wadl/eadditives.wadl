@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2634="urn:function:f2634" xmlns:f2635="urn:function:f2635" xmlns:f2636="urn:function:f2636" xmlns:f2637="urn:function:f2637" xmlns:f2638="urn:function:f2638">
+    <grammars>
+        <include href="Function2637.xsd"/>
+        <include href="Function2638.xsd"/>
+        <include href="Function2634.xsd"/>
+        <include href="Function2635.xsd"/>
+        <include href="Function2636.xsd"/>
+    </grammars>
+    <doc>e additives API is a REST based service that brings you information about food additives Users can search for food additives get information about a single additive get a list of additive categories and get information about a single category</doc>
+    <resources base="https://vx-e-additives.p.mashape.com/">
+        <resource uri="categories/">
+            <method displayName="/categories" id="2637" name="GET">
+                <doc>Get a list of additives categories.</doc>
+                <request>
+                    <param name="locale" required="true" style="query" type="xsd:string">
+                        <doc>either en or bg the default is always en</doc>
+                    </param>
+                    <param name="order" required="true" style="query" type="xsd:string">
+                        <doc>sort order One of asc or desc the default is desc</doc>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:string">
+                        <doc>sort by id name or last update the default is id</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2637:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="/categories/{id}" id="2638" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>category id</doc>
+                    </param>
+                    <param name="locale" required="true" style="query" type="xsd:string">
+                        <doc>either en or bg the default is always en</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2638:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="additives/">
+            <method displayName="/additives" id="2634" name="GET">
+                <doc>Get a list of food additives.</doc>
+                <request>
+                    <param name="category" required="true" style="query" type="xsd:integer">
+                        <doc>get additives only from given category id</doc>
+                    </param>
+                    <param name="locale" required="true" style="query" type="xsd:string">
+                        <doc>either en or bg the default is always en</doc>
+                    </param>
+                    <param name="order" required="true" style="query" type="xsd:string">
+                        <doc>sort order One of asc or desc the default is desc</doc>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f2634:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="/additives/search" id="2635" name="GET">
+                <doc>Search food additives.</doc>
+                <request>
+                    <param name="category" required="true" style="query" type="xsd:integer">
+                        <doc>search only in given category id</doc>
+                    </param>
+                    <param name="locale" required="true" style="query" type="xsd:string">
+                        <doc>either en or bg the default is always en</doc>
+                    </param>
+                    <param name="order" required="true" style="query" type="xsd:string">
+                        <doc>sort order One of asc or desc the default is desc</doc>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>a string to search for</doc>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:string">
+                        <doc>sort by code name or last update</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2635:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="/additives/{code}" id="2636" name="GET">
+                <doc>Get information about single additive.</doc>
+                <request>
+                    <param name="code" required="true" style="query" type="xsd:string">
+                        <doc>additive code</doc>
+                    </param>
+                    <param name="locale" required="true" style="query" type="xsd:string">
+                        <doc>either en or bg the default is always en</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2636:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

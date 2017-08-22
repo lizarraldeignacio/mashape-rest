@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2024="urn:function:f2024">
+    <grammars>
+        <include href="Function2024.xsd"/>
+    </grammars>
+    <doc>we synchronize your addresses over JSON Web widget and personal website We take the pain away from updating links on the Web when you join a new social communication activity like facebook linkedin skype whatsapp email and other means of digital communication reminderof me is a business card for ubiquitous follow up Looks great on iphone ipad and android It is accessible via Web Widget JSON and QR code Sign up now on http reminderof me Example You can use this API to develop javascript plugin that retrieve personal links of a person via JSON and displays it on a tooltip When the person updates his reminder with a new link will appear on your tooltip plugin</doc>
+    <resources base="https://reminderofme.p.mashape.com/">
+        <resource uri="{username}/">
+            <param name="username" style="template" type="xsd:string"/>
+            <method displayName="User link hub" id="2024" name="GET">
+                <doc>This endpoint allows you to retrieve a business card url list. You can use it to link a person's up-to-date link list to embed the contact in every context.</doc>
+                <request>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc>the username chosen during the registration process</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2024:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

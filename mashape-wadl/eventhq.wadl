@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5827="urn:function:f5827">
+    <grammars>
+        <include href="Function5827.xsd"/>
+    </grammars>
+    <doc>retrieve events attendee and order details from your existing EventHQ account</doc>
+    <resources base="https://eventhq-eventhq-v1.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="{version}/">
+                <param name="version" style="template" type="xsd:string"/>
+                <resource uri="events/">
+                    <resource uri="index/">
+                        <method displayName="List events" id="5827" name="GET">
+                            <doc>List all events in the account</doc>
+                            <request>
+                                <param name="version" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f5827:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

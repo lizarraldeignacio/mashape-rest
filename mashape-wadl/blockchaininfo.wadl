@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>plaintext query api to retreive data from blockchain info</doc>
+    <resources base="https://community-blockchain-info.p.mashape.com/">
+        <resource uri="txresult/">
+            <resource uri="{TxHash}/">
+                <param name="TxHash" style="template" type="xsd:string"/>
+                <resource uri="{Address}/">
+                    <param name="Address" style="template" type="xsd:string"/>
+                    <method displayName="Transaction Results" id="2784" name="GET">
+                        <request>
+                            <param name="address" required="true" style="query" type="xsd:string"/>
+                            <param name="txhash" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="txfee/">
+            <resource uri="{TxHash}/">
+                <param name="TxHash" style="template" type="xsd:string"/>
+                <method displayName="Transaction Fee" id="2783" name="GET">
+                    <doc>Get total input value of a transaction</doc>
+                    <request>
+                        <param name="txhash" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="txtotalbtcoutput/">
+            <resource uri="{TxHash}/">
+                <param name="TxHash" style="template" type="xsd:string"/>
+                <method displayName="Total BTC Output" id="2782" name="GET">
+                    <doc>Get total output value of a transaction</doc>
+                    <request>
+                        <param name="txhash" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="txtotalbtcinput/">
+            <resource uri="{TxHash}/">
+                <param name="TxHash" style="template" type="xsd:string"/>
+                <method displayName="Total BTC Input" id="2781" name="GET">
+                    <doc>Get total input value of a transaction (in satoshi)</doc>
+                    <request>
+                        <param name="txhash" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="getreceivedbyaddress/">
+            <resource uri="{address}/">
+                <param name="address" style="template" type="xsd:string"/>
+                <method displayName="Received by Address" id="2780" name="GET">
+                    <doc>Get the total number of bitcoins received by an address (in satoshi).</doc>
+                    <request>
+                        <param name="address" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="getsentbyaddress/">
+            <resource uri="{address}/">
+                <param name="address" style="template" type="xsd:string"/>
+                <method displayName="Get Sent by Address" id="2779" name="GET">
+                    <doc>Get the total number of bitcoins sent by an address</doc>
+                    <request>
+                        <param name="address" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="addressfirstseen/">
+            <resource uri="{address}/">
+                <param name="address" style="template" type="xsd:string"/>
+                <method displayName="Address First Seen" id="2778" name="GET">
+                    <doc>Timestamp of the block an address was first confirmed in</doc>
+                    <request>
+                        <param name="address" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="addressbalance/">
+            <resource uri="{address}/">
+                <param name="address" style="template" type="xsd:string"/>
+                <method displayName="Address Balance" id="2777" name="GET">
+                    <doc>Get the balance of an address (in satoshis)</doc>
+                    <request>
+                        <param name="address" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

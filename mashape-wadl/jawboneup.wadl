@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f630="urn:function:f630" xmlns:f631="urn:function:f631" xmlns:f632="urn:function:f632" xmlns:f633="urn:function:f633" xmlns:f634="urn:function:f634" xmlns:f635="urn:function:f635" xmlns:f636="urn:function:f636" xmlns:f637="urn:function:f637" xmlns:f638="urn:function:f638" xmlns:f639="urn:function:f639" xmlns:f640="urn:function:f640" xmlns:f641="urn:function:f641" xmlns:f642="urn:function:f642" xmlns:f643="urn:function:f643" xmlns:f644="urn:function:f644" xmlns:f645="urn:function:f645" xmlns:f646="urn:function:f646" xmlns:f647="urn:function:f647" xmlns:f648="urn:function:f648" xmlns:f649="urn:function:f649" xmlns:f650="urn:function:f650" xmlns:f651="urn:function:f651" xmlns:f652="urn:function:f652" xmlns:f653="urn:function:f653" xmlns:f654="urn:function:f654" xmlns:f655="urn:function:f655" xmlns:f656="urn:function:f656" xmlns:f658="urn:function:f658" xmlns:f659="urn:function:f659" xmlns:f661="urn:function:f661" xmlns:f662="urn:function:f662" xmlns:f663="urn:function:f663" xmlns:f665="urn:function:f665" xmlns:f666="urn:function:f666" xmlns:f667="urn:function:f667" xmlns:f668="urn:function:f668">
+    <grammars>
+        <include href="Function653.xsd"/>
+        <include href="Function654.xsd"/>
+        <include href="Function652.xsd"/>
+        <include href="Function655.xsd"/>
+        <include href="Function641.xsd"/>
+        <include href="Function649.xsd"/>
+        <include href="Function665.xsd"/>
+        <include href="Function668.xsd"/>
+        <include href="Function640.xsd"/>
+        <include href="Function650.xsd"/>
+        <include href="Function667.xsd"/>
+        <include href="Function639.xsd"/>
+        <include href="Function643.xsd"/>
+        <include href="Function638.xsd"/>
+        <include href="Function645.xsd"/>
+        <include href="Function637.xsd"/>
+        <include href="Function644.xsd"/>
+        <include href="Function636.xsd"/>
+        <include href="Function630.xsd"/>
+        <include href="Function631.xsd"/>
+        <include href="Function632.xsd"/>
+        <include href="Function633.xsd"/>
+        <include href="Function634.xsd"/>
+        <include href="Function635.xsd"/>
+        <include href="Function642.xsd"/>
+        <include href="Function646.xsd"/>
+        <include href="Function647.xsd"/>
+        <include href="Function648.xsd"/>
+        <include href="Function651.xsd"/>
+        <include href="Function656.xsd"/>
+        <include href="Function658.xsd"/>
+        <include href="Function659.xsd"/>
+        <include href="Function661.xsd"/>
+        <include href="Function662.xsd"/>
+        <include href="Function663.xsd"/>
+        <include href="Function666.xsd"/>
+    </grammars>
+    <doc>uP is a wristband and app that tracks how you sleep move and eat then helps you use that information to feel your best The UP Platform documentation provides information related to establishing and maintaining an API connection with UP The purpose of this API is to enable the exchange of select data in order to extend and augment the UP user experience and support complementary services This can include data aggregation and visualization gaming marketing rewards provisioning and more</doc>
+    <resources base="https://community-jawbone-up.p.mashape.com/">
+        <resource uri="sleeps/">
+            <resource uri="{xid}/">
+                <param name="xid" style="template" type="xsd:string"/>
+                <method displayName="Get sleep period information" id="653" name="GET">
+                    <doc>Returns detailed information about the given sleep period denoted by xid.</doc>
+                    <request>
+                        <param name="xid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f653:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get sleep phases" id="654" name="GET">
+                    <doc>A sleep period can be sub-divided into phases: awake, light and deep. This endpoint returns a time-series of the sleep phase during the period. Each entry is a tuple that contains a timestamp and the sleep phase (1=awake, 2=light, 3=deep). The timestamps are distributed based on when the type of sleep changes.</doc>
+                    <request>
+                        <param name="xid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f654:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get user's sleep graphs" id="664" name="GET">
+                    <doc>Returns the image of the given sleep.</doc>
+                    <request>
+                        <param name="xid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="moves/">
+            <resource uri="{move_xid}/">
+                <param name="move_xid" style="template" type="xsd:string"/>
+                <method displayName="Get move intensity" id="652" name="GET">
+                    <doc>Returns a time-series of the move intensity during the day. Each entry is a tuple that contains a timestamp, and the average intensity during that period. Currently, it’s an arbitrary equidistributed list of timestamps.</doc>
+                    <request>
+                        <param name="moveXid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f652:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get the information about a specific move" id="655" name="GET">
+                    <doc>Returns the detailed information of the given move.</doc>
+                    <request>
+                        <param name="moveXid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f655:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get the user's move graphs" id="657" name="GET">
+                    <doc>Returns the image of the given move.</doc>
+                    <request>
+                        <param name="moveXid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="workouts/">
+            <resource uri="{xid}/">
+                <param name="xid" style="template" type="xsd:string"/>
+                <method displayName="Delete workout event" id="641" name="DELETE">
+                    <doc>Deletes an existing workout event. The event must have been created by the partner for this call to succeed.</doc>
+                    <request>
+                        <param name="xid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f641:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get information about a specific workout" id="649" name="GET">
+                    <doc>Returns detailed information about the given workout.</doc>
+                    <request>
+                        <param name="xid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f649:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get the user's workout graphs" id="660" name="GET">
+                    <request>
+                        <param name="xid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Get workout intensity" id="665" name="GET">
+                    <doc>Returns a time-series of the workout intensity during the day. Each entry is a tuple that contains a timestamp, and the average intensity during that period. Currently, it's an arbitrary equidistributed list of timestamps.</doc>
+                    <request>
+                        <param name="xid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f665:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Update workout" id="668" name="POST">
+                    <doc>Updates an existing workout.</doc>
+                    <request>
+                        <param name="xid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f668:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="meals/">
+            <resource uri="{xid}/">
+                <param name="xid" style="template" type="xsd:string"/>
+                <method displayName="Delete single meal event" id="640" name="DELETE">
+                    <doc>Deletes an existing meal event. The event must have been created by the partner for this call to succeed.</doc>
+                    <request>
+                        <param name="xid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f640:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get information about specific meal" id="650" name="GET">
+                    <doc>Returns detailed information about a specific meal</doc>
+                    <request>
+                        <param name="xid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f650:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Update a meal" id="667" name="POST">
+                    <request>
+                        <param name="xid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f667:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="body_events/">
+            <resource uri="{event_xid}/">
+                <param name="event_xid" style="template" type="xsd:string"/>
+                <method displayName="Delete a single weight metric event" id="639" name="DELETE">
+                    <doc>Deletes an existing event. The event must have been created by the partner for this call to succeed.</doc>
+                    <request>
+                        <param name="eventXid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f639:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get a single body composition metric event" id="643" name="GET">
+                    <request>
+                        <param name="eventXid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f643:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="mood/">
+            <resource uri="{xid}/">
+                <param name="xid" style="template" type="xsd:string"/>
+                <method displayName="Delete a single mood event" id="638" name="DELETE">
+                    <doc>Deletes an existing event. The event must have been created by the partner for this call to succeed.</doc>
+                    <request>
+                        <param name="xid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f638:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get a single mood event" id="645" name="GET">
+                    <request>
+                        <param name="xid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f645:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="cardiac_events/">
+            <resource uri="{event_xid}/">
+                <param name="event_xid" style="template" type="xsd:string"/>
+                <method displayName="Delete a single cardiac metric event" id="637" name="DELETE">
+                    <doc>Deletes an existing event. The event must have been created by the partner for this call to succeed.</doc>
+                    <request>
+                        <param name="eventXid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f637:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get a single cardiac metric event" id="644" name="GET">
+                    <request>
+                        <param name="eventXid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f644:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="generic_events/">
+            <resource uri="{xid}/">
+                <param name="xid" style="template" type="xsd:string"/>
+                <method displayName="Delete a  generic event" id="636" name="DELETE">
+                    <doc>Deletes an existing generic event. The event must have been created by the partner for this call to succeed.</doc>
+                    <request>
+                        <param name="xid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f636:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="users/">
+            <resource uri="@me/">
+                <method displayName="Create event to record body metrics" id="630" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f630:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Create new meal" id="631" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f631:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Create new user event to record cardiac metrics" id="632" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f632:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Create sleep" id="633" name="POST">
+                    <doc>Creates a new sleep</doc>
+                    <request/>
+                    <response>
+                        <representation element="f633:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Create workout" id="634" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f634:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Creates a new generic event for the user" id="635" name="POST">
+                    <doc>Generic event is recommended as a means to post app specific user actions to the user's feed.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f635:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get a generic event for the user" id="642" name="GET">
+                    <doc>Returns the list of generic events of the current user. This list can be paginated by date or timestamp.</doc>
+                    <request>
+                        <param name="date" required="true" style="query" type="xsd:string">
+                            <doc>date formatted as YYYYMMDD If omitted returns the information for today</doc>
+                        </param>
+                        <param name="endTime" required="true" style="query" type="xsd:string">
+                            <doc>to be used with start time Epoch timestamp that denotes the end of the time range queried for events</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:string">
+                            <doc>maximum number of results to return</doc>
+                        </param>
+                        <param name="pageToken" required="true" style="query" type="xsd:string">
+                            <doc>timestamp used to paginate the list of events The Developer must use the next link provided in the links section</doc>
+                        </param>
+                        <param name="startTime" required="true" style="query" type="xsd:string">
+                            <doc>to be used along with end time Epoch timestamp that denotes the start of the time range queried for events</doc>
+                        </param>
+                        <param name="updatedAfter" required="true" style="query" type="xsd:string">
+                            <doc>epoch timestamp to list events that are updated later than the timestamp To be used with start time to list events that were completed after said start time</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f642:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get body metrics record events" id="646" name="GET">
+                    <request>
+                        <param name="date" required="true" style="query" type="xsd:string">
+                            <doc>date formatted as YYYYMMDD If omitted returns the information for today</doc>
+                        </param>
+                        <param name="endTime" required="true" style="query" type="xsd:string">
+                            <doc>to be used with start time Epoch timestamp that denotes the end of the time range queried for events</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:string">
+                            <doc>maximum number of results to return</doc>
+                        </param>
+                        <param name="pageToken" required="true" style="query" type="xsd:string">
+                            <doc>timestamp used to paginate the list of sleeps The Developer must use the next link provided in the links section</doc>
+                        </param>
+                        <param name="startTime" required="true" style="query" type="xsd:string">
+                            <doc>to be used along with end time Epoch timestamp that denotes the start of the time range queried for events</doc>
+                        </param>
+                        <param name="updatedAfter" required="true" style="query" type="xsd:string">
+                            <doc>epoch timestamp to list events that have been updated later than the timestamp</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f646:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get cardiac metrics events for a user" id="647" name="GET">
+                    <request>
+                        <param name="date" required="true" style="query" type="xsd:string">
+                            <doc>date formatted as YYYYMMDD If omitted returns the information for today</doc>
+                        </param>
+                        <param name="endTime" required="true" style="query" type="xsd:string">
+                            <doc>to be used with start time Epoch timestamp that denotes the end of the time range queried for events</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:string">
+                            <doc>maximum number of results to return</doc>
+                        </param>
+                        <param name="pageToken" required="true" style="query" type="xsd:string">
+                            <doc>timestamp used to paginate the list of events The Developer must use the next link provided in the links section</doc>
+                        </param>
+                        <param name="startTime" required="true" style="query" type="xsd:string">
+                            <doc>to be used along with end time Epoch timestamp that denotes the start of the time range queried for events</doc>
+                        </param>
+                        <param name="updatedAfter" required="true" style="query" type="xsd:string">
+                            <doc>epoch timestamp to list events that have been updated later than the timestamp</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f647:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get detailed information about the user" id="648" name="GET">
+                    <doc>Returns the basic information of the user</doc>
+                    <request/>
+                    <response>
+                        <representation element="f648:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get list of friends" id="651" name="GET">
+                    <doc>Returns the list of unique identifiers (XIDs) of the user's friends.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f651:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get the user's mood" id="656" name="GET">
+                    <doc>Returns the user's mood for the given day. Defaults to get today's mood.</doc>
+                    <request>
+                        <param name="date" required="true" style="query" type="xsd:string">
+                            <doc>date formatted as YYYYMMDD If omitted returns today s mood</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f656:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get the user's moves list" id="658" name="GET">
+                    <doc>Returns the list of moves of the current user. This list can be paginated by date or timestamp.</doc>
+                    <request>
+                        <param name="date" required="true" style="query" type="xsd:string">
+                            <doc>date formatted as YYYYMMDD If omitted returns the information for today</doc>
+                        </param>
+                        <param name="endTime" required="true" style="query" type="xsd:string">
+                            <doc>to be used with start time Epoch timestamp that denotes the end of the time range queried for move events</doc>
+                        </param>
+                        <param name="pageToken" required="true" style="query" type="xsd:string">
+                            <doc>timestamp used to paginate the list of moves The Developer must use the next link provided in the links section</doc>
+                        </param>
+                        <param name="startTime" required="true" style="query" type="xsd:string">
+                            <doc>to be used along with end time Epoch timestamp that denotes the start of the time range queried for move events</doc>
+                        </param>
+                        <param name="updatedAfter" required="true" style="query" type="xsd:string">
+                            <doc>epoch timestamp to list move events that are updated later than the timestamp To be used with start time to list events that were completed after said start time</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f658:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get the user's trends" id="659" name="GET">
+                    <doc>Returns the user's trends over a period of time (e.g. 5 weeks), using the given granularity (e.g. by day).</doc>
+                    <request>
+                        <param name="bucketSize" required="true" style="query" type="xsd:string">
+                            <doc>determines the granularity to use when aggregating the values Possible values are d for days w for weeks m for months y for years</doc>
+                        </param>
+                        <param name="endDate" required="true" style="query" type="xsd:string">
+                            <doc>date formatted as YYYYMMDD If omitted returns until today</doc>
+                        </param>
+                        <param name="range" required="true" style="query" type="xsd:string">
+                            <doc>used with range duration to determine how long to go back in time Possible values are d for days and w for weeks</doc>
+                        </param>
+                        <param name="rangeDuration" required="true" style="query" type="xsd:string">
+                            <doc>used with range to determine how long to go back in time</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f659:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get the user's workout list" id="661" name="GET">
+                    <doc>Returns the list of workouts of the current user. This list can be paginated by date or timestamp.</doc>
+                    <request>
+                        <param name="date" required="true" style="query" type="xsd:string">
+                            <doc>date formatted as YYYYMMDD If omitted returns the information for today</doc>
+                        </param>
+                        <param name="endTime" required="true" style="query" type="xsd:string">
+                            <doc>to be used with start time Epoch timestamp that denotes the end of the time range queried for events</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:string">
+                            <doc>maximum number of results to return</doc>
+                        </param>
+                        <param name="pageToken" required="true" style="query" type="xsd:string">
+                            <doc>timestamp used to paginate the list of workouts The Developer must use the next link provided in the links section</doc>
+                        </param>
+                        <param name="startTime" required="true" style="query" type="xsd:string">
+                            <doc>to be used along with end time Epoch timestamp that denotes the start of the time range queried for events</doc>
+                        </param>
+                        <param name="updatedAfter" required="true" style="query" type="xsd:string">
+                            <doc>epoch timestamp to list events that are updated later than the timestamp To be used with start time to list events that were completed after said start time</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f661:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get user's meal list" id="662" name="GET">
+                    <doc>Returns the list of meals of the current user. This list can be paginated by date or timestamp.</doc>
+                    <request>
+                        <param name="date" required="true" style="query" type="xsd:string">
+                            <doc>date formatted as YYYYMMDD If omitted returns the information for today</doc>
+                        </param>
+                        <param name="endTime" required="true" style="query" type="xsd:string">
+                            <doc>to be used with start time Epoch timestamp that denotes the end of the time range queried for events</doc>
+                        </param>
+                        <param name="pageToken" required="true" style="query" type="xsd:string">
+                            <doc>timestamp used to paginate the list of meals The Developer must use the next link provided in the links section</doc>
+                        </param>
+                        <param name="startTime" required="true" style="query" type="xsd:string">
+                            <doc>to be used along with end time Epoch timestamp that denotes the start of the time range queried for events</doc>
+                        </param>
+                        <param name="updatedAfter" required="true" style="query" type="xsd:string">
+                            <doc>epoch timestamp to list events that are updated later than the timestamp To be used with start time to list events that were completed after said start time</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f662:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get user's sleep" id="663" name="GET">
+                    <doc>Returns the list of sleeps of the current user. This list can be paginated by date or timestamp.</doc>
+                    <request>
+                        <param name="date" required="true" style="query" type="xsd:string">
+                            <doc>date formatted as YYYYMMDD If omitted returns the information for today</doc>
+                        </param>
+                        <param name="endDate" required="true" style="query" type="xsd:string">
+                            <doc>to be used with start time Epoch timestamp that denotes the end of the time range queried for events</doc>
+                        </param>
+                        <param name="pageToken" required="true" style="query" type="xsd:string">
+                            <doc>timestamp used to paginate the list of sleeps The Developer must use the next link provided in the links section</doc>
+                        </param>
+                        <param name="startTime" required="true" style="query" type="xsd:string">
+                            <doc>to be used along with end time Epoch timestamp that denotes the start of the time range queried for events</doc>
+                        </param>
+                        <param name="updatedAfter" required="true" style="query" type="xsd:string">
+                            <doc>epoch timestamp to list events that are updated later than the timestamp To be used with start time to list events that were completed after said start time</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f663:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Record user's mood" id="666" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f666:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

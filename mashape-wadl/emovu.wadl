@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1427="urn:function:f1427" xmlns:f1428="urn:function:f1428" xmlns:f1429="urn:function:f1429">
+    <grammars>
+        <include href="Function1429.xsd"/>
+        <include href="Function1428.xsd"/>
+        <include href="Function1427.xsd"/>
+    </grammars>
+    <doc>deep Learning based emotion recognition software that reads facial micro expressions in real time with regular cameras</doc>
+    <resources base="https://eyeris-emovu1.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="video/">
+                <method displayName="Video" id="1429" name="POST">
+                    <doc>Use the video endpoint to extract age, gender, emotion, face recognition results and more from video files. All common video formats including .avi, .flv, .mpg, .mov, and .mp4 are supported. For a detailed description visit http://emovu.com/docs/html/web_api.htm.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1429:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="imageframe/">
+                <method displayName="ImageFrame" id="1428" name="POST">
+                    <doc>Use the imageframe endpoint to extract age, gender, emotion, face recognition results and more from an image sequence. The api response from the previous frame should be provided as an input parameter to process the current frame in order to avoid invoking the costly face detection process. For a detailed description visit http://emovu.com/docs/html/web_api.htm.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1428:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="image/">
+                <method displayName="Image" id="1427" name="POST">
+                    <doc>Use the image endpoint to extract age, gender, emotion, face recognition results and more from static images. All common image formats including .jpg, .bmp, .png, .tif, and .pgm are supported. For a detailed description visit http://emovu.com/docs/html/web_api.htm.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1427:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

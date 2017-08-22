@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7495="urn:function:f7495">
+    <grammars>
+        <include href="Function7495.xsd"/>
+    </grammars>
+    <doc>the API enables developers to submit content for translation via the SDL Language Cloud translation platform The API allows developers to offer translation as a service within their own applications by accessing proprietary SDL Machine Translation technology</doc>
+    <resources base="https://sdl-sdl-language-cloud-v1.p.mashape.com/">
+        <resource uri="translate/">
+            <method displayName="Translate text" id="7496" name="POST">
+                <doc>Translate a text</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="languages/">
+            <method displayName="Get Languages" id="7495" name="GET">
+                <doc>Retrieve available language pairings</doc>
+                <request/>
+                <response>
+                    <representation element="f7495:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="translations/">
+            <method displayName="Array Text Translation" id="7494" name="POST">
+                <doc>Array of text translation call between two languages defined using ISO 639(3 char code) or language id Note: The size limit for each text is 4500 bytes.</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

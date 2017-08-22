@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4669="urn:function:f4669" xmlns:f4670="urn:function:f4670" xmlns:f4671="urn:function:f4671" xmlns:f4672="urn:function:f4672" xmlns:f4673="urn:function:f4673">
+    <grammars>
+        <include href="Function4673.xsd"/>
+        <include href="Function4672.xsd"/>
+        <include href="Function4671.xsd"/>
+        <include href="Function4670.xsd"/>
+        <include href="Function4669.xsd"/>
+    </grammars>
+    <doc>calculate route information from the most accurate service based on live user traffic showing route duration distance tolls more</doc>
+    <resources base="https://bestapi-waze-unoffical-free-v1.p.mashape.com/">
+        <resource uri="routesXYwithDirections/">
+            <method displayName="Routes Directions (coordinates)" id="4673" name="GET">
+                <doc>get routes with directions by latitude and longitude coordinates</doc>
+                <request>
+                    <param name="endlat" required="true" style="query" type="xsd:string">
+                        <doc>end point latitude</doc>
+                    </param>
+                    <param name="endlon" required="true" style="query" type="xsd:string">
+                        <doc>end point longitude</doc>
+                    </param>
+                    <param name="startlat" required="true" style="query" type="xsd:string">
+                        <doc>start point latitude</doc>
+                    </param>
+                    <param name="startlon" required="true" style="query" type="xsd:string">
+                        <doc>start point longitude</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4673:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="routesXY/">
+            <method displayName="Routes Calculation (coordinates)" id="4672" name="GET">
+                <doc>get routes by latitude and longitude coordinates</doc>
+                <request>
+                    <param name="endlat" required="true" style="query" type="xsd:string">
+                        <doc>end point latitude</doc>
+                    </param>
+                    <param name="endlon" required="true" style="query" type="xsd:string">
+                        <doc>end point longitude</doc>
+                    </param>
+                    <param name="startlat" required="true" style="query" type="xsd:string">
+                        <doc>start point latitude</doc>
+                    </param>
+                    <param name="startlon" required="true" style="query" type="xsd:string">
+                        <doc>start point longitude</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4672:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="routes/">
+            <method displayName="Routes Calculation" id="4671" name="GET">
+                <doc>Send start&amp;end point (use "address list" call for more fine grained input) and get routes time &amp; cordinates</doc>
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:string">
+                        <doc>end point address</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>start point address</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4671:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="routesWithDirections/">
+            <method displayName="Routes  Directions" id="4670" name="GET">
+                <doc>Send start&amp;end point (use "address list" call for more fine grained input) and get routes with directions</doc>
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:string">
+                        <doc>end point address</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>start point address</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4670:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="addressList/">
+            <method displayName="Address List" id="4669" name="GET">
+                <doc>returns a list of address options from the user input free text, use this to give the users several options to choose from</doc>
+                <request>
+                    <param name="address" required="true" style="query" type="xsd:string">
+                        <doc>user free text address input</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4669:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

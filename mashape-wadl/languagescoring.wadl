@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4324="urn:function:f4324" xmlns:f4325="urn:function:f4325" xmlns:f4326="urn:function:f4326" xmlns:f4327="urn:function:f4327">
+    <grammars>
+        <include href="Function4326.xsd"/>
+        <include href="Function4327.xsd"/>
+        <include href="Function4324.xsd"/>
+        <include href="Function4325.xsd"/>
+    </grammars>
+    <doc>what s the difficulty level of this article Evaluate the difficulty level of a word sentence or paragraph and compare it with another</doc>
+    <resources base="https://twinword-language-scoring.p.mashape.com/">
+        <resource uri="word/">
+            <method displayName="Word (get)" id="4326" name="GET">
+                <doc>Evaluate the difficulty level of a word.</doc>
+                <request>
+                    <param name="entry" required="true" style="query" type="xsd:string">
+                        <doc>input a word to evaluate its difficulty level</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4326:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Word (post)" id="4327" name="POST">
+                <doc>Evaluate the difficulty level of a word.</doc>
+                <request/>
+                <response>
+                    <representation element="f4327:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="text/">
+            <method displayName="Text (get)" id="4324" name="GET">
+                <doc>Evaluate the difficulty level of a word, sentence, or paragraph.</doc>
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>input a some text to evaluate its difficulty level maximum words or characters</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4324:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Text (post)" id="4325" name="POST">
+                <doc>Evaluate the difficulty level of a word, sentence, or paragraph.</doc>
+                <request/>
+                <response>
+                    <representation element="f4325:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

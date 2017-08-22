@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6089="urn:function:f6089">
+    <grammars>
+        <include href="Function6089.xsd"/>
+    </grammars>
+    <doc>shortPixel is an image compression API that helps reduce the size of most common image files JPEG PNG and GIF also animated</doc>
+    <resources base="https://pagepeeker-shortpixel-image-optimiser-v1.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="reducer.php/">
+                <method displayName="Reducer" id="6089" name="GET">
+                    <doc>This is the main API, and allows you to shrink an image based on the URL of the image. The images has to be available online in order to be shrunk via this API.</doc>
+                    <request>
+                        <param name="lossy" required="true" style="query" type="xsd:integer">
+                            <doc>controls whether the image compression will use a lossy or lossless algorithm</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>the URL where the original image is located This needs to be a valid URL and urlencoded</doc>
+                        </param>
+                        <param name="wait" required="true" style="query" type="xsd:integer">
+                            <doc>set it to to wait for the conversion to be done before the API returns to return immediately If set to the API call will wait up to seconds for the image to be converted</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6089:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

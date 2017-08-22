@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7174="urn:function:f7174">
+    <grammars>
+        <include href="Function7174.xsd"/>
+    </grammars>
+    <doc>uK Postal Code ex ZE AE Sector District City and Wards Boundaries API A simple very fast API that will allow you to integrate multiple GeoJson UK boundaries results into your apps and systems This API is designed to be used programatically for optimal performance When using the MashApe UI for queries expect significant latency issues on large result sets</doc>
+    <resources base="https://vanitysoft-uk-boundaries-io-v1.p.mashape.com/">
+        <resource uri="reaperfire/">
+            <resource uri="rest/">
+                <resource uri="v1/">
+                    <resource uri="public/">
+                        <resource uri="boundary/">
+                            <resource uri="uk/">
+                                <method displayName="Retrieve UK Postal Sector Boundaries" id="7174" name="GET">
+                                    <doc>Get UK Postal-Unit(ex. ZE1 0AE) ,Sector,District, City, and wards  boundaries in GeoJson Formats.  The MashAPI UI cannot handle large results(we default to 30  limit), this API is meant to be used programatically.  Thanks.  Copy &amp; paste results: http://geojsonlint.com for a quick view.</doc>
+                                    <request>
+                                        <param name="and" required="true" style="query" type="xsd:boolean">
+                                            <doc>perform and AND true OR false query on request parameters DEFAULT IS FALSE</doc>
+                                        </param>
+                                        <param name="district" required="true" style="query" type="xsd:string">
+                                            <doc>query by District for example Aberdeen city</doc>
+                                        </param>
+                                        <param name="limit" required="true" style="query" type="xsd:integer"/>
+                                        <param name="postalArea" required="true" style="query" type="xsd:string">
+                                            <doc>query by Postal Area for example ZE</doc>
+                                        </param>
+                                        <param name="postalDistrict" required="true" style="query" type="xsd:string">
+                                            <doc>query by District for example ZE</doc>
+                                        </param>
+                                        <param name="postalSector" required="true" style="query" type="xsd:string">
+                                            <doc>query by Ward for example ZE</doc>
+                                        </param>
+                                        <param name="postalUnit" required="true" style="query" type="xsd:string">
+                                            <doc>query by postal units for example ZE AE</doc>
+                                        </param>
+                                        <param name="showpostalunits" required="true" style="query" type="xsd:boolean">
+                                            <doc>show all Postal Units withing the Postal Sector default is false</doc>
+                                        </param>
+                                        <param name="showsectorboundaries" required="true" style="query" type="xsd:boolean">
+                                            <doc>show Postal Sector boundaries polygons in GeoJson results</doc>
+                                        </param>
+                                        <param name="ward" required="true" style="query" type="xsd:string">
+                                            <doc>query by Ward for example Midstocket rosemount</doc>
+                                        </param>
+                                    </request>
+                                    <response>
+                                        <representation element="f7174:root" mediaType="application/json"/>
+                                    </response>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

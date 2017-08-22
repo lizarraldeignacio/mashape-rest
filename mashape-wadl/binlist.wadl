@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1268="urn:function:f1268">
+    <grammars>
+        <include href="Function1268.xsd"/>
+    </grammars>
+    <doc>binlist net is a public web service for searching Issuer Identification Numbers IIN The first digits of a credit card number are known as the Issuer Identification Number IIN previously known as Bank Identification Number BIN These identify the institution that issued the card to the card holder</doc>
+    <resources base="https://binlist.p.mashape.com/">
+        <resource uri="xml/">
+            <resource uri="{bin}/">
+                <param name="bin" style="template" type="xsd:string"/>
+                <method displayName="XML" id="1269" name="GET">
+                    <doc>Get issuing bank information in XML format</doc>
+                    <request>
+                        <param name="bin" required="true" style="query" type="xsd:string">
+                            <doc>bIN IIN number of the issuing bank</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="json/">
+            <resource uri="{bin}/">
+                <param name="bin" style="template" type="xsd:string"/>
+                <method displayName="JSON" id="1268" name="GET">
+                    <doc>Get issuing bank information in JSON format</doc>
+                    <request>
+                        <param name="bin" required="true" style="query" type="xsd:string">
+                            <doc>bIN IIN number of the issuing bank</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1268:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="csv/">
+            <resource uri="{bin}/">
+                <param name="bin" style="template" type="xsd:string"/>
+                <method displayName="CSV" id="1267" name="GET">
+                    <doc>Get issuing bank information in CSV format</doc>
+                    <request>
+                        <param name="bin" required="true" style="query" type="xsd:string">
+                            <doc>bIN IIN number of the issuing bank</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

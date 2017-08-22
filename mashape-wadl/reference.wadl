@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2496="urn:function:f2496" xmlns:f2497="urn:function:f2497" xmlns:f2498="urn:function:f2498" xmlns:f2499="urn:function:f2499" xmlns:f2500="urn:function:f2500">
+    <grammars>
+        <include href="Function2499.xsd"/>
+        <include href="Function2500.xsd"/>
+        <include href="Function2498.xsd"/>
+        <include href="Function2497.xsd"/>
+        <include href="Function2496.xsd"/>
+    </grammars>
+    <doc>the taps Reference API provides information about the data sources categories and locations available within the taps system This information can be used by external systems to do things such as displaying a pick list of available categories translating location codes into location names etc</doc>
+    <resources base="https://3taps-reference.p.mashape.com/">
+        <resource uri="locations/">
+            <method displayName="Location Lookups" id="2499" name="GET">
+                <request>
+                    <param name="autoToken" required="true" style="query" type="xsd:string">
+                        <doc>this will eventually be the authentication token used to authenticate the caller Note that this is currently ignored</doc>
+                    </param>
+                    <param name="code" required="true" style="query" type="xsd:string">
+                        <doc>the taps location code for the desired location</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2499:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Locations" id="2500" name="GET">
+                <doc>To obtain a list of locations</doc>
+                <request>
+                    <param name="city" required="true" style="query" type="xsd:string">
+                        <doc>only include locations that are completely or partly within the given city The parameter s value must be a valid taps city code</doc>
+                    </param>
+                    <param name="country" required="true" style="query" type="xsd:string">
+                        <doc>only include locations that are completely or partly within the given country The parameter s value must be a valid taps country code</doc>
+                    </param>
+                    <param name="county" required="true" style="query" type="xsd:string">
+                        <doc>only include locations that are completely or partly within the given county The parameter s value must be a valid taps county code</doc>
+                    </param>
+                    <param name="level" required="true" style="query" type="xsd:string">
+                        <doc>the desired location level The following location levels are currently supported country state metro region county city locality zipcode</doc>
+                    </param>
+                    <param name="locality" required="true" style="query" type="xsd:string">
+                        <doc>only include locations that are completely or partly within the given locality The parameter s value must be a valid taps locality code</doc>
+                    </param>
+                    <param name="maxLat" required="true" style="query" type="xsd:string">
+                        <doc>if these parameters are supplied only locations which are completely or partially enclosed by the given lat long bounding box will be returned</doc>
+                    </param>
+                    <param name="maxLong" required="true" style="query" type="xsd:string">
+                        <doc>if these parameters are supplied only locations which are completely or partially enclosed by the given lat long bounding box will be returned</doc>
+                    </param>
+                    <param name="metro" required="true" style="query" type="xsd:string">
+                        <doc>only include locations that are completely or partly within the given metro area The parameter s value must be a valid taps metro area code</doc>
+                    </param>
+                    <param name="minLat" required="true" style="query" type="xsd:string">
+                        <doc>if these parameters are supplied only locations which are completely or partially enclosed by the given lat long bounding box will be returned</doc>
+                    </param>
+                    <param name="minLong" required="true" style="query" type="xsd:string">
+                        <doc>if these parameters are supplied only locations which are completely or partially enclosed by the given lat long bounding box will be returned</doc>
+                    </param>
+                    <param name="region" required="true" style="query" type="xsd:string">
+                        <doc>only include locations that are completely or partly within the given region The parameter s value must be a valid taps region code</doc>
+                    </param>
+                    <param name="state" required="true" style="query" type="xsd:string">
+                        <doc>only include locations that are completely or partly within the given state The parameter s value must be a valid taps state code</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2500:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="sources/">
+            <method displayName="Data Sources" id="2498" name="GET">
+                <doc>To obtain a list of data sources</doc>
+                <request/>
+                <response>
+                    <representation element="f2498:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="category_groups/">
+            <method displayName="Category Groups" id="2497" name="GET">
+                <doc>To obtain a list of category groups</doc>
+                <request/>
+                <response>
+                    <representation element="f2497:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="categories/">
+            <method displayName="Categories" id="2496" name="GET">
+                <doc>To obtain a list of categories</doc>
+                <request/>
+                <response>
+                    <representation element="f2496:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

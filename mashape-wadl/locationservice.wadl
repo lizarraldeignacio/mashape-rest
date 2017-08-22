@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f581="urn:function:f581">
+    <grammars>
+        <include href="Function581.xsd"/>
+    </grammars>
+    <doc>location suburb postcode information which can is used to populate type ahead drop down similar to we have it on Lasoo com au Check right hand side corner on our site This service is available for Australian locations only</doc>
+    <resources base="https://lasoo-location-service.p.mashape.com/">
+        <resource uri="location/">
+            <resource uri="{location}/">
+                <param name="location" style="template" type="xsd:string"/>
+                <resource uri="clientkey/">
+                    <resource uri="{clientkey}/">
+                        <param name="clientkey" style="template" type="xsd:string"/>
+                        <method displayName="Location Service" id="581" name="GET">
+                            <doc>Location service</doc>
+                            <request>
+                                <param name="clientkey" required="true" style="query" type="xsd:string"/>
+                                <param name="location" required="true" style="query" type="xsd:string">
+                                    <doc>pass suburb name or post code in this parameter It is recommended to pass string length greater then</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f581:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

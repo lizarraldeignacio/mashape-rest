@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3739="urn:function:f3739">
+    <grammars>
+        <include href="Function3739.xsd"/>
+    </grammars>
+    <doc>the HTTP API is used to send simple SMS text messages by posting the message content and recipient information in a long URL</doc>
+    <resources base="https://talya-mizrahi-http-v1.p.mashape.com/">
+        <resource uri="jsp/">
+            <resource uri="receiveSMS.jsp/">
+                <method displayName="/jsp/receiveSMS.jsp" id="3739" name="POST">
+                    <doc>The HTTP API is used to send simple SMS text messages by posting the message content and recipient information in a long URL</doc>
+                    <request>
+                        <param name="password" required="true" style="query" type="xsd:string">
+                            <doc>teleMessage Account password</doc>
+                        </param>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>message body</doc>
+                        </param>
+                        <param name="to" required="true" style="query" type="xsd:string">
+                            <doc>mobile destination number in international format</doc>
+                        </param>
+                        <param name="userid" required="true" style="query" type="xsd:string">
+                            <doc>teleMessage Account username</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3739:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

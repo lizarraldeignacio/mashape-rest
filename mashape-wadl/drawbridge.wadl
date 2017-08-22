@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5930="urn:function:f5930">
+    <grammars>
+        <include href="Function5930.xsd"/>
+    </grammars>
+    <doc>precisely target mobile audiences and increase ROI Drawbridge technology enables targeting across devices to drive CPI CPL CPA and customer lifetime value Drawbridge s technology bridges audiences across devices and enables two mobile targeting and optimization products</doc>
+    <resources base="https://community-drawbridge.p.mashape.com/">
+        <resource uri="s/">
+            <resource uri="trackconversion/">
+                <method displayName="Track Conversion" id="5931" name="GET">
+                    <doc>Server-to-server conversion tracking and post-conversion API for Advertisers  This API enables advertisers to send conversion and post-conversion signals via server-to-server integration.  You can find all parameter combinations in http://doc.drawbrid.ge/#65,66,76,79-</doc>
+                    <request>
+                        <param name="aid" required="true" style="query" type="xsd:string">
+                            <doc>appstore ApplicationId such as for iPhone app OR com facebook katana for Android app</doc>
+                        </param>
+                        <param name="clip" required="true" style="query" type="xsd:string">
+                            <doc>client IP Address In case of a mobile device this is the IP closest to the device carrier IP or WiFi</doc>
+                        </param>
+                        <param name="dpid" required="true" style="query" type="xsd:string">
+                            <doc>unique Platform Device id for iOS apps it is the udid unique device identifier value and for Android apps it is the Android Id If these IDs are not available see other alternatives macsha and opudid below</doc>
+                        </param>
+                        <param name="dpidmd" required="true" style="query" type="xsd:string">
+                            <doc>mD of unique platform deviceId</doc>
+                        </param>
+                        <param name="dpidsha" required="true" style="query" type="xsd:string">
+                            <doc>sHA of unique platform deviceId</doc>
+                        </param>
+                        <param name="ifa" required="true" style="query" type="xsd:string">
+                            <doc>required for iOS for conversion tracking</doc>
+                        </param>
+                        <param name="imei" required="true" style="query" type="xsd:string">
+                            <doc>telephonyID Android only The IMEI MEID of the Android device</doc>
+                        </param>
+                        <param name="it" required="true" style="query" type="xsd:string">
+                            <doc>unique impression id if present</doc>
+                        </param>
+                        <param name="lbl" required="true" style="query" type="xsd:string">
+                            <doc>a unique label describing the action CT means conversions and PC means post conversion When the value is PC additional parameters have to be specified For the complete list of parameters refer to post conversion data section below</doc>
+                        </param>
+                        <param name="macaddr" required="true" style="query" type="xsd:string">
+                            <doc>raw MAC address for iOS and Android</doc>
+                        </param>
+                        <param name="macmd" required="true" style="query" type="xsd:string">
+                            <doc>mD hash of mac address for iOS and Andorid</doc>
+                        </param>
+                        <param name="macsha" required="true" style="query" type="xsd:string">
+                            <doc>sHA of device mac address Mostly for iOS apps as udid see dpid above is being deprecated If udid is not available to be passed in the dpid parameter a SHA of mac address if available should be passed here Otherwise see opudid below</doc>
+                        </param>
+                        <param name="odin" required="true" style="query" type="xsd:string">
+                            <doc>the ODIN value of the device For more information on ODIN go here</doc>
+                        </param>
+                        <param name="optout" required="true" style="query" type="xsd:string">
+                            <doc>optout field to indicate user opt out for behavior tracking for don t track for default</doc>
+                        </param>
+                        <param name="opudid" required="true" style="query" type="xsd:string">
+                            <doc>open UDID Mostly for iOS apps as udid see dpid above is being deprecated If this id is available it can be passed here too Refer to more details on Open UDID here</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="reports/">
+            <resource uri="get_adv_ad_stats/">
+                <method displayName="Ad Statistics" id="5930" name="GET">
+                    <doc>This API allows advertisers to retrieve impressions, clicks, conversions, spend and other metrics across all campaigns, for individual campaigns and ad sizes.</doc>
+                    <request>
+                        <param name="adGroupId" required="true" style="query" type="xsd:string">
+                            <doc>ad group ID the ID of the ad group for the report if omitted all ad groups are included</doc>
+                        </param>
+                        <param name="adId" required="true" style="query" type="xsd:string">
+                            <doc>ad ID the ID of the ad for the report if omitted all ads are included</doc>
+                        </param>
+                        <param name="campaignId" required="true" style="query" type="xsd:string">
+                            <doc>campaign ID the ID of the campaign for the report if omitted all campaigns are included</doc>
+                        </param>
+                        <param name="endDate" required="true" style="query" type="xsd:string">
+                            <doc>end date inclusive end date for the report in the format yyyy mm dd</doc>
+                        </param>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>output format can be json or csv</doc>
+                        </param>
+                        <param name="interval" required="true" style="query" type="xsd:string">
+                            <doc>grouping interval can be hour day week or month</doc>
+                        </param>
+                        <param name="prettyPrint" required="true" style="query" type="xsd:string">
+                            <doc>pretty print provide the JSON output in a human readable format</doc>
+                        </param>
+                        <param name="startDate" required="true" style="query" type="xsd:string">
+                            <doc>start date inclusive start date for the report in the format yyyy mm dd</doc>
+                        </param>
+                        <param name="timeZone" required="true" style="query" type="xsd:string">
+                            <doc>time zone time zone for input and output dates example America Los Angeles</doc>
+                        </param>
+                        <param name="version" required="true" style="query" type="xsd:string">
+                            <doc>aPI version the API documented here is version if omitted defaults to version</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5930:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

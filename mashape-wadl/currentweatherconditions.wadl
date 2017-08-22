@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6785="urn:function:f6785">
+    <grammars>
+        <include href="Function6785.xsd"/>
+    </grammars>
+    <doc>returns JSON current weather condition for a given location latitude and longitude Sample JSON response Altimeter County District of Columbia Date Sep pm EDT DewPoint Latitude LocationName Washington DC Reagan National Airport Longitude RelativeHumidity SeaLevelPressure State VA Temperature TimeZone EDT Visibility WindChill WindDirection WindGust WindSpeed</doc>
+    <resources base="https://currentweatherconditions.p.mashape.com/">
+        <resource uri="">
+            <method displayName="CurrentWeatherConditions" id="6785" name="POST">
+                <request/>
+                <response>
+                    <representation element="f6785:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

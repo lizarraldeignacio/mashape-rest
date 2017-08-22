@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3750="urn:function:f3750" xmlns:f3751="urn:function:f3751" xmlns:f3753="urn:function:f3753" xmlns:f3754="urn:function:f3754" xmlns:f3755="urn:function:f3755" xmlns:f3756="urn:function:f3756" xmlns:f3757="urn:function:f3757">
+    <grammars>
+        <include href="Function3755.xsd"/>
+        <include href="Function3756.xsd"/>
+        <include href="Function3753.xsd"/>
+        <include href="Function3754.xsd"/>
+        <include href="Function3751.xsd"/>
+        <include href="Function3750.xsd"/>
+        <include href="Function3757.xsd"/>
+    </grammars>
+    <doc>receive send SMS messages allocate phone numbers control incoming phone calls build IVRs connect calls and create automated outgoing phone calls Simply Voice SMS MMS in one easy API Visit www elks com for support and account creation</doc>
+    <resources base="https://46elks-46elks.p.mashape.com/">
+        <resource uri="none/">
+            <method displayName="Handle Phonecalls" id="3752" name="GET">
+                <doc>To handle phone calls please read the documentation at http://www.46elks.com/docs</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="a1/">
+            <resource uri="SMS/">
+                <method displayName="Send a new SMS" id="3755" name="POST">
+                    <doc>To send a new SMS simply POST to the /SMS resource. The "from" number can either be one of your previously allocated mobile phone numbers or an arbitrary alphanumeric string of at most 11 characters.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3755:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="SMS History" id="3756" name="GET">
+                    <doc>You can list the SMS messages you have sent and recevied with a simple GET to /SMS. By default you get the 100 latest items.</doc>
+                    <request>
+                        <param name="start" required="true" style="query" type="xsd:string">
+                            <doc>the time in history to start listing from</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3756:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="Numbers/">
+                <method displayName="Number Allocation" id="3753" name="POST">
+                    <doc>To allocate a new 46elks phone number make a POST request to the resource /Numbers. The variable "country" is mandatory, while "sms_url" and "voice_start" are optional.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3753:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Number Modification and Deallocation" id="3754" name="POST">
+                    <doc>For incoming SMS messages, the attribute "sms_url" on your numbers is used. And for incoming Voice calls, "voice_start" it what you are looking for. If you ever need to change these, either do it manually in the dashboard or use the API and simply do a POST like this:</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>phone number ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3754:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="Calls/">
+                <method displayName="Call History" id="3751" name="GET">
+                    <doc>You can list the Calls you have sent and recevied with a simple GET to /Calls. By default you get the 100 latest items.</doc>
+                    <request>
+                        <param name="start" required="true" style="query" type="xsd:string">
+                            <doc>the time in history to start listing from</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3751:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="Subaccounts/">
+                <method displayName="Adding a Subaccount" id="3750" name="POST">
+                    <doc>In order to create a new subaccount, simply make an HTTP POST to the /Subaccounts resource. The only mandatory key when creating a new subaccount is the key "name".</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3750:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Updating a Subbaccount" id="3757" name="POST">
+                    <doc>Update data for Subbaccounts</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3757:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

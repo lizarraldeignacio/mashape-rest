@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f871="urn:function:f871">
+    <grammars>
+        <include href="Function871.xsd"/>
+    </grammars>
+    <doc>human api is a platform that makes human health data available through a RESTful web service We make it very easy to securely get a human s current or past health data</doc>
+    <resources base="https://human.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Body fat by id" id="864" name="GET">
+                <doc>Returns a specific body fat recording</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="human/">
+            <method displayName="Active minutes by date" id="856" name="GET">
+                <doc>Returns a summary of the active minutes by a specific date</doc>
+                <request>
+                    <param name="date" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Blood glucose by date" id="857" name="GET">
+                <doc>Returns blood glucose readings for a specific date</doc>
+                <request>
+                    <param name="date" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Blood glucose by id" id="858" name="GET">
+                <doc>Returns a specific blood glucose reading</doc>
+                <request>
+                    <param name="bloodGlucoseId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Blood pressure by date" id="859" name="GET">
+                <request>
+                    <param name="date" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Blood pressure by id" id="860" name="GET">
+                <doc>Returns a specific blood pressure recording</doc>
+                <request>
+                    <param name="bloodPressureId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="BMI by id" id="861" name="GET">
+                <doc>Returns a specific BMI recording</doc>
+                <request>
+                    <param name="bmiId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="BMI for a specific date" id="862" name="GET">
+                <doc>Returns BMI recordings for a specific date</doc>
+                <request>
+                    <param name="date" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Body fat by date" id="863" name="GET">
+                <doc>Returns body fat recordings for a specific date</doc>
+                <request>
+                    <param name="date" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Genetics" id="865" name="GET">
+                <doc>Returns the genetic traits of the human</doc>
+                <request/>
+            </method>
+            <method displayName="Heart rate by date" id="866" name="GET">
+                <doc>Returns heart rate recordings for a specific date</doc>
+                <request>
+                    <param name="date" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Heart rate by id" id="867" name="GET">
+                <doc>Returns a specific heart rate recording</doc>
+                <request>
+                    <param name="heartRateId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Height by date" id="868" name="GET">
+                <doc>Returns height recordings for a specific date</doc>
+                <request>
+                    <param name="date" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Height by id" id="869" name="GET">
+                <doc>Returns a specific height recording</doc>
+                <request>
+                    <param name="heightId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Location by date" id="870" name="GET">
+                <doc>Returns a list of location recordings for a specific date</doc>
+                <request>
+                    <param name="date" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Profile" id="871" name="GET">
+                <doc>Returns the profile of the authenticated user</doc>
+                <request/>
+                <response>
+                    <representation element="f871:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Recent active minutes" id="872" name="GET">
+                <doc>Returns a summary of the most recent active minutes</doc>
+                <request/>
+            </method>
+            <method displayName="Recent blood gluecose" id="873" name="GET">
+                <doc>Returns the most recent blood glucose reading</doc>
+                <request/>
+            </method>
+            <method displayName="Recent blood pressure" id="874" name="GET">
+                <doc>Returns the most recent blood pressure recording</doc>
+                <request/>
+            </method>
+            <method displayName="Recent BMI" id="875" name="GET">
+                <doc>Returns the most recent BMI recording</doc>
+                <request/>
+            </method>
+            <method displayName="Recent body fat" id="876" name="GET">
+                <doc>Returns the most recent body fat recording</doc>
+                <request/>
+            </method>
+            <method displayName="Recent heart rate" id="877" name="GET">
+                <doc>Returns the most recent heart rate recording</doc>
+                <request/>
+            </method>
+            <method displayName="Recent height" id="878" name="GET">
+                <doc>Returns the most recent height recording</doc>
+                <request/>
+            </method>
+            <method displayName="Recent location" id="879" name="GET">
+                <doc>Returns a list of recent locations</doc>
+                <request/>
+            </method>
+            <method displayName="Recent sleep" id="880" name="GET">
+                <doc>Returns a summary of the most recent sleep recordings</doc>
+                <request/>
+            </method>
+            <method displayName="Recent sleep series" id="881" name="GET">
+                <doc>Returns the most recent time series of sleep recordings</doc>
+                <request/>
+            </method>
+            <method displayName="Recent time series of activities" id="882" name="GET">
+                <doc>Returns the most recent time series of activities</doc>
+                <request/>
+            </method>
+            <method displayName="Recent weight" id="883" name="GET">
+                <request/>
+            </method>
+            <method displayName="Sleep  by id" id="884" name="GET">
+                <doc>Returns a specific sleep recording</doc>
+                <request>
+                    <param name="sleepId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Sleep by date" id="885" name="GET">
+                <doc>Returns a summary of recent sleep recordings for a specific date</doc>
+                <request>
+                    <param name="date" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Sleep recordings by date" id="886" name="GET">
+                <doc>Returns the time series of sleep recordings for a specific date</doc>
+                <request>
+                    <param name="date" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Summary" id="887" name="GET">
+                <doc>Returns a summary of the user's current health data</doc>
+                <request/>
+            </method>
+            <method displayName="Time series of activities by date" id="888" name="GET">
+                <doc>Returns the time series of activities for a specific date</doc>
+                <request>
+                    <param name="date" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Weight by date" id="889" name="GET">
+                <doc>Returns weight recordings for a specific date</doc>
+                <request>
+                    <param name="date" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Weight by id" id="890" name="GET">
+                <doc>Returns a specific weight recording</doc>
+                <request>
+                    <param name="weightId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f569="urn:function:f569" xmlns:f574="urn:function:f574">
+    <grammars>
+        <include href="Function574.xsd"/>
+        <include href="Function569.xsd"/>
+    </grammars>
+    <doc>Free API Extract and analyse articles from links RSS feeds or text Partial to full text RSS article classification summaries author content wrapper extraction keywords entities and more This API intends to extract relevant features from articles so you can enhance your applications Particularly the features that we extract from articles are title author published date only RSS category ies of the articles keywords and bigrams entities main content HTML wrapper and cleaned text main image summary most relevant sentences and language detection languages Research paper http arxiv org abs</doc>
+    <resources base="https://joanfihu-article-analysis-v1.p.mashape.com/">
+        <resource uri="text/">
+            <method displayName="Text Analysis" id="577" name="POST">
+                <doc>This method analyses a piece of text and returns relevant features such as: keywords and bigrams, language, category/ies and summary.  Note: if you use the unirest library, you will have to change the timeout to 240+. Python example: unirest.timeout(240)</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="summarize/">
+            <method displayName="Summarize" id="576" name="POST">
+                <doc>Summarize an article into the most relevant sentences. The results are order by relevance, thus top sentences are more important.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="language_detection/">
+            <method displayName="Language Detection" id="575" name="POST">
+                <doc>This method detects the language of a text. It detects up to 98 languages.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="full_text/">
+            <method displayName="Full Text RSS" id="574" name="GET">
+                <doc>Improves the data quality of a RSS feed. Extracts missing values such as: keywords, categories, full content, author, etc. Be patient, this task might take a few minutes to complete. Set a sensible timeout e.g -&gt; 240 seconds. if you use the unirest library, you will have to change the timeout to 240+. Python example: unirest.timeout(240)</doc>
+                <request>
+                    <param name="feed" required="true" style="query" type="xsd:string">
+                        <doc>feed URL to improve data quality</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>format of the output rss or json</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>number of items you want to extract from the feed If omitted up to items will be processed</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f574:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="entity_extraction/">
+            <method displayName="Entity Extraction" id="573" name="POST">
+                <doc>Extract entities from a piece of text or link.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="detect_rss/">
+            <method displayName="Detect RSS Feed" id="572" name="GET">
+                <doc>Detect RSS feeds in a page</doc>
+                <request>
+                    <param name="link" required="true" style="query" type="xsd:string">
+                        <doc>link of the page you want to find feeds</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="text_classification/">
+            <method displayName="Classification" id="571" name="POST">
+                <doc>Classifies an article according to the IPTC news taxonomy.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="author/">
+            <method displayName="Author" id="570" name="GET">
+                <doc>Extracts the author of an article</doc>
+                <request>
+                    <param name="link" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="link/">
+            <method displayName="Article Analysis" id="569" name="GET">
+                <doc>Extract features from the given url: title, text, summary, main image, keywords, entities, etc. Note: if you use the unirest library, you will have to change the timeout to 240+. Python example: unirest.timeout(240)</doc>
+                <request>
+                    <param name="entityDescription" required="true" style="query" type="xsd:string">
+                        <doc>look up entities on DBPedia It will take a little longer to analyse the article</doc>
+                    </param>
+                    <param name="link" required="true" style="query" type="xsd:string">
+                        <doc>link of the article you want to analyse Use text if you want to analyse text</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f569:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

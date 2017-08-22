@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6581="urn:function:f6581" xmlns:f6582="urn:function:f6582" xmlns:f6583="urn:function:f6583">
+    <grammars>
+        <include href="Function6583.xsd"/>
+        <include href="Function6582.xsd"/>
+        <include href="Function6581.xsd"/>
+    </grammars>
+    <doc>orion API One API for PSN Xbox live and Steam The information you will receive The Avatar GamerTag Name and the games played Additional for Xbox live and Steam you will be able to see friends Email us for any questions admin bundlecamp com</doc>
+    <resources base="https://orion-social.p.mashape.com/">
+        <resource uri="xboxlive/">
+            <resource uri="{gamertag}/">
+                <param name="gamertag" style="template" type="xsd:string"/>
+                <resource uri="{action}/">
+                    <param name="action" style="template" type="xsd:string"/>
+                    <method displayName="Xbox Live" id="6583" name="GET">
+                        <doc>Xbox Live Profile</doc>
+                        <request>
+                            <param name="action" required="true" style="query" type="xsd:string">
+                                <doc>the information that is being requested Can be profile friends or games</doc>
+                            </param>
+                            <param name="gamertag" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f6583:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="steam/">
+            <resource uri="{steam_community_name}/">
+                <param name="steam_community_name" style="template" type="xsd:string"/>
+                <resource uri="{action}/">
+                    <param name="action" style="template" type="xsd:string"/>
+                    <method displayName="Steam" id="6582" name="GET">
+                        <doc>Steam Profile</doc>
+                        <request>
+                            <param name="action" required="true" style="query" type="xsd:string">
+                                <doc>the information that is being requested Can be profile friends or games</doc>
+                            </param>
+                            <param name="steamCommunityName" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f6582:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="status.json/">
+            <method displayName="Status" id="6581" name="GET">
+                <doc>Grabs the current status (offline/online) of each platform from the official website of that platform</doc>
+                <request/>
+                <response>
+                    <representation element="f6581:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

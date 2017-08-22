@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>with a few lines of code your customers can start printing their or your designs locally at D printers in their neighborhood Add the following to your site where desired</doc>
+    <resources base="https://nathantone-makexyz.p.mashape.com/">
+        <resource uri="upload_design/">
+            <method displayName="upload" id="6716" name="POST">
+                <doc>The user's file will be uploaded to makexyz, and the API will return a link to the page where the file has been uploaded. The user can then proceed to makexyz to checkout… and enjoy the wonders of printing locally.</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

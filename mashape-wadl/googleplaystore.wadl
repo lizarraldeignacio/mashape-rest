@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1156="urn:function:f1156" xmlns:f1157="urn:function:f1157" xmlns:f1158="urn:function:f1158" xmlns:f1159="urn:function:f1159" xmlns:f1160="urn:function:f1160" xmlns:f1161="urn:function:f1161" xmlns:f1162="urn:function:f1162" xmlns:f1163="urn:function:f1163" xmlns:f1164="urn:function:f1164" xmlns:f1165="urn:function:f1165" xmlns:f1166="urn:function:f1166" xmlns:f1167="urn:function:f1167" xmlns:f1168="urn:function:f1168" xmlns:f1169="urn:function:f1169">
+    <grammars>
+        <include href="Function1169.xsd"/>
+        <include href="Function1168.xsd"/>
+        <include href="Function1167.xsd"/>
+        <include href="Function1166.xsd"/>
+        <include href="Function1165.xsd"/>
+        <include href="Function1164.xsd"/>
+        <include href="Function1163.xsd"/>
+        <include href="Function1162.xsd"/>
+        <include href="Function1161.xsd"/>
+        <include href="Function1160.xsd"/>
+        <include href="Function1158.xsd"/>
+        <include href="Function1157.xsd"/>
+        <include href="Function1156.xsd"/>
+        <include href="Function1159.xsd"/>
+    </grammars>
+    <doc>need to see up to date reviews ratings and rankings for products on the Google Play Store in each country Here it is An easy to use web service that retrieves current application details from Google Play Store Just give it an application id</doc>
+    <resources base="https://gplaystore.p.mashape.com/">
+        <resource uri="topPaidGames/">
+            <resource uri="{category}/">
+                <param name="category" style="template" type="xsd:string"/>
+                <method displayName="Top paid games" id="1169" name="GET">
+                    <request>
+                        <param name="category" required="true" style="query" type="xsd:string">
+                            <doc>desired category</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1169:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="topPaidApps/">
+            <resource uri="{category}/">
+                <param name="category" style="template" type="xsd:string"/>
+                <method displayName="Top paid applications" id="1168" name="GET">
+                    <request>
+                        <param name="category" required="true" style="query" type="xsd:string">
+                            <doc>desired category</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1168:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="topGrossingGames/">
+            <resource uri="{category}/">
+                <param name="category" style="template" type="xsd:string"/>
+                <method displayName="Top grossing games" id="1167" name="GET">
+                    <request>
+                        <param name="category" required="true" style="query" type="xsd:string">
+                            <doc>desired category</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1167:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="topGrossingApps/">
+            <resource uri="{category}/">
+                <param name="category" style="template" type="xsd:string"/>
+                <method displayName="Top grossing applications" id="1166" name="GET">
+                    <request>
+                        <param name="category" required="true" style="query" type="xsd:string">
+                            <doc>desired category</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1166:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="topFreeGames/">
+            <resource uri="{category}/">
+                <param name="category" style="template" type="xsd:string"/>
+                <method displayName="Top free games" id="1165" name="GET">
+                    <request>
+                        <param name="category" required="true" style="query" type="xsd:string">
+                            <doc>desired category</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1165:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="topFreeApps/">
+            <resource uri="{category}/">
+                <param name="category" style="template" type="xsd:string"/>
+                <method displayName="Top free applications" id="1164" name="GET">
+                    <request>
+                        <param name="category" required="true" style="query" type="xsd:string">
+                            <doc>desired category</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1164:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="newPaidGames/">
+            <resource uri="{category}/">
+                <param name="category" style="template" type="xsd:string"/>
+                <method displayName="New paid games" id="1163" name="GET">
+                    <request>
+                        <param name="category" required="true" style="query" type="xsd:string">
+                            <doc>desired category</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1163:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="newPaidApps/">
+            <resource uri="{category}/">
+                <param name="category" style="template" type="xsd:string"/>
+                <method displayName="New paid applications" id="1162" name="GET">
+                    <request>
+                        <param name="category" required="true" style="query" type="xsd:string">
+                            <doc>desired category</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1162:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="newFreeGames/">
+            <resource uri="{category}/">
+                <param name="category" style="template" type="xsd:string"/>
+                <method displayName="New free games" id="1161" name="GET">
+                    <request>
+                        <param name="category" required="true" style="query" type="xsd:string">
+                            <doc>desired category</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1161:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="newFreeApps/">
+            <resource uri="{category}/">
+                <param name="category" style="template" type="xsd:string"/>
+                <method displayName="New free applications" id="1160" name="GET">
+                    <request>
+                        <param name="category" required="true" style="query" type="xsd:string">
+                            <doc>desired category</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1160:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="applicationSearch/">
+            <method displayName="Application Search" id="1158" name="GET">
+                <doc>Search into the store</doc>
+                <request>
+                    <param name="lang" required="true" style="query" type="xsd:string">
+                        <doc>desired language</doc>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>search query</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1158:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="applicationReviews/">
+            <method displayName="Application Reviews" id="1157" name="GET">
+                <doc>Get application reviews</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>application package id</doc>
+                    </param>
+                    <param name="lang" required="true" style="query" type="xsd:string">
+                        <doc>reviews language</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>reviews page number</doc>
+                    </param>
+                    <param name="versionnumber" required="true" style="query" type="xsd:integer">
+                        <doc>application version number</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1157:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="applicationDetails/">
+            <method displayName="Application Details" id="1156" name="GET">
+                <doc>Get application details as displayed on Google Play Store</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>application package id</doc>
+                    </param>
+                    <param name="lang" required="true" style="query" type="xsd:string">
+                        <doc>output language</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1156:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Multiple application Details" id="1159" name="POST">
+                <doc>Get multiple application details with a single request. Billed 1.5x</doc>
+                <request/>
+                <response>
+                    <representation element="f1159:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="applicationCategories/">
+            <method displayName="Application Categories" id="1155" name="GET">
+                <doc>Get application categories</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

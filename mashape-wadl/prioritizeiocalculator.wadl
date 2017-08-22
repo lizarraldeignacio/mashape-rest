@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6440="urn:function:f6440">
+    <grammars>
+        <include href="Function6440.xsd"/>
+    </grammars>
+    <doc>prioritization as a Service We focus on the aspects of creating a quality prioritized result and provide the tools as developer services This allows you keep your ecosystem and brand while still improving the results We hope to empower better decisions with prioritization</doc>
+    <resources base="https://prioritize-io-calculator.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="calculate/">
+                <method displayName="Calculate" id="6440" name="POST">
+                    <doc>Takes in a subject to prioritize and returns a Json prioritized list.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f6440:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6110="urn:function:f6110" xmlns:f6111="urn:function:f6111">
+    <grammars>
+        <include href="Function6111.xsd"/>
+        <include href="Function6110.xsd"/>
+    </grammars>
+    <doc>embed any url with oEmbed Extract any url and get meta tags and the full content from any article</doc>
+    <resources base="https://embedkit-embedkit-v1.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="extract/">
+                <method displayName="Extract" id="6111" name="GET">
+                    <request>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>the URL s to extract comma separated</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6111:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="embed/">
+                <method displayName="Embed" id="6110" name="GET">
+                    <doc>Get embed for URL</doc>
+                    <request>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>the URL s to embed comma separated</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6110:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

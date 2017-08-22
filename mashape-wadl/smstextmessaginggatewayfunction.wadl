@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>sMS TEXT API GATEWAY CLOUD RESTFUL AND LIGHTWEIGHT API Send and receive text messages directly from and to your web application or IT systems via our API With access to our well documented and supported API you will be able to connect directly</doc>
+    <resources base="https://innovativetxt.p.mashape.com/">
+        <resource uri="http:/">
+            <resource uri="">
+                <resource uri="rest.innovativetxt.com/">
+                    <resource uri="smsapi/">
+                        <method displayName="SendSMS" id="1548" name="GET">
+                            <doc>Send SMS Text Messages</doc>
+                            <request>
+                                <param name="from" required="true" style="query" type="xsd:string">
+                                    <doc>required Sender Name Alpha Numeric or Dedicated Long Code</doc>
+                                </param>
+                                <param name="message" required="true" style="query" type="xsd:string">
+                                    <doc>required Message to be sent</doc>
+                                </param>
+                                <param name="to" required="true" style="query" type="xsd:string">
+                                    <doc>required Mobile number in International Format and one recipient per request e g for UK</doc>
+                                </param>
+                                <param name="type" required="true" style="query" type="xsd:string">
+                                    <doc>optional Not required for normal text messages This needs to be set to unicode if sending the unicode message e g for Message in Arabic</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

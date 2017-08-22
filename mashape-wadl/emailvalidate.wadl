@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f391="urn:function:f391">
+    <grammars>
+        <include href="Function391.xsd"/>
+    </grammars>
+    <doc>parse validate and clean an email address This API performs the following functions Syntax Checks Check if the email address is RFC RFC compliant DNS Checks Check if the email address domain resolves correctly and has valid MX mail exchanger records Typo Fixing Fix common domain TLD top level domain and freemail email address typos Freemail Check Determine if the email address is a freemail registered email address i e not a commercial address</doc>
+    <resources base="https://community-neutrino-email-validate.p.mashape.com/">
+        <resource uri="email-validate/">
+            <method displayName="Email Validate" id="391" name="POST">
+                <request/>
+                <response>
+                    <representation element="f391:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

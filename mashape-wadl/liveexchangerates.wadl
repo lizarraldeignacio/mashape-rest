@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7350="urn:function:f7350">
+    <grammars>
+        <include href="Function7350.xsd"/>
+    </grammars>
+    <doc>latest currency exchange rates update every second</doc>
+    <resources base="https://thi-live-exchange-rates-v1.p.mashape.com/">
+        <resource uri="{currency-pair}/">
+            <param name="currency-pair" style="template" type="xsd:string"/>
+            <method displayName="latest" id="7350" name="GET">
+                <doc>Latest currency exchange rate of given currency pair</doc>
+                <request>
+                    <param name="currencyPair" required="true" style="query" type="xsd:string">
+                        <doc>for example USDJPY</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f7350:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

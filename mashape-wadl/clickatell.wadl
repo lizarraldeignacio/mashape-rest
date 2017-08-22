@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>use Clickatell s global SMS Gateway to send bulk SMS to over billion people on networks in countries territories This product provides an interface between your existing systems and Clickatell s Messaging Gateway</doc>
+    <resources base="https://community-clickatell.p.mashape.com/">
+        <resource uri="sendmsg/">
+            <method displayName="Send Message" id="3659" name="GET">
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="to" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

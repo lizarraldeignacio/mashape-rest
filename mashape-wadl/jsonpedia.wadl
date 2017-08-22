@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5306="urn:function:f5306">
+    <grammars>
+        <include href="Function5306.xsd"/>
+    </grammars>
+    <doc>jSONpedia API is designed to simplify access at MediaWiki contents transforming everything into JSON Such API provides a REST service to parse convert and enrich WikiText documents JSONpedia supplies capabilities for recursive template expansion and mapping to DBpedia This framework has been designed to extract linguistic resources from the Wikipedia and to enable massive data scraping Our mission is to deliver a general purpose infrastructure for Wikipedia multi language data consumption both for researchers and industry</doc>
+    <resources base="https://michelemostarda-JSONpedia-v1.p.mashape.com/">
+        <resource uri="annotate/">
+            <resource uri="resource/">
+                <resource uri="json/">
+                    <resource uri="{entity}?&amp;procs=extractors,linkers,splitters,structure/">
+                        <param name="entity" style="template" type="xsd:string"/>
+                        <method displayName="annotate" id="5306" name="GET">
+                            <doc>Annotate endpoint</doc>
+                            <request>
+                                <param name="entity" required="true" style="query" type="xsd:string">
+                                    <doc>specify entity as combination lang wikipage examples en London en Albert Einstein</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f5306:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

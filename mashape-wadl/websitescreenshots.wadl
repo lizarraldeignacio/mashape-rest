@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>generate screenshots of websites in JPEG or PNG This can either be the desktop version mobile version or the full page version of a website</doc>
+    <resources base="https://thumbnail-thumbnail-v1.p.mashape.com/">
+        <resource uri="get/">
+            <method displayName="get" id="18" name="GET">
+                <doc>Creates a thumbnail for the given url.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>the output format Currently PNG and JPEG are supported</doc>
+                    </param>
+                    <param name="fullpage" required="true" style="query" type="xsd:boolean">
+                        <doc>if set to true the entire page will be rendered</doc>
+                    </param>
+                    <param name="mobile" required="true" style="query" type="xsd:boolean">
+                        <doc>if set to true a screenshot of the mobile website will be returned</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>the URL of the website you want to caputre E g http thumbnail ws or https www google com</doc>
+                    </param>
+                    <param name="width" required="true" style="query" type="xsd:integer">
+                        <doc>the width of the screenshot</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

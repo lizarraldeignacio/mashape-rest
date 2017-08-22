@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6488="urn:function:f6488" xmlns:f6489="urn:function:f6489" xmlns:f6491="urn:function:f6491" xmlns:f6492="urn:function:f6492" xmlns:f6493="urn:function:f6493" xmlns:f6495="urn:function:f6495" xmlns:f6498="urn:function:f6498" xmlns:f6499="urn:function:f6499" xmlns:f6500="urn:function:f6500">
+    <grammars>
+        <include href="Function6500.xsd"/>
+        <include href="Function6499.xsd"/>
+        <include href="Function6498.xsd"/>
+        <include href="Function6495.xsd"/>
+        <include href="Function6493.xsd"/>
+        <include href="Function6492.xsd"/>
+        <include href="Function6491.xsd"/>
+        <include href="Function6489.xsd"/>
+        <include href="Function6488.xsd"/>
+    </grammars>
+    <doc>slice has developed technology to extract purchase data from an email inbox and with the Slice Platform we are allowing developers everywhere to build awesome experiences that leverage their users purchase data We power applications from recommendation software to notification services to personal asset management software</doc>
+    <resources base="https://slice-slice-v1.p.mashape.com/">
+        <resource uri="users/">
+            <resource uri="self/">
+                <method displayName="Users" id="6500" name="GET">
+                    <doc>Users resource</doc>
+                    <request/>
+                    <response>
+                        <representation element="f6500:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="shippers/">
+            <method displayName="Shippers" id="6499" name="GET">
+                <doc>Shippers Resources</doc>
+                <request/>
+                <response>
+                    <representation element="f6499:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="shipments/">
+            <method displayName="Shipments" id="6498" name="GET">
+                <doc>Shipments Resources</doc>
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>limits the response to contain only limit entries</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>offset the results by offset entries</doc>
+                    </param>
+                    <param name="showdeleted" required="true" style="query" type="xsd:boolean">
+                        <doc>show deleted entries true or false default is false</doc>
+                    </param>
+                    <param name="since" required="true" style="query" type="xsd:string">
+                        <doc>timestamp in milliseconds since the UNIX epoch Returns orders that have been placed since the timestamp</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6498:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="recalls/">
+            <method displayName="Recalls" id="6497" name="GET">
+                <doc>Recalls Resources</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="purchasetypes/">
+            <method displayName="Purchase Types" id="6496" name="GET">
+                <doc>Purchase Types Resources</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="providers/">
+            <method displayName="Providers" id="6495" name="GET">
+                <doc>Mail Providers Resources</doc>
+                <request/>
+                <response>
+                    <representation element="f6495:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="orders/">
+            <method displayName="Orders" id="6494" name="GET">
+                <doc>Orders collection resources</doc>
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>limits the response to contain only limit entries</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>offset the results by offset entries</doc>
+                    </param>
+                    <param name="showdeleted" required="true" style="query" type="xsd:boolean">
+                        <doc>show deleted entries true or false default is false</doc>
+                    </param>
+                    <param name="since" required="true" style="query" type="xsd:string">
+                        <doc>timestamp in milliseconds since the UNIX epoch Returns orders that have been placed since the timestamp</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="merchants/">
+            <method displayName="Merchants" id="6493" name="GET">
+                <doc>Merchants Resources</doc>
+                <request/>
+                <response>
+                    <representation element="f6493:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="mailboxes/">
+            <method displayName="Mailboxes" id="6492" name="GET">
+                <doc>Mailboxes Resources</doc>
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>limits the response to contain only limit entries</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>offset the results by offset entries</doc>
+                    </param>
+                    <param name="showdeleted" required="true" style="query" type="xsd:boolean">
+                        <doc>show deleted entries true or false default is false</doc>
+                    </param>
+                    <param name="since" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6492:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="actions/">
+            <resource uri="update/">
+                <method displayName="Login-Update" id="6491" name="GET">
+                    <doc>Action to tell Slice to recrawl the mailboxes of a user who has just logged in</doc>
+                    <request/>
+                    <response>
+                        <representation element="f6491:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="items/">
+            <method displayName="Items" id="6490" name="GET">
+                <doc>Items Resources</doc>
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>limits the response to contain only limit entries</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>offset the results by offset entries</doc>
+                    </param>
+                    <param name="showdeleted" required="true" style="query" type="xsd:boolean">
+                        <doc>show deleted entries true or false default is false</doc>
+                    </param>
+                    <param name="since" required="true" style="query" type="xsd:string">
+                        <doc>timestamp in milliseconds since the UNIX epoch Returns orders that have been placed since the timestamp</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="emails/">
+            <method displayName="Emails" id="6489" name="GET">
+                <doc>Emails Resources</doc>
+                <request/>
+                <response>
+                    <representation element="f6489:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="categories/">
+            <method displayName="Categories" id="6488" name="GET">
+                <doc>Categories Resources</doc>
+                <request/>
+                <response>
+                    <representation element="f6488:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

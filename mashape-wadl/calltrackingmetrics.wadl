@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2825="urn:function:f2825" xmlns:f2826="urn:function:f2826" xmlns:f2827="urn:function:f2827" xmlns:f2828="urn:function:f2828" xmlns:f2829="urn:function:f2829" xmlns:f2830="urn:function:f2830" xmlns:f2831="urn:function:f2831" xmlns:f2832="urn:function:f2832" xmlns:f2833="urn:function:f2833" xmlns:f2834="urn:function:f2834" xmlns:f2835="urn:function:f2835" xmlns:f2836="urn:function:f2836" xmlns:f2837="urn:function:f2837" xmlns:f2838="urn:function:f2838" xmlns:f2839="urn:function:f2839" xmlns:f2840="urn:function:f2840" xmlns:f2841="urn:function:f2841" xmlns:f2842="urn:function:f2842" xmlns:f2843="urn:function:f2843" xmlns:f2844="urn:function:f2844" xmlns:f2845="urn:function:f2845" xmlns:f2846="urn:function:f2846" xmlns:f2847="urn:function:f2847">
+    <grammars>
+        <include href="Function2840.xsd"/>
+        <include href="Function2836.xsd"/>
+        <include href="Function2847.xsd"/>
+        <include href="Function2846.xsd"/>
+        <include href="Function2839.xsd"/>
+        <include href="Function2834.xsd"/>
+        <include href="Function2842.xsd"/>
+        <include href="Function2841.xsd"/>
+        <include href="Function2833.xsd"/>
+        <include href="Function2844.xsd"/>
+        <include href="Function2843.xsd"/>
+        <include href="Function2832.xsd"/>
+        <include href="Function2831.xsd"/>
+        <include href="Function2830.xsd"/>
+        <include href="Function2837.xsd"/>
+        <include href="Function2829.xsd"/>
+        <include href="Function2838.xsd"/>
+        <include href="Function2827.xsd"/>
+        <include href="Function2845.xsd"/>
+        <include href="Function2828.xsd"/>
+        <include href="Function2826.xsd"/>
+        <include href="Function2825.xsd"/>
+        <include href="Function2835.xsd"/>
+    </grammars>
+    <doc>track the performance of your advertising with instantly activated tracking numbers in countries Integrate with Google and track down to keyword level</doc>
+    <resources base="https://ctm.p.mashape.com/">
+        <resource uri="formreactor/">
+            <resource uri="{formreactor_id}/">
+                <param name="formreactor_id" style="template" type="xsd:string"/>
+                <method displayName="POST FormReactor Webhook" id="2840" name="POST">
+                    <doc>Allow any service to start a FormReactor call flow. This will save data into the call log as a Form Lead as well as trigger a phone call to the designated Sales phone number.</doc>
+                    <request>
+                        <param name="formreactorId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f2840:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="v1/">
+            <resource uri="accounts/">
+                <resource uri="{aid}/">
+                    <param name="aid" style="template" type="xsd:string"/>
+                    <resource uri="numbers.json/">
+                        <method displayName="List Numbers" id="2836" name="GET">
+                            <doc>The numbers API allows you to search, purchase, and manage settings on each tracking number.</doc>
+                            <request>
+                                <param name="aid" required="true" style="query" type="xsd:string"/>
+                                <param name="page" required="true" style="query" type="xsd:string">
+                                    <doc>the page offset to query</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2836:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="accounts/">
+            <resource uri="{account_id}/">
+                <param name="account_id" style="template" type="xsd:string"/>
+                <resource uri="sms.json/">
+                    <method displayName="Sending SMS Text Messages" id="2847" name="POST">
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f2847:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="numbers/">
+                    <resource uri="search.json/">
+                        <method displayName="Search Numbers" id="2846" name="GET">
+                            <request>
+                                <param name="accountId" required="true" style="query" type="xsd:string"/>
+                                <param name="areaCode" required="true" style="query" type="xsd:string">
+                                    <doc>an area code to search and match on</doc>
+                                </param>
+                                <param name="countryCode" required="true" style="query" type="xsd:string">
+                                    <doc>the country where you would like to purchase this number currently supported countries include US and CA</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2846:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="webhooks.json/">
+                    <method displayName="POST Create a Webhook" id="2839" name="POST">
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f2839:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="calls.json/">
+                    <method displayName="GET Calls" id="2834" name="GET">
+                        <doc>The Calls API allows you easy access to all your call data. You can subscribe to new incoming calls to receive an HTTP request when a call is completed. You can also query the call API to retrieve all past calls.</doc>
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            <param name="endDate" required="true" style="query" type="xsd:string">
+                                <doc>a ending date offset to query</doc>
+                            </param>
+                            <param name="filter" required="true" style="query" type="xsd:string">
+                                <doc>a search string to look for calls with specific callerid caller number called number source name etc</doc>
+                            </param>
+                            <param name="page" required="true" style="query" type="xsd:string">
+                                <doc>the page offset to query</doc>
+                            </param>
+                            <param name="startDate" required="true" style="query" type="xsd:string">
+                                <doc>a starting date offset to query</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2834:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="calls/">
+                    <resource uri="{call_id}/">
+                        <param name="call_id" style="template" type="xsd:string"/>
+                        <resource uri="sale.json/">
+                            <method displayName="POST Sale Record" id="2842" name="POST">
+                                <request>
+                                    <param name="accountId" required="true" style="query" type="xsd:string"/>
+                                    <param name="callId" required="true" style="query" type="xsd:string"/>
+                                </request>
+                                <response>
+                                    <representation element="f2842:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                        <resource uri="modify.json/">
+                            <method displayName="POST Modify Call Data" id="2841" name="POST">
+                                <request>
+                                    <param name="accountId" required="true" style="query" type="xsd:string"/>
+                                    <param name="callId" required="true" style="query" type="xsd:string"/>
+                                </request>
+                                <response>
+                                    <representation element="f2841:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                    <resource uri="{callid}.json/">
+                        <param name="callid" style="template" type="xsd:string"/>
+                        <method displayName="GET Call Detail" id="2833" name="GET">
+                            <request>
+                                <param name="accountId" required="true" style="query" type="xsd:string"/>
+                                <param name="callid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f2833:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="sms/">
+                    <resource uri="update_trigger.json/">
+                        <method displayName="PUT SMS Triggers" id="2844" name="PUT">
+                            <request>
+                                <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f2844:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="create_trigger.json/">
+                        <method displayName="POST SMS Triggers" id="2843" name="POST">
+                            <doc>Triggers allow you to define how to react when receiving a text message. Should we auto respond with a message, forward the message to another phone, send an email etc...</doc>
+                            <request>
+                                <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f2843:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="delete_trigger.json/">
+                        <method displayName="DELETE SMS Triggers" id="2832" name="DELETE">
+                            <request>
+                                <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f2832:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="webhooks/">
+                    <resource uri="{webhook-id}.json/">
+                        <param name="webhook-id" style="template" type="xsd:string"/>
+                        <method displayName="DELETE Delete a WebHook" id="2831" name="GET">
+                            <request>
+                                <param name="accountId" required="true" style="query" type="xsd:string"/>
+                                <param name="webhookId" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f2831:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="numbers.json/">
+                    <method displayName="Buy Number" id="2830" name="POST">
+                        <doc>Request paramaters are sent via an HTTP POST and should be URL Encoded.</doc>
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f2830:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="{aid}/">
+                <param name="aid" style="template" type="xsd:string"/>
+                <resource uri="sms.json/">
+                    <method displayName="List Text Messages" id="2837" name="GET">
+                        <doc>The SMS API allows you to search, send, and manage text messaging triggers for all capable numbers.</doc>
+                        <request>
+                            <param name="aid" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f2837:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="users.json/">
+                    <method displayName="Add User" id="2829" name="POST">
+                        <request>
+                            <param name="aid" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f2829:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="List Users" id="2838" name="GET">
+                        <doc>The users API allows you to create and manage users.</doc>
+                        <request>
+                            <param name="aid" required="true" style="query" type="xsd:string"/>
+                            <param name="page" required="true" style="query" type="xsd:string">
+                                <doc>the page offset to query</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2838:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="users/">
+                    <resource uri="{uid}/">
+                        <param name="uid" style="template" type="xsd:string"/>
+                        <resource uri="add_role.json/">
+                            <method displayName="Add Role" id="2827" name="POST">
+                                <request>
+                                    <param name="aid" required="true" style="query" type="xsd:string"/>
+                                    <param name="uid" required="true" style="query" type="xsd:string"/>
+                                </request>
+                                <response>
+                                    <representation element="f2827:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="numbers/">
+                    <resource uri="{nid}.json/">
+                        <param name="nid" style="template" type="xsd:string"/>
+                        <method displayName="Release Number" id="2845" name="DELETE">
+                            <request>
+                                <param name="aid" required="true" style="query" type="xsd:string"/>
+                                <param name="nid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f2845:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="{nid}/">
+                        <param name="nid" style="template" type="xsd:string"/>
+                        <resource uri="tracking_sources/">
+                            <method displayName="Add Tracking Source" id="2828" name="POST">
+                                <request>
+                                    <param name="aid" required="true" style="query" type="xsd:string"/>
+                                    <param name="nid" required="true" style="query" type="xsd:string"/>
+                                </request>
+                                <response>
+                                    <representation element="f2828:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                        <resource uri="receiving_numbers.json/">
+                            <method displayName="Add Receiving Number" id="2826" name="POST">
+                                <request>
+                                    <param name="aid" required="true" style="query" type="xsd:string"/>
+                                    <param name="nid" required="true" style="query" type="xsd:string"/>
+                                </request>
+                                <response>
+                                    <representation element="f2826:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="accounts.json/">
+            <method displayName="Add Account" id="2825" name="POST">
+                <request/>
+                <response>
+                    <representation element="f2825:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List Accounts" id="2835" name="GET">
+                <doc>The accounts API allows you to create and manage accounts.</doc>
+                <request>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2835:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

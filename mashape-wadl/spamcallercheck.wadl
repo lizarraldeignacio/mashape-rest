@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1037="urn:function:f1037">
+    <grammars>
+        <include href="Function1037.xsd"/>
+    </grammars>
+    <doc>instantly check a caller s number is spam or not to avoid unnecessary calls</doc>
+    <resources base="https://spamcheck.p.mashape.com/">
+        <resource uri="index.php/">
+            <method displayName="Spam Caller Check" id="1037" name="GET">
+                <doc>Check whether a caller is spam/advertising call by the number.</doc>
+                <request>
+                    <param name="number" required="true" style="query" type="xsd:string">
+                        <doc>complete caller number with ISD and plus sign</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1037:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

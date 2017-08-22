@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3621="urn:function:f3621" xmlns:f3622="urn:function:f3622" xmlns:f3623="urn:function:f3623" xmlns:f3624="urn:function:f3624">
+    <grammars>
+        <include href="Function3624.xsd"/>
+        <include href="Function3623.xsd"/>
+        <include href="Function3622.xsd"/>
+        <include href="Function3621.xsd"/>
+    </grammars>
+    <doc>geoStockPhoto is a stock photo agency with high quality photos from all around the world Each photo is geotagged with latitude and longitude All registered users can interact with our database and retrieve information of all photos on sale</doc>
+    <resources base="https://geostockphoto.p.mashape.com/">
+        <resource uri="photo/">
+            <resource uri="getSearch/">
+                <method displayName="photo/getSearch" id="3624" name="GET">
+                    <doc>Returns the photos available for sales with full search capabilities.</doc>
+                    <request>
+                        <param name="idcategory" required="true" style="query" type="xsd:integer">
+                            <doc>search by category of the photos You can retrieve the possible categories by using the method getConfCategory</doc>
+                        </param>
+                        <param name="idsize" required="true" style="query" type="xsd:integer">
+                            <doc>search by minimum dimension of the photos You can retrieve the possilbe dimensions by using the method getConfSize</doc>
+                        </param>
+                        <param name="latNe" required="true" style="query" type="xsd:integer">
+                            <doc>latitude of the North East corner of the geographical region you want to search the photos</doc>
+                        </param>
+                        <param name="latSw" required="true" style="query" type="xsd:integer">
+                            <doc>latitude of the South West corner of the geographical region you want to search the photos</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of returned photos</doc>
+                        </param>
+                        <param name="lngNe" required="true" style="query" type="xsd:integer">
+                            <doc>longitude of the North East corner of the geographical region you want to search the photos</doc>
+                        </param>
+                        <param name="lngSw" required="true" style="query" type="xsd:integer">
+                            <doc>longitude of the South West corner of the geographical region you want to search the photos</doc>
+                        </param>
+                        <param name="rate" required="true" style="query" type="xsd:integer">
+                            <doc>search by minimum rate of the photos</doc>
+                        </param>
+                        <param name="thumb" required="true" style="query" type="xsd:string">
+                            <doc>options or circle in order to get the source of the px px or the circle thumb</doc>
+                        </param>
+                        <param name="user" required="true" style="query" type="xsd:string">
+                            <doc>search by author of the photos</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3624:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="getInfo/">
+                <method displayName="photo/getInfo" id="3623" name="GET">
+                    <doc>Returns the descriptive information of a photo.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>unique ID of the photo</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f3623:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="getConfSize/">
+                <method displayName="photo/getConfSize" id="3622" name="GET">
+                    <doc>Returns the list of all sizes that any photo can have on GeoStockPhoto.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3622:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="getConfCategory/">
+                <method displayName="photo/getConfCategory" id="3621" name="GET">
+                    <doc>Returns the list of all categories that any photo can have on GeoStockPhoto.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3621:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

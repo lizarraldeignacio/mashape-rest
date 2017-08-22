@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1507="urn:function:f1507">
+    <grammars>
+        <include href="Function1507.xsd"/>
+    </grammars>
+    <doc>will try to capture string that identified as valid email format from content and content is generated from a valid URL you post</doc>
+    <resources base="https://zsan-email-finder.p.mashape.com/">
+        <resource uri="websites/">
+            <method displayName="website" id="1507" name="POST">
+                <request/>
+                <response>
+                    <representation element="f1507:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

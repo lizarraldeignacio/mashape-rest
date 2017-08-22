@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5128="urn:function:f5128" xmlns:f5129="urn:function:f5129" xmlns:f5130="urn:function:f5130" xmlns:f5131="urn:function:f5131" xmlns:f5132="urn:function:f5132" xmlns:f5133="urn:function:f5133">
+    <grammars>
+        <include href="Function5132.xsd"/>
+        <include href="Function5133.xsd"/>
+        <include href="Function5131.xsd"/>
+        <include href="Function5130.xsd"/>
+        <include href="Function5129.xsd"/>
+        <include href="Function5128.xsd"/>
+    </grammars>
+    <doc>the Samepoint Trend API Data set represent a collection of current trends in news and media It does not include everything in social media however it can be trained to find most content when put in monitoring mode</doc>
+    <resources base="https://samepoint.p.mashape.com/">
+        <resource uri="q/">
+            <resource uri="president/">
+                <resource uri="sentiment/">
+                    <resource uri="positve/">
+                        <method displayName="Positive Senitment" id="5132" name="GET">
+                            <doc>Use this endoint to return only positve responses</doc>
+                            <request/>
+                            <response>
+                                <representation element="f5132:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="obama/">
+                <resource uri="abridged/">
+                    <resource uri="true/">
+                        <method displayName="Show Abridged Content ( Summary)" id="5133" name="GET">
+                            <doc>Show just a summary where the keywords are.</doc>
+                            <request/>
+                            <response>
+                                <representation element="f5133:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="start/">
+                    <resource uri="0/">
+                        <method displayName="Pagination" id="5131" name="GET">
+                            <doc>Pagination: Start Offset =0 Max returned = 25  Pagination: The API outputs 25 Records at a time. In the response header, there is a numfound datapoint. Use numfound to control your bounds when you are looping through the data.  Start / Offset Switch/ Pagination start=0   • /q/president/format/json/start/0  • /q/president/format/json/start/25  • /q/president/format/json/start/50</doc>
+                            <request/>
+                            <response>
+                                <representation element="f5131:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="sentiment/">
+                    <resource uri="negative/">
+                        <method displayName="Negative Sentiment" id="5130" name="GET">
+                            <request>
+                                <param name="sentiment" required="true" style="query" type="xsd:string">
+                                    <doc>return Negative Sentiment</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f5130:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="output/">
+                    <resource uri="count/">
+                        <method displayName="Get Count of  a given query" id="5129" name="GET">
+                            <doc>Get Count is an output format that only returns the total count of results from the query. Use this for pagination bounds.</doc>
+                            <request/>
+                            <response>
+                                <representation element="f5129:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="fromdate/">
+                    <resource uri="2013-5-1/">
+                        <resource uri="todate/">
+                            <resource uri="2013-6-1/">
+                                <method displayName="Date Range" id="5128" name="GET">
+                                    <doc>Show Date Range from date todate</doc>
+                                    <request/>
+                                    <response>
+                                        <representation element="f5128:root" mediaType="application/json"/>
+                                    </response>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

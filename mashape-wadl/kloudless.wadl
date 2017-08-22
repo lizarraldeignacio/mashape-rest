@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2392="urn:function:f2392">
+    <grammars>
+        <include href="Function2392.xsd"/>
+    </grammars>
+    <doc>kloudless is a cloud storage API that integrates many cloud storage services into your app Code once and integrate many like Dropbox Box and Google Drive Visit our developer page for the latest version of our documentation https developers kloudless com docs</doc>
+    <resources base="https://kloudless.p.mashape.com/">
+        <resource uri="files/">
+            <method displayName="File Upload" id="2392" name="POST">
+                <doc>Files from cloud storage services</doc>
+                <request/>
+                <response>
+                    <representation element="f2392:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="account/">
+            <method displayName="Account list" id="2391" name="GET">
+                <doc>Cloud storage service accounts</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

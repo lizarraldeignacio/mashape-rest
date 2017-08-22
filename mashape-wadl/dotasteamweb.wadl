@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f254="urn:function:f254" xmlns:f255="urn:function:f255">
+    <grammars>
+        <include href="Function255.xsd"/>
+        <include href="Function254.xsd"/>
+    </grammars>
+    <doc>a WebAPI for match history is now available on Dota Web developers can now retrieve the match history and match details in JSON or XML format for use in their own applications</doc>
+    <resources base="https://community-dota-2.p.mashape.com/">
+        <resource uri="IDOTA2Match_570/">
+            <resource uri="GetMatchHistory/">
+                <resource uri="V001/">
+                    <method displayName="Match History" id="255" name="GET">
+                        <doc>will return the latest 25 public matches in JSON format. You can request it in XML format</doc>
+                        <request>
+                            <param name="format" required="true" style="query" type="xsd:string">
+                                <doc>xML or JSON</doc>
+                            </param>
+                            <param name="startAtMatchId" required="true" style="query" type="xsd:string">
+                                <doc>to request the next use the param start at match id with one less than the last match number you received</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f255:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="GetMatchDetails/">
+                <resource uri="V001/">
+                    <method displayName="Match Details" id="254" name="GET">
+                        <doc>To retrieve the specific details of a match, use this API:</doc>
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string">
+                                <doc>steam account id this is not SteamID its only the account number portion</doc>
+                            </param>
+                            <param name="dateMax" required="true" style="query" type="xsd:string">
+                                <doc>date in UTC seconds since Jan unix time format</doc>
+                            </param>
+                            <param name="dateMin" required="true" style="query" type="xsd:string">
+                                <doc>date in UTC seconds since Jan unix time format</doc>
+                            </param>
+                            <param name="heroId" required="true" style="query" type="xsd:string">
+                                <doc>search for matches with a specific hero being played hero id s are in dota scripts npc npc heroes txt in your Dota install directory</doc>
+                            </param>
+                            <param name="leagueId" required="true" style="query" type="xsd:string">
+                                <doc>matches for a particular league</doc>
+                            </param>
+                            <param name="matchId" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="matchesRequested" required="true" style="query" type="xsd:string">
+                                <doc>defaults is matches this can limit to less</doc>
+                            </param>
+                            <param name="playerName" required="true" style="query" type="xsd:string">
+                                <doc>search matches with a player name exact match only</doc>
+                            </param>
+                            <param name="skill" required="true" style="query" type="xsd:string">
+                                <doc>for any for normal for high for very high skill</doc>
+                            </param>
+                            <param name="startAtMatchId" required="true" style="query" type="xsd:string">
+                                <doc>start the search at the indicated match id descending</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f254:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

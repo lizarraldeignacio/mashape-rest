@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f616="urn:function:f616">
+    <grammars>
+        <include href="Function616.xsd"/>
+    </grammars>
+    <doc>find and show content from Twitter Instagram Facebook Vine Tumblr Flickr Google by hashtag account geo location Powerful server side rules Blazing performance</doc>
+    <resources base="https://twinesocial.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="content/">
+                <method displayName="/v1/content" id="616" name="GET">
+                    <doc>Retrieve content for a specific campaign.</doc>
+                    <request>
+                        <param name="campaign" required="true" style="query" type="xsd:string">
+                            <doc>the campaign name to retrieve content from</doc>
+                        </param>
+                        <param name="collection" required="true" style="query" type="xsd:integer">
+                            <doc>limit results to items appearing in this Collection Id</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:integer">
+                            <doc>limits the total results returned</doc>
+                        </param>
+                        <param name="offset" required="true" style="query" type="xsd:integer">
+                            <doc>optionally offset the result set Used for pagination</doc>
+                        </param>
+                        <param name="pagesize" required="true" style="query" type="xsd:integer">
+                            <doc>number of records to return</doc>
+                        </param>
+                        <param name="status" required="true" style="query" type="xsd:string">
+                            <doc>optionally limits the results to contentItems with a particular status Available statuses include active modpending moderated brokenlink and filtered</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f616:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="collections/">
+                <method displayName="/v1/collections" id="615" name="GET">
+                    <doc>List all collections for a specified campaign.</doc>
+                    <request>
+                        <param name="campaign" required="true" style="query" type="xsd:string">
+                            <doc>the campaign name to retrieve collections from</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>magically transform your videos Magisto turns your everyday videos into exciting memorable movies you ll want to watch again and again</doc>
+    <resources base="https://magisto.p.mashape.com/">
+        <resource uri="video/">
+            <resource uri="{hash}/">
+                <param name="hash" style="template" type="xsd:string"/>
+                <method displayName="Get Movie" id="5254" name="GET">
+                    <doc>Downloading of the completed movie</doc>
+                    <request>
+                        <param name="hash" required="true" style="query" type="xsd:string">
+                            <doc>returned from Check Status API when movie status DONE</doc>
+                        </param>
+                        <param name="vsid" required="true" style="query" type="xsd:string">
+                            <doc>from Start Movie Session API call response</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="check/">
+                <method displayName="Check Movie Status" id="5252" name="GET">
+                    <doc>Check the state of the movie session</doc>
+                    <request>
+                        <param name="vsid" required="true" style="query" type="xsd:string">
+                            <doc>from Start Movie Session API call response</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="upload/">
+                <resource uri="video/">
+                    <method displayName="Upload Source Video" id="5258" name="POST">
+                        <doc>Upload a single video file to be incorporated into the movie. If there is more than one file, each one must be uploaded using a separate request. There are some limits on files to upload, see Limits. All standard video formats are supported including MOV, 3G2, 3GP, ASF, AVI, FLV, MOV, MP4, MPG, MOD, MTS and M2TS. (Make sure to generate a new signature for each request)</doc>
+                        <request/>
+                    </method>
+                </resource>
+                <resource uri="soundtrack/">
+                    <method displayName="Upload Soundtrack" id="5257" name="POST">
+                        <doc>Uploading of a single music file providing the background music for the movie</doc>
+                        <request/>
+                    </method>
+                </resource>
+                <resource uri="start/">
+                    <method displayName="Start Movie Session" id="5256" name="POST">
+                        <doc>Initiates the session for uploading of video clips, soundtrack and any other inputs required; the session remains open until End Movie Session API is called</doc>
+                        <request/>
+                    </method>
+                </resource>
+                <resource uri="title/">
+                    <method displayName="Set Session Title" id="5255" name="POST">
+                        <doc>Appending of meta data. Currently only movie title; more options to be added in the future</doc>
+                        <request/>
+                    </method>
+                </resource>
+                <resource uri="ready/">
+                    <method displayName="End Movie Session" id="5253" name="POST">
+                        <doc>Indicates no more inputs required; initiates processing of the input to produce the movie; session will not terminate until the movie is created or the process is cancelled</doc>
+                        <request/>
+                    </method>
+                </resource>
+                <resource uri="cancel/">
+                    <method displayName="Cancel Movie Session" id="5251" name="POST">
+                        <doc>Terminates a movie session that has been started</doc>
+                        <request/>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>aYLIEN Text API is a package of Natural Language Processing Information Retrieval and Machine Learning tools that allow developers to extract meaning and insights from documents with ease</doc>
+    <resources base="https://aylien-text.p.mashape.com/">
+        <resource uri="summarize/">
+            <method displayName="Summarization" id="474" name="GET">
+                <doc>Summarizes an article into a few key sentences.</doc>
+                <request>
+                    <param name="mode" required="true" style="query" type="xsd:string">
+                        <doc>default or short</doc>
+                    </param>
+                    <param name="sentencesNumber" required="true" style="query" type="xsd:integer">
+                        <doc>number of sentences to be returned in default mode not applicable to short mode Default value is sentences</doc>
+                    </param>
+                    <param name="sentencesPercentage" required="true" style="query" type="xsd:integer">
+                        <doc>percentage of sentences to be returned in default mode not applicable to short mode Possible values are</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>text</doc>
+                    </param>
+                    <param name="title" required="true" style="query" type="xsd:string">
+                        <doc>title</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>uRL</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="sentiment/">
+            <method displayName="Sentiment Analysis" id="473" name="GET">
+                <doc>Detects sentiment of a document in terms of polarity ("positive" or "negative") and subjectivity ("subjective" or "objective").</doc>
+                <request>
+                    <param name="mode" required="true" style="query" type="xsd:string">
+                        <doc>tweet or document</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>text</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>uRL</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="related/">
+            <method displayName="Related" id="472" name="GET">
+                <doc>Returns phrases related to the provided unigram, or bigram.</doc>
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:integer">
+                        <doc>number of entries in response Default is and max is</doc>
+                    </param>
+                    <param name="phrase" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="microformats/">
+            <method displayName="Microformats" id="471" name="GET">
+                <doc>Extracts Microformats from URL</doc>
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>uRL to extract Microformats from</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="language/">
+            <method displayName="Language Detection" id="470" name="GET">
+                <doc>Detects the main language a document is written in and returns it in ISO 639-1 format, from among 62 different languages.</doc>
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>text</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>uRL</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="hashtags/">
+            <method displayName="Hashtag Suggestion" id="469" name="GET">
+                <doc>Suggests hashtags describing the document.</doc>
+                <request>
+                    <param name="language" required="true" style="query" type="xsd:string">
+                        <doc>language of text Valid options are en de fr es it pt and auto If you set the value auto it ll try to detect the language Default value is en</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>text</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>uRL</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="entities/">
+            <method displayName="Entity Extraction" id="468" name="GET">
+                <doc>Extracts named entities (people, organizations and locations) and values (URLs, emails, telephone numbers, currency amounts and percentages) mentioned in a body of text.</doc>
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>text</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>uRL</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="concepts/">
+            <method displayName="Concept Extraction" id="467" name="GET">
+                <doc>Extracts named entities mentioned in a document, disambiguates and cross-links them to DBPedia and Linked Data entities, along with their semantic types (including DBPedia and schema.org).</doc>
+                <request>
+                    <param name="language" required="true" style="query" type="xsd:string">
+                        <doc>language of text Valid options are en de fr es it pt and auto If you set the value auto it ll try to detect the language Default value is en</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>text</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>uRL</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="classify/">
+            <method displayName="Classification" id="466" name="GET">
+                <doc>Classifies a piece of text according to IPTC NewsCode standard into more than 500 categories.</doc>
+                <request>
+                    <param name="language" required="true" style="query" type="xsd:string">
+                        <doc>language of text Valid options are en de fr es it pt and auto If you set the value auto it ll try to detect the language Default value is en</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>text</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>uRL</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="batch/">
+            <method displayName="Batch Submit" id="465" name="POST">
+                <doc>Accepts, and queues a job for batch processing.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="queue/">
+            <method displayName="Batch Status" id="464" name="GET">
+                <doc>Tracking the progress, and status of a batch job.</doc>
+                <request>
+                    <param name="uuid" required="true" style="query" type="xsd:string">
+                        <doc>uUID of submitted batch job</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="extract/">
+            <method displayName="Article Extraction" id="463" name="GET">
+                <doc>Extracts the main body of article, including embedded media such as images &amp; videos from an URL and removes all the surrounding clutter.</doc>
+                <request>
+                    <param name="bestImage" required="true" style="query" type="xsd:boolean">
+                        <doc>extract the best image of the article</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

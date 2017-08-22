@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2609="urn:function:f2609">
+    <grammars>
+        <include href="Function2609.xsd"/>
+    </grammars>
+    <doc>meanpath is a source code search engine Every day meanpath crawls over million websites capturing the visible text HTML source code CSS and Javascript This data is fully API accessible and used by many companies to power innovative web search services</doc>
+    <resources base="https://meanpathfree.p.mashape.com/">
+        <resource uri="">
+            <method displayName="/" id="2609" name="GET">
+                <request>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>the query you want to search for</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2609:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f986="urn:function:f986">
+    <grammars>
+        <include href="Function986.xsd"/>
+    </grammars>
+    <doc>ipinfo io is a free IP information web service providing geolocation hostname organization and other data types The ipinfo io API returns a JSON response containing data fields describing the specified IP The API supports JSONP callbacks and can provide additional information through a paid service such as proxy detection scraping prevention and improved geolocation accuracy</doc>
+    <resources base="https://ipinfo.p.mashape.com/">
+        <resource uri="json/">
+            <method displayName="Full IP details" id="986" name="GET">
+                <request/>
+                <response>
+                    <representation element="f986:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

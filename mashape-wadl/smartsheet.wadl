@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3887="urn:function:f3887" xmlns:f3888="urn:function:f3888" xmlns:f3889="urn:function:f3889" xmlns:f3890="urn:function:f3890">
+    <grammars>
+        <include href="Function3889.xsd"/>
+        <include href="Function3890.xsd"/>
+        <include href="Function3888.xsd"/>
+        <include href="Function3887.xsd"/>
+    </grammars>
+    <doc>the Smartsheet API enables customers to programmatically access and manage their organization s Smartsheet account and data and enables developers to create applications on top of Smartsheet It is designed to be simple and intuitive and is based on widely accepted standards and conventions including REST JSON and HTTP success and error codes If you already have experience with other publicly available RESTful APIs you will feel right at home</doc>
+    <resources base="https://smartsheet-smartsheet.p.mashape.com/">
+        <resource uri="search/">
+            <method displayName="Search Everything" id="3889" name="GET">
+                <doc>Performs a search across all Sheets to which user has access. NOTE: Searching on partial words is supported using wildcards.</doc>
+                <request>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>text with which to perform the search</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3889:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Search Sheet" id="3890" name="GET">
+                <request>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>text with which to perform the search</doc>
+                    </param>
+                    <param name="sheetid" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3890:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="sheets/">
+            <method displayName="List All Sheets" id="3888" name="GET">
+                <doc>Lists all the sheets in alphabetical order, by name</doc>
+                <request/>
+                <response>
+                    <representation element="f3888:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="sheet/">
+            <resource uri="{sheetId}/">
+                <param name="sheetId" style="template" type="xsd:string"/>
+                <method displayName="Get Sheet (incl. Rows)" id="3887" name="GET">
+                    <doc>Returns the sheet, including Rows, and optionally populated with Discussion and Attachment objects.</doc>
+                    <request>
+                        <param name="include" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of optional objects to include in the response discussions attachments To include discussion attachments both attachments and discussions parameters must be present in the query string</doc>
+                        </param>
+                        <param name="sheetid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3887:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

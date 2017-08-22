@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6994="urn:function:f6994">
+    <grammars>
+        <include href="Function6994.xsd"/>
+    </grammars>
+    <doc>we provide phonetical translation to Chinese</doc>
+    <resources base="https://howtospeak.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="k2c/">
+                <method displayName="Korean2Chinese" id="6994" name="GET">
+                    <doc>Translate Korean into Chinese character phonetically.</doc>
+                    <request>
+                        <param name="notrans" required="true" style="query" type="xsd:integer">
+                            <doc>whether translate input text into Chinese first Translate it notrans or Don t translate it notrans</doc>
+                        </param>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>the text you want to translate The value should be Chinese when notrans or Korean when notrans</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6994:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="j2c/">
+                <method displayName="Japanese2Chinese" id="6993" name="GET">
+                    <doc>Translate Japanese into Chinese character phonetically.</doc>
+                    <request>
+                        <param name="notrans" required="true" style="query" type="xsd:integer">
+                            <doc>whether translate input text into Chinese first Translate it notrans or Don t translate it notrans</doc>
+                        </param>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>the text you want to translate The value should be Chinese when notrans or Japanese when notrans</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="e2c/">
+                <method displayName="English2Chinese" id="6992" name="GET">
+                    <doc>Translate your English into Chinese character phonetically.</doc>
+                    <request>
+                        <param name="notrans" required="true" style="query" type="xsd:integer">
+                            <doc>whether translate input text into Chinese first Translate it notrans or Don t translate it notrans</doc>
+                        </param>
+                        <param name="text" required="true" style="query" type="xsd:string">
+                            <doc>the text you want to translate The value should be Chinese when notrans or English when notrans</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

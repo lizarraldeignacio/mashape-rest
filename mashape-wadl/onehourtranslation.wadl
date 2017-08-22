@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5750="urn:function:f5750" xmlns:f5751="urn:function:f5751" xmlns:f5752="urn:function:f5752" xmlns:f5753="urn:function:f5753" xmlns:f5754="urn:function:f5754" xmlns:f5755="urn:function:f5755" xmlns:f5756="urn:function:f5756" xmlns:f5757="urn:function:f5757" xmlns:f5758="urn:function:f5758" xmlns:f5759="urn:function:f5759" xmlns:f5760="urn:function:f5760" xmlns:f5761="urn:function:f5761" xmlns:f5762="urn:function:f5762" xmlns:f5763="urn:function:f5763" xmlns:f5764="urn:function:f5764" xmlns:f5765="urn:function:f5765" xmlns:f5766="urn:function:f5766" xmlns:f5767="urn:function:f5767" xmlns:f5768="urn:function:f5768" xmlns:f5769="urn:function:f5769" xmlns:f5770="urn:function:f5770" xmlns:f5771="urn:function:f5771" xmlns:f5772="urn:function:f5772" xmlns:f5773="urn:function:f5773" xmlns:f5774="urn:function:f5774" xmlns:f5775="urn:function:f5775" xmlns:f5776="urn:function:f5776" xmlns:f5777="urn:function:f5777" xmlns:f5778="urn:function:f5778" xmlns:f5779="urn:function:f5779">
+    <grammars>
+        <include href="Function5777.xsd"/>
+        <include href="Function5776.xsd"/>
+        <include href="Function5775.xsd"/>
+        <include href="Function5773.xsd"/>
+        <include href="Function5771.xsd"/>
+        <include href="Function5764.xsd"/>
+        <include href="Function5778.xsd"/>
+        <include href="Function5762.xsd"/>
+        <include href="Function5752.xsd"/>
+        <include href="Function5753.xsd"/>
+        <include href="Function5754.xsd"/>
+        <include href="Function5760.xsd"/>
+        <include href="Function5761.xsd"/>
+        <include href="Function5765.xsd"/>
+        <include href="Function5766.xsd"/>
+        <include href="Function5767.xsd"/>
+        <include href="Function5768.xsd"/>
+        <include href="Function5779.xsd"/>
+        <include href="Function5763.xsd"/>
+        <include href="Function5772.xsd"/>
+        <include href="Function5757.xsd"/>
+        <include href="Function5751.xsd"/>
+        <include href="Function5759.xsd"/>
+        <include href="Function5758.xsd"/>
+        <include href="Function5756.xsd"/>
+        <include href="Function5755.xsd"/>
+        <include href="Function5750.xsd"/>
+        <include href="Function5769.xsd"/>
+        <include href="Function5770.xsd"/>
+        <include href="Function5774.xsd"/>
+    </grammars>
+    <doc>hassle free translation and localization for your business One Hour Translation API exposes various methods and services delivered by One Hour Translation and allows external systems to securely launch monitor and communicate with translation jobs</doc>
+    <resources base="https://community-onehourtranslation.p.mashape.com/">
+        <resource uri="discover/">
+            <resource uri="languages/">
+                <method displayName="Supported Languages" id="5777" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f5777:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="language_pairs/">
+                <method displayName="Supported Language Pairs" id="5776" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f5776:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="expertise/">
+                <method displayName="Supported Expertise" id="5775" name="GET">
+                    <request>
+                        <param name="sourceLanguage" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="targetLanguage" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5775:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="tools/">
+            <resource uri="wordcount/">
+                <method displayName="Get Word Count" id="5773" name="GET">
+                    <request>
+                        <param name="resources" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5773:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="quote/">
+                <method displayName="Get Quote" id="5771" name="GET">
+                    <request>
+                        <param name="resources" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5771:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="account/">
+            <method displayName="Get Account Details" id="5764" name="GET">
+                <doc>Fetch basic account details and credits balance</doc>
+                <request/>
+                <response>
+                    <representation element="f5764:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="mt/">
+            <resource uri="translate/">
+                <resource uri="text/">
+                    <method displayName="Translate (Machine)" id="5778" name="GET">
+                        <request>
+                            <param name="sourceContent" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="sourceLanguage" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="targetLanguage" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f5778:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="detect/">
+                <resource uri="text/">
+                    <method displayName="Detect Language (Machine)" id="5762" name="GET">
+                        <request>
+                            <param name="sourceContent" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f5762:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="tm/">
+            <resource uri="context/">
+                <method displayName="Create New Context (TM)" id="5752" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f5752:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Create Phrase (TM)" id="5753" name="POST">
+                    <request>
+                        <param name="contextUuid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5753:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Create Project (TM)" id="5754" name="POST">
+                    <doc>This request acts the same as “Project &gt; Create a New Project” request, but instead of manually specifying source-resources, all untranslated strings in the context are automatically wrapped as a source-resource.  One may also specify to use already-translated strings or specific phrases (see request parameters).</doc>
+                    <request>
+                        <param name="contextUuid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5754:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Delete Context and Its Phrases (TM)" id="5760" name="DELETE">
+                    <request>
+                        <param name="contextUuid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5760:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Delete Phrase (TM)" id="5761" name="DELETE">
+                    <request>
+                        <param name="contextUuid" required="true" style="query" type="xsd:string"/>
+                        <param name="phraseKey" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5761:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get Context's Details (TM)" id="5765" name="GET">
+                    <request>
+                        <param name="contextUuid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5765:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get Contexts List (TM)" id="5766" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f5766:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get Phrase (TM)" id="5767" name="GET">
+                    <request>
+                        <param name="contextUuid" required="true" style="query" type="xsd:string"/>
+                        <param name="phraseKey" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5767:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get Phrases List (TM)" id="5768" name="GET">
+                    <request>
+                        <param name="contextUuid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5768:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Update Phrase (TM)" id="5779" name="POST">
+                    <request>
+                        <param name="contextUuid" required="true" style="query" type="xsd:string"/>
+                        <param name="phraseKey" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5779:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="resources/">
+            <resource uri="{resource_uuid}/">
+                <param name="resource_uuid" style="template" type="xsd:string"/>
+                <method displayName="Download Resource" id="5763" name="GET">
+                    <doc>Return a “file download” response, not JSON. See here. File is downloaded with original name, text content is downloaded with file name: “oht_&lt;resource_uuid&gt;.txt”</doc>
+                    <request>
+                        <param name="resourceUuid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5763:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get Resource" id="5772" name="GET">
+                    <request>
+                        <param name="resourceUuid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5772:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="text/">
+                <method displayName="Create Text Resource" id="5757" name="POST">
+                    <doc>Create a new text entity on One Hour Translation.  On success, this method responds with a unique UUID for the created resource. You may use this UUID when creating a new job request such as translation, proofreading, etc.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f5757:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="file/">
+                <method displayName="Create File Resource" id="5751" name="POST">
+                    <doc>Create a new file entity on One Hour Translation.  After the resource entity is created, it can be used on job requests such as translation, proofreading, etc.  Read more about supported content formats here.  Notice: This request must be encoded as multipart/form-data for file upload to succeed. Please read here for more information.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f5751:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="projects/">
+            <resource uri="translation/">
+                <method displayName="Create Translation Project" id="5759" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f5759:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="transcription/">
+                <method displayName="Create Transcription Project" id="5758" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f5758:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="proof-general/">
+                <method displayName="Create Proofreading Project (Source)" id="5756" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f5756:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="proof-translated/">
+                <method displayName="Create Proofreading Project (Source and Target)" id="5755" name="POST">
+                    <request/>
+                    <response>
+                        <representation element="f5755:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="{project_id}/">
+                <param name="project_id" style="template" type="xsd:string"/>
+                <method displayName="Cancel Project" id="5750" name="DELETE">
+                    <request>
+                        <param name="projectId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5750:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get Project Details" id="5769" name="GET">
+                    <request>
+                        <param name="projectId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5769:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get Project's Comments" id="5770" name="GET">
+                    <request>
+                        <param name="projectId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5770:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="New Project Comment" id="5774" name="POST">
+                    <request>
+                        <param name="projectId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5774:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

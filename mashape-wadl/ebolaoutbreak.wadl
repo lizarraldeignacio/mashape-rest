@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>ebola cases deaths projections and current growth rates Ebola data provided by the World Health Organization Source code on GitHub</doc>
+    <resources base="https://ebola-outbreak.p.mashape.com/">
+        <resource uri="rate/">
+            <method displayName="Rate" id="985" name="GET">
+                <doc>Returns the growth rate of new infections.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="cases/">
+            <method displayName="Cases" id="984" name="GET">
+                <doc>Returns confirmed case and death counts.</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

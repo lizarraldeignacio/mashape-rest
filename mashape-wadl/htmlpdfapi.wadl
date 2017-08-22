@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2369="urn:function:f2369" xmlns:f2372="urn:function:f2372" xmlns:f2373="urn:function:f2373">
+    <grammars>
+        <include href="Function2373.xsd"/>
+        <include href="Function2369.xsd"/>
+        <include href="Function2372.xsd"/>
+    </grammars>
+    <doc>hTML PDF API is a cloud service that allows you to convert HTML to PDF using standard web technologies</doc>
+    <resources base="https://effectiva-HTML-PDF-API-v1.p.mashape.com/">
+        <resource uri="pdf/">
+            <method displayName="PDF" id="2374" name="POST">
+                <doc>You can send only one of following parameters: url, file, html. Full documentation: https://htmlpdfapi.com/documentation</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="credits/">
+            <method displayName="Credits count" id="2373" name="GET">
+                <doc>Get the current number of credits.</doc>
+                <request/>
+                <response>
+                    <representation element="f2373:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="assets/">
+            <method displayName="Asset Create" id="2369" name="POST">
+                <doc>Upload new assets to server</doc>
+                <request/>
+                <response>
+                    <representation element="f2369:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Asset Delete" id="2370" name="DELETE">
+                <doc>Delete asset from server</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Asset Get" id="2371" name="GET">
+                <doc>Download asset from server as file</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Assets List" id="2372" name="GET">
+                <doc>Get list of all assets uploaded to server</doc>
+                <request/>
+                <response>
+                    <representation element="f2372:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>ducksboard is a real time dashboard to visually monitor data in a single place It includes hundreds of widgets to connect most important online services with a click And also allows customised integrations through its easy to use API Any data can be uploaded from sales metrics to M M sensor streams and be simply visualized with our Dashboards Ducksboard s API enables you to not only complement data from your SaaS apps with internal metrics but to also access all data stored by Ducksboard and create dashboards and widgets through simple API calls</doc>
+    <resources base="https://community-ducksboard.p.mashape.com/">
+        <resource uri="values/">
+            <resource uri="{label}/">
+                <param name="label" style="template" type="xsd:string"/>
+                <method displayName="Push" id="2786" name="POST">
+                    <doc>The Push API allows sending your own data to Ducksboard. A special custom family of widgets can be used to display data sent that way.  Check out the Readme tab.</doc>
+                    <request>
+                        <param name="label" required="true" style="query" type="xsd:string">
+                            <doc>each call to the Push API stores one or more value for a single data source identified by a label You can find the labels for data sources through the Dashboard API or by looking at the URLs tab in the custom widget configuration dialog Only data sources from custom widgets can accept data over the Push API Other data sources get their data automatically from Ducksboard itself and will not accept values from the Push API The format of data accepted by the Push API depends on which kind of widget will display the sent values See below for a summary of all of the acceptable formats</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

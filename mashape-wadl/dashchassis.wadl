@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4385="urn:function:f4385" xmlns:f4386="urn:function:f4386" xmlns:f4387="urn:function:f4387" xmlns:f4388="urn:function:f4388" xmlns:f4389="urn:function:f4389">
+    <grammars>
+        <include href="Function4388.xsd"/>
+        <include href="Function4389.xsd"/>
+        <include href="Function4387.xsd"/>
+        <include href="Function4386.xsd"/>
+        <include href="Function4385.xsd"/>
+    </grammars>
+    <doc>enabling the Internet of Cars</doc>
+    <resources base="https://dash-chassis-dash-chassis-v1.p.mashape.com/">
+        <resource uri="chassis/">
+            <resource uri="v1/">
+                <resource uri="user/">
+                    <method displayName="/chassis/v1/user" id="4388" name="GET">
+                        <doc>Requires 'user' scope - see https://dash.by/endpoint.html?endpoint=/api/chassis/v1/user</doc>
+                        <request/>
+                        <response>
+                            <representation element="f4388:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="/chassis/v1/user/trips?startTime={starttime-endtime-endtime}" id="4389" name="GET">
+                        <doc>Requires 'trips' scope - https://dash.by/endpoint.html?endpoint=/api/chassis/v1/trips</doc>
+                        <request>
+                            <param name="starttimeEndtimeEndtime" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4389:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="stats?startTime={starttime-endtime-endtime}/">
+                    <param name="starttime-endtime-endtime" style="template" type="xsd:string"/>
+                    <method displayName="/chassis/v1/stats?startTime={starttime-endtime-endtime}" id="4387" name="GET">
+                        <doc>Requires 'trips' scope - https://dash.by/endpoint.html?endpoint=/api/chassis/v1/stats</doc>
+                        <request>
+                            <param name="starttimeEndtimeEndtime" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f4387:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="routes/">
+                    <resource uri="{tripid}/">
+                        <param name="tripid" style="template" type="xsd:string"/>
+                        <method displayName="/chassis/v1/routes/{tripid}" id="4386" name="GET">
+                            <doc>Requires 'trips' scope - https://dash.by/endpoint.html?endpoint=/api/chassis/v1/routes</doc>
+                            <request>
+                                <param name="tripid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f4386:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="bumperstickers/">
+                    <method displayName="/chassis/v1/bumperstickers" id="4385" name="GET">
+                        <doc>Requires 'user' scope - https://dash.by/endpoint.html?endpoint=/api/chassis/v1/bumperstickers</doc>
+                        <request/>
+                        <response>
+                            <representation element="f4385:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

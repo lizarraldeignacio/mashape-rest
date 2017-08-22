@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3523="urn:function:f3523" xmlns:f3524="urn:function:f3524" xmlns:f3530="urn:function:f3530" xmlns:f3534="urn:function:f3534" xmlns:f3536="urn:function:f3536" xmlns:f3537="urn:function:f3537" xmlns:f3538="urn:function:f3538" xmlns:f3539="urn:function:f3539" xmlns:f3540="urn:function:f3540" xmlns:f3541="urn:function:f3541">
+    <grammars>
+        <include href="Function3523.xsd"/>
+        <include href="Function3524.xsd"/>
+        <include href="Function3530.xsd"/>
+        <include href="Function3534.xsd"/>
+        <include href="Function3536.xsd"/>
+        <include href="Function3537.xsd"/>
+        <include href="Function3538.xsd"/>
+        <include href="Function3539.xsd"/>
+        <include href="Function3540.xsd"/>
+        <include href="Function3541.xsd"/>
+    </grammars>
+    <doc>this is a API for Fr mann rental system The goal is to provide complete access to all of Fr mann s functions for our clients</doc>
+    <resources base="https://funlake-getunions.p.mashape.com/">
+        <resource uri="Server.php/">
+            <method displayName="Apply.GetDetail" id="3523" name="GET">
+                <doc>Get details by apply id</doc>
+                <request>
+                    <param name="appid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="appkey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>id of application</doc>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="sign" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="union" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3523:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Caretaker.Verify" id="3524" name="GET">
+                <request>
+                    <param name="appid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="appkey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="kt" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="lang" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="pass" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="sign" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="union" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3524:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Coupon.Find" id="3525" name="GET">
+                <doc>Find coupon</doc>
+                <request>
+                    <param name="appid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="appkey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="sign" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="union" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Grants.GetList" id="3526" name="GET">
+                <doc>Get grants list</doc>
+                <request>
+                    <param name="appid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="appkey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="sign" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="union" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Member.GetApplications" id="3527" name="GET">
+                <doc>Get application history</doc>
+                <request>
+                    <param name="appid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="appkey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="kt" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="sign" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="union" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Member.GetInfo" id="3528" name="GET">
+                <doc>Get info of member</doc>
+                <request>
+                    <param name="appid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="appkey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="kt" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="sign" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="union" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Member.GetNewSmsAmount" id="3529" name="GET">
+                <doc>Get new sms amount</doc>
+                <request>
+                    <param name="appid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="appkey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="kt" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="sign" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="union" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Member.GetRentedList" id="3530" name="GET">
+                <doc>Get rented order list</doc>
+                <request>
+                    <param name="appid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="appkey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="kt" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="sign" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="union" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3530:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Member.GetSms" id="3531" name="GET">
+                <doc>Get sms</doc>
+                <request>
+                    <param name="appid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="appkey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="kt" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="sign" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="union" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Member.GetTickets" id="3532" name="GET">
+                <doc>Get tickets order</doc>
+                <request>
+                    <param name="appid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="appkey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="kt" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="sign" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="union" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Member.UpdateSmsStatus" id="3533" name="GET">
+                <doc>Update sms status after people read it</doc>
+                <request>
+                    <param name="appid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="appkey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="kt" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="sign" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="smsId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="union" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Member.Verify" id="3534" name="GET">
+                <doc>Verify a member in specific union</doc>
+                <request>
+                    <param name="appid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="appkey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="kt" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="lang" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="pass" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="sign" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="union" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3534:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Mobile.Topnews" id="3535" name="GET">
+                <doc>Get top news for mobile home page</doc>
+                <request>
+                    <param name="appid" required="true" style="query" type="xsd:string">
+                        <doc>application id</doc>
+                    </param>
+                    <param name="appkey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="sign" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="union" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Property.GetInfo" id="3536" name="GET">
+                <doc>Get Basic information of a single property</doc>
+                <request>
+                    <param name="appid" required="true" style="query" type="xsd:string">
+                        <doc>application id</doc>
+                    </param>
+                    <param name="appkey" required="true" style="query" type="xsd:string">
+                        <doc>application key</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>property id</doc>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="sign" required="true" style="query" type="xsd:string">
+                        <doc>sign of request must be a md string</doc>
+                    </param>
+                    <param name="union" required="true" style="query" type="xsd:string">
+                        <doc>name of union</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3536:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Property.GetTypes" id="3537" name="GET">
+                <doc>Get all types of properties</doc>
+                <request>
+                    <param name="appid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="appkey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="sign" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="union" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3537:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Property.Period.GetYMExcDays" id="3538" name="GET">
+                <request>
+                    <param name="appid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="appkey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="month" required="true" style="query" type="xsd:string">
+                        <doc>month</doc>
+                    </param>
+                    <param name="propertyId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="sign" required="true" style="query" type="xsd:string">
+                        <doc>sign of request must be a md string</doc>
+                    </param>
+                    <param name="year" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3538:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Property.Period.GetYMPeriods" id="3539" name="GET">
+                <doc>Get periods of a property in a year or a month</doc>
+                <request>
+                    <param name="appid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="appkey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="month" required="true" style="query" type="xsd:string">
+                        <doc>month</doc>
+                    </param>
+                    <param name="propertyId" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="sign" required="true" style="query" type="xsd:string">
+                        <doc>sign of request must be a md string</doc>
+                    </param>
+                    <param name="union" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="year" required="true" style="query" type="xsd:string">
+                        <doc>year</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3539:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Propety.Find" id="3540" name="GET">
+                <doc>Find properties according to some searching fields</doc>
+                <request>
+                    <param name="bed" required="true" style="query" type="xsd:string">
+                        <doc>find properties have between and sleeping spaces</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>find property by its name</doc>
+                    </param>
+                    <param name="region" required="true" style="query" type="xsd:string">
+                        <doc>find property in specific region</doc>
+                    </param>
+                    <param name="size" required="true" style="query" type="xsd:string">
+                        <doc>find properties area size between and</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>type of properties</doc>
+                    </param>
+                    <param name="appid" required="true" style="query" type="xsd:string">
+                        <doc>application id</doc>
+                    </param>
+                    <param name="appkey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="attr" required="true" style="query" type="xsd:string">
+                        <doc>get main list attribute</doc>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="sign" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="union" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3540:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="System.GetUnions" id="3541" name="GET">
+                <request>
+                    <param name="appid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="appkey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="sign" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="union" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3541:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Ticket.Find" id="3542" name="GET">
+                <doc>Get ticket list</doc>
+                <request>
+                    <param name="appid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="appkey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string"/>
+                    <param name="sign" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="union" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Ticket.GetOrderPayment" id="3543" name="GET">
+                <doc>Get specific ticket info</doc>
+                <request>
+                    <param name="appid" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="appkey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="method" required="true" style="query" type="xsd:string">
+                        <doc>name of method</doc>
+                    </param>
+                    <param name="orderId" required="true" style="query" type="xsd:string"/>
+                    <param name="sign" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="union" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

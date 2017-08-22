@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>slicify is an IaaS cloud computing platform that competes with Amazon s EC Spot market Slicify offers high performance linux VMs up to x cheaper than AWS by allowing anyone with a PC to sell their spare compute power to the cloud Our fully featured REST API allows you to book machines get access details and manage your account</doc>
+    <resources base="https://slicify-slicify.p.mashape.com/">
+        <resource uri="BidGetBookingID/">
+            <method displayName="BidGetBookingID" id="4384" name="GET">
+                <request>
+                    <param name="bidid" required="true" style="query" type="xsd:integer">
+                        <doc>bid ID</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="BidGetAllInfo/">
+            <method displayName="BidGetAllInfo" id="4383" name="GET">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="BidDelete/">
+            <method displayName="BidDelete" id="4382" name="GET">
+                <doc>Delete a bid, and cancel the associated booking</doc>
+                <request>
+                    <param name="bidid" required="true" style="query" type="xsd:integer">
+                        <doc>bid ID</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="BidActivate/">
+            <method displayName="BidActivate" id="4381" name="GET">
+                <request>
+                    <param name="bidid" required="true" style="query" type="xsd:integer">
+                        <doc>bid ID</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="AccountBalance/">
+            <method displayName="AccountBalance" id="4380" name="GET">
+                <doc>Retrieve account balance</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

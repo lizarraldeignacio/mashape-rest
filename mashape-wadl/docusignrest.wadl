@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2746="urn:function:f2746" xmlns:f2747="urn:function:f2747" xmlns:f2748="urn:function:f2748" xmlns:f2749="urn:function:f2749" xmlns:f2750="urn:function:f2750">
+    <grammars>
+        <include href="Function2749.xsd"/>
+        <include href="Function2747.xsd"/>
+        <include href="Function2748.xsd"/>
+        <include href="Function2750.xsd"/>
+        <include href="Function2746.xsd"/>
+    </grammars>
+    <doc>docuSign eSignature API allows you to request signatures on contracts get status download completed documents and embed DocuSign interface into your apps You can get a free developer account by going to www docusign com devcenter</doc>
+    <resources base="https://mikebz-docusign-rest.p.mashape.com/">
+        <resource uri="v2/">
+            <resource uri="login_information/">
+                <method displayName="Login" id="2749" name="GET">
+                    <doc>login call where everything starts</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2749:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="accounts/">
+                <resource uri="{accountId}/">
+                    <param name="accountId" style="template" type="xsd:string"/>
+                    <resource uri="envelopes/">
+                        <method displayName="Embedded Sending" id="2747" name="POST">
+                            <doc>Embedding can be used to initiate requests through direct URLs instead of Email links</doc>
+                            <request>
+                                <param name="accountid" required="true" style="query" type="xsd:string">
+                                    <doc>the accountId returned in the Login Response</doc>
+                                </param>
+                                <param name="envelopeid" required="true" style="query" type="xsd:string">
+                                    <doc>the envelopeId of an existing envelope</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2747:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Embedded Signing" id="2748" name="POST">
+                            <doc>Embedding can be used to initiate requests through direct URLs instead of Email links.</doc>
+                            <request>
+                                <param name="accountid" required="true" style="query" type="xsd:string">
+                                    <doc>the accountId returned in the Login Response</doc>
+                                </param>
+                                <param name="envelopeid" required="true" style="query" type="xsd:string">
+                                    <doc>the envelopeId of an existing envelope</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2748:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="Request Signature on a Document(s)" id="2750" name="POST">
+                            <request>
+                                <param name="accountid" required="true" style="query" type="xsd:string">
+                                    <doc>the accountId returned in the Login Response</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f2750:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="views/">
+                        <resource uri="console/">
+                            <method displayName="Embedded Console View" id="2746" name="POST">
+                                <doc>Embedding can be used to initiate requests through direct URLs instead of Email links</doc>
+                                <request>
+                                    <param name="accountid" required="true" style="query" type="xsd:string">
+                                        <doc>the accountId returned in the Login response</doc>
+                                    </param>
+                                </request>
+                                <response>
+                                    <representation element="f2746:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

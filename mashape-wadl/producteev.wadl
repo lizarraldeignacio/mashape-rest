@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6385="urn:function:f6385" xmlns:f6386="urn:function:f6386" xmlns:f6387="urn:function:f6387" xmlns:f6388="urn:function:f6388" xmlns:f6389="urn:function:f6389" xmlns:f6390="urn:function:f6390" xmlns:f6391="urn:function:f6391" xmlns:f6392="urn:function:f6392" xmlns:f6393="urn:function:f6393" xmlns:f6395="urn:function:f6395" xmlns:f6396="urn:function:f6396" xmlns:f6397="urn:function:f6397" xmlns:f6398="urn:function:f6398" xmlns:f6399="urn:function:f6399">
+    <grammars>
+        <include href="Function6399.xsd"/>
+        <include href="Function6398.xsd"/>
+        <include href="Function6396.xsd"/>
+        <include href="Function6395.xsd"/>
+        <include href="Function6389.xsd"/>
+        <include href="Function6390.xsd"/>
+        <include href="Function6387.xsd"/>
+        <include href="Function6388.xsd"/>
+        <include href="Function6391.xsd"/>
+        <include href="Function6397.xsd"/>
+        <include href="Function6385.xsd"/>
+        <include href="Function6386.xsd"/>
+        <include href="Function6392.xsd"/>
+        <include href="Function6393.xsd"/>
+    </grammars>
+    <doc>producteev is the leading social task management solution for teams It s helped thousands of teams get work done faster and more effectively It s brought to you by Jive the world s social business provider</doc>
+    <resources base="https://community-producteev.p.mashape.com/">
+        <resource uri="upload/">
+            <resource uri="remotefiles/">
+                <method displayName="Upload a remote file" id="6399" name="POST">
+                    <doc>To create a file object from a remote source you need to POST a JSON object prefixed by "remoteFile" and containing the "url" and "fileName".</doc>
+                    <request/>
+                    <response>
+                        <representation element="f6399:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="files/">
+                <method displayName="Upload a local file" id="6398" name="POST">
+                    <doc>To create a file object from a local source you need to POST the file using the classic Multipart/form-data. The key for the uploaded data must be "file".</doc>
+                    <request/>
+                    <response>
+                        <representation element="f6398:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="label_colors/">
+            <method displayName="Return suggested colors for labels" id="6396" name="GET">
+                <doc>Return the list of recommended colors (foreground and background) for the labels. You can create your labels with your own colors, but we strongly recommend to use colors returned by this API call to provide a consistent experience accross all Producteev apps.</doc>
+                <request/>
+                <response>
+                    <representation element="f6396:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="nlp_suggestions/">
+            <resource uri="{project_id}/">
+                <param name="project_id" style="template" type="xsd:string"/>
+                <method displayName="Return a list of suggestions for the natural language processing" id="6395" name="GET">
+                    <doc>The call will return a collection of NLP suggestion object.</doc>
+                    <request>
+                        <param name="projectId" required="true" style="query" type="xsd:string"/>
+                        <param name="query" required="true" style="query" type="xsd:string">
+                            <doc>this method provide suggestions based on Keyword Query The keywords available are for labels for followers for assignees for deadline for priority The query parameter must contains both the keyword and the text you wanna get suggestions for e g query Jerome</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6395:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="files/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Delete a Producteev file" id="6389" name="DELETE">
+                    <doc>Delete a file from the cloud storage.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f6389:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get a Producteev file by its id" id="6390" name="GET">
+                    <doc>Files are usually attached to Notes. But because they remain an independant object type in the system, you need to upload the file first before being able to attach it to a note.</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f6390:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="labels/">
+            <method displayName="Create a new label on the network" id="6387" name="POST">
+                <doc>To create a Label, you need to POST a JSON label object containing the "title", "foreground_color", "background_color" for creation only you also need to send the id of the network in which you wanna create the label in.</doc>
+                <request/>
+                <response>
+                    <representation element="f6387:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete a label" id="6388" name="DELETE">
+                <doc>Delete a Label from the network.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f6388:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get the Label with the specified id" id="6391" name="GET">
+                <doc>Labels are attached to a task and are available across all your projects inside a network. This method returns a Label Object.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f6391:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update a label" id="6397" name="PUT">
+                <doc>Updating a label allows you to change its title and colors. You can send only the field you wanna update, or the full object, we will update only the field that are differents from the server. (If you wanna move it on another network, you need to create a new label and delete this one)</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f6397:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="network_invitations/">
+            <method displayName="Accept or refuse an invitation to join a network" id="6385" name="PUT">
+                <doc>Updating an invitation is the way to accept or refuse it. To do so, you need to change the status attribute.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f6385:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Add a restricted project to a network invitation" id="6386" name="POST">
+                <doc>Add a restricted project to a network invitation so the user joining the invitation will join the restricted project automatically. This Method will return the list of restricted Projects attached to the Invitations</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                    <param name="projectId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f6386:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get the list of pending invitation for the current user" id="6392" name="GET">
+                <doc>Network Invitations are used to add people in existing networks. To invite someone you can either use the targetUser attribute if you know that this person is on Producteev and know his id. Otherwise use email and we'll send an invite to this person via email.</doc>
+                <request>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>requests authorizations</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6392:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Invite a user to join the network. You can use the user id or an email address" id="6393" name="POST">
+                <doc>In order to invite a user on a network, you need to create a Network Invitation. You need to specify the targetUser (or an email address), the network and the type (@see list below).</doc>
+                <request/>
+                <response>
+                    <representation element="f6393:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Re-send the email for a network invitation" id="6394" name="POST">
+                <doc>Re-send the email for a network invitation. This call works only if the invitation has the status network_invitation.status = 'pending'</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

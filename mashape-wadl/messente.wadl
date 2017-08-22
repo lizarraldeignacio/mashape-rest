@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2905="urn:function:f2905">
+    <grammars>
+        <include href="Function2905.xsd"/>
+    </grammars>
+    <doc>messente group messaging platform provides an HTTP based PushSMS interface additionally to the web based message sending tools In order to use the HTTP based interface please activate your API account on the Messente web page</doc>
+    <resources base="https://messente-messente.p.mashape.com/">
+        <resource uri="get_dlr_response/">
+            <method displayName="Syncronous Delivery Report (DLR)" id="2905" name="GET">
+                <doc>Ask for current SMS Delivery Report (DLR)</doc>
+                <request>
+                    <param name="smsUniqueId" required="true" style="query" type="xsd:string">
+                        <doc>iD that was returned with successful send sms request</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2905:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="send_sms/">
+            <method displayName="Send SMS" id="2904" name="POST">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="prices/">
+            <method displayName="Country Pricing" id="2903" name="GET">
+                <doc>Get the prices to all operators in this country</doc>
+                <request>
+                    <param name="country" required="true" style="query" type="xsd:string">
+                        <doc>two letter country code ISO alpha</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>desired response format Currently supported json xml defaults to json</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="pricelist/">
+            <method displayName="Account Full Pricelist" id="2902" name="GET">
+                <doc>Get the full Messente pricelist in CSV format</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

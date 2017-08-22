@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f789="urn:function:f789" xmlns:f803="urn:function:f803" xmlns:f806="urn:function:f806" xmlns:f807="urn:function:f807" xmlns:f808="urn:function:f808" xmlns:f810="urn:function:f810" xmlns:f812="urn:function:f812" xmlns:f814="urn:function:f814" xmlns:f815="urn:function:f815" xmlns:f817="urn:function:f817" xmlns:f821="urn:function:f821" xmlns:f823="urn:function:f823">
+    <grammars>
+        <include href="Function823.xsd"/>
+        <include href="Function806.xsd"/>
+        <include href="Function803.xsd"/>
+        <include href="Function810.xsd"/>
+        <include href="Function808.xsd"/>
+        <include href="Function789.xsd"/>
+        <include href="Function817.xsd"/>
+        <include href="Function815.xsd"/>
+        <include href="Function814.xsd"/>
+        <include href="Function812.xsd"/>
+        <include href="Function807.xsd"/>
+        <include href="Function821.xsd"/>
+    </grammars>
+    <doc>appsBuilder is a do it yourself platform for mobile applications development No coding skills are needed Trough a single building process users can create an app for iOS iPad iPhone iPod Android Tablets Phones and Windows Phone Last but not least your app will be available for the Chrome Web Store and with a Mobile Site Html version All content is stored on Cloud enabling real time updates All JSON structures can also be retrieved here https appsbuilder atlassian net wiki display res App JSON</doc>
+    <resources base="https://appsbuilder.p.mashape.com/">
+        <resource uri="auth/">
+            <resource uri="register/">
+                <method displayName="Register AppsBuilder User" id="830" name="POST">
+                    <doc>Allows a new user to register on the AppsBuilder website. Notice: this function acts on AppsBuilder platform, not on CMS. Returns "true" or a text error with failure reasons.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="logout/">
+                <method displayName="Logout AppsBuilder User" id="828" name="GET">
+                    <doc>Allows an existing and logged in user to logout on the AppsBuilder website. Notice: this function acts on AppsBuilder platform, not on CMS.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="connect/">
+                <method displayName="Login AppsBuilder User" id="826" name="POST">
+                    <doc>Allows an existing user to login on the AppsBuilder website. Notice: this function acts on AppsBuilder platform, not on CMS. Returns an object with keys "result" (with "true" in case of success, otherwise "false") and "access_token" (that contains the token needed for authentication HTTP header - see Readme page).</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="user/">
+            <resource uri="getApps/">
+                <method displayName="Get User Apps Infos" id="823" name="GET">
+                    <doc>Allows an existing user to retrieve all his apps infos. Returns a JSON array of apps or an error text.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f823:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="formgenerator/">
+            <resource uri="result/">
+                <resource uri="{form_id}/">
+                    <param name="form_id" style="template" type="xsd:string"/>
+                    <resource uri="0/">
+                        <resource uri="1/">
+                            <method displayName="Get Form Results" id="818" name="GET">
+                                <doc>Allows an existing user to retrieve the resulting data of a form requests. A CSV file will be returned.</doc>
+                                <request>
+                                    <param name="formId" required="true" style="query" type="xsd:string">
+                                        <doc>this is the form ID which can be obtained in the URL when editing it on the platform</doc>
+                                    </param>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="category/">
+            <resource uri="addAppTree/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Set App Content" id="836" name="POST">
+                        <doc>Allows an existing user to set the content of one of his apps. Returns "true" on success, or "false" on failure.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="getAppTree/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Get App Content" id="806" name="GET">
+                        <doc>Allows an existing user to retrieve one of his apps content. Returns the content JSON structure or "false".</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f806:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="ad/">
+            <resource uri="setAdvID/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Set Adv Values" id="835" name="POST">
+                        <doc>Allows an existing user to set the values for his app advertisement services.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="setAdvStatus/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <resource uri="{enable}/">
+                        <param name="enable" style="template" type="xsd:string"/>
+                        <method displayName="Set Adv Status" id="834" name="GET">
+                            <doc>Allows an existing user to enable/disable advertisement for one of his apps.</doc>
+                            <request>
+                                <param name="enable" required="true" style="query" type="xsd:string">
+                                    <doc>this is a boolean value that indicates if the advertisement should be disabled or enabled Possible values</doc>
+                                </param>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>this is the app ID</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="getAdvStatus/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Get Adv Status" id="803" name="GET">
+                        <doc>Allow an existing user to get the app advertissement network settings.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f803:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="style/">
+            <resource uri="setTheme/">
+                <resource uri="{app_id}/">
+                    <param name="app_id" style="template" type="xsd:string"/>
+                    <method displayName="Set App Theme" id="845" name="POST">
+                        <doc>Allows an existing user to set a new theme for one of his apps.</doc>
+                        <request>
+                            <param name="appId" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="addStyle/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Set App Style" id="844" name="POST">
+                        <doc>Allows an existing user to set new style values for one of his apps. New values should be passed as a list of parameters, using the parameter name set to the style option name, and the parameter value set to the style option value.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="replaceStyle/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Replace App Style" id="832" name="POST">
+                        <doc>Allows an existing user to replace previous style values for one of his apps. New values should be passed as a list of parameters, using the parameter name set to the style option name, and the parameter value set to the style option value.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="getUserThemes/">
+                <method displayName="Get User Themes" id="824" name="GET">
+                    <doc>Allows a user to retrieve its own custom Themes. Returns an hash of Themes.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="getThemes/">
+                <method displayName="Get Themes" id="822" name="GET">
+                    <doc>Allows a user to retrieve the list of available themes. Returns an hash of Themes.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="getStyle/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Get App Style" id="810" name="POST">
+                        <doc>Allows an existing user to get one of his app style values. To obtain the value for a KEY, pass that key as the "style" parameter. To obtain all the key-values available, pass "all_styles" as "style" parameter. Returns a JSON hash containing the set values.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f810:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="deleteStyle/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Delete App Style" id="795" name="POST">
+                        <doc>Allows an existing user to delete one of his apps style options.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="layout/">
+            <resource uri="setRotation/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <resource uri="{state}/">
+                        <param name="state" style="template" type="xsd:string"/>
+                        <method displayName="Set App Rotation" id="843" name="GET">
+                            <doc>Allows an existing user to enable or disable the rotation of one of his apps.</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>this is the app ID</doc>
+                                </param>
+                                <param name="state" required="true" style="query" type="xsd:string">
+                                    <doc>this is a numeric value to disable or enable the app rotation Possible respectively values</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="setOption/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <resource uri="{option}/">
+                        <param name="option" style="template" type="xsd:string"/>
+                        <method displayName="Set App Layoutoption Values" id="841" name="POST">
+                            <doc>Allows an existing user to set new layoutoption values (only the ones that have a complex structure, for simple options see Set App Layoutoption) of the first page for one of his apps. The only possible options settable by this method are: "banner|banners|win8". The couples key-value passed as arguments will be inserted into the new specified option. The only admitted options are: "colorscheme|banners|win8".</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>this is the app ID</doc>
+                                </param>
+                                <param name="option" required="true" style="query" type="xsd:string">
+                                    <doc>this is the name of the new option Possible values colorscheme banners win</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="setLayoutOption/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Set App Layoutoption" id="840" name="POST">
+                        <doc>Allows an existing user to set new layoutoption values of the first page for one of his apps.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="setLayout/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Set App Layout" id="839" name="POST">
+                        <doc>Allows an existing user to set the app (first page) a new layout and a new layoutoption object.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="getLayout/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Get App Layout" id="808" name="GET">
+                        <doc>Allows an existing user to get one of his apps (first page) layout and layoutoption values. Returns a JSON hash containing those two values.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f808:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="deleteOption/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Delete App Layoutoption Value" id="794" name="POST">
+                        <doc>Allows an existing user to remove an app (first page) layoutoption value.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="feedconverter/">
+            <resource uri="checkURL/">
+                <method displayName="Check Feed URL" id="789" name="GET">
+                    <doc>Returns all the available feed contents from the passed URL</doc>
+                    <request>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>this is the URL to search the content from</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f789:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="cms/">
+            <resource uri="set_app_payed/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Set App Paid" id="842" name="GET">
+                        <doc>Allows a CMS admin to set an app as Paid. This action should take place after that a payment has occurred. By now the owner of the app will be able to edit his app.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="set_app_expired/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Set App Expired" id="838" name="GET">
+                        <doc>Allows a CMS admin to set an app as Expired, which means that the user will still see his app on the dashboard, but will not be able to edit it until when that app is set as Paid.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="set_app_expire/">
+                <method displayName="Set App Expire Time" id="837" name="POST">
+                    <doc>Allows a CMS admin to set an Expire Time for an app.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="register/">
+                <method displayName="Register User" id="831" name="POST">
+                    <doc>Allows a new user to register. Returns the newly created user ID (a number) or a text error with failure reasons.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="logout/">
+                <method displayName="Logout User" id="829" name="GET">
+                    <doc>Allows an existing and logged in user to logout.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="connect/">
+                <method displayName="Login User" id="827" name="POST">
+                    <doc>Allows an existing user to login. Returns an object with keys "result" (with "true" in case of success, otherwise "false") and "access_token" (that contains the token needed for authentication HTTP header - see Readme page).</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="addappassign/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Assign App to User" id="787" name="POST">
+                        <doc>Allows a CMS admin/superuser to assign an app to a user.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="feedgenerator/">
+            <resource uri="getfeeds/">
+                <method displayName="Get Feeds Infos" id="817" name="POST">
+                    <doc>Allows an existing user to retrieve the informations for all his feeds, or for selected group of IDs. Returns a JSON array.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f817:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="feedtypes/">
+                <method displayName="Get Feed Types" id="816" name="GET">
+                    <doc>Allows an existing user to retrieve a list of the available feed types. Returns a string with the possible types.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="feedspec/">
+                <resource uri="{type}/">
+                    <param name="type" style="template" type="xsd:string"/>
+                    <method displayName="Get Feed Specifications" id="815" name="GET">
+                        <doc>Allows an existing user to retrieve the feed specification for a defined type. Returns a JSON array that describes the available fields for the feed item.</doc>
+                        <request>
+                            <param name="type" required="true" style="query" type="xsd:string">
+                                <doc>this is the feed type of which to retrieve the specification Possible values can be retrieved by using the method feedgenerator feedtypes</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f815:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="getInfos/">
+                <resource uri="{feed_id}/">
+                    <param name="feed_id" style="template" type="xsd:string"/>
+                    <method displayName="Get Feed Infos" id="814" name="GET">
+                        <doc>Allows an existing user to retrieve the informations for one of his feeds. Returns a JSON object.</doc>
+                        <request>
+                            <param name="feedId" required="true" style="query" type="xsd:string">
+                                <doc>this is the feed ID</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f814:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="get/">
+                <resource uri="{feed_id}/">
+                    <param name="feed_id" style="template" type="xsd:string"/>
+                    <method displayName="Get Feed Content XML" id="813" name="GET">
+                        <doc>Allows an existing user to get the content of a feed. Returns the XML format representation of the feed.</doc>
+                        <request>
+                            <param name="feedId" required="true" style="query" type="xsd:string">
+                                <doc>this is the feed ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="getItems/">
+                <resource uri="{feed_id}/">
+                    <param name="feed_id" style="template" type="xsd:string"/>
+                    <method displayName="Get Feed Content JSON" id="812" name="GET">
+                        <doc>Allows an existing user to get the content of a feed. Returns a JSON array of feed items.</doc>
+                        <request>
+                            <param name="feedId" required="true" style="query" type="xsd:string">
+                                <doc>this is the feed ID</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f812:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="modifyFeed/">
+                <resource uri="{feed_id}/">
+                    <param name="feed_id" style="template" type="xsd:string"/>
+                    <method displayName="Edit Feed" id="800" name="POST">
+                        <doc>Allows an existing user to edit one of his feeds.</doc>
+                        <request>
+                            <param name="feedId" required="true" style="query" type="xsd:string">
+                                <doc>this is the feed ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="delete/">
+                <resource uri="{feed_id}/">
+                    <param name="feed_id" style="template" type="xsd:string"/>
+                    <resource uri="{item_id}/">
+                        <param name="item_id" style="template" type="xsd:string"/>
+                        <method displayName="Delete Feed Item" id="798" name="GET">
+                            <doc>Allows an existing user to delete an item for one of his feeds.</doc>
+                            <request>
+                                <param name="feedId" required="true" style="query" type="xsd:string">
+                                    <doc>this is the feed ID</doc>
+                                </param>
+                                <param name="itemId" required="true" style="query" type="xsd:string">
+                                    <doc>this is the item ID</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="deleteFeed/">
+                <resource uri="{feed_id}/">
+                    <param name="feed_id" style="template" type="xsd:string"/>
+                    <method displayName="Delete Feed" id="797" name="GET">
+                        <doc>Allows an existing user to delete one of his feeds. Returns "1" on success.</doc>
+                        <request>
+                            <param name="feedId" required="true" style="query" type="xsd:string">
+                                <doc>this is the feed ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="createFeed/">
+                <method displayName="Create Feed" id="792" name="POST">
+                    <doc>Allows an existing user to create a new feed. Returns the ID of the newly created feed, or an error message.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="add/">
+                <resource uri="{feed_id}/">
+                    <param name="feed_id" style="template" type="xsd:string"/>
+                    <method displayName="Add/Edit Feed Item" id="786" name="POST">
+                        <doc>Allows an existing user to add or edit an item for one of his feeds. Returns the index of the newly created or edited item. More accurate informations can be found here: https://appsbuilder.atlassian.net/wiki/display/res/Feed+Types</doc>
+                        <request>
+                            <param name="feedId" required="true" style="query" type="xsd:string">
+                                <doc>this is the feed ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="app/">
+            <resource uri="upgradeApp/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Upgrade App" id="848" name="GET">
+                        <doc>Allows an existing user to make effective the changes made to the offline version of his app, copying them on the online version (visible by users).</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="updateApp/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Update App Infos" id="847" name="POST">
+                        <doc>Allows an existing user to update the infos for one of his apps. Returns "1" in case of success, "false" otherwise. All the parameters are optional.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="quality/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Get App Quality" id="809" name="GET">
+                        <doc>Allows an existing user to retrieve the quality of an app based on an AppsBuilder rating. Returns a number, which must be considered a percentage.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="getAppInfos/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Get App Infos" id="807" name="GET">
+                        <doc>Allows an existing user to retrieve infos of one of his apps. Returns a JSON with its infos or "false".</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f807:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="setAuth/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Enable Custom App Auth" id="802" name="POST">
+                        <doc>Allows an existing user to turn on and set a Custom access control on one of his apps. How the Custom access control works: All the passed URLs should implement a login/check/logout/register login by themself. On each request an unique identifier is sent in the HTTP headers; the header name is X-APPSBUILDER-ID. Each passed URLs must return 1 on success and 0 on failure.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="setAuthInternal/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Enable App Auth" id="801" name="GET">
+                        <doc>Allows an existing user to turn on an access control on one of his apps.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="disableAuth/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Disable App Auth" id="799" name="GET">
+                        <doc>Allows an existing user to turn off access control on one of his apps.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="deleteApp/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Delete App" id="793" name="GET">
+                        <doc>Allows an existing user to delete one of his apps. Returns "false" in case of error.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="createApp2/">
+                <method displayName="Create App" id="791" name="GET">
+                    <doc>Allows an existing user to create a new app. Returns the newly created app ID or "false".</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="cloneApp/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Clone App" id="790" name="GET">
+                        <doc>Allows an existing user to clone one of his apps. Returns the newly created app ID or "false".</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="addStore/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Add Web Redirect To Mobile" id="785" name="POST">
+                        <doc>Allows an existing user to set up, for one of his apps, a redirect script that can be used on a website  to display a clickable message to visitors if a native version of the app is available based on their device OS. The script will be available at the following URL: http://www.apps-builder.com/libs/redirect/{id}.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="builder/">
+            <resource uri="setOption/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Set Build Option" id="846" name="POST">
+                        <doc>Allows an existing user to set a building option on one of his apps.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="isBuilding/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <resource uri="{device}/">
+                        <param name="device" style="template" type="xsd:string"/>
+                        <method displayName="Is Building App" id="825" name="GET">
+                            <doc>Allows a user to verify if the building process for his app, launched through Build App, is completed. Returns a JSON object with "is_building" boolean key.</doc>
+                            <request>
+                                <param name="device" required="true" style="query" type="xsd:string">
+                                    <doc>this is the type of device to download the app for Allowed values apple android chrome</doc>
+                                </param>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>this is the app ID</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="getNextBuildVersion/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Get Next Build ID" id="820" name="GET">
+                        <doc>Allows a user to get the next "build ID" used for his app by the Build App endpoint, necessary in "Is Build App Complete" call. Returns a number.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="getLastBuildInfos/">
+                <resource uri="{id}⁄{device}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Get Last Building Infos" id="819" name="GET">
+                        <doc>Allows an user to retrieve the informations about the last app building process (success, errors, and so on). Returns a JSON with multiple keys.</doc>
+                        <request>
+                            <param name="device" required="true" style="query" type="xsd:string">
+                                <doc>this is the type of device to download the app for Allowed values apple android chrome</doc>
+                            </param>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                            <param name="idDevice" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="getKey/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <resource uri="{device}/">
+                        <param name="device" style="template" type="xsd:string"/>
+                        <resource uri="{element}/">
+                            <param name="element" style="template" type="xsd:string"/>
+                            <method displayName="Get Certificate" id="811" name="GET">
+                                <doc>Allows an existing user to retrieve his uploaded iOS and Android certificates and keys for a specific app. Returns the binary file or a string with the password.</doc>
+                                <request>
+                                    <param name="device" required="true" style="query" type="xsd:string">
+                                        <doc>this is the type of device to download the certificate for Allowed values apple android</doc>
+                                    </param>
+                                    <param name="element" required="true" style="query" type="xsd:string">
+                                        <doc>required when device apple This is the certificate element the user asks for If the element passed is p or mobileprovision a binary file will be returned if it is pwd the password used to generate the p file will be returned Possible values p mobileprovision pwd</doc>
+                                    </param>
+                                    <param name="id" required="true" style="query" type="xsd:string">
+                                        <doc>this is the app ID</doc>
+                                    </param>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="getApp/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <resource uri="{device}/">
+                        <param name="device" style="template" type="xsd:string"/>
+                        <method displayName="Get App" id="805" name="GET">
+                            <doc>Allows an existing user to download the compiled package of one of his apps, for a specific device type. Returns the app binary file.</doc>
+                            <request>
+                                <param name="device" required="true" style="query" type="xsd:string">
+                                    <doc>this is the type of device to download the app for Allowed values apple android chrome</doc>
+                                </param>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>this is the app ID</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="deleteKey/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <resource uri="{device}/">
+                        <param name="device" style="template" type="xsd:string"/>
+                        <method displayName="Delete Certificate" id="796" name="GET">
+                            <doc>Allows an existing user to remove his uploaded iOS and Android certificates and keys for a specific app.</doc>
+                            <request>
+                                <param name="device" required="true" style="query" type="xsd:string">
+                                    <doc>this is the type of device to delete the certificate for Allowed values apple android</doc>
+                                </param>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>this is the app ID</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="createApp/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <resource uri="{device}/">
+                        <param name="device" style="template" type="xsd:string"/>
+                        <method displayName="Build App" id="788" name="GET">
+                            <doc>Allows an existing user to compile and create the package of one of his apps, for a specific device type. Returns a JSON with the position of the app in the building queue on success, or an error message (for e.g. in case the app has already been inserted in the queue). The “Is Building” function should be used to test building procedure completion.</doc>
+                            <request>
+                                <param name="device" required="true" style="query" type="xsd:string">
+                                    <doc>this is the type of device to download the app for Allowed values apple android chrome</doc>
+                                </param>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>this is the app ID</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="addKey/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <resource uri="{device}/">
+                        <param name="device" style="template" type="xsd:string"/>
+                        <method displayName="Add Certificate" id="784" name="POST">
+                            <doc>Allows an existing user to upload iOS and Android certificates and keys required to compile a specific app package.</doc>
+                            <request>
+                                <param name="device" required="true" style="query" type="xsd:string">
+                                    <doc>this is the type of device to upload the certificate for Allowed values apple android</doc>
+                                </param>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>this is the app ID</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="push/">
+            <resource uri="add/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Send Message" id="833" name="POST">
+                        <doc>Allows an existing user to send a push notification message for one of his apps, to all devices using it or to a specified group of users ID. The message is added to the outgoing queue and could be considered surely delivered after 30 minutes from the sending time. Returns "success" or "error" for the respective state.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="story/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <resource uri="{limit}/">
+                        <param name="limit" style="template" type="xsd:string"/>
+                        <method displayName="Get Sent Messages" id="821" name="GET">
+                            <doc>Allows an existing user to retrieve the previously sent push notification messages for on of his apps, specifying the number of results to be shown.</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string">
+                                    <doc>this is the app ID</doc>
+                                </param>
+                                <param name="limit" required="true" style="query" type="xsd:string">
+                                    <doc>this is the number of push notification messages to be shown</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f821:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="getAppleCertificate/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Get APN Certificate" id="804" name="GET">
+                        <doc>Allows an existing user to download the previously uploaded Apple Push Notification Certificate for one of his apps. Returns the .p12 binary file if available, otherwise returns an empty file.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="addAppleCertificate/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="Add APN Certificate" id="783" name="POST">
+                        <doc>Allows an existing user to upload an Apple Push Notification Certificate for one of his apps.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>this is the app ID</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

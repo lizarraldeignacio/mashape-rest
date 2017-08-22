@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1438="urn:function:f1438" xmlns:f1439="urn:function:f1439" xmlns:f1440="urn:function:f1440" xmlns:f1441="urn:function:f1441" xmlns:f1442="urn:function:f1442">
+    <grammars>
+        <include href="Function1440.xsd"/>
+        <include href="Function1441.xsd"/>
+        <include href="Function1442.xsd"/>
+        <include href="Function1438.xsd"/>
+        <include href="Function1439.xsd"/>
+    </grammars>
+    <doc>pollenCheck provide pollen forecasts in Europe Four day forecasts are available at any city in Europe updated daily and including data every hours More details http www pollencheck eu docs</doc>
+    <resources base="https://pollencheck.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="1/">
+                <resource uri="locations/">
+                    <method displayName="getLocationByWoeid" id="1440" name="GET">
+                        <doc>Get a Location</doc>
+                        <request>
+                            <param name="woeid" required="true" style="query" type="xsd:integer">
+                                <doc>where On Earth ID WOEID as defined by Yahoo</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1440:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="registerLocationByWoeid" id="1441" name="PUT">
+                        <doc>Register a new Location.</doc>
+                        <request>
+                            <param name="woeid" required="true" style="query" type="xsd:integer">
+                                <doc>where On Earth ID WOEID as defined by Yahoo</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1441:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="searchLocationByName" id="1442" name="GET">
+                        <doc>Search Location by name</doc>
+                        <request>
+                            <param name="q" required="true" style="query" type="xsd:integer">
+                                <doc>query to search cities towns by name in Europe</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1442:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="forecasts/">
+                    <resource uri="{woeid}/">
+                        <param name="woeid" style="template" type="xsd:string"/>
+                        <method displayName="findDailyForecastByWoeid" id="1438" name="GET">
+                            <doc>Get daily forecast for a location</doc>
+                            <request>
+                                <param name="woeid" required="true" style="query" type="xsd:integer">
+                                    <doc>code WOEID from Location</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f1438:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="findHourlyForecastByWoeid" id="1439" name="GET">
+                            <doc>Get a hourly forecast for a location</doc>
+                            <request>
+                                <param name="woeid" required="true" style="query" type="xsd:integer">
+                                    <doc>where On Earth ID WOEID as defined by Yahoo All location must be Town in Europe</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f1439:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

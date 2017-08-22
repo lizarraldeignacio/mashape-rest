@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>the Crowdtilt API allows developers to quickly and easily integrate crowdfunding or group payments into their applications</doc>
+    <resources base="https://crowdtilt-crowdtilt.p.mashape.com/">
+        <resource uri="campaigns/">
+            <method displayName="Create Campaign" id="5781" name="POST">
+                <doc>A campaign needs to be associated to a user. We refer to this user as the "campaign admin". Campaign admins can create campaigns without having to be verified. However, they need to be verified in order to set up their bank account details and then be able to receive the money collected in their campaign.</doc>
+                <request/>
+            </method>
+            <method displayName="Create Campaign Comment" id="5782" name="POST">
+                <doc>To create a comment, POST to /campaigns/:id/comments. The only required fields are the user_id of the comment author and the body of the comment. The title, parent_id, and score fields are optional. The parent_id is the id of the parent of this comment, i.e., the comment that this comment is a reply to. This only matters if you want to support nested comments. You may provide a parent_id of null for top-level comments. The purpose of the score field is to provide support for voting on comments.</doc>
+                <request>
+                    <param name="campaignid" required="true" style="query" type="xsd:string">
+                        <doc>campaign ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Create campaign payment" id="5783" name="POST">
+                <doc>Before a user is able to contribute, they need to have a Credit Card associated to them. All amounts and prices used in this API are always in cents.When creating a payment, the amount field determines how much money is going to the campaign. The user_fee_amount accepts a value that will be charged to the paying user, on top of the amount, and the admin_fee_amount will be taken out of the money that goes to the campaign admin when the campaign tilts.For example, if a user wants to pay $20.00 to a campaign, and you want to add a 2% fee to the user, you would send amount as 2000 and user_fee_amount as 40 (2% of the $20.00). The users credit card would then be charged $20.40. In the same scenario, if you wanted to charge 2% from the admin when the campaign tilts, you would set admin_fee_amount to 40 and on tilt the admin will only receive $19.60 from the $20.00 payment.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>campaign ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Delete a comment" id="5787" name="DELETE">
+                <request>
+                    <param name="campaignid" required="true" style="query" type="xsd:string">
+                        <doc>campagin ID</doc>
+                    </param>
+                    <param name="commentid" required="true" style="query" type="xsd:string">
+                        <doc>comment ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get Campaign" id="5790" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>campaign ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get campaign comment" id="5791" name="GET">
+                <request>
+                    <param name="campaignid" required="true" style="query" type="xsd:string">
+                        <doc>campaign ID</doc>
+                    </param>
+                    <param name="commentid" required="true" style="query" type="xsd:string">
+                        <doc>comment ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get campaign payment" id="5792" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>campaign ID</doc>
+                    </param>
+                    <param name="pid" required="true" style="query" type="xsd:string">
+                        <doc>payment ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get Campaign Settlement" id="5793" name="GET">
+                <doc>Campaign Settlements represent a disbursement of funds for a tilted campaign. A campaign settlement will show you the campaign, bank, and user that the settlement belongs to. It will also show you the admin_amount, which is the amount of money being sent to the admin's bank account. The escrow_amount is how much money from the campaign is going into your escrow account (it represents fees charged to the admin and payers).</doc>
+                <request>
+                    <param name="campaignid" required="true" style="query" type="xsd:string">
+                        <doc>campaign ID</doc>
+                    </param>
+                    <param name="settlementid" required="true" style="query" type="xsd:string">
+                        <doc>settlement ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get rejected payments" id="5794" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>campaign ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="List Campaign Comments" id="5801" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>campaign ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="List campaign payments" id="5802" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>campaign ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="List Campaign Settlements" id="5803" name="GET">
+                <request>
+                    <param name="campaignid" required="true" style="query" type="xsd:string">
+                        <doc>campaign ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="List campaigns" id="5804" name="GET">
+                <request/>
+            </method>
+            <method displayName="Refund a payment" id="5811" name="POST">
+                <doc>In order to refund a payment, simply POST with an empty body to the payment's refund subresource.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>campaign ID</doc>
+                    </param>
+                    <param name="pid" required="true" style="query" type="xsd:string">
+                        <doc>payment ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Update Campaign" id="5812" name="PUT">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>campaign ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Update campaign comment" id="5813" name="PUT">
+                <doc>Currently you can only alter the score and the metadata of a comment.</doc>
+                <request>
+                    <param name="campaignid" required="true" style="query" type="xsd:string">
+                        <doc>campaign ID</doc>
+                    </param>
+                    <param name="commentid" required="true" style="query" type="xsd:string">
+                        <doc>comment ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Update campaign payment" id="5814" name="PUT">
+                <doc>You may update the credit card for payments. Note that you may only do this for payments with a status of "rejected".</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>campaign ID</doc>
+                    </param>
+                    <param name="pid" required="true" style="query" type="xsd:string">
+                        <doc>payment ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Update Campaign Settlement Bank" id="5815" name="POST">
+                <doc>A Campaign Settlement can only be updated if the status is needs bank account. In this instance, a bank object can be sent with the id of a new bank account to re-attempt the settlement with.</doc>
+                <request>
+                    <param name="campaignid" required="true" style="query" type="xsd:string">
+                        <doc>campaign ID</doc>
+                    </param>
+                    <param name="settlementid" required="true" style="query" type="xsd:string">
+                        <doc>settlement ID</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="users/">
+            <method displayName="Authenticate User" id="5780" name="GET">
+                <doc>To authenticate a user, you can pass in the user's login credentials, email and password, as query parameters.</doc>
+                <request>
+                    <param name="email" required="true" style="query" type="xsd:string">
+                        <doc>user Email</doc>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc>user Password</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Create User" id="5784" name="POST">
+                <doc>The minimum amount of information needed to create a user is a valid email address.  Keep in mind that the metadata field is a great place to store references to other user assets, such as a profile image.</doc>
+                <request/>
+            </method>
+            <method displayName="Create User Bank" id="5785" name="POST">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>user ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Create User Card" id="5786" name="POST">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>user ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Delete User Bank" id="5788" name="DELETE">
+                <request>
+                    <param name="bid" required="true" style="query" type="xsd:string">
+                        <doc>bank ID</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>user ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Delete User Card" id="5789" name="DELETE">
+                <request>
+                    <param name="cardid" required="true" style="query" type="xsd:string">
+                        <doc>card ID</doc>
+                    </param>
+                    <param name="userid" required="true" style="query" type="xsd:string">
+                        <doc>user ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get User" id="5795" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>user ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get User Bank" id="5796" name="GET">
+                <request>
+                    <param name="bid" required="true" style="query" type="xsd:string">
+                        <doc>bank ID</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>user ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get User Campaign" id="5797" name="GET">
+                <doc>This resource returns a specific campaign created by this user.</doc>
+                <request>
+                    <param name="campaignid" required="true" style="query" type="xsd:string">
+                        <doc>campaign ID</doc>
+                    </param>
+                    <param name="userid" required="true" style="query" type="xsd:string">
+                        <doc>user ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get User Campaigns" id="5798" name="GET">
+                <doc>This resource returns all the campaigns that the user has created as well as the campaigns that he paid for.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>user ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get User Card" id="5799" name="GET">
+                <request>
+                    <param name="cardid" required="true" style="query" type="xsd:string">
+                        <doc>card ID</doc>
+                    </param>
+                    <param name="userid" required="true" style="query" type="xsd:string">
+                        <doc>user ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Get User's Default Bank" id="5800" name="GET">
+                <doc>To get the current default bank for a user, you can simply request:</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>user ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="List User Banks" id="5805" name="GET">
+                <doc>This resource lists the bank accounts associated with this user.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>user ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="List User Cards" id="5806" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>user ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="List User Paid Campaigns" id="5807" name="GET">
+                <doc>This resource returns all the campaigns that the user paid for.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>user ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="List User Payments" id="5808" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>user ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="List Users" id="5809" name="GET">
+                <request/>
+            </method>
+            <method displayName="Make User Bank Default" id="5810" name="POST">
+                <doc>Before a bank account will be sent money, it must be marked as the default bank account for that user. To make a bank account the default, make the following request:</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>user ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Update User" id="5816" name="PUT">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>user ID to update</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Update User Bank" id="5817" name="PUT">
+                <doc>Bank information cannot be updated once it is set. You can however, modify the metadata of a bank account. That is the only thing modifiable with this request. Other fields submitted will be ignored.</doc>
+                <request>
+                    <param name="bid" required="true" style="query" type="xsd:string">
+                        <doc>bank ID</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>user ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Update User Card" id="5818" name="PUT">
+                <doc>Card information cannot be updated once it is set. You can however, modify the metadata of a Card. That is the only thing modifiable with this request. Other fields submitted will be ignored.</doc>
+                <request>
+                    <param name="cardid" required="true" style="query" type="xsd:string">
+                        <doc>card ID</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>user ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Verify User" id="5819" name="POST">
+                <doc>In order for a user to receive money raised from a campaign, the user's identity needs to be verified.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>user ID</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

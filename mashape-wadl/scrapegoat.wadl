@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f377="urn:function:f377" xmlns:f378="urn:function:f378">
+    <grammars>
+        <include href="Function378.xsd"/>
+        <include href="Function377.xsd"/>
+    </grammars>
+    <doc>this is an api that let s you specify an url and a CSS selector or an regexp and get the result as a JSON object The API can also take screenshots of a webpage prerendered with javascript or not and return it as a PNG image</doc>
+    <resources base="https://scrapegoat.p.mashape.com/">
+        <resource uri="screenshot/">
+            <method displayName="screenDump" id="379" name="GET">
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>the url to scrape</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="prerendered/">
+            <method displayName="scrapePrerendered" id="378" name="GET">
+                <doc>Fetch some html from the page with selectors, but let javascript be executed first</doc>
+                <request>
+                    <param name="flags" required="true" style="query" type="xsd:string">
+                        <doc>flags for regexp method https developer mozilla org en US docs JavaScript Reference Global Objects RegExp</doc>
+                    </param>
+                    <param name="regexp" required="true" style="query" type="xsd:string">
+                        <doc>regular expression selector https developer mozilla org en US docs JavaScript Reference Global Objects RegExp</doc>
+                    </param>
+                    <param name="selector" required="true" style="query" type="xsd:string">
+                        <doc>cSS selector</doc>
+                    </param>
+                    <param name="timeout" required="true" style="query" type="xsd:integer">
+                        <doc>time in milliseconds to let javascript render</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>the url to scrape</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f378:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="screenDumpPrerendered" id="380" name="GET">
+                <request>
+                    <param name="timeout" required="true" style="query" type="xsd:integer">
+                        <doc>time in milliseconds to let javascript render</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>the url to scrape</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="">
+            <method displayName="scrape" id="377" name="GET">
+                <doc>Fetch some html from the page with selectors</doc>
+                <request>
+                    <param name="flags" required="true" style="query" type="xsd:string">
+                        <doc>flags for regexp method https developer mozilla org en US docs JavaScript Reference Global Objects RegExp</doc>
+                    </param>
+                    <param name="regexp" required="true" style="query" type="xsd:string">
+                        <doc>regular expression selector https developer mozilla org en US docs JavaScript Reference Global Objects RegExp</doc>
+                    </param>
+                    <param name="selector" required="true" style="query" type="xsd:string">
+                        <doc>cSS selector</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>the url to scrape</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f377:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

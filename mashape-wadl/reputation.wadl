@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2628="urn:function:f2628">
+    <grammars>
+        <include href="Function2628.xsd"/>
+    </grammars>
+    <doc>this API returns the reputation information for a given domain data is pulled from Google Safe Browsing API and MyWOT</doc>
+    <resources base="https://enclout-reputation.p.mashape.com/">
+        <resource uri="show.json/">
+            <method displayName="Reputation" id="2628" name="GET">
+                <doc>domain reputation</doc>
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>uRL or Domain</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2628:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

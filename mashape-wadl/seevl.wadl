@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2274="urn:function:f2274" xmlns:f2275="urn:function:f2275" xmlns:f2276="urn:function:f2276" xmlns:f2277="urn:function:f2277" xmlns:f2278="urn:function:f2278" xmlns:f2279="urn:function:f2279">
+    <grammars>
+        <include href="Function2274.xsd"/>
+        <include href="Function2275.xsd"/>
+        <include href="Function2276.xsd"/>
+        <include href="Function2277.xsd"/>
+        <include href="Function2278.xsd"/>
+        <include href="Function2279.xsd"/>
+    </grammars>
+    <doc>unlimited and Targeted Music Discovery Get personal recommendations enjoy unlimited mixtapes discover new artists and much more Our API lets you search for discover and explore music entities and their connections</doc>
+    <resources base="https://seevl.p.mashape.com/">
+        <resource uri="entities/">
+            <method displayName="Entity Search" id="2274" name="GET">
+                <doc>Search for an entity by prefLabel, i.e. its name. OR Search for an entity by key=value patterns. Values are entity IDs, and can be identified with the previous prefLabel search method.</doc>
+                <request>
+                    <param name="autocomplete" required="true" style="query" type="xsd:string">
+                        <doc>enable autocompletion Default</doc>
+                    </param>
+                    <param name="lang" required="true" style="query" type="xsd:string">
+                        <doc>lang for matchin and results Uses english if nothing is found for the given lang Default en</doc>
+                    </param>
+                    <param name="maxres" required="true" style="query" type="xsd:string">
+                        <doc>results per page Default max</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>page Default</doc>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:string">
+                        <doc>sorting criteria Defaut alpha asc</doc>
+                    </param>
+                    <param name="key" required="true" style="query" type="xsd:string">
+                        <doc>string required example genre Possible values genre instrument label origin member artist member groupstring required example BntvuZAy</doc>
+                    </param>
+                    <param name="preflabel" required="true" style="query" type="xsd:string">
+                        <doc>entity prefLabel</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>entity type</doc>
+                    </param>
+                    <param name="value" required="true" style="query" type="xsd:string">
+                        <doc>string required example BntvuZAy</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2274:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get entity basic infos" id="2275" name="GET">
+                <doc>Get entity basic infos (prefLabel, description, type). Description is from Wikipedia, you must display its source and licence when using it in your application.</doc>
+                <request>
+                    <param name="lang" required="true" style="query" type="xsd:string">
+                        <doc>lang for results Uses english if nothing is found for the given lang Default en</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>entity ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2275:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get entity fact-sheet" id="2276" name="GET">
+                <doc>Get entity fact-sheet, including genre, label, influences, etc. for artists Fact-sheet is using a key-value model with keys including (depending on the entity type): * genre - musical genre (for Artist, SoloArtist, Group) * label - record label (for Artist, SoloArtist, Group) * origin - artist origin (for Artist, SoloArtist, Group) * membership.group - groups the artist is member of (for Artist, SoloArtist, Group) * membership.artist - group members (for Artist, SoloArtist, Group) * collaborated_with - artist collaborations (for Artist, SoloArtist, Group) * birth.place - birth place (for Artist, SoloArtist, Group) * birth.date - birth date (for Artist, SoloArtist, Group) * death.place - death place (for Artist, SoloArtist, Group) * death.date - death date (for Artist, SoloArtist, Group) * broader - paren genres (for Genre) * narrower - child genres (for Genre)</doc>
+                <request>
+                    <param name="lang" required="true" style="query" type="xsd:string">
+                        <doc>lang for results Uses english if nothing is found for the given lang Default en</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>entity ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2276:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get entity links" id="2277" name="GET">
+                <doc>Get entity links</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>entity ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2277:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get related entities" id="2278" name="GET">
+                <doc>Get related entities</doc>
+                <request>
+                    <param name="lang" required="true" style="query" type="xsd:string">
+                        <doc>lang for results Uses english if nothing is found for the given lang Default en</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>entity ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2278:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get relations between entities" id="2279" name="GET">
+                <doc>Get relations between entities. This method is only available for entities of type Artist (and its sub-types Solo and Group)</doc>
+                <request>
+                    <param name="lang" required="true" style="query" type="xsd:string">
+                        <doc>lang for results Uses english if nothing is found for the given lang Default en</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>entity ID</doc>
+                    </param>
+                    <param name="oid" required="true" style="query" type="xsd:string">
+                        <doc>entity ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2279:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>ribbet is an online photo editor with free cloud storage complete editing history thousands of effects filters hand picked shapes designer fonts and borders Ribbet also has bookmarking to allow favorite effects to be stored With the Ribbet API developers can integrate the full functionality of Ribbet into their application or website</doc>
+    <resources base="https://ribbet-ribbet.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Edit a photo" id="1843" name="GET">
+                <request>
+                    <param name="export" required="true" style="query" type="xsd:string">
+                        <doc>the url where the user is sent after saving</doc>
+                    </param>
+                    <param name="exportTitle" required="true" style="query" type="xsd:string">
+                        <doc>the caption used on the save button when editing</doc>
+                    </param>
+                    <param name="import" required="true" style="query" type="xsd:string">
+                        <doc>the url of the image you want edited</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

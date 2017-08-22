@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f678="urn:function:f678">
+    <grammars>
+        <include href="Function678.xsd"/>
+    </grammars>
+    <doc>this is simple and fast API to get any Indian listed scrip stock company s current values in exchange Try us out as its free</doc>
+    <resources base="https://indianstockexchange.p.mashape.com/">
+        <resource uri="index.php?id={scrip-id}/">
+            <param name="scrip-id" style="template" type="xsd:string"/>
+            <method displayName="Scrip Grabber" id="678" name="GET">
+                <doc>Get Scrip Details</doc>
+                <request>
+                    <param name="scripId" required="true" style="query" type="xsd:integer">
+                        <doc>id of the scrip stock</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f678:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

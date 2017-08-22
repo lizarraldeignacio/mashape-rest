@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6734="urn:function:f6734">
+    <grammars>
+        <include href="Function6734.xsd"/>
+    </grammars>
+    <doc>the Progress to Goal API is used to determine the percentage currently funded of a goal and the additional monthly savings needed to fund a goal Currently only goal can be included per request</doc>
+    <resources base="https://achavar-progress-to-goal-v1.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="progress_to_goal/">
+                <method displayName="/v1/progress_to_goal" id="6734" name="POST">
+                    <request>
+                        <param name="accountreturn" required="true" style="query" type="xsd:integer">
+                            <doc>annual expected return of account</doc>
+                        </param>
+                        <param name="accountvalue" required="true" style="query" type="xsd:integer">
+                            <doc>current balance of account funding goal</doc>
+                        </param>
+                        <param name="contributionamount" required="true" style="query" type="xsd:integer">
+                            <doc>amount of contribution per period</doc>
+                        </param>
+                        <param name="contributionendyear" required="true" style="query" type="xsd:string">
+                            <doc>year that contributions end</doc>
+                        </param>
+                        <param name="contributionfrequency" required="true" style="query" type="xsd:string">
+                            <doc>how often contributions are made towards the goal</doc>
+                        </param>
+                        <param name="contributionstartyear" required="true" style="query" type="xsd:string">
+                            <doc>year that contributions start</doc>
+                        </param>
+                        <param name="goalname" required="true" style="query" type="xsd:string">
+                            <doc>goal Name</doc>
+                        </param>
+                        <param name="timehorizon" required="true" style="query" type="xsd:integer">
+                            <doc>number of years until goal comes due</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6734:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

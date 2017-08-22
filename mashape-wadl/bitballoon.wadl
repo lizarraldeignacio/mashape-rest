@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5361="urn:function:f5361" xmlns:f5363="urn:function:f5363" xmlns:f5365="urn:function:f5365" xmlns:f5366="urn:function:f5366" xmlns:f5367="urn:function:f5367" xmlns:f5368="urn:function:f5368" xmlns:f5369="urn:function:f5369" xmlns:f5370="urn:function:f5370" xmlns:f5371="urn:function:f5371" xmlns:f5372="urn:function:f5372" xmlns:f5373="urn:function:f5373" xmlns:f5374="urn:function:f5374" xmlns:f5375="urn:function:f5375" xmlns:f5376="urn:function:f5376" xmlns:f5377="urn:function:f5377" xmlns:f5379="urn:function:f5379" xmlns:f5380="urn:function:f5380" xmlns:f5381="urn:function:f5381" xmlns:f5382="urn:function:f5382" xmlns:f5383="urn:function:f5383" xmlns:f5384="urn:function:f5384" xmlns:f5385="urn:function:f5385" xmlns:f5386="urn:function:f5386" xmlns:f5387="urn:function:f5387" xmlns:f5388="urn:function:f5388">
+    <grammars>
+        <include href="Function5382.xsd"/>
+        <include href="Function5381.xsd"/>
+        <include href="Function5374.xsd"/>
+        <include href="Function5363.xsd"/>
+        <include href="Function5365.xsd"/>
+        <include href="Function5371.xsd"/>
+        <include href="Function5376.xsd"/>
+        <include href="Function5361.xsd"/>
+        <include href="Function5366.xsd"/>
+        <include href="Function5367.xsd"/>
+        <include href="Function5368.xsd"/>
+        <include href="Function5369.xsd"/>
+        <include href="Function5370.xsd"/>
+        <include href="Function5372.xsd"/>
+        <include href="Function5373.xsd"/>
+        <include href="Function5375.xsd"/>
+        <include href="Function5377.xsd"/>
+        <include href="Function5379.xsd"/>
+        <include href="Function5380.xsd"/>
+        <include href="Function5383.xsd"/>
+        <include href="Function5384.xsd"/>
+        <include href="Function5385.xsd"/>
+        <include href="Function5386.xsd"/>
+        <include href="Function5387.xsd"/>
+        <include href="Function5388.xsd"/>
+    </grammars>
+    <doc>the ultimate hosting platform for your HTML sites apps BitBalloon is all about connecting the elegant simplicity of static sites with the power of the programmable web Our focus is making it as simple as possible to publish sites that are optimized for performance and leverage the API economy in a meaningful way</doc>
+    <resources base="https://community-bitballoon.p.mashape.com/">
+        <resource uri="users/">
+            <method displayName="Get Users" id="5382" name="GET">
+                <doc>GET /users get a list users you have access to</doc>
+                <request/>
+                <response>
+                    <representation element="f5382:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="submissions/">
+            <method displayName="Get Submissions" id="5381" name="GET">
+                <doc>GET /submissions will return a list of form submissions</doc>
+                <request/>
+                <response>
+                    <representation element="f5381:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="forms/">
+            <method displayName="Get Forms" id="5374" name="GET">
+                <doc>GET /forms will return a list of forms</doc>
+                <request/>
+                <response>
+                    <representation element="f5374:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="dns_zones/">
+            <method displayName="Create a DNS record" id="5362" name="POST">
+                <doc>POST /dns_zones/{zone_id}/dns_records arguments: type,hostname,value,ttl - supported types: A, CNAME, TXT, MX</doc>
+                <request>
+                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Create DNS Zone" id="5363" name="POST">
+                <doc>POST /dns_zones create a new dns zone, arguments: name</doc>
+                <request/>
+                <response>
+                    <representation element="f5363:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete a DNS record" id="5364" name="GET">
+                <doc>DELETE /dns_zones/{zone_id}/dns_records/{id} deletes a record</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Delete DNS Zone" id="5365" name="GET">
+                <doc>DELETE /dns_zones/{zone_id} delete a dns zone</doc>
+                <request>
+                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5365:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get DNS Zones" id="5371" name="GET">
+                <doc>GET /dns_zones get a list of DNS zones</doc>
+                <request/>
+                <response>
+                    <representation element="f5371:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get records for a zone" id="5376" name="GET">
+                <doc>GET /dns_zones/{zone_id}/dns_records get a list of dns records</doc>
+                <request>
+                    <param name="zoneId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5376:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="sites/">
+            <method displayName="Add Snippet" id="5361" name="POST">
+                <doc>POST /sites/{site_id}/snippets add a new snippet to a site.</doc>
+                <request>
+                    <param name="siteId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5361:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete File" id="5366" name="DELETE">
+                <doc>DELETE /sites/{site_id}/files/{path-to-file} will delete a file from the site. Note that this creates a new version of the site without the deleted file. The old version can still be rolled back and the file does not get deleted from BitBalloon's servers.</doc>
+                <request>
+                    <param name="pathToFile" required="true" style="query" type="xsd:string"/>
+                    <param name="siteId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5366:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete Snippet" id="5367" name="DELETE">
+                <doc>DELETE /sites/{site_id}/snippets/{snippet_id} delete a snippet.</doc>
+                <request>
+                    <param name="siteId" required="true" style="query" type="xsd:string"/>
+                    <param name="snippetId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5367:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Destroy Site" id="5368" name="DELETE">
+                <doc>DELETE /sites/{site_id} will permanently delete a site DELETE /sites/{site_domain} will permanently delete a site</doc>
+                <request>
+                    <param name="siteId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5368:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Deploy" id="5369" name="GET">
+                <doc>GET /sites/{site_id}/deploys/{deploy_id} a specific deploy</doc>
+                <request>
+                    <param name="deployId" required="true" style="query" type="xsd:string"/>
+                    <param name="siteId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5369:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Deploys" id="5370" name="GET">
+                <doc>GET /sites/{site_id}/deploys a list of all deploys</doc>
+                <request>
+                    <param name="siteId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5370:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get File" id="5372" name="GET">
+                <doc>GET /sites/{site_id}/files/{path-to-file} returns the file</doc>
+                <request>
+                    <param name="pathToFile" required="true" style="query" type="xsd:string"/>
+                    <param name="siteId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5372:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Files" id="5373" name="GET">
+                <doc>GET /sites/{site_id}/files will return a list of all the files in the current deploy</doc>
+                <request>
+                    <param name="siteId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5373:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Metadata" id="5375" name="GET">
+                <doc>GET /sites/{site_id}/metadata get the metadata for a site</doc>
+                <request>
+                    <param name="siteId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5375:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Site" id="5377" name="GET">
+                <doc>GET /sites/3970e0fe-8564-4903-9a55-c5f8de49fb8b will return the site from its ID GET /sites/www.example.com will return the site matching the domain www.example.com</doc>
+                <request>
+                    <param name="site" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5377:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Sites" id="5378" name="GET">
+                <doc>GET /sites will return all sites you have access to.</doc>
+                <request/>
+            </method>
+            <method displayName="Get Snippet" id="5379" name="GET">
+                <doc>GET /sites/{site_id}/snippets/{snippet_id} get a specific snippet</doc>
+                <request>
+                    <param name="siteId" required="true" style="query" type="xsd:string"/>
+                    <param name="snippetId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5379:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Snippets" id="5380" name="GET">
+                <doc>GET /sites/{site_id}/snippets get a list of snippets specific to this site (a reseller may set global snippets that won't be included in this list)</doc>
+                <request>
+                    <param name="siteId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5380:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="POST a ZIP file" id="5383" name="POST">
+                <doc>POST /sites with zip=zip-file. You must use Content-Type: multipart/form-data to send the zip file in a property called zip.</doc>
+                <request/>
+                <response>
+                    <representation element="f5383:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Put File" id="5384" name="PUT">
+                <doc>PUT /sites/{site_id}/files/{path-to-file} will add or update a file, reprocess all assets and create a new deploy The request body will be used as the new content for this file. If the site is still in uploading mode (after creating a site with a list of files) and this is the last file</doc>
+                <request>
+                    <param name="pathToFile" required="true" style="query" type="xsd:string"/>
+                    <param name="siteId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5384:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Restore Deploy" id="5385" name="POST">
+                <doc>POST /sites/{site_id}/deploys/{deploy_id}/restore restore an old deploy and make it the live version of the site</doc>
+                <request>
+                    <param name="deployId" required="true" style="query" type="xsd:string"/>
+                    <param name="siteId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5385:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update Metadata" id="5386" name="PUT">
+                <doc>PUT /sites/{site_id}/metadata replace the metdata object with a new metadata object</doc>
+                <request>
+                    <param name="siteId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5386:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update Site" id="5387" name="PUT">
+                <doc>This lets you update the name, custom_domain, password and notification_email fields of a site.</doc>
+                <request>
+                    <param name="siteId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5387:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Update Snippet" id="5388" name="PUT">
+                <doc>PUT /sites/{site_id}/snippets/{snippet_id} replace a snippet.</doc>
+                <request>
+                    <param name="siteId" required="true" style="query" type="xsd:string"/>
+                    <param name="snippetId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5388:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

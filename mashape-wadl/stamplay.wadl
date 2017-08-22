@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5616="urn:function:f5616">
+    <grammars>
+        <include href="Function5616.xsd"/>
+    </grammars>
+    <doc>stamplay build web apps easily</doc>
+    <resources base="https://stamplay.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="youtube/">
+                <resource uri="v0/">
+                    <resource uri="videos/">
+                        <method displayName="/videos" id="5636" name="POST">
+                            <doc>Create widget-able YouTube videos for your app</doc>
+                            <request/>
+                        </method>
+                        <method displayName="/videos✉️" id="5637" name="GET">
+                            <doc>Get all YouTube videos</doc>
+                            <request/>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="user/">
+                <resource uri="v0/">
+                    <resource uri="users/">
+                        <method displayName="/user/{userId}" id="5634" name="GET">
+                            <doc>Get a single user's info by Id</doc>
+                            <request>
+                                <param name="userid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="/users" id="5635" name="GET">
+                            <doc>Get all users</doc>
+                            <request>
+                                <param name="n" required="true" style="query" type="xsd:integer">
+                                    <doc>returns the first n elements visible to the authenticated user</doc>
+                                </param>
+                                <param name="page" required="true" style="query" type="xsd:integer">
+                                    <doc>page Number</doc>
+                                </param>
+                                <param name="perPage" required="true" style="query" type="xsd:integer">
+                                    <doc>the number of elements to be contained in a single page</doc>
+                                </param>
+                                <param name="select" required="true" style="query" type="xsd:string">
+                                    <doc>specifies which resource fields to include or exclude Character will flag that property as excluded</doc>
+                                </param>
+                                <param name="sort" required="true" style="query" type="xsd:string">
+                                    <doc>the property you want to sort on Descending order is used by default use before property name to use ascending order I E dt create or dt create</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="photo/">
+                <resource uri="v0/">
+                    <resource uri="photos/">
+                        <method displayName="/photos" id="5631" name="GET">
+                            <doc>Get all photos</doc>
+                            <request>
+                                <param name="n" required="true" style="query" type="xsd:integer">
+                                    <doc>returns the first n elements visible to the authenticated user</doc>
+                                </param>
+                                <param name="page" required="true" style="query" type="xsd:integer">
+                                    <doc>the page number</doc>
+                                </param>
+                                <param name="perPage" required="true" style="query" type="xsd:integer">
+                                    <doc>the number of elements to be contained in a single page</doc>
+                                </param>
+                                <param name="select" required="true" style="query" type="xsd:string">
+                                    <doc>specifies which resource fields to include or exclude will flag that property as excluded</doc>
+                                </param>
+                                <param name="sort" required="true" style="query" type="xsd:string">
+                                    <doc>the property you want to sort on Descending order is used by default use before property name to use ascending order I E dt create or dt create</doc>
+                                </param>
+                            </request>
+                        </method>
+                        <method displayName="/photos/{photoId}" id="5632" name="GET">
+                            <doc>Return a photo given its "photoId"</doc>
+                            <request>
+                                <param name="photoid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="/photos/{photoId}✉️" id="5633" name="DELETE">
+                            <doc>Delete a specific photo given "photoId". Only app admins can do this</doc>
+                            <request>
+                                <param name="photoid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="lottery/">
+                <resource uri="v0/">
+                    <resource uri="lottery/">
+                        <resource uri="{lotteryId}/">
+                            <param name="lotteryId" style="template" type="xsd:string"/>
+                            <method displayName="/lottery/{lotteryId}" id="5630" name="GET">
+                                <doc>Retrieve a lottery given it's "lotteryId"</doc>
+                                <request>
+                                    <param name="lotteryid" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                    <resource uri="lotteries/">
+                        <method displayName="/lotteries" id="5621" name="POST">
+                            <doc>Create new lottery</doc>
+                            <request/>
+                        </method>
+                        <method displayName="/lotteries/{lotteryId}" id="5622" name="PUT">
+                            <doc>Update a lottery model given it's "lotteryId"</doc>
+                            <request>
+                                <param name="lotteryid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="/lotteries/{lotteryId}/tickets" id="5623" name="POST">
+                            <doc>Create a lottery ticket given a "lotteryId"</doc>
+                            <request>
+                                <param name="lotteryid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="/lotteries/{lotteryId}/tickets/{ticketId}" id="5624" name="GET">
+                            <doc>Return a lottery ticket based on the "lotteryId" and its "ticketId"</doc>
+                            <request>
+                                <param name="lotteryid" required="true" style="query" type="xsd:string"/>
+                                <param name="ticketid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="/lotteries/{lotteryId}/tickets/{ticketId}✉️" id="5625" name="PUT">
+                            <doc>Edit the model for a ticket given it's "ticketId" and "lotteryId"</doc>
+                            <request>
+                                <param name="lotteryid" required="true" style="query" type="xsd:string"/>
+                                <param name="ticketid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="/lotteries/{lotteryId}/tickets/{ticketId}✉️✉️" id="5626" name="DELETE">
+                            <doc>Delete a lottery ticket given a lotteryId and a ticketId</doc>
+                            <request>
+                                <param name="lotteryid" required="true" style="query" type="xsd:string"/>
+                                <param name="ticketid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="/lotteries/{lotteryId}/tickets✉️✉️" id="5627" name="GET">
+                            <doc>Retrieve lottery tickets given "lotteryId"</doc>
+                            <request>
+                                <param name="lotteryid" required="true" style="query" type="xsd:string"/>
+                                <param name="n" required="true" style="query" type="xsd:integer">
+                                    <doc>returns the first n elements visible</doc>
+                                </param>
+                                <param name="page" required="true" style="query" type="xsd:integer">
+                                    <doc>the page number</doc>
+                                </param>
+                                <param name="perPage" required="true" style="query" type="xsd:integer">
+                                    <doc>the number of elements to be contained in a single page</doc>
+                                </param>
+                                <param name="select" required="true" style="query" type="xsd:string">
+                                    <doc>specifies which resource fields to include or exclude will flag that property as excluded</doc>
+                                </param>
+                                <param name="sort" required="true" style="query" type="xsd:string">
+                                    <doc>the property you want to sort on Descending order is used by default use before property name to use ascending order I E dt create or dt create</doc>
+                                </param>
+                            </request>
+                        </method>
+                        <method displayName="/lotteries/{lotteryId}✉️✉️" id="5628" name="DELETE">
+                            <doc>Delete a lottery given it's "lotteryId"</doc>
+                            <request>
+                                <param name="lotteryid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="/lotteries✉️" id="5629" name="GET">
+                            <doc>Get all available lotteries</doc>
+                            <request>
+                                <param name="n" required="true" style="query" type="xsd:integer">
+                                    <doc>returns the first n elements visible</doc>
+                                </param>
+                                <param name="page" required="true" style="query" type="xsd:integer">
+                                    <doc>the page number</doc>
+                                </param>
+                                <param name="perPage" required="true" style="query" type="xsd:integer">
+                                    <doc>the number of elements to be contained in a single page</doc>
+                                </param>
+                                <param name="select" required="true" style="query" type="xsd:string">
+                                    <doc>specifies which resource fields to include or exclude will flag that property as excluded</doc>
+                                </param>
+                                <param name="sort" required="true" style="query" type="xsd:string">
+                                    <doc>the property you want to sort on Descending order is used by default use before property name to use ascending order I E dt create or dt create</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="form/">
+                <resource uri="v0/">
+                    <resource uri="forms/">
+                        <method displayName="/forms" id="5610" name="POST">
+                            <doc>Build a great form</doc>
+                            <request/>
+                        </method>
+                        <method displayName="/forms/{formId}" id="5611" name="GET">
+                            <doc>Retrieve a specific form</doc>
+                            <request>
+                                <param name="formid" required="true" style="query" type="xsd:string">
+                                    <doc>the form human readable ID</doc>
+                                </param>
+                            </request>
+                        </method>
+                        <method displayName="/forms/{formId} ✉️✉️" id="5612" name="DELETE">
+                            <doc>Delete a Form structure</doc>
+                            <request>
+                                <param name="formid" required="true" style="query" type="xsd:string">
+                                    <doc>id of a form</doc>
+                                </param>
+                            </request>
+                        </method>
+                        <method displayName="/forms/{formId}/entries/{id}" id="5613" name="GET">
+                            <doc>Retrieve entry matching "id" within "formId"</doc>
+                            <request>
+                                <param name="formid" required="true" style="query" type="xsd:string"/>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="/forms/{formId}/entries/{id}✉️" id="5614" name="PUT">
+                            <doc>Change the content of a form by "id"</doc>
+                            <request>
+                                <param name="formid" required="true" style="query" type="xsd:string"/>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="/forms/{formId}/entries/{id}✉️✉️" id="5615" name="DELETE">
+                            <doc>Delete an entry "id" within form given its "formId"</doc>
+                            <request>
+                                <param name="formid" required="true" style="query" type="xsd:string"/>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="/forms/{formId}✉️" id="5616" name="PUT">
+                            <doc>Update a Form structure</doc>
+                            <request>
+                                <param name="formid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f5616:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="/forms/{id}/entries" id="5617" name="GET">
+                            <doc>Get all forms related to Id</doc>
+                            <request>
+                                <param name="formid" required="true" style="query" type="xsd:string"/>
+                                <param name="n" required="true" style="query" type="xsd:integer">
+                                    <doc>returns the first n elements visible to the authenticated user</doc>
+                                </param>
+                                <param name="page" required="true" style="query" type="xsd:integer">
+                                    <doc>the page number</doc>
+                                </param>
+                                <param name="perPage" required="true" style="query" type="xsd:integer">
+                                    <doc>the number of elements to be contained in a single page</doc>
+                                </param>
+                                <param name="select" required="true" style="query" type="xsd:string">
+                                    <doc>specifies which resource fields to include or exclude will flag that property as excluded</doc>
+                                </param>
+                                <param name="sort" required="true" style="query" type="xsd:string">
+                                    <doc>the property you want to sort on Descending order is used by default use before property name to use ascending order dt create or dt create</doc>
+                                </param>
+                            </request>
+                        </method>
+                        <method displayName="/forms/{id}/entries✉️" id="5618" name="POST">
+                            <doc>Create a form entry</doc>
+                            <request>
+                                <param name="formid" required="true" style="query" type="xsd:string">
+                                    <doc>a particular formId</doc>
+                                </param>
+                            </request>
+                        </method>
+                        <method displayName="/forms/✉️✉️✉️✉️✉️✉️" id="5619" name="POST">
+                            <doc>Create a challenge</doc>
+                            <request/>
+                        </method>
+                        <method displayName="/forms✉️" id="5620" name="GET">
+                            <doc>Return Form information</doc>
+                            <request>
+                                <param name="n" required="true" style="query" type="xsd:integer">
+                                    <doc>returns the first n elements visible to the authenticated user</doc>
+                                </param>
+                                <param name="page" required="true" style="query" type="xsd:integer">
+                                    <doc>the page number</doc>
+                                </param>
+                                <param name="perPage" required="true" style="query" type="xsd:integer">
+                                    <doc>the number of elements to be contained in a single page</doc>
+                                </param>
+                                <param name="select" required="true" style="query" type="xsd:string">
+                                    <doc>specifies which resource fields to include or exclude will flag that property as excluded</doc>
+                                </param>
+                                <param name="sort" required="true" style="query" type="xsd:string">
+                                    <doc>the property you want to sort on Descending order is used by default use before property name to use ascending order I E sort dt create or sort dt create</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="cobject/">
+                <resource uri="v0/">
+                    <resource uri="post/">
+                        <method displayName="/cobject/v0/post" id="5605" name="GET">
+                            <doc>Get all Custom Objects created</doc>
+                            <request>
+                                <param name="n" required="true" style="query" type="xsd:integer">
+                                    <doc>returns the first n elements visible to the authenticated user</doc>
+                                </param>
+                                <param name="page" required="true" style="query" type="xsd:integer">
+                                    <doc>the page number</doc>
+                                </param>
+                                <param name="select" required="true" style="query" type="xsd:string">
+                                    <doc>specifies which resource fields to include or exclude will flag that property as excluded</doc>
+                                </param>
+                                <param name="sort" required="true" style="query" type="xsd:string">
+                                    <doc>the property you want to sort on Descending order is used by default use before property name to use ascending order I E dt create or dt create</doc>
+                                </param>
+                            </request>
+                        </method>
+                        <method displayName="/cobject/v0/post/{postId}" id="5606" name="GET">
+                            <doc>Retrieve a Custom Obj by "postId"</doc>
+                            <request>
+                                <param name="postid" required="true" style="query" type="xsd:string">
+                                    <doc>the id of a specific resource</doc>
+                                </param>
+                            </request>
+                        </method>
+                        <method displayName="/cobject/v0/post/{postId}✉️" id="5607" name="PUT">
+                            <doc>Completely update a Custom Object resource given its "postId"</doc>
+                            <request>
+                                <param name="postid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="/cobject/v0/post/{postId}✉️✉️" id="5608" name="PATCH">
+                            <doc>Update partially a resource given "postId"</doc>
+                            <request>
+                                <param name="postid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="/cobject/v0/post/✉️" id="5609" name="POST">
+                            <doc>Create a new Custom Object</doc>
+                            <request/>
+                        </method>
+                        <method displayName="cobject/v0/post/{postId}✉️✉️✉️" id="5638" name="DELETE">
+                            <doc>Delete the resource given "postId"</doc>
+                            <request>
+                                <param name="postid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="gm/">
+                <resource uri="v0/">
+                    <resource uri="challenges/">
+                        <method displayName="/api/gm/v0/challenges/{challengeId}/userchallenges" id="5595" name="GET">
+                            <doc>Get all user challenges</doc>
+                            <request>
+                                <param name="challengeid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="/challenges/{challengeId}" id="5596" name="GET">
+                            <doc>Retrieve a single challenge given "challengeId"</doc>
+                            <request>
+                                <param name="challengeid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="/challenges/{challengeId}/levels" id="5597" name="GET">
+                            <doc>Get all challenges level information</doc>
+                            <request>
+                                <param name="challengeid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="/challenges/{challengeId}/userchallenges" id="5598" name="POST">
+                            <doc>Create a user challenge</doc>
+                            <request>
+                                <param name="challengeid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="/challenges/{challengeId}/userchallenges/{id}" id="5599" name="GET">
+                            <doc>Get a user challenge by "id"</doc>
+                            <request>
+                                <param name="challengeid" required="true" style="query" type="xsd:string"/>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="/challenges/{challengeId}/userchallenges/{id}/addpoints" id="5600" name="PUT">
+                            <doc>Edit points related to a specific challenge and challenge id</doc>
+                            <request>
+                                <param name="challengeid" required="true" style="query" type="xsd:string"/>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="/challenges/{challengeId}/userchallenges/{id}/unlocklevel" id="5601" name="PUT">
+                            <doc>Edit details of a userchallenge</doc>
+                            <request>
+                                <param name="challengeid" required="true" style="query" type="xsd:string"/>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="/challenges/{challengeId}✉️" id="5602" name="DELETE">
+                            <doc>Delete a challenge</doc>
+                            <request>
+                                <param name="challengeid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="/challenges/{challengeId}✉️✉️" id="5603" name="PUT">
+                            <doc>Modify the model of a challenge given its "challengeId"</doc>
+                            <request>
+                                <param name="challengeid" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="/challenges/✉️✉️" id="5604" name="GET">
+                            <doc>Retrieve all set challenges</doc>
+                            <request/>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>easy anti spam measure which takes it one step further by blocking potentially bad IP address from using your resources</doc>
+    <resources base="https://verswerks-anti-spam-captcha-and-bot-ip-blocker.p.mashape.com/">
+        <resource uri="white_list/">
+            <method displayName="White List an IP" id="3123" name="GET">
+                <doc>whitelist_IP() from our functions file available at https://gist.github.com/VersatilityWerks/5608545</doc>
+                <request>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="verify-captcha/">
+            <method displayName="Verify Captcha" id="3122" name="GET">
+                <doc>verify_captcha() from our functions file available at https://gist.github.com/VersatilityWerks/5608545</doc>
+                <request>
+                    <param name="answer" required="true" style="query" type="xsd:string">
+                        <doc>the answer entered by the form submitter POST vc answer</doc>
+                    </param>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>iP address of the user who is submitting the form SERVER REMOTE ADDR</doc>
+                    </param>
+                    <param name="leaveBlank" required="true" style="query" type="xsd:string">
+                        <doc>this is an invisible form item which is meant to be left blank and invisible Only bots would fill it in and will be blocked POST leave blank</doc>
+                    </param>
+                    <param name="question" required="true" style="query" type="xsd:string">
+                        <doc>the ID of the question which was sent when you generated the captcha POST vc question</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="check_ip/">
+            <method displayName="Verify an IP" id="3121" name="GET">
+                <doc>verify_IP() from our functions file available at https://gist.github.com/VersatilityWerks/5608545</doc>
+                <request>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>iP you d like to check</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="generate-captcha/">
+            <method displayName="Generate Captcha" id="3120" name="GET">
+                <doc>render_captcha() from our functions file available at https://gist.github.com/VersatilityWerks/5608545</doc>
+                <request>
+                    <param name="theme" required="true" style="query" type="xsd:string">
+                        <doc>the id of the theme you d like to display get it at https verscaptcha com builder</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

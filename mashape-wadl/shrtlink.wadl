@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7469="urn:function:f7469">
+    <grammars>
+        <include href="Function7469.xsd"/>
+    </grammars>
+    <doc>short links made easy</doc>
+    <resources base="https://francocorreasosa-shrtlink-v1.p.mashape.com/">
+        <resource uri="new/">
+            <method displayName="New Shortlink" id="7469" name="POST">
+                <doc>Create a new shortlink</doc>
+                <request/>
+                <response>
+                    <representation element="f7469:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

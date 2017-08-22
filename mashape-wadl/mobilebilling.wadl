@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2923="urn:function:f2923">
+    <grammars>
+        <include href="Function2923.xsd"/>
+    </grammars>
+    <doc>direct Carrier Billing Direct Mobile Billing and Premium SMS billing payment methods all available using this Mobile Payments API from PencePay com All mobile billing flows are supported PIN Redirect to Operator Premium SMS and SMS handshake</doc>
+    <resources base="https://pencepay.p.mashape.com/">
+        <resource uri="packages/">
+            <method displayName="PricePoint" id="2923" name="GET">
+                <doc>JSON endpoint</doc>
+                <request>
+                    <param name="apikey" required="true" style="query" type="xsd:string">
+                        <doc>service API key from service settings</doc>
+                    </param>
+                    <param name="country" required="true" style="query" type="xsd:string">
+                        <doc>iSO country code if this parameter is passed along with username and password revenue will be approximated using revenues for MNOs in that country</doc>
+                    </param>
+                    <param name="mccmnc" required="true" style="query" type="xsd:string">
+                        <doc>mobile network country and mobile network code</doc>
+                    </param>
+                    <param name="mno" required="true" style="query" type="xsd:string">
+                        <doc>mobile network operator code</doc>
+                    </param>
+                    <param name="msisdn" required="true" style="query" type="xsd:string">
+                        <doc>message sender s MSISDN</doc>
+                    </param>
+                    <param name="password" required="true" style="query" type="xsd:string">
+                        <doc>account password</doc>
+                    </param>
+                    <param name="paymenttype" required="true" style="query" type="xsd:string">
+                        <doc>mobile wap wallet In case that Identification service has confirmed that user accessed channel is WAP you should set this parameter to wap default type is mobile</doc>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc>account username</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2923:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

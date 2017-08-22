@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>placehold er is a quick simple yet powerful image placeholder service for development</doc>
+    <resources base="https://asmhatre-placeholder.p.mashape.com/">
+        <resource uri="{width}x{height}/">
+            <param name="width" style="template" type="xsd:string"/>
+            <method displayName="Placeholder" id="2232" name="GET">
+                <request>
+                    <param name="height" required="true" style="query" type="xsd:string">
+                        <doc>specify height</doc>
+                    </param>
+                    <param name="width" required="true" style="query" type="xsd:string">
+                        <doc>specify width</doc>
+                    </param>
+                    <param name="widthXHeight" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Placeholder with text" id="2233" name="GET">
+                <request>
+                    <param name="height" required="true" style="query" type="xsd:string">
+                        <doc>specify height</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>specify text to be printed on placeholder</doc>
+                    </param>
+                    <param name="width" required="true" style="query" type="xsd:string">
+                        <doc>specify width</doc>
+                    </param>
+                    <param name="widthXHeight" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

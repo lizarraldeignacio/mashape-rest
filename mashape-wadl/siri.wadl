@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2481="urn:function:f2481">
+    <grammars>
+        <include href="Function2481.xsd"/>
+    </grammars>
+    <doc>Siri as a service The objective of this service is to provide you and your robot with the smartest answer to any natural language question just like Siri This service provides an interface to the standard functions that users demand of modern voice assistants For example chatting looking up information creating messages and much much more It also provides useful metadata such as sentence analysis and entity extraction that goes beyond simple chatting and voice commands Over million users have already been in contact with this API http www voice actions com Examples https weannie pannous com api input hi login test user For examples and documentation see https ask pannous com input hi</doc>
+    <resources base="https://siris.p.mashape.com/">
+        <resource uri="api/">
+            <method displayName="Text" id="2482" name="GET">
+                <doc>Text response</doc>
+                <request>
+                    <param name="clientfeatures" required="true" style="query" type="xsd:string">
+                        <doc>see Doku</doc>
+                    </param>
+                    <param name="input" required="true" style="query" type="xsd:string">
+                        <doc>any question or command</doc>
+                    </param>
+                    <param name="out" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+        <resource uri="json/">
+            <method displayName="JSON" id="2481" name="GET">
+                <doc>complex result with text, images, actions and meta-data</doc>
+                <request>
+                    <param name="clientfeatures" required="true" style="query" type="xsd:string">
+                        <doc>see Doku</doc>
+                    </param>
+                    <param name="input" required="true" style="query" type="xsd:string">
+                        <doc>any question or command</doc>
+                    </param>
+                    <param name="locale" required="true" style="query" type="xsd:string">
+                        <doc>specify locale E g de en fr en US Default is en US</doc>
+                    </param>
+                    <param name="location" required="true" style="query" type="xsd:string">
+                        <doc>get more location aware responses if omitted the IP will used to guess the location</doc>
+                    </param>
+                    <param name="timezone" required="true" style="query" type="xsd:string">
+                        <doc>specify the timezone offset of your client compared to UTC in minutes E g for Germany summer Attention include daylight savings Default is which is UTC</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2481:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

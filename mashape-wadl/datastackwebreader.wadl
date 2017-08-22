@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6997="urn:function:f6997">
+    <grammars>
+        <include href="Function6997.xsd"/>
+    </grammars>
+    <doc>this is a special endpoint for people who want to easily scrape websites This endpoint is API is utilized in DataStack s source kit for retrieving data on particular websites</doc>
+    <resources base="https://reader.p.mashape.com/">
+        <resource uri="find/">
+            <method displayName="/find" id="6997" name="GET">
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>uRL of the website to scrape</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6997:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

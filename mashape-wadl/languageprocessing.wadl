@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6635="urn:function:f6635" xmlns:f6636="urn:function:f6636" xmlns:f6637="urn:function:f6637" xmlns:f6639="urn:function:f6639">
+    <grammars>
+        <include href="Function6639.xsd"/>
+        <include href="Function6637.xsd"/>
+        <include href="Function6636.xsd"/>
+        <include href="Function6635.xsd"/>
+    </grammars>
+    <doc>this API provides NLP endpoints for most of the common operations including stemming phrase extractions sentiment analysis and more</doc>
+    <resources base="https://bestapi-language-processing-v1.p.mashape.com/">
+        <resource uri="tag/">
+            <method displayName="/tag" id="6638" name="POST">
+                <doc>Part-of-speech tagging, phrase chunking, and named entity recognition of text.</doc>
+                <request/>
+            </method>
+            <method displayName="tag" id="6639" name="POST">
+                <doc>POS tagging, sentence chunking, and named entity recognition of text</doc>
+                <request/>
+                <response>
+                    <representation element="f6639:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="stem/">
+            <method displayName="/stem" id="6637" name="POST">
+                <doc>Stem or lemmatize every word in given text</doc>
+                <request/>
+                <response>
+                    <representation element="f6637:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="sentiment/">
+            <method displayName="/sentiment" id="6636" name="POST">
+                <doc>Extract the sentiment from a string</doc>
+                <request/>
+                <response>
+                    <representation element="f6636:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="phrases/">
+            <method displayName="/phrases" id="6635" name="POST">
+                <doc>Extract phrase chunks and named entities from a string</doc>
+                <request/>
+                <response>
+                    <representation element="f6635:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

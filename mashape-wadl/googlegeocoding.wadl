@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f87="urn:function:f87">
+    <grammars>
+        <include href="Function87.xsd"/>
+    </grammars>
+    <doc>this is a simple unofficial wrapper for Google Geocoding API</doc>
+    <resources base="https://michele-zonca-google-geocoding.p.mashape.com/">
+        <resource uri="geocode/">
+            <resource uri="json/">
+                <method displayName="Geocode" id="87" name="GET">
+                    <doc>Geocoding is the process of converting addresses into geographic coordinates (like latitude 37.423021 and longitude -122.083739), which you can use to place markers or position the map.</doc>
+                    <request>
+                        <param name="address" required="true" style="query" type="xsd:string">
+                            <doc>the address that you want to geocode</doc>
+                        </param>
+                        <param name="bounds" required="true" style="query" type="xsd:string">
+                            <doc>the bounding box of the viewport within which to bias geocode results more prominently</doc>
+                        </param>
+                        <param name="language" required="true" style="query" type="xsd:string">
+                            <doc>the language in which to return results</doc>
+                        </param>
+                        <param name="region" required="true" style="query" type="xsd:string">
+                            <doc>the region code specified as a ccTLD top level domain two character value</doc>
+                        </param>
+                        <param name="sensor" required="true" style="query" type="xsd:boolean">
+                            <doc>whether or not the geocoding request comes from a device with a location sensor</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f87:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

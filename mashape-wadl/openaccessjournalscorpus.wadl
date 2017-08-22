@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2511="urn:function:f2511" xmlns:f2512="urn:function:f2512" xmlns:f2513="urn:function:f2513" xmlns:f2514="urn:function:f2514" xmlns:f2515="urn:function:f2515" xmlns:f2516="urn:function:f2516">
+    <grammars>
+        <include href="Function2516.xsd"/>
+        <include href="Function2515.xsd"/>
+        <include href="Function2514.xsd"/>
+        <include href="Function2513.xsd"/>
+        <include href="Function2512.xsd"/>
+        <include href="Function2511.xsd"/>
+    </grammars>
+    <doc>simple API to access over million open access Research Papers and Journals</doc>
+    <resources base="https://imshashank-open-access-corpus.p.mashape.com/">
+        <resource uri="get_journal/">
+            <resource uri="{article_id}/">
+                <param name="article_id" style="template" type="xsd:string"/>
+                <method displayName="/get_journal/{article_id}" id="2516" name="GET">
+                    <doc>Get journal name associated with the specified "article_id"</doc>
+                    <request>
+                        <param name="articleId" required="true" style="query" type="xsd:integer">
+                            <doc>a Unique ID assigned to every article</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2516:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="get_authors/">
+            <resource uri="{article_id}/">
+                <param name="article_id" style="template" type="xsd:string"/>
+                <method displayName="/get_authors/{article_id}" id="2515" name="GET">
+                    <doc>Get a list of author_name associated with the specified "article_id"</doc>
+                    <request>
+                        <param name="articleId" required="true" style="query" type="xsd:integer">
+                            <doc>a Unique ID assigned to every article</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2515:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="get_articles_search_title/">
+            <resource uri="{keyword}/">
+                <param name="keyword" style="template" type="xsd:string"/>
+                <method displayName="/get_articles_search_title/{keyword}" id="2514" name="GET">
+                    <doc>Search for a Keyword in the title</doc>
+                    <request>
+                        <param name="keyword" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f2514:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="get_articles/">
+            <resource uri="{offset}/">
+                <param name="offset" style="template" type="xsd:string"/>
+                <resource uri="{limit}/">
+                    <param name="limit" style="template" type="xsd:string"/>
+                    <method displayName="/get_articles/{offset}/{limit}" id="2513" name="GET">
+                        <doc>Get articles</doc>
+                        <request>
+                            <param name="limit" required="true" style="query" type="xsd:integer">
+                                <doc>the number of records to return Max is</doc>
+                            </param>
+                            <param name="offset" required="true" style="query" type="xsd:integer">
+                                <doc>the offset from start in index</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2513:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="get_article_by_id/">
+            <resource uri="{article_id}/">
+                <param name="article_id" style="template" type="xsd:string"/>
+                <method displayName="/get_article_by_id/{article_id}" id="2512" name="GET">
+                    <doc>Get article with the specific "article_id"</doc>
+                    <request>
+                        <param name="articleId" required="true" style="query" type="xsd:integer">
+                            <doc>a Unique integer ID assigned to every article</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2512:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="get_article_by_alternate_id/">
+            <resource uri="{alternate_id}/">
+                <param name="alternate_id" style="template" type="xsd:string"/>
+                <method displayName="/get_article_by_alternate_id/{alternate_id}" id="2511" name="GET">
+                    <doc>Get article with the specific "alternate_id"</doc>
+                    <request>
+                        <param name="alternateId" required="true" style="query" type="xsd:string">
+                            <doc>unique alphanumeric alternate id assigned to every article</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2511:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

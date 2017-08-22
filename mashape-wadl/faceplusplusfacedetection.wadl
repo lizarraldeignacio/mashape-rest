@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6="urn:function:f6" xmlns:f7="urn:function:f7">
+    <grammars>
+        <include href="Function7.xsd"/>
+        <include href="Function6.xsd"/>
+    </grammars>
+    <doc>detect the information of the given photo e g face location age race gender etc</doc>
+    <resources base="https://faceplusplus-faceplusplus.p.mashape.com/">
+        <resource uri="detection/">
+            <resource uri="landmark/">
+                <method displayName="Face Landmark" id="7" name="GET">
+                    <request>
+                        <param name="faceId" required="true" style="query" type="xsd:string">
+                            <doc>the id of the face</doc>
+                        </param>
+                        <param name="type" required="true" style="query" type="xsd:string">
+                            <doc>number of key points p and p are supported</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="detect/">
+                <method displayName="Face Detection" id="6" name="GET">
+                    <doc>Detect the information of the given photo(e.g. face location, age, race, gender etc.)</doc>
+                    <request>
+                        <param name="attribute" required="true" style="query" type="xsd:string">
+                            <doc>can be all default none or a comma separated list of desired attributes Currently supported attributes are gender age race smiling glass and pose</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>url of the image to be detected</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f6:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

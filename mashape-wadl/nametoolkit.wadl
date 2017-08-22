@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f336="urn:function:f336" xmlns:f337="urn:function:f337" xmlns:f338="urn:function:f338" xmlns:f339="urn:function:f339">
+    <grammars>
+        <include href="Function339.xsd"/>
+        <include href="Function338.xsd"/>
+        <include href="Function337.xsd"/>
+        <include href="Function336.xsd"/>
+    </grammars>
+    <doc>name Toolkit is a domain name suggestion registration and whois info provider Our focus is on speed simplicity and honesty</doc>
+    <resources base="https://nametoolkit-name-toolkit.p.mashape.com/">
+        <resource uri="beta/">
+            <resource uri="whois/">
+                <resource uri="{domain}/">
+                    <param name="domain" style="template" type="xsd:string"/>
+                    <method displayName="Whois 2.0 (beta)" id="339" name="GET">
+                        <doc>Warning this API is unstable and may change at short notice</doc>
+                        <request>
+                            <param name="domain" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f339:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="v1/">
+            <resource uri="whois/">
+                <method displayName="Whois 1.0" id="338" name="GET">
+                    <request>
+                        <param name="q" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f338:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="nslookup/">
+            <method displayName="nslookup" id="337" name="GET">
+                <request>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f337:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="alexarank/">
+            <method displayName="Alexa Rank" id="336" name="GET">
+                <request>
+                    <param name="domain" required="true" style="query" type="xsd:string">
+                        <doc>domain to get Alexa Ranks for</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f336:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

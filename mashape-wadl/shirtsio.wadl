@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5094="urn:function:f5094" xmlns:f5095="urn:function:f5095" xmlns:f5096="urn:function:f5096" xmlns:f5097="urn:function:f5097">
+    <grammars>
+        <include href="Function5097.xsd"/>
+        <include href="Function5095.xsd"/>
+        <include href="Function5096.xsd"/>
+        <include href="Function5094.xsd"/>
+    </grammars>
+    <doc>shirts io offers an integrated printing whitelabeling and fulfillment service all accessible by a simple API call It s never been this easy to order custom merchandise</doc>
+    <resources base="https://shirtsio.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="products/">
+                <resource uri="{Product_ID}/">
+                    <param name="Product_ID" style="template" type="xsd:string"/>
+                    <method displayName="Product Information" id="5097" name="GET">
+                        <doc>Specify a product ID to receive the following information about the product</doc>
+                        <request>
+                            <param name="productId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f5097:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="category/">
+                    <method displayName="List of Product Categories" id="5095" name="GET">
+                        <doc>Get a list of all available product categories. No arguments are needed for this request.</doc>
+                        <request/>
+                        <response>
+                            <representation element="f5095:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="List of Products" id="5096" name="GET">
+                        <doc>Specify a category ID to receive a list of products in that category</doc>
+                        <request>
+                            <param name="categoryId" required="true" style="query" type="xsd:string">
+                                <doc>a string containing the category ID</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f5096:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="{PRODUCT_ID}/">
+                    <param name="PRODUCT_ID" style="template" type="xsd:string"/>
+                    <method displayName="Inventory Count" id="5094" name="GET">
+                        <doc>You can also retrieve the latest inventory for any garment type (updated every hour)</doc>
+                        <request>
+                            <param name="color" required="true" style="query" type="xsd:string">
+                                <doc>color string</doc>
+                            </param>
+                            <param name="productId" required="true" style="query" type="xsd:string">
+                                <doc>product ID</doc>
+                            </param>
+                            <param name="state" required="true" style="query" type="xsd:string">
+                                <doc>state string</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f5094:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

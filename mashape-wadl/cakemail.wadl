@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>cakeMail is an email marketing application that simplifies the way small businesses engage with customers allowing them to manage contacts create personalized email campaigns from templates and simply send It s an affordable easy to use solution created to help small businesses begin or pursue their email marketing efforts regardless of the marketing resources design background or technical expertise they have</doc>
+    <resources base="https://cakemail-cakemail.p.mashape.com/">
+        <resource uri="http:/">
+            <resource uri="">
+                <resource uri="cakemail.com/">
+                    <resource uri="start/">
+                        <method displayName="Documentation" id="4157" name="GET">
+                            <request>
+                                <param name="howTo" required="true" style="query" type="xsd:string">
+                                    <doc>how to Start</doc>
+                                </param>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

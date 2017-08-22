@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1700="urn:function:f1700" xmlns:f1703="urn:function:f1703">
+    <grammars>
+        <include href="Function1703.xsd"/>
+        <include href="Function1700.xsd"/>
+    </grammars>
+    <doc>aPI for wallgig net a wallpaper sharing community</doc>
+    <resources base="https://wallgig-v1.p.mashape.com/">
+        <resource uri="wallpapers/">
+            <method displayName="wallpaper" id="1702" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>wallpaper ID</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="wallpapers.create" id="1703" name="POST">
+                <request/>
+                <response>
+                    <representation element="f1703:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="wallpapers.index" id="1704" name="GET">
+                <request>
+                    <param name="colors" required="true" style="query" type="xsd:string">
+                        <doc>include colors Repeat parameter for multiple colors</doc>
+                    </param>
+                    <param name="excludeTags" required="true" style="query" type="xsd:string">
+                        <doc>exclude tags Repeat parameter for multiple tags</doc>
+                    </param>
+                    <param name="height" required="true" style="query" type="xsd:string">
+                        <doc>wallpaper height</doc>
+                    </param>
+                    <param name="order" required="true" style="query" type="xsd:string">
+                        <doc>order of results Can be latest popular or random</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>page number</doc>
+                    </param>
+                    <param name="purity" required="true" style="query" type="xsd:string">
+                        <doc>wallpaper purity Repeat parameter for multiple purities Value needs to be one of sfw sketchy or nsfw</doc>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>search query</doc>
+                    </param>
+                    <param name="tags" required="true" style="query" type="xsd:string">
+                        <doc>include tags Repeat parameter for multiple tags</doc>
+                    </param>
+                    <param name="user" required="true" style="query" type="xsd:string">
+                        <doc>user s username Query a user s wallpapers</doc>
+                    </param>
+                    <param name="width" required="true" style="query" type="xsd:string">
+                        <doc>wallpaper width</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="users/">
+            <resource uri="{username}/">
+                <param name="username" style="template" type="xsd:string"/>
+                <resource uri="favourites/">
+                    <method displayName="user.favourites" id="1701" name="GET">
+                        <request>
+                            <param name="page" required="true" style="query" type="xsd:integer">
+                                <doc>page number</doc>
+                            </param>
+                            <param name="username" required="true" style="query" type="xsd:string">
+                                <doc>username</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="sessions/">
+            <method displayName="sessions.create" id="1700" name="POST">
+                <doc>Generates a user_token to make authenticated requests</doc>
+                <request/>
+                <response>
+                    <representation element="f1700:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3871="urn:function:f3871" xmlns:f3872="urn:function:f3872" xmlns:f3874="urn:function:f3874" xmlns:f3875="urn:function:f3875" xmlns:f3876="urn:function:f3876" xmlns:f3877="urn:function:f3877" xmlns:f3878="urn:function:f3878" xmlns:f3879="urn:function:f3879" xmlns:f3880="urn:function:f3880" xmlns:f3881="urn:function:f3881" xmlns:f3882="urn:function:f3882">
+    <grammars>
+        <include href="Function3879.xsd"/>
+        <include href="Function3872.xsd"/>
+        <include href="Function3876.xsd"/>
+        <include href="Function3877.xsd"/>
+        <include href="Function3878.xsd"/>
+        <include href="Function3882.xsd"/>
+        <include href="Function3871.xsd"/>
+        <include href="Function3874.xsd"/>
+        <include href="Function3875.xsd"/>
+        <include href="Function3880.xsd"/>
+        <include href="Function3881.xsd"/>
+    </grammars>
+    <doc>build your own sensor application Ubidots simplifies the making of Internet of Things applications for data capturing real time remote monitoring and getting insights from sensor data</doc>
+    <resources base="https://community-ubidots.p.mashape.com/">
+        <resource uri="collections/">
+            <resource uri="values/">
+                <method displayName="POST /collections/values" id="3879" name="POST">
+                    <doc>This resource allow the create a value for multiple variables. Every value has a timestamp that can be either specified manually by the device, or automatically by the server.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3879:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="variables/">
+            <method displayName="DELETE /variables/{datasource_id}" id="3872" name="DELETE">
+                <doc>This resource deletes a given variable, specified by its id. Please note that deleting a variable will erase all its values, as well as the events and insights related to it.</doc>
+                <request>
+                    <param name="datasourceId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3872:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="GET /variables" id="3876" name="GET">
+                <doc>Retrieves the list of all the variables owned by a user. The header X-Auth-Token is needed to have the permissions for this endpoint.</doc>
+                <request/>
+                <response>
+                    <representation element="f3876:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="GET /variables/{variable_id}" id="3877" name="GET">
+                <doc>This resource returns a variable and its details. It shows additional fields than the ones required during the creation of the variable:  last_value: Shows the last value written to the variable.</doc>
+                <request>
+                    <param name="variableId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3877:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="GET /variables/{variable_id}/values" id="3878" name="GET">
+                <doc>This resource returns the values of the specified variable.  Every value will have a timestamp which is a value in milliseconds according to the POSIX standard.</doc>
+                <request>
+                    <param name="variableId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3878:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="POST /variables/{variable_id}/values" id="3882" name="POST">
+                <doc>This resource creates a new value within the specified variable. Every value has a timestamp that can be either specified manually by the device, or automatically by the server.</doc>
+                <request>
+                    <param name="variableId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3882:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="datasources/">
+            <method displayName="DELETE /datasources/{datasource_id}" id="3871" name="DELETE">
+                <doc>This resource deletes a given data source, specified by its id. Please note that deleting a data source will erase all the objects related to it like variables, values, events and insights.  If there are any events or insights depending on your data source, they will also be deleted to keep the integrity of the system.</doc>
+                <request>
+                    <param name="datasourceId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3871:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="GET /datasources" id="3873" name="GET">
+                <doc>This resource lists all the existing data sources of a user.</doc>
+                <request/>
+            </method>
+            <method displayName="GET /datasources/{datasource_id}" id="3874" name="GET">
+                <doc>This resource obtains an existing data source and its details. Also, it returns additional fields besides the ones required during the creation of the data source:  number_of_variables: Shows the number of variables contained by the data source. last_activity: Returns the date of the last activity</doc>
+                <request>
+                    <param name="datasourceId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3874:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="GET /datasources/{datasource_id}/variables" id="3875" name="GET">
+                <doc>This resource list the variables of a specified data source, showing all the fields of the variables.</doc>
+                <request>
+                    <param name="datasourceId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3875:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="POST /datasources" id="3880" name="POST">
+                <doc>This resource creates a new data source. Every data source owns a number of variables, and has a context with different attributes. For example, a data source called “Delivery Truck” can have a attributes like {“City”: “Boston”} or {“Type”: “Truck”}.  Attributes are not meant to change dynamically over time, but to add a “relational” layer to your data sources.</doc>
+                <request/>
+                <response>
+                    <representation element="f3880:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="POST /datasources/{datasource_id}/variables" id="3881" name="POST">
+                <doc>This resource creates a new variable within the specified data source. You can assign tags to variables (i.e. “room”, “yard”), and also properties with atributes, for example: {“Color”: “Blue”} or {“Status”: “OFF”}</doc>
+                <request>
+                    <param name="datasourceId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3881:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

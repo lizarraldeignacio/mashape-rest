@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1712="urn:function:f1712">
+    <grammars>
+        <include href="Function1712.xsd"/>
+    </grammars>
+    <doc>simple API that parses United States addresses</doc>
+    <resources base="https://montana-flynn-address-parser.p.mashape.com/">
+        <resource uri="parsed-address/">
+            <method displayName="Address" id="1712" name="POST">
+                <request>
+                    <param name="address" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1712:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

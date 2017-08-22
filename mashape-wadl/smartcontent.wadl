@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4355="urn:function:f4355">
+    <grammars>
+        <include href="Function4355.xsd"/>
+    </grammars>
+    <doc>detect relevant concepts categories entities and sentiments extracted from a given text such as a news article or email message for text analysis Data Ninja Services which focus on natural language understanding are developed by Docomo Innovations</doc>
+    <resources base="https://smartcontent.dataiq.io/">
+        <resource uri="smartcontent/">
+            <resource uri="tag/">
+                <method displayName="tag" id="4355" name="POST">
+                    <request>
+                        <param name="option" required="true" style="query" type="xsd:string">
+                            <doc>can have the following values con cat ee ke ks Used for choosing outputs e g option con gives only the concept list option cat ee gives the concept and category list with only entities in the entity list</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4355:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>yippieMove is the world s most powerful email migration tool Regardless if you re planning to migrate one one hundred or thousands of accounts YippieMove is your best friend</doc>
+    <resources base="https://yippiemove.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="providers/">
+                <method displayName="Get a List of Providers" id="6469" name="GET">
+                    <request>
+                        <param name="limit" required="true" style="query" type="xsd:string">
+                            <doc>an integer number of maximum results to return Must be less than Defaults to</doc>
+                        </param>
+                        <param name="offset" required="true" style="query" type="xsd:string">
+                            <doc>an integer count of results to skip</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="users/">
+                <method displayName="Add Specific Move Jobs" id="6464" name="POST">
+                    <request>
+                        <param name="moveJobId" required="true" style="query" type="xsd:string"/>
+                        <param name="userId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Add the Email Part of a Job" id="6465" name="POST">
+                    <request>
+                        <param name="userId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Delete Specific Move Jobs" id="6466" name="DELETE">
+                    <doc>Note that only Move Jobs which still have a stage of new and which are are editable may be deleted.</doc>
+                    <request>
+                        <param name="moveJobId" required="true" style="query" type="xsd:string"/>
+                        <param name="userId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Delete the Email Part of a Job" id="6467" name="DELETE">
+                    <request>
+                        <param name="userId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Get a List of Email Folders for a particular Account" id="6468" name="GET">
+                    <request>
+                        <param name="createdAtGt" required="true" style="query" type="xsd:string">
+                            <doc>filter by created at greater than the specified ISO date string</doc>
+                        </param>
+                        <param name="createdAtLt" required="true" style="query" type="xsd:string">
+                            <doc>filter by created at lesser than the specified ISO date string</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:string">
+                            <doc>an integer number of maximum results to return Must be less than Defaults to</doc>
+                        </param>
+                        <param name="moveJobId" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="moveJobId" required="true" style="query" type="xsd:string"/>
+                        <param name="offset" required="true" style="query" type="xsd:string">
+                            <doc>an integer count of results to skip</doc>
+                        </param>
+                        <param name="ownerId" required="true" style="query" type="xsd:string">
+                            <doc>filter by owner</doc>
+                        </param>
+                        <param name="sourceDestination" required="true" style="query" type="xsd:string"/>
+                        <param name="sourceDestination" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="userId" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="userId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Get List of Move Jobs" id="6470" name="GET">
+                    <request>
+                        <param name="createdAtGt" required="true" style="query" type="xsd:string">
+                            <doc>filter by created at greater than the specified ISO date string</doc>
+                        </param>
+                        <param name="createdAtLt" required="true" style="query" type="xsd:string">
+                            <doc>filter by created at lesser than the specified ISO date string</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:string">
+                            <doc>an integer number of maximum results to return Must be less than Defaults to</doc>
+                        </param>
+                        <param name="offset" required="true" style="query" type="xsd:string">
+                            <doc>an integer count of results to skip</doc>
+                        </param>
+                        <param name="ownerId" required="true" style="query" type="xsd:string">
+                            <doc>filter by owner</doc>
+                        </param>
+                        <param name="userId" required="true" style="query" type="xsd:string">
+                            <doc>user ID</doc>
+                        </param>
+                        <param name="userId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Get List of Users" id="6471" name="GET">
+                    <request>
+                        <param name="createdAtGt" required="true" style="query" type="xsd:string">
+                            <doc>filter by created at greater than the specified ISO date string</doc>
+                        </param>
+                        <param name="createdAtLt" required="true" style="query" type="xsd:string">
+                            <doc>filter by created at lesser than the specified ISO date string</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:string">
+                            <doc>an integer number of maximum results to return Must be less than Defaults to</doc>
+                        </param>
+                        <param name="offset" required="true" style="query" type="xsd:string">
+                            <doc>an integer count of results to skip</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Get the Email Part of a Job" id="6472" name="GET">
+                    <request>
+                        <param name="userId" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="userId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Put List of Email Folders for a particular Account" id="6473" name="PUT">
+                    <request>
+                        <param name="moveJobId" required="true" style="query" type="xsd:string"/>
+                        <param name="sourceDestination" required="true" style="query" type="xsd:string"/>
+                        <param name="userId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Update Specific Move Jobs" id="6474" name="PUT">
+                    <request>
+                        <param name="moveJobId" required="true" style="query" type="xsd:string"/>
+                        <param name="userId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="Update the Email Part of a Job" id="6475" name="PUT">
+                    <request>
+                        <param name="userId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="View Specific Move Jobs" id="6476" name="GET">
+                    <request>
+                        <param name="moveJobId" required="true" style="query" type="xsd:string">
+                            <doc>move Job ID</doc>
+                        </param>
+                        <param name="moveJobId" required="true" style="query" type="xsd:string"/>
+                        <param name="userId" required="true" style="query" type="xsd:string">
+                            <doc>user ID</doc>
+                        </param>
+                        <param name="userId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="View Specific Users" id="6477" name="GET">
+                    <request>
+                        <param name="userId" required="true" style="query" type="xsd:string">
+                            <doc>user ID</doc>
+                        </param>
+                        <param name="userId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

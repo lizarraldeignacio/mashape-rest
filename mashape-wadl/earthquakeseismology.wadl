@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1245="urn:function:f1245" xmlns:f1246="urn:function:f1246">
+    <grammars>
+        <include href="Function1246.xsd"/>
+        <include href="Function1245.xsd"/>
+    </grammars>
+    <doc>we provide REST API with JSON output for earthquake data that is present in Seismi At the moment we don t have frequency limitations or api keys Please use sparingly We only refresh our caches every hour so it is pointless to call api more frequently</doc>
+    <resources base="https://montanaflynn-earthquake-seismology.p.mashape.com/">
+        <resource uri="totals/">
+            <method displayName="Totals" id="1246" name="GET">
+                <doc>Count of earthquakes by year/month</doc>
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>limits return count Default is Maximum is</doc>
+                    </param>
+                    <param name="minMagnitude" required="true" style="query" type="xsd:string">
+                        <doc>specifies minimum magnitude limit for results</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1246:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="eqs/">
+            <method displayName="Earthquakes" id="1245" name="GET">
+                <doc>Most recent earthquakes</doc>
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>limits return count Default is Maximum is</doc>
+                    </param>
+                    <param name="minMagnitude" required="true" style="query" type="xsd:string">
+                        <doc>specifies minimum magnitude limit for results</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1245:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

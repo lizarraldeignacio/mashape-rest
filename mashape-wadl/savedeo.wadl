@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1076="urn:function:f1076" xmlns:f1077="urn:function:f1077" xmlns:f1078="urn:function:f1078" xmlns:f1079="urn:function:f1079" xmlns:f1080="urn:function:f1080" xmlns:f1082="urn:function:f1082" xmlns:f1083="urn:function:f1083">
+    <grammars>
+        <include href="Function1082.xsd"/>
+        <include href="Function1083.xsd"/>
+        <include href="Function1080.xsd"/>
+        <include href="Function1079.xsd"/>
+        <include href="Function1078.xsd"/>
+        <include href="Function1077.xsd"/>
+        <include href="Function1076.xsd"/>
+    </grammars>
+    <doc>extract direct links to videos for many popular video hosting sites e g YouTube Vimeo etc</doc>
+    <resources base="https://savedeo.p.mashape.com/">
+        <resource uri="supported_sites/">
+            <method displayName="/supported_sites" id="1081" name="GET">
+                <request/>
+            </method>
+            <method displayName="/supported_sites/nsfw" id="1082" name="GET">
+                <doc>List of supported NSFW sites</doc>
+                <request/>
+                <response>
+                    <representation element="f1082:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="/supported_sites/sfw" id="1083" name="GET">
+                <doc>List of supported SFW sites</doc>
+                <request/>
+                <response>
+                    <representation element="f1083:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="recent/">
+            <resource uri="sfw/">
+                <method displayName="/recent/sfw" id="1080" name="GET">
+                    <doc>Recent safe for work videos downloaded by all users</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1080:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="nsfw/">
+                <method displayName="/recent/nsfw" id="1079" name="GET">
+                    <doc>Recent not safe for work videos downloaded by all users</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1079:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="popular/">
+            <resource uri="sfw/">
+                <method displayName="/popular/sfw" id="1078" name="GET">
+                    <doc>Popular safe for work videos downloaded in last 24 hours by all users</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1078:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="nsfw/">
+                <method displayName="/popular/nsfw" id="1077" name="GET">
+                    <doc>All popular not safe for work videos downloaded by all users in last 24 hours</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1077:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="download/">
+            <method displayName="/download" id="1076" name="POST">
+                <request/>
+                <response>
+                    <representation element="f1076:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

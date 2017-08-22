@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>diccionario de la Real Academia Espa ola RAE</doc>
+    <resources base="https://darioherrera-rae.p.mashape.com/">
+        <resource uri="json/">
+            <method displayName="Query" id="1480" name="GET">
+                <request>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>a trav s de este par metro se hacen las consultas si lleva acentos deben estar encoded</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

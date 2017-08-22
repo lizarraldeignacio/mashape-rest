@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7438="urn:function:f7438">
+    <grammars>
+        <include href="Function7438.xsd"/>
+    </grammars>
+    <doc>send a time series and know if the last data point is anomalous or not</doc>
+    <resources base="https://time-series-anomaly-detector.p.mashape.com/">
+        <resource uri="series/">
+            <resource uri="is_anomalous/">
+                <method displayName="is anomalous" id="7438" name="POST">
+                    <doc>Test if a series is anomalous</doc>
+                    <request/>
+                    <response>
+                        <representation element="f7438:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

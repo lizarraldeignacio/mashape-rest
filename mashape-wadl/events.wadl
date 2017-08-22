@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f582="urn:function:f582">
+    <grammars>
+        <include href="Function582.xsd"/>
+    </grammars>
+    <doc>st Global Events Hub that aggregates the best events worldwide More than ticketing sites Eventbrite Meetup Eventful Facebook and Wordpress Hypecal cross a wide scale of categories Sporting events Concert Festivals Art Expo Museum Theatre plays Business Meetings or Fooding happenings</doc>
+    <resources base="https://hypecal-events.p.mashape.com/">
+        <resource uri="search.json/">
+            <method displayName="search" id="582" name="GET">
+                <doc>Search events with a simple text, a city name and a country code</doc>
+                <request>
+                    <param name="city" required="true" style="query" type="xsd:string">
+                        <doc>name of the city where the event happens UTF Format</doc>
+                    </param>
+                    <param name="country" required="true" style="query" type="xsd:string">
+                        <doc>chars code of the country where the event happens ISO Format</doc>
+                    </param>
+                    <param name="distance" required="true" style="query" type="xsd:string">
+                        <doc>distance in Kilometers from the lat lng point where the event happens required lat and lon</doc>
+                    </param>
+                    <param name="from" required="true" style="query" type="xsd:string">
+                        <doc>from date by default today RFC Format optional Timezone at the end</doc>
+                    </param>
+                    <param name="lat" required="true" style="query" type="xsd:string">
+                        <doc>latitude in degrees where the event happens required lng and distance</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>limit the number of answer maximum</doc>
+                    </param>
+                    <param name="lng" required="true" style="query" type="xsd:string">
+                        <doc>longitude in degrees where the event happens required lat and distance</doc>
+                    </param>
+                    <param name="search" required="true" style="query" type="xsd:string">
+                        <doc>name of the event performer tags venue or category</doc>
+                    </param>
+                    <param name="to" required="true" style="query" type="xsd:string">
+                        <doc>to date by default one week after date from RFC Format optional Timezone at the end</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f582:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

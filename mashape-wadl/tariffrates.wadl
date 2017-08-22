@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>the Tariff Rates API provides data about each country with whom the United States has a Free Trade Agreement FTA When the U S enters into an FTA with a foreign government it negotiates lower tariff rates with that government for a wide variety of products A tariff is a tax that a company must pay a foreign country when shipping a product to that country Typically the FTA tariffs rates decline over several years</doc>
+    <resources base="https://dataservices-tariff-rates-v1.p.mashape.com/">
+        <resource uri="api.trade.gov/">
+            <resource uri="v2/">
+                <resource uri="tariff_rates/">
+                    <resource uri="search/">
+                        <method displayName="/api.trade.gov/v2/tariff_rates/search" id="5181" name="GET">
+                            <request/>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

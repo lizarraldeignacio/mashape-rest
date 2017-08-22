@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2640="urn:function:f2640">
+    <grammars>
+        <include href="Function2640.xsd"/>
+    </grammars>
+    <doc>send unlimited free SMS to USA using our service provided by http sms usa msgbolt com</doc>
+    <resources base="https://sms2usa.p.mashape.com/">
+        <resource uri="api.php/">
+            <method displayName="Api endpoint for sending sms to usa" id="2640" name="GET">
+                <doc>Api endpoint for sending sms to usa from our msgbolt services.</doc>
+                <request>
+                    <param name="apikey" required="true" style="query" type="xsd:string">
+                        <doc>api key obtained from http sms usa msgbolt com</doc>
+                    </param>
+                    <param name="msg" required="true" style="query" type="xsd:string">
+                        <doc>message to be sent in sms</doc>
+                    </param>
+                    <param name="to" required="true" style="query" type="xsd:integer">
+                        <doc>moblie number to which sms to be sent</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2640:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

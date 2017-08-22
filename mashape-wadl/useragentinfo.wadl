@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1309="urn:function:f1309">
+    <grammars>
+        <include href="Function1309.xsd"/>
+    </grammars>
+    <doc>parse validate and get detailed user agent information from a user agent string This API has the following features User Agent Type Determine the general user agent type e g desktop browser or mobile browser Mobile Device Detection Determine if this user agent is a mobile device Mobile Device Features Get mobile device features such as brand browser model and screen size Browser Details Get browser software details like operating system version and producer</doc>
+    <resources base="https://neutrinoapi-user-agent-info.p.mashape.com/">
+        <resource uri="user-agent-info/">
+            <method displayName="User Agent Info" id="1309" name="POST">
+                <request/>
+                <response>
+                    <representation element="f1309:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

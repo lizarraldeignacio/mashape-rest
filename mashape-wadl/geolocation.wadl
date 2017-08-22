@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4431="urn:function:f4431">
+    <grammars>
+        <include href="Function4431.xsd"/>
+    </grammars>
+    <doc>geolocation api Have you ever needed to know where the person visiting your website is coming from Just use this API If you use it in your front end javascript code you may even leave the IP argument empty Just hit the root of the API and you ll be given information on the whereabouts of your visitor Using in the backend is as simple All you have to do is pass a ip argument with the ip address of the given user</doc>
+    <resources base="https://geo.p.mashape.com/">
+        <resource uri="">
+            <method displayName="geolocation" id="4431" name="GET">
+                <doc>This endpoint returns geolocation information for the given IP address. If no IP address is specified, then the current IP address is used.</doc>
+                <request>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>if this argument is specified the geolocation API will return the results as JSONP If this is not specified a JSON response is sent</doc>
+                    </param>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>iP Address to be looked upon If this argument is omitted the current user s IP address is used</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4431:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

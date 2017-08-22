@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1605="urn:function:f1605" xmlns:f1606="urn:function:f1606" xmlns:f1607="urn:function:f1607" xmlns:f1608="urn:function:f1608" xmlns:f1609="urn:function:f1609" xmlns:f1610="urn:function:f1610" xmlns:f1611="urn:function:f1611">
+    <grammars>
+        <include href="Function1611.xsd"/>
+        <include href="Function1610.xsd"/>
+        <include href="Function1609.xsd"/>
+        <include href="Function1608.xsd"/>
+        <include href="Function1607.xsd"/>
+        <include href="Function1606.xsd"/>
+        <include href="Function1605.xsd"/>
+    </grammars>
+    <doc>live stats and results on last SerieA matches historical either Subscribe to the API to support and keep it updated</doc>
+    <resources base="https://heisenbug-italy-seriea-league-results-v1.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="serieaMatchEvents/">
+                <method displayName="Serie A yellow, red card, missed penalties and substitution events (LIVE)" id="1611" name="GET">
+                    <doc>See events for each match, pass the gameNumber if the match isn't playing in that moment (LIVE). Works only for current season.</doc>
+                    <request>
+                        <param name="gamenumber" required="true" style="query" type="xsd:string">
+                            <doc>game number the match is played if none search done on last matches</doc>
+                        </param>
+                        <param name="team" required="true" style="query" type="xsd:string">
+                            <doc>team name</doc>
+                        </param>
+                        <param name="team" required="true" style="query" type="xsd:string">
+                            <doc>team name</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1611:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="seriea/">
+                <method displayName="Serie A results current season" id="1610" name="GET">
+                    <doc>Pass the gameNumber parameter to see all result for that match day, or none to see last or current matches (LIVE)</doc>
+                    <request>
+                        <param name="gamenumber" required="true" style="query" type="xsd:string">
+                            <doc>game number if none displays the last or current matches</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1610:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="serieaMatchStats/">
+                <method displayName="Serie A match stats (LIVE)" id="1609" name="GET">
+                    <doc>Pass the gameNumber if match isn't playing (LIVE). Works only for current season.</doc>
+                    <request>
+                        <param name="gamenumber" required="true" style="query" type="xsd:string">
+                            <doc>game number if none the game search is done on last matches</doc>
+                        </param>
+                        <param name="team" required="true" style="query" type="xsd:string">
+                            <doc>team name</doc>
+                        </param>
+                        <param name="team" required="true" style="query" type="xsd:string">
+                            <doc>team name</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1609:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="serieaMatchRecordMen/">
+                <method displayName="Serie A match record men" id="1608" name="GET">
+                    <doc>Pass the gameNumber if the match isn't playing (LIVE). Works only for current season.</doc>
+                    <request>
+                        <param name="gamenumber" required="true" style="query" type="xsd:string">
+                            <doc>game number if none the match is searched between the last ones</doc>
+                        </param>
+                        <param name="record" required="true" style="query" type="xsd:string">
+                            <doc>record request possible values are RecoveredBalls SuccessfulPasses and Shots</doc>
+                        </param>
+                        <param name="team" required="true" style="query" type="xsd:string">
+                            <doc>team name</doc>
+                        </param>
+                        <param name="team" required="true" style="query" type="xsd:string">
+                            <doc>team name</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1608:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="serieaMatchTeams/">
+                <method displayName="Serie A linesup and substitutes (LIVE)" id="1607" name="GET">
+                    <doc>Pass the gameNumber if the match isn't playing (LIVE). Works only for current season.</doc>
+                    <request>
+                        <param name="gamenumber" required="true" style="query" type="xsd:string">
+                            <doc>game number if none match is searched on last ones played</doc>
+                        </param>
+                        <param name="team" required="true" style="query" type="xsd:string">
+                            <doc>team name</doc>
+                        </param>
+                        <param name="team" required="true" style="query" type="xsd:string">
+                            <doc>team name</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1607:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="serieaHistory/">
+                <method displayName="Serie A historical results" id="1606" name="GET">
+                    <doc>You can see results since 1986-87 season!</doc>
+                    <request>
+                        <param name="gamenumber" required="true" style="query" type="xsd:string">
+                            <doc>round number gameNumber</doc>
+                        </param>
+                        <param name="season" required="true" style="query" type="xsd:string">
+                            <doc>season eg</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1606:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="serieaMatchHistory/">
+                <method displayName="Previous match results" id="1605" name="GET">
+                    <doc>Show all the previous matches results for the game till 1986-87 in aggregate form (win/draw/lose). Use the detail parameter to see the detail results.</doc>
+                    <request>
+                        <param name="detail" required="true" style="query" type="xsd:string">
+                            <doc>set to true to see detail results</doc>
+                        </param>
+                        <param name="team" required="true" style="query" type="xsd:string">
+                            <doc>team playing home name</doc>
+                        </param>
+                        <param name="team" required="true" style="query" type="xsd:string">
+                            <doc>team playing away name</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1605:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

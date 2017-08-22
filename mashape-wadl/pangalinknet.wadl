@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3892="urn:function:f3892" xmlns:f3893="urn:function:f3893" xmlns:f3894="urn:function:f3894" xmlns:f3895="urn:function:f3895" xmlns:f3896="urn:function:f3896">
+    <grammars>
+        <include href="Function3893.xsd"/>
+        <include href="Function3892.xsd"/>
+        <include href="Function3894.xsd"/>
+        <include href="Function3895.xsd"/>
+        <include href="Function3896.xsd"/>
+    </grammars>
+    <doc>manage Pangalink net payment projects Pangalink net allows you to test Estonian banklink payment systems by emulating different banks</doc>
+    <resources base="https://pangalink.p.mashape.com/">
+        <resource uri="banks/">
+            <method displayName="List available banks" id="3893" name="GET">
+                <request/>
+                <response>
+                    <representation element="f3893:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="project/">
+            <method displayName="Add new payment project" id="3892" name="POST">
+                <request/>
+                <response>
+                    <representation element="f3892:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List payment projects" id="3894" name="GET">
+                <request>
+                    <param name="startIndex" required="true" style="query" type="xsd:string">
+                        <doc>index for the first shown element</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3894:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Remove payment project" id="3895" name="DELETE">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>byte hex value</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3895:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Show payment project" id="3896" name="GET">
+                <doc>Details for a payment project</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>byte hex value</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3896:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

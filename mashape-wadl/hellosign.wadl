@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4551="urn:function:f4551" xmlns:f4552="urn:function:f4552" xmlns:f4553="urn:function:f4553" xmlns:f4554="urn:function:f4554" xmlns:f4555="urn:function:f4555" xmlns:f4556="urn:function:f4556" xmlns:f4557="urn:function:f4557" xmlns:f4558="urn:function:f4558" xmlns:f4559="urn:function:f4559" xmlns:f4560="urn:function:f4560" xmlns:f4561="urn:function:f4561" xmlns:f4562="urn:function:f4562" xmlns:f4563="urn:function:f4563" xmlns:f4564="urn:function:f4564" xmlns:f4565="urn:function:f4565" xmlns:f4567="urn:function:f4567" xmlns:f4568="urn:function:f4568">
+    <grammars>
+        <include href="Function4560.xsd"/>
+        <include href="Function4568.xsd"/>
+        <include href="Function4567.xsd"/>
+        <include href="Function4562.xsd"/>
+        <include href="Function4558.xsd"/>
+        <include href="Function4565.xsd"/>
+        <include href="Function4561.xsd"/>
+        <include href="Function4557.xsd"/>
+        <include href="Function4553.xsd"/>
+        <include href="Function4552.xsd"/>
+        <include href="Function4556.xsd"/>
+        <include href="Function4563.xsd"/>
+        <include href="Function4551.xsd"/>
+        <include href="Function4554.xsd"/>
+        <include href="Function4555.xsd"/>
+        <include href="Function4559.xsd"/>
+        <include href="Function4564.xsd"/>
+    </grammars>
+    <doc>signatures Made simple Getting documents signed has never been simpler We ve removed paper entirely from the process and built tools to facilitate document signing tracking and management Notifications keep you apprised of the signer s activity and our audit trail logs it Once completed signed documents are securely stored and accessible from the cloud so you can always get to your important documents Sharing is just as easy With HelloSign you can share templates and signed documents with your team other internal departments and even outside counsel so everyone is on the same paperless page</doc>
+    <resources base="https://community-hellosign.p.mashape.com/">
+        <resource uri=" /">
+            <resource uri="reusable_form/">
+                <resource uri="add_user/">
+                    <resource uri="{reusable_form_id}/">
+                        <param name="reusable_form_id" style="template" type="xsd:string"/>
+                        <method displayName="Give access to Reusable Form" id="4560" name="POST">
+                            <doc>Gives the specified Account access to the specified ReusableForm. The specified Account must be a part of your Team.</doc>
+                            <request>
+                                <param name="reusableFormId" required="true" style="query" type="xsd:string">
+                                    <doc>the id of the ReusableForm to give the Account access to</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f4560:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="signature_request/">
+            <resource uri="send_with_reusable_form/">
+                <method displayName="Send signature request with Reusable Form" id="4568" name="POST">
+                    <doc>Creates and sends a new SignatureRequest based off of the ReusableForm specified with the reusable_form_id parameter.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4568:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="send/">
+                <method displayName="Send signature request" id="4567" name="POST">
+                    <doc>Creates and sends a new SignatureRequest with the submitted documents. If form_fields_per_document is not specified, a signature page will be affixed where all signers will be required to add their signature, signifying their agreement to all contained documents.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4567:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="list/">
+                <method displayName="List signature requests" id="4562" name="GET">
+                    <doc>Returns a list of SignatureRequests that you can access. This includes SignatureRequests you have sent as well as received, but not ones that you have been CCed on.</doc>
+                    <request>
+                        <param name="page" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4562:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="{signature_request_id}/">
+                <param name="signature_request_id" style="template" type="xsd:string"/>
+                <method displayName="Get signature request" id="4558" name="GET">
+                    <doc>Returns the status of the SignatureRequest specified by the signature_request_id parameter.</doc>
+                    <request>
+                        <param name="signatureRequestId" required="true" style="query" type="xsd:string">
+                            <doc>the id of the SignatureRequest to retrieve</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4558:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="reusable_form/">
+            <resource uri="remove_user/">
+                <resource uri="{reusable_form_id}/">
+                    <param name="reusable_form_id" style="template" type="xsd:string"/>
+                    <method displayName="Remove access to Reusable Form" id="4565" name="POST">
+                        <doc>Removes the specified Account's access to the specified ReusableForm.</doc>
+                        <request>
+                            <param name="reusableFormId" required="true" style="query" type="xsd:string">
+                                <doc>the id of the ReusableForm to remove the Account s access to</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f4565:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="list/">
+                <method displayName="List Reusable Forms" id="4561" name="GET">
+                    <doc>Returns a list the ReusableForms that are accessible by you.</doc>
+                    <request>
+                        <param name="page" required="true" style="query" type="xsd:string">
+                            <doc>which page number of the ReusableForm List to return Defaults to</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4561:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="{reusable_form_id}/">
+                <param name="reusable_form_id" style="template" type="xsd:string"/>
+                <method displayName="Get Reusable Form" id="4557" name="GET">
+                    <doc>Returns the ReusableForm specified by the id parameter.</doc>
+                    <request>
+                        <param name="reusableFormId" required="true" style="query" type="xsd:string">
+                            <doc>the id of the ReusableForm to retrieve</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4557:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="unclaimed_draft/">
+            <resource uri="create/">
+                <method displayName="Create draft" id="4553" name="POST">
+                    <doc>Creates a new Draft that can be claimed using the claim URL. The first authenticated user to access the URL will claim the Draft and will be shown either the "Sign and send" or the "Request signature" page with the Draft loaded. Subsequent access to the claim URL will result in a 404. If the type is "send_document" then only the file parameter is required. If the type is "request_signature", then the identities of the signers and optionally the location of signing elements on the page are also required.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4553:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="account/">
+            <method displayName="Create account" id="4552" name="POST">
+                <doc>Creates a new HelloSign Account that is associated with the specified email_address and password.</doc>
+                <request/>
+                <response>
+                    <representation element="f4552:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get account" id="4556" name="GET">
+                <doc>Returns the properties and settings of your Account.</doc>
+                <request/>
+                <response>
+                    <representation element="f4556:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Post account" id="4563" name="POST">
+                <doc>Updates the properties and settings of your Account.</doc>
+                <request/>
+                <response>
+                    <representation element="f4563:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="team/">
+            <method displayName="Add member" id="4551" name="POST">
+                <doc>Adds or invites a user (specified using the email_address parameter) to your Team. If the user does not currently have a HelloSign Account, a new one will be created for them. If the user currently has a paid subscription, they will not automatically join the Team but instead will be sent an invitation to join. If a user is already a part of another Team, a "team_invite_failed" error will be returned.</doc>
+                <request/>
+                <response>
+                    <representation element="f4551:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Create team" id="4554" name="POST">
+                <doc>Creates a new Team and makes you a member. You must not currently belong to a Team to invoke.</doc>
+                <request/>
+                <response>
+                    <representation element="f4554:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete team" id="4555" name="POST">
+                <doc>Deletes your Team. Can only be invoked when you have a Team with only one member (yourself).</doc>
+                <request/>
+                <response>
+                    <representation element="f4555:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get team" id="4559" name="GET">
+                <doc>Returns information about your Team as well as a list of its members. If you do not belong to a Team, a 404 error with an error_name of "not_found" will be returned.</doc>
+                <request/>
+                <response>
+                    <representation element="f4559:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Post team" id="4564" name="POST">
+                <doc>Updates the name of your Team. If you do not have a Team, a new Team is created.</doc>
+                <request/>
+                <response>
+                    <representation element="f4564:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Remove member" id="4566" name="POST">
+                <doc>Removes a user from your Team. If the user had an outstanding invitation to your Team the invitation will be expired.</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

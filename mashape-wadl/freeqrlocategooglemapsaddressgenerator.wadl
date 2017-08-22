@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>free QR API locate google maps address With this API you can insert a QR in your web page that redirects to a google address For example if you want to get any writed address now is not necesary rewrite in your mobile device to find or navigate to this address The only you need is scan this QR and mobile device gets the correct address</doc>
+    <resources base="https://farebookings-free-qr-locate-google-maps-address-generator.p.mashape.com/">
+        <resource uri="http:/">
+            <resource uri="">
+                <resource uri="devel.farebookings.com/">
+                    <resource uri="api/">
+                        <resource uri="qrlocator/">
+                            <resource uri="{address}/">
+                                <param name="address" style="template" type="xsd:string"/>
+                                <method displayName="Free QR locate google maps address API" id="2092" name="GET">
+                                    <request>
+                                        <param name="address" required="true" style="query" type="xsd:string">
+                                            <doc>address to find and generate QR</doc>
+                                        </param>
+                                    </request>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

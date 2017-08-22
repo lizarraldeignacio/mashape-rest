@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6165="urn:function:f6165" xmlns:f6166="urn:function:f6166" xmlns:f6167="urn:function:f6167" xmlns:f6168="urn:function:f6168" xmlns:f6169="urn:function:f6169" xmlns:f6170="urn:function:f6170" xmlns:f6171="urn:function:f6171">
+    <grammars>
+        <include href="Function6171.xsd"/>
+        <include href="Function6170.xsd"/>
+        <include href="Function6169.xsd"/>
+        <include href="Function6168.xsd"/>
+        <include href="Function6167.xsd"/>
+        <include href="Function6166.xsd"/>
+        <include href="Function6165.xsd"/>
+    </grammars>
+    <doc>extract named entities from natural English language text Idyl Cloud can detect and extract millions of person entities Use Idyl Cloud to power name recognition in your apps Idyl Cloud also supports language detection for over languages Simple REST interface and easy to use</doc>
+    <resources base="https://mtnfog-idyl.p.mashape.com/">
+        <resource uri="sentiment.json/">
+            <method displayName="Sentiment Detection" id="6171" name="GET">
+                <doc>Detect sentiment (negative, positive, neutral) for text.</doc>
+                <request>
+                    <param name="language" required="true" style="query" type="xsd:string">
+                        <doc>the language of the input text Defaults to en for English</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>the input text</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6171:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="language.json/">
+            <method displayName="Language Detection" id="6170" name="GET">
+                <doc>Determine language of input text.</doc>
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>the input text to determine language for</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6170:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="keywords.json/">
+            <method displayName="Keywords Extraction" id="6169" name="GET">
+                <doc>Extract keywords for text.</doc>
+                <request>
+                    <param name="maxkeywords" required="true" style="query" type="xsd:integer">
+                        <doc>the maximum number of keywords to return Defaults to if omitted</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6169:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="tweet.json/">
+            <method displayName="Entity Extraction for Tweets" id="6168" name="GET">
+                <doc>Extract entities from a tweet. The provided tweet must be between 1 and 140 characters.</doc>
+                <request>
+                    <param name="tweet" required="true" style="query" type="xsd:string">
+                        <doc>a single tweet to extract entities from</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6168:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="entities.json/">
+            <method displayName="Entity Extraction" id="6167" name="GET">
+                <doc>Extract entities from natural language text.</doc>
+                <request>
+                    <param name="class" required="true" style="query" type="xsd:string">
+                        <doc>the class or types or entities to extract Valid values are person or place Default to person if not provided</doc>
+                    </param>
+                    <param name="language" required="true" style="query" type="xsd:string">
+                        <doc>the language of the input text Defaults to en for English</doc>
+                    </param>
+                    <param name="minconfidence" required="true" style="query" type="xsd:integer">
+                        <doc>the minimum confidence value for entity confidence Only entities having a confidence greater than this value will be returned Valid values range from to If this parameter is not provided a default value of will be used meaning that all detected entities will be returned</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>the URL encoded text to extract entities from Idyl currently supports person entities The maximum text length is characters</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6167:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="enrich.json/">
+            <method displayName="Entity Enrichment" id="6166" name="GET">
+                <doc>Enrich entities with publicly available facts.</doc>
+                <request>
+                    <param name="entityuri" required="true" style="query" type="xsd:string">
+                        <doc>the URI of the entity can be retrieved by first disambiguating the entity</doc>
+                    </param>
+                    <param name="maxenrichments" required="true" style="query" type="xsd:integer">
+                        <doc>the maximum number of enrichments to return An enrichment consists of a label and a value If not provided the value defaults to</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6166:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="disambiguate.json/">
+            <method displayName="Entity Disambiguation" id="6165" name="GET">
+                <doc>This endpoint dissambiguates an entity given the entity and text containing the entity. If the entity cannot be disambiguated null will be returned. Successful disambiguations will return a URI that uniquely identifies the entity.</doc>
+                <request>
+                    <param name="class" required="true" style="query" type="xsd:string">
+                        <doc>the class of the entity such as Person or Place</doc>
+                    </param>
+                    <param name="entity" required="true" style="query" type="xsd:string">
+                        <doc>the text of the entity</doc>
+                    </param>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>the text from which the entity was extracted This text provides the context that the disambiguation uses to uniquely identify the entity</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6165:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

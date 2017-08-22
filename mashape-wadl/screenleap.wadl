@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6275="urn:function:f6275" xmlns:f6276="urn:function:f6276" xmlns:f6278="urn:function:f6278" xmlns:f6279="urn:function:f6279">
+    <grammars>
+        <include href="Function6276.xsd"/>
+        <include href="Function6275.xsd"/>
+        <include href="Function6278.xsd"/>
+        <include href="Function6279.xsd"/>
+    </grammars>
+    <doc>screenleap is a web based service that enables users to share their computer screens with others Shared screens can be viewed with a web browser from a PC tablet or smartphone No account is needed to use the service Screen share requests can be made by clicking a button on the Screenleap website or by using the Screenleap REST API</doc>
+    <resources base="https://baskarm28-screenleap-v1.p.mashape.com/">
+        <resource uri="recent-screen-shares/">
+            <method displayName="Retrieve recent screen shares" id="6276" name="GET">
+                <doc>This call retrieves information for the recent screen shares on the account. This includes screen shares that are still waiting for a presenter to connect, currently active, or recently ended.</doc>
+                <request/>
+                <response>
+                    <representation element="f6276:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="screen-shares/">
+            <method displayName="Make new screen share" id="6275" name="POST">
+                <doc>This call creates a new screen share on the Screenleap server and returns the screenShareData JSON object that you will use to launch the presenter app.</doc>
+                <request>
+                    <param name="enableviewercam" required="true" style="query" type="xsd:string">
+                        <doc>enable the viewer cam in the control panel The viewer cam allows the presenter to see exactly what the viewers are seeing This is useful if you want to ensure that everyone is viewing a specific slide before speaking The viewer cam is currently only available on Mac app</doc>
+                    </param>
+                    <param name="externalid" required="true" style="query" type="xsd:string">
+                        <doc>an external ID to store with the screen share This ID can be used later to filter results in a GET request It has a character limit A common use for this parameter is to store a local ID for the customer initiating the screen share</doc>
+                    </param>
+                    <param name="hidepausebutton" required="true" style="query" type="xsd:string">
+                        <doc>hides the control panel pause button</doc>
+                    </param>
+                    <param name="hidescreentoggle" required="true" style="query" type="xsd:string">
+                        <doc>hides the selector in the control panel which enables the presenter to toggle between full screen and partial screen mode The partial screen mode could be sharing inside a rectangle or sharing a specific window depending upon the presenter app</doc>
+                    </param>
+                    <param name="hidestopbutton" required="true" style="query" type="xsd:string">
+                        <doc>hides the control panel stop button</doc>
+                    </param>
+                    <param name="issecure" required="true" style="query" type="xsd:string">
+                        <doc>encrypts the screen share data with SSL Recommended for screen shares of confidential data Incurs a higher cost than non SSL screen shares</doc>
+                    </param>
+                    <param name="openwholescreen" required="true" style="query" type="xsd:string">
+                        <doc>opens the share in full screen mode</doc>
+                    </param>
+                    <param name="presentercountrycode" required="true" style="query" type="xsd:string">
+                        <doc>specify the country code for the presenter</doc>
+                    </param>
+                    <param name="showscreenleapbranding" required="true" style="query" type="xsd:string">
+                        <doc>includes a top bar with the Screenleap logo in all viewers and the Screenleap name in the presenter control panel Get a discount on non SSL screen shares by including this option</doc>
+                    </param>
+                    <param name="startpaused" required="true" style="query" type="xsd:string">
+                        <doc>starts the screen share in paused mode This is useful when the presenter wants to prepare their session before making it available to viewers</doc>
+                    </param>
+                    <param name="title" required="true" style="query" type="xsd:string">
+                        <doc>a title to display in the presenter control panel and viewer top bar if the top bar is visible Only relevant if showScreenleapBranding is false defaults to the company name if not set</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6275:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Retrieve screen share info" id="6277" name="GET">
+                <doc>This call retrieves information about the specified screen share.</doc>
+                <request>
+                    <param name="screensharecode" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Retrieve screen shares" id="6278" name="GET">
+                <doc>This call retrieves information for successful screen shares that match the specified criteria. A successful screen share is one to which both the presenter and one or more viewers connect.</doc>
+                <request>
+                    <param name="dateformat" required="true" style="query" type="xsd:string">
+                        <doc>the format for the passed in dates whose pattern conforms with Java s SimpleDateFormat</doc>
+                    </param>
+                    <param name="endedafter" required="true" style="query" type="xsd:integer">
+                        <doc>the time in milliseconds from epoch time to be used as a filter Only screen shares that ended at or after this time will be returned</doc>
+                    </param>
+                    <param name="endedbefore" required="true" style="query" type="xsd:integer">
+                        <doc>the end time in milliseconds from epoch time to be used as a filter Only screen shares that ended at or before this time will be returned</doc>
+                    </param>
+                    <param name="externalid" required="true" style="query" type="xsd:string">
+                        <doc>the external ID to be used as a filter Only screen shares that were created with this value as the externalId will be returned</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>the page of data to return with up to records per page Defaults to</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6278:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Stop screen share" id="6279" name="POST">
+                <doc>The user can end the screen share on their own by clicking the stop button or closing the control panel. But there will likely be occasions on which you want to force the screen share to close programmatically.</doc>
+                <request>
+                    <param name="screensharecode" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f6279:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

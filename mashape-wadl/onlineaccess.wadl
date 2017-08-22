@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2551="urn:function:f2551">
+    <grammars>
+        <include href="Function2551.xsd"/>
+    </grammars>
+    <doc>online Access API secure way to access your local data anywhere</doc>
+    <resources base="https://onlineaccess.p.mashape.com/">
+        <resource uri="status/">
+            <method displayName="Status" id="2551" name="GET">
+                <request/>
+                <response>
+                    <representation element="f2551:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="run/">
+            <method displayName="Run" id="2550" name="POST">
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5307="urn:function:f5307">
+    <grammars>
+        <include href="Function5307.xsd"/>
+    </grammars>
+    <doc>search apps</doc>
+    <resources base="https://nextstagesearch-app-search-v1.p.mashape.com/">
+        <resource uri="search?q={term}/">
+            <param name="term" style="template" type="xsd:string"/>
+            <method displayName="Search" id="5307" name="GET">
+                <doc>Change "term" to search apps and get results in json</doc>
+                <request>
+                    <param name="term" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5307:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

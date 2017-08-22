@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1545="urn:function:f1545">
+    <grammars>
+        <include href="Function1545.xsd"/>
+    </grammars>
+    <doc>this API will return revenue of latest movies Data can be sorted by the revenue of opening day opening weekend or lifetime revenue of the movie It returns bollywood as well as hollywood movies Revenue of hollywood movies will be in dollars whereas revenue of Indian movies it will be in rupees</doc>
+    <resources base="https://udayogra-box-office-report-v1.p.mashape.com/">
+        <resource uri="getmovies/">
+            <method displayName="/getboxofficereport" id="1545" name="GET">
+                <doc>Get revenue of all latest movies</doc>
+                <request>
+                    <param name="order" required="true" style="query" type="xsd:string">
+                        <doc>sort the data in ascending or descending order It can be desc or asc</doc>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:string">
+                        <doc>sort column for return data It can either be lifetime rd od ow or w lifetime is lifetime revenue w is week revenue od is opening day revenue year</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>bollywood or Hollywood</doc>
+                    </param>
+                    <param name="year" required="true" style="query" type="xsd:string">
+                        <doc>it can be either or</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1545:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2567="urn:function:f2567">
+    <grammars>
+        <include href="Function2567.xsd"/>
+    </grammars>
+    <doc>national CrimeScore Safety Rating grade for your current location Formula uses local daily crime reports Get web widgets or use our API in your app CrimeScores are returned for the following cities with more being added soon San Francisco CA Washington DC Anchorage AK Louisville KY Miami FL Fort Worth TX Chicago IL Seattle WA Indianapolis IN Albuquerque NM Richmond VA Cincinnati OH Atlanta GA CrimeScore rating is a propriety methodology based on address level crime reports weighted for type of crime recency and proximity then adjusted by neighboring CrimeScore ratings and finally statistically standardized across a bell curve based on all the CrimeScores across a city updated daily Use our official CrimeScore badges to easily give information at a glance Returns a score an A F grade and choose from multiple badge sizes</doc>
+    <resources base="https://crimescore.p.mashape.com/">
+        <resource uri="crimescore/">
+            <method displayName="crimescore" id="2567" name="GET">
+                <doc>Get CrimeScore rating data at your current location</doc>
+                <request>
+                    <param name="f" required="true" style="query" type="xsd:string">
+                        <doc>format of resulting output json csv JSON is default</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>data set ID of crime data set from YourMapper if empty it will auto detect</doc>
+                    </param>
+                    <param name="lat" required="true" style="query" type="xsd:integer">
+                        <doc>latitude of Location</doc>
+                    </param>
+                    <param name="lon" required="true" style="query" type="xsd:integer">
+                        <doc>longitude of Location</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2567:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

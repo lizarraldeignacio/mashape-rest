@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5820="urn:function:f5820">
+    <grammars>
+        <include href="Function5820.xsd"/>
+    </grammars>
+    <doc>the Rebalancer API returns the proposed holdings and trades to rebalance a portfolio back to a model A request requires a portfolio s current holdings the model portfolio s holdings and prices for all securities referenced in each portfolio</doc>
+    <resources base="https://achavar-rebalancer-v1.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="rebalancer/">
+                <method displayName="Portfolio Management" id="5820" name="POST">
+                    <doc>The Rebalancer API returns the proposed holdings and trades to rebalance a portfolio back to a model. A request requires a portfolio's current holdings, the model portfolio's holdings, and prices for all securities referenced in each portfolio.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f5820:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

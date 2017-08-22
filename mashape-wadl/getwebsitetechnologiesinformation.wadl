@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f538="urn:function:f538">
+    <grammars>
+        <include href="Function538.xsd"/>
+    </grammars>
+    <doc>this API helps to detect website technologies used by admins and webmasters</doc>
+    <resources base="https://ivbeg-get-website-technologies-information.p.mashape.com/">
+        <resource uri="site/">
+            <resource uri="info/">
+                <method displayName="Website technologies info" id="538" name="GET">
+                    <doc>Information about website technologies</doc>
+                    <request>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>domain name to extract information</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f538:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

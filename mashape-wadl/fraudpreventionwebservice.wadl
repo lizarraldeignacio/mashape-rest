@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>this API help you to screen an order to detect the degree of credit card fraud and therefore protect your business order from losses due to chargebacks The accuracy depends on the number of parameters and previous feedback The more details feedback supplied the higher number of accuracy in return Please visit http www fraudlabspro com developer api for the API details</doc>
+    <resources base="https://chrislim-fraudlabs-pro-screen-order.p.mashape.com/">
+        <resource uri="order/">
+            <resource uri="screen/">
+                <method displayName="FraudLabs Pro Screen Order" id="6002" name="GET">
+                    <request>
+                        <param name="amount" required="true" style="query" type="xsd:integer">
+                            <doc>amount of the transaction</doc>
+                        </param>
+                        <param name="avsResult" required="true" style="query" type="xsd:string">
+                            <doc>the single character AVS result returned by the credit card processor</doc>
+                        </param>
+                        <param name="billCity" required="true" style="query" type="xsd:string">
+                            <doc>city of billing address</doc>
+                        </param>
+                        <param name="billCountry" required="true" style="query" type="xsd:string">
+                            <doc>country of billing address</doc>
+                        </param>
+                        <param name="billState" required="true" style="query" type="xsd:string">
+                            <doc>state of billing address</doc>
+                        </param>
+                        <param name="billZipCode" required="true" style="query" type="xsd:string">
+                            <doc>postal or ZIP code of billing address</doc>
+                        </param>
+                        <param name="binBankCountry" required="true" style="query" type="xsd:string">
+                            <doc>country of the bank which issued the credit card It requires the input of ISO alpha country code e g US for United States</doc>
+                        </param>
+                        <param name="binBankName" required="true" style="query" type="xsd:string">
+                            <doc>name of the bank which issued the credit card</doc>
+                        </param>
+                        <param name="binBankPhone" required="true" style="query" type="xsd:string">
+                            <doc>customer service phone number listed on the back of credit card</doc>
+                        </param>
+                        <param name="binNo" required="true" style="query" type="xsd:string">
+                            <doc>first digits of credit card number to identify issuing bank</doc>
+                        </param>
+                        <param name="cardHash" required="true" style="query" type="xsd:string">
+                            <doc>sHA k hash of user s email address No plaintext information Please visit http www fraudlabspro com developer api screen order for details</doc>
+                        </param>
+                        <param name="currency" required="true" style="query" type="xsd:string">
+                            <doc>currency code used in the transaction It requires the input of ISO characters currency code e g USD for US Dollar</doc>
+                        </param>
+                        <param name="cvvResult" required="true" style="query" type="xsd:string">
+                            <doc>the single charcater CVV result returned by the credit card processor</doc>
+                        </param>
+                        <param name="department" required="true" style="query" type="xsd:string">
+                            <doc>merchant identifier to uniquely identify a product or service department</doc>
+                        </param>
+                        <param name="emailDomain" required="true" style="query" type="xsd:string">
+                            <doc>domain name of email address For example the domain of email address support fraudlabspro com is fraudlabspro com</doc>
+                        </param>
+                        <param name="emailHash" required="true" style="query" type="xsd:string">
+                            <doc>sHA k hash of user s email address No plaintext information Please visit http www fraudlabspro com developer api screen order for details</doc>
+                        </param>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>return the result in json or xml format</doc>
+                        </param>
+                        <param name="ip" required="true" style="query" type="xsd:string">
+                            <doc>iP address of online transaction It supports both IPv and IPv address format</doc>
+                        </param>
+                        <param name="passwordHash" required="true" style="query" type="xsd:string">
+                            <doc>sHA k hash of user s email address No plaintext information Please visit http www fraudlabspro com developer api screen order for details</doc>
+                        </param>
+                        <param name="paymentMode" required="true" style="query" type="xsd:string">
+                            <doc>payment mode of transaction Valid values creditcard paypal googlecheckout cod moneyorder wired bankdeposit others</doc>
+                        </param>
+                        <param name="quantity" required="true" style="query" type="xsd:integer">
+                            <doc>total quantity of the transaction</doc>
+                        </param>
+                        <param name="sessionId" required="true" style="query" type="xsd:string">
+                            <doc>session ID of server script</doc>
+                        </param>
+                        <param name="shipAddr" required="true" style="query" type="xsd:string">
+                            <doc>street address of shipping address</doc>
+                        </param>
+                        <param name="shipCity" required="true" style="query" type="xsd:string">
+                            <doc>city of shipping address</doc>
+                        </param>
+                        <param name="shipCountry" required="true" style="query" type="xsd:string">
+                            <doc>country of shipping address</doc>
+                        </param>
+                        <param name="shipState" required="true" style="query" type="xsd:string">
+                            <doc>state of shipping address</doc>
+                        </param>
+                        <param name="shipZipCode" required="true" style="query" type="xsd:string">
+                            <doc>postal or ZIP code of shipping address</doc>
+                        </param>
+                        <param name="userOrderId" required="true" style="query" type="xsd:string">
+                            <doc>merchant identifier to uniquely identify a transaction It supports maximum of characters user order id input</doc>
+                        </param>
+                        <param name="userOrderMemo" required="true" style="query" type="xsd:string">
+                            <doc>merchant description of an order transaction It supports maximum of characters</doc>
+                        </param>
+                        <param name="userPhone" required="true" style="query" type="xsd:string">
+                            <doc>user s phone number</doc>
+                        </param>
+                        <param name="usernameHash" required="true" style="query" type="xsd:string">
+                            <doc>sHA k hash of user s email address No plaintext information Please visit http www fraudlabspro com developer api screen order for details</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

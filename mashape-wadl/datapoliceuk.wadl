@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1726="urn:function:f1726" xmlns:f1727="urn:function:f1727" xmlns:f1728="urn:function:f1728" xmlns:f1729="urn:function:f1729" xmlns:f1730="urn:function:f1730" xmlns:f1731="urn:function:f1731" xmlns:f1732="urn:function:f1732" xmlns:f1733="urn:function:f1733" xmlns:f1734="urn:function:f1734" xmlns:f1735="urn:function:f1735" xmlns:f1736="urn:function:f1736">
+    <grammars>
+        <include href="Function1736.xsd"/>
+        <include href="Function1735.xsd"/>
+        <include href="Function1733.xsd"/>
+        <include href="Function1732.xsd"/>
+        <include href="Function1731.xsd"/>
+        <include href="Function1730.xsd"/>
+        <include href="Function1734.xsd"/>
+        <include href="Function1729.xsd"/>
+        <include href="Function1728.xsd"/>
+        <include href="Function1727.xsd"/>
+        <include href="Function1726.xsd"/>
+    </grammars>
+    <doc>this is the unofficial documentation for the Data Police UK API</doc>
+    <resources base="https://stolenbikes88-datapoliceuk.p.mashape.com/">
+        <resource uri="outcomes-at-location/">
+            <method displayName="Street-level outcomes" id="1737" name="GET">
+                <doc>Outcomes at street-level; either at a specific location, within a 1 mile radius of a single point, or within a custom area.</doc>
+                <request>
+                    <param name="date" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="lat" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="lng" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="crimes-street/">
+            <resource uri="all-crime/">
+                <method displayName="Street-level crimes" id="1736" name="GET">
+                    <doc>Crimes at street-level; either within a 1 mile radius of a single point, or within a custom area. For custom areas see http://data.police.uk/docs/method/crime-street/</doc>
+                    <request>
+                        <param name="date" required="true" style="query" type="xsd:string">
+                            <doc>month to show in YYYY MM format</doc>
+                        </param>
+                        <param name="lat" required="true" style="query" type="xsd:string">
+                            <doc>latitude</doc>
+                        </param>
+                        <param name="lng" required="true" style="query" type="xsd:string">
+                            <doc>longitude</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1736:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="crimes-street-dates/">
+            <method displayName="Street level availability" id="1735" name="GET">
+                <doc>Return a list of available data sets.</doc>
+                <request/>
+                <response>
+                    <representation element="f1735:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="outcomes-for-crime/">
+            <resource uri="{Persistent_ID}/">
+                <param name="Persistent_ID" style="template" type="xsd:string"/>
+                <method displayName="Outcomes for a specific crime" id="1733" name="GET">
+                    <doc>Returns the outcomes (case history) for the specified crime. Crime ID is 64-character identifier, as returned by other API methods.</doc>
+                    <request>
+                        <param name="persistentId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f1733:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="locate-neighbourhood/">
+            <method displayName="Local Neighbourhood" id="1732" name="GET">
+                <request>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1732:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="crime-last-updated/">
+            <method displayName="Last updated" id="1731" name="GET">
+                <doc>Crime data in the API is updated once a month. Find out when it was last updated.</doc>
+                <request/>
+                <response>
+                    <representation element="f1731:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="forces/">
+            <method displayName="Forces" id="1730" name="GET">
+                <doc>A list of all the police forces available via the API. Unique force identifiers obtained here are used in requests for force-specific data via other methods.</doc>
+                <request/>
+                <response>
+                    <representation element="f1730:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Specific Force" id="1734" name="GET">
+                <doc>Provides detailed information about a specific force.</doc>
+                <request>
+                    <param name="force" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1734:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="{county}/">
+            <param name="county" style="template" type="xsd:string"/>
+            <resource uri="{Neighbourhood}/">
+                <param name="Neighbourhood" style="template" type="xsd:string"/>
+                <resource uri="events/">
+                    <method displayName="Events" id="1729" name="GET">
+                        <request>
+                            <param name="county" required="true" style="query" type="xsd:string"/>
+                            <param name="neighbourhood" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f1729:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="crimes-no-location/">
+            <method displayName="Crimes with no location" id="1728" name="GET">
+                <doc>Returns a list of crimes where the responsible force hasn't specified a location.</doc>
+                <request>
+                    <param name="category" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="date" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="force" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1728:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="crimes-at-location/">
+            <method displayName="Crimes at location" id="1727" name="GET">
+                <doc>Returns just the crimes which occurred at the specified location, rather than those within a radius. If given latitude and longitude, finds the nearest pre-defined location and returns the crimes which occurred there.</doc>
+                <request>
+                    <param name="date" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="lat" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="lng" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1727:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="crime-categories/">
+            <method displayName="Crime categories" id="1726" name="GET">
+                <doc>Returns a list of valid categories for a given data set date.</doc>
+                <request>
+                    <param name="date" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1726:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

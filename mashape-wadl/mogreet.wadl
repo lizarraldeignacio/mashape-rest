@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2957="urn:function:f2957" xmlns:f2959="urn:function:f2959">
+    <grammars>
+        <include href="Function2959.xsd"/>
+        <include href="Function2957.xsd"/>
+    </grammars>
+    <doc>sMS MMS Transcoding and User Lookup APIs Quickly and easily add messaging and rich media to your mobile application with the Mogreet Mobile Services Platform</doc>
+    <resources base="https://mogreetapi.p.mashape.com/">
+        <resource uri="moms/">
+            <resource uri="user.lookup/">
+                <method displayName="user.lookup" id="2960" name="GET">
+                    <doc>Get information on a phone number</doc>
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>specify response format xml by default</doc>
+                        </param>
+                        <param name="number" required="true" style="query" type="xsd:string">
+                            <doc>phone number to lookup</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="transaction.send/">
+                <method displayName="transaction.send" id="2959" name="POST">
+                    <doc>main api endpoint</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2959:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="system.ping/">
+                <method displayName="system.ping" id="2958" name="GET">
+                    <doc>Test your credentials and our system status.</doc>
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>specify json format xml by default</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="cm/">
+            <resource uri="media.upload/">
+                <method displayName="media.upload" id="2957" name="POST">
+                    <doc>Upload image, video or audio files to Mogreet</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2957:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="media.list/">
+                <method displayName="media.list" id="2956" name="GET">
+                    <doc>List all the media you have previously uploaded.</doc>
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>specify json format xml by default</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="media.get/">
+                <method displayName="media.get" id="2955" name="GET">
+                    <doc>Lookup a single media object by id.</doc>
+                    <request>
+                        <param name="contentId" required="true" style="query" type="xsd:string">
+                            <doc>id of a previously uploaded content</doc>
+                        </param>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>specify json format xml by default</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="list.send/">
+                <method displayName="list.send" id="2954" name="POST">
+                    <doc>Send a blast of messages to a list of users.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="list.prune/">
+                <method displayName="list.prune" id="2953" name="POST">
+                    <doc>Remove number from a list.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="list.empty/">
+                <method displayName="list.empty" id="2952" name="POST">
+                    <doc>Erase a list.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="list.download/">
+                <method displayName="list.download" id="2951" name="GET">
+                    <doc>Download a list of numbers.</doc>
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>format of the response xml by default</doc>
+                        </param>
+                        <param name="listId" required="true" style="query" type="xsd:string">
+                            <doc>id of the list to download</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="list.destroy/">
+                <method displayName="list.destroy" id="2950" name="GET">
+                    <doc>Destroy a list completely.</doc>
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>specify response format xml by default</doc>
+                        </param>
+                        <param name="listId" required="true" style="query" type="xsd:string">
+                            <doc>id of the list to destroy</doc>
+                        </param>
+                        <param name="name" required="true" style="query" type="xsd:string">
+                            <doc>name of the list to destroy additional security</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="list.create/">
+                <method displayName="list.create" id="2949" name="POST">
+                    <doc>Create a list of mobile numbers.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="list.append/">
+                <method displayName="list.append" id="2948" name="POST">
+                    <doc>Add numbers to your list.</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>wavecell SMS API allows registered users to send SMS worldwide using a simple fast and reliable HTTP API Send messages in minutes Get your free trial at http www wavecell com</doc>
+    <resources base="https://wavecell.p.mashape.com/">
+        <resource uri="Send.asmx/">
+            <resource uri="SendMT/">
+                <method displayName="SMS-MT - Send SMS (GET)" id="1255" name="GET">
+                    <doc>Send a SMS message using Wavecell HTTP GET</doc>
+                    <request>
+                        <param name="accountid" required="true" style="query" type="xsd:string">
+                            <doc>your Wavecell Account ID</doc>
+                        </param>
+                        <param name="body" required="true" style="query" type="xsd:string">
+                            <doc>the message text</doc>
+                        </param>
+                        <param name="destination" required="true" style="query" type="xsd:string">
+                            <doc>the destination phone number MSISDN to send to This must be in international format without such as is the country code and is the mobile number</doc>
+                        </param>
+                        <param name="encoding" required="true" style="query" type="xsd:string">
+                            <doc>the encoding format of the message</doc>
+                        </param>
+                        <param name="password" required="true" style="query" type="xsd:string">
+                            <doc>your Wavecell Password</doc>
+                        </param>
+                        <param name="scheduleddatetime" required="true" style="query" type="xsd:string">
+                            <doc>specify this if you wish to schedule your message up to days in advance to be specified in UTC Time Specify this parameter blank if you do not want to schedule your message SET IF NOT REQUIRED</doc>
+                        </param>
+                        <param name="source" required="true" style="query" type="xsd:string">
+                            <doc>this is the sender Id the message will appear from TPOA Only available on agreed routes with your account manager</doc>
+                        </param>
+                        <param name="subaccountid" required="true" style="query" type="xsd:string">
+                            <doc>your Wavecell Sub Account ID</doc>
+                        </param>
+                        <param name="umid" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="SMS-MT - Send SMS (POST)" id="1256" name="POST">
+                    <doc>Send a SMS messaging using Wavecell HTTP POST</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

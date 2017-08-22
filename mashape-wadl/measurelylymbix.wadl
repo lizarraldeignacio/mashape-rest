@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3102="urn:function:f3102" xmlns:f3103="urn:function:f3103" xmlns:f3104="urn:function:f3104">
+    <grammars>
+        <include href="Function3104.xsd"/>
+        <include href="Function3103.xsd"/>
+        <include href="Function3102.xsd"/>
+    </grammars>
+    <doc>lymbix launched a new platform that leverages the power of its sentiment and text analytics technology to power an all new content analytics engine Measure ly takes on the role of merging your content and social efforts by measuring the real earned media that drives convertable value for your marketing campaign Focus on the content influencers and referrals that perform</doc>
+    <resources base="https://ideas2it-Measurely-Lymbix-v1.p.mashape.com/">
+        <resource uri="tonalize_multiple/">
+            <method displayName="Tonalize Multiple" id="3104" name="POST">
+                <doc>The tonalize_multiple method provides article-level Lymbix sentiment data for multiple articles.</doc>
+                <request/>
+                <response>
+                    <representation element="f3104:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="tonalize_detailed/">
+            <method displayName="Tonalize Detail" id="3103" name="POST">
+                <doc>The tonalize_detailed method provides article-level Lymbix sentiment data along with a sentence by sentence sentiment data for a single article.</doc>
+                <request/>
+                <response>
+                    <representation element="f3103:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="tonalize/">
+            <method displayName="Tonalize" id="3102" name="POST">
+                <doc>The tonalize method provides article-level Lymbix sentiment data for a single article.</doc>
+                <request/>
+                <response>
+                    <representation element="f3102:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f371="urn:function:f371">
+    <grammars>
+        <include href="Function371.xsd"/>
+    </grammars>
+    <doc>aPI produces news data as JSON from list of news blocks on any page</doc>
+    <resources base="https://skyurrss.p.mashape.com/">
+        <resource uri="page/">
+            <resource uri="getrss/">
+                <method displayName="Get structured news" id="371" name="GET">
+                    <doc>Extracts news from any webpage and provides them as JSON</doc>
+                    <request>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>url of website page</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f371:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

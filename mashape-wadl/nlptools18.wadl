@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6209="urn:function:f6209" xmlns:f6210="urn:function:f6210" xmlns:f6211="urn:function:f6211" xmlns:f6212="urn:function:f6212" xmlns:f6213="urn:function:f6213" xmlns:f6214="urn:function:f6214" xmlns:f6215="urn:function:f6215" xmlns:f6216="urn:function:f6216" xmlns:f6217="urn:function:f6217" xmlns:f6218="urn:function:f6218">
+    <grammars>
+        <include href="Function6218.xsd"/>
+        <include href="Function6217.xsd"/>
+        <include href="Function6216.xsd"/>
+        <include href="Function6215.xsd"/>
+        <include href="Function6214.xsd"/>
+        <include href="Function6213.xsd"/>
+        <include href="Function6212.xsd"/>
+        <include href="Function6211.xsd"/>
+        <include href="Function6210.xsd"/>
+        <include href="Function6209.xsd"/>
+    </grammars>
+    <doc>some useful Natural Language Processing tools</doc>
+    <resources base="https://virtan-nlp-tools-v1.p.mashape.com/">
+        <resource uri="en/">
+            <resource uri="is/">
+                <resource uri="verb?q={word}/">
+                    <param name="word" style="template" type="xsd:string"/>
+                    <method displayName="/en/is/verb?q={word}" id="6218" name="GET">
+                        <doc>Check if the word is a verb</doc>
+                        <request>
+                            <param name="word" required="true" style="query" type="xsd:string">
+                                <doc>word to check</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6218:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="tag?q={word}/">
+                    <param name="word" style="template" type="xsd:string"/>
+                    <method displayName="/en/is/tag?q={word}" id="6217" name="GET">
+                        <doc>Check if the word is a tag</doc>
+                        <request>
+                            <param name="word" required="true" style="query" type="xsd:string">
+                                <doc>word to check</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6217:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="persuasive?q={word}/">
+                    <param name="word" style="template" type="xsd:string"/>
+                    <method displayName="/en/is/persuasive?q={word}" id="6216" name="GET">
+                        <doc>Check if the word is a persuasive</doc>
+                        <request>
+                            <param name="word" required="true" style="query" type="xsd:string">
+                                <doc>word to check</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6216:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="number?q={word}/">
+                    <param name="word" style="template" type="xsd:string"/>
+                    <method displayName="/en/is/number?q={word}" id="6215" name="GET">
+                        <doc>Check if the word is a number</doc>
+                        <request>
+                            <param name="word" required="true" style="query" type="xsd:string">
+                                <doc>word to check</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6215:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="noun?q={word}/">
+                    <param name="word" style="template" type="xsd:string"/>
+                    <method displayName="/en/is/noun?q={word}" id="6214" name="GET">
+                        <doc>Check if the word is a noun</doc>
+                        <request>
+                            <param name="word" required="true" style="query" type="xsd:string">
+                                <doc>word to check</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6214:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="html_tag?q={word}/">
+                    <param name="word" style="template" type="xsd:string"/>
+                    <method displayName="/en/is/html_tag?q={word}" id="6213" name="GET">
+                        <doc>Check if the word is a html tag</doc>
+                        <request>
+                            <param name="word" required="true" style="query" type="xsd:string">
+                                <doc>word to check</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6213:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="connective?q={word}/">
+                    <param name="word" style="template" type="xsd:string"/>
+                    <method displayName="/en/is/connective?q={word}" id="6212" name="GET">
+                        <doc>Check if the word is a connective</doc>
+                        <request>
+                            <param name="word" required="true" style="query" type="xsd:string">
+                                <doc>word to check</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6212:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="basic_emotion?q={word}/">
+                    <param name="word" style="template" type="xsd:string"/>
+                    <method displayName="/en/is/basic_emotion?q={word}" id="6211" name="GET">
+                        <doc>Check if the word is a basic emotion</doc>
+                        <request>
+                            <param name="word" required="true" style="query" type="xsd:string">
+                                <doc>word to check</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6211:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="adverb?q={word}/">
+                    <param name="word" style="template" type="xsd:string"/>
+                    <method displayName="/en/is/adverb?q={word}" id="6210" name="GET">
+                        <doc>Check if the word is an adverb</doc>
+                        <request>
+                            <param name="word" required="true" style="query" type="xsd:string">
+                                <doc>word to check</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6210:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="adjective?q={word}/">
+                    <param name="word" style="template" type="xsd:string"/>
+                    <method displayName="/en/is/adjective?q={word}" id="6209" name="GET">
+                        <doc>Check if the word is an adjective</doc>
+                        <request>
+                            <param name="word" required="true" style="query" type="xsd:string">
+                                <doc>word to check</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6209:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

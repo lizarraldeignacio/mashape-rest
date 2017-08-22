@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7464="urn:function:f7464" xmlns:f7465="urn:function:f7465">
+    <grammars>
+        <include href="Function7464.xsd"/>
+        <include href="Function7465.xsd"/>
+    </grammars>
+    <doc>quickly analyze and parse image data</doc>
+    <resources base="https://marcinpraski-imageanalyzer-v1.p.mashape.com/">
+        <resource uri="analyze/">
+            <method displayName="Analyze" id="7464" name="POST">
+                <doc>Analyze the provided image.</doc>
+                <request/>
+                <response>
+                    <representation element="f7464:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Analyze url" id="7465" name="GET">
+                <doc>Analyze provided image.</doc>
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7465:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

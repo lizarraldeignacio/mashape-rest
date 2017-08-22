@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5901="urn:function:f5901" xmlns:f5902="urn:function:f5902" xmlns:f5903="urn:function:f5903" xmlns:f5904="urn:function:f5904" xmlns:f5905="urn:function:f5905" xmlns:f5906="urn:function:f5906" xmlns:f5907="urn:function:f5907">
+    <grammars>
+        <include href="Function5905.xsd"/>
+        <include href="Function5904.xsd"/>
+        <include href="Function5901.xsd"/>
+        <include href="Function5902.xsd"/>
+        <include href="Function5903.xsd"/>
+        <include href="Function5906.xsd"/>
+        <include href="Function5907.xsd"/>
+    </grammars>
+    <doc>parcelBright Shipping API Generate labels verify addresses track progress and much more More information here https github com parcelbright api docs</doc>
+    <resources base="https://parcelbright-parcelbright-v1.p.mashape.com/">
+        <resource uri="countries/">
+            <method displayName="List of countries" id="5905" name="GET">
+                <doc>We provide a list of countries, including their name and code, so that you can use the correct country code when booking a shipment.</doc>
+                <request/>
+                <response>
+                    <representation element="f5905:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="liabilities/">
+            <resource uri="{carrier}/">
+                <param name="carrier" style="template" type="xsd:string"/>
+                <method displayName="Liability options for a carrier" id="5904" name="GET">
+                    <doc>List of available extended liability options for a given carrier</doc>
+                    <request>
+                        <param name="carrier" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f5904:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="shipments/">
+            <method displayName="Book a shipment" id="5901" name="POST">
+                <doc>This endpoint allows one to book a shipment that was previously created on the system with a given rate code.</doc>
+                <request>
+                    <param name="liabilityAmount" required="true" style="query" type="xsd:string">
+                        <doc>if you want extended liability on the shipment this is where you set the prefered amount based on the liabilities endpoint</doc>
+                    </param>
+                    <param name="rateCode" required="true" style="query" type="xsd:string">
+                        <doc>the code of the rate from the list returned by the create shipment action</doc>
+                    </param>
+                    <param name="slug" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5901:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Cancel a shipment" id="5902" name="POST">
+                <doc>Cancel a shipment and refund the money back.</doc>
+                <request>
+                    <param name="slug" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5902:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Create a shipment" id="5903" name="POST">
+                <doc>This endpoint allows you to create a shipment object. This is the first step of the booking process.</doc>
+                <request/>
+                <response>
+                    <representation element="f5903:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Track a shipment" id="5906" name="GET">
+                <doc>Track a shipment that was created and booked.</doc>
+                <request>
+                    <param name="slug" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5906:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="View a shipment" id="5907" name="GET">
+                <doc>Get the information of a shipment object.</doc>
+                <request>
+                    <param name="slug" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5907:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

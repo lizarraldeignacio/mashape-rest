@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1291="urn:function:f1291" xmlns:f1292="urn:function:f1292" xmlns:f1294="urn:function:f1294" xmlns:f1295="urn:function:f1295" xmlns:f1297="urn:function:f1297" xmlns:f1298="urn:function:f1298" xmlns:f1299="urn:function:f1299" xmlns:f1300="urn:function:f1300" xmlns:f1301="urn:function:f1301" xmlns:f1302="urn:function:f1302" xmlns:f1303="urn:function:f1303">
+    <grammars>
+        <include href="Function1298.xsd"/>
+        <include href="Function1302.xsd"/>
+        <include href="Function1300.xsd"/>
+        <include href="Function1299.xsd"/>
+        <include href="Function1303.xsd"/>
+        <include href="Function1301.xsd"/>
+        <include href="Function1297.xsd"/>
+        <include href="Function1295.xsd"/>
+        <include href="Function1294.xsd"/>
+        <include href="Function1292.xsd"/>
+        <include href="Function1291.xsd"/>
+    </grammars>
+    <doc>the WebKnox Recipe API allows you to access over recipes It allows users to search for recipes using natural language such as gluten free brownies without sugar Furthermore several widgets to visualize ingredient lists price breakdowns This Food API also contains thousands of information bits about ingredients such as nutrition prices tips and more</doc>
+    <resources base="https://webknox-recipes.p.mashape.com/">
+        <resource uri="food/">
+            <resource uri="ingredients/">
+                <resource uri="map/">
+                    <method displayName="Map Ingredients" id="1298" name="POST">
+                        <doc>Map ingredients to products.</doc>
+                        <request/>
+                        <response>
+                            <representation element="f1298:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="recipes/">
+            <resource uri="visualizePriceEstimator/">
+                <method displayName="Visualize Price Breakdown" id="1306" name="POST">
+                    <doc>Visualize the price breakdown of a recipe. This widget is basically free of charge.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="visualizeNutrition/">
+                <method displayName="Visualize Nutrition" id="1305" name="POST">
+                    <doc>Visualize a recipe's nutritional information.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="visualizeIngredients/">
+                <method displayName="Visualize Ingredients" id="1304" name="POST">
+                    <doc>Visualize ingredients of a recipe. This widget is basically free of charge.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="search/">
+                <method displayName="Search Recipes" id="1302" name="GET">
+                    <doc>Search recipes in natural language.</doc>
+                    <request>
+                        <param name="cuisine" required="true" style="query" type="xsd:string">
+                            <doc>the cuisine s of the recipes One or more comma separated of the following african chinese japanese korean vietnamese thai indian british irish french italian mexican spanish middle eastern jewish american cajun southern greek german nordic eastern european caribbean or latin american</doc>
+                        </param>
+                        <param name="diet" required="true" style="query" type="xsd:string">
+                            <doc>the diet to which the recipes must be compliant Possible values are pescetarian lacto vegetarian ovo vegetarian vegan and vegetarian</doc>
+                        </param>
+                        <param name="excludeingredients" required="true" style="query" type="xsd:string">
+                            <doc>an comma separated list of ingredients or ingredient types that must not be contained in the recipes</doc>
+                        </param>
+                        <param name="intolerances" required="true" style="query" type="xsd:string">
+                            <doc>a comma separated list of intolerances All found recipes must not have ingredients that could cause problems for people with one of the given tolerances Possible values are dairy egg gluten peanut sesame seafood shellfish soy sulfite tree nut and wheat</doc>
+                        </param>
+                        <param name="number" required="true" style="query" type="xsd:integer">
+                            <doc>the number of results to return between and</doc>
+                        </param>
+                        <param name="offset" required="true" style="query" type="xsd:integer">
+                            <doc>the number of results to skip between and</doc>
+                        </param>
+                        <param name="query" required="true" style="query" type="xsd:string">
+                            <doc>the natural language search query</doc>
+                        </param>
+                        <param name="type" required="true" style="query" type="xsd:string">
+                            <doc>the type of the recipes One of the following main course side dish dessert appetizer salad bread breakfast soup beverage sauce or drink</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1302:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="quickAnswer/">
+                <method displayName="Quick Answer" id="1300" name="GET">
+                    <doc>Answer a nutrition related natural language question.</doc>
+                    <request>
+                        <param name="q" required="true" style="query" type="xsd:string">
+                            <doc>the nutrition related question</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1300:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="parseIngredients/">
+                <method displayName="Parse Ingredients" id="1299" name="POST">
+                    <doc>Parse ingredient descriptions.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1299:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <resource uri="summary/">
+                    <method displayName="Summarize Recipe" id="1303" name="GET">
+                        <doc>Summarize the recipe in a short text.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>the id of the recipe to summarize</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1303:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="information/">
+                    <method displayName="Recipe Information" id="1301" name="GET">
+                        <doc>Get information about a recipe.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>the id of the recipe</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1301:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="similar/">
+                    <method displayName="Find Similar Recipes" id="1297" name="GET">
+                        <doc>Find recipes which are similar to the given one.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>the id of the source recipe to which similar recipes should be found</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1297:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="findByNutrients/">
+                <method displayName="Find By Nutrients" id="1296" name="GET">
+                    <doc>Find a set of recipes that adhere to the given nutrient limits. All the found recipes will have macro nutrients within the calories, protein, fat, and carbohydrate limits.</doc>
+                    <request>
+                        <param name="maxcalories" required="true" style="query" type="xsd:integer">
+                            <doc>the maximum number of calories the recipe can have</doc>
+                        </param>
+                        <param name="maxcarbs" required="true" style="query" type="xsd:integer">
+                            <doc>the maximum number of carbohydrates in grams the recipe can have</doc>
+                        </param>
+                        <param name="maxfat" required="true" style="query" type="xsd:integer">
+                            <doc>the maximum number of fat in grams the recipe can have</doc>
+                        </param>
+                        <param name="maxprotein" required="true" style="query" type="xsd:integer">
+                            <doc>the maximum number of protein in grams the recipe can have</doc>
+                        </param>
+                        <param name="mincalories" required="true" style="query" type="xsd:integer">
+                            <doc>the minimum number of calories the recipe must have</doc>
+                        </param>
+                        <param name="mincarbs" required="true" style="query" type="xsd:integer">
+                            <doc>the minimum number of carbohydrates in grams the recipe must have</doc>
+                        </param>
+                        <param name="minfat" required="true" style="query" type="xsd:integer">
+                            <doc>the minimum number of fat in grams the recipe must have</doc>
+                        </param>
+                        <param name="minprotein" required="true" style="query" type="xsd:integer">
+                            <doc>the minimum number of protein in grams the recipe must have</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="findByIngredients/">
+                <method displayName="Find By Ingredients" id="1295" name="GET">
+                    <doc>Find recipes that use as many of the given ingredients as possible and have as little as possible missing ingredients.</doc>
+                    <request>
+                        <param name="ingredients" required="true" style="query" type="xsd:string">
+                            <doc>a comma separated list of ingredients that the recipes should contain</doc>
+                        </param>
+                        <param name="number" required="true" style="query" type="xsd:string">
+                            <doc>the maximal number of recipes to return default</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1295:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="extract/">
+                <method displayName="Extract Recipe Data" id="1294" name="GET">
+                    <doc>Extract recipe data from a recipe blog or Web page.</doc>
+                    <request>
+                        <param name="forceextraction" required="true" style="query" type="xsd:boolean">
+                            <doc>if true the extraction will be triggered no matter whether we know the recipe already Use that only if information is missing as this operation is slower</doc>
+                        </param>
+                        <param name="url" required="true" style="query" type="xsd:string">
+                            <doc>the URL of the recipe page</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1294:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="visualizeRecipe/">
+                <method displayName="Create Recipe Card" id="1293" name="POST">
+                    <doc>Create a recipe card given a recipe. This widget is basically free of charge.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="mealplans/">
+                <resource uri="generate/">
+                    <method displayName="Compute Daily Meal Plan" id="1292" name="GET">
+                        <doc>Compute a meal plan for a day.</doc>
+                        <request>
+                            <param name="targetcalories" required="true" style="query" type="xsd:integer">
+                                <doc>the target number of calories per day</doc>
+                            </param>
+                            <param name="timeframe" required="true" style="query" type="xsd:string">
+                                <doc>for one day or a complete week allowed values are day and week</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1292:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="cuisine/">
+                <method displayName="Classify Cuisine" id="1291" name="POST">
+                    <doc>Classify the recipe's cuisine.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f1291:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

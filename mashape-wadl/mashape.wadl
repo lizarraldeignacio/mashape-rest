@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3545="urn:function:f3545" xmlns:f3546="urn:function:f3546" xmlns:f3547="urn:function:f3547">
+    <grammars>
+        <include href="Function3545.xsd"/>
+        <include href="Function3546.xsd"/>
+        <include href="Function3547.xsd"/>
+    </grammars>
+    <doc>with this API you can search and explore Mashape s Marketplace Now every devices Android iPhone ecc can access to Mashape for a quick search</doc>
+    <resources base="https://rokity-mashape-v1.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Explore" id="3545" name="GET">
+                <doc>This route get JSON array of Mashape's explore page.</doc>
+                <request>
+                    <param name="query" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f3545:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Find for Name" id="3546" name="GET">
+                <doc>Find your Api. You need to replace "parameter" value with the API's name.</doc>
+                <request>
+                    <param name="parameter" required="true" style="query" type="xsd:string"/>
+                    <param name="query" required="true" style="query" type="xsd:string"/>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3546:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Find for Tags" id="3547" name="GET">
+                <doc>This route find API for Tags like Tools,Education,Device .... You need to replace "parameter" value with your tags.</doc>
+                <request>
+                    <param name="parameter" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3547:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

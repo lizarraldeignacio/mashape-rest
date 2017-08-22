@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2517="urn:function:f2517">
+    <grammars>
+        <include href="Function2517.xsd"/>
+    </grammars>
+    <doc>get menus of all restaurants of major Indian cities</doc>
+    <resources base="https://udayogra-indian-restaurants-menu-v1.p.mashape.com/">
+        <resource uri="dl/">
+            <method displayName="getMenus" id="2517" name="GET">
+                <request>
+                    <param name="area" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="city" required="true" style="query" type="xsd:string">
+                        <doc>currently this API supports cities delhi bangalore pune and mumbai</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2517:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2076="urn:function:f2076" xmlns:f2077="urn:function:f2077" xmlns:f2079="urn:function:f2079" xmlns:f2080="urn:function:f2080" xmlns:f2081="urn:function:f2081" xmlns:f2087="urn:function:f2087" xmlns:f2088="urn:function:f2088" xmlns:f2089="urn:function:f2089" xmlns:f2091="urn:function:f2091">
+    <grammars>
+        <include href="Function2091.xsd"/>
+        <include href="Function2089.xsd"/>
+        <include href="Function2088.xsd"/>
+        <include href="Function2087.xsd"/>
+        <include href="Function2081.xsd"/>
+        <include href="Function2080.xsd"/>
+        <include href="Function2079.xsd"/>
+        <include href="Function2077.xsd"/>
+        <include href="Function2076.xsd"/>
+    </grammars>
+    <doc>helioviewer is an open source project for the visualization of solar and heliospheric data funded by ESA and NASA</doc>
+    <resources base="https://helioviewer-v1.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="v1/">
+                <resource uri="uploadMovieToYouTube/">
+                    <method displayName="uploadMovieToYouTube" id="2091" name="GET">
+                        <doc>Share an existing user-generated movie to YouTube.</doc>
+                        <request>
+                            <param name="description" required="true" style="query" type="xsd:string">
+                                <doc>move description</doc>
+                            </param>
+                            <param name="html" required="true" style="query" type="xsd:boolean">
+                                <doc>optionally output response as HTML instead of JSON</doc>
+                            </param>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>unique movie identifier provided by the response to a queueMovie request</doc>
+                            </param>
+                            <param name="share" required="true" style="query" type="xsd:boolean">
+                                <doc>optionally share the movie with the Helioviewer community</doc>
+                            </param>
+                            <param name="tags" required="true" style="query" type="xsd:string">
+                                <doc>movie keyword tags comma separated</doc>
+                            </param>
+                            <param name="title" required="true" style="query" type="xsd:string">
+                                <doc>movie title</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2091:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="takeScreenshot/">
+                    <method displayName="takeScreenshot" id="2090" name="GET">
+                        <doc>Generate a custom screenshot.
+
+        You must specify values for either `x1`, `y1`, `x2`, and `y2`
+        or `x0`, `y0`, `width` and `height`.
+
+        By default, the response is a JSON object containing a unique screenshot identifier (`id`) that can be used to with the `downloadScreenshot` API endpoint.
+
+        Set the `display` parameter to `true` to directly return the screenshot as binary PNG image data in the response.
+
+        Please note that each request causes the server to generate a screenshot from scratch and is resource intensive.  For performance reasons, you should cache the response if you simply intend to serve exactly the same screenshot to multiple users.</doc>
+                        <request>
+                            <param name="callback" required="true" style="query" type="xsd:string">
+                                <doc>wrap the response object in a function call of your choosing</doc>
+                            </param>
+                            <param name="date" required="true" style="query" type="xsd:string">
+                                <doc>desired date time of the image ISO combined UTC date and time UTC format</doc>
+                            </param>
+                            <param name="display" required="true" style="query" type="xsd:boolean">
+                                <doc>set to true to directly output binary PNG image data Default is false which outputs a JSON object</doc>
+                            </param>
+                            <param name="eventlabels" required="true" style="query" type="xsd:boolean">
+                                <doc>optionally annotate each event marker with a text label</doc>
+                            </param>
+                            <param name="events" required="true" style="query" type="xsd:string">
+                                <doc>list feature event types and FRMs to use to annoate the movie Use the empty string to indicate that no feature event annotations should be shown</doc>
+                            </param>
+                            <param name="height" required="true" style="query" type="xsd:string">
+                                <doc>height of the field of view in pixels Used in conjunction width x y and width</doc>
+                            </param>
+                            <param name="imagescale" required="true" style="query" type="xsd:integer">
+                                <doc>image scale in arcseconds per pixel</doc>
+                            </param>
+                            <param name="layers" required="true" style="query" type="xsd:string">
+                                <doc>image datasource layer s to include in the screenshot</doc>
+                            </param>
+                            <param name="scale" required="true" style="query" type="xsd:boolean">
+                                <doc>optionally overlay an image scale indicator</doc>
+                            </param>
+                            <param name="scaletype" required="true" style="query" type="xsd:string">
+                                <doc>image scale indicator</doc>
+                            </param>
+                            <param name="scalex" required="true" style="query" type="xsd:integer">
+                                <doc>horizontal offset of the image scale indicator in arcseconds with respect to the center of the Sun</doc>
+                            </param>
+                            <param name="scaley" required="true" style="query" type="xsd:integer">
+                                <doc>vertical offset of the image scale indicator in arcseconds with respect to the center of the Sun</doc>
+                            </param>
+                            <param name="watermark" required="true" style="query" type="xsd:boolean">
+                                <doc>optionally overlay a watermark consisting of a Helioviewer logo and the datasource abbreviation s and timestamp s displayed in the screenshot</doc>
+                            </param>
+                            <param name="width" required="true" style="query" type="xsd:string">
+                                <doc>width of the field of view in pixels Used in conjunction width x y and height</doc>
+                            </param>
+                            <param name="x" required="true" style="query" type="xsd:string">
+                                <doc>the horizontal offset of the center of the field of view from the center of the Sun Used in conjunction with y width and height</doc>
+                            </param>
+                            <param name="x" required="true" style="query" type="xsd:string">
+                                <doc>the horizontal offset of the top left corner of the field of view with respect to the center of the Sun in arcseconds Used in conjunction with y x and y</doc>
+                            </param>
+                            <param name="x" required="true" style="query" type="xsd:string">
+                                <doc>the horizontal offset of the bottom right corner of the field of view with respect to the center of the Sun in arcseconds Used in conjunction with x y and y</doc>
+                            </param>
+                            <param name="y" required="true" style="query" type="xsd:string">
+                                <doc>the vertical offset of the center of the field of view from the center of the Sun Used in conjunction with x width and height</doc>
+                            </param>
+                            <param name="y" required="true" style="query" type="xsd:string">
+                                <doc>the vertical offset of the top left corner of the field of view with respect to the center of the Sun in arcseconds Used in conjunction with x x and y</doc>
+                            </param>
+                            <param name="y" required="true" style="query" type="xsd:string">
+                                <doc>the vertical offset of the bottom right corner of the field of view with respect to the center of the Sun in arcseconds Used in conjunction with x y and x</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="shortenURL/">
+                    <method displayName="shortenURL" id="2089" name="GET">
+                        <doc>Shorten a Helioviewer.org URL with the bit.ly URL shortening web service.</doc>
+                        <request>
+                            <param name="callback" required="true" style="query" type="xsd:string">
+                                <doc>wrap the response object in a function call of your choosing</doc>
+                            </param>
+                            <param name="querystring" required="true" style="query" type="xsd:string">
+                                <doc>uRL encoded query string</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2089:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="reQueueMovie/">
+                    <method displayName="reQueueMovie" id="2088" name="GET">
+                        <doc>Re-generate a custom movie that is no longer cached on disk.  Once the movie has been successfully queued for regeneration, the Movie ID can be used to check on the status of the movie (via `getMovieStatus`) and to download the movie (via `downloadMovie`).</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>unique movie identifier provided by the response to a queueMovie request</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2088:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="queueMovie/">
+                    <method displayName="queueMovie" id="2087" name="GET">
+                        <doc>Create a custom movie by submitting a request to the movie generation queue.  The response returned will provide you with a unique Movie ID that can be used to check on the status of your movie (via `getMovieStatus`) and to download your movie (via `downloadMovie`).</doc>
+                        <request>
+                            <param name="callback" required="true" style="query" type="xsd:string">
+                                <doc>wrap the response object in a function call of your choosing</doc>
+                            </param>
+                            <param name="endtime" required="true" style="query" type="xsd:string">
+                                <doc>desired date and time of the final frame of the movie ISO combined UTC date and time UTC format</doc>
+                            </param>
+                            <param name="events" required="true" style="query" type="xsd:string">
+                                <doc>list feature event types and FRMs to use to annoate the movie Use the empty string to indicate that no feature event annotations should be shown</doc>
+                            </param>
+                            <param name="eventslabels" required="true" style="query" type="xsd:boolean">
+                                <doc>optionally annotate each event marker with a text label</doc>
+                            </param>
+                            <param name="format" required="true" style="query" type="xsd:string">
+                                <doc>movie format mp webm flv Default value is mp</doc>
+                            </param>
+                            <param name="framerate" required="true" style="query" type="xsd:string">
+                                <doc>movie frames per second frames per second by default</doc>
+                            </param>
+                            <param name="height" required="true" style="query" type="xsd:string">
+                                <doc>height of the field of view in pixels Used in conjunction width x y and width</doc>
+                            </param>
+                            <param name="imagescale" required="true" style="query" type="xsd:integer">
+                                <doc>image scale in arcseconds per pixel</doc>
+                            </param>
+                            <param name="layers" required="true" style="query" type="xsd:string">
+                                <doc>image datasource layer s to include in the movie</doc>
+                            </param>
+                            <param name="maxframes" required="true" style="query" type="xsd:string">
+                                <doc>maximum number of frames in the movie May be capped by the server</doc>
+                            </param>
+                            <param name="movielength" required="true" style="query" type="xsd:integer">
+                                <doc>movie length in seconds</doc>
+                            </param>
+                            <param name="scale" required="true" style="query" type="xsd:boolean">
+                                <doc>optionally overlay an image scale indicator</doc>
+                            </param>
+                            <param name="scaletype" required="true" style="query" type="xsd:string">
+                                <doc>image scale indicator</doc>
+                            </param>
+                            <param name="scalex" required="true" style="query" type="xsd:integer">
+                                <doc>horizontal offset of the image scale indicator in arcseconds with respect to the center of the Sun</doc>
+                            </param>
+                            <param name="scaley" required="true" style="query" type="xsd:integer">
+                                <doc>vertical offset of the image scale indicator in arcseconds with respect to the center of the Sun</doc>
+                            </param>
+                            <param name="starttime" required="true" style="query" type="xsd:string">
+                                <doc>desired date and time of the first frame of the movie ISO combined UTC date and time UTC format</doc>
+                            </param>
+                            <param name="watermark" required="true" style="query" type="xsd:boolean">
+                                <doc>optionally overlay a Helioviewer org watermark image Enabled by default</doc>
+                            </param>
+                            <param name="width" required="true" style="query" type="xsd:string">
+                                <doc>width of the field of view in pixels Used in conjunction width x y and height</doc>
+                            </param>
+                            <param name="x" required="true" style="query" type="xsd:string">
+                                <doc>the horizontal offset of the center of the field of view from the center of the Sun Used in conjunction with y width and height</doc>
+                            </param>
+                            <param name="x" required="true" style="query" type="xsd:string">
+                                <doc>the horizontal offset of the top left corner of the field of view with respect to the center of the Sun in arcseconds Used in conjunction with y x and y</doc>
+                            </param>
+                            <param name="x" required="true" style="query" type="xsd:string">
+                                <doc>the horizontal offset of the bottom right corner of the field of view with respect to the center of the Sun in arcseconds Used in conjunction with x y and y</doc>
+                            </param>
+                            <param name="y" required="true" style="query" type="xsd:string">
+                                <doc>the vertical offset of the center of the field of view from the center of the Sun Used in conjunction with x width and height</doc>
+                            </param>
+                            <param name="y" required="true" style="query" type="xsd:string">
+                                <doc>the vertical offset of the top left corner of the field of view with respect to the center of the Sun in arcseconds Used in conjunction with x x and y</doc>
+                            </param>
+                            <param name="y" required="true" style="query" type="xsd:string">
+                                <doc>the vertical offset of the bottom right corner of the field of view with respect to the center of the Sun in arcseconds Used in conjunction with x y and x</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2087:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="playMovie/">
+                    <method displayName="playMovie" id="2086" name="GET">
+                        <doc>Output an HTML web page with the requested movie embedded within.</doc>
+                        <request>
+                            <param name="format" required="true" style="query" type="xsd:string">
+                                <doc>movie format mp webm or flv</doc>
+                            </param>
+                            <param name="height" required="true" style="query" type="xsd:string">
+                                <doc>height of embedded movie player in pixels Defaults to the actual height of the movie itself</doc>
+                            </param>
+                            <param name="hq" required="true" style="query" type="xsd:boolean">
+                                <doc>optionally download a higher quality movie file valid for mp movies only ignored otherwise</doc>
+                            </param>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>unique movie identifier provided by the response to a queueMovie request</doc>
+                            </param>
+                            <param name="width" required="true" style="query" type="xsd:integer">
+                                <doc>width of embedded movie player in pixels Defaults to the actual width of the movie itself</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="getYouTubeAuth/">
+                    <method displayName="getYouTubeAuth" id="2085" name="GET">
+                        <doc>Request authorization from the user via a Google / YouTube authorization flow to permit Helioviewer to upload videos on behalf of the user.</doc>
+                        <request>
+                            <param name="description" required="true" style="query" type="xsd:string">
+                                <doc>move description</doc>
+                            </param>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>unique movie identifier provided by the response to a queueMovie request</doc>
+                            </param>
+                            <param name="share" required="true" style="query" type="xsd:boolean">
+                                <doc>optionally share the movie with the Helioviewer community</doc>
+                            </param>
+                            <param name="tags" required="true" style="query" type="xsd:string">
+                                <doc>movie keyword tags comma separated</doc>
+                            </param>
+                            <param name="title" required="true" style="query" type="xsd:string">
+                                <doc>movie title</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="getUserVideos/">
+                    <method displayName="getUserVideos" id="2084" name="GET">
+                        <doc>Get a listing (in descending time order) of the most recently user-generated movies that have been publicly shared to YouTube.  Result set is limited to the value requested or default value of the `num` parameter (unless truncated when the date value of the `since` parameter is reached).</doc>
+                        <request>
+                            <param name="callback" required="true" style="query" type="xsd:string">
+                                <doc>wrap the response object in a function call of your choosing</doc>
+                            </param>
+                            <param name="force" required="true" style="query" type="xsd:boolean">
+                                <doc>optionally bypass cache to retrieve most up to date data</doc>
+                            </param>
+                            <param name="num" required="true" style="query" type="xsd:integer">
+                                <doc>number of shared user generated movies to include in the response Default is</doc>
+                            </param>
+                            <param name="since" required="true" style="query" type="xsd:string">
+                                <doc>optionally truncate result set if this date time is reached ISO combined UTC date and time UTC format</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="getTile/">
+                    <method displayName="getTile" id="2083" name="GET">
+                        <doc>Request a single image tile to be used in the Helioviewer.org Viewport.  Tiles are 512x512 pixel PNG images, generated for a given image scale from the intermediary JPEG2000 image files.
+
+        Use the `getClosestImage` API endpoint to obtain the desired image identifier for the `id` parameter.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:integer">
+                                <doc>unique image identifier</doc>
+                            </param>
+                            <param name="imagescale" required="true" style="query" type="xsd:integer">
+                                <doc>image scale in arcseconds per pixel</doc>
+                            </param>
+                            <param name="x" required="true" style="query" type="xsd:integer">
+                                <doc>tile position</doc>
+                            </param>
+                            <param name="y" required="true" style="query" type="xsd:integer">
+                                <doc>tile position</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="getNewsFeed/">
+                    <method displayName="getNewsFeed" id="2082" name="GET">
+                        <doc>Get the XML RSS feed of the official Helioviewer Project Blog.</doc>
+                        <request>
+                            <param name="callback" required="true" style="query" type="xsd:string">
+                                <doc>wrap the response object in a function call of your choosing</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="getMovieStatus/">
+                    <method displayName="getMovieStatus" id="2081" name="GET">
+                        <request>
+                            <param name="callback" required="true" style="query" type="xsd:string">
+                                <doc>wrap the response object in a function call of your choosing</doc>
+                            </param>
+                            <param name="format" required="true" style="query" type="xsd:string">
+                                <doc>movie format mp webm or flv</doc>
+                            </param>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>unique movie identifier provided by the response to a queueMovie request</doc>
+                            </param>
+                            <param name="token" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="verbose" required="true" style="query" type="xsd:boolean">
+                                <doc>optionally include extra metadata in the response</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2081:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="getJPX/">
+                    <method displayName="getJPX" id="2080" name="GET">
+                        <doc>Generate and (optionally) download a custom JPX movie of the specified datasource.
+
+        Either `sourceId` must be specified, or the combination of `observatory`, `instrument`, `detector`, and `measurement`.</doc>
+                        <request>
+                            <param name="cadence" required="true" style="query" type="xsd:integer">
+                                <doc>the desired amount of time in seconds between each frame in the movie If no cadence is specified the server will attempt to select an optimal cadence</doc>
+                            </param>
+                            <param name="detector" required="true" style="query" type="xsd:string">
+                                <doc>detector name</doc>
+                            </param>
+                            <param name="endtime" required="true" style="query" type="xsd:string">
+                                <doc>date Time for the end of the JPX movie data ISO combined UTC date and time UTC format</doc>
+                            </param>
+                            <param name="instrument" required="true" style="query" type="xsd:string">
+                                <doc>instrument name</doc>
+                            </param>
+                            <param name="jpip" required="true" style="query" type="xsd:boolean">
+                                <doc>optionally return a JPIP URI string instead of the binary data of the movie itself or instead of an HTTP URI in the JSON response if verbose is set to true</doc>
+                            </param>
+                            <param name="linked" required="true" style="query" type="xsd:boolean">
+                                <doc>generate a linked JPX file containing image pointers instead of data for each individual frame in the series Currently only JPX image series support this feature</doc>
+                            </param>
+                            <param name="measurement" required="true" style="query" type="xsd:string">
+                                <doc>measurement name</doc>
+                            </param>
+                            <param name="observatory" required="true" style="query" type="xsd:string">
+                                <doc>observatory name</doc>
+                            </param>
+                            <param name="sourceid" required="true" style="query" type="xsd:integer">
+                                <doc>unique image datasource identifier Can be specified in lieu of the observatory instrument detector and measurement parameters</doc>
+                            </param>
+                            <param name="starttime" required="true" style="query" type="xsd:string">
+                                <doc>date Time for the beginning of the JPX movie data ISO combined UTC date and time UTC format</doc>
+                            </param>
+                            <param name="verbose" required="true" style="query" type="xsd:boolean">
+                                <doc>if set to true the JSON response will include timestamps for each frame in the resulting movie and any warning messages associated with the request in addition to the JPX movie file URI</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2080:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="getJP2Image/">
+                    <method displayName="getJP2Image" id="2079" name="GET">
+                        <doc>Download a JP2 image for the specified datasource that is the closest match in time to the `date` requested.
+
+        Either `sourceId` must be specified, or the combination of `observatory`, `instrument`, `detector`, and `measurement`.</doc>
+                        <request>
+                            <param name="date" required="true" style="query" type="xsd:string">
+                                <doc>desired date time of the JP image ISO combined UTC date and time UTC format</doc>
+                            </param>
+                            <param name="detector" required="true" style="query" type="xsd:string">
+                                <doc>detector name</doc>
+                            </param>
+                            <param name="instrument" required="true" style="query" type="xsd:string">
+                                <doc>instrument name</doc>
+                            </param>
+                            <param name="jpip" required="true" style="query" type="xsd:boolean">
+                                <doc>optionally return a JPIP URI instead of the binary data of the image itself</doc>
+                            </param>
+                            <param name="json" required="true" style="query" type="xsd:boolean">
+                                <doc>optionally return a JSON object</doc>
+                            </param>
+                            <param name="measurement" required="true" style="query" type="xsd:string">
+                                <doc>measurement name</doc>
+                            </param>
+                            <param name="observatory" required="true" style="query" type="xsd:string">
+                                <doc>observatory name</doc>
+                            </param>
+                            <param name="sourceid" required="true" style="query" type="xsd:integer">
+                                <doc>unique image datasource identifier</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2079:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="getJP2Header/">
+                    <method displayName="getJP2Header" id="2078" name="GET">
+                        <doc>Get the XML header embedded in a JPEG2000 image. Includes the FITS header as well as a section of Helioviewer-specific metadata.</doc>
+                        <request>
+                            <param name="callback" required="true" style="query" type="xsd:string">
+                                <doc>wrap the response object in a function call of your choosing</doc>
+                            </param>
+                            <param name="id" required="true" style="query" type="xsd:integer">
+                                <doc>unique JP image identifier</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="getDataSources/">
+                    <method displayName="getDataSources" id="2077" name="GET">
+                        <doc>Return a hierarchial list of the available datasources.
+
+        Optional parameter `verbose` is exists for compatability with JHelioviewer.  It outputs the hierarchical list in an alternative format and limits the list of available datasources to a known set (SDO and SOHO).  JHelioviewer may not operate properly if new datasources appear in the feed without a client-side updgrade.  To explicitly include new sources, use the optional `enable` parameter.</doc>
+                        <request>
+                            <param name="callback" required="true" style="query" type="xsd:string">
+                                <doc>wrap the response object in a function call of your choosing</doc>
+                            </param>
+                            <param name="enable" required="true" style="query" type="xsd:string">
+                                <doc>comma separated list of observatories to enable</doc>
+                            </param>
+                            <param name="verbose" required="true" style="query" type="xsd:boolean">
+                                <doc/>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2077:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="getClosestImage/">
+                    <method displayName="getClosestImage" id="2076" name="GET">
+                        <doc>Find the image data that is closest to the requested date/time.  Return the associated metadata from the helioviewer database and the XML header of the JPEG2000 image file.
+
+        Either `sourceId` must be specified, or the combination of `observatory`, `instrument`, `detector`, and `measurement`.</doc>
+                        <request>
+                            <param name="callback" required="true" style="query" type="xsd:string">
+                                <doc>wrap the response object in a function call of your choosing</doc>
+                            </param>
+                            <param name="date" required="true" style="query" type="xsd:string">
+                                <doc>desired date time of the image ISO combined UTC date and time UTC format</doc>
+                            </param>
+                            <param name="detector" required="true" style="query" type="xsd:string">
+                                <doc>detector name</doc>
+                            </param>
+                            <param name="instrument" required="true" style="query" type="xsd:string">
+                                <doc>instrument name</doc>
+                            </param>
+                            <param name="measurement" required="true" style="query" type="xsd:string">
+                                <doc>measurement name</doc>
+                            </param>
+                            <param name="observatory" required="true" style="query" type="xsd:string">
+                                <doc>observatory name</doc>
+                            </param>
+                            <param name="sourceid" required="true" style="query" type="xsd:integer">
+                                <doc>unique image datasource identifier Can be specified in lieu of the observatory instrument detector and measurement parameters</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f2076:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="downloadScreenshot/">
+                    <method displayName="downloadScreenshot" id="2075" name="GET">
+                        <doc>Download a custom screenshot (that was generated using the `takeScreenshot` API endpoint).</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:integer">
+                                <doc>unique screenshot identifier provided by the response to a takeScreenshot request</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="downloadMovie/">
+                    <method displayName="downloadMovie" id="2074" name="GET">
+                        <doc>Download a custom movie in one of three file formats.</doc>
+                        <request>
+                            <param name="format" required="true" style="query" type="xsd:string">
+                                <doc>movie Format mp webm or flv</doc>
+                            </param>
+                            <param name="hq" required="true" style="query" type="xsd:boolean">
+                                <doc>optionally download a higher quality movie file valid for mp movies only ignored otherwise</doc>
+                            </param>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc>unique movie identifier provided by the response to a queueMovie request</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="checkYouTubeAuth/">
+                    <method displayName="checkYouTubeAuth" id="2073" name="GET">
+                        <doc>Check to see if Helioveiwer.org is authorized to interact with a user's YouTube account via the current browser session.</doc>
+                        <request>
+                            <param name="callback" required="true" style="query" type="xsd:string">
+                                <doc>wrap the response object in a function call of your choosing</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

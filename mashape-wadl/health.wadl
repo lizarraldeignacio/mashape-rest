@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4120="urn:function:f4120">
+    <grammars>
+        <include href="Function4120.xsd"/>
+    </grammars>
+    <doc>data to regulate your physical condition Calculate Your BMI body mass index</doc>
+    <resources base="https://gabamnml-health-v1.p.mashape.com/">
+        <resource uri="bmi/">
+            <method displayName="/bmi" id="4120" name="GET">
+                <doc>Returns the physical state of the body and the number of total muscle mass.</doc>
+                <request>
+                    <param name="height" required="true" style="query" type="xsd:integer">
+                        <doc>height of a person Accept meters or feet</doc>
+                    </param>
+                    <param name="weight" required="true" style="query" type="xsd:integer">
+                        <doc>weight of a person Accept kilos or pounds</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4120:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

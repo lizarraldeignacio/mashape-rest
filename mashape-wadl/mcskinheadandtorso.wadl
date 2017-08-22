@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>grabs a MC Head Body or torso</doc>
+    <resources base="https://mc.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Image" id="5727" name="GET">
+                <request>
+                    <param name="size" required="true" style="query" type="xsd:integer">
+                        <doc>size in pixels</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>e g head torso body delete</doc>
+                    </param>
+                    <param name="username" required="true" style="query" type="xsd:string">
+                        <doc>the username</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

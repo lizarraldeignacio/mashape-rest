@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f991="urn:function:f991" xmlns:f992="urn:function:f992" xmlns:f993="urn:function:f993" xmlns:f994="urn:function:f994" xmlns:f995="urn:function:f995" xmlns:f997="urn:function:f997" xmlns:f998="urn:function:f998" xmlns:f999="urn:function:f999">
+    <grammars>
+        <include href="Function999.xsd"/>
+        <include href="Function998.xsd"/>
+        <include href="Function997.xsd"/>
+        <include href="Function995.xsd"/>
+        <include href="Function994.xsd"/>
+        <include href="Function993.xsd"/>
+        <include href="Function992.xsd"/>
+        <include href="Function991.xsd"/>
+    </grammars>
+    <doc>advanced face detection face recognition and face analysis API</doc>
+    <resources base="https://betaface.p.mashape.com/">
+        <resource uri="UploadImage/">
+            <method displayName="UploadImage" id="999" name="POST">
+                <doc>Upload binary image file or url for processing</doc>
+                <request/>
+                <response>
+                    <representation element="f999:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="TransformFaces/">
+            <method displayName="TransformFaces" id="998" name="POST">
+                <request/>
+                <response>
+                    <representation element="f998:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="SetPerson/">
+            <method displayName="SetPerson" id="997" name="POST">
+                <doc>This function allow you to group multiple face images under one person name and optionally assign this person to specific namespace. Later you can instead of comparing new face image with selected face images from database, compare new face image with selected persons from database, or with all persons within specific namespace.  Person names and namespace names should contain only letters, spaces, numbers and symbol '.'. Symbol '@' should separate person name from namespace. When you assign person to namespace, if namespace does not exists, it will be created. If no namespace is provided, face will be assigned to default namespace with an empty name. Person with the same name but different namespace considered to be different person. Each face (unique face ID) can have only one person assigned to it. To remove specific face from person faces collection simply assign it again to a different person or assign it to an empty string.</doc>
+                <request/>
+                <response>
+                    <representation element="f997:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="RecognizeFaces/">
+            <method displayName="RecognizeFaces" id="996" name="POST">
+                <doc>This function is a main entry to execute similar persons search, identification and verification tasks. As with faces detection, you first place recognition request with Faces_Recognize function in the queue, and then keep polling GetRecognizeResult function until you get the result. Function accept two arrays: first list - array of faces (face IDs) you wish to analyze (compare with other faces, identify person, verify is it a specific person). Usually you have one Face ID in this array. second list - array of targets which should be used for comparison. Targets can be individual face IDs, full person names (personname@namespace) or complete namespaces (all@namespace).</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="GetTransformResult/">
+            <method displayName="GetTransformResult" id="995" name="POST">
+                <request/>
+                <response>
+                    <representation element="f995:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="GetRecognizeResult/">
+            <method displayName="GetRecognizeResult" id="994" name="POST">
+                <doc>This function return results of recognition task or recognition request state. If recognition request is not yet processed GetRecognizeResult will return "int_response": 1, which means request is still in the queue. Keep calling GetRecognizeResult every 0.5-1 seconds until you get "int_response" not equal 1. If request was processed, integer result will be 0 (ok) and you can parse the rest of the response.  In the result you will get separate FaceRecognizeInfo structure for each face ID you specified in the first list in Faces_Recognize function. !!To test the method insert in recognize_uid UID returned by previous Faces_Recognize call</doc>
+                <request/>
+                <response>
+                    <representation element="f994:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="GetImageInfo/">
+            <method displayName="GetImageInfo" id="993" name="POST">
+                <doc>This function will return image metadata, including faces or processing status of the image. If image is not yet processed GetImageInfo return "int_response": 1, which means image is still in the queue. If image was processed function return "int_response": 0 (ok) and you can parse the rest of the response. img_uid: is image ID returned by one of Upload functions</doc>
+                <request/>
+                <response>
+                    <representation element="f993:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="GetImageFileInfo/">
+            <method displayName="GetImageFileInfo" id="992" name="POST">
+                <doc>This function will return image metadata, including faces or processing status of the image. If image is not yet processed GetImageInfo return "int_response": 1, which means image is still in the queue. If image was processed function return "int_response": 0 (ok) and you can parse the rest of the response. img_checksum: is SHA-256 checkusm of the image file (http://en.wikipedia.org/wiki/SHA-2) that can be calculated without uploading image to webservice and also returned by GetImageInfo function. You can use this function to retrieve cached image information of already processed image without uploading it again.</doc>
+                <request/>
+                <response>
+                    <representation element="f992:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="GetFaceImage/">
+            <method displayName="GetFaceImage" id="991" name="POST">
+                <doc>This function returns cropped face JPEG image</doc>
+                <request/>
+                <response>
+                    <representation element="f991:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

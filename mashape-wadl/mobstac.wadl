@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6236="urn:function:f6236" xmlns:f6237="urn:function:f6237" xmlns:f6247="urn:function:f6247">
+    <grammars>
+        <include href="Function6236.xsd"/>
+        <include href="Function6237.xsd"/>
+        <include href="Function6247.xsd"/>
+    </grammars>
+    <doc>build beautiful mobile commerce apps Leave the heavy lifting to us</doc>
+    <resources base="https://mobstac-MobStac-v1.p.mashape.com/">
+        <resource uri="organizations/">
+            <method displayName="Create a new category" id="6235" name="POST">
+                <doc>Creates a new category. Accepts a JSON encoded array of key value pairs</doc>
+                <request/>
+            </method>
+            <method displayName="Create a new product" id="6236" name="POST">
+                <doc>Creates a new product. Accepts a JSON encoded array of key value pairs. The array should contain a 'categories' field containing the list of category ids for the product.</doc>
+                <request/>
+                <response>
+                    <representation element="f6236:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Create app" id="6237" name="POST">
+                <doc>Creates a new app for user belonging to organization id, org_id and namespace id, ns_id</doc>
+                <request/>
+                <response>
+                    <representation element="f6237:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Create organization" id="6238" name="GET">
+                <doc>Creates a new orgasnization for a user</doc>
+                <request/>
+            </method>
+            <method displayName="Delete a category" id="6239" name="DELETE">
+                <doc>Deletes a category. Enter the category id in the request URL.</doc>
+                <request/>
+            </method>
+            <method displayName="Delete a product" id="6240" name="DELETE">
+                <doc>Deletes a product</doc>
+                <request/>
+            </method>
+            <method displayName="Delete app" id="6241" name="DELETE">
+                <doc>Deletes an app with app id, app_id</doc>
+                <request>
+                    <param name="appId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get a product" id="6242" name="GET">
+                <doc>Returns a JSON encoded array of product attributes. Product ID needs to be passed in the request URL.</doc>
+                <request/>
+            </method>
+            <method displayName="Get all apps" id="6243" name="GET">
+                <doc>Returns a JSON encoded array of apps linked to organization id, org_id and namespace id, ns_id</doc>
+                <request>
+                    <param name="nsId" required="true" style="query" type="xsd:string"/>
+                    <param name="orgId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get all categories" id="6244" name="GET">
+                <doc>Returns a JSON encoded list of all categories belonging to the given store (namespace) id</doc>
+                <request/>
+            </method>
+            <method displayName="Get all organizations" id="6245" name="GET">
+                <doc>Returns a JSON encoded list of all organizations belonging to a particular user account</doc>
+                <request/>
+            </method>
+            <method displayName="Get all products" id="6246" name="GET">
+                <doc>Returns a JSON encoded list of all products belonging to the given store (namespace) id</doc>
+                <request/>
+            </method>
+            <method displayName="Get products by category" id="6247" name="GET">
+                <doc>Returns a JSON encoded list of products belonging to the given category id</doc>
+                <request/>
+                <response>
+                    <representation element="f6247:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get single app with app id, app_id" id="6248" name="GET">
+                <doc>Returns a JSON encoded list of attributes linked to app id, app_id</doc>
+                <request>
+                    <param name="appId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Get the shopping cart state" id="6249" name="GET">
+                <doc>Returns an associative array with product ids as keys and their quantities as values. Requires setting the HTTP Authorization header for uniquely identifying the customer. Read the docs for further details</doc>
+                <request/>
+            </method>
+            <method displayName="Gets a category" id="6250" name="GET">
+                <doc>Returns a JSON encoded array of category attributes for the category id mentioned in the Request URL.</doc>
+                <request/>
+            </method>
+            <method displayName="Modify an existing category" id="6251" name="PUT">
+                <doc>Returns a JSON encoded associative array of new product attributes for the category id specified in the Request URL.</doc>
+                <request/>
+            </method>
+            <method displayName="Modify an existing category1" id="6252" name="PUT">
+                <doc>Accepts an associative array with product ids as keys and their quantities as values. Requires setting the HTTP Authorization header for uniquely identifying the customer. Read the docs for further details</doc>
+                <request>
+                    <param name="categoryId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Modify an existing product" id="6253" name="PUT">
+                <doc>Returns a JSON encoded associative array of new product attributes</doc>
+                <request/>
+            </method>
+            <method displayName="Modify the shopping cart state" id="6254" name="PATCH">
+                <doc>Requires setting the HTTP Authorization header for uniquely identifying the customer. Read the docs for further details</doc>
+                <request/>
+            </method>
+            <method displayName="Update app" id="6255" name="PUT">
+                <doc>Updates the values of attributes linked to app id, app_id</doc>
+                <request>
+                    <param name="appId" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

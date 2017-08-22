@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1844="urn:function:f1844" xmlns:f1845="urn:function:f1845" xmlns:f1846="urn:function:f1846" xmlns:f1847="urn:function:f1847" xmlns:f1848="urn:function:f1848" xmlns:f1849="urn:function:f1849" xmlns:f1850="urn:function:f1850" xmlns:f1851="urn:function:f1851" xmlns:f1852="urn:function:f1852" xmlns:f1853="urn:function:f1853" xmlns:f1854="urn:function:f1854" xmlns:f1855="urn:function:f1855" xmlns:f1856="urn:function:f1856">
+    <grammars>
+        <include href="Function1854.xsd"/>
+        <include href="Function1853.xsd"/>
+        <include href="Function1850.xsd"/>
+        <include href="Function1849.xsd"/>
+        <include href="Function1848.xsd"/>
+        <include href="Function1856.xsd"/>
+        <include href="Function1855.xsd"/>
+        <include href="Function1852.xsd"/>
+        <include href="Function1851.xsd"/>
+        <include href="Function1847.xsd"/>
+        <include href="Function1846.xsd"/>
+        <include href="Function1845.xsd"/>
+        <include href="Function1844.xsd"/>
+    </grammars>
+    <doc>we re a group of developers designers mathematicians data scientists researchers and marketeers that work relentlessly to measure online behavior worldwide and to generate marketing insights Together we are shaping the future of web measurement and competitive intelligence</doc>
+    <resources base="https://ideas2it-similarweb.p.mashape.com/">
+        <resource uri="Site/">
+            <resource uri="{domain}/">
+                <param name="domain" style="template" type="xsd:string"/>
+                <resource uri="v1/">
+                    <resource uri="traffic/">
+                        <method displayName="Traffic API" id="1854" name="GET">
+                            <request>
+                                <param name="domain" required="true" style="query" type="xsd:string"/>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="userkey" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f1854:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="socialreferringsites/">
+                        <method displayName="Social Referrals API" id="1853" name="GET">
+                            <request>
+                                <param name="domain" required="true" style="query" type="xsd:string"/>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="userkey" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f1853:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="searchintelligence/">
+                        <method displayName="Keywords API" id="1850" name="GET">
+                            <request>
+                                <param name="domain" required="true" style="query" type="xsd:string"/>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="userkey" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f1850:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="EstimatedTraffic/">
+                        <method displayName="Estimated Visits API" id="1849" name="GET">
+                            <request>
+                                <param name="domain" required="true" style="query" type="xsd:string"/>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="userkey" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f1849:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="engagement/">
+                        <method displayName="Engagement API" id="1848" name="GET">
+                            <request>
+                                <param name="domain" required="true" style="query" type="xsd:string"/>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="userkey" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f1848:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="v2/">
+                    <resource uri="tags/">
+                        <method displayName="Website Tags API" id="1856" name="GET">
+                            <request>
+                                <param name="domain" required="true" style="query" type="xsd:string"/>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="userkey" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f1856:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="category/">
+                        <method displayName="Website Categorization API" id="1855" name="GET">
+                            <request>
+                                <param name="domain" required="true" style="query" type="xsd:string"/>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="userkey" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f1855:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="similarsites/">
+                        <method displayName="Similar Websites API" id="1852" name="GET">
+                            <request>
+                                <param name="domain" required="true" style="query" type="xsd:string"/>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="userkey" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f1852:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="leadingreferringsites/">
+                        <method displayName="Referrals API" id="1851" name="GET">
+                            <request>
+                                <param name="domain" required="true" style="query" type="xsd:string"/>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="userkey" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f1851:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="leadingdestinationsites/">
+                        <method displayName="Destinations API" id="1847" name="GET">
+                            <request>
+                                <param name="domain" required="true" style="query" type="xsd:string"/>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="userkey" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f1847:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="CategoryRank/">
+                        <method displayName="Category Rank API" id="1846" name="GET">
+                            <request>
+                                <param name="domain" required="true" style="query" type="xsd:string"/>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="userkey" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f1846:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="alsovisited/">
+                        <method displayName="Also Visited API" id="1845" name="GET">
+                            <request>
+                                <param name="domain" required="true" style="query" type="xsd:string"/>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="userkey" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f1845:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="Category/">
+                        <method displayName="Adult Websites API" id="1844" name="GET">
+                            <request>
+                                <param name="domain" required="true" style="query" type="xsd:string"/>
+                                <param name="format" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                                <param name="userkey" required="true" style="query" type="xsd:string">
+                                    <doc/>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f1844:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

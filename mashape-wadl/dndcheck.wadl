@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f80="urn:function:f80">
+    <grammars>
+        <include href="Function80.xsd"/>
+    </grammars>
+    <doc>check any Indian mobile number s DND Do Not Disturb status using our API</doc>
+    <resources base="https://dndcheck.p.mashape.com/">
+        <resource uri="index.php/">
+            <method displayName="DND Check" id="80" name="GET">
+                <doc>Check any Indian Mobile Number's DND Status.</doc>
+                <request>
+                    <param name="mobilenos" required="true" style="query" type="xsd:string">
+                        <doc>digit mobile number s each separated by a comma</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f80:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

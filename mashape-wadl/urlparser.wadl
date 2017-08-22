@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3115="urn:function:f3115">
+    <grammars>
+        <include href="Function3115.xsd"/>
+    </grammars>
+    <doc>this URL parser API can be used to parse domains and URLs into individual parts The API supports internationalized domain names IDNs</doc>
+    <resources base="https://enclout-url-parser.p.mashape.com/">
+        <resource uri="show.json/">
+            <method displayName="urlparser" id="3115" name="GET">
+                <request>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>domain or URL</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3115:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

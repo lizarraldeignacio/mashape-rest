@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2633="urn:function:f2633">
+    <grammars>
+        <include href="Function2633.xsd"/>
+    </grammars>
+    <doc>mOON API v URL http api burningsoul in moon OUTPUT JSON INPUT Time stamp null nill for current data Moon API returns current status of moon along with distance full moon new moon Example output age illumination stage waning DFCOE DFS FM UT DT Apr NNM UT DT Apr Structure age current age of moon in days illumination illumination in stage current moon phase stage waning waxing DFCOE distance from core of earth DFS distance from sun FM UT full moon unix time stamp FM DT full moon date and time NNM UT new moon unix time stamp NNM DT new moon date and time Usage Getting info by time In order to get info by time you have to pass the unix time stamp to URL URL http api burningsoul in moon timestamp EX http api burningsoul in moon jQuery getJSON http api burningsoul in moon function data do something with data PHP moonData get file contents http api burningsoul in moon Using API client API new Burningsoul API data API moon</doc>
+    <resources base="https://burningsoul-moon-v1.p.mashape.com/">
+        <resource uri="">
+            <method displayName="/" id="2633" name="GET">
+                <request/>
+                <response>
+                    <representation element="f2633:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

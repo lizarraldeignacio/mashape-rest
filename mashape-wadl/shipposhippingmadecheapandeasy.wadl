@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2501="urn:function:f2501" xmlns:f2502="urn:function:f2502" xmlns:f2503="urn:function:f2503" xmlns:f2504="urn:function:f2504" xmlns:f2505="urn:function:f2505">
+    <grammars>
+        <include href="Function2505.xsd"/>
+        <include href="Function2503.xsd"/>
+        <include href="Function2504.xsd"/>
+        <include href="Function2502.xsd"/>
+        <include href="Function2501.xsd"/>
+    </grammars>
+    <doc>we ve built an API that makes shipping easy and affordable for small businesses that are not eligible for bulk discounts Prices without bulk discounts are usually higher We give these customers access to better rates offered by smaller courier companies that are difficult to find and compare We are a B B business providing value through our shipping API To scale distribution we sign up marketplaces that give us pooled access to thousands of sellers In addition to the API we support our growth with a simple web interface on https goshippo com The solution we re offering is especially valuable for Europe Asia South America and Africa in the US USPS already offers very good rates for shipping internationally at a huge loss In the rest of the world however finding the right courier service for international shipment is a big hassle</doc>
+    <resources base="https://shippo.p.mashape.com/">
+        <resource uri="transactions/">
+            <method displayName="Transaction" id="2505" name="POST">
+                <doc>Create a label for a specific rate.</doc>
+                <request/>
+                <response>
+                    <representation element="f2505:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="shipments/">
+            <method displayName="Rates" id="2503" name="GET">
+                <doc>Request all available shipping rates for a given shipment.</doc>
+                <request>
+                    <param name="shipmentObjectId" required="true" style="query" type="xsd:string">
+                        <doc>object ID of the corresponding shipment</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f2503:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Shipments" id="2504" name="POST">
+                <doc>Shipments are the core of Shippo's API. Shipments can be used to obtain rates and postage labels.</doc>
+                <request/>
+                <response>
+                    <representation element="f2504:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="parcels/">
+            <method displayName="Parcels" id="2502" name="POST">
+                <doc>Create a parcel you want to ship.</doc>
+                <request/>
+                <response>
+                    <representation element="f2502:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="addresses/">
+            <method displayName="Addresses" id="2501" name="POST">
+                <doc>Create an address that can be used to create a shipment.</doc>
+                <request/>
+                <response>
+                    <representation element="f2501:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

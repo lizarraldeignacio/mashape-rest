@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>shop API Shop API Shop</doc>
+    <resources base="https://s25.p.mashape.com/">
+        <resource uri="payments/">
+            <resource uri="getNotSync/">
+                <method displayName="/payments/getNotSync" id="5749" name="POST">
+                    <doc>Получение несинхронизированных оплат.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="getById/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="/payments/getById" id="5748" name="POST">
+                        <doc>Получение информации об оплате.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:integer"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="confirmSync/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="/payments/confirmSync" id="5747" name="POST">
+                        <doc>Подтверждение синхронизации оплаты.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="payers/">
+            <resource uri="getNotSync/">
+                <method displayName="/payers/getNotSync" id="5746" name="POST">
+                    <doc>Получение несинхронизированных реквизитов.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="confirmSync/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="/payers/confirmSync" id="5745" name="POST">
+                        <doc>Подтверждение синхронизации реквизитов.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="orders/">
+            <resource uri="restoreOrder/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="/orders/restoreOrder" id="5744" name="POST">
+                        <doc>Восстановление заказа.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="getNotSync/">
+                <method displayName="/orders/getNotSync" id="5743" name="POST">
+                    <doc>Получение несинхронизированных заказов.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="getByName/">
+                <resource uri="{name}/">
+                    <param name="name" style="template" type="xsd:string"/>
+                    <method displayName="/orders/getByName" id="5742" name="POST">
+                        <doc>Получение информации о заказе по его номеру.</doc>
+                        <request>
+                            <param name="name" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="getById/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="/orders/getById" id="5741" name="POST">
+                        <doc>Получение информации о заказе по его идентификатору.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:integer"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="doneOrder/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="/orders/doneOrder" id="5740" name="POST">
+                        <doc>Завершение заказа.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="confirmSync/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="/orders/confirmSync" id="5739" name="POST">
+                        <doc>Подтверждение синхронизации заказа.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="cancelOrder/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="/orders/cancelOrder" id="5738" name="POST">
+                        <doc>Отмена заказа.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="consignees/">
+            <resource uri="getNotSync/">
+                <method displayName="/consignees/getNotSync" id="5737" name="POST">
+                    <doc>Получение несинхронизированных адресов.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="confirmSync/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="/consignees/confirmSync" id="5736" name="POST">
+                        <doc>Подтверждение синхронизации адреса грузополучателя.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="clients/">
+            <resource uri="setProfile/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="/clients/setProfile" id="5735" name="POST">
+                        <doc>Устанавливает настройки клиента: эл. почта, телефон, имя, наименование организации и абонентский номер. После установки параметров клиент помечается синхронизированным.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="getNotSync/">
+                <method displayName="/clients/getNotSync" id="5734" name="POST">
+                    <doc>Получение несинхронизированных клиентов.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="getById/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="/clients/getById" id="5733" name="POST">
+                        <doc>Возвращает клиента по идентификатору.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:integer">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="confirmSync/">
+                <resource uri="{id}/">
+                    <param name="id" style="template" type="xsd:string"/>
+                    <method displayName="/clients/confirmSync" id="5732" name="POST">
+                        <doc>Подтверждение синхронизации клиента.</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:integer">
+                                <doc/>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>makes easier to find more emails and reach your leads</doc>
+    <resources base="https://brinhosa-findmoreemails-bydomain-v1.p.mashape.com/">
+        <resource uri="find.php?url={domain}/">
+            <param name="domain" style="template" type="xsd:string"/>
+            <method displayName="/find.php?url={domain}" id="3116" name="GET">
+                <doc>Enter domain from url to get a list of emails, for example: mashape.com</doc>
+                <request>
+                    <param name="domain" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3109="urn:function:f3109" xmlns:f3110="urn:function:f3110">
+    <grammars>
+        <include href="Function3109.xsd"/>
+        <include href="Function3110.xsd"/>
+    </grammars>
+    <doc>thingMQ is a carrier grade multi protocol message broker for the Internet of Things This REST API allows developers to communicate with devices and sensors that use the MQTT and CoAP protocols</doc>
+    <resources base="https://thingmq.p.mashape.com/">
+        <resource uri="things/">
+            <resource uri="{thing-id}/">
+                <param name="thing-id" style="template" type="xsd:string"/>
+                <method displayName="Consume messages from device &quot;thing-id&quot;." id="3109" name="GET">
+                    <doc>Consume messages published on any given MQTT topic or CoAP resource.</doc>
+                    <request>
+                        <param name="thingId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3109:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Publish message to broker." id="3110" name="PUT">
+                    <doc>Publishes a message to the message broker.</doc>
+                    <request>
+                        <param name="thingId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3110:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

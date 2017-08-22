@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5722="urn:function:f5722">
+    <grammars>
+        <include href="Function5722.xsd"/>
+    </grammars>
+    <doc>demo API</doc>
+    <resources base="https://teamappstarz-yoda-v1.p.mashape.com/">
+        <resource uri="demo/">
+            <method displayName="/demo/" id="5722" name="GET">
+                <doc>Demo API</doc>
+                <request/>
+                <response>
+                    <representation element="f5722:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

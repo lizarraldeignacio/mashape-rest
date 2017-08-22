@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>create a transcoded video file of custom dimensions Full API specs at https stupeflix tasks api readthedocs org en latest tasks html video convert</doc>
+    <resources base="https://stupeflixvideoconvert.p.mashape.com/">
+        <resource uri="create_file/">
+            <method displayName="video.convert create_file" id="5593" name="POST">
+                <doc>Create and queue a video.convert Task, block until finished and redirect to output image file. Full API specs at https://stupeflix-tasks-api.readthedocs.org/en/latest/tasks.html#video-convert. Create API keys here : http://developer.stupeflix.com/dragon-keychain/new/</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

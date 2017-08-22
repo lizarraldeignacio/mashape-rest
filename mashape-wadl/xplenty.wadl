@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6116="urn:function:f6116" xmlns:f6117="urn:function:f6117" xmlns:f6119="urn:function:f6119" xmlns:f6120="urn:function:f6120" xmlns:f6121="urn:function:f6121" xmlns:f6122="urn:function:f6122" xmlns:f6123="urn:function:f6123" xmlns:f6124="urn:function:f6124" xmlns:f6125="urn:function:f6125" xmlns:f6126="urn:function:f6126" xmlns:f6127="urn:function:f6127" xmlns:f6130="urn:function:f6130" xmlns:f6131="urn:function:f6131" xmlns:f6132="urn:function:f6132" xmlns:f6133="urn:function:f6133" xmlns:f6134="urn:function:f6134">
+    <grammars>
+        <include href="Function6123.xsd"/>
+        <include href="Function6126.xsd"/>
+        <include href="Function6121.xsd"/>
+        <include href="Function6124.xsd"/>
+        <include href="Function6119.xsd"/>
+        <include href="Function6120.xsd"/>
+        <include href="Function6125.xsd"/>
+        <include href="Function6127.xsd"/>
+        <include href="Function6131.xsd"/>
+        <include href="Function6134.xsd"/>
+        <include href="Function6116.xsd"/>
+        <include href="Function6117.xsd"/>
+        <include href="Function6122.xsd"/>
+        <include href="Function6130.xsd"/>
+        <include href="Function6132.xsd"/>
+        <include href="Function6133.xsd"/>
+    </grammars>
+    <doc>xplenty s Data Integration as a Service harnesses the power of Hadoop to provide an easy to use scalable ETL service that makes it a snap to prepare your structured and semi structured data for analytics With Xplenty you can join data from one or more sources such asMongoDB PostgreSQL or MySQL to transform your structured and semi structured data stored on AWS Rackspace Google Cloud or IBM SoftLayer Xplenty lets you easily design data flows with a rich set of powerful transformation functions The Xplenty API provides functions for controlling and monitoring Xplenty clusters and jobs After defining an Xplenty data processing package using the Xplenty web application you can call the Xplenty API to Create Hadoop clusters Run jobs Monitor their progress Terminate jobs and clusters You can choose to use the Xplenty REST API or one of its wrappers the Java wrapper the Python wrapper or the Ruby wrapper</doc>
+    <resources base="https://xplenty.p.mashape.com/">
+        <resource uri="{accountID}/">
+            <param name="accountID" style="template" type="xsd:string"/>
+            <resource uri="api/">
+                <resource uri="jobs/">
+                    <method displayName="List Jobs" id="6123" name="GET">
+                        <doc>Returns information for the list of jobs that were created by users in your account. You can use this information to monitor your jobs and their status. Optionally, you can supply the input parameters to filter the job list so that it contains only jobs with a specific status, and to determine the order by which the list will be sorted.</doc>
+                        <request>
+                            <param name="accountid" required="true" style="query" type="xsd:string"/>
+                            <param name="direction" required="true" style="query" type="xsd:string">
+                                <doc>possible values are asc desc The jobss will be sorted in ascending or descending order of the sort attribute</doc>
+                            </param>
+                            <param name="since" required="true" style="query" type="xsd:string">
+                                <doc>the job list will only contain jobs updated at the given time or later The time must be formatted as UTC in the ISO format YYYY MM DDTHH MM SSZ</doc>
+                            </param>
+                            <param name="sort" required="true" style="query" type="xsd:string">
+                                <doc>possible values are updated or created The job list will be sorted by the jobs updated by or created by value respectively</doc>
+                            </param>
+                            <param name="status" required="true" style="query" type="xsd:string">
+                                <doc>possible values are any status value or all The call will return only jobs with the given status or all the clusters if the all value is specified</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6123:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="{account_id}/">
+            <param name="account_id" style="template" type="xsd:string"/>
+            <resource uri="api/">
+                <resource uri="rate_limit_status/">
+                    <method displayName="Rate Limit Status" id="6126" name="GET">
+                        <doc>Returns current rate limit status for authenticated user.</doc>
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string">
+                                <doc>get this from https app xplenty com settings</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6126:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="packages/">
+                    <method displayName="Get Package Information" id="6121" name="GET">
+                        <doc>Returns information for a package with the given package ID.</doc>
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            <param name="packageId" required="true" style="query" type="xsd:string">
+                                <doc>the package id</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6121:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="List Packages" id="6124" name="GET">
+                        <doc>Returns information for the list of packages that were created by users in your account. You can use this information to monitor your packages.</doc>
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f6124:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="jobs/">
+                    <method displayName="Get Job Information" id="6119" name="GET">
+                        <doc>Returns information for a job with the given job ID.</doc>
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            <param name="jobId" required="true" style="query" type="xsd:string">
+                                <doc>the job resource id</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6119:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Get Job Watchers" id="6120" name="GET">
+                        <doc>Retrieves the list of users watching the specified job</doc>
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            <param name="jobId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the job whose watchers you want to retrieve</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6120:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Preview Job Output" id="6125" name="GET">
+                        <doc>Returns up to 100 lines raw preview of the output</doc>
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            <param name="jobId" required="true" style="query" type="xsd:string">
+                                <doc>job resource id</doc>
+                            </param>
+                            <param name="outputId" required="true" style="query" type="xsd:string">
+                                <doc>job output id</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6125:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Run Job" id="6127" name="POST">
+                        <doc>Creates a new job and triggers it to run. The job performs the series of data processing tasks that are defined in the job's package. Unless the job encounters an error or is terminated by the user, it will run until it completes its tasks on all of the input data.</doc>
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f6127:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Stop Watching Job" id="6129" name="DELETE">
+                        <doc>Removes the calling user from the watcher list of the specified job</doc>
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            <param name="jobId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the job to stop watching</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Terminate Job" id="6131" name="DELETE">
+                        <doc>Terminates an active job. Usually it's not necessary to request to terminate a job, because the job will end when its tasks are completed. You may want to actively terminate a job if you need its cluster resources for a more urgent job, or if the job is taking too long to complete.</doc>
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            <param name="jobId" required="true" style="query" type="xsd:string">
+                                <doc>job resource id</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6131:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Watch Job" id="6134" name="POST">
+                        <doc>Adds the calling user as a watcher of the specified job</doc>
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            <param name="jobId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the job to watch</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6134:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="clusters/">
+                    <method displayName="Create Cluster" id="6116" name="POST">
+                        <doc>This call creates a new cluster. A cluster is a group of machines ("nodes") allocated to your account. The number of nodes in the cluster is determined by the "nodes" value that you supply to the call. While the cluster is active, only your account's users can run jobs on the cluster. You will need to provide an active cluster when starting a new job.</doc>
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f6116:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Get Cluster Information" id="6117" name="GET">
+                        <doc>Returns details of the cluster with the given ID</doc>
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            <param name="clusterId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                        <response>
+                            <representation element="f6117:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Get Cluster Watchers" id="6118" name="GET">
+                        <doc>Retrieves the list of users watching the specified cluster</doc>
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            <param name="clusterId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the cluster whose watchers you want to retrieve</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="List Clusters" id="6122" name="GET">
+                        <doc>Returns information for a list of clusters that were created by users in your account. You can use this information to monitor and display your clusters and their status. Optionally, you can supply the input parameters to filter the cluster list so that it contains only clusters with a specific status, and to determine the order by which the list will be sorted.</doc>
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            <param name="direction" required="true" style="query" type="xsd:string">
+                                <doc>possible values are asc desc The clusters will be sorted in ascending or descending order of the sort attribute</doc>
+                            </param>
+                            <param name="since" required="true" style="query" type="xsd:string">
+                                <doc>the cluster list will only contain clusters updated at the given time or later The time must be formatted as UTC in the ISO format YYYY MM DDTHH MM SSZ</doc>
+                            </param>
+                            <param name="sort" required="true" style="query" type="xsd:string">
+                                <doc>possible values are updated or created The cluster list will be sorted by the clusters updated at or created at value respectively</doc>
+                            </param>
+                            <param name="status" required="true" style="query" type="xsd:string">
+                                <doc>possible values are any status value or all The call will return only clusters with the given status or all the clusters if the all value is specified</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6122:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Stop Watching Cluster" id="6128" name="DELETE">
+                        <doc>Removes the calling user from the watcher list of the specified cluster</doc>
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            <param name="clusterId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the cluster to stop watching</doc>
+                            </param>
+                        </request>
+                    </method>
+                    <method displayName="Terminate Cluster" id="6130" name="DELETE">
+                        <doc>Deactivates the given cluster, releasing its resources and terminating its runtime period. Use this call when all of the cluster's jobs are completed and it's no longer needed.</doc>
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            <param name="clusterId" required="true" style="query" type="xsd:string">
+                                <doc>cluster resource id</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6130:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Update Cluster" id="6132" name="PUT">
+                        <doc>Updates the given cluster, including scaling a running cluster of type "production".</doc>
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            <param name="clusterId" required="true" style="query" type="xsd:string">
+                                <doc>the id of the cluster to update</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6132:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                    <method displayName="Watch Cluster" id="6133" name="POST">
+                        <doc>Adds the calling user as a watcher of the specified cluster</doc>
+                        <request>
+                            <param name="accountId" required="true" style="query" type="xsd:string"/>
+                            <param name="clusterId" required="true" style="query" type="xsd:string">
+                                <doc>the ID of the cluster to watch</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f6133:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

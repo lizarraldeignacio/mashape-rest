@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f366="urn:function:f366" xmlns:f367="urn:function:f367">
+    <grammars>
+        <include href="Function367.xsd"/>
+        <include href="Function366.xsd"/>
+    </grammars>
+    <doc>view your friends fb profile picture even if they have blocked you or applied privacy to their profile Picture This API is only for fun purpose Now also supports viewing your friends private albums Enjoy fellas Note Only for educational purpose</doc>
+    <resources base="https://face-book.p.mashape.com/">
+        <resource uri="fbpic.php/">
+            <method displayName="View Private Pics" id="367" name="GET">
+                <doc>View the users private Pics :)</doc>
+                <request>
+                    <param name="userid" required="true" style="query" type="xsd:string">
+                        <doc>enter the Facebook username of your friend Note You must logged into your Facebook account in your browser</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f367:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="index.php/">
+            <method displayName="Get Profile Pic URL" id="366" name="GET">
+                <doc>Get the short URL for fb profile pic</doc>
+                <request>
+                    <param name="userid" required="true" style="query" type="xsd:string">
+                        <doc>enter the facebook username of the person whom you want to see the profile picture Note You must logged into your Facebook account in your browser</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f366:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

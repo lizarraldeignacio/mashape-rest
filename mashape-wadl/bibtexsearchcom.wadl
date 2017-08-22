@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7246="urn:function:f7246">
+    <grammars>
+        <include href="Function7246.xsd"/>
+    </grammars>
+    <doc>bibTeX Search You re searching over millions of BibTeX records</doc>
+    <resources base="https://jamesjardine-bibtexsearch-com-v1.p.mashape.com/">
+        <resource uri="search?q={query}/">
+            <param name="query" style="template" type="xsd:string"/>
+            <method displayName="/search?q={query}" id="7246" name="GET">
+                <request>
+                    <param name="query" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f7246:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

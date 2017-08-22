@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6221="urn:function:f6221" xmlns:f6222="urn:function:f6222" xmlns:f6224="urn:function:f6224" xmlns:f6225="urn:function:f6225" xmlns:f6226="urn:function:f6226" xmlns:f6227="urn:function:f6227">
+    <grammars>
+        <include href="Function6227.xsd"/>
+        <include href="Function6226.xsd"/>
+        <include href="Function6225.xsd"/>
+        <include href="Function6224.xsd"/>
+        <include href="Function6222.xsd"/>
+        <include href="Function6221.xsd"/>
+    </grammars>
+    <doc>the Weather By IP API allows you to find weather information such as Weather condition Current Temperature Max Temperature Min Temperature Pressure Sea Level Humidity Wind Speed Degree of any given IP address The API can also return results in many different formats such as JSON XML CSV YAML PHP Serialized PHP and Text</doc>
+    <resources base="https://wea2ip.p.mashape.com/">
+        <resource uri="yaml/">
+            <method displayName="YAML" id="6227" name="GET">
+                <doc>To receive the response in YAML format</doc>
+                <request>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>iP address you wish to gather information</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6227:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="xml/">
+            <method displayName="XML" id="6226" name="GET">
+                <doc>To receive the response in XML format</doc>
+                <request>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>iP address you wish to gather information</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6226:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="serialize/">
+            <method displayName="Serialized" id="6225" name="GET">
+                <doc>To receive the response in Serialized PHP serialize() format</doc>
+                <request>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>iP address you wish to gather information</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6225:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="php/">
+            <method displayName="PHP" id="6224" name="GET">
+                <doc>To receive the response as PHP code.</doc>
+                <request>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>iP address you wish to gather information</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6224:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="line/">
+            <method displayName="New Line" id="6223" name="GET">
+                <doc>To receive the response in Newline (\n) separated values format</doc>
+                <request>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>iP address you wish to gather information</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="json/">
+            <method displayName="JSON" id="6222" name="GET">
+                <doc>To receive the response in JSON format</doc>
+                <request>
+                    <param name="callback" required="true" style="query" type="xsd:string">
+                        <doc>optional callback function name</doc>
+                    </param>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>iP address you wish to gather information</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6222:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="csv/">
+            <method displayName="CSV" id="6221" name="GET">
+                <doc>To receive the response in CSV (Comma-separated values) format</doc>
+                <request>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>iP address you wish to gather information</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6221:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

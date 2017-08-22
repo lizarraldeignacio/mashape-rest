@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>vCloud Air OnDemand Calculator</doc>
+    <resources base="https://vipulrajdeep-vcloud-ondemand-calculator-v1.p.mashape.com/">
+        <resource uri="ondemand/">
+            <resource uri="sku/">
+                <method displayName="/ondemand/sku" id="6663" name="GET">
+                    <doc>For fetching SKU Pricing Data</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="os/">
+                <method displayName="/ondemand/os" id="6662" name="GET">
+                    <doc>For fetching OS Data</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="datacenter/">
+                <method displayName="/ondemand/datacenter" id="6661" name="GET">
+                    <doc>For fetching Datacenter Data</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

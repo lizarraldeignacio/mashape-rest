@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1018="urn:function:f1018" xmlns:f1019="urn:function:f1019">
+    <grammars>
+        <include href="Function1019.xsd"/>
+        <include href="Function1018.xsd"/>
+    </grammars>
+    <doc>access the most exhaustive accurate and up to date collection of global and hyper local events and activities across a wide range of categories like Theater Fitness Career Comedy Social Religion Music Health Food Outdoor Classes Commercial Cooking Literary Academic Recreation Technology Clubs Networking Conferences Sports Concerts Festivals Art Expos Dance Games Museum Exhibitions The feed is constructed and refreshed from thousands of public and private sources using proprietary recipes with millions of events monitored every hour</doc>
+    <resources base="https://lotadata-events-v1.p.mashape.com/">
+        <resource uri="search/">
+            <method displayName="Events Search" id="1019" name="GET">
+                <request>
+                    <param name="bottomright" required="true" style="query" type="xsd:string">
+                        <doc>southWest bounding box corner lat lng</doc>
+                    </param>
+                    <param name="dateFromday" required="true" style="query" type="xsd:string">
+                        <doc>returns events scheduled from this day ISO Date</doc>
+                    </param>
+                    <param name="dateFromtime" required="true" style="query" type="xsd:string">
+                        <doc>returns events scheduled between this time and toTime Note You can search during pm to pm window spanning multiple days HH MM</doc>
+                    </param>
+                    <param name="dateToday" required="true" style="query" type="xsd:string">
+                        <doc>returns events scheduled to this day</doc>
+                    </param>
+                    <param name="dateTotime" required="true" style="query" type="xsd:string">
+                        <doc>returns events scheduled up to this time</doc>
+                    </param>
+                    <param name="max" required="true" style="query" type="xsd:integer">
+                        <doc>sets the upper bound for the number of events returned per request see start</doc>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:string">
+                        <doc>returns events based on keywords genres categories</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:integer">
+                        <doc>returns matching events starting with the specified offset paging</doc>
+                    </param>
+                    <param name="topleft" required="true" style="query" type="xsd:string">
+                        <doc>northWest bounding corner Latitude Longitude</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1019:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="events/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Event Detail" id="1018" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f1018:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

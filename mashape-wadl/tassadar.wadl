@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4156="urn:function:f4156">
+    <grammars>
+        <include href="Function4156.xsd"/>
+    </grammars>
+    <doc>a simple Starcraft II replay parser in the cloud Upload a replay to retrieve the map name player info win loss results and more Easily integrate SC replay data into your projects</doc>
+    <resources base="https://tassadar.p.mashape.com/">
+        <resource uri="sc2/">
+            <resource uri="replay/">
+                <method displayName="uploadReplay" id="4156" name="POST">
+                    <doc>Analyze the contents of an SC2Replay file. Analyzed replays are discarded immediately.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f4156:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

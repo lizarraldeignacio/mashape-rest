@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>fOWiz an Android based API allows to send text messages from applications</doc>
+    <resources base="https://fowiz.p.mashape.com/">
+        <resource uri="message_http_api.php/">
+            <method displayName="Sending message" id="1718" name="GET">
+                <doc>Sending message using FOWiz text messaging API</doc>
+                <request>
+                    <param name="message" required="true" style="query" type="xsd:string">
+                        <doc>message to send</doc>
+                    </param>
+                    <param name="phonenumber" required="true" style="query" type="xsd:string">
+                        <doc>recipient phone number</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

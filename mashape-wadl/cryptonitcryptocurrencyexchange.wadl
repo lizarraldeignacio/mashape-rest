@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>buy and sell BTC LTC NMC PPC crypto currencies on the leading market cryptonit net Build your own trading bot within seconds buy bitcons or litecoins for USD EUR and make money This API allows you to perform basic operations at crypto currency market www cryptonit net If you want to get full API please follow official documentation at https cryptonit net tags documentation</doc>
+    <resources base="https://cryptonit-cryptonit---crypto-currency-exchange.p.mashape.com/">
+        <resource uri="rest/">
+            <resource uri="public/">
+                <resource uri="ccorder/">
+                    <method displayName="Get All Orderbook" id="3134" name="GET">
+                        <doc>This request allows you to get all orderbook - all opened  orders for all trading pairs currently settled on the Cryptonit market</doc>
+                        <request/>
+                    </method>
+                    <method displayName="Get BTC/USD orderbook" id="3135" name="GET">
+                        <doc>This method allows you to get all buy and sell order only for USD/BTC trading pair. You can change  bid_currency and ask_currency to get orderbooks for other trading pairs</doc>
+                        <request>
+                            <param name="askCurrency" required="true" style="query" type="xsd:string">
+                                <doc>may be usd eur btc ltc</doc>
+                            </param>
+                            <param name="bidCurrency" required="true" style="query" type="xsd:string">
+                                <doc>may be btc ltc ppc nmc ftc trc</doc>
+                            </param>
+                            <param name="type" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="Last BTC/USD price" id="3136" name="GET">
+                        <doc>This request allows you to get last price for BTC/USD trading pair</doc>
+                        <request>
+                            <param name="askCurrency" required="true" style="query" type="xsd:string">
+                                <doc>ask currency maybe btc ltc ppc nmc ftc trc</doc>
+                            </param>
+                            <param name="bidCurrency" required="true" style="query" type="xsd:string">
+                                <doc>bid currency may be usd or eur btc</doc>
+                            </param>
+                            <param name="rate" required="true" style="query" type="xsd:string">
+                                <doc>a number of last trader to use while calculating</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

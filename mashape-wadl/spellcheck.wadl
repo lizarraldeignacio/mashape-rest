@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f88="urn:function:f88">
+    <grammars>
+        <include href="Function88.xsd"/>
+    </grammars>
+    <doc>fix spelling mistakes with the opensource Spellcheck API The dictionary is continually growing and becoming smarter</doc>
+    <resources base="https://montanaflynn-spellcheck.p.mashape.com/">
+        <resource uri="check/">
+            <method displayName="Check" id="88" name="GET">
+                <doc>Checks for spelling errors.</doc>
+                <request>
+                    <param name="text" required="true" style="query" type="xsd:string">
+                        <doc>any english text to be spellchecked</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f88:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

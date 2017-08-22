@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6585="urn:function:f6585" xmlns:f6586="urn:function:f6586">
+    <grammars>
+        <include href="Function6585.xsd"/>
+        <include href="Function6586.xsd"/>
+    </grammars>
+    <doc>this is version two of the public REST API of com Please get an account http login call com to check it out Check the README</doc>
+    <resources base="https://mitchobrian-42call-rest-v2.p.mashape.com/">
+        <resource uri="">
+            <method displayName="rates" id="6585" name="GET">
+                <doc>the rate module</doc>
+                <request>
+                    <param name="m" required="true" style="query" type="xsd:string"/>
+                    <param name="numbers" required="true" style="query" type="xsd:string">
+                        <doc>the numbers</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6585:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="sms" id="6586" name="POST">
+                <doc>The sms module</doc>
+                <request/>
+                <response>
+                    <representation element="f6586:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

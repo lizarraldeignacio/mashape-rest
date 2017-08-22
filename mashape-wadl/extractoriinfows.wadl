@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5828="urn:function:f5828" xmlns:f5829="urn:function:f5829" xmlns:f5830="urn:function:f5830" xmlns:f5831="urn:function:f5831">
+    <grammars>
+        <include href="Function5831.xsd"/>
+        <include href="Function5830.xsd"/>
+        <include href="Function5829.xsd"/>
+        <include href="Function5828.xsd"/>
+    </grammars>
+    <doc>i info ws API is used to extract content from various file types Currently html pdf doc docx Other file types are on the way</doc>
+    <resources base="https://extractor-i-info-ws.p.mashape.com/">
+        <resource uri="extract/">
+            <resource uri="pdf/">
+                <method displayName="/extract/pdf" id="5831" name="POST">
+                    <doc>Extract content from pdf. Info: Each page is charged as 1 request.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f5831:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="html/">
+                <method displayName="/extract/html" id="5830" name="POST">
+                    <doc>Extract content from html. Info: You have set file or url parameter.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f5830:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="docx/">
+                <method displayName="/extract/docx" id="5829" name="POST">
+                    <doc>Extract content from docx. Info: Each page is charged as 1 request.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f5829:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="doc/">
+                <method displayName="/extract/doc" id="5828" name="POST">
+                    <doc>Extract content from doc. Info: Each page is charged as 1 request.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f5828:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

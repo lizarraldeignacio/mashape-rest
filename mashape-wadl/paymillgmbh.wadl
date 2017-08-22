@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>Payments made easy Secure REST API Full integration with your website Simple pricing Accept multiple currencies Fast and local support Fast account activation</doc>
+    <resources base="https://paymill.p.mashape.com/">
+        <resource uri="refunds/">
+            <method displayName="list refunds" id="1661" name="GET">
+                <doc>This function returns a list of existing transactions. In which order this list is returned depends on the optional parameter order. The following parameters can be used:</doc>
+                <request>
+                    <param name="amount" required="true" style="query" type="xsd:string">
+                        <doc>amount</doc>
+                    </param>
+                    <param name="client" required="true" style="query" type="xsd:string">
+                        <doc>client</doc>
+                    </param>
+                    <param name="count" required="true" style="query" type="xsd:string">
+                        <doc>count</doc>
+                    </param>
+                    <param name="createdAt" required="true" style="query" type="xsd:string">
+                        <doc>created at</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>offset</doc>
+                    </param>
+                    <param name="transaction" required="true" style="query" type="xsd:string">
+                        <doc>transaction</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="refund details" id="1668" name="GET">
+                <doc>Returns detailed informations of a specific refund.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>refund id</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="refund transaction" id="1669" name="POST">
+                <doc>This function refunds a transaction that has been created previously and was refunded in parts or wasn’t refunded at all. The inserted amount will be refunded to the credit card / direct debit of the original transaction. There will be some fees for the merchant for every refund.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="">
+            <method displayName="list offers" id="1658" name="GET">
+                <doc>This function returns a JSON object with a list of offers. In which order this list are returned depends on the optional parameter order. The following parameters can be used:</doc>
+                <request>
+                    <param name="amount" required="true" style="query" type="xsd:string">
+                        <doc>amount</doc>
+                    </param>
+                    <param name="count" required="true" style="query" type="xsd:string">
+                        <doc>count</doc>
+                    </param>
+                    <param name="createdAt" required="true" style="query" type="xsd:string">
+                        <doc>created at</doc>
+                    </param>
+                    <param name="interval" required="true" style="query" type="xsd:string">
+                        <doc>interval</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>offset</doc>
+                    </param>
+                    <param name="trialPeriodDays" required="true" style="query" type="xsd:string">
+                        <doc>trial period days</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="transactions/">
+            <method displayName="create transaction" id="1655" name="POST">
+                <doc>You have to create at least either a token or a payment object before you can execute a transaction. You get back a response object indicating whether a transaction was successful or not.  Note  The transaction will not be charged at the bank if the test keys are implemented in your code. Please use only the test credit cards mentioned in the documentation.</doc>
+                <request/>
+            </method>
+            <method displayName="list transactions" id="1663" name="GET">
+                <doc>This function returns a JSON object with a list of transactions. In which order this list is returned depends on the optional parameter order:  count ,offset, created_at</doc>
+                <request/>
+            </method>
+            <method displayName="transaction details" id="1677" name="GET">
+                <doc>To receive the details of an existing transaction, call the unique transaction ID. You can find the ID in the response of the previous request. The return is a refund object with the information of the used payment, client and transaction attributes.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>unique identifier of this transaction</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="preauthorizations/">
+            <method displayName="create preauthorization" id="1654" name="POST">
+                <doc>Use either a token or an existing payment to authorize the given amount.</doc>
+                <request/>
+            </method>
+            <method displayName="list preauthorizations" id="1660" name="GET">
+                <doc>This function returns a JSON object with a list of preauthorizations. In which order this list is returned depends on the optional parameter order:  count, offset, created_at</doc>
+                <request/>
+            </method>
+            <method displayName="preauthorization details" id="1667" name="GET">
+                <doc>Returns data of a specific preauthorization</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>unique identifier of this preauthorization</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="remove preauthorizations" id="1673" name="DELETE">
+                <doc>This function deletes a preauthorization.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>unique identifier for the preauthorization</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="payments/">
+            <method displayName="create payment with token or client" id="1653" name="POST">
+                <doc>Creates a credit card payment from a given token, if you’re providing the client-property, the payment will be created and subsequently be added to the client.</doc>
+                <request/>
+            </method>
+            <method displayName="list payments" id="1659" name="GET">
+                <doc>Returns a list of all payment objects.</doc>
+                <request/>
+            </method>
+            <method displayName="payment details" id="1666" name="GET">
+                <doc>Returns data of a specific payment.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="remove payment" id="1672" name="DELETE">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>unique identifier for the payment</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="webhooks/">
+            <method displayName="create new URL or EMAIL webhook" id="1652" name="POST">
+                <doc>With this call you can create a webhook to a url via the API.</doc>
+                <request/>
+            </method>
+            <method displayName="list webhooks" id="1664" name="GET">
+                <doc>This function returns a JSON object with a list of webhooks. In which order this list is returned depends on the optional parameter order. The following parameters can be used:</doc>
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:string">
+                        <doc>count</doc>
+                    </param>
+                    <param name="createdAt" required="true" style="query" type="xsd:string">
+                        <doc>created at</doc>
+                    </param>
+                    <param name="email" required="true" style="query" type="xsd:string">
+                        <doc>email</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>offset</doc>
+                    </param>
+                    <param name="order" required="true" style="query" type="xsd:string">
+                        <doc>order</doc>
+                    </param>
+                    <param name="url" required="true" style="query" type="xsd:string">
+                        <doc>url</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="remove webhook" id="1675" name="DELETE">
+                <doc>All pending calls to a webhook are deleted as well, as soon as you delete the webhook itself.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>webhook id</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="update webhook" id="1681" name="PUT">
+                <doc>Updates the webhook. You can change the url/email and the event types.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>webhook id</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="webhook details" id="1682" name="GET">
+                <doc>Getting detailed information about a webhook requested with the webhook id.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>requested with the webhook id</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="subscriptions/">
+            <method displayName="create new subscription" id="1651" name="POST">
+                <doc>This function creates a subscription between a client and an offer. A client can have several subscriptions to different offers, but only one subscription to the same offer. The clients is charged for each billing interval entered.</doc>
+                <request/>
+            </method>
+            <method displayName="list subscriptions" id="1662" name="GET">
+                <doc>This function returns a JSON object with a list of subscriptions. In which order this list is returned depends on the optional parameter order. The following parameters can be used:</doc>
+                <request>
+                    <param name="canceledAt" required="true" style="query" type="xsd:string">
+                        <doc>canceled at</doc>
+                    </param>
+                    <param name="count" required="true" style="query" type="xsd:string">
+                        <doc>count</doc>
+                    </param>
+                    <param name="createdAt" required="true" style="query" type="xsd:string">
+                        <doc>created at</doc>
+                    </param>
+                    <param name="offer" required="true" style="query" type="xsd:string">
+                        <doc>offer</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>offset</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="remove subscription" id="1674" name="DELETE">
+                <doc>This function removes an existing subscription. If you set the attribute cancel_at_period_end parameter to the value true, the subscription will remain active until the end of the period. The subscription will not be renewed again. If the value is set to false it is directly terminated but pending transactions will still be charged.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>unique identifier for the subscription</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="subscription details" id="1676" name="GET">
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>unique identifier for the subscription</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="update subscription" id="1680" name="PUT">
+                <doc>This function updates the subscription of a client. You can change e.g. the cancel_at_period_end attribute to terminate a subscription at a special point of time. Or you can assign another offer subscription (offer=&lt;new_offer_id&gt;).</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>unique identifier for the subscription</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="offers/">
+            <method displayName="create new offer" id="1650" name="POST">
+                <doc>With this call you can create an offer via the API. You can also create an offer with the merchant cockpit.</doc>
+                <request/>
+            </method>
+            <method displayName="offer details" id="1665" name="GET">
+                <doc>Getting detailed information about an offer requested with the offer ID.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>unique identifier for the offer</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="remove offer" id="1671" name="DELETE">
+                <doc>You only can delete an offer if no client is subscribed to this offer</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>unique identifier for the offer</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="update offer" id="1679" name="PUT">
+                <doc>Updates the offer. Only the name can be changed all other attributes cannot be edited.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>unique identifier for the offer</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="clients/">
+            <method displayName="client details" id="1648" name="GET">
+                <doc>To get the details of an existing client you’ll need to supply the client ID. The client ID is returned by creating a client.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>unique identifier for the client</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="create new client" id="1649" name="POST">
+                <doc>This function creates a client object.</doc>
+                <request/>
+            </method>
+            <method displayName="export client list" id="1656" name="GET">
+                <doc>This function returns CSV seperated by semicolons, encapsulated by double quotes, with a list of clients. The following parameters can be used:</doc>
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:string">
+                        <doc>count</doc>
+                    </param>
+                    <param name="createdAt" required="true" style="query" type="xsd:string">
+                        <doc>created at</doc>
+                    </param>
+                    <param name="creditcard" required="true" style="query" type="xsd:string">
+                        <doc>creditcard</doc>
+                    </param>
+                    <param name="email" required="true" style="query" type="xsd:string">
+                        <doc>email</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>offset</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="list clients" id="1657" name="GET">
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:string">
+                        <doc>count</doc>
+                    </param>
+                    <param name="createdAt" required="true" style="query" type="xsd:string">
+                        <doc>created at</doc>
+                    </param>
+                    <param name="creditcard" required="true" style="query" type="xsd:string">
+                        <doc>creditcard</doc>
+                    </param>
+                    <param name="email" required="true" style="query" type="xsd:string">
+                        <doc>email</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>offset</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="remove client" id="1670" name="DELETE">
+                <doc>This function deletes a client, but your transactions aren’t deleted.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>unique identifier for the client</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="update client" id="1678" name="PUT">
+                <doc>This function updates the data of a client. To change only a specific attribute you can set this attribute in the update request. All other attributes that shouldn’t be edited aren’t inserted. You can only edit the description, email and credit card. The subscription can’t be changed by updating the client data. This has to be done in the subscription call.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>unique identifier for the client</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

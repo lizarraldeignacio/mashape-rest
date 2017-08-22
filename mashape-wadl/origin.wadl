@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2726="urn:function:f2726" xmlns:f2727="urn:function:f2727">
+    <grammars>
+        <include href="Function2727.xsd"/>
+        <include href="Function2726.xsd"/>
+    </grammars>
+    <doc>determine the likely country of origin of a personal name based on the sociolinguistics of the name language culture Covers all countries in most scripts LATIN CYRILLIC ARABIC HAN BENGALI HANGUL MYANMAR GUJARATI KANNADA DEVANAGARI HIRAGANA KATAKANA HEBREW GEORGIAN TAMIL Use it for diversity analytics customer intelligence datamining predictive analytics</doc>
+    <resources base="https://namsor-origin.p.mashape.com/">
+        <resource uri="json/">
+            <resource uri="originList/">
+                <method displayName="nameOriginList" id="2727" name="POST">
+                    <doc>Determine the likely country of origin of each name in a list.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2727:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="origin/">
+                <resource uri="{firstname}/">
+                    <param name="firstname" style="template" type="xsd:string"/>
+                    <resource uri="{lastname}/">
+                        <param name="lastname" style="template" type="xsd:string"/>
+                        <method displayName="nameOrigin" id="2726" name="GET">
+                            <doc>Determine the likely country of origin of a single name.</doc>
+                            <request>
+                                <param name="firstname" required="true" style="query" type="xsd:string"/>
+                                <param name="lastname" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f2726:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

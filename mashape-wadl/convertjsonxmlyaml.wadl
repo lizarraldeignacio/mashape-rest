@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3934="urn:function:f3934">
+    <grammars>
+        <include href="Function3934.xsd"/>
+    </grammars>
+    <doc>convert the body of your request in any of the given formats json xml and yaml</doc>
+    <resources base="https://laurentiud-convert-json-xml-yaml-v1.p.mashape.com/">
+        <resource uri="convert/">
+            <resource uri="yaml-to-xml/">
+                <method displayName="/convert/yaml-to-xml" id="3939" name="POST">
+                    <doc>Convert from the given yaml to xml format</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="yaml-to-json/">
+                <method displayName="/convert/yaml-to-json" id="3938" name="POST">
+                    <doc>Convert from the given yaml to json format</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="xml-to-yaml/">
+                <method displayName="/convert/xml-to-yaml" id="3937" name="POST">
+                    <doc>Convert from the given xml to yaml format</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="xml-to-json/">
+                <method displayName="/convert/xml-to-json" id="3936" name="POST">
+                    <doc>Convert from the given xml to json format</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="json-to-yaml/">
+                <method displayName="/convert/json-to-yaml" id="3935" name="POST">
+                    <doc>Convert from the given json to yaml format</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="json-to-xml/">
+                <method displayName="/convert/json-to-xml" id="3934" name="POST">
+                    <doc>Convert from the given json to xml format</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3934:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

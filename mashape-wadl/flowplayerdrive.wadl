@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6966="urn:function:f6966" xmlns:f6967="urn:function:f6967" xmlns:f6968="urn:function:f6968" xmlns:f6969="urn:function:f6969" xmlns:f6971="urn:function:f6971" xmlns:f6972="urn:function:f6972" xmlns:f6973="urn:function:f6973" xmlns:f6974="urn:function:f6974" xmlns:f6975="urn:function:f6975" xmlns:f6976="urn:function:f6976" xmlns:f6977="urn:function:f6977" xmlns:f6978="urn:function:f6978">
+    <grammars>
+        <include href="Function6972.xsd"/>
+        <include href="Function6974.xsd"/>
+        <include href="Function6977.xsd"/>
+        <include href="Function6968.xsd"/>
+        <include href="Function6969.xsd"/>
+        <include href="Function6971.xsd"/>
+        <include href="Function6973.xsd"/>
+        <include href="Function6975.xsd"/>
+        <include href="Function6976.xsd"/>
+        <include href="Function6978.xsd"/>
+        <include href="Function6967.xsd"/>
+        <include href="Function6966.xsd"/>
+    </grammars>
+    <doc>encode videos in the cloud and host them with Flowplayer Manage your video library and access your videos analytics data</doc>
+    <resources base="https://anssi-flowplayer-drive-v1.p.mashape.com/">
+        <resource uri="account/">
+            <method displayName="reactivate account" id="6972" name="PUT">
+                <doc>Reactivate a canceled or unpaid account</doc>
+                <request/>
+                <response>
+                    <representation element="f6972:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="show account" id="6974" name="GET">
+                <doc>Shows the account</doc>
+                <request/>
+                <response>
+                    <representation element="f6974:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="update account" id="6977" name="PUT">
+                <doc>Update account attributes</doc>
+                <request/>
+                <response>
+                    <representation element="f6977:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="videos/">
+            <method displayName="/videos" id="6968" name="GET">
+                <doc>List all videos in the library</doc>
+                <request/>
+                <response>
+                    <representation element="f6968:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="debranding" id="6969" name="PUT">
+                <doc>Debrand a free video to remove the Flowplayer watermark and to make it non-free. Requires a paid Flowplayer Drive plan.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f6969:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="delete video" id="6970" name="DELETE">
+                <doc>Delete the specified video</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="publish and unpublish" id="6971" name="PUT">
+                <doc>publish and unpublish</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f6971:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="retention" id="6973" name="GET">
+                <doc>Get retention data for the specified video. Retention data answers following questions: How long do viewers spend watching your videos? At what point do they lose interest or tune out and go elsewhere? The returned data tells the percentage (and count) of viewers that watched the video up to a given time in the video's timeline.</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f6973:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="show video" id="6975" name="GET">
+                <doc>Shows the specified video, with embedded encodings</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f6975:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="traffic" id="6976" name="GET">
+                <doc>Get traffic statistics for the specified video.</doc>
+                <request>
+                    <param name="end" required="true" style="query" type="xsd:string">
+                        <doc>optional end value of the time range Format yyyy mm dd Defaults to yesterday</doc>
+                    </param>
+                    <param name="grouping" required="true" style="query" type="xsd:string">
+                        <doc>one of hour day week month Specifies the granularity of the results For example in a day grouping one value is returned for each day of the time range In a hour grouping one value is returned for every hour</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string"/>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>optional start value of the time range Format yyyy mm dd for example Default value is dependent on the specified grouping</doc>
+                    </param>
+                    <param name="type" required="true" style="query" type="xsd:string">
+                        <doc>either views or bytes Specifies if the results should be view counts or bytes Defaults to views</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6976:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="upload" id="6978" name="POST">
+                <doc>Upload a video to your library, the video will be first encoded.</doc>
+                <request/>
+                <response>
+                    <representation element="f6978:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="login/">
+            <method displayName="/login" id="6967" name="POST">
+                <doc>Login to your flowplayer.org account to receive an auth token to be used in all additional API call.</doc>
+                <request/>
+                <response>
+                    <representation element="f6967:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="jobs/">
+            <method displayName="/jobs" id="6966" name="POST">
+                <doc>Post an encoding job</doc>
+                <request/>
+                <response>
+                    <representation element="f6966:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

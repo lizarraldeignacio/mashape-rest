@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1529="urn:function:f1529">
+    <grammars>
+        <include href="Function1529.xsd"/>
+    </grammars>
+    <doc>the taps Search API is responsible for searching against the database of postings For example it can be used to find all postings from a particular data source category and location or to find postings with a given annotation value A search request is made to the taps Search API and search results are returned back to the caller The search request can include any number of search criteria and the results will be paginated to keep the search process manageable</doc>
+    <resources base="https://3taps-search-3taps.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Search" id="1529" name="GET">
+                <request>
+                    <param name="count" required="true" style="query" type="xsd:string">
+                        <doc>a string indicating how the Search API should calculate the total number of matching postings Three counting options are currently supported estimate exact mixed</doc>
+                    </param>
+                    <param name="retvals" required="true" style="query" type="xsd:string">
+                        <doc>a string listing the fields which should be returned back to the caller The various fields should be separated by commas At present the following fields can be included in this parameter id account id source category category group location external id external url heading body html timestamp expires language price currency images annotations status immortal If no retvals parameter is provided the following default will be used id source category location external id external url heading timestamp</doc>
+                    </param>
+                    <param name="rpp" required="true" style="query" type="xsd:string">
+                        <doc>the desired number of results per page This defaults to but can be set to any value from to</doc>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:string">
+                        <doc>a string indicating the desired sort order to use for the found postings The following sort orders are currently supported timestamp timestamp price price distance</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1529:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

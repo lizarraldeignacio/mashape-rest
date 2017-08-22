@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>machine Learning Made Simple Power up your own Intelligent Applications by using our cutting edge Machine Learning platform Sign up today and start building intelligent services with our powerful easy to use API</doc>
+    <resources base="https://community-datumbox.p.mashape.com/">
+        <resource uri="1.0/">
+            <resource uri="TwitterSentimentAnalysis.json/">
+                <method displayName="POST /1.0/TwitterSentimentAnalysis.json" id="1643" name="POST">
+                    <doc>The Twitter Sentiment Analysis function allows you to perform Sentiment Analysis on Twitter. It classifies the tweets as positive, negative or neutral depending on their context.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="TopicClassification.json/">
+                <method displayName="POST /1.0/TopicClassification.json" id="1642" name="POST">
+                    <doc>The Subjectivity Analysis function categorizes documents as subjective or objective based on their writing style. Texts that express personal opinions are labeled as subjective and the others as objective.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="TextExtraction.json/">
+                <method displayName="POST /1.0/TextExtraction.json" id="1641" name="POST">
+                    <doc>The Text Extraction function enables you to extract the important information from a given webpage. Extracting the clear text of the documents is an important step before any other analysis.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="SubjectivityAnalysis.json/">
+                <method displayName="POST /1.0/SubjectivityAnalysis.json" id="1640" name="POST">
+                    <doc>The Subjectivity Analysis function categorizes documents as subjective or objective based on their writing style. Texts that express personal opinions are labeled as subjective and the others as objective.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="SpamDetection.json/">
+                <method displayName="POST /1.0/SpamDetection.json" id="1639" name="POST">
+                    <doc>The Spam Detection function labels documents as spam or nospam by taking into account their context. It can be used to filter out spam emails and comments.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="SentimentAnalysis.json/">
+                <method displayName="POST /1.0/SentimentAnalysis.json" id="1638" name="POST">
+                    <doc>The Sentiment Analysis function classifies documents as positive, negative or neutral (lack of sentiment) depending on whether they express a positive, negative or neutral opinion.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="ReadabilityAssessment.json/">
+                <method displayName="POST /1.0/ReadabilityAssessment.json" id="1637" name="POST">
+                    <doc>The Readability Assessment function determines the degree of readability of a document based on its terms and idioms. The texts are classified as basic, intermediate and advanced depending their difficulty.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="LanguageDetection.json/">
+                <method displayName="POST /1.0/LanguageDetection.json" id="1636" name="POST">
+                    <doc>The Language Detection function identifies the natural language of the given document based on its words and context. This classifier is able to detect 96 different languages.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="KeywordExtraction.json/">
+                <method displayName="POST /1.0/KeywordExtraction.json" id="1635" name="POST">
+                    <doc>The Keyword Extraction function enables you to extract from an arbitrary document all the keywords and word-combinations along with their occurrences in the text.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="GenderDetection.json/">
+                <method displayName="POST /1.0/GenderDetection.json" id="1634" name="POST">
+                    <doc>The Gender Detection function identifies if a particular document is written-by or targets-to a man or a woman based on the context, the words and the idioms found in the text.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="EducationalDetection.json/">
+                <method displayName="POST /1.0/EducationalDetection.json" id="1633" name="POST">
+                    <doc>The Educational Detection function classifies the documents as educational or non-educational based on their context. It can be used to detect whether a website is educational or not.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="DocumentSimilarity.json/">
+                <method displayName="POST /1.0/DocumentSimilarity.json" id="1632" name="POST">
+                    <doc>The Document Similarity function estimates the degree of similarity between two documents. It can be used to detect duplicate webpages or detect plagiarism.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="CommercialDetection.json/">
+                <method displayName="POST /1.0/CommercialDetection.json" id="1631" name="POST">
+                    <doc>The Commercial Detection function labels the documents as commercial or non-commercial based on their keywords and expressions. It can be used to detect whether a website is commercial or not.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="AdultContentDetection.json/">
+                <method displayName="POST /1.0/AdultContentDetection.json" id="1630" name="POST">
+                    <doc>The Adult Content Detection function classifies the documents as adult or noadult based on their context. It can be used to detect whether a document contains content unsuitable for minors.</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

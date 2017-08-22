@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1982="urn:function:f1982">
+    <grammars>
+        <include href="Function1982.xsd"/>
+    </grammars>
+    <doc>stop wasting food and Share it</doc>
+    <resources base="https://codeepy-share-it-v1.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="latlong/">
+                <method displayName="Get Volunteer's Locations" id="1982" name="GET">
+                    <doc>Get latitude and longitude of Volunteers</doc>
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>return format</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1982:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

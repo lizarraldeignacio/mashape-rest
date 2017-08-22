@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6439="urn:function:f6439">
+    <grammars>
+        <include href="Function6439.xsd"/>
+    </grammars>
+    <doc>youmpa www youmpa com is a social platform for event promotion and selling We operate mainly in Italy but we plan to expand in the future With this API you can access all Youmpa events querying over by location date ranges categories and more</doc>
+    <resources base="https://youmpaevents.p.mashape.com/">
+        <resource uri="event_list/">
+            <method displayName="events" id="6439" name="GET">
+                <request>
+                    <param name="address" required="true" style="query" type="xsd:string">
+                        <doc>the address even just the city name to find events around remember one of coord and address must be passed</doc>
+                    </param>
+                    <param name="coords" required="true" style="query" type="xsd:string">
+                        <doc>latitude and Longitude remember one of coord and address must be passed</doc>
+                    </param>
+                    <param name="date" required="true" style="query" type="xsd:string">
+                        <doc>if you are looking for events occurring in a specific date</doc>
+                    </param>
+                    <param name="distance" required="true" style="query" type="xsd:string">
+                        <doc>in Kilometers the max distance from coordinates or address</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>pagination limit</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>pagination start</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6439:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

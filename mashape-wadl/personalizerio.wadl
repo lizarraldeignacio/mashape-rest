@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7137="urn:function:f7137" xmlns:f7138="urn:function:f7138" xmlns:f7139="urn:function:f7139" xmlns:f7140="urn:function:f7140" xmlns:f7141="urn:function:f7141" xmlns:f7142="urn:function:f7142" xmlns:f7143="urn:function:f7143" xmlns:f7144="urn:function:f7144" xmlns:f7145="urn:function:f7145">
+    <grammars>
+        <include href="Function7145.xsd"/>
+        <include href="Function7144.xsd"/>
+        <include href="Function7143.xsd"/>
+        <include href="Function7142.xsd"/>
+        <include href="Function7141.xsd"/>
+        <include href="Function7140.xsd"/>
+        <include href="Function7139.xsd"/>
+        <include href="Function7138.xsd"/>
+        <include href="Function7137.xsd"/>
+    </grammars>
+    <doc>the open API platform to easily add personalization to your application or website</doc>
+    <resources base="https://personalizer.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="users/">
+                <method displayName="Users" id="7146" name="POST">
+                    <doc>Sets/updates the user profile information. The fields with NULL values will be ignored in case of update.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="userAuthentication/">
+                <method displayName="User Authentication" id="7145" name="POST">
+                    <doc>Get user access token.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f7145:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="trending/">
+                <method displayName="Trending" id="7144" name="GET">
+                    <doc>Returns the Trending Items.</doc>
+                    <request>
+                        <param name="excludeditemidentifier" required="true" style="query" type="xsd:string">
+                            <doc>identifier of the item to exclude from results e g Item that is already being displayed</doc>
+                        </param>
+                        <param name="fields" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of fields to include in the response</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:integer">
+                            <doc>number of results requested</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7144:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="topPicks/">
+                <method displayName="Top Picks" id="7143" name="GET">
+                    <doc>Returns the Top Picks items for the current User.</doc>
+                    <request>
+                        <param name="fields" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of fields to include in the response</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:integer">
+                            <doc>number of results requested</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7143:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="related/">
+                <method displayName="Related" id="7142" name="GET">
+                    <doc>Returns the Related Items for a particular item.</doc>
+                    <request>
+                        <param name="fields" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of fields to include in the response</doc>
+                        </param>
+                        <param name="identifiers" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of item identifiers for which the related items are requested In case of more than one identifier the result will be a mix of mostly relevant items</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:integer">
+                            <doc>number of results requested</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7142:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="recentViews/">
+                <method displayName="Recent Views" id="7141" name="GET">
+                    <doc>Returns the Recently Viewed Items.</doc>
+                    <request>
+                        <param name="excludeditemidentifier" required="true" style="query" type="xsd:string">
+                            <doc>identifier of the item to exclude from results e g Item that is already being displayed</doc>
+                        </param>
+                        <param name="fields" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of fields to include in the response</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:integer">
+                            <doc>number of results requested</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7141:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="popular/">
+                <method displayName="Popular" id="7140" name="GET">
+                    <doc>Returns the most Popular Items.</doc>
+                    <request>
+                        <param name="collectionidentifier" required="true" style="query" type="xsd:string">
+                            <doc>collection identifier for which you want to optionally limit the results within</doc>
+                        </param>
+                        <param name="excludeditemidentifier" required="true" style="query" type="xsd:integer">
+                            <doc>identifier of the item to exclude from results e g Item that is already being displayed</doc>
+                        </param>
+                        <param name="fields" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of fields to include in the response</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:integer">
+                            <doc>number of results requested</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7140:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="items/">
+                <method displayName="Items" id="7139" name="POST">
+                    <doc>Batch store (insert/update) items.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f7139:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="collections/">
+                <method displayName="Collections" id="7138" name="POST">
+                    <doc>Batch store (insert/update) collections.</doc>
+                    <request>
+                        <param name="deleteunlisted" required="true" style="query" type="xsd:boolean">
+                            <doc>whether or not collections that are not included in the request body should be deleted</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7138:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="administratorAuthentication/">
+                <method displayName="Administrator Authentication" id="7137" name="POST">
+                    <doc>Get administrative access token.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f7137:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="activityLogs/">
+                <method displayName="Activity Logs" id="7136" name="POST">
+                    <doc>Log user's activity.</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

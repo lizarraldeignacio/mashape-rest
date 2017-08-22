@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5206="urn:function:f5206" xmlns:f5207="urn:function:f5207">
+    <grammars>
+        <include href="Function5207.xsd"/>
+        <include href="Function5206.xsd"/>
+    </grammars>
+    <doc>mangaEden is today one of the best sources where readers can access high quality manga from leading publishers for free Readers have access to a wide range of classic genres summaries manga art books and popular fiction and non fiction manga titles</doc>
+    <resources base="https://community-manga-eden.p.mashape.com/">
+        <resource uri="list/">
+            <resource uri="{language}/">
+                <param name="language" style="template" type="xsd:string"/>
+                <method displayName="Manga List" id="5207" name="GET">
+                    <doc>- dictionaries in the key "manga" contains the manga's image ("im"), title ("t"), ID ("i"), alias ("a"), status ("s"), last chapter date ("ld"), hits ("h")  - "page", "start", "end" and "total" are self explanatory</doc>
+                    <request>
+                        <param name="language" required="true" style="query" type="xsd:string">
+                            <doc>where language can be English or Italian</doc>
+                        </param>
+                        <param name="p" required="true" style="query" type="xsd:string">
+                            <doc>same as above but returns only manga s informations from manga X to X where X is the page fetched from the GET parameter p</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5207:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="manga/">
+            <resource uri="{manga.id}/">
+                <param name="manga.id" style="template" type="xsd:string"/>
+                <method displayName="Manga info and chapters list" id="5206" name="GET">
+                    <doc>Returned data: all the informations and chapters of the manga.</doc>
+                    <request>
+                        <param name="mangaId" required="true" style="query" type="xsd:string"/>
+                        <param name="mangaId" required="true" style="query" type="xsd:string">
+                            <doc>where manga id is the manga s id you can get with the previous api call</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5206:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

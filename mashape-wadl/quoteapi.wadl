@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7360="urn:function:f7360" xmlns:f7361="urn:function:f7361" xmlns:f7362="urn:function:f7362">
+    <grammars>
+        <include href="Function7362.xsd"/>
+        <include href="Function7361.xsd"/>
+        <include href="Function7360.xsd"/>
+    </grammars>
+    <doc>this api provides analytics on Stock Prices Stock prices are curated from Yahoo Finance and Machine Learning is used to evaluate the stock</doc>
+    <resources base="https://iamkhader-quotapi-v1.p.mashape.com/">
+        <resource uri="shortterm/">
+            <resource uri="{symbol}/">
+                <param name="symbol" style="template" type="xsd:string"/>
+                <method displayName="/shortterm/{symbol}" id="7362" name="GET">
+                    <doc>Gets the short term performance of a stock</doc>
+                    <request>
+                        <param name="symbol" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f7362:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="quotes/">
+            <resource uri="{symbol}/">
+                <param name="symbol" style="template" type="xsd:string"/>
+                <method displayName="/quotes/{symbol}" id="7361" name="GET">
+                    <doc>gets the quotes of the stock for the last 60 days</doc>
+                    <request>
+                        <param name="symbol" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f7361:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="longterm/">
+            <resource uri="{symbol}/">
+                <param name="symbol" style="template" type="xsd:string"/>
+                <method displayName="/longterm/{symbol}" id="7360" name="GET">
+                    <doc>gets long term performance of a stock</doc>
+                    <request>
+                        <param name="symbol" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f7360:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5222="urn:function:f5222" xmlns:f5223="urn:function:f5223">
+    <grammars>
+        <include href="Function5223.xsd"/>
+        <include href="Function5222.xsd"/>
+    </grammars>
+    <doc>profanity detection and analysis API Scan analyze and remove profanity from text</doc>
+    <resources base="https://profanitor.p.mashape.com/">
+        <resource uri="censor/">
+            <method displayName="Profanity Removal" id="5223" name="POST">
+                <doc>Strip profanity out of text.</doc>
+                <request/>
+                <response>
+                    <representation element="f5223:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="check/">
+            <method displayName="Profanity Check" id="5222" name="POST">
+                <doc>Checks the input text for profanity.</doc>
+                <request/>
+                <response>
+                    <representation element="f5222:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

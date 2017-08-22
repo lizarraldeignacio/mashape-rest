@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f335="urn:function:f335">
+    <grammars>
+        <include href="Function335.xsd"/>
+    </grammars>
+    <doc>analysing text sentiment by passing text or paragraphs in single line or multiple lines and get back with the sentiment analysis report to get how many of lines be analysed how many positive negative middle sentiment for the lines of text</doc>
+    <resources base="https://text-sentiment.p.mashape.com/">
+        <resource uri="analyze/">
+            <method displayName="analyze" id="335" name="POST">
+                <doc>Analyze the sentiment of a text by passing in a text or paragraphs.</doc>
+                <request/>
+                <response>
+                    <representation element="f335:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

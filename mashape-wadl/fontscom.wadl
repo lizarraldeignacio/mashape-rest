@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>integrate leverage and build upon the Fonts com Web Fonts service through a host of solutions for developers and content creators</doc>
+    <resources base="https://vyetrintala-fontscom.p.mashape.com/">
+        <resource uri="{format}/">
+            <param name="format" style="template" type="xsd:string"/>
+            <resource uri="Publish/">
+                <method displayName="Publish" id="3412" name="GET">
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>xml or json</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="Filters/">
+                <method displayName="List Filters" id="3408" name="GET">
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>xml or json</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="AllFonts/">
+                <method displayName="List All Fonts" id="3406" name="GET">
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>xml or json</doc>
+                        </param>
+                        <param name="wfsalphabet" required="true" style="query" type="xsd:string">
+                            <doc>filter results by fonts starting with this letter a or b or z</doc>
+                        </param>
+                        <param name="wfsclassid" required="true" style="query" type="xsd:string">
+                            <doc>filter results by this classification ID</doc>
+                        </param>
+                        <param name="wfscss" required="true" style="query" type="xsd:string">
+                            <doc>provide the font face rule for each font when set to</doc>
+                        </param>
+                        <param name="wfsdesignerid" required="true" style="query" type="xsd:string">
+                            <doc>filter results by this designer ID</doc>
+                        </param>
+                        <param name="wfsfamilygrouping" required="true" style="query" type="xsd:boolean">
+                            <doc>group results by family when set to true</doc>
+                        </param>
+                        <param name="wfsfountryid" required="true" style="query" type="xsd:string">
+                            <doc>filter results by this foundry ID</doc>
+                        </param>
+                        <param name="wfsfree" required="true" style="query" type="xsd:boolean">
+                            <doc>filter results by fonts which are free only when set to true</doc>
+                        </param>
+                        <param name="wfskeyword" required="true" style="query" type="xsd:string">
+                            <doc>keyword to be searched by</doc>
+                        </param>
+                        <param name="wfslangid" required="true" style="query" type="xsd:string">
+                            <doc>filter results by this language ID</doc>
+                        </param>
+                        <param name="wfsplimit" required="true" style="query" type="xsd:integer">
+                            <doc>of records requested</doc>
+                        </param>
+                        <param name="wfspstart" required="true" style="query" type="xsd:string">
+                            <doc>starting record requested zero based</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="AllFilterValues/">
+                <method displayName="List All Filter Values" id="3405" name="GET">
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>xml or json</doc>
+                        </param>
+                        <param name="wfsalphachar" required="true" style="query" type="xsd:string">
+                            <doc>associated alpha characters</doc>
+                        </param>
+                        <param name="wfsclassificationid" required="true" style="query" type="xsd:string">
+                            <doc>associated classification ID</doc>
+                        </param>
+                        <param name="wfsdesignerid" required="true" style="query" type="xsd:string">
+                            <doc>associated designer ID</doc>
+                        </param>
+                        <param name="wfsfoundryid" required="true" style="query" type="xsd:string">
+                            <doc>associated foundry ID</doc>
+                        </param>
+                        <param name="wfsfreeorpaid" required="true" style="query" type="xsd:integer">
+                            <doc>associated font tier options All Free Paid</doc>
+                        </param>
+                        <param name="wfslanguageid" required="true" style="query" type="xsd:string">
+                            <doc>associated language ID</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="ProjectStylesImport/">
+                <method displayName="Import StyleSheet" id="3404" name="GET">
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>xml or json</doc>
+                        </param>
+                        <param name="wfspid" required="true" style="query" type="xsd:string">
+                            <doc>the project id</doc>
+                        </param>
+                        <param name="wfsplimit" required="true" style="query" type="xsd:integer">
+                            <doc>of records requested</doc>
+                        </param>
+                        <param name="wfspstart" required="true" style="query" type="xsd:string">
+                            <doc>starting record requested zero based</doc>
+                        </param>
+                        <param name="wfsptoken" required="true" style="query" type="xsd:string">
+                            <doc>token of the project to be imported from</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="GetToken/">
+                <method displayName="Get Token" id="3403" name="GET">
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>xml or json</doc>
+                        </param>
+                        <param name="wfsemail" required="true" style="query" type="xsd:string">
+                            <doc>address used to create the account</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="FilterValues/">
+                <method displayName="Filter Values" id="3401" name="GET">
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>xml or json</doc>
+                        </param>
+                        <param name="wfsalphachar" required="true" style="query" type="xsd:string">
+                            <doc>associated alpha value</doc>
+                        </param>
+                        <param name="wfsclassificationid" required="true" style="query" type="xsd:string">
+                            <doc>associated classification ID</doc>
+                        </param>
+                        <param name="wfsdesignerid" required="true" style="query" type="xsd:string">
+                            <doc>associated designer ID</doc>
+                        </param>
+                        <param name="wfsfiltertype" required="true" style="query" type="xsd:string">
+                            <doc>filter whose possible values are desired</doc>
+                        </param>
+                        <param name="wfsfoundryid" required="true" style="query" type="xsd:string">
+                            <doc>associated foundry ID</doc>
+                        </param>
+                        <param name="wfsfreeorpaid" required="true" style="query" type="xsd:integer">
+                            <doc>associated font tier options All Free Paid</doc>
+                        </param>
+                        <param name="wfslanguageid" required="true" style="query" type="xsd:string">
+                            <doc>associated language ID</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="ProjectStylesExport/">
+                <method displayName="Export StyleSheet" id="3400" name="GET">
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>xml or json</doc>
+                        </param>
+                        <param name="wfspid" required="true" style="query" type="xsd:string">
+                            <doc>the project id</doc>
+                        </param>
+                        <param name="wfsplimit" required="true" style="query" type="xsd:integer">
+                            <doc>of records requested</doc>
+                        </param>
+                        <param name="wfspstart" required="true" style="query" type="xsd:string">
+                            <doc>starting record requested zero based</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="Accounts/">
+                <method displayName="Create Account" id="3393" name="POST">
+                    <doc>Initiates the account creation process, causing an email to be sent to address provided. The account is not activated until the user reads the email and follows its instructions. (AppKey)</doc>
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>xml or json</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Generate Token" id="3402" name="GET">
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>xml or json</doc>
+                        </param>
+                        <param name="wfsemail" required="true" style="query" type="xsd:string">
+                            <doc>address used to create the account</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="ProjectStyles/">
+                <method displayName="Add StyleSheet" id="3391" name="POST">
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="Selectors/">
+                <method displayName="Add Selectors" id="3390" name="POST">
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>xml or json</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Assign Fonts to Selectors" id="3392" name="PUT">
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>xml or json</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Delete a Selector" id="3394" name="DELETE">
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>xml or json</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="List Selectors" id="3411" name="GET">
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>xml or json</doc>
+                        </param>
+                        <param name="wfspid" required="true" style="query" type="xsd:string">
+                            <doc>the project id</doc>
+                        </param>
+                        <param name="wfsplimit" required="true" style="query" type="xsd:integer">
+                            <doc>of records requested</doc>
+                        </param>
+                        <param name="wfspstart" required="true" style="query" type="xsd:string">
+                            <doc>starting record requested zero based</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="Projects/">
+                <method displayName="Add Projects" id="3389" name="POST">
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>xml or json</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Delete Project" id="3397" name="DELETE">
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>xml or json</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Edit Projects" id="3399" name="PUT">
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="List Projects" id="3410" name="GET">
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>xml or json</doc>
+                        </param>
+                        <param name="wfsplimit" required="true" style="query" type="xsd:integer">
+                            <doc>of records requested</doc>
+                        </param>
+                        <param name="wfspstart" required="true" style="query" type="xsd:string">
+                            <doc>starting record requested zero based</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="Fonts/">
+                <method displayName="Add Font" id="3388" name="POST">
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>xml or json</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Delete Font" id="3396" name="DELETE">
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>xml or json</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="List Project Fonts" id="3409" name="GET">
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>xml or json</doc>
+                        </param>
+                        <param name="wfspid" required="true" style="query" type="xsd:string">
+                            <doc>project ID</doc>
+                        </param>
+                        <param name="wfsplimit" required="true" style="query" type="xsd:integer">
+                            <doc>of records requested</doc>
+                        </param>
+                        <param name="wfspstart" required="true" style="query" type="xsd:string">
+                            <doc>starting record requested zero based</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="Domains/">
+                <method displayName="Add Domain" id="3387" name="POST">
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>xml or json</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Delete Domain" id="3395" name="DELETE">
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>xml or json</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="Edit Domain" id="3398" name="PUT">
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>xml or json</doc>
+                        </param>
+                    </request>
+                </method>
+                <method displayName="List Domains" id="3407" name="GET">
+                    <request>
+                        <param name="format" required="true" style="query" type="xsd:string">
+                            <doc>xml or json</doc>
+                        </param>
+                        <param name="wfspid" required="true" style="query" type="xsd:string">
+                            <doc>the project id</doc>
+                        </param>
+                        <param name="wfsplimit" required="true" style="query" type="xsd:integer">
+                            <doc>of records requested</doc>
+                        </param>
+                        <param name="wfspstart" required="true" style="query" type="xsd:integer">
+                            <doc>starting record requested zero based</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

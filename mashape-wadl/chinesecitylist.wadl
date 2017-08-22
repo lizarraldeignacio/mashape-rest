@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7436="urn:function:f7436">
+    <grammars>
+        <include href="Function7436.xsd"/>
+    </grammars>
+    <doc>get chinese city info</doc>
+    <resources base="https://maowandong-chinese-city-list-v1.p.mashape.com/">
+        <resource uri="microservice/">
+            <resource uri="cityinfo/">
+                <method displayName="/microservice/cityinfo" id="7436" name="GET">
+                    <doc>citylist</doc>
+                    <request>
+                        <param name="cityname" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7436:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

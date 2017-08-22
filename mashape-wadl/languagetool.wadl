@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>style and grammar checking proofreading for more than languages including English French Polish Spanish and German Based on languagetool org</doc>
+    <resources base="https://dnaber-languagetool.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Text checking" id="343" name="POST">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="Languages/">
+            <method displayName="List of Languages" id="342" name="GET">
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

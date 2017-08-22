@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1417="urn:function:f1417" xmlns:f1418="urn:function:f1418" xmlns:f1419="urn:function:f1419" xmlns:f1420="urn:function:f1420" xmlns:f1421="urn:function:f1421" xmlns:f1422="urn:function:f1422" xmlns:f1423="urn:function:f1423" xmlns:f1424="urn:function:f1424" xmlns:f1425="urn:function:f1425">
+    <grammars>
+        <include href="Function1425.xsd"/>
+        <include href="Function1424.xsd"/>
+        <include href="Function1423.xsd"/>
+        <include href="Function1422.xsd"/>
+        <include href="Function1421.xsd"/>
+        <include href="Function1419.xsd"/>
+        <include href="Function1420.xsd"/>
+        <include href="Function1418.xsd"/>
+        <include href="Function1417.xsd"/>
+    </grammars>
+    <doc>livescore API provides information about all live and finished football matches</doc>
+    <resources base="https://football-livescore.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="matches/">
+                <resource uri="live/">
+                    <resource uri="{page}/">
+                        <param name="page" style="template" type="xsd:string"/>
+                        <method displayName="Live matches" id="1425" name="GET">
+                            <doc>This endpoint returns all live matches for the day. ( ** 50 results per page **). Sometimes you will see matches with "status": "FT" marked as live. That happens if the match has recently finished and we haven't confirmed the result yet. You will also get matches that are starting soon, if any.</doc>
+                            <request>
+                                <param name="page" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f1425:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="finished/">
+                    <resource uri="{page}/">
+                        <param name="page" style="template" type="xsd:string"/>
+                        <method displayName="Finished matches" id="1424" name="GET">
+                            <doc>This endpoint returns all finished matches for the day. ( ** 50 results per page **)</doc>
+                            <request>
+                                <param name="page" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f1424:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="bymatchid/">
+                    <resource uri="{id}/">
+                        <param name="id" style="template" type="xsd:string"/>
+                        <method displayName="By Match ID" id="1423" name="GET">
+                            <doc>Returns the match (live or finished) with the provided match id.</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f1423:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="byleague/">
+                    <resource uri="{countrycode}/">
+                        <param name="countrycode" style="template" type="xsd:string"/>
+                        <resource uri="{leaguecode}/">
+                            <param name="leaguecode" style="template" type="xsd:string"/>
+                            <method displayName="By League Code" id="1422" name="GET">
+                                <doc>Returns the matches (live or finished) filtered by the provided Country Code (or International Code) and League.</doc>
+                                <request>
+                                    <param name="countrycode" required="true" style="query" type="xsd:string"/>
+                                    <param name="leaguecode" required="true" style="query" type="xsd:string"/>
+                                </request>
+                                <response>
+                                    <representation element="f1422:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="bycountry/">
+                    <resource uri="{countrycode}/">
+                        <param name="countrycode" style="template" type="xsd:string"/>
+                        <method displayName="By Country Code" id="1421" name="GET">
+                            <doc>Returns the matches (live or finished) filtered by the provided Country Code (or International Code).</doc>
+                            <request>
+                                <param name="countrycode" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f1421:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="all/">
+                    <resource uri="{page}/">
+                        <param name="page" style="template" type="xsd:string"/>
+                        <method displayName="All matches" id="1419" name="GET">
+                            <doc>This endpoint returns all live and finished matches for the day. ( ** 50 results per page **)</doc>
+                            <request>
+                                <param name="page" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f1419:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="utils/">
+                <resource uri="teams/">
+                    <method displayName="All teams" id="1420" name="GET">
+                        <doc>Get all available teams for today matches</doc>
+                        <request/>
+                        <response>
+                            <representation element="f1420:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="leagues/">
+                    <method displayName="All leagues" id="1418" name="GET">
+                        <doc>Get all leagues available for today matches. (sorted by Country)</doc>
+                        <request/>
+                        <response>
+                            <representation element="f1418:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="countries/">
+                    <method displayName="All Countries" id="1417" name="GET">
+                        <doc>Get all countries for today matches.</doc>
+                        <request/>
+                        <response>
+                            <representation element="f1417:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

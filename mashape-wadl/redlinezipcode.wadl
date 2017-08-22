@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1540="urn:function:f1540" xmlns:f1541="urn:function:f1541" xmlns:f1542="urn:function:f1542" xmlns:f1543="urn:function:f1543">
+    <grammars>
+        <include href="Function1543.xsd"/>
+        <include href="Function1542.xsd"/>
+        <include href="Function1541.xsd"/>
+        <include href="Function1540.xsd"/>
+    </grammars>
+    <doc>the Zip Code API provides the following functions Distance Between Zip Code API The API allows you to quickly and easily figure out the distance between zip codes Zip Codes in Radius API You can use this API to find all zip codes within a given radius from another zip code Zip Code to City and State API and Zip Code to Latitude Longitude API The API can convert a zip code to the primary location for the zip code This includes the city state latitude and longitude for the primary location City to Zip Code This API looks up the Zip Code based on the City and State</doc>
+    <resources base="https://redline-redline-zipcode.p.mashape.com/">
+        <resource uri="rest/">
+            <resource uri="radius.json/">
+                <resource uri="{zipcode}/">
+                    <param name="zipcode" style="template" type="xsd:string"/>
+                    <resource uri="{radius}/">
+                        <param name="radius" style="template" type="xsd:string"/>
+                        <resource uri="{units}/">
+                            <param name="units" style="template" type="xsd:string"/>
+                            <method displayName="Zip Codes within Radius" id="1543" name="GET">
+                                <doc>Returns all zip codes within a radius of the given zip code.</doc>
+                                <request>
+                                    <param name="radius" required="true" style="query" type="xsd:integer">
+                                        <doc>radius in appropriate units</doc>
+                                    </param>
+                                    <param name="units" required="true" style="query" type="xsd:string">
+                                        <doc>distance units mile or km</doc>
+                                    </param>
+                                    <param name="zipcode" required="true" style="query" type="xsd:integer">
+                                        <doc>zipcode</doc>
+                                    </param>
+                                </request>
+                                <response>
+                                    <representation element="f1543:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="info.json/">
+                <resource uri="{zipcode}/">
+                    <param name="zipcode" style="template" type="xsd:string"/>
+                    <resource uri="{units}/">
+                        <param name="units" style="template" type="xsd:string"/>
+                        <method displayName="Zip Codes to Location Information" id="1542" name="GET">
+                            <doc>Returns location information for a zip code.  This information includes city, state, latitude, longitude, and time zone information.  It also contains a list of other acceptable city names for the location.</doc>
+                            <request>
+                                <param name="units" required="true" style="query" type="xsd:string">
+                                    <doc>units degrees or radians</doc>
+                                </param>
+                                <param name="zipcode" required="true" style="query" type="xsd:integer">
+                                    <doc>zipcode</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f1542:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="city-zips.json/">
+                <resource uri="{city}/">
+                    <param name="city" style="template" type="xsd:string"/>
+                    <resource uri="{state}/">
+                        <param name="state" style="template" type="xsd:string"/>
+                        <method displayName="Location to Zip Code" id="1541" name="GET">
+                            <doc>Returns zip codes for a given city.</doc>
+                            <request>
+                                <param name="city" required="true" style="query" type="xsd:string">
+                                    <doc>city</doc>
+                                </param>
+                                <param name="state" required="true" style="query" type="xsd:string">
+                                    <doc>state</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f1541:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="distance.json/">
+                <resource uri="{zipcode1}/">
+                    <param name="zipcode1" style="template" type="xsd:string"/>
+                    <resource uri="{zipcode2}/">
+                        <param name="zipcode2" style="template" type="xsd:string"/>
+                        <resource uri="{units}/">
+                            <param name="units" style="template" type="xsd:string"/>
+                            <method displayName="Distance Between Zip Codes" id="1540" name="GET">
+                                <doc>Determine the distance between two zip codes.</doc>
+                                <request>
+                                    <param name="units" required="true" style="query" type="xsd:string">
+                                        <doc>distance units mile or km</doc>
+                                    </param>
+                                    <param name="zipcode" required="true" style="query" type="xsd:integer">
+                                        <doc>first zip code</doc>
+                                    </param>
+                                    <param name="zipcode" required="true" style="query" type="xsd:integer">
+                                        <doc>second zip code</doc>
+                                    </param>
+                                </request>
+                                <response>
+                                    <representation element="f1540:root" mediaType="application/json"/>
+                                </response>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

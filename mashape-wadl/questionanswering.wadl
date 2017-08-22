@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1131="urn:function:f1131" xmlns:f1132="urn:function:f1132">
+    <grammars>
+        <include href="Function1132.xsd"/>
+        <include href="Function1131.xsd"/>
+    </grammars>
+    <doc>the WebKnox question answering API allows you to find answers to natural language questions These questions can be factual such as What is the capital of Australia or more complex</doc>
+    <resources base="https://webknox-question-answering.p.mashape.com/">
+        <resource uri="questions/">
+            <resource uri="quickAnswers/">
+                <method displayName="Quickly Answer a Question" id="1132" name="GET">
+                    <doc>Get a short, quick answer to a simple question.</doc>
+                    <request>
+                        <param name="question" required="true" style="query" type="xsd:string">
+                            <doc>a question or keywords that can be answered with simple facts</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1132:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="answers/">
+                <method displayName="Answer a Question" id="1131" name="GET">
+                    <doc>Find an answer to a given question.</doc>
+                    <request>
+                        <param name="answerlookup" required="true" style="query" type="xsd:boolean">
+                            <doc>whether the answer can be looked up in a given set of answers</doc>
+                        </param>
+                        <param name="answersearch" required="true" style="query" type="xsd:boolean">
+                            <doc>whether the answer can be searched on the Web If set to true the answer might take up to a minute to show up</doc>
+                        </param>
+                        <param name="question" required="true" style="query" type="xsd:string">
+                            <doc>the question</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f1131:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

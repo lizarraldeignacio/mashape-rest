@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>intelligent Technologies SMS API Allows sending and receiving of SMS messages An account is required Sign up for free at http inteltech com au Send messages to any country in the world</doc>
+    <resources base="https://inteltech.p.mashape.com/">
+        <resource uri="send.php/">
+            <method displayName="Send SMS" id="296" name="POST">
+                <doc>Send an SMS with the Inteltech API</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="credit.php/">
+            <method displayName="Check Credit" id="295" name="POST">
+                <doc>Returns Prepaid Account Balance</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

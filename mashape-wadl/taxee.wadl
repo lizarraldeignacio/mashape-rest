@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1859="urn:function:f1859" xmlns:f1860="urn:function:f1860" xmlns:f1861="urn:function:f1861">
+    <grammars>
+        <include href="Function1861.xsd"/>
+        <include href="Function1860.xsd"/>
+        <include href="Function1859.xsd"/>
+    </grammars>
+    <doc>mEET TAXEE Your Friendly Neighborhood Income Tax Data and Calculation API</doc>
+    <resources base="https://stylinandy-taxee.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="state/">
+                <resource uri="{year}/">
+                    <param name="year" style="template" type="xsd:string"/>
+                    <resource uri="{state}/">
+                        <param name="state" style="template" type="xsd:string"/>
+                        <method displayName="Get State Income Tax Information" id="1861" name="GET">
+                            <doc>Given a year and a state abbreviation, returns tax brackets and deductions for all filing statuses.</doc>
+                            <request>
+                                <param name="state" required="true" style="query" type="xsd:string">
+                                    <doc>the abbreviation of the state whose data you re requesting</doc>
+                                </param>
+                                <param name="year" required="true" style="query" type="xsd:string">
+                                    <doc>the year of the data you re requesting</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f1861:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="federal/">
+                <resource uri="{year}/">
+                    <param name="year" style="template" type="xsd:string"/>
+                    <method displayName="Get Federal Income Tax Information" id="1860" name="GET">
+                        <doc>Given a year, returns tax brackets and deductions for all filing statuses.</doc>
+                        <request>
+                            <param name="year" required="true" style="query" type="xsd:string">
+                                <doc>the year of the federal income tax information you d like to request</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1860:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="calculate/">
+                <resource uri="{year}/">
+                    <param name="year" style="template" type="xsd:string"/>
+                    <method displayName="Calculate Income Taxes" id="1859" name="POST">
+                        <doc>Given an income and filing status, returns dollar amounts of taxes owed.</doc>
+                        <request>
+                            <param name="year" required="true" style="query" type="xsd:string">
+                                <doc>the year of data tax brackets and deductions to use when running the calculation</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1859:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

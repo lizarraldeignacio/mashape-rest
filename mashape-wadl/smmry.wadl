@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>sMMRY is an automatic summary generator SMMRY is accessible by an API Developers are able to implement SMMRY into applications that may require a summary of a webpage or variable Developers need to generate an API key to access this feature</doc>
+    <resources base="https://community-smmry.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Summarize" id="1699" name="GET">
+                <request>
+                    <param name="smKeywordCount" required="true" style="query" type="xsd:string">
+                        <doc>top keywords to return</doc>
+                    </param>
+                    <param name="smLength" required="true" style="query" type="xsd:string">
+                        <doc>number of sentences returned default is</doc>
+                    </param>
+                    <param name="smQuoteAvoid" required="true" style="query" type="xsd:string">
+                        <doc>summary will not include quotations</doc>
+                    </param>
+                    <param name="smUrl" required="true" style="query" type="xsd:string">
+                        <doc>webpage to summarize</doc>
+                    </param>
+                    <param name="smWithBreak" required="true" style="query" type="xsd:string">
+                        <doc>summary will contain string BREAK between each sentence</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>readSpeaker speechCloud API is an online text to speech API for making desktop web mobile applications and Internet connected devices talk Easy to integrate straightforward and high capacity ReadSpeaker speechCloud API gives you access to high quality voices in many different languages to read the text in your apps and devices</doc>
+    <resources base="https://community-readspeaker.p.mashape.com/">
+        <resource uri="a/">
+            <resource uri="speak/">
+                <method displayName="Convert text to speech" id="4733" name="POST">
+                    <doc>The text-to-speech enabler provides an API exposed as a simple REST interface as well as provides examples on how to implement it. The REST protocol and the server of text-to-speech enabler are independent of the platform used on the client side. Your application will be able to convert text to audio data through our text-to-speech enabler using the API as described in this document.</doc>
+                    <request/>
+                </method>
+                <method displayName="Statistics" id="4734" name="GET">
+                    <request>
+                        <param name="appid" required="true" style="query" type="xsd:string">
+                            <doc>your application id Default value</doc>
+                        </param>
+                        <param name="command" required="true" style="query" type="xsd:string"/>
+                        <param name="fromDate" required="true" style="query" type="xsd:string">
+                            <doc>format YYYYMMDD Default value all statistics</doc>
+                        </param>
+                        <param name="lang" required="true" style="query" type="xsd:string">
+                            <doc>possible values see http ws readspeaker com a wasp app documentation languages</doc>
+                        </param>
+                        <param name="toDate" required="true" style="query" type="xsd:string">
+                            <doc>format YYYYMMDD Default value all statistics</doc>
+                        </param>
+                        <param name="voice" required="true" style="query" type="xsd:string">
+                            <doc>possible values see http ws readspeaker com a wasp app documentation languages</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

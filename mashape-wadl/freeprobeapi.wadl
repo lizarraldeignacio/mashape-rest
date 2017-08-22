@@ -1,0 +1,939 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2791="urn:function:f2791" xmlns:f2799="urn:function:f2799" xmlns:f2803="urn:function:f2803" xmlns:f2806="urn:function:f2806" xmlns:f2811="urn:function:f2811" xmlns:f2813="urn:function:f2813" xmlns:f2815="urn:function:f2815">
+    <grammars>
+        <include href="Function2815.xsd"/>
+        <include href="Function2813.xsd"/>
+        <include href="Function2811.xsd"/>
+        <include href="Function2806.xsd"/>
+        <include href="Function2803.xsd"/>
+        <include href="Function2799.xsd"/>
+        <include href="Function2791.xsd"/>
+    </grammars>
+    <doc>probe API offers direct access to our monitoring network that consists of tens of thousands of monitoring probes distributed across the whole World We are able to test network parameters such as latencies routing and throughput from most of the consumer ISPs</doc>
+    <resources base="https://probeapifree.p.mashape.com/">
+        <resource uri="Probes.svc/">
+            <resource uri="StartTracertTestByNetwork/">
+                <method displayName="StartTracertTestByNetwork" id="2816" name="GET">
+                    <doc>Starts traceroute test from probes in selected network (ISP). Returns list of probes from which tests were performed.  Timeout parameter may need increasing if your test does not contain all the hops up to the destination.</doc>
+                    <request>
+                        <param name="buffersize" required="true" style="query" type="xsd:integer">
+                            <doc>size of the Packet data default max</doc>
+                        </param>
+                        <param name="commandtimeout" required="true" style="query" type="xsd:integer">
+                            <doc>ping timeout in miliseconds that one ping can take default ms</doc>
+                        </param>
+                        <param name="count" required="true" style="query" type="xsd:integer">
+                            <doc>number of pings to each hop default</doc>
+                        </param>
+                        <param name="destination" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of IP addresses or hostnames that will be tested</doc>
+                        </param>
+                        <param name="fragment" required="true" style="query" type="xsd:integer">
+                            <doc>fragmentation of sending packets default</doc>
+                        </param>
+                        <param name="ipvOnly" required="true" style="query" type="xsd:integer">
+                            <doc>force using IPv If no IPv IP address is returned will return error default</doc>
+                        </param>
+                        <param name="ipvOnly" required="true" style="query" type="xsd:integer">
+                            <doc>force using IPv If no IPv IP address is returned will return error default</doc>
+                        </param>
+                        <param name="maxfailedhops" required="true" style="query" type="xsd:integer">
+                            <doc>stop the command execution after maximum errors in a row e g stop after ping timeouts default</doc>
+                        </param>
+                        <param name="networkid" required="true" style="query" type="xsd:integer">
+                            <doc>comma separated list of Network IDs</doc>
+                        </param>
+                        <param name="probeslimit" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of probes that will be tested If test requires testing multiple networks probesLimit needs to be adjusted to be higher than actual number of tested networks</doc>
+                        </param>
+                        <param name="resolve" required="true" style="query" type="xsd:integer">
+                            <doc>iP addresses will be resolved to domain names for each hop default</doc>
+                        </param>
+                        <param name="sleep" required="true" style="query" type="xsd:integer">
+                            <doc>sleep between pings in miliseconds default ms</doc>
+                        </param>
+                        <param name="timeout" required="true" style="query" type="xsd:integer">
+                            <doc>maximum time available to probes for testing in miliseconds default ms</doc>
+                        </param>
+                        <param name="ttl" required="true" style="query" type="xsd:integer">
+                            <doc>max number of hops default max</doc>
+                        </param>
+                        <param name="ttlstart" required="true" style="query" type="xsd:integer">
+                            <doc>first Hop from which the trace route should start default</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="StartTracertTestByCountry/">
+                <method displayName="StartTracertTestByCountry" id="2815" name="GET">
+                    <doc>Starts traceroute test from probes in selected countries. Returns list of probes from which tests were performed.  Timeout parameter may need increasing if your test does not contain all the hops up to the destination.</doc>
+                    <request>
+                        <param name="buffersize" required="true" style="query" type="xsd:integer">
+                            <doc>size of the Packet data default max</doc>
+                        </param>
+                        <param name="commandtimeout" required="true" style="query" type="xsd:integer">
+                            <doc>ping timeout in miliseconds that one ping can take default ms</doc>
+                        </param>
+                        <param name="count" required="true" style="query" type="xsd:integer">
+                            <doc>number of pings to each hop default</doc>
+                        </param>
+                        <param name="countrycode" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of country codes ISO e g US for USA</doc>
+                        </param>
+                        <param name="destination" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of IP addresses or hostnames that will be tested</doc>
+                        </param>
+                        <param name="fragment" required="true" style="query" type="xsd:integer">
+                            <doc>fragmentation of sending packets default</doc>
+                        </param>
+                        <param name="ipvOnly" required="true" style="query" type="xsd:integer">
+                            <doc>force using IPv If no IPv IP address is returned will return error default</doc>
+                        </param>
+                        <param name="ipvOnly" required="true" style="query" type="xsd:integer">
+                            <doc>force using IPv If no IPv IP address is returned will return error default</doc>
+                        </param>
+                        <param name="maxfailedhops" required="true" style="query" type="xsd:integer">
+                            <doc>stop the command execution after maximum errors in a row e g stop after ping timeouts default</doc>
+                        </param>
+                        <param name="probeslimit" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of probes that will be tested If test requires testing multiple countries probesLimit needs to be adjusted to be higher than actual number of tested countries</doc>
+                        </param>
+                        <param name="resolve" required="true" style="query" type="xsd:integer">
+                            <doc>iP addresses will be resolved to domain names for each hop default</doc>
+                        </param>
+                        <param name="sleep" required="true" style="query" type="xsd:integer">
+                            <doc>sleep between pings in miliseconds default ms</doc>
+                        </param>
+                        <param name="statecode" required="true" style="query" type="xsd:string">
+                            <doc>letter state code applies only when CountryCode US</doc>
+                        </param>
+                        <param name="timeout" required="true" style="query" type="xsd:integer">
+                            <doc>maximum time available to probes for testing in miliseconds default ms</doc>
+                        </param>
+                        <param name="ttl" required="true" style="query" type="xsd:integer">
+                            <doc>max number of hops default max</doc>
+                        </param>
+                        <param name="ttlstart" required="true" style="query" type="xsd:integer">
+                            <doc>first Hop from which the trace route should start default</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2815:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="StartTracertTestByBoundingBox/">
+                <method displayName="StartTracertTestByBoundingBox" id="2814" name="GET">
+                    <doc>Starts traceroute test from probes in selected area. Returns list of probes from which tests were performed.  Timeout parameter may need increasing if your test does not contain all the hops up to the destination.</doc>
+                    <request>
+                        <param name="buffersize" required="true" style="query" type="xsd:integer">
+                            <doc>size of the Packet data default max</doc>
+                        </param>
+                        <param name="commandtimeout" required="true" style="query" type="xsd:integer">
+                            <doc>ping timeout in miliseconds that one ping can take default ms</doc>
+                        </param>
+                        <param name="count" required="true" style="query" type="xsd:integer">
+                            <doc>number of pings to each hop default</doc>
+                        </param>
+                        <param name="destination" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of IP addresses or hostnames that will be tested</doc>
+                        </param>
+                        <param name="fragment" required="true" style="query" type="xsd:integer">
+                            <doc>fragmentation of sending packets default</doc>
+                        </param>
+                        <param name="ipvOnly" required="true" style="query" type="xsd:integer">
+                            <doc>force using IPv If no IPv IP address is returned will return error default</doc>
+                        </param>
+                        <param name="ipvOnly" required="true" style="query" type="xsd:integer">
+                            <doc>force using IPv If no IPv IP address is returned will return error default</doc>
+                        </param>
+                        <param name="maxfailedhops" required="true" style="query" type="xsd:integer">
+                            <doc>stop the command execution after maximum errors in a row e g stop after ping timeouts default</doc>
+                        </param>
+                        <param name="maxlatitude" required="true" style="query" type="xsd:integer">
+                            <doc>latitude of north east corner</doc>
+                        </param>
+                        <param name="maxlongitude" required="true" style="query" type="xsd:integer">
+                            <doc>longitude of north east corner</doc>
+                        </param>
+                        <param name="minlatitude" required="true" style="query" type="xsd:integer">
+                            <doc>latitude of south west corner</doc>
+                        </param>
+                        <param name="minlongitude" required="true" style="query" type="xsd:integer">
+                            <doc>longitude of south west corner</doc>
+                        </param>
+                        <param name="probeslimit" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of probes that will be tested</doc>
+                        </param>
+                        <param name="resolve" required="true" style="query" type="xsd:integer">
+                            <doc>iP addresses will be resolved to domain names for each hop default</doc>
+                        </param>
+                        <param name="sleep" required="true" style="query" type="xsd:integer">
+                            <doc>sleep between pings in miliseconds default ms</doc>
+                        </param>
+                        <param name="timeout" required="true" style="query" type="xsd:integer">
+                            <doc>maximum time available to probes for testing in miliseconds default ms</doc>
+                        </param>
+                        <param name="ttl" required="true" style="query" type="xsd:integer">
+                            <doc>max number of hops default max</doc>
+                        </param>
+                        <param name="ttlstart" required="true" style="query" type="xsd:integer">
+                            <doc>first Hop from which the trace route should start default</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="StartTracertTestByASN/">
+                <method displayName="StartTracertTestByASN" id="2813" name="GET">
+                    <doc>Starts traceroute test from probes selected by ASN IDs. Returns list of probes from which tests were performed. Timeout parameter may need increasing if your test does not contain all the hops up to the destination.</doc>
+                    <request>
+                        <param name="asnid" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of ASN IDs</doc>
+                        </param>
+                        <param name="buffersize" required="true" style="query" type="xsd:integer">
+                            <doc>size of the Packet data default max</doc>
+                        </param>
+                        <param name="commandtimeout" required="true" style="query" type="xsd:integer">
+                            <doc>ping timeout in miliseconds that one ping can take default ms</doc>
+                        </param>
+                        <param name="count" required="true" style="query" type="xsd:integer">
+                            <doc>number of pings to each hop default</doc>
+                        </param>
+                        <param name="destination" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of IP addresses or hostnames that will be tested</doc>
+                        </param>
+                        <param name="fragment" required="true" style="query" type="xsd:integer">
+                            <doc>fragmentation of sending packets default</doc>
+                        </param>
+                        <param name="ipvOnly" required="true" style="query" type="xsd:integer">
+                            <doc>force using IPv If no IPv IP address is returned will return error default</doc>
+                        </param>
+                        <param name="ipvOnly" required="true" style="query" type="xsd:integer">
+                            <doc>force using IPv If no IPv IP address is returned will return error default</doc>
+                        </param>
+                        <param name="maxfailedhops" required="true" style="query" type="xsd:integer">
+                            <doc>stop the command execution after maximum errors in a row e g stop after ping timeouts default</doc>
+                        </param>
+                        <param name="probeslimit" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of probes that will be tested If test requires testing multiple ASNs probesLimit needs to be adjusted to be higher than actual number of tested ASNs</doc>
+                        </param>
+                        <param name="resolve" required="true" style="query" type="xsd:integer">
+                            <doc>iP addresses will be resolved to domain names for each hop default so it will resolve</doc>
+                        </param>
+                        <param name="sleep" required="true" style="query" type="xsd:integer">
+                            <doc>sleep between pings in miliseconds default ms</doc>
+                        </param>
+                        <param name="timeout" required="true" style="query" type="xsd:integer">
+                            <doc>maximum time available to probes for testing in miliseconds default ms</doc>
+                        </param>
+                        <param name="ttl" required="true" style="query" type="xsd:integer">
+                            <doc>max number of hops default max</doc>
+                        </param>
+                        <param name="ttlstart" required="true" style="query" type="xsd:integer">
+                            <doc>first Hop from which the trace route should start default</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2813:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="StartPingTestByNetwork/">
+                <method displayName="StartPingTestByNetwork" id="2812" name="GET">
+                    <doc>Starts ping test from probes in selected network (ISP). Each probe (up to "probeslimit" parameter value) will execute multiple ping tests (default 3, can be changed in "count" parameter) with delay of 1s between each ping (can be changed in "sleep" parameter). Response will contain ping results from multiple probes. Each probe result is calculated average of the individual pings executed from that particular probe.</doc>
+                    <request>
+                        <param name="buffersize" required="true" style="query" type="xsd:integer">
+                            <doc>size of the Packet data default max</doc>
+                        </param>
+                        <param name="commandtimeout" required="true" style="query" type="xsd:integer">
+                            <doc>ping timeout in miliseconds that one ping can take default ms</doc>
+                        </param>
+                        <param name="count" required="true" style="query" type="xsd:integer">
+                            <doc>number of pings to run default If number of pings is changed timeout parameter should be changed as well to ensure probe has time to execute all pings</doc>
+                        </param>
+                        <param name="destination" required="true" style="query" type="xsd:string">
+                            <doc>an IP address or hostname that will be pinged</doc>
+                        </param>
+                        <param name="fragment" required="true" style="query" type="xsd:integer">
+                            <doc>fragmentation of sending packets default</doc>
+                        </param>
+                        <param name="ipvOnly" required="true" style="query" type="xsd:integer">
+                            <doc>force using IPv If no IPv IP address is returned will return error default</doc>
+                        </param>
+                        <param name="ipvOnly" required="true" style="query" type="xsd:integer">
+                            <doc>force using IPv If no IPv IP address is returned will return error default</doc>
+                        </param>
+                        <param name="networkid" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of Network IDs</doc>
+                        </param>
+                        <param name="probeslimit" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of probes that will be tested If test requires testing multiple networks probesLimit needs to be adjusted to be higher than actual number of tested networks</doc>
+                        </param>
+                        <param name="resolve" required="true" style="query" type="xsd:integer">
+                            <doc>iP addresses will be resolved to domain names for each hop default</doc>
+                        </param>
+                        <param name="sleep" required="true" style="query" type="xsd:integer">
+                            <doc>sleep between pings as executed on one probe in miliseconds default ms</doc>
+                        </param>
+                        <param name="timeout" required="true" style="query" type="xsd:integer">
+                            <doc>amount of time in milliseconds in which API responds with result default Timeout should be calculated in following way Timeout count commandtimeout count sleep ms buffer for delay with API communication</doc>
+                        </param>
+                        <param name="ttl" required="true" style="query" type="xsd:integer">
+                            <doc>max allowed hops for packet default max</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="StartPingTestByCountry/">
+                <method displayName="StartPingTestByCountry" id="2811" name="GET">
+                    <doc>Starts ping test from probes in selected countries. Each probe (up to "probeslimit" parameter value) will execute multiple ping tests (default 3, can be changed in "count" parameter) with delay of 1s between each ping (can be changed in "sleep" parameter). Response will contain ping results from multiple probes. Each probe result is calculated average of the individual pings executed from that particular probe.</doc>
+                    <request>
+                        <param name="buffersize" required="true" style="query" type="xsd:integer">
+                            <doc>size of the Packet data default max</doc>
+                        </param>
+                        <param name="commandtimeout" required="true" style="query" type="xsd:integer">
+                            <doc>ping timeout in miliseconds that one ping can take default ms</doc>
+                        </param>
+                        <param name="count" required="true" style="query" type="xsd:integer">
+                            <doc>number of pings to run default If number of pings is changed timeout parameter should be changed as well to ensure probe has time to execute all pings</doc>
+                        </param>
+                        <param name="countrycode" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of country codes ISO e g US for USA</doc>
+                        </param>
+                        <param name="destination" required="true" style="query" type="xsd:string">
+                            <doc>an IP address or hostname that will be pinged</doc>
+                        </param>
+                        <param name="fragment" required="true" style="query" type="xsd:integer">
+                            <doc>fragmentation of sending packets default</doc>
+                        </param>
+                        <param name="ipvOnly" required="true" style="query" type="xsd:integer">
+                            <doc>force using IPv If no IPv IP address is returned will return error default</doc>
+                        </param>
+                        <param name="ipvOnly" required="true" style="query" type="xsd:integer">
+                            <doc>force using IPv If no IPv IP address is returned will return error default</doc>
+                        </param>
+                        <param name="probeslimit" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of probes that will be tested If test requires testing multiple countries probesLimit needs to be adjusted to be higher than actual number of tested countries</doc>
+                        </param>
+                        <param name="resolve" required="true" style="query" type="xsd:integer">
+                            <doc>iP addresses will be resolved to domain names for each hop default</doc>
+                        </param>
+                        <param name="sleep" required="true" style="query" type="xsd:integer">
+                            <doc>sleep between pings as executed on one probe in miliseconds default ms</doc>
+                        </param>
+                        <param name="statecode" required="true" style="query" type="xsd:string">
+                            <doc>letter state code applies only when CountryCode US</doc>
+                        </param>
+                        <param name="timeout" required="true" style="query" type="xsd:integer">
+                            <doc>amount of time in milliseconds in which API responds with result default Timeout should be calculated in following way Timeout count commandtimeout count sleep ms buffer for delay with API communication</doc>
+                        </param>
+                        <param name="ttl" required="true" style="query" type="xsd:integer">
+                            <doc>max allowed hops for packet default max</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2811:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="StartPingTestByBoundingBox/">
+                <method displayName="StartPingTestByBoundingBox" id="2810" name="GET">
+                    <doc>Starts ping test from probes in selected area. Each probe (up to "probeslimit" parameter value) will execute multiple ping tests (default 3, can be changed in "count" parameter) with delay of 1s between each ping (can be changed in "sleep" parameter). Response will contain ping results from multiple probes. Each probe result is calculated average of the individual pings executed from that particular probe.</doc>
+                    <request>
+                        <param name="buffersize" required="true" style="query" type="xsd:integer">
+                            <doc>size of the Packet data default max</doc>
+                        </param>
+                        <param name="commandtimeout" required="true" style="query" type="xsd:integer">
+                            <doc>ping timeout in miliseconds that one ping can take default ms</doc>
+                        </param>
+                        <param name="count" required="true" style="query" type="xsd:integer">
+                            <doc>number of pings to run default If number of pings is changed timeout parameter should be changed as well to ensure probe has time to execute all pings</doc>
+                        </param>
+                        <param name="destination" required="true" style="query" type="xsd:string">
+                            <doc>an IP address or hostname that will be pinged</doc>
+                        </param>
+                        <param name="fragment" required="true" style="query" type="xsd:integer">
+                            <doc>fragmentation of sending packets default</doc>
+                        </param>
+                        <param name="ipvOnly" required="true" style="query" type="xsd:integer">
+                            <doc>force using IPv If no IPv IP address is returned will return error default</doc>
+                        </param>
+                        <param name="ipvOnly" required="true" style="query" type="xsd:integer">
+                            <doc>force using IPv If no IPv IP address is returned will return error default</doc>
+                        </param>
+                        <param name="maxlatitude" required="true" style="query" type="xsd:integer">
+                            <doc>latitude of north east corner</doc>
+                        </param>
+                        <param name="maxlongitude" required="true" style="query" type="xsd:integer">
+                            <doc>longitude of north east corner</doc>
+                        </param>
+                        <param name="minlatitude" required="true" style="query" type="xsd:integer">
+                            <doc>latitude of south west corner</doc>
+                        </param>
+                        <param name="minlongitude" required="true" style="query" type="xsd:integer">
+                            <doc>longitude of south west corner</doc>
+                        </param>
+                        <param name="probeslimit" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of probes that will be tested</doc>
+                        </param>
+                        <param name="resolve" required="true" style="query" type="xsd:integer">
+                            <doc>iP addresses will be resolved to domain names for each hop default</doc>
+                        </param>
+                        <param name="sleep" required="true" style="query" type="xsd:integer">
+                            <doc>sleep between pings as executed on one probe in miliseconds default ms</doc>
+                        </param>
+                        <param name="timeout" required="true" style="query" type="xsd:integer">
+                            <doc>amount of time in milliseconds in which API responds with result default Timeout should be calculated in following way Timeout count commandtimeout count sleep ms buffer for delay with API communication</doc>
+                        </param>
+                        <param name="ttl" required="true" style="query" type="xsd:integer">
+                            <doc>max allowed hops for packet default max</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="StartPingTestByASN/">
+                <method displayName="StartPingTestByASN" id="2809" name="GET">
+                    <doc>Starts ping test from probes selected by ASN. Each probe (up to "probeslimit" parameter value) will execute multiple ping tests (default 3, can be changed in "count" parameter) with delay of 1s between each ping (can be changed in "sleep" parameter). Response will contain ping results from multiple probes. Each probe result is calculated average of the individual pings executed from  that particular probe.</doc>
+                    <request>
+                        <param name="asnid" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of ASN IDs</doc>
+                        </param>
+                        <param name="buffersize" required="true" style="query" type="xsd:integer">
+                            <doc>size of the Packet data default max</doc>
+                        </param>
+                        <param name="commandtimeout" required="true" style="query" type="xsd:integer">
+                            <doc>ping timeout in miliseconds that one ping can take default ms</doc>
+                        </param>
+                        <param name="count" required="true" style="query" type="xsd:integer">
+                            <doc>number of pings to run default If number of pings is changed timeout parameter should be changed as well to ensure probe has time to execute all pings</doc>
+                        </param>
+                        <param name="destination" required="true" style="query" type="xsd:string">
+                            <doc>an IP address or hostname that will be pinged</doc>
+                        </param>
+                        <param name="fragment" required="true" style="query" type="xsd:integer">
+                            <doc>fragmentation of sending packets default</doc>
+                        </param>
+                        <param name="ipvOnly" required="true" style="query" type="xsd:integer">
+                            <doc>force using IPv If no IPv IP address is returned will return error default</doc>
+                        </param>
+                        <param name="ipvOnly" required="true" style="query" type="xsd:integer">
+                            <doc>force using IPv If no IPv IP address is returned will return error default</doc>
+                        </param>
+                        <param name="probeslimit" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of probes that will be tested If test requires testing multiple ASNs probesLimit needs to be adjusted to be higher than actual number of tested ASNs</doc>
+                        </param>
+                        <param name="resolve" required="true" style="query" type="xsd:integer">
+                            <doc>iP addresses will be resolved to domain names for each hop default</doc>
+                        </param>
+                        <param name="sleep" required="true" style="query" type="xsd:integer">
+                            <doc>sleep between pings as executed on one probe in miliseconds default ms</doc>
+                        </param>
+                        <param name="timeout" required="true" style="query" type="xsd:integer">
+                            <doc>amount of time in milliseconds in which API responds with result default Timeout should be calculated in following way Timeout count commandtimeout count sleep ms buffer for delay with API communication</doc>
+                        </param>
+                        <param name="ttl" required="true" style="query" type="xsd:integer">
+                            <doc>max allowed hops for packet default max</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="StartPageLoadTestByNetwork/">
+                <method displayName="StartPageLoadTestByNetwork" id="2808" name="GET">
+                    <doc>Starts page load test from probes in selected network (ISP). Returns list of probes from which tests were performed.</doc>
+                    <request>
+                        <param name="commandtimeout" required="true" style="query" type="xsd:string">
+                            <doc>maximum allowed time for pageload in milliseconds If not set it will default to timeout milliseconds</doc>
+                        </param>
+                        <param name="destination" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of URLs that will be tested Destination URL can start with http or https if it does not http is automatically presumed</doc>
+                        </param>
+                        <param name="networkid" required="true" style="query" type="xsd:integer">
+                            <doc>comma separated list of Network IDs</doc>
+                        </param>
+                        <param name="probeslimit" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of probes that will be tested If test requires testing multiple networks probesLimit needs to be adjusted to be higher than actual number of tested networks</doc>
+                        </param>
+                        <param name="timeout" required="true" style="query" type="xsd:integer">
+                            <doc>maximum time available to probes for testing in miliseconds default ms</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="StartPageLoadTestByCountry/">
+                <method displayName="StartPageLoadTestByCountry" id="2807" name="GET">
+                    <doc>Starts page load test from probes in selected countries. Returns list of probes from which tests were performed.</doc>
+                    <request>
+                        <param name="commandtimeout" required="true" style="query" type="xsd:integer">
+                            <doc>maximum allowed time for pageload in milliseconds If not set it will default to timeout milliseconds</doc>
+                        </param>
+                        <param name="countrycode" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of country codes ISO e g US for USA</doc>
+                        </param>
+                        <param name="destination" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of URLs that will be tested Destination URL can start with http or https if it does not http is automatically presumed</doc>
+                        </param>
+                        <param name="probeslimit" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of probes that will be tested If test requires testing multiple countries probesLimit needs to be adjusted to be higher than actual number of tested countries</doc>
+                        </param>
+                        <param name="statecode" required="true" style="query" type="xsd:string">
+                            <doc>letter state code applies only when CountryCode US</doc>
+                        </param>
+                        <param name="timeout" required="true" style="query" type="xsd:integer">
+                            <doc>maximum time available to probes for testing in miliseconds default ms</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="StartPageLoadTestByASN/">
+                <method displayName="StartPageLoadTestByASN" id="2806" name="GET">
+                    <doc>Starts page load test from probes selected by ASN IDs. Returns list of probes from which tests were performed.</doc>
+                    <request>
+                        <param name="asnid" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of ASN IDs</doc>
+                        </param>
+                        <param name="commandtimeout" required="true" style="query" type="xsd:integer">
+                            <doc>maximum allowed time for pageload in milliseconds If not set it will default to timeout milliseconds</doc>
+                        </param>
+                        <param name="destination" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of URLs that will be tested Destination URL can start with http or https if it does not http is automatically presumed</doc>
+                        </param>
+                        <param name="probeslimit" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of probes that will be tested If test requires testing multiple ASNs probesLimit needs to be adjusted to be higher than actual number of tested ASNs</doc>
+                        </param>
+                        <param name="timeout" required="true" style="query" type="xsd:integer">
+                            <doc>maximum time available to probes for testing in miliseconds default ms</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2806:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="StartPageLoadByBoundingBox/">
+                <method displayName="StartPageLoadByBoundingBox" id="2805" name="GET">
+                    <doc>Starts page load test from probes in selected area. Returns list of probes from which tests were performed.</doc>
+                    <request>
+                        <param name="commandtimeout" required="true" style="query" type="xsd:integer">
+                            <doc>maximum allowed time for pageload in milliseconds If not set it will default to timeout milliseconds</doc>
+                        </param>
+                        <param name="destination" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of URLs that will be tested Destination URL can start with http or https if it does not http is automatically presumed</doc>
+                        </param>
+                        <param name="maxlatitude" required="true" style="query" type="xsd:integer">
+                            <doc>latitude of north east corner</doc>
+                        </param>
+                        <param name="maxlongitude" required="true" style="query" type="xsd:integer">
+                            <doc>longitude of north east corner</doc>
+                        </param>
+                        <param name="minlatitude" required="true" style="query" type="xsd:integer">
+                            <doc>latitude of south west corner</doc>
+                        </param>
+                        <param name="minlongitude" required="true" style="query" type="xsd:integer">
+                            <doc>longitude of south west corner</doc>
+                        </param>
+                        <param name="probeslimit" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of probes that will be tested If test requires testing multiple countries probesLimit needs to be adjusted to be higher than actual number of tested countries</doc>
+                        </param>
+                        <param name="timeout" required="true" style="query" type="xsd:integer">
+                            <doc>maximum time available to probes for testing in miliseconds default ms</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="StartHttpGetTestByNetwork/">
+                <method displayName="StartHttpGetTestByNetwork" id="2804" name="GET">
+                    <doc>Starts http get test from probes in selected network (ISP). Returns list of probes from which tests were performed.</doc>
+                    <request>
+                        <param name="commandtimeout" required="true" style="query" type="xsd:integer">
+                            <doc>maximum allowed time to send HTTP GET request and receive the response in milliseconds If not set it will default to timeout milliseconds</doc>
+                        </param>
+                        <param name="destination" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of URLs that will be tested Destination URL can start with http or https if it does not http is automatically presumed</doc>
+                        </param>
+                        <param name="maxbytes" required="true" style="query" type="xsd:integer">
+                            <doc>max bytes to download from response stream Default MB</doc>
+                        </param>
+                        <param name="networkid" required="true" style="query" type="xsd:integer">
+                            <doc>comma separated list of Network IDs</doc>
+                        </param>
+                        <param name="probeslimit" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of probes that will be tested If test requires testing multiple networks probesLimit needs to be adjusted to be higher than actual number of tested networks</doc>
+                        </param>
+                        <param name="timeout" required="true" style="query" type="xsd:integer">
+                            <doc>maximum time available to probes for testing in miliseconds default ms</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="StartHttpGetTestByCountry/">
+                <method displayName="StartHttpGetTestByCountry" id="2803" name="GET">
+                    <doc>Starts http get test from probes in selected countries. Returns list of probes from which tests were performed.</doc>
+                    <request>
+                        <param name="commandtimeout" required="true" style="query" type="xsd:integer">
+                            <doc>maximum allowed time to send HTTP GET request and receive the response in milliseconds If not set it will default to timeout milliseconds</doc>
+                        </param>
+                        <param name="countrycode" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of country codes ISO e g US for USA</doc>
+                        </param>
+                        <param name="destination" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of URLs that will be tested Destination URL can start with http or https if it does not http is automatically presumed</doc>
+                        </param>
+                        <param name="maxbytes" required="true" style="query" type="xsd:integer">
+                            <doc>max bytes to download from response stream Default MB</doc>
+                        </param>
+                        <param name="probeslimit" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of probes that will be tested</doc>
+                        </param>
+                        <param name="statecode" required="true" style="query" type="xsd:string">
+                            <doc>letter state code applies only when CountryCode US</doc>
+                        </param>
+                        <param name="timeout" required="true" style="query" type="xsd:integer">
+                            <doc>maximum time available to probes for testing in miliseconds default</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2803:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="StartHttpGetTestByBoundingBox/">
+                <method displayName="StartHttpGetTestByBoundingBox" id="2802" name="GET">
+                    <doc>Starts http get test from probes in selected area. Returns list of probes from which tests were performed.</doc>
+                    <request>
+                        <param name="commandtimeout" required="true" style="query" type="xsd:integer">
+                            <doc>maximum allowed time to send HTTP GET request and receive the response in milliseconds If not set it will default to timeout milliseconds</doc>
+                        </param>
+                        <param name="destination" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of URLs that will be tested Destination URL can start with http or https if it does not http is automatically presumed</doc>
+                        </param>
+                        <param name="maxbytes" required="true" style="query" type="xsd:integer">
+                            <doc>max bytes to download from response stream Default MB</doc>
+                        </param>
+                        <param name="maxlatitude" required="true" style="query" type="xsd:integer">
+                            <doc>latitude of north east corner</doc>
+                        </param>
+                        <param name="maxlongitude" required="true" style="query" type="xsd:integer">
+                            <doc>longitude of north east corner</doc>
+                        </param>
+                        <param name="minlatitude" required="true" style="query" type="xsd:integer">
+                            <doc>latitude of south west corner</doc>
+                        </param>
+                        <param name="minlongitude" required="true" style="query" type="xsd:integer">
+                            <doc>longitude of south west corner</doc>
+                        </param>
+                        <param name="probeslimit" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of probes that will be tested</doc>
+                        </param>
+                        <param name="timeout" required="true" style="query" type="xsd:string">
+                            <doc>maximum time available to probes for testing in miliseconds default</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="StartHttpGetTestByASN/">
+                <method displayName="StartHttpGetTestByASN" id="2801" name="GET">
+                    <doc>Starts http get test from probes selected by ASN IDs. Returns list of probes from which tests were performed.</doc>
+                    <request>
+                        <param name="asnid" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of ASN IDs</doc>
+                        </param>
+                        <param name="commandtimeout" required="true" style="query" type="xsd:integer">
+                            <doc>maximum allowed time to send HTTP GET request and receive the response in milliseconds If not set it will default to timeout milliseconds</doc>
+                        </param>
+                        <param name="destination" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of URLs that will be tested Destination URL can start with http or https if it does not http is automatically presumed</doc>
+                        </param>
+                        <param name="maxbyte" required="true" style="query" type="xsd:integer">
+                            <doc>max bytes to download from response stream Default MB</doc>
+                        </param>
+                        <param name="probeslimit" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of probes that will be tested If test requires testing multiple ASNs probesLimit needs to be adjusted to be higher than actual number of tested ASNs</doc>
+                        </param>
+                        <param name="timeout" required="true" style="query" type="xsd:integer">
+                            <doc>maximum time available to probes for testing in miliseconds default</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="StartDIGTestByNetwork/">
+                <method displayName="StartDIGTestByNetwork" id="2800" name="GET">
+                    <doc>Starts DIG test from probes in selected network (ISP). DNS query is using user's DNS server as the DNS Resolver server and returns the "Query time" in miliseconds. Query type: A. Query class: IN. Cache:0. Recurse:0. Protocol:UDP. Tries:1. Time:2. Returns list of probes from which tests were performed.</doc>
+                    <request>
+                        <param name="cache" required="true" style="query" type="xsd:integer">
+                            <doc>cache result in local cache e g means don t cache results default</doc>
+                        </param>
+                        <param name="commandtimeout" required="true" style="query" type="xsd:integer">
+                            <doc>dNS query timeout in milliseconds default ms</doc>
+                        </param>
+                        <param name="destination" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of hostnames that will be resolved</doc>
+                        </param>
+                        <param name="networkid" required="true" style="query" type="xsd:integer">
+                            <doc>comma separated list of Network IDs</doc>
+                        </param>
+                        <param name="probeslimit" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of probes that will be tested If test requires testing multiple networks probesLimit needs to be adjusted to be higher than actual number of tested networks</doc>
+                        </param>
+                        <param name="qclass" required="true" style="query" type="xsd:string">
+                            <doc>query class default IN</doc>
+                        </param>
+                        <param name="qtype" required="true" style="query" type="xsd:string">
+                            <doc>query type default A</doc>
+                        </param>
+                        <param name="recurse" required="true" style="query" type="xsd:integer">
+                            <doc>set Recursion Desired flag default</doc>
+                        </param>
+                        <param name="retries" required="true" style="query" type="xsd:integer">
+                            <doc>total number of retries default</doc>
+                        </param>
+                        <param name="server" required="true" style="query" type="xsd:string">
+                            <doc>dNS server to use as a resolver e g default empty string uses local DNS setting</doc>
+                        </param>
+                        <param name="tcp" required="true" style="query" type="xsd:integer">
+                            <doc>use tcp as a transport e g means use UDP both use port default</doc>
+                        </param>
+                        <param name="time" required="true" style="query" type="xsd:integer">
+                            <doc>timeout value in miliseconds default</doc>
+                        </param>
+                        <param name="timeout" required="true" style="query" type="xsd:integer">
+                            <doc>maximum time available to probes for testing in miliseconds default ms</doc>
+                        </param>
+                        <param name="tries" required="true" style="query" type="xsd:integer">
+                            <doc>total number of tries e g means only one try will be done no retries default</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="StartDIGTestByCountry/">
+                <method displayName="StartDIGTestByCountry" id="2799" name="GET">
+                    <doc>Starts DIG test from probes in selected countries. DNS query is using user's DNS server as the DNS Resolver server and returns the "Query time" in miliseconds. Query type: A. Query class: IN. Cache:0. Recurse:0. Protocol:UDP. Tries:1. Time:2. Returns list of probes from which tests were performed.</doc>
+                    <request>
+                        <param name="cache" required="true" style="query" type="xsd:integer">
+                            <doc>cache result in local cache e g means don t cache results default</doc>
+                        </param>
+                        <param name="commandtimeout" required="true" style="query" type="xsd:integer">
+                            <doc>dNS query timeout in milliseconds default ms</doc>
+                        </param>
+                        <param name="countrycode" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of country codes ISO e g US for USA</doc>
+                        </param>
+                        <param name="destination" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of hostnames that will be resolved</doc>
+                        </param>
+                        <param name="probeslimit" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of probes that will be tested If test requires testing multiple countries probesLimit needs to be adjusted to be higher than actual number of tested countries</doc>
+                        </param>
+                        <param name="qclass" required="true" style="query" type="xsd:string">
+                            <doc>query class default IN</doc>
+                        </param>
+                        <param name="qtype" required="true" style="query" type="xsd:string">
+                            <doc>query type default A</doc>
+                        </param>
+                        <param name="recurse" required="true" style="query" type="xsd:integer">
+                            <doc>set Recursion Desired flag default</doc>
+                        </param>
+                        <param name="retries" required="true" style="query" type="xsd:integer">
+                            <doc>total number of retries default</doc>
+                        </param>
+                        <param name="server" required="true" style="query" type="xsd:string">
+                            <doc>dNS server to use as a resolver e g default empty string uses local DNS setting</doc>
+                        </param>
+                        <param name="statecode" required="true" style="query" type="xsd:string">
+                            <doc>letter state code applies only when CountryCode US</doc>
+                        </param>
+                        <param name="tcp" required="true" style="query" type="xsd:integer">
+                            <doc>use tcp as a transport e g means use UDP both use port default</doc>
+                        </param>
+                        <param name="time" required="true" style="query" type="xsd:integer">
+                            <doc>timeout value in miliseconds default</doc>
+                        </param>
+                        <param name="timeout" required="true" style="query" type="xsd:integer">
+                            <doc>maximum time available to probes for testing in miliseconds default ms</doc>
+                        </param>
+                        <param name="tries" required="true" style="query" type="xsd:integer">
+                            <doc>total number of tries e g means only one try will be done no retries default</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2799:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="StartDIGTestByBoundingBox/">
+                <method displayName="StartDIGTestByBoundingBox" id="2798" name="GET">
+                    <doc>Starts DIG test from probes in selected area. DNS query is using user's DNS server as the DNS Resolver server and returns the "Query time" in miliseconds. Query type: A. Query class: IN. Cache:0. Recurse:0. Protocol:UDP. Tries:1. Time:2. Returns list of probes from which tests were performed.</doc>
+                    <request>
+                        <param name="cache" required="true" style="query" type="xsd:integer">
+                            <doc>cache result in local cache e g means don t cache results default</doc>
+                        </param>
+                        <param name="commandtimeout" required="true" style="query" type="xsd:integer">
+                            <doc>dNS query timeout in milliseconds default ms</doc>
+                        </param>
+                        <param name="destination" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of hostnames that will be resolved</doc>
+                        </param>
+                        <param name="maxlatitude" required="true" style="query" type="xsd:integer">
+                            <doc>latitude of north east corner</doc>
+                        </param>
+                        <param name="maxlongitude" required="true" style="query" type="xsd:integer">
+                            <doc>longitude of north east corner</doc>
+                        </param>
+                        <param name="minlatitude" required="true" style="query" type="xsd:integer">
+                            <doc>latitude of south west corner</doc>
+                        </param>
+                        <param name="minlongitude" required="true" style="query" type="xsd:integer">
+                            <doc>longitude of south west corner</doc>
+                        </param>
+                        <param name="probeslimit" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of probes that will be tested</doc>
+                        </param>
+                        <param name="qclass" required="true" style="query" type="xsd:string">
+                            <doc>query class default IN</doc>
+                        </param>
+                        <param name="qtype" required="true" style="query" type="xsd:string">
+                            <doc>query type default A</doc>
+                        </param>
+                        <param name="recurse" required="true" style="query" type="xsd:integer">
+                            <doc>set Recursion Desired flag default</doc>
+                        </param>
+                        <param name="retries" required="true" style="query" type="xsd:integer">
+                            <doc>total number of retries default</doc>
+                        </param>
+                        <param name="server" required="true" style="query" type="xsd:string">
+                            <doc>dNS server to use as a resolver e g default empty string uses local DNS setting</doc>
+                        </param>
+                        <param name="tcp" required="true" style="query" type="xsd:integer">
+                            <doc>use tcp as a transport e g means use UDP both use port default</doc>
+                        </param>
+                        <param name="time" required="true" style="query" type="xsd:integer">
+                            <doc>timeout value in miliseconds default</doc>
+                        </param>
+                        <param name="timeout" required="true" style="query" type="xsd:integer">
+                            <doc>maximum time available to probes for testing in miliseconds default ms</doc>
+                        </param>
+                        <param name="tries" required="true" style="query" type="xsd:integer">
+                            <doc>total number of tries e g means only one try will be done no retries default</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="StartDIGTestByASN/">
+                <method displayName="StartDIGTestByASN" id="2797" name="GET">
+                    <doc>Starts DIG test from probes selected by ASN IDs. DNS query is using user's DNS server as the DNS Resolver server and returns the "Query time" in miliseconds. Query type: A. Query class: IN. Cache:0. Recurse:0. Protocol:UDP. Tries:1. Time:2. Returns list of probes from which tests were performed.</doc>
+                    <request>
+                        <param name="asnid" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of ASN IDs</doc>
+                        </param>
+                        <param name="cache" required="true" style="query" type="xsd:integer">
+                            <doc>cache result in local cache e g means don t cache results default</doc>
+                        </param>
+                        <param name="commandtimeout" required="true" style="query" type="xsd:integer">
+                            <doc>dNS query timeout in milliseconds default ms</doc>
+                        </param>
+                        <param name="destination" required="true" style="query" type="xsd:string">
+                            <doc>comma separated list of hostnames that will be resolved</doc>
+                        </param>
+                        <param name="probeslimit" required="true" style="query" type="xsd:integer">
+                            <doc>maximum number of probes that will be tested If test requires testing multiple ASNs probesLimit needs to be adjusted to be higher than actual number of tested ASNs</doc>
+                        </param>
+                        <param name="qclass" required="true" style="query" type="xsd:string">
+                            <doc>query class default IN</doc>
+                        </param>
+                        <param name="qtype" required="true" style="query" type="xsd:string">
+                            <doc>query type default A</doc>
+                        </param>
+                        <param name="recurse" required="true" style="query" type="xsd:integer">
+                            <doc>set Recursion Desired flag default</doc>
+                        </param>
+                        <param name="retries" required="true" style="query" type="xsd:integer">
+                            <doc>total number of retries default</doc>
+                        </param>
+                        <param name="server" required="true" style="query" type="xsd:string">
+                            <doc>dNS server to use as a resolver e g default empty string uses local DNS setting</doc>
+                        </param>
+                        <param name="tcp" required="true" style="query" type="xsd:integer">
+                            <doc>use tcp as a transport e g means use UDP both use port default</doc>
+                        </param>
+                        <param name="time" required="true" style="query" type="xsd:integer">
+                            <doc>timeout value in miliseconds default</doc>
+                        </param>
+                        <param name="timeout" required="true" style="query" type="xsd:integer">
+                            <doc>maximum time available to probes for testing in miliseconds default ms</doc>
+                        </param>
+                        <param name="tries" required="true" style="query" type="xsd:integer">
+                            <doc>total number of tries e g means only one try will be done no retries default</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="GetProbesByNetwork/">
+                <method displayName="GetProbesByNetwork" id="2796" name="GET">
+                    <doc>Gets active probes in network (ISP).</doc>
+                    <request>
+                        <param name="networkid" required="true" style="query" type="xsd:integer">
+                            <doc>iD of network</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="GetProbesByCountry/">
+                <method displayName="GetProbesByCountry" id="2795" name="GET">
+                    <doc>Gets active probes in country.</doc>
+                    <request>
+                        <param name="countrycode" required="true" style="query" type="xsd:string">
+                            <doc>contry code ISO</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="GetProbesByBoundingBox/">
+                <method displayName="GetProbesByBoundingBox" id="2794" name="GET">
+                    <doc>Gets active probes in selected area.</doc>
+                    <request>
+                        <param name="maxlatitude" required="true" style="query" type="xsd:integer">
+                            <doc>latitude of north east corner</doc>
+                        </param>
+                        <param name="maxlongitude" required="true" style="query" type="xsd:integer">
+                            <doc>longitude of north east corner</doc>
+                        </param>
+                        <param name="minlatitude" required="true" style="query" type="xsd:integer">
+                            <doc>latitude of south west corner</doc>
+                        </param>
+                        <param name="minlongitude" required="true" style="query" type="xsd:integer">
+                            <doc>longitude of south west corner</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="GetProbesByAsn/">
+                <method displayName="GetProbesByAsn" id="2793" name="GET">
+                    <doc>Gets active probes for Asn</doc>
+                    <request>
+                        <param name="asnid" required="true" style="query" type="xsd:string">
+                            <doc>iD of an ASN</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="GetNetworksByCountry/">
+                <method displayName="GetNetworksByCountry" id="2792" name="GET">
+                    <doc>Gets list of networks in country with number of active probes. Lists only networks with active probes.</doc>
+                    <request>
+                        <param name="countrycode" required="true" style="query" type="xsd:string">
+                            <doc>contry code ISO</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="GetCountries/">
+                <method displayName="GetCountries" id="2791" name="GET">
+                    <doc>Gets list of countries with number of active probes. Lists only countries with active probes.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f2791:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1205="urn:function:f1205">
+    <grammars>
+        <include href="Function1205.xsd"/>
+    </grammars>
+    <doc>largest open database of barcoded products Send a GTIN EAN UPC ISBN and get all the information we have in JSON</doc>
+    <resources base="https://community-outpan.p.mashape.com/">
+        <resource uri="get_product.php/">
+            <method displayName="Get product data" id="1205" name="GET">
+                <request>
+                    <param name="apikey" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="barcode" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f1205:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

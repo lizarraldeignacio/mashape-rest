@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6923="urn:function:f6923" xmlns:f6924="urn:function:f6924">
+    <grammars>
+        <include href="Function6924.xsd"/>
+        <include href="Function6923.xsd"/>
+    </grammars>
+    <doc>a highly scalable sharded globally persistent counter which can withstand datacenter crashes machine crashes and application crashes Useful for generating monotonically increasing numbers required by certain applications like Coinbase for e g</doc>
+    <resources base="https://list-persistent-counter-v1.p.mashape.com/">
+        <resource uri="value/">
+            <method displayName="/value" id="6924" name="POST">
+                <doc>Get the value of counter.</doc>
+                <request/>
+                <response>
+                    <representation element="f6924:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="increment/">
+            <method displayName="/increment" id="6923" name="POST">
+                <doc>Increment or Decrement the counter (use negative value for decrementing).</doc>
+                <request/>
+                <response>
+                    <representation element="f6923:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

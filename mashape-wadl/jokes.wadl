@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2175="urn:function:f2175" xmlns:f2176="urn:function:f2176">
+    <grammars>
+        <include href="Function2176.xsd"/>
+        <include href="Function2175.xsd"/>
+    </grammars>
+    <doc>the WebKnox Jokes API allows you to access over jokes from Knock Knock puns to Chuck Norris jokes you will find a lot to laugh about</doc>
+    <resources base="https://webknox-jokes.p.mashape.com/">
+        <resource uri="jokes/">
+            <resource uri="praise/">
+                <method displayName="Praise somebody" id="2179" name="GET">
+                    <doc>Praise a person that deserves to be praised with random phrases.</doc>
+                    <request>
+                        <param name="content" required="true" style="query" type="xsd:string">
+                            <doc>the reason why the person deserves to be praised</doc>
+                        </param>
+                        <param name="name" required="true" style="query" type="xsd:string">
+                            <doc>the name of the person that deserves to be praised</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="insult/">
+                <method displayName="Insult somebody." id="2178" name="GET">
+                    <doc>Insult a person that deserves to be insulted.</doc>
+                    <request>
+                        <param name="content" required="true" style="query" type="xsd:string">
+                            <doc>the reason why the person should get insulted</doc>
+                        </param>
+                        <param name="name" required="true" style="query" type="xsd:string">
+                            <doc>the name of the person that should be insulted</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="oneLiner/">
+                <method displayName="Get a random one liner." id="2177" name="GET">
+                    <doc>Get a random one liner. This is usually a funny quote or an interesting observation.</doc>
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="random/">
+                <method displayName="Get a Random Joke" id="2176" name="GET">
+                    <doc>Get a random joke.</doc>
+                    <request>
+                        <param name="maxlength" required="true" style="query" type="xsd:integer">
+                            <doc>the maximum number of characters in the joke</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2176:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="search/">
+                <method displayName="Find Jokes" id="2175" name="GET">
+                    <doc>Find jokes with given search criteria.</doc>
+                    <request>
+                        <param name="category" required="true" style="query" type="xsd:string">
+                            <doc>the category of the joke</doc>
+                        </param>
+                        <param name="keywords" required="true" style="query" type="xsd:string">
+                            <doc>a comma separated list of keywords that must occur in the joke</doc>
+                        </param>
+                        <param name="minrating" required="true" style="query" type="xsd:integer">
+                            <doc>the minimum rating of the joke between and</doc>
+                        </param>
+                        <param name="numjokes" required="true" style="query" type="xsd:integer">
+                            <doc>the number of jokes between and</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f2175:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

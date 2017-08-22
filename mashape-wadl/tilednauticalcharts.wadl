@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>this API can be used to overlay nautical charts atop a tiled map such as Google Bing leaflet and so on It currently supports ENC Electronic nautical charts and RNC Raster nautical charts from NOAA</doc>
+    <resources base="https://tehuano-tiled-nautical-charts-v1.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="layers/">
+                <resource uri="enc/">
+                    <resource uri="0/">
+                        <resource uri="{quadkey}/">
+                            <param name="quadkey" style="template" type="xsd:string"/>
+                            <method displayName="ENC TILE" id="7471" name="GET">
+                                <doc>Returns an image tile for the ENC layer and specified quadkey as a PNG.</doc>
+                                <request>
+                                    <param name="quadkey" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="bsb/">
+                    <resource uri="0/">
+                        <resource uri="{quadkey}/">
+                            <param name="quadkey" style="template" type="xsd:string"/>
+                            <method displayName="BSB TILE" id="7470" name="GET">
+                                <doc>Returns an image tile for the raster BSB layer and specified quadkey as a PNG.</doc>
+                                <request>
+                                    <param name="quadkey" required="true" style="query" type="xsd:string"/>
+                                </request>
+                            </method>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

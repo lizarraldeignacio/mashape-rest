@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f491="urn:function:f491" xmlns:f492="urn:function:f492" xmlns:f493="urn:function:f493" xmlns:f494="urn:function:f494" xmlns:f495="urn:function:f495" xmlns:f496="urn:function:f496" xmlns:f497="urn:function:f497" xmlns:f498="urn:function:f498" xmlns:f499="urn:function:f499" xmlns:f500="urn:function:f500" xmlns:f501="urn:function:f501" xmlns:f502="urn:function:f502" xmlns:f503="urn:function:f503" xmlns:f504="urn:function:f504" xmlns:f505="urn:function:f505" xmlns:f506="urn:function:f506" xmlns:f507="urn:function:f507" xmlns:f508="urn:function:f508" xmlns:f509="urn:function:f509" xmlns:f510="urn:function:f510" xmlns:f511="urn:function:f511" xmlns:f512="urn:function:f512" xmlns:f513="urn:function:f513" xmlns:f514="urn:function:f514" xmlns:f515="urn:function:f515" xmlns:f516="urn:function:f516" xmlns:f517="urn:function:f517" xmlns:f518="urn:function:f518" xmlns:f519="urn:function:f519" xmlns:f520="urn:function:f520" xmlns:f521="urn:function:f521">
+    <grammars>
+        <include href="Function491.xsd"/>
+        <include href="Function492.xsd"/>
+        <include href="Function493.xsd"/>
+        <include href="Function494.xsd"/>
+        <include href="Function495.xsd"/>
+        <include href="Function496.xsd"/>
+        <include href="Function497.xsd"/>
+        <include href="Function498.xsd"/>
+        <include href="Function499.xsd"/>
+        <include href="Function500.xsd"/>
+        <include href="Function501.xsd"/>
+        <include href="Function502.xsd"/>
+        <include href="Function503.xsd"/>
+        <include href="Function504.xsd"/>
+        <include href="Function505.xsd"/>
+        <include href="Function506.xsd"/>
+        <include href="Function507.xsd"/>
+        <include href="Function508.xsd"/>
+        <include href="Function509.xsd"/>
+        <include href="Function510.xsd"/>
+        <include href="Function511.xsd"/>
+        <include href="Function512.xsd"/>
+        <include href="Function513.xsd"/>
+        <include href="Function514.xsd"/>
+        <include href="Function515.xsd"/>
+        <include href="Function516.xsd"/>
+        <include href="Function517.xsd"/>
+        <include href="Function518.xsd"/>
+        <include href="Function519.xsd"/>
+        <include href="Function520.xsd"/>
+        <include href="Function521.xsd"/>
+    </grammars>
+    <doc>words API lets you retrieve information about English words including definitions synonyms rhymes pronunciation syllables and frequency of usage It also can tell you about relationships between words for instance that math has categories like algebra and geometry or that a finger is part of a hand</doc>
+    <resources base="https://wordsapiv1.p.mashape.com/">
+        <resource uri="words/">
+            <method displayName="Also" id="491" name="GET">
+                <doc>Phrases of which the word is a part.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try bump</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f491:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Antonyms" id="492" name="GET">
+                <doc>Get antonyms (opposites) of a word.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try free</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f492:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Definitions" id="493" name="GET">
+                <doc>Get definitions of a word, including the part of speech.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try incredible</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f493:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Entails" id="494" name="GET">
+                <doc>Words that are implied by the original word. Usually used for verbs.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try rub</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f494:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Examples" id="495" name="GET">
+                <doc>Get examples of how the word is used.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try uneventful</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f495:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Frequency" id="496" name="GET">
+                <doc>Expands upon the frequeny score returned by the main /words/{word} endpoint.  Returns zipf, a score indicating how common the word is in the English language, with a range of 1 to 7; perMillion, the number of times the word is likely to appear in a corpus of one million English words; and diversity, a 0-1 scale the shows the likelyhood of the word appearing in an English document that is part of a corpus.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try apartment</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f496:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Has Categories" id="497" name="GET">
+                <doc>Categories of the parameter word.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try math</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f497:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Has Instances" id="498" name="GET">
+                <doc>Words that are examples of the parameter word.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try president</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f498:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Has Members" id="499" name="GET">
+                <doc>Words that belong to the group defined by the parameter word.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try cosmos</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f499:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Has Parts" id="500" name="GET">
+                <doc>Words that are parts of the original word.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try building</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f500:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Has Substances" id="501" name="GET">
+                <doc>Words that are substances of the parameter word.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try wood</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f501:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Has Types" id="502" name="GET">
+                <doc>Get more specific examples of types of this word.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try purple</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f502:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Has Usages" id="503" name="GET">
+                <doc>Words that are examples of the domain the original word defines.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try colloquialism</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f503:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="In Category" id="504" name="GET">
+                <doc>The domain category to which the original word belongs.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try chaotic</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f504:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="In Region" id="505" name="GET">
+                <doc>Geographical areas where the word is used.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try chips</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f505:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Is a Type Of" id="506" name="GET">
+                <doc>Finds word that are more general than the given word.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try hatchback</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f506:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Is an Instance Of" id="507" name="GET">
+                <doc>Words that the parameter word is an example of.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try einstein</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f507:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Member Of" id="508" name="GET">
+                <doc>A group to which the word belongs.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try dory</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f508:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Part Of" id="509" name="GET">
+                <doc>The larger whole to which the word belongs.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try finger</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f509:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Pertains To" id="510" name="GET">
+                <doc>Words to which the original word is relevant.</doc>
+                <request>
+                    <param name="words" required="true" style="query" type="xsd:string">
+                        <doc>try caliber</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f510:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Pronunciation" id="511" name="GET">
+                <doc>How to pronounce a word, according to the International Phonetic Alphabet. May include multiple results if the word is pronounced differently depending on its part of speech.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try wind It sounds different depending on if its a noun or a verb</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f511:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Random" id="512" name="GET">
+                <doc>Retrieve a random word, optionally matching a search criteria. You can use the same search criteria as the "Search" endpoint.</doc>
+                <request/>
+                <response>
+                    <representation element="f512:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Region Of" id="513" name="GET">
+                <doc>Words used in the specified geographical area.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try canada</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f513:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Rhymes" id="514" name="GET">
+                <doc>Get a list of words that rhyme with the given word.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f514:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Search" id="515" name="GET">
+                <doc>Search for words matching the parameters you provide.  For more examples, please see the documentation on the website.  https://www.wordsapi.com/docs#search</doc>
+                <request>
+                    <param name="frequencymax" required="true" style="query" type="xsd:string">
+                        <doc>the maximum frequency score of words to return You can use this to limit your search to words that aren t seen as frequently like zygote with a frequency of The range is from</doc>
+                    </param>
+                    <param name="frequencymin" required="true" style="query" type="xsd:string">
+                        <doc>the minimum frequency score of words to return You can use this to limit your search to words that people are familiar with like go with a frequency of The range is from</doc>
+                    </param>
+                    <param name="hasdetails" required="true" style="query" type="xsd:string">
+                        <doc>a comma delimited list of detail types the word has For instance to find words that have both typeOf and hasCategories relationship you would send hasDetails typeOf hasCategories</doc>
+                    </param>
+                    <param name="letterpattern" required="true" style="query" type="xsd:string">
+                        <doc>find words whose letters match the regular expression</doc>
+                    </param>
+                    <param name="letters" required="true" style="query" type="xsd:string">
+                        <doc>the number of letters the word must have</doc>
+                    </param>
+                    <param name="lettersmax" required="true" style="query" type="xsd:string">
+                        <doc>the maximum number of letters the word can have</doc>
+                    </param>
+                    <param name="lettersmin" required="true" style="query" type="xsd:string">
+                        <doc>the minimum number of letters the word must have</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:string">
+                        <doc>the number of results to return per page Must be between and Default is</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:string">
+                        <doc>the page of results to return The default is page</doc>
+                    </param>
+                    <param name="partofspeech" required="true" style="query" type="xsd:string">
+                        <doc>the matching word must have at least one definition with this part of speech</doc>
+                    </param>
+                    <param name="pronunciationpattern" required="true" style="query" type="xsd:string">
+                        <doc>find words whose pronunciation matches the regular expression</doc>
+                    </param>
+                    <param name="sounds" required="true" style="query" type="xsd:string">
+                        <doc>the number of phonemes sounds the word mush have</doc>
+                    </param>
+                    <param name="soundsmax" required="true" style="query" type="xsd:string">
+                        <doc>the maximum number of phonemes sounds the word can have</doc>
+                    </param>
+                    <param name="soundsmin" required="true" style="query" type="xsd:string">
+                        <doc>the minimum number of phonemes sounds the word can have</doc>
+                    </param>
+                    <param name="syllables" required="true" style="query" type="xsd:string">
+                        <doc>the number of syllables the word must have</doc>
+                    </param>
+                    <param name="syllablesmax" required="true" style="query" type="xsd:string">
+                        <doc>the maximum number of syllables the word can have</doc>
+                    </param>
+                    <param name="syllablesmin" required="true" style="query" type="xsd:string">
+                        <doc>the minimum number of syllables the word can have</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f515:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Similar To" id="516" name="GET">
+                <doc>Words that similar to the original word, but are not synonyms.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try bloody</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f516:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Substance Of" id="517" name="GET">
+                <doc>Substances to which the original word is a part of.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f517:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Syllables" id="518" name="GET">
+                <doc>Returns the word broken down into syllables.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try incredible</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f518:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Synonyms" id="519" name="GET">
+                <doc>Get synonyms of a word</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try lovely</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f519:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Usage Of" id="520" name="GET">
+                <doc>Words that the original word is a domain usage of.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try advil</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f520:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Word" id="521" name="GET">
+                <doc>Retrieve information about a word. Results can include definitions, part of speech, synonyms, related words, syllables, and pronunciation. This method is useful to see which relationships are attached to which definition and part of speech of a word.</doc>
+                <request>
+                    <param name="word" required="true" style="query" type="xsd:string">
+                        <doc>try example</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f521:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

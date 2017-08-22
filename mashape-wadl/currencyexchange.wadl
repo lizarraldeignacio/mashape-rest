@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>live currency and foreign exchange rates by specifying source and destination quotes and optionally amount to calculate Support vast amount of quotes around the world</doc>
+    <resources base="https://currency-exchange.p.mashape.com/">
+        <resource uri="listquotes/">
+            <method displayName="listquotes" id="349" name="GET">
+                <doc>List the available quotes in JSON Array this API support, all the available quotes can be used in source and destination quote. Refer exchange endpoint for more information how to call the currency exchange from the source quote to destination quote.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="exchange/">
+            <method displayName="exchange" id="348" name="GET">
+                <doc>Get Currency Exchange by specifying the quotes of source (from) and destination (to), and optionally the source amount to calculate which to get the destination amount, by default the source amount will be 1.</doc>
+                <request>
+                    <param name="from" required="true" style="query" type="xsd:string">
+                        <doc>source Quote</doc>
+                    </param>
+                    <param name="q" required="true" style="query" type="xsd:integer">
+                        <doc>source Amount</doc>
+                    </param>
+                    <param name="to" required="true" style="query" type="xsd:string">
+                        <doc>destination Quote</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

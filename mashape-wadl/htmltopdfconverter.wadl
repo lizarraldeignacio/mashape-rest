@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4805="urn:function:f4805">
+    <grammars>
+        <include href="Function4805.xsd"/>
+    </grammars>
+    <doc>this service converts web pages to PDF formats You can specify additional parameters to customize conversion process It runs on cloud based high availability fault tolerant server farm</doc>
+    <resources base="https://petadata-html-to-pdf-converter.p.mashape.com/">
+        <resource uri="PdfConverter/">
+            <resource uri="ConvertFromUriAsUri/">
+                <method displayName="ConvertFromUriAsUri" id="4805" name="GET">
+                    <doc>Converts webpage and returns uri of pdf</doc>
+                    <request>
+                        <param name="browserheight" required="true" style="query" type="xsd:integer">
+                            <doc>preferred browser height in pixels If you pass service will convert whole webpage Default none</doc>
+                        </param>
+                        <param name="browserwidth" required="true" style="query" type="xsd:integer">
+                            <doc>preferred browser width in pixels Can be used to render responsive web pages Default</doc>
+                        </param>
+                        <param name="renderdelay" required="true" style="query" type="xsd:integer">
+                            <doc>the time in seconds to delay before rendering web page Default</doc>
+                        </param>
+                        <param name="websiteuri" required="true" style="query" type="xsd:string">
+                            <doc>url of a web page to convert</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4805:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="ConvertFromUri/">
+                <method displayName="ConvertFromUri" id="4804" name="GET">
+                    <doc>Converts webpage and returns byte array of pdf file</doc>
+                    <request>
+                        <param name="browserheight" required="true" style="query" type="xsd:integer">
+                            <doc>preferred browser height in pixels If you pass service will convert whole webpage Default</doc>
+                        </param>
+                        <param name="browserwidth" required="true" style="query" type="xsd:integer">
+                            <doc>preferred browser width in pixels Can be used to convert responsive web pages Default</doc>
+                        </param>
+                        <param name="renderdelay" required="true" style="query" type="xsd:integer">
+                            <doc>the time in seconds to delay before converting web page Default</doc>
+                        </param>
+                        <param name="websiteuri" required="true" style="query" type="xsd:string">
+                            <doc>url of a web page to convert</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="ConvertFromHtml/">
+                <method displayName="ConvertFromHtml" id="4803" name="GET">
+                    <doc>Converts html code and returns byte array of pdf file</doc>
+                    <request>
+                        <param name="browserheight" required="true" style="query" type="xsd:integer">
+                            <doc>preferred browser height in pixels If you pass service will convert whole webpage Default</doc>
+                        </param>
+                        <param name="browserwidth" required="true" style="query" type="xsd:integer">
+                            <doc>preferred browser width in pixels Can be used to convert responsive web pages Default</doc>
+                        </param>
+                        <param name="htmlcontent" required="true" style="query" type="xsd:string">
+                            <doc>html code to convert</doc>
+                        </param>
+                        <param name="renderdelay" required="true" style="query" type="xsd:integer">
+                            <doc>the time in seconds to delay before converting web page Default</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

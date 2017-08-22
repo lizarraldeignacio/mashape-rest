@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7365="urn:function:f7365">
+    <grammars>
+        <include href="Function7365.xsd"/>
+    </grammars>
+    <doc>handwriting recognition for Chinese from online dictionary Zhonga ru Every day thousands of our visitors use character recognition and are very happy with the accuracy of recognized results You can see a working example on www zhonga ru just click the button with a pen icon and draw something in Chinese Recognition for English and Japanese are coming soon if you need these languages please let us know in the issues</doc>
+    <resources base="https://zhonga-hwr.p.mashape.com/">
+        <resource uri="recognize/">
+            <method displayName="recognize" id="7365" name="POST">
+                <doc>Recognize a handwritten character by its coordinates.</doc>
+                <request/>
+                <response>
+                    <representation element="f7365:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

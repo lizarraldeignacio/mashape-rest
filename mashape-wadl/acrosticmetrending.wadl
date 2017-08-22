@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1780="urn:function:f1780">
+    <grammars>
+        <include href="Function1780.xsd"/>
+    </grammars>
+    <doc>a real time feed of the pages currently growing in popularity on the Acrostic me website</doc>
+    <resources base="https://acrosticme-acrosticme-trending.p.mashape.com/">
+        <resource uri="trending/">
+            <resource uri="{time_filter}/">
+                <param name="time_filter" style="template" type="xsd:string"/>
+                <resource uri="{service_filter}/">
+                    <param name="service_filter" style="template" type="xsd:string"/>
+                    <method displayName="Get List of Trending Pages" id="1780" name="GET">
+                        <doc>A real-time feed of the latest 20 pages that are growing in popularity on the Acrostic.me website.</doc>
+                        <request>
+                            <param name="serviceFilter" required="true" style="query" type="xsd:string">
+                                <doc>show urls that were shared or clicked to from a specific service</doc>
+                            </param>
+                            <param name="timeFilter" required="true" style="query" type="xsd:string">
+                                <doc>show urls for a specific time range starting from yesterday going back a number of days equal to the specified period Valid values are day week month with the default value of month</doc>
+                            </param>
+                        </request>
+                        <response>
+                            <representation element="f1780:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

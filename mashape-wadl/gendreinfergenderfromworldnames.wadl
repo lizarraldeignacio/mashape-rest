@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3960="urn:function:f3960" xmlns:f3961="urn:function:f3961" xmlns:f3962="urn:function:f3962">
+    <grammars>
+        <include href="Function3961.xsd"/>
+        <include href="Function3960.xsd"/>
+        <include href="Function3962.xsd"/>
+    </grammars>
+    <doc>gendre is a service to predict the likely gender of a personal name on a convenient to scale Covers the US European names Indian names African names Chinese names in Chinese Hebrew Russian Slavic Cyrillic Arabic and more to come</doc>
+    <resources base="https://namsor-gendre.p.mashape.com/">
+        <resource uri="json/">
+            <resource uri="gendreList/">
+                <method displayName="jsonGendreList" id="3961" name="POST">
+                    <doc>Genderize up to 1000 names at a time for higher throughput.</doc>
+                    <request/>
+                    <response>
+                        <representation element="f3961:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="gendre/">
+                <resource uri="{firstname}/">
+                    <param name="firstname" style="template" type="xsd:string"/>
+                    <resource uri="{lastname}/">
+                        <param name="lastname" style="template" type="xsd:string"/>
+                        <method displayName="jsonGendre" id="3960" name="GET">
+                            <doc>To predict the gender of a personal name on a -1 to +1 scale, for a given geography/locale.</doc>
+                            <request>
+                                <param name="countryiso" required="true" style="query" type="xsd:string"/>
+                                <param name="firstname" required="true" style="query" type="xsd:string"/>
+                                <param name="lastname" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f3960:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                        <method displayName="jsonGendreWorld" id="3962" name="GET">
+                            <doc>To predict the gender of a personal name on a -1 to +1 scale, recognizing the likely origin automatically.</doc>
+                            <request>
+                                <param name="firstname" required="true" style="query" type="xsd:string"/>
+                                <param name="lastname" required="true" style="query" type="xsd:string"/>
+                            </request>
+                            <response>
+                                <representation element="f3962:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="gendre/">
+            <resource uri="{firstname}/">
+                <param name="firstname" style="template" type="xsd:string"/>
+                <resource uri="{lastname}/">
+                    <param name="lastname" style="template" type="xsd:string"/>
+                    <method displayName="gendre" id="3958" name="GET">
+                        <doc>To predict the gender of a personal name on a -1 to +1 scale, for a given geography/locale.</doc>
+                        <request>
+                            <param name="countryiso" required="true" style="query" type="xsd:string"/>
+                            <param name="firstname" required="true" style="query" type="xsd:string"/>
+                            <param name="lastname" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="gendreWorld" id="3959" name="GET">
+                        <doc>To predict the gender of a personal name on a -1 to +1 scale.</doc>
+                        <request>
+                            <param name="firstname" required="true" style="query" type="xsd:string"/>
+                            <param name="lastname" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

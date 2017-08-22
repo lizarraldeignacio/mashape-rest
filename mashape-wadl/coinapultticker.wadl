@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>a bitcoin ticker that provides the Coinapult Index Price and more</doc>
+    <resources base="https://gpg-coinapult-v1.p.mashape.com/">
+        <resource uri="api/">
+            <resource uri="ticker/">
+                <method displayName="ticker" id="5389" name="GET">
+                    <request>
+                        <param name="filter" required="true" style="query" type="xsd:string">
+                            <doc>restrict the levels returned by the ticker Example small</doc>
+                        </param>
+                        <param name="market" required="true" style="query" type="xsd:string">
+                            <doc>specify one of USD BTC EUR BTC GBP BTC XAG BTC XAU BTC</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

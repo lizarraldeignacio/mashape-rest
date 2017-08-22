@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>the Voice RSS Text to Speech TTS API allows conversion of textual content to speech easier than ever Just connect to our Text to Speech TTS API with a few lines of code and get verbal representation of a textual content</doc>
+    <resources base="https://voicerss-text-to-speech.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Convert text to speech via HTTP GET" id="147" name="GET">
+                <doc>Converts textual content to audio content</doc>
+                <request>
+                    <param name="c" required="true" style="query" type="xsd:string">
+                        <doc>the speech audio codec</doc>
+                    </param>
+                    <param name="f" required="true" style="query" type="xsd:string">
+                        <doc>the speech audio formats</doc>
+                    </param>
+                    <param name="hl" required="true" style="query" type="xsd:string">
+                        <doc>the textual content language</doc>
+                    </param>
+                    <param name="r" required="true" style="query" type="xsd:integer">
+                        <doc>the speech rate speed Allows values from slowest speed up to fastest speed Default value normal speed</doc>
+                    </param>
+                    <param name="src" required="true" style="query" type="xsd:string">
+                        <doc>the textual content for converting to speech</doc>
+                    </param>
+                </request>
+            </method>
+            <method displayName="Convert text to speech via HTTP POST" id="148" name="POST">
+                <doc>Converts textual content to audio content</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

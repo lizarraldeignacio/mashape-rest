@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>factual s location platform enriches mobile location signals with definitive global data enabling personalized and contextually relevant mobile experiences Built from billions of inputs the data is constantly updated by Factual s real time data stack</doc>
+    <resources base="https://mashape-community-factual.p.mashape.com/">
+        <resource uri="multi/">
+            <method displayName="Multi" id="3668" name="GET">
+                <doc>The multi API request enables making multiple API requests on the same connection.</doc>
+                <request>
+                    <param name="key" required="true" style="query" type="xsd:string">
+                        <doc>your API Key The KEY parameter is only required for non OAuthenticated requests which are supported only as a debugging convenience</doc>
+                    </param>
+                    <param name="queries" required="true" style="query" type="xsd:string">
+                        <doc>a JSON hash containing all queries that are to be run mapped to a key that will be used to map each individual response in the full response</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="places/">
+            <resource uri="monetize/">
+                <method displayName="Monetize" id="3667" name="GET">
+                    <doc>The Monetize API enables you to access offers that Factual has aggregated from various third party offer originators (currently Groupon, LivingSocial, Yelp, GrubHub and Signpost) and earn money based on conversions. The way it works is Factual snaps offers to Factual Places. These offers and related places are exposed in the Monetize API, which is accessible through the same API structure as Factual’s Read API. You can graphically browse the offers here.  As your users convert (i.e. purchase a deal, order from an online menu), Factual will relay to you a healthy commission from the third party offer originators. To be clear, such payment is based on the actual conversions driven by a given developer.  Registering as an Affilliate  Developers can access the Monetize API free-of-charge, but Factual will not pay-out earnings until the developer has registered with us. Signing up for payments is pretty painless – just contact us and we’ll send short contract to capture your info and the payment terms.  Note also that we will not expose the LivingSocial offers until you have been approved by LivingSocial to incorporate their offers in your application; this is a fast process and it will be turned around quickly once you register.  Finding Deals  The Monetize API works exactly like Factual’s Read API. This means you can employ the same operators you are used on Factual Global Place, such as Geo Filters, Row Filters (i.e. parametric search), an Full Text Search. We’ve listed some sample queries below to get you started.</doc>
+                    <request>
+                        <param name="filters" required="true" style="query" type="xsd:string">
+                            <doc>restrict the data returned to conform to specific conditions e g parametric search Documentation on filters is here http developer factual com api docs row filters</doc>
+                        </param>
+                        <param name="geo" required="true" style="query" type="xsd:string">
+                            <doc>for tables with latitude longitude data restrict data to be returned to be within a geographical range based Documentation on filters is here http developer factual com api docs geo filters Maximum value for meters is</doc>
+                        </param>
+                        <param name="includeCount" required="true" style="query" type="xsd:string">
+                            <doc>include a count of the total number of rows in the dataset that conform to the request based on included filters Requesting the row count will increase the time required to return a response The default behavior is to NOT include a row count</doc>
+                        </param>
+                        <param name="limit" required="true" style="query" type="xsd:string">
+                            <doc>maximum number of rows to return Default is The system maximum is For higher limits please contact Factual however consider requesting a download http www factual com devtools downloads of the data if your use case is requesting more data in a single query than is required t o fulfill a single end user s request</doc>
+                        </param>
+                        <param name="offset" required="true" style="query" type="xsd:string">
+                            <doc>number of rows to skip before returning a page of data Maximum value is minus any value provided under limit Default is</doc>
+                        </param>
+                        <param name="q" required="true" style="query" type="xsd:string">
+                            <doc>full text search query string Documentation for search filters are here http developer factual com api docs full text search</doc>
+                        </param>
+                        <param name="select" required="true" style="query" type="xsd:string">
+                            <doc>what fields to include in the query Note that the order of fields will not necessarily be preserved in the resulting JSON response due to the nature of JSON hashes</doc>
+                        </param>
+                        <param name="sort" required="true" style="query" type="xsd:string">
+                            <doc>the field or secondary fields to sort data on as well as the direction of sort Supports distance as a sort option if a geo filter is specified Supports relevance as a sort option if a full text search is specified either using the q parameter or using the search operator in the fi lter parameter By default any query with a full text search will be sorted by relevance Any query with a geo filter will be sorted by distance from the reference point If both a geo filter and full text search are present the default will be relevance followed by distance</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="geocode/">
+                <method displayName="Geocode" id="3665" name="GET">
+                    <doc>A reverse geocoder: you provide us with a longitude and latitude, we’ll return the nearest valid address.  Caveats:  The service is most accurate and inclusive in the US Addresses will not be returned where we do not have supporting, address-level data This service finds the nearest address – this may-or-may-not be a business. To find the nearest business, use our Global Places API</doc>
+                    <request>
+                        <param name="geo" required="true" style="query" type="xsd:string">
+                            <doc>a geographic point Coordinate order is latitude longitude</doc>
+                        </param>
+                        <param name="key" required="true" style="query" type="xsd:string">
+                            <doc>your API Key The KEY parameter is only required for non OAuthenticated requests which are supported only as a debugging convenience</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="geopulse/">
+            <resource uri="context/">
+                <method displayName="Context" id="3661" name="GET">
+                    <doc>Geopulse Context provides point-based access to geographic area attributes: you provide a long/lat coordinate pair, we provide everything we can know about the immediate geography.  The Geopulse Context API is made up of several “pulses”. Pulses are geo-referenced attributes generated by Factual, sourced from openly available content (such as the US Census), or provided to Factual by proprietary third-parties. We currently provide:  Factual Commercial Density: Relative density of businesses near a location Factual Commercial Profile: Types of businesses near a location Containing Metro Area: MSA in the US Commercial/Residential Ratio: the relative proportion of business to residential addresses Demographics: Age, gender, race, populations statistics, and median household income (US only) We have a great Geopulse Context demo online which shows this content visually  Available pulses are outlined in detail below.</doc>
+                    <request>
+                        <param name="geo" required="true" style="query" type="xsd:string">
+                            <doc>a valid JSON point object The coordinate order is latitude longitude</doc>
+                        </param>
+                        <param name="key" required="true" style="query" type="xsd:string">
+                            <doc>your API Key The KEY parameter is only required for non OAuthenticated requests which are supported only as a debugging convenience</doc>
+                        </param>
+                        <param name="select" required="true" style="query" type="xsd:string">
+                            <doc>a comma delimited string listing the desired pulses enumerated below</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="t/">
+            <resource uri="{view_id}/">
+                <param name="view_id" style="template" type="xsd:string"/>
+                <resource uri="schema/">
+                    <method displayName="Schema" id="3672" name="GET">
+                        <doc>This method returns the schema for a Factual table view. The schema includes:  Table view meta-data: name, description, list of fields, schema version, and whether or not the table is geo and/or full-text searchable. Field meta-data (for each field): name, optional aliase(s), datatype, whether the field is supports full-text search, facets or writes.</doc>
+                        <request>
+                            <param name="key" required="true" style="query" type="xsd:string">
+                                <doc>your API Key The KEY parameter is only required for non OAuthenticated requests which are supported only as a debugging convenience</doc>
+                            </param>
+                            <param name="viewId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="{table_id}/">
+                <param name="table_id" style="template" type="xsd:string"/>
+                <resource uri="{factual_id}/">
+                    <param name="factual_id" style="template" type="xsd:string"/>
+                    <method displayName="Read" id="3670" name="GET">
+                        <doc>Use the read call to query from tables using any combination of full-text, parametric, or geo (lat/lng) searches.</doc>
+                        <request>
+                            <param name="factualId" required="true" style="query" type="xsd:string"/>
+                            <param name="filters" required="true" style="query" type="xsd:string">
+                                <doc>restrict the data returned to conform to specific conditions e g parametric search Documentation on filters is here</doc>
+                            </param>
+                            <param name="geo" required="true" style="query" type="xsd:string">
+                                <doc>restrict data to be returned to be within a geographical range based Documentation on geo filters is here Maximum value for meters is</doc>
+                            </param>
+                            <param name="includeCount" required="true" style="query" type="xsd:string">
+                                <doc>include a count of the total number of row counts returned Requesting the row count will increase the time required to return a response The default behavior is to NOT include a row count</doc>
+                            </param>
+                            <param name="key" required="true" style="query" type="xsd:string">
+                                <doc>your API Key The KEY parameter is only required for non OAuthenticated requests which are supported only as a debugging convenience</doc>
+                            </param>
+                            <param name="limit" required="true" style="query" type="xsd:string">
+                                <doc>maximum number of rows to return Default is The system maximum is For higher limits please contact Factual however consider requesting a download of the data if your use case is requesting more data in a single query than is required to fulfill a single end user s request</doc>
+                            </param>
+                            <param name="offset" required="true" style="query" type="xsd:string">
+                                <doc>number of rows to skip before returning a page of data Maximum value is minus any value provided under limit Default is</doc>
+                            </param>
+                            <param name="q" required="true" style="query" type="xsd:string">
+                                <doc>full text search query string Documentation for search filters are here</doc>
+                            </param>
+                            <param name="select" required="true" style="query" type="xsd:string">
+                                <doc>only return specified fields</doc>
+                            </param>
+                            <param name="sort" required="true" style="query" type="xsd:string">
+                                <doc>the field or secondary fields to sort data on as well as the direction of sort Sort options distance supported as a sort option if a geo filter is specified relevance supported as a sort option if a full text search is specified either using the q parameter or using the search operator in the filter parameter By default any query with a full text search will be sorted by relevance Any query with a geo filter will be sorted by distance from the reference point If both a geo filter and full text search are present the default will be relevance followed by distance</doc>
+                            </param>
+                            <param name="tableId" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="places/">
+                <method displayName="Places" id="3669" name="GET">
+                    <request/>
+                </method>
+                <method displayName="Submit" id="3673" name="GET">
+                    <doc>This method enables submitting edits to existing rows and/or submitting new rows of data in Factual tables. For information on deleting records, see flag. For information on removing data from a single attribute of an existing row of data, see clear.  Submit Endpoint  You may upsert with or without the factual_id. Include the factual_id to update an extant entity. Do not include the ID if you are attempting to write a new entity, or do not know if one already exists.  Please use the us-sandbox table for testing submissions.</doc>
+                    <request>
+                        <param name="clearBlanks" required="true" style="query" type="xsd:string">
+                            <doc>if set to true default is false any field hashed to will be accompanied with a clear</doc>
+                        </param>
+                        <param name="comment" required="true" style="query" type="xsd:string">
+                            <doc>any english text comment that may help explain your corrections</doc>
+                        </param>
+                        <param name="reference" required="true" style="query" type="xsd:string">
+                            <doc>a reference to a URL title person etc that is the source of this data</doc>
+                        </param>
+                        <param name="strict" required="true" style="query" type="xsd:string">
+                            <doc>enable strict mode strict true See below</doc>
+                        </param>
+                        <param name="user" required="true" style="query" type="xsd:string">
+                            <doc>any string corresponding to the user submitting the data The user parameter is described in detail below</doc>
+                        </param>
+                        <param name="values" required="true" style="query" type="xsd:string">
+                            <doc>a JSON hash field names and values to be added to a Factual table</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="{view name}/">
+                <param name="view name" style="template" type="xsd:string"/>
+                <resource uri="resolve/">
+                    <method displayName="Resolve" id="3671" name="GET">
+                        <doc>Use Resolve to enrich your data and match it against Factual’s. For simply mapping your data to Factual’s, see Match.</doc>
+                        <request>
+                            <param name="debug" required="true" style="query" type="xsd:string">
+                                <doc>optionally enables toggling on a debug mode for Resolve that returns all potential candidates for resolution and meta data regarding resolution quality</doc>
+                            </param>
+                            <param name="values" required="true" style="query" type="xsd:string">
+                                <doc>a JSON hash of key value pairs representing the data that will be matched against</doc>
+                            </param>
+                            <param name="viewName" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="viewName" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="match/">
+                    <method displayName="Match" id="3666" name="GET">
+                        <doc>Match your data to Factual’s. The Factual Match endpoint will simply return the Factual ID of the data that matches your data; we return no data if we cannot identify your entity unequivocally.  If you require both the Factual ID and entity data for the place, see Resolve.</doc>
+                        <request>
+                            <param name="key" required="true" style="query" type="xsd:string">
+                                <doc>your API Key The KEY parameter is only required for non OAuthenticated requests which are supported only as a debugging convenience</doc>
+                            </param>
+                            <param name="values" required="true" style="query" type="xsd:string">
+                                <doc>a JSON hash of key value pairs representing the data that will be matched against</doc>
+                            </param>
+                            <param name="viewName" required="true" style="query" type="xsd:string">
+                                <doc/>
+                            </param>
+                            <param name="viewName" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="us-sandbox/">
+                <resource uri="03c26917-5d66-4de9-96bc-b13066173c65/">
+                    <resource uri="flag/">
+                        <method displayName="Flag" id="3664" name="POST">
+                            <doc>API DOC MISSING URL INFORMATION ....This method enables flagging problematic rows in Factual tables. Use this method if you are requesting for an entity to be deleted or merged into a duplicate record.</doc>
+                            <request/>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="[table_name]/">
+                <resource uri="facets/">
+                    <method displayName="Facets" id="3663" name="GET">
+                        <doc>The facets API call enables your to return row counts for Factual tables, grouped by facets of the data. For example, you may want to query all businesses within 1 mile of a location and for a count of those businesses by category.  Not all fields are configured to return facet counts. To determine what fields you can return facets for, use the schema call. The faceted attribute of the schema will let you know.</doc>
+                        <request>
+                            <param name="filters" required="true" style="query" type="xsd:string">
+                                <doc>restrict the data returned to conform to specific conditions e g parametric search Documentation on filters is here</doc>
+                            </param>
+                            <param name="geo" required="true" style="query" type="xsd:string">
+                                <doc>restrict data to be returned to be within a geographical range based Documentation on geo filters is here Maximum value for meters is</doc>
+                            </param>
+                            <param name="includeCount" required="true" style="query" type="xsd:string">
+                                <doc>include a count of the total number of row counts returned Requesting the row count will increase the time required to return a response The default behavior is to NOT include a row count</doc>
+                            </param>
+                            <param name="key" required="true" style="query" type="xsd:string">
+                                <doc>your API Key The KEY parameter is only required for non OAuthenticated requests which are supported only as a debugging convenience</doc>
+                            </param>
+                            <param name="limit" required="true" style="query" type="xsd:string">
+                                <doc>maximum number of facet counts to return in the response Default is Max is</doc>
+                            </param>
+                            <param name="minCount" required="true" style="query" type="xsd:string">
+                                <doc>for each facet count the minimum count it must show in order to be returned in the response Must be zero or greater The default is</doc>
+                            </param>
+                            <param name="q" required="true" style="query" type="xsd:string">
+                                <doc>full text search query string Documentation for search filters are here</doc>
+                            </param>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="{ViewName}/">
+                <param name="ViewName" style="template" type="xsd:string"/>
+                <resource uri="diffs/">
+                    <method displayName="Diffs" id="3662" name="GET">
+                        <doc>Factual makes available data downloads — the entirety of a table in zipped CSV format. While data downloads implemented on your own servers are highly convenient for some use cases, they divorce your copy of the data from our continuously updated canonical dataset. In contract, users of the Factual API always have access to the freshest possible data.  The Factual Diffs API solves this issue by perpetuating atomic changes to the Factual dataset, disconnecting your update schedule from our own and guaranteeing a current and timely implementation of Factual data on your local server.  Note: the Diffs API is only available to users with download licenses. Please contact Factual if you are interested in using this API.</doc>
+                        <request>
+                            <param name="end" required="true" style="query" type="xsd:string">
+                                <doc>end of window to pull down diffs As above</doc>
+                            </param>
+                            <param name="start" required="true" style="query" type="xsd:string">
+                                <doc>beginning of window to pull down diffs Unix timestamp in milliseconds</doc>
+                            </param>
+                            <param name="viewname" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="{view id}/">
+                <param name="view id" style="template" type="xsd:string"/>
+                <resource uri="{factual id}/">
+                    <param name="factual id" style="template" type="xsd:string"/>
+                    <resource uri="clear/">
+                        <method displayName="Clear" id="3660" name="POST">
+                            <doc>This method enables clearing existing attributes in an entity. Clearing an attribute attempts to reset whatever value it currently contains, to a blank state.</doc>
+                            <request>
+                                <param name="factualId" required="true" style="query" type="xsd:string"/>
+                                <param name="viewId" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

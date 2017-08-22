@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3137="urn:function:f3137">
+    <grammars>
+        <include href="Function3137.xsd"/>
+    </grammars>
+    <doc>geoIP query more than different source to provide an high precision highly detailed geo coding of the ip address</doc>
+    <resources base="https://netfluidframework-geoip-v1.p.mashape.com/">
+        <resource uri="geoip/">
+            <resource uri="{address}/">
+                <param name="address" style="template" type="xsd:string"/>
+                <method displayName="Geo location" id="3137" name="GET">
+                    <doc>High detailed geo location of the ip address</doc>
+                    <request>
+                        <param name="address" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f3137:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

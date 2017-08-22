@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>whatsapp API is an unofficial whatsapp API build to send messages including text video audio and picture to target numbers One can send this for reaching out to near ones from their own preferred apps and send custom messages This API is purely an unofficial API and we do not support any kind of spam messages through this API Visit our site to know more about custom whatsapp API instance and services E g whatsapp api python whatsapp api tutorial whatsapp api c whatsapp api github whatsapp api download whatsapp api ruby whatsapp api android whatsapp api php You must agree our TOS to use this free API</doc>
+    <resources base="https://datayuge-whatsapp-api-unofficial.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="whatspusher/">
+                <method displayName="Send Message" id="2008" name="GET">
+                    <doc>Send Message to custom Number. Note: For Custom WhatsApp API and Instance, visit http://www.datayuge.in</doc>
+                    <request>
+                        <param name="audmsg" required="true" style="query" type="xsd:string">
+                            <doc>enter the direct audio URL</doc>
+                        </param>
+                        <param name="no" required="true" style="query" type="xsd:string">
+                            <doc>the target Mobile with Country Code Note Do not add or in front</doc>
+                        </param>
+                        <param name="picmsg" required="true" style="query" type="xsd:string">
+                            <doc>send picture message to the recipient Enter the direct URL of the picture E g https workablehr s amazonaws com uploads account logo large mashape png</doc>
+                        </param>
+                        <param name="txtmsg" required="true" style="query" type="xsd:string">
+                            <doc>send text message to the given number</doc>
+                        </param>
+                        <param name="vidmsg" required="true" style="query" type="xsd:string">
+                            <doc>enter the direct URL of the video</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

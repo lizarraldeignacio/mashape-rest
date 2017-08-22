@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>getting balance of bitcoin and in fiat via API is done by sending an http POST to https bips me api v getbalance On a successful POST a JSON encoded array will be received in the response On any invalid API request an error message will be received in the response of the POST Your system should account for this API key should never be publicly visible If compromised one can generate a new one in BIPS account BIPS GetBalance example btc amount rate fiat amount currency USD</doc>
+    <resources base="https://bips-getbalance.p.mashape.com/">
+        <resource uri="">
+            <method displayName="GetBalance" id="2945" name="POST">
+                <doc>Getting balance of bitcoin and in fiat via API is done by sending an http POST to https://bips.me/api/v1/getbalance</doc>
+                <request/>
+            </method>
+        </resource>
+    </resources>
+</application>

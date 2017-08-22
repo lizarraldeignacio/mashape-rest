@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4423="urn:function:f4423" xmlns:f4424="urn:function:f4424" xmlns:f4425="urn:function:f4425" xmlns:f4426="urn:function:f4426" xmlns:f4427="urn:function:f4427">
+    <grammars>
+        <include href="Function4426.xsd"/>
+        <include href="Function4423.xsd"/>
+        <include href="Function4424.xsd"/>
+        <include href="Function4425.xsd"/>
+        <include href="Function4427.xsd"/>
+    </grammars>
+    <doc>zenPayroll is delightful modern payroll Our comprehensive payroll service enables businesses to get set up and run payroll in minutes from any web enabled device All government payroll taxes reporting and compliance are taken care of automatically and paperlessly The ZenPayroll API transforms payroll from being a vertical silo to a horizontal platform that seamlessly connects applications for HR time tracking accounting and other important back office functions The immediate benefit of enabling systems to talk to payroll is efficiency and improved data quality In the long run opening up the flow of information between back office applications and payroll is about creating new ways to manage work and compensate employees For instance imagine a point of sale system that could dynamically offer incentives to salespeople based on changes in inventory or an HR system that could generate on the spot bonuses for employees to reward them for their great work</doc>
+    <resources base="https://community-zenpayroll.p.mashape.com/">
+        <resource uri="me/">
+            <method displayName="/api/v1/me" id="4426" name="GET">
+                <doc>Returns: Information pertaining to the currently authenticated user.</doc>
+                <request/>
+                <response>
+                    <representation element="f4426:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="companies/">
+            <resource uri="{company_id}/">
+                <param name="company_id" style="template" type="xsd:string"/>
+                <method displayName="/api/v1/companies/:company_id" id="4423" name="GET">
+                    <doc>Returns: Get information about a particular company</doc>
+                    <request>
+                        <param name="companyId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4423:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="/api/v1/companies/:company_id/employees" id="4424" name="GET">
+                    <doc>Array of all employees currently employeed with this company.</doc>
+                    <request>
+                        <param name="companyId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4424:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="/api/v1/companies/:company_id/pay_periods" id="4425" name="GET">
+                    <doc>Array of all pay periods, past and current, for a company.</doc>
+                    <request>
+                        <param name="companyId" required="true" style="query" type="xsd:string"/>
+                        <param name="endDate" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                        <param name="startDate" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f4425:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Get Payrolls for a Company" id="4427" name="GET">
+                    <doc>Array of all payrolls, current and past, for a company.</doc>
+                    <request>
+                        <param name="companyId" required="true" style="query" type="xsd:string"/>
+                    </request>
+                    <response>
+                        <representation element="f4427:root" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method displayName="Update Payroll" id="4428" name="PUT">
+                    <doc>This endpoint allows you to update information for one or more employees for a specific payroll.  The payrolls are identified by their pay periods' start_date and end_date. Both are required and must correspond with an existing, unprocessed payroll. If the dates do not match, the entire request will be rejected. This was an explicit design decision to remove any assumptions around the timespan for data sent.</doc>
+                    <request>
+                        <param name="companyId" required="true" style="query" type="xsd:string"/>
+                        <param name="payPeriodStartDate" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

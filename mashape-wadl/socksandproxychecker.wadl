@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>all proxy checker for your need support HTTP proxy HTTPS proxy socks socks speed status live or die</doc>
+    <resources base="https://proxydr-socks-4-5-and-proxy-checker.p.mashape.com/">
+        <resource uri="check/">
+            <method displayName="Socks Proxy Checker" id="5723" name="GET">
+                <doc>Socks Proxy Checker</doc>
+                <request>
+                    <param name="proxies" required="true" style="query" type="xsd:string">
+                        <doc>multiple or single proxies address</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

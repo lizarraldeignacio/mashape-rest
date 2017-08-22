@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f259="urn:function:f259">
+    <grammars>
+        <include href="Function259.xsd"/>
+    </grammars>
+    <doc>crime data is great for safe neighbourhoods</doc>
+    <resources base="https://jgentes-Crime-Data-v1.p.mashape.com/">
+        <resource uri="crime/">
+            <method displayName="https://citizenrequests.herokuapp.com" id="259" name="GET">
+                <doc>Proxy for Crimemapping.com</doc>
+                <request>
+                    <param name="enddate" required="true" style="query" type="xsd:string">
+                        <doc>end Date</doc>
+                    </param>
+                    <param name="lat" required="true" style="query" type="xsd:integer">
+                        <doc>latitude</doc>
+                    </param>
+                    <param name="long" required="true" style="query" type="xsd:integer">
+                        <doc>longitude</doc>
+                    </param>
+                    <param name="startdate" required="true" style="query" type="xsd:string">
+                        <doc>begin Date</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f259:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

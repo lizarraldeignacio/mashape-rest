@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5833="urn:function:f5833" xmlns:f5834="urn:function:f5834" xmlns:f5835="urn:function:f5835" xmlns:f5836="urn:function:f5836" xmlns:f5837="urn:function:f5837" xmlns:f5838="urn:function:f5838" xmlns:f5839="urn:function:f5839" xmlns:f5840="urn:function:f5840" xmlns:f5841="urn:function:f5841" xmlns:f5842="urn:function:f5842">
+    <grammars>
+        <include href="Function5836.xsd"/>
+        <include href="Function5837.xsd"/>
+        <include href="Function5838.xsd"/>
+        <include href="Function5839.xsd"/>
+        <include href="Function5840.xsd"/>
+        <include href="Function5841.xsd"/>
+        <include href="Function5842.xsd"/>
+        <include href="Function5835.xsd"/>
+        <include href="Function5834.xsd"/>
+        <include href="Function5833.xsd"/>
+    </grammars>
+    <doc>send gift cards through a single simple REST API Access thousands of local and national merchants USA through our Gifting Platform From customer love to internal employee rewards developers are using the API to create solutions that could only be accomplished before by physically buying and shipping plastic gift cards Gifts can be tied to a specific location perfect for converting online engagement to in store traffic via measurable marketing campaigns We are always looking for new use cases and case studies to feature so if you have any questions comments or general feedback drop us a line at developers yiftee com This API points to our sandbox server and no real gifts will be issues</doc>
+    <resources base="https://yiftee.p.mashape.com/">
+        <resource uri="merchants/">
+            <method displayName="Merchant by city and state" id="5836" name="GET">
+                <doc>Searches for Merchants in specified city and state</doc>
+                <request>
+                    <param name="city" required="true" style="query" type="xsd:string">
+                        <doc>city to search</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>number of results to return default</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>offset of search results default</doc>
+                    </param>
+                    <param name="state" required="true" style="query" type="xsd:string">
+                        <doc>state city is in</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5836:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Merchant by id" id="5837" name="GET">
+                <doc>Returns merchant info for merchant with id = id</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>merchant ID</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5837:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Merchant by lat/lon" id="5838" name="GET">
+                <doc>Searches for merchants near specified lat/lon</doc>
+                <request>
+                    <param name="lat" required="true" style="query" type="xsd:integer">
+                        <doc>latitude degrees N</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>number of results to return default</doc>
+                    </param>
+                    <param name="lon" required="true" style="query" type="xsd:integer">
+                        <doc>longitude degrees E</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>offset of search results default</doc>
+                    </param>
+                    <param name="radius" required="true" style="query" type="xsd:integer">
+                        <doc>radius of search default</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5838:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Merchant by zipcode" id="5839" name="GET">
+                <doc>Searches for merchants in the specified zipcode</doc>
+                <request>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>number of results to return default</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:string">
+                        <doc>offset of search results default</doc>
+                    </param>
+                    <param name="zipcode" required="true" style="query" type="xsd:string">
+                        <doc>zipcode to search</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5839:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Merchants by ids" id="5840" name="GET">
+                <doc>Get multiple merchant information</doc>
+                <request>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>uRL encoded array of merchant IDs</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5840:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="National Brands" id="5841" name="GET">
+                <doc>Returns all national brands in our database</doc>
+                <request/>
+                <response>
+                    <representation element="f5841:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Online Merchants" id="5842" name="GET">
+                <doc>Get a list of merchants who can accept Yiftee gifts online</doc>
+                <request/>
+                <response>
+                    <representation element="f5842:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="gift/">
+            <resource uri="give/">
+                <method displayName="Give a gift" id="5835" name="POST">
+                    <doc>Send a gift to an email address or phone number redeemable at a chosen merchant</doc>
+                    <request/>
+                    <response>
+                        <representation element="f5835:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="status/">
+                <method displayName="Gift status" id="5834" name="GET">
+                    <request>
+                        <param name="auditNumber" required="true" style="query" type="xsd:string">
+                            <doc>the audit number of the gift</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5834:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="account/">
+            <resource uri="balance/">
+                <method displayName="Balance" id="5833" name="GET">
+                    <doc>retrieve account balance</doc>
+                    <request/>
+                    <response>
+                        <representation element="f5833:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

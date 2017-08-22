@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7513="urn:function:f7513">
+    <grammars>
+        <include href="Function7513.xsd"/>
+    </grammars>
+    <doc>i am rich I deserve it I am good healthy successful</doc>
+    <resources base="https://rich.p.mashape.com/">
+        <resource uri="">
+            <method displayName="The Answer" id="7513" name="GET">
+                <doc>The answer to life, and all things.</doc>
+                <request/>
+                <response>
+                    <representation element="f7513:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

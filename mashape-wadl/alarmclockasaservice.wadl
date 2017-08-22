@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6429="urn:function:f6429" xmlns:f6430="urn:function:f6430" xmlns:f6431="urn:function:f6431" xmlns:f6432="urn:function:f6432" xmlns:f6433="urn:function:f6433" xmlns:f6434="urn:function:f6434" xmlns:f6435="urn:function:f6435" xmlns:f6436="urn:function:f6436" xmlns:f6437="urn:function:f6437" xmlns:f6438="urn:function:f6438">
+    <grammars>
+        <include href="Function6435.xsd"/>
+        <include href="Function6436.xsd"/>
+        <include href="Function6438.xsd"/>
+        <include href="Function6434.xsd"/>
+        <include href="Function6432.xsd"/>
+        <include href="Function6430.xsd"/>
+        <include href="Function6437.xsd"/>
+        <include href="Function6433.xsd"/>
+        <include href="Function6431.xsd"/>
+        <include href="Function6429.xsd"/>
+    </grammars>
+    <doc>the Alarm API allows for the scheduling of time based alarms which when triggered take some specified action Send email push notifications or call arbitrary web services all while shortening development time insulating your operation from the intricacies of time calculations and expanding app capability</doc>
+    <resources base="https://alarm.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="target/">
+                <resource uri="token/">
+                    <method displayName="Token" id="6435" name="POST">
+                        <doc>Get a new unique token for a target</doc>
+                        <request/>
+                        <response>
+                            <representation element="f6435:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="json/">
+                <resource uri="target/">
+                    <resource uri="token/">
+                        <method displayName="Token (JSON)" id="6436" name="POST">
+                            <doc>Get a new unique token for a target</doc>
+                            <request/>
+                            <response>
+                                <representation element="f6436:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="trigger/">
+                    <resource uri="update/">
+                        <method displayName="Update (JSON)" id="6438" name="POST">
+                            <doc>Update the time zone and local time of a target</doc>
+                            <request/>
+                            <response>
+                                <representation element="f6438:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="remove/">
+                        <method displayName="Remove (JSON)" id="6434" name="POST">
+                            <doc>Remove a trigger or all triggers for a target</doc>
+                            <request/>
+                            <response>
+                                <representation element="f6434:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="list/">
+                        <method displayName="List (JSON)" id="6432" name="POST">
+                            <doc>List all triggers for a given target</doc>
+                            <request/>
+                            <response>
+                                <representation element="f6432:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="add/">
+                        <method displayName="Add (JSON)" id="6430" name="POST">
+                            <doc>Add a new trigger</doc>
+                            <request/>
+                            <response>
+                                <representation element="f6430:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="trigger/">
+                <resource uri="update/">
+                    <method displayName="Update" id="6437" name="POST">
+                        <doc>Update the time zone and local time of a target</doc>
+                        <request/>
+                        <response>
+                            <representation element="f6437:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="remove/">
+                    <method displayName="Remove" id="6433" name="POST">
+                        <doc>Remove a trigger or all triggers for a target</doc>
+                        <request/>
+                        <response>
+                            <representation element="f6433:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="list/">
+                    <method displayName="List" id="6431" name="POST">
+                        <doc>List all triggers for a given target</doc>
+                        <request/>
+                        <response>
+                            <representation element="f6431:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="add/">
+                    <method displayName="Add" id="6429" name="POST">
+                        <doc>Add a new trigger</doc>
+                        <request/>
+                        <response>
+                            <representation element="f6429:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

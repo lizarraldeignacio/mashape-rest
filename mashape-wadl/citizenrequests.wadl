@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5855="urn:function:f5855" xmlns:f5856="urn:function:f5856" xmlns:f5857="urn:function:f5857">
+    <grammars>
+        <include href="Function5857.xsd"/>
+        <include href="Function5856.xsd"/>
+        <include href="Function5855.xsd"/>
+    </grammars>
+    <doc>citizen requests</doc>
+    <resources base="https://citizenrequests.p.mashape.com/">
+        <resource uri="update/">
+            <method displayName="Update Existing Request" id="5857" name="PUT">
+                <doc>This entry point accepts a PUT with the tracking number of a request and comment to post an existing request and returns the tracking_number.</doc>
+                <request>
+                    <param name="desc" required="true" style="query" type="xsd:string">
+                        <doc>uRL encode the message to submit with the request</doc>
+                    </param>
+                    <param name="trackingNumber" required="true" style="query" type="xsd:integer">
+                        <doc>the tracking number of an existing request</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5857:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="status/">
+            <resource uri="{tracking_number}/">
+                <param name="tracking_number" style="template" type="xsd:string"/>
+                <method displayName="Retrieve Status of Existing Request" id="5856" name="GET">
+                    <doc>This entry point accepts a GET with the tracking_number of the request and returns a JSON array of indexed comments.</doc>
+                    <request>
+                        <param name="showall" required="true" style="query" type="xsd:string">
+                            <doc>will return all messages rather than only messages posted from Spokane Valley Representatives</doc>
+                        </param>
+                        <param name="trackingNumber" required="true" style="query" type="xsd:integer">
+                            <doc>tracking Number of the Request</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5856:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="new/">
+            <method displayName="Create New Request" id="5855" name="POST">
+                <doc>This entry point accepts a POST with the action id and description fields needed to post a request to the e-Gov system and returns a tracking_number.</doc>
+                <request>
+                    <param name="actionid" required="true" style="query" type="xsd:integer">
+                        <doc>use for general requests</doc>
+                    </param>
+                    <param name="desc" required="true" style="query" type="xsd:string">
+                        <doc>uRL encode the message to submit with the request</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5855:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

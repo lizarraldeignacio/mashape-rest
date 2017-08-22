@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3358="urn:function:f3358" xmlns:f3359="urn:function:f3359" xmlns:f3360="urn:function:f3360" xmlns:f3361="urn:function:f3361" xmlns:f3362="urn:function:f3362">
+    <grammars>
+        <include href="Function3362.xsd"/>
+        <include href="Function3361.xsd"/>
+        <include href="Function3360.xsd"/>
+        <include href="Function3359.xsd"/>
+        <include href="Function3358.xsd"/>
+    </grammars>
+    <doc>tap into the millions of points of local open civic data nationwide for you own websites or mobile applications List of data http www yourmapper com browse Datasets include crime property values restaurant health ratings EPA pollution toxic and greenhouse gas emissions historic sites yelp reviews sex offenders car accidents building permits foreclosures real estate bridge safety nursing homes public schools public transit meth labs catholic churches and cultural attractions Coverage is national but data availability depends on source data access Some city data is included in Anchorage San Francisco San Jose Washington Miami Atlanta Chicago Indianapolis Louisville Albuquerque New York Cincinnati Portland Fort Worth and Richmond We can add local data in your city if available</doc>
+    <resources base="https://yourmapper2.p.mashape.com/">
+        <resource uri="markers/">
+            <method displayName="Markers" id="3362" name="GET">
+                <doc>Gets closest marker/location data list around a center Latitude, Longitude for a certain data set.  This is the most important YourMapper API call.</doc>
+                <request>
+                    <param name="c" required="true" style="query" type="xsd:string">
+                        <doc>comma separated list of category ids from mapcategories to include Empty all ID IDs and</doc>
+                    </param>
+                    <param name="center" required="true" style="query" type="xsd:integer">
+                        <doc>include the informative center marker that shows center point and dataset data Default is</doc>
+                    </param>
+                    <param name="compact" required="true" style="query" type="xsd:integer">
+                        <doc>speeds up your query If less fields are returned since they can be gotten with markerinfo description categoryid catcolor geoid Default is</doc>
+                    </param>
+                    <param name="days" required="true" style="query" type="xsd:integer">
+                        <doc>instead of date range you can specify number of days into the past to limit results</doc>
+                    </param>
+                    <param name="end" required="true" style="query" type="xsd:string">
+                        <doc>end date if available ISO yyyy mm dd format</doc>
+                    </param>
+                    <param name="f" required="true" style="query" type="xsd:string">
+                        <doc>format you want the results as json xml csv html rss kml</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>short data set ID</doc>
+                    </param>
+                    <param name="lat" required="true" style="query" type="xsd:integer">
+                        <doc>latitude of center point of search</doc>
+                    </param>
+                    <param name="lon" required="true" style="query" type="xsd:integer">
+                        <doc>longitude of center point of search</doc>
+                    </param>
+                    <param name="num" required="true" style="query" type="xsd:integer">
+                        <doc>number of markers to return Default is Can be to</doc>
+                    </param>
+                    <param name="radius" required="true" style="query" type="xsd:integer">
+                        <doc>for the kml format only Return a circle polyline to show search area Default is</doc>
+                    </param>
+                    <param name="search" required="true" style="query" type="xsd:string">
+                        <doc>keyword to limit results searches name description fields</doc>
+                    </param>
+                    <param name="start" required="true" style="query" type="xsd:string">
+                        <doc>start date if available ISO yyyy mm dd format</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3362:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="markerinfo/">
+            <method displayName="Marker Info" id="3361" name="GET">
+                <doc>Full details about a specific marker/location/point of data</doc>
+                <request>
+                    <param name="dist" required="true" style="query" type="xsd:integer">
+                        <doc>distance in miles of this point to the center of your search Only needed for html and popup formats</doc>
+                    </param>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>json xml csv html popup Popup returns all the html code you need for a map popup bubble</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>unique identifier of one data point</doc>
+                    </param>
+                    <param name="set" required="true" style="query" type="xsd:integer">
+                        <doc>unique short ID of a dataset</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3361:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="mapinfo/">
+            <method displayName="Map Info" id="3360" name="GET">
+                <doc>Detailed info about one data set.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>json xml csv html</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:string">
+                        <doc>unique identifier of the data set from datasetlist</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3360:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="mapcategories/">
+            <method displayName="Map Categories" id="3359" name="GET">
+                <doc>Category list and details associated with a data set.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>json xml csv html html html</doc>
+                    </param>
+                    <param name="id" required="true" style="query" type="xsd:integer">
+                        <doc>unique identifier of the data set</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3359:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="datasetlist/">
+            <method displayName="Dataset List" id="3358" name="GET">
+                <doc>List of our data sets available within a Latitude/Longitude bounding box.</doc>
+                <request>
+                    <param name="format" required="true" style="query" type="xsd:string">
+                        <doc>desired output format html xml csv json rss</doc>
+                    </param>
+                    <param name="maxlat" required="true" style="query" type="xsd:integer">
+                        <doc>maximum Latitude of bounding box</doc>
+                    </param>
+                    <param name="maxlon" required="true" style="query" type="xsd:integer">
+                        <doc>maximum Longitude of bounding box</doc>
+                    </param>
+                    <param name="minlat" required="true" style="query" type="xsd:integer">
+                        <doc>minimum Latitude of bounding box</doc>
+                    </param>
+                    <param name="minlon" required="true" style="query" type="xsd:integer">
+                        <doc>minimum Longitude of bounding box</doc>
+                    </param>
+                    <param name="num" required="true" style="query" type="xsd:integer">
+                        <doc>number of data sets to return</doc>
+                    </param>
+                    <param name="sort" required="true" style="query" type="xsd:string">
+                        <doc>sort of results name updated rating views type location</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3358:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

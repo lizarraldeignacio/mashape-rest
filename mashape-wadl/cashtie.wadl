@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4466="urn:function:f4466" xmlns:f4467="urn:function:f4467" xmlns:f4468="urn:function:f4468" xmlns:f4469="urn:function:f4469" xmlns:f4470="urn:function:f4470" xmlns:f4471="urn:function:f4471" xmlns:f4472="urn:function:f4472">
+    <grammars>
+        <include href="Function4467.xsd"/>
+        <include href="Function4468.xsd"/>
+        <include href="Function4469.xsd"/>
+        <include href="Function4470.xsd"/>
+        <include href="Function4471.xsd"/>
+        <include href="Function4472.xsd"/>
+        <include href="Function4466.xsd"/>
+    </grammars>
+    <doc>cashtie is a powerful web service that links retail cash payments to software applications You will be able to provide new in lane bill payment solutions to your client base and integrate cash payments into your existing applications with just a few lines of code</doc>
+    <resources base="https://community-cashtie.p.mashape.com/">
+        <resource uri="accounts/">
+            <method displayName="Check amount of payment" id="4467" name="GET">
+                <doc>Once you receive a webhook notification that a payment is made, your application should send a request to the Cashtie™ API to check the amount of payment:</doc>
+                <request>
+                    <param name="accountId" required="true" style="query" type="xsd:string"/>
+                    <param name="paymentId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4467:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Check an Account status and balance" id="4468" name="GET">
+                <doc>Any time your application needs to check the Account status, balance or related payments, the following request should be made:</doc>
+                <request>
+                    <param name="accountId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4468:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Close an Account" id="4469" name="PUT">
+                <doc>An Account can be closed at any time. To close an Account, use the following request:</doc>
+                <request>
+                    <param name="accountId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4469:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Open an Account" id="4470" name="POST">
+                <doc>An Account is represented by unique digital Account number issued by Cashtie™ upon request by your application. To open an Account with a fixed amount the following request should be sent:</doc>
+                <request/>
+                <response>
+                    <representation element="f4470:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Reopen an Account" id="4471" name="PUT">
+                <doc>Any suspended Account can be reopened. To reopen suspended Account, use the following request:</doc>
+                <request/>
+                <response>
+                    <representation element="f4471:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Suspend an Account" id="4472" name="PUT">
+                <doc>It's possible to suspend an opened Account. Suspended Account can't accept payment transaction(s). To suspend an Account, use the following request:</doc>
+                <request>
+                    <param name="accountId" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4472:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="merchants/">
+            <method displayName="*Get merchants" id="4466" name="GET">
+                <doc>In order to let your consumers make a payment for a particular Account, your system should be able to provide information about stores where payments are accepted. Cashtie™ API provides this information via Merchant resource:</doc>
+                <request/>
+                <response>
+                    <representation element="f4466:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

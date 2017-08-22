@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5877="urn:function:f5877" xmlns:f5878="urn:function:f5878" xmlns:f5879="urn:function:f5879" xmlns:f5880="urn:function:f5880" xmlns:f5881="urn:function:f5881" xmlns:f5882="urn:function:f5882" xmlns:f5883="urn:function:f5883" xmlns:f5884="urn:function:f5884" xmlns:f5885="urn:function:f5885" xmlns:f5886="urn:function:f5886" xmlns:f5887="urn:function:f5887" xmlns:f5888="urn:function:f5888" xmlns:f5889="urn:function:f5889" xmlns:f5890="urn:function:f5890" xmlns:f5891="urn:function:f5891" xmlns:f5892="urn:function:f5892" xmlns:f5893="urn:function:f5893" xmlns:f5894="urn:function:f5894" xmlns:f5895="urn:function:f5895" xmlns:f5896="urn:function:f5896">
+    <grammars>
+        <include href="Function5896.xsd"/>
+        <include href="Function5888.xsd"/>
+        <include href="Function5887.xsd"/>
+        <include href="Function5891.xsd"/>
+        <include href="Function5878.xsd"/>
+        <include href="Function5879.xsd"/>
+        <include href="Function5880.xsd"/>
+        <include href="Function5881.xsd"/>
+        <include href="Function5882.xsd"/>
+        <include href="Function5883.xsd"/>
+        <include href="Function5885.xsd"/>
+        <include href="Function5886.xsd"/>
+        <include href="Function5890.xsd"/>
+        <include href="Function5892.xsd"/>
+        <include href="Function5894.xsd"/>
+        <include href="Function5895.xsd"/>
+        <include href="Function5877.xsd"/>
+        <include href="Function5884.xsd"/>
+        <include href="Function5889.xsd"/>
+        <include href="Function5893.xsd"/>
+    </grammars>
+    <doc>streak lets you keep track of all your deals right from your inbox We let you group emails from the same customer together into one view and push that customer through your pipeline When a new email comes in you ll have all the context you need</doc>
+    <resources base="https://ideas2it-streak-v1.p.mashape.com/">
+        <resource uri="search/">
+            <method displayName="Search for Boxes/Pipelines" id="5896" name="GET">
+                <doc>The Search endpoint allows you to search the contents on pipelines and boxes. The search functionality returns a relevance sorted list of pipelines and boxes. Pipelines will match on their description while boxes will match on built in and custom field contents.</doc>
+                <request>
+                    <param name="query" required="true" style="query" type="xsd:string">
+                        <doc>query Param</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f5896:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="users/">
+            <resource uri="me/">
+                <method displayName="Get Current User" id="5888" name="GET">
+                    <doc>This will give the current user (as defined by the API Key)</doc>
+                    <request/>
+                    <response>
+                        <representation element="f5888:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="snippets/">
+            <method displayName="Get All Snippets" id="5887" name="GET">
+                <doc>This lets you get all the snippets for a user</doc>
+                <request/>
+                <response>
+                    <representation element="f5887:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Specific Snippet" id="5891" name="GET">
+                <doc>This lets you get a single snippet.</doc>
+                <request>
+                    <param name="snippetkey" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5891:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="pipelines/">
+            <method displayName="Create a Pipeline" id="5878" name="PUT">
+                <doc>This will give you a single pipeline given the key.</doc>
+                <request/>
+                <response>
+                    <representation element="f5878:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Create a Stage in Pipeline" id="5879" name="PUT">
+                <doc>This lets you create a stage defined in a pipeline.</doc>
+                <request>
+                    <param name="pipelinekey" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5879:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete a Pipeline" id="5880" name="DELETE">
+                <doc>This lets you delete a pipeline. All associated data of a pipeline (like boxes) will be deleted as well.</doc>
+                <request>
+                    <param name="pipelinekey" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5880:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete a Specific Stage in Pipeline" id="5881" name="DELETE">
+                <doc>This call lets you delete a stage defined in a pipeline. This call will only suceed if there are no boxes tagged with the key of this stage, else it throws a 400.</doc>
+                <request>
+                    <param name="pipelinekey" required="true" style="query" type="xsd:string"/>
+                    <param name="stagekey" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5881:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Edit a Pipeline" id="5882" name="POST">
+                <doc>Edit the properties of a pipeline.</doc>
+                <request>
+                    <param name="pipelinekey" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5882:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Edit a Specific Stage in Pipeline" id="5883" name="POST">
+                <doc>This lets you edit the name of a stage.</doc>
+                <request>
+                    <param name="pipelinekey" required="true" style="query" type="xsd:string"/>
+                    <param name="stagekey" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5883:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get a specific Pipeline" id="5885" name="GET">
+                <doc>This will give you a single pipeline given the key.</doc>
+                <request>
+                    <param name="pipelinekey" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5885:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get a Specific Stage in Pipeline" id="5886" name="GET">
+                <doc>This gives you a specific stage defined in a pipeline</doc>
+                <request>
+                    <param name="pipelinekey" required="true" style="query" type="xsd:string"/>
+                    <param name="stagekey" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5886:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Newsfeed for Pipeline" id="5890" name="GET">
+                <doc>This endpoint will give you not only the historical changes for a particular pipeline, but also the historical changes for all boxes contained within the pipeline. It is limited to the 50 most recent events</doc>
+                <request>
+                    <param name="pipelinekey" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5890:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List All Boxes in Pipeline" id="5892" name="GET">
+                <doc>This lets you get all boxes contained in the specified pipeline</doc>
+                <request>
+                    <param name="pipelinekey" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5892:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List All Pipelines" id="5894" name="GET">
+                <doc>This will give you access to all pipelines the user</doc>
+                <request/>
+                <response>
+                    <representation element="f5894:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List All Stages in Pipeline" id="5895" name="GET">
+                <doc>This call lists the stages defined in a pipeline. Remember, this is only the definition of the stages - to change what stage a box is in, simply update the box with a new stageKey.</doc>
+                <request>
+                    <param name="pipelinekey" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5895:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="boxes/">
+            <method displayName="Create a Comment" id="5877" name="PUT">
+                <doc>This call lets you create a comment associated with a particular box.</doc>
+                <request>
+                    <param name="boxkey" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5877:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get a specific Box" id="5884" name="GET">
+                <doc>This gives you a specific box</doc>
+                <request>
+                    <param name="boxkey" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5884:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Get Newsfeed for Box" id="5889" name="GET">
+                <request>
+                    <param name="boxkey" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f5889:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List All Boxes of user" id="5893" name="GET">
+                <doc>This lets you get all boxes that the current user has access to. The boxes returned here are across all pipelines a user has access to. This is a fairly expensive call so there is a lower API quota limit. If possible, get boxes using the pipeline key instead.</doc>
+                <request/>
+                <response>
+                    <representation element="f5893:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

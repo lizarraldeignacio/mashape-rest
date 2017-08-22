@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f620="urn:function:f620">
+    <grammars>
+        <include href="Function620.xsd"/>
+    </grammars>
+    <doc>the HTML to text tool tries to extract text content out of an HTML document It ignores non text HTML content like script object and applet tags Feedback on this tool is welcomed on our blog at http blog partsmagic com text html converter online tool api</doc>
+    <resources base="https://pbkwee-html2text.p.mashape.com/">
+        <resource uri="html-to-text/">
+            <method displayName="HTML to text" id="620" name="PUT">
+                <request/>
+                <response>
+                    <representation element="f620:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

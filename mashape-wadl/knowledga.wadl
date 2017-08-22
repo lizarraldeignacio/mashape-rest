@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3155="urn:function:f3155" xmlns:f3156="urn:function:f3156">
+    <grammars>
+        <include href="Function3156.xsd"/>
+        <include href="Function3155.xsd"/>
+    </grammars>
+    <doc>knowledga is an API that turns an email address into actionable data Currently in private beta Please email m knowledga com for a key</doc>
+    <resources base="https://mrkmcknz-knowledga1.p.mashape.com/">
+        <resource uri="individual/">
+            <method displayName="Individual" id="3156" name="GET">
+                <doc>Endpoint to process an email address to return information in regards to the owner of that email.</doc>
+                <request>
+                    <param name="email" required="true" style="query" type="xsd:string">
+                        <doc>email to be processed</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3156:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="company/">
+            <method displayName="Company" id="3155" name="GET">
+                <doc>Endpoint to process an email address to return information in regards to the company that the individual email address is issued at.</doc>
+                <request>
+                    <param name="email" required="true" style="query" type="xsd:string">
+                        <doc>email to be processed</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f3155:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

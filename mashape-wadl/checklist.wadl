@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3823="urn:function:f3823" xmlns:f3828="urn:function:f3828">
+    <grammars>
+        <include href="Function3828.xsd"/>
+        <include href="Function3823.xsd"/>
+    </grammars>
+    <doc>the Checklist API gives you access to our To Do Task Management platform Help your users Get Things Done</doc>
+    <resources base="https://checklist-checklist.p.mashape.com/">
+        <resource uri="users/">
+            <resource uri="updatePassword/">
+                <method displayName="Update Password" id="3828" name="PUT">
+                    <request/>
+                    <response>
+                        <representation element="f3828:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="field/">
+                <resource uri="{scope.fieldName}/">
+                    <param name="scope.fieldName" style="template" type="xsd:string"/>
+                    <method displayName="Update Field" id="3827" name="PUT">
+                        <request>
+                            <param name="scopeFieldname" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="sendMessage/">
+                <method displayName="Send Message" id="3825" name="POST">
+                    <request/>
+                </method>
+            </resource>
+            <resource uri="available/">
+                <method displayName="Is Display Name Available" id="3824" name="GET">
+                    <request>
+                        <param name="displayname" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="get/">
+                <method displayName="Get User" id="3823" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f3823:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="field{scope.fieldName}/">
+                <param name="scope.fieldName" style="template" type="xsd:string"/>
+                <method displayName="Get Field" id="3822" name="GET">
+                    <request>
+                        <param name="scopeFieldname" required="true" style="query" type="xsd:string"/>
+                        <param name="scopeFieldname" required="true" style="query" type="xsd:string">
+                            <doc/>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="avatar/">
+                <method displayName="Delete Avatar" id="3821" name="DELETE">
+                    <request/>
+                </method>
+                <method displayName="Set Avatar" id="3826" name="POST">
+                    <doc>Returns the URL where the Avatar can be found</doc>
+                    <request/>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

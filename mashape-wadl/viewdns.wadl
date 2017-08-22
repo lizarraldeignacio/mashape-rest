@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1968="urn:function:f1968" xmlns:f1970="urn:function:f1970" xmlns:f1971="urn:function:f1971" xmlns:f1972="urn:function:f1972" xmlns:f1973="urn:function:f1973" xmlns:f1974="urn:function:f1974" xmlns:f1975="urn:function:f1975" xmlns:f1976="urn:function:f1976" xmlns:f1977="urn:function:f1977" xmlns:f1978="urn:function:f1978" xmlns:f1979="urn:function:f1979" xmlns:f1980="urn:function:f1980" xmlns:f1981="urn:function:f1981">
+    <grammars>
+        <include href="Function1981.xsd"/>
+        <include href="Function1980.xsd"/>
+        <include href="Function1979.xsd"/>
+        <include href="Function1978.xsd"/>
+        <include href="Function1977.xsd"/>
+        <include href="Function1976.xsd"/>
+        <include href="Function1975.xsd"/>
+        <include href="Function1974.xsd"/>
+        <include href="Function1973.xsd"/>
+        <include href="Function1972.xsd"/>
+        <include href="Function1971.xsd"/>
+        <include href="Function1970.xsd"/>
+        <include href="Function1968.xsd"/>
+    </grammars>
+    <doc>your one source for DNS related tools dns info reverse ip pagerank portscan port scan lookup records whois ipwhois dnstools web hosting hosting traceroute dns report dnsreport ip location ip location finder spam spam database dnsbl propagation dns propagation checker checker china chinese firewall great firewall is my site down is site down site down down dns propagate</doc>
+    <resources base="https://community-viewdns.p.mashape.com/">
+        <resource uri="whois/">
+            <method displayName="Whois" id="1981" name="GET">
+                <doc>Displays owner/contact information for a domain name. Can also be used to determine if a domain name is registered or not.  This tool is not available to free API key users. Access is restricted to paid API keys only.</doc>
+                <request>
+                    <param name="domain" required="true" style="query" type="xsd:string">
+                        <doc>the domain to perform a whois lookup on</doc>
+                    </param>
+                    <param name="output" required="true" style="query" type="xsd:string">
+                        <doc>the output format required xml or json</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1981:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="traceroute/">
+            <method displayName="Traceroute" id="1980" name="GET">
+                <doc>Determines the series of servers that data traverses from the ViewDNS server to the specified domain name or IP address.</doc>
+                <request>
+                    <param name="domain" required="true" style="query" type="xsd:string">
+                        <doc>the domain or IP address to perform a traceroute on</doc>
+                    </param>
+                    <param name="output" required="true" style="query" type="xsd:string">
+                        <doc>the output format required xml or json</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1980:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="spamdblookup/">
+            <method displayName="Spam Database Lookup" id="1979" name="GET">
+                <doc>Find out if your mail server is listed in any spam databases.</doc>
+                <request>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>the IP address to test for spam blacklisting</doc>
+                    </param>
+                    <param name="output" required="true" style="query" type="xsd:string">
+                        <doc>the output format required xml or json</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1979:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="reversedns/">
+            <method displayName="Reverse DNS Lookup" id="1978" name="GET">
+                <doc>Find the reverse DNS entry (PTR) for a given IP. This is generally the server or host name.</doc>
+                <request>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>the IP address to retrieve the reverse DNS record for</doc>
+                    </param>
+                    <param name="output" required="true" style="query" type="xsd:string">
+                        <doc>the output format required xml or json</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1978:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="portscan/">
+            <method displayName="Port Scanner" id="1977" name="GET">
+                <doc>This web based port scanner will test whether common ports are open on a server. Useful in determining if a specific service (e.g. HTTP) is up or down on a specific server.   Ports scanned are: 21, 22, 23, 25, 80, 110, 139, 143, 445, 1433, 1521, 3306 and 3389</doc>
+                <request>
+                    <param name="host" required="true" style="query" type="xsd:string">
+                        <doc>the host to perform the port scanner on domain or IP address</doc>
+                    </param>
+                    <param name="output" required="true" style="query" type="xsd:string">
+                        <doc>the output format required xml or json</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1977:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="ping/">
+            <method displayName="Ping" id="1976" name="GET">
+                <doc>Test how long a response from remote system takes to reach the ViewDNS server. Useful for detecting latency issues on network connections.</doc>
+                <request>
+                    <param name="host" required="true" style="query" type="xsd:string">
+                        <doc>the domain or IP address to perform a ping on</doc>
+                    </param>
+                    <param name="output" required="true" style="query" type="xsd:string">
+                        <doc>the output format required xml or json</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1976:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="maclookup/">
+            <method displayName="MAC Address Lookup" id="1975" name="GET">
+                <doc>This tool will display the name of the company that manufactured a specific network device based on its MAC Address.</doc>
+                <request>
+                    <param name="mac" required="true" style="query" type="xsd:string">
+                        <doc>the MAC address to lookup</doc>
+                    </param>
+                    <param name="output" required="true" style="query" type="xsd:string">
+                        <doc>the output format required xml or json</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1975:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="iranfirewall/">
+            <method displayName="Iran Firewall Test" id="1974" name="GET">
+                <doc>Test if any website is accessible using the Internet in Iran in real-time.</doc>
+                <request>
+                    <param name="output" required="true" style="query" type="xsd:string">
+                        <doc>the output format required xml or json</doc>
+                    </param>
+                    <param name="siteurl" required="true" style="query" type="xsd:string">
+                        <doc>the URL to test</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1974:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="iplocation/">
+            <method displayName="IP Location Finder" id="1973" name="GET">
+                <doc>This tool will display geographic information about a supplied IP address including city, country, latitude, longitude and more.</doc>
+                <request>
+                    <param name="ip" required="true" style="query" type="xsd:string">
+                        <doc>the ip address to find the location of</doc>
+                    </param>
+                    <param name="output" required="true" style="query" type="xsd:string">
+                        <doc>the output format required xml or json</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1973:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="freeemail/">
+            <method displayName="Free Email Lookup" id="1972" name="GET">
+                <doc>Find out if a domain name provides free email addresses. Search is performed on a custom made list of thousands of known free email hosts.</doc>
+                <request>
+                    <param name="domain" required="true" style="query" type="xsd:string">
+                        <doc>the domain name to test for free email services</doc>
+                    </param>
+                    <param name="output" required="true" style="query" type="xsd:string">
+                        <doc>the output format required xml or json</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1972:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="dnsrecord/">
+            <method displayName="DNS Record Lookup" id="1971" name="GET">
+                <doc>View all configured DNS records (A, MX, CNAME etc.) for a specified domain name.</doc>
+                <request>
+                    <param name="domain" required="true" style="query" type="xsd:string">
+                        <doc>the domain name to lookup DNS records for</doc>
+                    </param>
+                    <param name="output" required="true" style="query" type="xsd:string">
+                        <doc>the output format required xml or json</doc>
+                    </param>
+                    <param name="recordtype" required="true" style="query" type="xsd:string">
+                        <doc>the type of DNS record you wish to retrieve default ANY</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1971:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="propagation/">
+            <method displayName="DNS Propagation Checker" id="1970" name="GET">
+                <doc>Check whether recent changes to DNS entries have propagated to DNS servers all over the world. Useful in troubleshooting DNS issues that appear to be isolated to one geographic region. Provides a status report on DNS propagation globally.</doc>
+                <request>
+                    <param name="domain" required="true" style="query" type="xsd:string">
+                        <doc>the domain name to test</doc>
+                    </param>
+                    <param name="output" required="true" style="query" type="xsd:string">
+                        <doc>the output format required xml or json</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1970:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="chinesefirewall/">
+            <method displayName="Chinese Firewall Test" id="1969" name="GET">
+                <doc>Checks whether a site is blocked by the Great Firewall of China. This test checks across a number of servers from various locations in mainland China to determine if access to the site provided is possible from behind the Great Firewall of China.   This test checks for symptoms of DNS poisoning, one of the more common methods used by the Chinese government to block access to websites.</doc>
+                <request>
+                    <param name="domain" required="true" style="query" type="xsd:string">
+                        <doc>the domain name to test</doc>
+                    </param>
+                    <param name="output" required="true" style="query" type="xsd:string">
+                        <doc>the output format required xml or json</doc>
+                    </param>
+                </request>
+            </method>
+        </resource>
+        <resource uri="abuselookup/">
+            <method displayName="Abuse Contact Lookup" id="1968" name="GET">
+                <doc>Used to find the abuse contact address for a domain name. This is where you would send complaints about spam originating from that domain.</doc>
+                <request>
+                    <param name="domain" required="true" style="query" type="xsd:string">
+                        <doc>the domain name to find the abuse contact for</doc>
+                    </param>
+                    <param name="output" required="true" style="query" type="xsd:string">
+                        <doc>the output format required xml or json</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1968:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

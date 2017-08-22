@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6413="urn:function:f6413" xmlns:f6414="urn:function:f6414" xmlns:f6415="urn:function:f6415" xmlns:f6416="urn:function:f6416" xmlns:f6417="urn:function:f6417" xmlns:f6418="urn:function:f6418" xmlns:f6419="urn:function:f6419" xmlns:f6420="urn:function:f6420" xmlns:f6421="urn:function:f6421" xmlns:f6422="urn:function:f6422" xmlns:f6423="urn:function:f6423" xmlns:f6424="urn:function:f6424" xmlns:f6425="urn:function:f6425" xmlns:f6426="urn:function:f6426">
+    <grammars>
+        <include href="Function6425.xsd"/>
+        <include href="Function6423.xsd"/>
+        <include href="Function6421.xsd"/>
+        <include href="Function6426.xsd"/>
+        <include href="Function6424.xsd"/>
+        <include href="Function6422.xsd"/>
+        <include href="Function6420.xsd"/>
+        <include href="Function6418.xsd"/>
+        <include href="Function6416.xsd"/>
+        <include href="Function6414.xsd"/>
+        <include href="Function6419.xsd"/>
+        <include href="Function6417.xsd"/>
+        <include href="Function6415.xsd"/>
+        <include href="Function6413.xsd"/>
+    </grammars>
+    <doc>aPNaaS allows your app to send Apple push notifications with an absolute minimum in overhead We take care of delivery feedback and all interim infrastructure allowing your app to send only the essential information easily send to APNS on iOS and Mac</doc>
+    <resources base="https://apn.p.mashape.com/">
+        <resource uri="v1/">
+            <resource uri="session/">
+                <resource uri="preflight/">
+                    <method displayName="Session Preflight" id="6425" name="POST">
+                        <doc>Preflight a session's credentials</doc>
+                        <request/>
+                        <response>
+                            <representation element="f6425:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="deliver/">
+                    <method displayName="Session Deliver" id="6423" name="POST">
+                        <doc>Deliver notifications to a session and end the session</doc>
+                        <request/>
+                        <response>
+                            <representation element="f6423:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="begin/">
+                    <method displayName="Session Begin" id="6421" name="POST">
+                        <doc>Begin a session</doc>
+                        <request/>
+                        <response>
+                            <representation element="f6421:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="json/">
+                <resource uri="session/">
+                    <resource uri="preflight/">
+                        <method displayName="Session Preflight (JSON)" id="6426" name="POST">
+                            <doc>Preflight a session's credentials</doc>
+                            <request/>
+                            <response>
+                                <representation element="f6426:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="deliver/">
+                        <method displayName="Session Deliver (JSON)" id="6424" name="POST">
+                            <doc>Deliver notifications to a session and end the session</doc>
+                            <request/>
+                            <response>
+                                <representation element="f6424:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="begin/">
+                        <method displayName="Session Begin (JSON)" id="6422" name="POST">
+                            <doc>Begin a session</doc>
+                            <request/>
+                            <response>
+                                <representation element="f6422:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="certificate/">
+                    <resource uri="update/">
+                        <method displayName="Certificate Update (JSON)" id="6420" name="POST">
+                            <doc>Update a certificate .pem bundle</doc>
+                            <request/>
+                            <response>
+                                <representation element="f6420:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="remove/">
+                        <method displayName="Certificate Remove (JSON)" id="6418" name="POST">
+                            <request/>
+                            <response>
+                                <representation element="f6418:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="fetch/">
+                        <method displayName="Certificate Fetch (JSON)" id="6416" name="POST">
+                            <doc>Fetch a certificate .pem bundle</doc>
+                            <request/>
+                            <response>
+                                <representation element="f6416:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="add/">
+                        <method displayName="Certificate Add (JSON)" id="6414" name="POST">
+                            <doc>Add a certificate .pem bundle for later use in sending notifications</doc>
+                            <request/>
+                            <response>
+                                <representation element="f6414:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="certificate/">
+                <resource uri="update/">
+                    <method displayName="Certificate Update" id="6419" name="POST">
+                        <doc>Update a certificate .pem bundle</doc>
+                        <request/>
+                        <response>
+                            <representation element="f6419:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="remove/">
+                    <method displayName="Certificate Remove" id="6417" name="POST">
+                        <doc>Remove a certificate .pem bundle</doc>
+                        <request/>
+                        <response>
+                            <representation element="f6417:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="fetch/">
+                    <method displayName="Certificate Fetch" id="6415" name="POST">
+                        <doc>Fetch a certificate .pem bundle</doc>
+                        <request/>
+                        <response>
+                            <representation element="f6415:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="add/">
+                    <method displayName="Certificate Add" id="6413" name="POST">
+                        <doc>Add a certificate .pem bundle for later use in sending notifications</doc>
+                        <request/>
+                        <response>
+                            <representation element="f6413:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

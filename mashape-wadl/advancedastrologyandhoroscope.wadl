@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7314="urn:function:f7314" xmlns:f7315="urn:function:f7315" xmlns:f7316="urn:function:f7316" xmlns:f7317="urn:function:f7317" xmlns:f7318="urn:function:f7318" xmlns:f7319="urn:function:f7319" xmlns:f7320="urn:function:f7320" xmlns:f7321="urn:function:f7321" xmlns:f7322="urn:function:f7322" xmlns:f7323="urn:function:f7323" xmlns:f7324="urn:function:f7324" xmlns:f7325="urn:function:f7325" xmlns:f7326="urn:function:f7326" xmlns:f7327="urn:function:f7327" xmlns:f7328="urn:function:f7328" xmlns:f7329="urn:function:f7329" xmlns:f7330="urn:function:f7330" xmlns:f7331="urn:function:f7331" xmlns:f7332="urn:function:f7332" xmlns:f7333="urn:function:f7333" xmlns:f7334="urn:function:f7334" xmlns:f7335="urn:function:f7335" xmlns:f7336="urn:function:f7336" xmlns:f7337="urn:function:f7337" xmlns:f7338="urn:function:f7338" xmlns:f7339="urn:function:f7339" xmlns:f7340="urn:function:f7340" xmlns:f7341="urn:function:f7341" xmlns:f7343="urn:function:f7343" xmlns:f7344="urn:function:f7344">
+    <grammars>
+        <include href="Function7344.xsd"/>
+        <include href="Function7343.xsd"/>
+        <include href="Function7341.xsd"/>
+        <include href="Function7340.xsd"/>
+        <include href="Function7339.xsd"/>
+        <include href="Function7338.xsd"/>
+        <include href="Function7337.xsd"/>
+        <include href="Function7336.xsd"/>
+        <include href="Function7335.xsd"/>
+        <include href="Function7334.xsd"/>
+        <include href="Function7333.xsd"/>
+        <include href="Function7332.xsd"/>
+        <include href="Function7331.xsd"/>
+        <include href="Function7330.xsd"/>
+        <include href="Function7329.xsd"/>
+        <include href="Function7328.xsd"/>
+        <include href="Function7327.xsd"/>
+        <include href="Function7326.xsd"/>
+        <include href="Function7325.xsd"/>
+        <include href="Function7324.xsd"/>
+        <include href="Function7323.xsd"/>
+        <include href="Function7322.xsd"/>
+        <include href="Function7321.xsd"/>
+        <include href="Function7319.xsd"/>
+        <include href="Function7317.xsd"/>
+        <include href="Function7318.xsd"/>
+        <include href="Function7316.xsd"/>
+        <include href="Function7315.xsd"/>
+        <include href="Function7314.xsd"/>
+        <include href="Function7320.xsd"/>
+    </grammars>
+    <doc>start creating horoscopes and reports on your websites and mobile applications within minutes using Vedic Rishi Astro APIs These APIs provide detailed vedic or Indian astrology calculations along with various prediction reports</doc>
+    <resources base="https://vedicrishi-horoscope-and-astrology-v1.p.mashape.com/">
+        <resource uri="rudraksha_suggestion/">
+            <method displayName="Rudraksha suggestion" id="7344" name="POST">
+                <doc>Recommends suitable rudraksha.</doc>
+                <request/>
+                <response>
+                    <representation element="f7344:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="planet_panchang/">
+            <method displayName="Planet panchang details at the time of sunrise." id="7342" name="POST">
+                <doc>Provides panchang planetary degrees and retrograde positions of panchang at the time of given day sunrise</doc>
+                <request/>
+            </method>
+            <method displayName="Planetary Panchang  Details" id="7343" name="POST">
+                <doc>Provides panchang planetary degrees and retrograde positions</doc>
+                <request/>
+                <response>
+                    <representation element="f7343:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="numero_place_vastu/">
+            <method displayName="Place and vastu" id="7341" name="POST">
+                <doc>Give place and vastu.</doc>
+                <request/>
+                <response>
+                    <representation element="f7341:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="numero_report/">
+            <method displayName="Numerology Report" id="7340" name="POST">
+                <doc>Provides Numerology report.</doc>
+                <request/>
+                <response>
+                    <representation element="f7340:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="numero_table/">
+            <method displayName="Numerology basic details" id="7339" name="POST">
+                <doc>Provides detailed Numerology report.</doc>
+                <request/>
+                <response>
+                    <representation element="f7339:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="match_planet_details/">
+            <method displayName="Matching planetary details" id="7338" name="POST">
+                <doc>Provides both male and female planetary position details of their corresponding horoscopes.</doc>
+                <request/>
+                <response>
+                    <representation element="f7338:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="match_obstructions/">
+            <method displayName="Matching Obstruction" id="7337" name="POST">
+                <doc>Matching Obstruction provide whether matching have obstruction or not.</doc>
+                <request/>
+                <response>
+                    <representation element="f7337:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="match_birth_details/">
+            <method displayName="Matching birth details" id="7336" name="POST">
+                <doc>Gives birth details of both male and femaile horoscope.</doc>
+                <request/>
+                <response>
+                    <representation element="f7336:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="match_astro_details/">
+            <method displayName="Matching astrology details" id="7335" name="POST">
+                <doc>Provides matching astrological details like, varna, vashya,maitri,nadi,gan etc.</doc>
+                <request/>
+                <response>
+                    <representation element="f7335:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="match_manglik_report/">
+            <method displayName="Match manglik report" id="7334" name="POST">
+                <doc>Match manglik reports gives you manglik report for male and female horoscopes.</doc>
+                <request/>
+                <response>
+                    <representation element="f7334:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="match_making_report/">
+            <method displayName="Match making report" id="7333" name="POST">
+                <doc>Match making report gives matching report based on male and female horoscope.</doc>
+                <request/>
+                <response>
+                    <representation element="f7333:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="manglik/">
+            <method displayName="Manglik Report" id="7332" name="POST">
+                <doc>Calculate if Manglik Dosha present or not .</doc>
+                <request/>
+                <response>
+                    <representation element="f7332:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="major_vdasha/">
+            <method displayName="Major vimshottari dasha details" id="7331" name="POST">
+                <doc>Major vimshottari dasha provides complete mahadasha detail.</doc>
+                <request/>
+                <response>
+                    <representation element="f7331:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="kalsarpa_details/">
+            <method displayName="Kalsarpa dosha report" id="7330" name="POST">
+                <doc>Calculate Kal Sarpa Dosha report.</doc>
+                <request/>
+                <response>
+                    <representation element="f7330:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="horo_chart/">
+            <resource uri="{chart_id}/">
+                <param name="chart_id" style="template" type="xsd:string"/>
+                <method displayName="Horoscope Charts" id="7329" name="POST">
+                    <doc>chart_id is based on chart type(all D-charts) - The data points include various planetary positions along with ascendant and their respective house positions to draw horoscope charts.</doc>
+                    <request>
+                        <param name="chartId" required="true" style="query" type="xsd:string">
+                            <doc>d as chart id provides birth chart or ascendant chart or lagna chart Same way SUN For Sun Chart MOON For Moon Chart D For Hora Chart D For Dreshkan Chart D For Chathurthamasha Chart D For Panchmansha Chart D For Saptamansha Chart D For Ashtamansha Chart D For Navamansha Chart D For Dashamansha Chart D For Dwadashamsha chart D For Shodashamsha Chart D For Vishamansha Chart D For Chaturvimshamsha Chart D For Bhamsha Chart D For Trishamansha Chart D For Khavedamsha Chart D For Akshvedansha Chart D For Shashtymsha Chart</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7329:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="planets/">
+            <method displayName="Get Planetary Positions" id="7328" name="POST">
+                <doc>Full planetary positions including ascendant along with retrograde status and nakshatra, house, sign and their specific lordships.</doc>
+                <request/>
+                <response>
+                    <representation element="f7328:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="general_rashi_report/">
+            <resource uri="{planet_name}/">
+                <param name="planet_name" style="template" type="xsd:string"/>
+                <method displayName="General rashi report" id="7327" name="POST">
+                    <doc>Calculates complete general rashi reports.</doc>
+                    <request>
+                        <param name="planetName" required="true" style="query" type="xsd:string">
+                            <doc>gives moon sign report same way you can get mars mercury jupiter venus saturn sign report</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7327:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="general_house_report/">
+            <resource uri="{planet_name}/">
+                <param name="planet_name" style="template" type="xsd:string"/>
+                <method displayName="General house report" id="7326" name="POST">
+                    <doc>Calculates complete general house reports.</doc>
+                    <request>
+                        <param name="planetName" required="true" style="query" type="xsd:string">
+                            <doc>gives house report for sun same way you can get the details of moon mars mercury jupiter venus and saturn</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7326:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="numero_fav_time/">
+            <method displayName="Favourable time" id="7325" name="POST">
+                <doc>Gives favourable time.</doc>
+                <request/>
+                <response>
+                    <representation element="f7325:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="numero_fav_mantra/">
+            <method displayName="Favourable mantra" id="7324" name="POST">
+                <doc>Gives favourable mantra for you.</doc>
+                <request/>
+                <response>
+                    <representation element="f7324:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="numero_fav_lord/">
+            <method displayName="Favourable lord" id="7323" name="POST">
+                <doc>Suggest favourable lord for you.</doc>
+                <request/>
+                <response>
+                    <representation element="f7323:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="numero_fasts_report/">
+            <method displayName="Fasts report" id="7322" name="POST">
+                <doc>Gives fasts report.</doc>
+                <request/>
+                <response>
+                    <representation element="f7322:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="current_vdasha/">
+            <method displayName="Current vimshottari dasha" id="7321" name="POST">
+                <doc>Current vimshottari dasha gives currently undergoing dasha of your horoscope.</doc>
+                <request/>
+                <response>
+                    <representation element="f7321:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="birth_details/">
+            <method displayName="Birth Details" id="7319" name="POST">
+                <doc>Along with birth details it provides sunrise, sunset, ayanamsha as well.</doc>
+                <request/>
+                <response>
+                    <representation element="f7319:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="basic_panchang/">
+            <method displayName="Basic panchang details" id="7317" name="POST">
+                <doc>Provides data points for panchang elements, and sunrise and set timings.</doc>
+                <request/>
+                <response>
+                    <representation element="f7317:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Basic panchang details at the time of sunrise" id="7318" name="POST">
+                <doc>Provides data points for panchang elements, chaugadiya and sunrise and set time at he time of  sunrise.</doc>
+                <request/>
+                <response>
+                    <representation element="f7318:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="basic_gem_suggestion/">
+            <method displayName="Basic gemstone suggestion" id="7316" name="POST">
+                <doc>This api suggest you your "Life Stone , Lucky Stone ,Benefic Stone" with their deity,wearing finger,date,time,weight of stone etc.</doc>
+                <request/>
+                <response>
+                    <representation element="f7316:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="astro_details/">
+            <method displayName="Basic Astrological Details" id="7315" name="POST">
+                <doc>Provides the complete avakahada details e.g. nakshtatra, charan, tithi, karan, yog ,varna, vashaya, yoni, etc</doc>
+                <request/>
+                <response>
+                    <representation element="f7315:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="match_ashtakoot_points/">
+            <method displayName="Ashtakoot details" id="7314" name="POST">
+                <doc>Ashtakoot details provides complete ashtakoot analysis .</doc>
+                <request/>
+                <response>
+                    <representation element="f7314:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="advanced_panchang/">
+            <method displayName="Advanced panchang at the time of sunrise" id="7313" name="POST">
+                <doc>This api provides complete panchang in details at the time of sunrise for given date.</doc>
+                <request/>
+            </method>
+            <method displayName="Complete panchang details" id="7320" name="POST">
+                <doc>Advanced panchang provides complete panchang in details.</doc>
+                <request/>
+                <response>
+                    <representation element="f7320:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

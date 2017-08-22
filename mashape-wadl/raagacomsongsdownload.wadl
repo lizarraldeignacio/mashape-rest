@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f5911="urn:function:f5911" xmlns:f5912="urn:function:f5912" xmlns:f5914="urn:function:f5914" xmlns:f5915="urn:function:f5915" xmlns:f5916="urn:function:f5916" xmlns:f5917="urn:function:f5917">
+    <grammars>
+        <include href="Function5917.xsd"/>
+        <include href="Function5916.xsd"/>
+        <include href="Function5915.xsd"/>
+        <include href="Function5914.xsd"/>
+        <include href="Function5912.xsd"/>
+        <include href="Function5911.xsd"/>
+    </grammars>
+    <doc>browse Search and Download Songs from Raaga com Raaga has a huge catalog of songs from massive hits to rare gems to cult classics with more added every week Discover enjoy and share the music you love This is unofficial API</doc>
+    <resources base="https://devru-raaga-v1.p.mashape.com/">
+        <resource uri="json/">
+            <resource uri="search-v2.asp/">
+                <method displayName="Search" id="5917" name="GET">
+                    <doc>Search Albums &amp; Songs</doc>
+                    <request>
+                        <param name="c" required="true" style="query" type="xsd:string">
+                            <doc>constant</doc>
+                        </param>
+                        <param name="l" required="true" style="query" type="xsd:string">
+                            <doc>language Example H Hindi Refer Channels Endpoint for list of languages</doc>
+                        </param>
+                        <param name="p" required="true" style="query" type="xsd:string">
+                            <doc>constant</doc>
+                        </param>
+                        <param name="q" required="true" style="query" type="xsd:string">
+                            <doc>search querry</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5917:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="notification-v2.asp/">
+                <method displayName="Notifications" id="5916" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f5916:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="homepage-v3.asp?l=H/">
+                <method displayName="Most Popular, Top 10" id="5915" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f5915:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="genre.asp/">
+                <method displayName="Get Genre" id="5914" name="GET">
+                    <doc>Returns Available Genre</doc>
+                    <request>
+                        <param name="l" required="true" style="query" type="xsd:string">
+                            <doc>language Example H hindi Refer Channels Endpoint for more languages</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5914:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="playlist.asp/">
+                <method displayName="Download/Stream Song" id="5913" name="GET">
+                    <doc>Use the URL to download or stream the song</doc>
+                    <request>
+                        <param name="hls" required="true" style="query" type="xsd:string">
+                            <doc>value</doc>
+                        </param>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>enter the song ID</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+            <resource uri="channels.asp/">
+                <method displayName="Channels" id="5912" name="GET">
+                    <doc>Returns list of all channels</doc>
+                    <request/>
+                    <response>
+                        <representation element="f5912:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource uri="browse.asp/">
+                <method displayName="Browse Albums &amp; Songs" id="5911" name="GET">
+                    <doc>Browse Albums &amp; Songs</doc>
+                    <request>
+                        <param name="l" required="true" style="query" type="xsd:string">
+                            <doc>language Example H Hindi Refer Channels Endpoint for Languages</doc>
+                        </param>
+                        <param name="relyear" required="true" style="query" type="xsd:string">
+                            <doc>related year Example</doc>
+                        </param>
+                        <param name="search" required="true" style="query" type="xsd:string">
+                            <doc>search String</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f5911:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

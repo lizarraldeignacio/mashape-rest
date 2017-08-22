@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f6835="urn:function:f6835">
+    <grammars>
+        <include href="Function6835.xsd"/>
+    </grammars>
+    <doc>get the favicon image of any given website in png format x pixel</doc>
+    <resources base="https://dsun174-favicon-v1.p.mashape.com/">
+        <resource uri="">
+            <method displayName="/" id="6835" name="GET">
+                <request>
+                    <param name="host" required="true" style="query" type="xsd:string">
+                        <doc>the host domain or subdomain to get the favicon from</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f6835:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7099="urn:function:f7099" xmlns:f7101="urn:function:f7101" xmlns:f7102="urn:function:f7102" xmlns:f7104="urn:function:f7104">
+    <grammars>
+        <include href="Function7104.xsd"/>
+        <include href="Function7102.xsd"/>
+        <include href="Function7101.xsd"/>
+        <include href="Function7099.xsd"/>
+    </grammars>
+    <doc>access all playlist of PUAHK podcast List out all the tracks by playlist</doc>
+    <resources base="https://puahk-podcast.p.mashape.com/">
+        <resource uri="search/">
+            <resource uri="{year}/">
+                <param name="year" style="template" type="xsd:string"/>
+                <resource uri="{month}/">
+                    <param name="month" style="template" type="xsd:string"/>
+                    <resource uri="{day}/">
+                        <param name="day" style="template" type="xsd:string"/>
+                        <method displayName="Search Track" id="7104" name="GET">
+                            <request>
+                                <param name="day" required="true" style="query" type="xsd:string">
+                                    <doc>day of release date</doc>
+                                </param>
+                                <param name="month" required="true" style="query" type="xsd:string">
+                                    <doc>month of release date</doc>
+                                </param>
+                                <param name="year" required="true" style="query" type="xsd:string">
+                                    <doc>year of release date</doc>
+                                </param>
+                            </request>
+                            <response>
+                                <representation element="f7104:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+        <resource uri="play/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Play Track" id="7103" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>track ID</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="track/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Get Track" id="7102" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>track ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7102:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="playlist/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Get Playlist" id="7101" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>playlist ID</doc>
+                        </param>
+                    </request>
+                    <response>
+                        <representation element="f7101:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="getcover/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="Get Cover Art" id="7100" name="GET">
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string">
+                            <doc>cover ID</doc>
+                        </param>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="allplaylist/">
+            <method displayName="Get All Playlist" id="7099" name="GET">
+                <request>
+                    <param name="details" required="true" style="query" type="xsd:boolean">
+                        <doc>whether show in details</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit record playlist to be shown</doc>
+                    </param>
+                    <param name="page" required="true" style="query" type="xsd:integer">
+                        <doc>page of all playlist</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f7099:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>a Developer Platform for IP Cameras which includes a universal API various hosted services and a marketplace for apps</doc>
+    <resources base="https://community-evercamio.p.mashape.com/">
+        <resource uri="users.json/">
+            <method displayName="POST /users.json" id="3931" name="POST">
+                <doc>Starts the new user signup process</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="cameras.json/">
+            <method displayName="POST /cameras.json" id="3929" name="POST">
+                <request/>
+            </method>
+        </resource>
+        <resource uri="vendors/">
+            <resource uri="{mac}.json/">
+                <param name="mac" style="template" type="xsd:string"/>
+                <method displayName="GET /vendors/{mac}.json" id="3928" name="GET">
+                    <doc>Returns all known IP hardware vendors filtered by MAC prefix</doc>
+                    <request>
+                        <param name="mac" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="vendors.json/">
+            <method displayName="GET /vendors.json" id="3927" name="GET">
+                <doc>Returns all known IP hardware vendors</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="models/">
+            <resource uri="{vendor}/">
+                <param name="vendor" style="template" type="xsd:string"/>
+                <resource uri="{model}.json/">
+                    <param name="model" style="template" type="xsd:string"/>
+                    <method displayName="GET /models/{vendor}/{model}.json" id="3923" name="GET">
+                        <doc>Returns data for a particular camera model</doc>
+                        <request>
+                            <param name="model" required="true" style="query" type="xsd:string"/>
+                            <param name="vendor" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="{vendor}.json/">
+                <param name="vendor" style="template" type="xsd:string"/>
+                <method displayName="GET /models/{vendor}.json" id="3922" name="GET">
+                    <doc>Returns set of known models for a supported camera vendor</doc>
+                    <request>
+                        <param name="vendor" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="models.json/">
+            <method displayName="GET /models.json" id="3921" name="GET">
+                <doc>Returns set of support supported camera vendors</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="users/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <resource uri="rights.json/">
+                    <method displayName="GET /users/{id}/rights.json" id="3926" name="GET">
+                        <doc>Returns the set of camera and other rights you have granted and have been granted (COMING SOON)</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="cameras.json/">
+                    <method displayName="GET /users/{id}/cameras.json" id="3925" name="GET">
+                        <doc>Returns the set of cameras owned by a particular user</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+            </resource>
+            <resource uri="{id}.json/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="DELETE /users/{id}.json" id="3917" name="DELETE">
+                    <doc>Delete your account, any cameras you own and all stored media</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="GET /users/{id}.json" id="3924" name="GET">
+                    <doc>Returns available information for the user</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+        <resource uri="cameras/">
+            <resource uri="{id}/">
+                <param name="id" style="template" type="xsd:string"/>
+                <resource uri="snapshots.json/">
+                    <method displayName="GET /cameras/{id}/snapshots.json" id="3919" name="GET">
+                        <doc>Returns the list of all snapshots currently stored for this camera (COMING SOON)</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                    <method displayName="POST /cameras/{id}/snapshots.json" id="3930" name="POST">
+                        <doc>Fetches a snapshot from the camera and stores it using the current timestamp (COMING SOON)</doc>
+                        <request>
+                            <param name="id" required="true" style="query" type="xsd:string"/>
+                        </request>
+                    </method>
+                </resource>
+                <resource uri="snapshots/">
+                    <resource uri="{timestamp}.json/">
+                        <param name="timestamp" style="template" type="xsd:string"/>
+                        <method displayName="DELETE /cameras/{id}/snapshots/{timestamp}.json" id="3916" name="DELETE">
+                            <doc>Deletes any snapshot for this camera which exactly matches the timestamp (COMING SOON)</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                                <param name="timestamp" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="GET /cameras/{id}/snapshots/{timestamp}.json" id="3920" name="GET">
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                                <param name="timestamp" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                        <method displayName="PUT /cameras/{id}/snapshots/{timestamp}.json" id="3932" name="PUT">
+                            <doc>Stores the supplied snapshot image data for the given timestamp (COMING SOON)</doc>
+                            <request>
+                                <param name="id" required="true" style="query" type="xsd:string"/>
+                                <param name="timestamp" required="true" style="query" type="xsd:string"/>
+                            </request>
+                        </method>
+                    </resource>
+                </resource>
+            </resource>
+            <resource uri="{id}.json/">
+                <param name="id" style="template" type="xsd:string"/>
+                <method displayName="DELETE /cameras/{id}.json" id="3915" name="DELETE">
+                    <doc>Deletes a camera from Evercam along with any stored media</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+                <method displayName="GET /cameras/{id}.json" id="3918" name="GET">
+                    <doc>Returns all data for a given camera</doc>
+                    <request>
+                        <param name="id" required="true" style="query" type="xsd:string"/>
+                    </request>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

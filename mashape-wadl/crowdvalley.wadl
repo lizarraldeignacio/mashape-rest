@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application>
+    <doc>the Crowd Valley API is used to build online platforms and marketplaces globally for managing private placements securities real estate crowdfunding peer to peer lending and public stock trading The public REST API provides an end to end server side application which supports the technical back office requirements for client side applications of various kinds in the online investing and lending markets The Crowd Valley API also contains private financial back office functions and other services which are made available on request</doc>
+    <resources base="https://crowdvalley-crowd-valley-v1.p.mashape.com/">
+        <resource uri="">
+            <method displayName="Crowd Valley API health status" id="7153" name="GET">
+                <doc>Check the current health status of the Crowd Valley API.</doc>
+                <request/>
+            </method>
+        </resource>
+        <resource uri="{network}/">
+            <param name="network" style="template" type="xsd:string"/>
+            <method displayName="Accept Terms and Conditions" id="7148" name="PATCH">
+                <doc>Accept End User Terms and Conditions. Accepting Terms can be implemented as part of creating a user or as a separate step.</doc>
+                <request>
+                    <param name="network" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Cancel the Offering" id="7149" name="DELETE">
+                <doc>Cancel the Offering. This will only work if the logged-in User is a team member of the Organization for this Offering. It will not work unless the Offering has status as Draft or Submitted.</doc>
+                <request>
+                    <param name="network" required="true" style="query" type="xsd:string"/>
+                    <param name="offeringid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Check the status of your network" id="7150" name="GET">
+                <doc>Check that your network has been set up and is available through the API with your API key.</doc>
+                <request>
+                    <param name="network" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Create a new Offering for this Organization" id="7151" name="POST">
+                <doc>Create a new Offering for this Organization. The logged-in User must be a team member of this Organization.</doc>
+                <request>
+                    <param name="network" required="true" style="query" type="xsd:string"/>
+                    <param name="organizationid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Create a new Organization" id="7152" name="POST">
+                <doc>Create a new Organization.</doc>
+                <request>
+                    <param name="network" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Delete the Organization from this network" id="7154" name="DELETE">
+                <doc>Delete the Organization from the network. This will only work if the logged-in User is a team member of the Organization. It will not work if the Organization has any Offerings that do not have status as Canceled.</doc>
+                <request>
+                    <param name="network" required="true" style="query" type="xsd:string"/>
+                    <param name="organizationid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Information about this Investment" id="7155" name="GET">
+                <doc>Information about this Investment. It will only work if the Investment has visibility set to Open or Anonymous.</doc>
+                <request>
+                    <param name="investmentid" required="true" style="query" type="xsd:string"/>
+                    <param name="network" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Information about this Offering" id="7156" name="GET">
+                <doc>Information about this Offering. This will only work if the Offering is visible in the network.</doc>
+                <request>
+                    <param name="network" required="true" style="query" type="xsd:string"/>
+                    <param name="offeringid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="List of Investments for this Offering" id="7157" name="GET">
+                <doc>Populate a list of Investments for this Offering. This can be used to show a list of current investors for this Offering. Investments will be shown in full if visibility is set to Open.</doc>
+                <request>
+                    <param name="network" required="true" style="query" type="xsd:string"/>
+                    <param name="offeringid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="List of Offerings" id="7158" name="GET">
+                <doc>Populate a live Offerings page or a historical/closed deals page. Visible Offerings are those with status Restricted, Published, Live, Closing or Settled.</doc>
+                <request>
+                    <param name="network" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Logged-in user's account information" id="7159" name="GET">
+                <doc>Populate information on an user's private account page.</doc>
+                <request>
+                    <param name="network" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Register a new User" id="7160" name="POST">
+                <doc>Register a new User. Implement this as part of your registration form, including as much information as you want to collect on the first form. User information can be changed or adjusted later using the 'self' endpoint.</doc>
+                <request>
+                    <param name="network" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Retrieve a list of Organizations" id="7161" name="GET">
+                <doc>A list of visible Organizations in the network. Implement this to show a list of Organizations that are supporting various deals, or that are umbrella entities for various users. This will only show Organizations that have visibility set to Open.</doc>
+                <request>
+                    <param name="network" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Retrieve a User's public profile information" id="7162" name="GET">
+                <doc>Populate a user's public profile information. Implement this to allow the logged-in user to see information about other users on the network. It will only populate all information if the target user's visibility is set to Open. This function will only show public profile information - it will not show private account information.</doc>
+                <request>
+                    <param name="network" required="true" style="query" type="xsd:string"/>
+                    <param name="userid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Retrieve information about this Organization" id="7163" name="GET">
+                <doc>Information about the Organization. This will only work if the logged-in User is a team member of the Organization or the Organization has visibility set to Open.</doc>
+                <request>
+                    <param name="network" required="true" style="query" type="xsd:string"/>
+                    <param name="organizationid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Retrieve Offerings for this Organization" id="7164" name="GET">
+                <doc>A list of visible Offerings for this Organization. Visible Offerings are those with status Restricted, Published, Live, Closing or Settled.</doc>
+                <request>
+                    <param name="network" required="true" style="query" type="xsd:string"/>
+                    <param name="organizationid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Retrieve the user's investments" id="7165" name="GET">
+                <doc>Retrieve a list of the user's investments. This will include open investment offers as well as closed investments.</doc>
+                <request>
+                    <param name="network" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Submit an Investment" id="7166" name="POST">
+                <doc>Submit an Investment for this Offering. This can be used to implement an 'Invest' button on an Offering's page.</doc>
+                <request>
+                    <param name="network" required="true" style="query" type="xsd:string"/>
+                    <param name="offeringid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="The User's Organizations" id="7167" name="GET">
+                <doc>A list of the logged-in User's Organizations. This could be used to show for which Organization(s) the User works or for which Organization(s) the User has created Offerings.</doc>
+                <request>
+                    <param name="network" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Update a user's profile information" id="7168" name="PATCH">
+                <doc>Update the logged-in user's profile information.</doc>
+                <request>
+                    <param name="network" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Update an Investment" id="7169" name="PATCH">
+                <doc>Update this Investment. The Investment must have been made by the logged-in User.</doc>
+                <request>
+                    <param name="investmentid" required="true" style="query" type="xsd:string"/>
+                    <param name="network" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Update the Offering's information" id="7170" name="PATCH">
+                <doc>Update the Offering's information. This will only work if the logged-in User is a team member of the Organization for this Offering and the Offering status is Draft.</doc>
+                <request>
+                    <param name="network" required="true" style="query" type="xsd:string"/>
+                    <param name="offeringid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Update the Organization's information" id="7171" name="PATCH">
+                <doc>Update the Organization's information. This will only work if the logged-in User is a team member of the Organization.</doc>
+                <request>
+                    <param name="network" required="true" style="query" type="xsd:string"/>
+                    <param name="organizationid" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Visible Users in your network" id="7172" name="GET">
+                <doc>Populate a public listing page of your visible Users. Users are visible if they have their Visibility field set to Open.</doc>
+                <request>
+                    <param name="network" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+            <method displayName="Withdraw this Investment" id="7173" name="DELETE">
+                <doc>Withdraw this Investment. The Investment must have been made by the logged-in User.</doc>
+                <request>
+                    <param name="investmentid" required="true" style="query" type="xsd:string"/>
+                    <param name="network" required="true" style="query" type="xsd:string"/>
+                </request>
+            </method>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f2926="urn:function:f2926">
+    <grammars>
+        <include href="Function2926.xsd"/>
+    </grammars>
+    <doc>sell on the Go Accept credit cards and run your business on an iPhone iPad or Android device As a Square merchant you can retrieve activity reports for your processed payments refunds and deposits with the Square Connect API Pull these reports into your own custom made applications to help you manage your business</doc>
+    <resources base="https://community-square.p.mashape.com/">
+        <resource uri="me/">
+            <resource uri="payments/">
+                <method displayName="Retrieve your payment history" id="2926" name="GET">
+                    <request/>
+                    <response>
+                        <representation element="f2926:root" mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+    </resources>
+</application>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f1045="urn:function:f1045" xmlns:f1046="urn:function:f1046" xmlns:f1047="urn:function:f1047">
+    <grammars>
+        <include href="Function1047.xsd"/>
+        <include href="Function1046.xsd"/>
+        <include href="Function1045.xsd"/>
+    </grammars>
+    <doc>systemet API is an unofficial API for accessing the Swedish alcohol monopoly Systembolaget product data</doc>
+    <resources base="https://karlroos-systemet.p.mashape.com/">
+        <resource uri="tag/">
+            <method displayName="Tags" id="1047" name="GET">
+                <doc>Product tags</doc>
+                <request/>
+                <response>
+                    <representation element="f1047:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="product/">
+            <method displayName="Products" id="1046" name="GET">
+                <doc>Fetches products</doc>
+                <request>
+                    <param name="alcoholFrom" required="true" style="query" type="xsd:integer">
+                        <doc>alcohol contents range from</doc>
+                    </param>
+                    <param name="alcoholTo" required="true" style="query" type="xsd:integer">
+                        <doc>alcohol contents range to</doc>
+                    </param>
+                    <param name="apkFrom" required="true" style="query" type="xsd:integer">
+                        <doc>aPK range from</doc>
+                    </param>
+                    <param name="apkTo" required="true" style="query" type="xsd:integer">
+                        <doc>aPK range to</doc>
+                    </param>
+                    <param name="country" required="true" style="query" type="xsd:string">
+                        <doc>country ID</doc>
+                    </param>
+                    <param name="ecological" required="true" style="query" type="xsd:boolean">
+                        <doc>ecological or not</doc>
+                    </param>
+                    <param name="koscher" required="true" style="query" type="xsd:boolean">
+                        <doc>koscher or not</doc>
+                    </param>
+                    <param name="limit" required="true" style="query" type="xsd:integer">
+                        <doc>limit</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc>searches name and name with a LIKE</doc>
+                    </param>
+                    <param name="offset" required="true" style="query" type="xsd:integer">
+                        <doc>offset</doc>
+                    </param>
+                    <param name="order" required="true" style="query" type="xsd:string">
+                        <doc>dESC or ASC</doc>
+                    </param>
+                    <param name="orderBy" required="true" style="query" type="xsd:string">
+                        <doc>order by name price price per liter alcohol apk</doc>
+                    </param>
+                    <param name="priceFrom" required="true" style="query" type="xsd:integer">
+                        <doc>price range from</doc>
+                    </param>
+                    <param name="pricePerLiterFrom" required="true" style="query" type="xsd:integer">
+                        <doc>price per liter range from</doc>
+                    </param>
+                    <param name="pricePerLiterTo" required="true" style="query" type="xsd:integer">
+                        <doc>price per liter range to</doc>
+                    </param>
+                    <param name="priceTo" required="true" style="query" type="xsd:integer">
+                        <doc>price range to</doc>
+                    </param>
+                    <param name="startDateFrom" required="true" style="query" type="xsd:string">
+                        <doc>sales start date from range</doc>
+                    </param>
+                    <param name="startDateTo" required="true" style="query" type="xsd:string">
+                        <doc>sales start date to range</doc>
+                    </param>
+                    <param name="tag" required="true" style="query" type="xsd:string">
+                        <doc>comma separated tag IDs</doc>
+                    </param>
+                    <param name="yearFrom" required="true" style="query" type="xsd:integer">
+                        <doc>year range from</doc>
+                    </param>
+                    <param name="yearTo" required="true" style="query" type="xsd:integer">
+                        <doc>year range to</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f1046:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="country/">
+            <method displayName="Countries" id="1045" name="GET">
+                <request/>
+                <response>
+                    <representation element="f1045:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

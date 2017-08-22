@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f3741="urn:function:f3741">
+    <grammars>
+        <include href="Function3741.xsd"/>
+    </grammars>
+    <doc>the application generating random words is very useful not only as a tool for various parlor games but it is also essential for the authors of articles or literary works The application is developed in cooperation with nlp centre According to parameters entered by a user it returns a random word as a text</doc>
+    <resources base="https://xkubist-random-word-v1.p.mashape.com/">
+        <resource uri="run.cgi/">
+            <method displayName="/run.cgi" id="3741" name="GET">
+                <request/>
+                <response>
+                    <representation element="f3741:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>

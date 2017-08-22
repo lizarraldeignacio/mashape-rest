@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f4273="urn:function:f4273" xmlns:f4274="urn:function:f4274" xmlns:f4275="urn:function:f4275" xmlns:f4276="urn:function:f4276" xmlns:f4277="urn:function:f4277" xmlns:f4278="urn:function:f4278" xmlns:f4279="urn:function:f4279" xmlns:f4280="urn:function:f4280" xmlns:f4281="urn:function:f4281" xmlns:f4282="urn:function:f4282" xmlns:f4283="urn:function:f4283" xmlns:f4284="urn:function:f4284" xmlns:f4285="urn:function:f4285" xmlns:f4286="urn:function:f4286" xmlns:f4287="urn:function:f4287" xmlns:f4288="urn:function:f4288" xmlns:f4289="urn:function:f4289" xmlns:f4290="urn:function:f4290" xmlns:f4291="urn:function:f4291" xmlns:f4292="urn:function:f4292" xmlns:f4293="urn:function:f4293" xmlns:f4294="urn:function:f4294" xmlns:f4295="urn:function:f4295" xmlns:f4296="urn:function:f4296" xmlns:f4297="urn:function:f4297" xmlns:f4298="urn:function:f4298">
+    <grammars>
+        <include href="Function4278.xsd"/>
+        <include href="Function4279.xsd"/>
+        <include href="Function4280.xsd"/>
+        <include href="Function4281.xsd"/>
+        <include href="Function4284.xsd"/>
+        <include href="Function4285.xsd"/>
+        <include href="Function4286.xsd"/>
+        <include href="Function4288.xsd"/>
+        <include href="Function4289.xsd"/>
+        <include href="Function4298.xsd"/>
+        <include href="Function4296.xsd"/>
+        <include href="Function4295.xsd"/>
+        <include href="Function4294.xsd"/>
+        <include href="Function4291.xsd"/>
+        <include href="Function4290.xsd"/>
+        <include href="Function4297.xsd"/>
+        <include href="Function4293.xsd"/>
+        <include href="Function4292.xsd"/>
+        <include href="Function4287.xsd"/>
+        <include href="Function4283.xsd"/>
+        <include href="Function4282.xsd"/>
+        <include href="Function4277.xsd"/>
+        <include href="Function4276.xsd"/>
+        <include href="Function4275.xsd"/>
+        <include href="Function4274.xsd"/>
+        <include href="Function4273.xsd"/>
+    </grammars>
+    <doc>the AirVantage M M Cloud simplifies M M development by providing a seamless connection between devices the M M cloud and the enterprise See more at http www sierrawireless com en productsandservices AirVantage M M Cloud How It Works aspx</doc>
+    <resources base="https://dsciamma-airvantage-m2m-cloud.p.mashape.com/">
+        <resource uri="systems/">
+            <method displayName="Create System" id="4278" name="POST">
+                <doc>Create a single system from scratch. For the associated gateway and the subscriptions, you can either create a new one on the fly or select an existing one by its uid.</doc>
+                <request/>
+                <response>
+                    <representation element="f4278:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Delete System" id="4279" name="DELETE">
+                <doc>Delete a specific system from the AirVantage M2M Cloud. If needed, the user can delete the gateway and the subscriptions linked to the system.</doc>
+                <request>
+                    <param name="uid" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4279:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Details of a message" id="4280" name="GET">
+                <doc>Get message details which consist in its uid, timestamp, protocol, datapoints count and the data sent by the device during this message. Duplicate data are counted.</doc>
+                <request>
+                    <param name="uid" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4280:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Edit System" id="4281" name="PUT">
+                <doc>Edit the system identified by the uid of the request.</doc>
+                <request>
+                    <param name="uid" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4281:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Find Systems" id="4284" name="GET">
+                <doc>Returns a paginated list of systems with their complete details.  It is possible to restrain the result list using criteria parameters.  Returned systems are shown only with the following attributes uid, name, state, type, activityState, lastCommDate, commStatus, lastSyncDate, syncStatus To display more or less attributes, the fields parameter has to be set. Though system creation date is not publicly exposed, the default sort order is based on the creation date. More information about paging, filtering, and sorting here</doc>
+                <request>
+                    <param name="fields" required="true" style="query" type="xsd:string">
+                        <doc>uid name state activityState lastCommDate commStatus gateway subscriptions labels applications metadata communication data heartbeat statusReport reports lastSyncDate syncStatus</doc>
+                    </param>
+                    <param name="name" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f4284:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Historical aggregated datapoints" id="4285" name="GET">
+                <doc>Get a temporal aggregation of data points for the system matching the unique identifier and the data id defined in the url. Most recent datapoints are returned first. Three months of data are available.</doc>
+                <request>
+                    <param name="data" required="true" style="query" type="xsd:string"/>
+                    <param name="uid" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4285:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Historical raw datapoints" id="4286" name="GET">
+                <doc>Get the historical values of a raw data for the system matching the unique identifier and the data id defined in the url. Most recent datapoints are returned first.  Limitations:  3 months 10000 values which means you cannot access a value older than 3 months or after the first 10000 values.</doc>
+                <request>
+                    <param name="data" required="true" style="query" type="xsd:string"/>
+                    <param name="uid" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4286:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="Last datapoints" id="4288" name="GET">
+                <doc>Get the last datapoints of the system matching the unique identifier of data defined in the url. If no data identifier is set, the last datapoint for all data will be retrieved.</doc>
+                <request>
+                    <param name="ids" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="uid" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4288:root" mediaType="application/json"/>
+                </response>
+            </method>
+            <method displayName="List of messages" id="4289" name="GET">
+                <doc>Retrieve the list of past messages. The uid, timestamp, protocol and datapoints count are retrieved. Duplicate data are counted.</doc>
+                <request>
+                    <param name="fromdate" required="true" style="query" type="xsd:string">
+                        <doc/>
+                    </param>
+                    <param name="uid" required="true" style="query" type="xsd:string"/>
+                </request>
+                <response>
+                    <representation element="f4289:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource uri="operations/">
+            <resource uri="systems/">
+                <resource uri="wakeup/">
+                    <method displayName="Wake-up" id="4298" name="POST">
+                        <doc>Wake up a communication application deployed on a selection of systems in order to force this application to communicate with the Operating Portal</doc>
+                        <request/>
+                        <response>
+                            <representation element="f4298:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="sms/">
+                    <method displayName="Text SMS" id="4296" name="POST">
+                        <doc>Send a text SMS to a selection of systems.</doc>
+                        <request/>
+                        <response>
+                            <representation element="f4296:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="synchronize/">
+                    <method displayName="Synchornize" id="4295" name="POST">
+                        <doc>Synchronize systems with fresh information sent by remote devices. Actions can be set to synchronize information for specific applications.</doc>
+                        <request/>
+                        <response>
+                            <representation element="f4295:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="maintenance/">
+                    <method displayName="Switch to maintenance" id="4294" name="POST">
+                        <doc>Switch systems to 'MAINTENANCE' from label or from a list of UID.</doc>
+                        <request/>
+                        <response>
+                            <representation element="f4294:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="data/">
+                    <resource uri="retrieve/">
+                        <method displayName="Retrieve Data" id="4291" name="POST">
+                            <doc>Retrieve data from a set of systems defined by a label or a list of uids.</doc>
+                            <request/>
+                            <response>
+                                <representation element="f4291:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="reboot/">
+                    <method displayName="Reboot" id="4290" name="POST">
+                        <doc>Reboot a selection of systems.</doc>
+                        <request/>
+                        <response>
+                            <representation element="f4290:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="applications/">
+                    <resource uri="uninstall/">
+                        <method displayName="Uninstall Application" id="4297" name="POST">
+                            <doc>/operations/systems/applications/uninstall</doc>
+                            <request/>
+                            <response>
+                                <representation element="f4297:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="stop/">
+                        <method displayName="Stop Application" id="4293" name="POST">
+                            <doc>Stop an application on a set of systems defined by a label or a list of uids.</doc>
+                            <request/>
+                            <response>
+                                <representation element="f4293:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="start/">
+                        <method displayName="Start Application" id="4292" name="POST">
+                            <doc>Start an application on a set of systems defined by a label or a list of uids.</doc>
+                            <request/>
+                            <response>
+                                <representation element="f4292:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                    <resource uri="install/">
+                        <method displayName="Install Application" id="4287" name="POST">
+                            <doc>Install or upgrade an application on a set of systems defined by a label or a list of uids.</doc>
+                            <request/>
+                            <response>
+                                <representation element="f4287:root" mediaType="application/json"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resource>
+                <resource uri="reset/">
+                    <method displayName="Factory Reset" id="4283" name="POST">
+                        <doc>Reset a selection of systems to factory defaults</doc>
+                        <request/>
+                        <response>
+                            <representation element="f4283:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="{uid}/">
+                    <param name="uid" style="template" type="xsd:string"/>
+                    <resource uri="export/">
+                        <resource uri="data/">
+                            <resource uri="historical/">
+                                <method displayName="Export datapoints" id="4282" name="POST">
+                                    <doc>Export the historical data of one system to a CSV file.</doc>
+                                    <request>
+                                        <param name="uid" required="true" style="query" type="xsd:string"/>
+                                    </request>
+                                    <response>
+                                        <representation element="f4282:root" mediaType="application/json"/>
+                                    </response>
+                                </method>
+                            </resource>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource uri="configure/">
+                    <method displayName="Configure communication" id="4277" name="POST">
+                        <doc>Configure heartbeat, status report and advanced reports for a set of systems</doc>
+                        <request/>
+                        <response>
+                            <representation element="f4277:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="atcommand/">
+                    <method displayName="AT command" id="4276" name="POST">
+                        <doc>Sends an AT command to a set of systems defined by a label or a list of uid.</doc>
+                        <request/>
+                        <response>
+                            <representation element="f4276:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="settings/">
+                    <method displayName="Apply Settings" id="4275" name="POST">
+                        <doc>Apply a list of settings on a set of systems defined by a label or a list of uid.</doc>
+                        <request/>
+                        <response>
+                            <representation element="f4275:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="command/">
+                    <method displayName="Applicative command" id="4274" name="POST">
+                        <doc>Send a command to a set of systems defined by a label or a list of uid.</doc>
+                        <request/>
+                        <response>
+                            <representation element="f4274:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+                <resource uri="activate/">
+                    <method displayName="Activate" id="4273" name="POST">
+                        <doc>Activate systems from label or from a list of UID.</doc>
+                        <request/>
+                        <response>
+                            <representation element="f4273:root" mediaType="application/json"/>
+                        </response>
+                    </method>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</application>

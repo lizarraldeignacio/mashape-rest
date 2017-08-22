@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application xmlns:f7366="urn:function:f7366">
+    <grammars>
+        <include href="Function7366.xsd"/>
+    </grammars>
+    <doc>get street and city information based on a Dutch zipcode</doc>
+    <resources base="https://edwardbrosens-postcode-nl-v1.p.mashape.com/">
+        <resource uri="">
+            <method displayName="zipcode" id="7366" name="GET">
+                <doc>Get Street and City based on zipcode</doc>
+                <request>
+                    <param name="mode" required="true" style="query" type="xsd:string">
+                        <doc>mode xml or json otherwhise you get json in plain text</doc>
+                    </param>
+                    <param name="pc" required="true" style="query" type="xsd:string">
+                        <doc>zipcode</doc>
+                    </param>
+                </request>
+                <response>
+                    <representation element="f7366:root" mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>
